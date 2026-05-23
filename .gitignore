@@ -1,0 +1,32 @@
+# Secrets - ne jamais versionner
+.env
+.env.local
+.env.*.local
+.secrets
+*.pem
+*.key
+
+# Dépendances
+node_modules/
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Temporaires
+tmp/
+temp/
+*.tmp

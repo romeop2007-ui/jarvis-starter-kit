@@ -173,7 +173,7 @@
     color: #fff;
     user-select: none;
   }
-  .brand-name { font-weight: 600; }
+  .brand-name { font-weight: 600; color: #fff; }
   .brand-dot { color: var(--accent); margin: 0 2px; }
   .nav-links {
     display: flex;
@@ -3053,7 +3053,9 @@ J'apprends à transformer les chiffres en décisions.</p>
     <h3 class="mail-pop-title" id="mailPopTitle">Écrivez-moi !</h3>
     <p class="mail-pop-sub">Remplissez ces quelques champs, je reçois votre message directement sur ma boîte mail.</p>
 
-    <form id="mailForm" novalidate>
+    <form id="mailForm" name="contact" data-netlify="true" novalidate>
+      <input type="hidden" name="form-name" value="contact" />
+
       <div class="mail-field">
         <label>Destinataire</label>
         <div class="to-row">
@@ -3066,28 +3068,28 @@ J'apprends à transformer les chiffres en décisions.</p>
 
       <div class="mail-field">
         <label for="mailFrom">Votre email</label>
-        <input id="mailFrom" type="email" placeholder="vous@exemple.com" required autocomplete="email" />
+        <input id="mailFrom" name="email" type="email" placeholder="vous@exemple.com" required autocomplete="email" />
       </div>
 
       <div class="mail-field">
         <label for="mailSubject">Objet</label>
-        <input id="mailSubject" type="text" placeholder="Proposition de stage, question, opportunité…" required />
+        <input id="mailSubject" name="subject" type="text" placeholder="Proposition de stage, question, opportunité…" required />
       </div>
 
       <div class="mail-field">
         <label for="mailBody">Message</label>
-        <textarea id="mailBody" placeholder="Bonjour Roméo,&#10;&#10;Je vous contacte au sujet de…" required></textarea>
+        <textarea id="mailBody" name="message" placeholder="Bonjour Roméo,&#10;&#10;Je vous contacte au sujet de…" required></textarea>
       </div>
 
       <div class="mail-pop-actions">
-        <button type="submit" class="send">
+        <button type="submit" class="send" id="mailSendBtn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
           Envoyer le message
         </button>
         <button type="button" class="ghost" id="mailPopCancel">Annuler</button>
       </div>
 
-      <p class="mail-pop-hint">Le message s'ouvrira dans votre logiciel de messagerie par défaut.</p>
+      <p class="mail-pop-hint" id="mailHint">Le message sera envoyé directement dans ma boîte mail.</p>
     </form>
   </div>
 </div>
@@ -3532,24 +3534,50 @@ J'apprends à transformer les chiffres en décisions.</p>
     });
   });
 
-  mailForm.addEventListener('submit', (e) => {
+  const mailSendBtn = document.getElementById('mailSendBtn');
+  const mailHint    = document.getElementById('mailHint');
+
+  mailForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const from    = mailFrom.value.trim();
     const subject = mailSubject.value.trim();
     const body    = mailBody.value.trim();
     if (!from || !subject || !body) return;
 
-    // Build mailto: with reply-to hint in body
-    const fullBody = body + '\n\n— Envoyé depuis le portfolio (de ' + from + ')';
-    const url = 'mailto:romeop2007@gmail.com'
-      + '?subject=' + encodeURIComponent(subject)
-      + '&body='    + encodeURIComponent(fullBody);
-    window.location.href = url;
+    mailSendBtn.disabled = true;
+    mailSendBtn.textContent = 'Envoi en cours…';
 
-    setTimeout(() => {
-      closeMail();
-      mailForm.reset();
-    }, 300);
+    const params = new URLSearchParams();
+    params.append('form-name', 'contact');
+    params.append('email', from);
+    params.append('subject', subject);
+    params.append('message', body);
+
+    try {
+      const res = await fetch('https://formspree.io/f/mwvznpgv', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email: from, subject: subject, message: body })
+      });
+      if (res.ok) {
+        mailHint.textContent = '✓ Message envoyé ! Je vous répondrai rapidement.';
+        mailHint.style.color = '#22c55e';
+        mailForm.reset();
+        setTimeout(() => {
+          closeMail();
+          mailHint.textContent = 'Le message sera envoyé directement dans ma boîte mail.';
+          mailHint.style.color = '';
+        }, 2500);
+      } else {
+        throw new Error('Erreur réseau');
+      }
+    } catch {
+      mailHint.textContent = 'Erreur lors de l\'envoi. Réessayez ou contactez-moi directement.';
+      mailHint.style.color = '#ef4444';
+    } finally {
+      mailSendBtn.disabled = false;
+      mailSendBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg> Envoyer le message';
+    }
   });
 
   // ─── Divers popup ──────────────────────────────────────

@@ -7,6 +7,29 @@
 
 ---
 
+## 2026-05-24
+
+### Session de travail — Structure, organisation et portfolio
+
+**Structure du workspace :**
+- Création de l'arborescence complète `livrables/` (46 dossiers) adaptée au profil entrepreneur-étudiant : ecommerce, etudes, dev-perso, finances-perso, freelance
+- Création du fichier `.env` (variables d'exemple par service) et `.gitignore`
+- Initialisation du dépôt Git avec premier commit
+
+**Commandes Jarvis :**
+- Création de la commande `/commit` avec scan de secrets intégré (5 étapes : vérif dépôt, analyse, message, scan secrets, exécution)
+- 2 commits effectués au cours de la session
+
+**Portfolio étudiant :**
+- Génération d'un prompt complet pour Claude Design afin de créer le portfolio HTML/CSS/JS vanilla
+- Données réelles intégrées : CV complet (4 stages, formations, compétences, langues), notes BUT GEA S1 filtrées >= 12/20 (9 matières affichées), photo de profil
+- Prompt sauvegardé dans `livrables/etudes/projets/prompt-portfolio.md`
+
+**Mémoire :**
+- Règle mémorisée : afficher un récap à chaque ajout dans `livrables/`
+
+---
+
 ## 2026-05-23
 
 ### Installation initiale du Jarvis

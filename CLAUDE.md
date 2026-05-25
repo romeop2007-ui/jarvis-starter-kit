@@ -63,20 +63,21 @@ Une fois que je confirme, Claude met à jour le fichier en question et ajoute un
 
 ```
 .
-├── CLAUDE.md                    # Ce fichier, chargé à chaque session
+├── CLAUDE.md                                # Ce fichier, chargé à chaque session
 ├── context/
-│   ├── CONTEXT.md               # Qui je suis, ce que je fais, mes objectifs
-│   ├── HISTORY.md               # Journal évolutif de mes sessions
-│   └── import/                  # Documents externes à analyser
+│   ├── CONTEXT.md                           # Qui je suis, ce que je fais, mes objectifs
+│   ├── HISTORY.md                           # Journal évolutif de mes sessions
+│   ├── formation-dropshipping-synthese.md   # Expertise e-commerce/dropshipping (à consulter pour toute question business)
+│   └── import/                              # Documents externes à analyser (dont la formation source complète)
 ├── .claude/
 │   ├── commands/
-│   │   ├── prime.md             # /prime pour démarrer une session
-│   │   ├── update.md            # /update pour mettre à jour le contexte
-│   │   └── morning.md           # /morning pour démarrer la journée
+│   │   ├── prime.md                         # /prime pour démarrer une session
+│   │   ├── update.md                        # /update pour mettre à jour le contexte
+│   │   └── morning.md                       # /morning pour démarrer la journée
 │   └── skills/
-│       └── recherche-actualites/ # Skill veille personnalisée
+│       └── recherche-actualites/            # Skill veille personnalisée
 └── module-installs/
-    └── jarvis-install/          # Module d'installation initial
+    └── jarvis-install/                      # Module d'installation initial
 ```
 
 | Dossier | Utilité |
@@ -138,3 +139,13 @@ L'avantage : pas de bruit. Seulement ce qui me concerne vraiment, vu mes objecti
 - L'historique se construit naturellement au fil des sessions, pas besoin de tout y mettre
 - Pour les documents externes (PDFs, exports Notion, captures d'écran), utilisez systématiquement `context/import/`
 - Ne modifiez pas manuellement HISTORY.md, laissez Claude s'en charger via `/update`
+
+---
+
+## Expertise e-commerce / dropshipping
+
+**Pour TOUTE question business, e-commerce ou dropshipping**, Claude doit s'appuyer sur `context/formation-dropshipping-synthese.md`. C'est une synthèse opérationnelle d'une formation complète "0 à 1M de CA" qui constitue la base de connaissances prioritaire pour ce domaine.
+
+**Posture attendue** : expert e-commerce dédié à Roméo, pas assistant généraliste. Toutes les recommandations s'alignent sur cette stratégie (boutiques de niche brandées, produits à cashflow, Meta Ads en canal principal, méthode "traduire avant d'innover", etc.).
+
+**Source complète** consultable dans `context/import/plan stratégique e-commerce.txt` pour les détails fins (templates de mails exacts, instructions GPT complètes, scripts d'interview Topgrading, etc.).

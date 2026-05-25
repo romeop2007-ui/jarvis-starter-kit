@@ -7,6 +7,27 @@
 
 ---
 
+## 2026-05-24 (session 2)
+
+### Session de travail — Portfolio, GitHub, Netlify et MCP
+
+**Portfolio :**
+- Repo GitHub créé : `romeop2007-ui/portfolio` et fichiers poussés
+- Formulaire contact rendu fonctionnel via Formspree (`mwvznpgv`) — envoi direct sans ouvrir de client mail
+- Nom "Roméo PIAT" mis en blanc dans la nav
+- Token GitHub sécurisé : retiré de l'URL git, stocké dans Windows Credential Manager
+
+**Outils et config :**
+- Extension VS Code Speech installée pour la saisie vocale en français
+- MCP TrendTrack confirmé actif (plan Business, 10 000 crédits/mois) — prévu pour recherche produit dropshipping
+- Mémoire créée pour rappeler TrendTrack au prochain `/prime`
+
+**Netlify :**
+- Site portfolio déployé et connecté au repo GitHub
+- Formulaire contact Formspree opérationnel (plus de dépendance à Netlify Forms)
+
+---
+
 ## 2026-05-24
 
 ### Session de travail — Structure, organisation et portfolio

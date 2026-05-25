@@ -7,6 +7,35 @@
 
 ---
 
+## 2026-05-25
+
+### Session de travail — Recherche produit dropshipping avec TrendTrack
+
+**Niche validée :**
+- Niche retenue : santé physique / bien-être (produits physiques uniquement, zéro ingestible)
+- Exclus : compléments alimentaires, médicaments, tout ce qui s'avale
+- Inclus : coussins, dispositifs de récupération, masseurs, orthèses, oreillers ergonomiques, semelles, appareils thérapeutiques
+
+**Recherche produit avec TrendTrack (MCP) :**
+- 6+ recherches lancées sur les marchés US, UK, FR, DE, IT, NL
+- Filtres appliqués : 30-60 jours actifs, minimum 5 créatives, boutique max 15 000 visiteurs/mois
+- Deux fenêtres temporelles analysées : produits lancés en mai-juin 2025 (long-runners) et produits percés mi-avril 2026 (récents)
+
+**Concurrents clés identifiés à surveiller :**
+- Somnilys (somnilys.com) : oreiller cervical FR/BE/LU, 10,8M impressions depuis juin 2025, référence marché français
+- Serenithy / Wellnee Knee Brace (serenithy.com) : genouillère compression EU-wide dont FR, 1M reach, 70 créatives, 376 jours
+- Nordic Comforts (nordicscomforts.com) : coussin lombaire/siège UK/DE/NL, 3,8M reach, 160K reach30d
+- Lotus Wheel (lotuswheel.co.nz) : rouleau massage colonne, 564 live ads, cible FR/DE/NL/UK
+- Relivera (relivera.shop) : dispositif épaule/tendon, 288K reach30d, DE + EU dont FR
+
+**Produit cible retenu : coussin de siège orthopédique (modèle coccyx/U)**
+- Référence concurrent : Nordic Comforts (nordicscomforts.com), produit #1 de leur catalogue à $69.95
+- Pourquoi : marché français non encore exploité sur cet angle, produit trivial à sourcer sur AliExpress (5-12€), prix de vente cible 39-49€, pain point immédiat (télétravail + douleur de dos)
+- Marché validé sur UK/DE/NL depuis juin 2025, France = opportunité directe
+- Étape suivante : sourcing fournisseur AliExpress + structure boutique Shopify
+
+---
+
 ## 2026-05-24 (session 2)
 
 ### Session de travail — Portfolio, GitHub, Netlify et MCP

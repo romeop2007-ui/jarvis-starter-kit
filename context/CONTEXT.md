@@ -18,14 +18,18 @@
 
 ### Activité principale
 
-Je suis auto-entrepreneur et je me lance dans le e-commerce, plus précisément en dropshipping. Le statut est déjà créé, mais je n'ai pas encore lancé de boutique. La niche, les produits et la cible client restent à définir. Je mène ce projet en parallèle de mes études.
+Je suis auto-entrepreneur et je me lance dans le e-commerce, plus précisément en dropshipping. Le statut est déjà créé. La niche est validée et le produit cible est identifié. Je mène ce projet en parallèle de mes études.
 
 ### Détails
 
 **Volet entrepreneurial :**
 - Activité : E-commerce, dropshipping
 - Modèle économique : Dropshipping (pas de stock propre)
-- Clients types : À définir une fois la niche choisie
+- Niche retenue : Santé physique / bien-être (produits physiques uniquement, pas d'ingestibles)
+- Produit cible : Coussin de siège orthopédique (découpe coccyx en U), modèle type Nordic Comforts
+- Marché cible : France (marché non encore exploité sur cet angle, validé sur UK/DE/NL)
+- Prix de vente cible : 39-49 €, coût AliExpress estimé 5-12 €
+- Clients types : Télétravailleurs, personnes souffrant de douleurs lombaires/coccyx, adultes 25-55 ans
 - Statut : Auto-entrepreneur
 
 **Volet études :**
@@ -37,8 +41,9 @@ Je suis auto-entrepreneur et je me lance dans le e-commerce, plus précisément 
 
 ### Objectifs court terme (3 à 6 mois)
 
-- Trouver une niche rentable
-- Identifier des produits potentiellement gagnants
+- ~~Trouver une niche rentable~~ Niche validée : santé physique / bien-être (produits physiques)
+- ~~Identifier des produits potentiellement gagnants~~ Produit retenu : coussin orthopédique coccyx
+- Sourcer le produit sur AliExpress et choisir le fournisseur
 - Lancer ma première boutique Shopify
 - Atteindre 1 000 euros de CA dans les 3 mois
 
@@ -86,6 +91,10 @@ Apprentissage et formation, avec un focus sur la maîtrise de l'IA et du dropshi
 
 ## Notes importantes
 
-> Cette section se remplira au fil du temps avec les éléments de contexte qui émergent naturellement dans mes sessions avec Claude.
+**Concurrents à surveiller (niche santé physique FR) :**
+- Somnilys (somnilys.com) : oreiller cervical, leader marché français, 10M impressions depuis juin 2025
+- Serenithy (serenithy.com) : genouillère Wellnee, EU-wide dont FR, 376 jours de run
+- Nordic Comforts (nordicscomforts.com) : coussin siège/lombaire, référence produit retenu, UK/DE/NL
 
-[VIDE INITIALEMENT - SE REMPLIRA AU FIL DU TEMPS]
+**Règle produit :**
+Niche santé physique = uniquement produits physiques (rien d'ingestible). Exemples valides : coussins, masseurs, orthèses, oreillers ergonomiques, semelles, appareils thérapeutiques.

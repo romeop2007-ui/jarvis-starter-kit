@@ -7,32 +7,24 @@
 
 ---
 
-## 2026-05-25
+## 2026-05-25 (mise à jour 2)
 
-### Session de travail — Recherche produit dropshipping avec TrendTrack
+### Intégration d'une formation dropshipping complète comme base de connaissances
 
-**Niche validée :**
-- Niche retenue : santé physique / bien-être (produits physiques uniquement, zéro ingestible)
-- Exclus : compléments alimentaires, médicaments, tout ce qui s'avale
-- Inclus : coussins, dispositifs de récupération, masseurs, orthèses, oreillers ergonomiques, semelles, appareils thérapeutiques
+- Dépôt du fichier `context/import/plan stratégique e-commerce.txt` (2944 lignes, 37 000+ mots) : formation complète "0 à 1M de CA" en e-commerce/dropshipping
+- Lecture intégrale du fichier
+- Création de `context/formation-dropshipping-synthese.md` : synthèse opérationnelle structurée par chapitres (stratégie globale, recherche produit, Meta Ads, Shopify, méthodologie testing, créatives par phase de CA, CRO, agents/sourcing, délégation, autres tips)
+- Mise à jour de `CLAUDE.md` : ajout d'une section "Expertise e-commerce / dropshipping" qui indique de s'appuyer sur la synthèse pour toute question business, et structure de workspace mise à jour
+- Posture définie : expert e-commerce dédié, pas assistant généraliste. Toutes les recommandations business doivent s'aligner sur cette stratégie
 
-**Recherche produit avec TrendTrack (MCP) :**
-- 6+ recherches lancées sur les marchés US, UK, FR, DE, IT, NL
-- Filtres appliqués : 30-60 jours actifs, minimum 5 créatives, boutique max 15 000 visiteurs/mois
-- Deux fenêtres temporelles analysées : produits lancés en mai-juin 2025 (long-runners) et produits percés mi-avril 2026 (récents)
+## 2026-05-25 (mise à jour 1)
 
-**Concurrents clés identifiés à surveiller :**
-- Somnilys (somnilys.com) : oreiller cervical FR/BE/LU, 10,8M impressions depuis juin 2025, référence marché français
-- Serenithy / Wellnee Knee Brace (serenithy.com) : genouillère compression EU-wide dont FR, 1M reach, 70 créatives, 376 jours
-- Nordic Comforts (nordicscomforts.com) : coussin lombaire/siège UK/DE/NL, 3,8M reach, 160K reach30d
-- Lotus Wheel (lotuswheel.co.nz) : rouleau massage colonne, 564 live ads, cible FR/DE/NL/UK
-- Relivera (relivera.shop) : dispositif épaule/tendon, 288K reach30d, DE + EU dont FR
+### Mise en pause du projet dropshipping
 
-**Produit cible retenu : coussin de siège orthopédique (modèle coccyx/U)**
-- Référence concurrent : Nordic Comforts (nordicscomforts.com), produit #1 de leur catalogue à $69.95
-- Pourquoi : marché français non encore exploité sur cet angle, produit trivial à sourcer sur AliExpress (5-12€), prix de vente cible 39-49€, pain point immédiat (télétravail + douleur de dos)
-- Marché validé sur UK/DE/NL depuis juin 2025, France = opportunité directe
-- Étape suivante : sourcing fournisseur AliExpress + structure boutique Shopify
+- Décision : tout le travail mené sur la recherche produit dropshipping via TrendTrack est mis en pause et retiré du contexte actif
+- Éléments supprimés du contexte : niche retenue, produit cible, concurrents à surveiller, prochaine étape opérationnelle
+- Raison : choix personnel de remettre le projet à plat pour le reprendre prochainement sur de nouvelles bases
+- Reprise prévue très prochainement
 
 ---
 

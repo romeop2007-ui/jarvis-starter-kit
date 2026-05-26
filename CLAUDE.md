@@ -113,6 +113,18 @@ Une fois que je confirme, Claude met à jour le fichier en question et ajoute un
 
 Claude va effectuer une veille des actualités du jour, filtrée selon mon contexte personnel (mes objectifs, mes projets), et me proposer un focus pour la journée. Cette commande utilise la skill `recherche-actualites-contextualisees`.
 
+### /semaine
+
+**Objectif :** Rendez-vous hebdomadaire de pilotage, tous les dimanches 17h-18h.
+
+Bilan de la semaine écoulée + définition de 2-3 objectifs court terme pour la semaine à venir. Format mix à chaud : on brainstorme ensemble puis Claude challenge. Durée 30 à 60 min selon la phase de dispo en cours.
+
+### /decouverte
+
+**Objectif :** Session dédiée de 10 min pour qu'on apprenne à mieux se connaître.
+
+Claude pose 3 à 5 questions hors-sujet ciblées (parmi 6 catégories : famille, santé, social, business qualitatif, vision, vie quotidienne) pour enrichir progressivement le contexte. Les réponses alimentent `CONTEXT.md`. Les questions sont aussi tracées dans `context/journal-questions.md` pour éviter la répétition. Utilise la skill `connaissance-mutuelle`.
+
 ---
 
 ## Skills disponibles
@@ -123,6 +135,14 @@ Skill de veille intelligente qui filtre les actualités selon mon contexte perso
 
 L'avantage : pas de bruit. Seulement ce qui me concerne vraiment, vu mes objectifs et projets actuels.
 
+### connaissance-mutuelle
+
+Skill d'enrichissement progressif du contexte. Deux modes :
+- **Mode 1 (session dédiée)** : via la commande `/decouverte`, Claude pose 3 à 5 questions hors-sujet pour mieux me connaître (10 min).
+- **Mode 2 (relance ponctuelle)** : Claude glisse spontanément 1 question hors-sujet par session de travail, à un moment de pause naturelle.
+
+6 catégories en rotation : famille, santé, social, business qualitatif, vision, vie quotidienne. Pas d'études (focus actif). Journal des questions tenu dans `context/journal-questions.md` pour éviter la répétition.
+
 ---
 
 ## Getting Started
@@ -130,6 +150,27 @@ L'avantage : pas de bruit. Seulement ce qui me concerne vraiment, vu mes objecti
 **Première fois ?** Lancez `/install module-installs/jarvis-install` pour démarrer l'installation interactive.
 
 **Sessions suivantes ?** Lancez `/prime` au début de chaque session pour charger le contexte.
+
+---
+
+## Automatismes Claude
+
+Comportements que Claude doit appliquer automatiquement, sans que Roméo ait à le demander.
+
+### Répertoire des commandes dans Notion
+
+**Dès qu'une nouvelle commande slash est créée ensemble** (fichier ajouté dans `.claude/commands/`), Claude doit automatiquement, dans la foulée :
+
+1. Mettre à jour la page Notion **"Boîte à outils Jarvis"** (ID : `36cd3026-7a90-817b-8b4e-fb64a1fb77cf`, URL : https://www.notion.so/36cd30267a90817b8b4efb64a1fb77cf) via le MCP Notion (`notion-update-page` ou `notion-fetch` + édition)
+2. Y ajouter une entrée pour la nouvelle commande avec :
+   - Nom de la commande (ex : `/nouvelle-commande`)
+   - Description en quelques mots (à quoi elle sert, quand l'utiliser)
+   - Date de création
+3. Confirmer à Roméo que la page a été mise à jour
+
+**Exception** : la commande `/prime` n'est pas répertoriée dans cette page (Roméo la connaît déjà, c'est sa commande de démarrage).
+
+Cette règle s'applique sans qu'il soit nécessaire que Roméo le redemande. Elle a été actée le 26/05/2026.
 
 ---
 

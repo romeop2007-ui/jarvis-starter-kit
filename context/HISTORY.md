@@ -7,6 +7,80 @@
 
 ---
 
+## 2026-05-26 (mise à jour 7)
+
+### Création du skill `connaissance-mutuelle` + commande `/decouverte`
+
+Roméo a voulu un skill qui pose proactivement des questions hors-sujet, à fréquence régulière, pour que Claude le connaisse de mieux en mieux et qu'on construise une relation associé authentique. Posture demandée : feedback objectif sur l'utilité de l'idée à la fin de la conception.
+
+**Analyse objective restituée à Roméo :**
+- Idée valable car le `CONTEXT.md` est statique et la vie évolue, surtout à 18 ans
+- Risques identifiés : friction avec le focus actif (études écartées), risque de "questionnaire" superficiel, risque de pollution des sessions business, risque de répétition
+- Recommandation : commande dédiée plutôt qu'auto-déclenchement seul, tracker des questions posées
+
+**Décisions de Roméo :**
+- **Scope** : tous sujets autorisés SAUF les études (cohérent avec le focus actif jusqu'à Saragosse)
+- **Mode de déclenchement** : mix commande dédiée + relances ponctuelles (1 question hors-sujet max par session)
+
+**Construction :**
+- Skill `connaissance-mutuelle` créé dans [.claude/skills/connaissance-mutuelle/SKILL.md](.claude/skills/connaissance-mutuelle/SKILL.md), avec :
+  - 6 catégories de questions en rotation (famille, santé-sport, social-amis, business qualitatif, vision-valeurs, vie quotidienne)
+  - Exemples concrets pour chaque catégorie
+  - Règles strictes : pas d'études, pas pendant moments intenses, pas de répétition
+- Commande `/decouverte` créée dans [.claude/commands/decouverte.md](.claude/commands/decouverte.md) pour invoquer le mode session dédiée (10 min, 3 à 5 questions)
+- Journal `context/journal-questions.md` créé pour tracer les questions posées
+
+**Modes d'usage :**
+- **Mode 1** : Roméo lance `/decouverte` quand il veut, déroulé de 10 min
+- **Mode 2** : Claude glisse 1 question hors-sujet par session naturelle, à un moment de pause, format transparent ("Au fait, sujet complètement différent...")
+
+---
+
+## 2026-05-26 (mise à jour 6)
+
+### Création de la routine de travail Roméo × Jarvis : commande `/semaine`
+
+Roméo a voulu construire une routine de travail avec Jarvis pour qu'on apprenne à se connaître et à bosser ensemble efficacement avant d'attaquer les décisions business stratégiques (notamment la niche).
+
+**Format retenu :**
+- 1 rendez-vous hebdomadaire, **tous les dimanches de 17h à 18h**
+- Durée cible 30 à 60 min selon la phase de dispo en cours
+- Méthode : **mix à chaud** (brainstorm ensemble puis challenge en fin)
+- Objectif principal : faire le bilan de la semaine écoulée et fixer 2-3 objectifs court terme pour la semaine à venir, pour que Roméo se voie avancer concrètement
+
+**Déroulé en 5 phases (voir [.claude/commands/semaine.md](.claude/commands/semaine.md)) :**
+1. Bilan semaine écoulée (~10 min)
+2. État des chantiers (~5 min)
+3. Brainstorm objectifs (~15 min)
+4. Challenge + obstacles (~5 min)
+5. Trace écrite dans HISTORY.md
+
+**Modifications effectuées :**
+- Création de la commande `/semaine` dans `.claude/commands/`
+- Référencement dans `CLAUDE.md` (section Commands)
+- Engagement récurrent ajouté dans `CONTEXT.md` (section Engagements actifs)
+- Premier rendez-vous fixé : **dimanche 31 mai 2026 à 17h**
+
+**Démarche :** étape 1 (touchpoints) et étape 2 (détail) du process de construction de routine bouclées. Étapes 3 (adaptation phases) et 4 (test 7 jours) reportées : on ajustera la durée du rendez-vous à l'usage selon que Roméo est en sprint ou en phase calme.
+
+---
+
+## 2026-05-26 (mise à jour 5)
+
+### Recadrage du focus : 100% business jusqu'à Saragosse
+
+Roméo a clarifié sa priorité absolue pour les mois à venir : il ne veut plus que Claude aborde proactivement les études. Les sujets études sont ré-ouverts à partir de Saragosse (sept 2026).
+
+**Modifications CONTEXT.md :**
+- Nouvelle section **"Focus actif"** dans les préférences de communication : focus exclusif business jusqu'au 10/09/2026, pas de relance études sauf si Roméo en parle spontanément.
+- Sujets "Stage BUT 2", "Préparation Saragosse" et "Examens 8 juin" passés en statut ⏸️ reporté.
+- Sujet "Affectation centre aéré" maintenu car business-adjacent (trésorerie sprint).
+- Sujet "Choix de la niche" précisé : en attente volontaire de la Phase 4 personnalisation Jarvis (13-14 juin), Roméo veut d'abord qu'on apprenne à bosser ensemble avant de plonger sur la niche. Pas de pression à relancer avant cette date.
+
+**Raison :** Roméo veut maximiser le temps avant Saragosse pour le business, et préfère que la relation associé/business soit calibrée avant de prendre des décisions de niche.
+
+---
+
 ## 2026-05-26 (mise à jour 4)
 
 ### Mécanique "Sujets ouverts à relancer" mise en place

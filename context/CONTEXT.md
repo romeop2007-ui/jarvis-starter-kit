@@ -135,6 +135,7 @@
 
 - **🗓️ 30 mai 2026 à 14h30** — Réunion centre aéré (affectation lieu de travail été)
 - **⏳ En attente** — Validation micro-entreprise (réponse attendue dans les prochains jours, prévenir Claude dès réception pour enchaîner ouverture Shopify + Meta BM + Revolut pro)
+- **🔁 Tous les dimanches 17h-18h** — Rendez-vous hebdo `/semaine` : bilan semaine + objectifs de la semaine à venir. **Premier rendez-vous : dimanche 31 mai 2026.**
 - **🗓️ 13-14 juin 2026** — Faire la Phase 4 du processus de personnalisation Jarvis (workflow et préférences de travail), à enchaîner juste après les examens
 - **🚀 13 juin → 27 juin 2026** — Sprint #1 business, 5-6h/jour, objectif : boutique Shopify lancée + premier test ads tournant
 
@@ -146,18 +147,18 @@
 
 ### Business
 - 🟡 **Validation micro-entreprise** — En attente depuis le 26/05/2026. Déléguée. Réponse attendue dans les jours qui viennent. À relancer chaque session jusqu'à confirmation.
-- 🟡 **Choix de la niche dropshipping** — À trancher avant le 13/06/2026 pour démarrer le sprint #1. Pas commencé.
+- 🟡 **Choix de la niche dropshipping** — À trancher avant le 13/06/2026 pour démarrer le sprint #1. En attente volontaire : Roméo veut d'abord qu'on apprenne à bosser ensemble (Phase 4 personnalisation Jarvis, 13-14 juin) avant de plonger. Pas de pression à relancer avant cette date.
 - 🟡 **Choix du produit cible** — Lié au choix de niche, à finaliser avant le 13/06/2026.
 - 🟡 **Choix du fournisseur** — CJ Dropshipping, Zendrop ou agent privé ? À décider une fois le produit identifié.
 
 ### Études
-- 🟡 **Affectation centre aéré** — RDV 30/05/2026 à 14h30 pour savoir où il bossera cet été. À relancer juste après cette date.
-- 🟡 **Stage BUT 2 chez entrepreneur** — 2 mois l'année prochaine, idéalement chez un entrepreneur. Pas encore de pistes identifiées, à initier la recherche en temps voulu.
-- 🟡 **Préparation Saragosse** — Départ ~10/09/2026. Logement ? Démarches admin ? À relancer à l'approche de la date.
+- 🟡 **Affectation centre aéré** — RDV 30/05/2026 à 14h30 pour savoir où il bossera cet été. À relancer juste après cette date. (Garde le focus business : c'est lié à la trésorerie pour le sprint.)
+- ⏸️ **Stage BUT 2 chez entrepreneur** — Reporté. À ré-aborder à partir de Saragosse (sept 2026).
+- ⏸️ **Préparation Saragosse** — Reporté. À ré-aborder à l'approche de la date, pas avant.
 
 ### Personnel
-- 🟡 **Reprise de la musculation** — Mise en pause volontaire pour focus business, reprise prévue "dès les vacances scolaires". Vérifier qu'il s'y est remis à partir de mi-juin.
-- 🟡 **Examens semaine du 8 juin 2026** — Vérifier comment ça s'est passé après le 12-13 juin, le rebooster si la motivation a flanché en fin de semestre (pattern identifié).
+- 🟡 **Reprise de la musculation** — Mise en pause volontaire pour focus business, reprise prévue "dès les vacances scolaires". Vérifier qu'il s'y est remis à partir de mi-juin. (Pilier identitaire, à garder dans le radar.)
+- ⏸️ **Examens semaine du 8 juin 2026** — Reporté. Roméo ne veut pas qu'on aborde la fin de semestre. Ne pas relancer.
 
 ---
 
@@ -180,6 +181,9 @@
 - **Posture attendue de Claude :** associé, pas assistant. Cash quand il faut, bienveillant quand il faut. Rappeler les engagements pris.
 - **Détail :** mélange selon le sujet (synthétique pour les tâches simples, pédagogique pour les sujets techniques nouveaux car niveau débutant total)
 - **À éviter :** tirets longs (em dashes), validation systématique, suppositions silencieuses
+
+### Focus actif (acté le 26/05/2026)
+**Focus exclusif business jusqu'au départ Saragosse (10 septembre 2026).** Les études ne doivent pas être abordées par Claude proactivement (ni relance, ni question, ni rappel), sauf si Roméo en parle spontanément ou en cas d'urgence claire. Sujets études à ré-ouvrir à partir de septembre 2026 quand il sera à Saragosse. Exception : ce qui est lié au business (ex : job centre aéré → trésorerie sprint) reste suivi.
 
 ### Domaine où j'ai besoin du plus d'aide
 Apprentissage et formation A à Z sur le dropshipping (toutes les briques techniques : Shopify, Meta Ads, copywriting, créas, sourcing, CRO, email marketing). Posture "je suis une quiche, fais comme tel et apprends-moi tout".

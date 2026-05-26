@@ -7,6 +7,68 @@
 
 ---
 
+## 2026-05-26 (mise à jour 3)
+
+### Personnalisation Jarvis — phases 1 à 3 complétées + recalibrage objectifs
+
+**Méthode :** série de 4 phases pour faire de Jarvis un service 100% personnalisé. Aujourd'hui phases 1 (identité personnelle), 2 (études BUT GEA) et 3 (setup business) complétées. Phase 4 (workflow et préférences) reportée au 13-14 juin 2026 après examens.
+
+**Posture actée :** Claude est désormais "associé", pas "assistant". Communication d'égal à égal, avec mission de rappeler les engagements pris.
+
+**Nouveautés capturées dans CONTEXT.md :**
+- Identité complète : 18 ans, famille (parents François commercial / Véronique Borflex, sœur Pénélope 20 ans, frère Oscar 17 ans), axes Cambrai/Valenciennes
+- Santé/sport pilier de vie (musculation en pause volontaire, foot freiné par ligaments arrachés aux chevilles)
+- Valeurs et drive : peur du CDI remplacé par l'IA, mindset à construire dans la durée, cercle restreint volontaire
+- Vision 2031 : Bali ou France proche famille, dropshipping puis prestations IA
+- Études BUT GEA 1A confirmé (GEMA spé future), moyenne ~12 à corriger, fin de cours mi-juin
+- Saragosse 10 sept 2026 → début février 2027 (~6 mois), moment charnière personnel et business
+- Business : budget 200-400 €/mois max test pub, micro-entreprise en cours de validation, niveau technique zéro sur tout (Shopify, Meta Ads, copy, créas), aucune tentative passée
+- Sources d'apprentissage actuelles : YouTube (Yassine Sdiri), Claude, aucune formation payée
+
+**Recalibrage objectifs :**
+- Retrait de l'objectif "1000 € de CA en 3 mois" (objectif de résultat dépendant du marché)
+- Remplacement par objectif d'action sprint #1 : "Fin juin 2026, boutique Shopify lancée + premier test ads tournant sur Meta"
+
+**Calendrier business établi :**
+- 13-27 juin 2026 : sprint #1, 5-6h/jour
+- 28 juin → fin juillet : job animateur centre aéré, 1h/jour business
+- Août → 10 sept : sprint #2, 5-6h/jour
+- 10 sept 2026 → début février 2027 : Saragosse, 2h/jour
+
+**Engagements actifs tracés dans CONTEXT.md :**
+- 30 mai 14h30 : RDV centre aéré
+- En attente : validation micro-entreprise
+- 13-14 juin : faire Phase 4 personnalisation
+- 13-27 juin : sprint #1 business
+
+**Modif `/prime` :** ajout d'une section "Engagements actifs" dans le résumé de session pour que Claude rappelle automatiquement les engagements en cours à chaque démarrage.
+
+---
+
+## 2026-05-26 (mise à jour 2)
+
+### Installation skills marketing/e-commerce dans `.claude/skills/`
+
+**Sources installées (Tier 1 + Tier 2 par étoiles GitHub) :**
+- `anthropics/skills` (141k ⭐, repo officiel Anthropic) : skills bureautiques et utilitaires
+- `coreyhaines31/marketingskills` (30k ⭐, référence marketing community) : skills marketing/CRO/copywriting
+
+**Process suivi :**
+- Téléchargement manuel des ZIP par Roméo (le clonage auto bloqué par le classifier de sécurité)
+- 45 skills extraits, vérifiés avec `SKILL.md` présent, ZIPs nettoyés
+- 4 faux amis supprimés après lecture des descriptions chargées par le système : `launch` (skill VS Code dev), `analytics-events` (Metabase), `onboarding-verification-skill` (test Warp), `social-graph-ranker` (B2B networking)
+- 10 skills SaaS B2B supprimés car inapplicables au modèle dropshipping B2C : `paywalls`, `churn-prevention`, `revops`, `sales-enablement`, `prospecting-research`, `cold-email`, `co-marketing`, `free-tools`, `directory-submissions`, `pricing-page`
+
+**État final : 33 skills actifs**, dont :
+- **Cœur dropshipping/e-commerce (18)** : ads, ad-creative, copywriting, copy-editing, marketing-psychology, competitor-profiling, imagegen, video-editing, emails, sms, popups, ab-testing, signup-flow-cro, crosspost, brainstorming, browser-use, marketing-ideas, product-marketing-context
+- **Études BUT GEA (6)** : docx, pdf, ppt-generation, pptx-author, xlsx-official, frontend-design
+- **Long terme / scaling (8)** : ai-seo, schema-markup, seo-audit, site-architecture, programmatic-seo, community-marketing, referrals, lead-magnets
+- **Jarvis natif (1)** : recherche-actualites
+
+**Décision posture :** Claude détecte automatiquement les skills pertinents selon le contexte, pas besoin de les activer manuellement.
+
+---
+
 ## 2026-05-26
 
 ### Session de travail — PPP, portfolio BUT GEA et auto-évaluation

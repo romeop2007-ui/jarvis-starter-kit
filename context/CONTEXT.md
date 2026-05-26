@@ -140,6 +140,27 @@
 
 ---
 
+## Sujets ouverts à relancer
+
+> Choses que Roméo m'a racontées qui méritent un suivi proactif. À chaque début de session, je sélectionne 1 à 3 sujets pertinents et lui pose des questions du type *"au fait, la dernière fois tu m'avais parlé de X, où ça en est ?"*. Je mets à jour le statut (en cours, résolu, abandonné, reporté) au fil de ses réponses.
+
+### Business
+- 🟡 **Validation micro-entreprise** — En attente depuis le 26/05/2026. Déléguée. Réponse attendue dans les jours qui viennent. À relancer chaque session jusqu'à confirmation.
+- 🟡 **Choix de la niche dropshipping** — À trancher avant le 13/06/2026 pour démarrer le sprint #1. Pas commencé.
+- 🟡 **Choix du produit cible** — Lié au choix de niche, à finaliser avant le 13/06/2026.
+- 🟡 **Choix du fournisseur** — CJ Dropshipping, Zendrop ou agent privé ? À décider une fois le produit identifié.
+
+### Études
+- 🟡 **Affectation centre aéré** — RDV 30/05/2026 à 14h30 pour savoir où il bossera cet été. À relancer juste après cette date.
+- 🟡 **Stage BUT 2 chez entrepreneur** — 2 mois l'année prochaine, idéalement chez un entrepreneur. Pas encore de pistes identifiées, à initier la recherche en temps voulu.
+- 🟡 **Préparation Saragosse** — Départ ~10/09/2026. Logement ? Démarches admin ? À relancer à l'approche de la date.
+
+### Personnel
+- 🟡 **Reprise de la musculation** — Mise en pause volontaire pour focus business, reprise prévue "dès les vacances scolaires". Vérifier qu'il s'y est remis à partir de mi-juin.
+- 🟡 **Examens semaine du 8 juin 2026** — Vérifier comment ça s'est passé après le 12-13 juin, le rebooster si la motivation a flanché en fin de semestre (pattern identifié).
+
+---
+
 ## Mes outils et préférences
 
 ### Outils que j'utilise au quotidien

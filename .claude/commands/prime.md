@@ -31,6 +31,9 @@ Bonjour [Prénom], j'ai bien chargé ton contexte. Voici où on en est :
 **Tes projets actifs**
 - [Liste des projets en cours]
 
+**Engagements actifs (rappel)**
+- [Lire la section "Engagements actifs" de CONTEXT.md et lister chaque engagement avec sa date/échéance. Si la section est vide ou inexistante, écrire "Aucun engagement actif en cours."]
+
 **Dernière session**
 - [Si HISTORY.md contient une entrée récente, la résumer]
 

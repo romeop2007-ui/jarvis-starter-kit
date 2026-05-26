@@ -7,6 +7,26 @@
 
 ---
 
+## 2026-05-26 (mise à jour 4)
+
+### Mécanique "Sujets ouverts à relancer" mise en place
+
+Roméo a demandé à Claude de relancer proactivement sur les sujets dont il a parlé en passant, parce qu'il oublie ce qu'il a raconté.
+
+**Mise en place :**
+- Nouvelle section **"Sujets ouverts à relancer"** dans `CONTEXT.md`, distincte de "Engagements actifs" :
+  - **Engagements actifs** = ce que TU dois faire (RDV, deadlines) → Claude te rappelle
+  - **Sujets ouverts à relancer** = ce que tu m'as raconté avec une suite → Claude te questionne
+- Statut visuel : 🟡 en cours, ✅ résolu, ⏸️ reporté, ❌ abandonné
+- Modif `/prime` : ajout d'une étape "Au fait, où en sont ces sujets ?" qui sélectionne 1 à 3 sujets pertinents et pose une question concrète
+
+**Sujets initialement peuplés (9) :**
+- Business (4) : validation micro-entreprise, choix niche, choix produit, choix fournisseur
+- Études (3) : affectation centre aéré, stage BUT 2 entrepreneur, préparation Saragosse
+- Personnel (2) : reprise musculation, examens semaine du 8 juin
+
+---
+
 ## 2026-05-26 (mise à jour 3)
 
 ### Personnalisation Jarvis — phases 1 à 3 complétées + recalibrage objectifs

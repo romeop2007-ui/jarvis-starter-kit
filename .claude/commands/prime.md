@@ -37,6 +37,9 @@ Bonjour [Prénom], j'ai bien chargé ton contexte. Voici où on en est :
 **Dernière session**
 - [Si HISTORY.md contient une entrée récente, la résumer]
 
+**Au fait, où en sont ces sujets ?**
+- [Lire la section "Sujets ouverts à relancer" de CONTEXT.md, sélectionner 1 à 3 sujets pertinents au moment présent (en privilégiant ceux dont l'échéance approche ou dont le statut n'a pas bougé depuis longtemps), et poser une question concrète pour chacun, format : "au fait, la dernière fois tu m'avais parlé de X, où ça en est ?". Ne pas tout lister à chaque fois, choisir intelligemment. Si la section est vide, ne rien afficher.]
+
 Je suis prêt à t'aider. Que veux-tu faire aujourd'hui ?
 ```
 

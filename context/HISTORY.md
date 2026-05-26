@@ -7,6 +7,32 @@
 
 ---
 
+## 2026-05-26
+
+### Session de travail — PPP, portfolio BUT GEA et auto-évaluation
+
+**PPP (Projet Professionnel Personnalisé) :**
+- Synthèse PPP conférences métiers (RRH et Manager) rédigée sur Notion à recopier à la main
+- 5 questions traitées : correspondance, surprises, compétence essentielle, influence parcours, spécialité envisagée (GEMA)
+- Posture sincère sur RRH (pas de projection long terme) et enthousiaste sur Manager (cohérent avec le métier de rêve DG club sportif)
+
+**Portfolio BUT GEA — mise à niveau aux attendus :**
+- Lecture des documents officiels (PORTFOLIO_attendus_GEA1_vf.docx et Grille autoeval étudiant.docx) déposés dans `livrables/etudes/projets/portfolio/PORTFOLIO_RAPPELS_extracted/`
+- Auto-évaluation initiale en l'état : 3,33/20 (page Notion dédiée), projection cible 15/20 après ajouts
+- Trois nouvelles sections ajoutées à `livrables/etudes/projets/portfolio/index.html` :
+  - **05 - Référentiel** : Compétences BUT GEA 1ère année avec apprentissages critiques et traces argumentées (3 cartes, une par compétence)
+  - **06 - Situations d'apprentissage** : SAÉ 1 (sociologie, rôle de meneur de fait) et SAÉ 2 (compta/fisca/management 3 jours), avec contexte, rôle, productions, AC mobilisés et REX
+  - **07 - Démarche réflexive** : 4 cartes (forces, axes de progrès, analyse honnête des notes décevantes, compétence transverse leadership de fait)
+- Nav mise à jour avec les 3 nouveaux liens
+- Renumérotation Contact de 05 à 08
+- CSS dédié ajouté pour les nouvelles sections (comp-card, sae-card, reflex-card), cohérent avec le design existant
+- Notice réflexive 2 pages créée sur Notion (questions A/B/C des attendus)
+
+**Décision personnelle :**
+- Auto-entrepreneur dropshipping volontairement écarté du portfolio scolaire, à mobiliser plus tard quand les résultats seront probants
+
+---
+
 ## 2026-05-25 (mise à jour 2)
 
 ### Intégration d'une formation dropshipping complète comme base de connaissances

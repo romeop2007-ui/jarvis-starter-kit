@@ -2314,6 +2314,225 @@
   }
   .footer-inner a:hover { color: var(--fg); }
 
+  /* ─────────────────────────────────────────────────────────
+     Compétences BUT GEA, SAÉ, Démarche réflexive
+     ──────────────────────────────────────────────────────── */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 16px;
+  }
+  .comp-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: border-color .25s, transform .25s var(--ease);
+  }
+  .comp-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .comp-tag {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .comp-card h3 {
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+  .comp-desc {
+    color: var(--fg-2);
+    font-size: 14.5px;
+    margin: 0;
+    line-height: 1.55;
+  }
+  .comp-ac, .comp-trace {
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--fg-2);
+  }
+  .comp-ac strong, .comp-trace strong {
+    display: block;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--fg-3);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .comp-ac ul, .comp-trace ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 8px;
+  }
+  .comp-ac li, .comp-trace li {
+    padding-left: 16px;
+    position: relative;
+  }
+  .comp-ac li::before, .comp-trace li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .comp-trace li b { color: var(--fg); font-weight: 600; }
+
+  @media (max-width: 1000px) {
+    .comp-grid { grid-template-columns: 1fr; }
+  }
+
+  /* SAÉ */
+  .sae-list {
+    display: grid;
+    gap: 24px;
+    margin-top: 16px;
+  }
+  .sae-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color .25s, transform .25s var(--ease);
+  }
+  .sae-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+  .sae-head {
+    padding: 24px 28px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .sae-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .sae-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    background: var(--accent-glow);
+    color: var(--accent);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .sae-date {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 12px;
+    color: var(--fg-3);
+  }
+  .sae-head h3 {
+    font-size: 20px;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  .sae-body {
+    padding: 24px 28px 28px;
+    display: grid;
+    gap: 18px;
+  }
+  .sae-block strong {
+    display: block;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .sae-block p {
+    margin: 0;
+    color: var(--fg-2);
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+  .sae-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 8px;
+  }
+  .sae-block li {
+    position: relative;
+    padding-left: 18px;
+    color: var(--fg-2);
+    font-size: 14.5px;
+    line-height: 1.55;
+  }
+  .sae-block li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  /* Réflexion */
+  .reflex-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 16px;
+  }
+  .reflex-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: border-color .25s, transform .25s var(--ease);
+  }
+  .reflex-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .reflex-tag {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .reflex-card h3 {
+    font-size: 19px;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+  .reflex-card p {
+    color: var(--fg-2);
+    font-size: 14.5px;
+    line-height: 1.7;
+    margin: 0 0 12px;
+  }
+  .reflex-card p:last-child { margin-bottom: 0; }
+  .reflex-card p strong { color: var(--fg); font-weight: 600; }
+
+  @media (max-width: 900px) {
+    .reflex-grid { grid-template-columns: 1fr; }
+  }
+
 </style>
 </head>
 <body style="font-family: &quot;Space Grotesk&quot;; background-color: #2563eb">
@@ -2330,6 +2549,9 @@
       <a href="#xp">Expériences</a>
       <a href="#cv">A propos</a>
       <a href="#notes">Notes</a>
+      <a href="#competences-gea">Compétences GEA</a>
+      <a href="#sae">SAÉ</a>
+      <a href="#reflexion">Réflexion</a>
       <a href="#contact" class="nav-cta">Me contacter</a>
     </div>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
@@ -2819,12 +3041,228 @@ J'apprends à transformer les chiffres en décisions.</p>
   </div>
 </section>
 
+<!-- ──────────────── Compétences BUT GEA ──────────────── -->
+<section class="alt" id="competences-gea">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-eyebrow">05 - référentiel</span>
+      <h2 class="section-title">Compétences BUT GEA 1ère année</h2>
+      <p class="section-subtitle">Trois compétences cibles du référentiel, mises en regard de traces argumentées issues de mon parcours.</p>
+    </div>
+
+    <div class="comp-grid reveal-stagger">
+      <article class="comp-card">
+        <div class="comp-tag">Compétence 1</div>
+        <h3>Situer une organisation dans son environnement</h3>
+        <p class="comp-desc">Identifier les composantes économique, juridique, sociologique et technologique d'une organisation. Caractériser sa place dans son écosystème.</p>
+        <div class="comp-ac">
+          <strong>Apprentissages critiques</strong>
+          <ul>
+            <li>Caractériser les environnements PESTEL d'une organisation</li>
+            <li>Identifier les parties prenantes et leur rôle</li>
+            <li>Analyser la structure juridique et organisationnelle</li>
+          </ul>
+        </div>
+        <div class="comp-trace">
+          <strong>Traces et preuves</strong>
+          <ul>
+            <li><b>14,50 / 20 en Environnement sociologique</b>, capacité à mobiliser les concepts sociologiques pour analyser une organisation.</li>
+            <li><b>16,00 / 20 en S1C1</b>, validation de compétence officielle attestant du niveau attendu en 1ère année.</li>
+            <li><b>SAÉ 1 - pilote méthodologique du dossier</b>, j'ai construit la structure du dossier de groupe et rédigé personnellement la partie sociologique.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="comp-card">
+        <div class="comp-tag">Compétence 2</div>
+        <h3>Mettre en œuvre une organisation à l'aide d'outils numériques et dans le respect du cadre juridique</h3>
+        <p class="comp-desc">Identifier et mobiliser les processus de gestion, les outils numériques et les règles fiscales et comptables applicables.</p>
+        <div class="comp-ac">
+          <strong>Apprentissages critiques</strong>
+          <ul>
+            <li>Identifier les processus comptables et financiers</li>
+            <li>Utiliser les outils numériques de gestion adaptés</li>
+            <li>Appliquer le cadre fiscal et comptable de référence</li>
+          </ul>
+        </div>
+        <div class="comp-trace">
+          <strong>Traces et preuves</strong>
+          <ul>
+            <li><b>19,00 / 20 en Outils numériques de gestion</b>, note la plus haute du semestre, prouve la maîtrise des outils numériques attendus.</li>
+            <li><b>14,58 / 20 en Fiscalité</b>, démontre la compréhension du cadre fiscal d'une organisation.</li>
+            <li><b>SAÉ 2 - 3 jours intensifs comptabilité et fiscalité</b>, situation réelle d'enregistrement de factures et d'opérations comptables sous pression de temps.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="comp-card">
+        <div class="comp-tag">Compétence 3</div>
+        <h3>Piloter les relations avec les parties prenantes</h3>
+        <p class="comp-desc">Communiquer avec différents publics, travailler en équipe, identifier ses qualités individuelles et celles d'autrui.</p>
+        <div class="comp-ac">
+          <strong>Apprentissages critiques</strong>
+          <ul>
+            <li>Communiquer à l'oral et à l'écrit, y compris en langues étrangères</li>
+            <li>Travailler en équipe et coordonner un collectif</li>
+            <li>Identifier ses qualités et axes de progrès individuels</li>
+          </ul>
+        </div>
+        <div class="comp-trace">
+          <strong>Traces et preuves</strong>
+          <ul>
+            <li><b>16,00 / 20 en Ressources Humaines</b>, compréhension des enjeux humains et relationnels d'une organisation.</li>
+            <li><b>14,08 / 20 en Espagnol et 12,75 / 20 en Anglais</b>, capacité à communiquer en langues étrangères, exigée par la section Euro.</li>
+            <li><b>SAÉ 1 - rôle de meneur naturel</b>, j'ai pris en charge la coordination du groupe, la relecture et la correction des contributions, et la livraison finale.</li>
+            <li><b>SAÉ 2 - dimension management et esprit d'équipe</b>, la SAÉ portait explicitement sur la communication et le management collectif.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────── SAÉ ──────────────── -->
+<section id="sae">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-eyebrow">06 - situations d'apprentissage</span>
+      <h2 class="section-title">SAÉ, rôles, missions, productions</h2>
+      <p class="section-subtitle">Détail des Situations d'Apprentissage et d'Évaluation vécues en BUT GEA 1ère année.</p>
+    </div>
+
+    <div class="sae-list reveal-stagger">
+      <article class="sae-card">
+        <div class="sae-head">
+          <div class="sae-meta">
+            <span class="sae-tag">SAÉ 1 · S1</span>
+            <span class="sae-date">Semestre 1 · 2025-2026</span>
+          </div>
+          <h3>Analyse d'une organisation, dimension sociologique et environnementale</h3>
+        </div>
+        <div class="sae-body">
+          <div class="sae-block">
+            <strong>Contexte</strong>
+            <p>Projet collectif de découverte du fonctionnement d'une organisation, articulé autour de l'analyse de son environnement sociologique, économique et institutionnel. Premier travail de groupe structuré du BUT.</p>
+          </div>
+          <div class="sae-block">
+            <strong>Mon rôle</strong>
+            <p>Coordinateur de fait du groupe sans avoir été désigné. J'ai pris l'initiative de structurer le dossier dès le départ, fixé la trame, distribué les parties, fait circuler les versions de travail. J'ai assuré personnellement la partie sociologique du dossier.</p>
+          </div>
+          <div class="sae-block">
+            <strong>Productions livrées</strong>
+            <ul>
+              <li>Trame complète du dossier construite et partagée à l'équipe</li>
+              <li>Rédaction intégrale de la partie sociologique</li>
+              <li>Relecture critique et corrections des contributions des autres membres</li>
+              <li>Mise en page finale et reliure du dossier physique</li>
+              <li>Dépôt du livrable dans les délais</li>
+            </ul>
+          </div>
+          <div class="sae-block">
+            <strong>Apprentissages critiques mobilisés</strong>
+            <ul>
+              <li>AC1.1, caractériser l'environnement sociologique d'une organisation</li>
+              <li>AC3.2, travailler en équipe et coordonner un collectif</li>
+              <li>AC3.3, identifier ses qualités individuelles, leadership de fait, exigence de relecture</li>
+            </ul>
+          </div>
+          <div class="sae-block">
+            <strong>Ce que j'en retire</strong>
+            <p>J'ai découvert que je prends naturellement le rôle de pilote dans un groupe quand personne ne le fait. Cette posture est utile pour fixer un cap, mais elle est à doser pour ne pas écraser les contributions des autres. C'est un point que je veux continuer à travailler en S3.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sae-card">
+        <div class="sae-head">
+          <div class="sae-meta">
+            <span class="sae-tag">SAÉ 2 · S2</span>
+            <span class="sae-date">Semestre 2 · 2025-2026</span>
+          </div>
+          <h3>Mise en situation intensive, comptabilité, fiscalité et management</h3>
+        </div>
+        <div class="sae-body">
+          <div class="sae-block">
+            <strong>Contexte</strong>
+            <p>SAÉ de 3 jours consécutifs, simulant un projet réel en équipe. Combinaison d'objectifs techniques, enregistrements comptables et traitements fiscaux, et d'objectifs humains, communication interne, esprit d'équipe et management de projet sous pression de temps.</p>
+          </div>
+          <div class="sae-block">
+            <strong>Mon rôle</strong>
+            <p>Membre actif de l'équipe sur l'ensemble des tâches techniques et participation à la coordination du groupe sur les 3 jours. J'ai contribué à la fois aux écritures comptables, au traitement des factures et à l'animation du collectif pour tenir les délais.</p>
+          </div>
+          <div class="sae-block">
+            <strong>Productions livrées</strong>
+            <ul>
+              <li>Enregistrement d'un ensemble de factures et opérations comptables</li>
+              <li>Traitement des dimensions fiscales associées</li>
+              <li>Coordination des échanges au sein de l'équipe pendant les 3 jours</li>
+              <li>Livrable final remis dans le temps imparti</li>
+            </ul>
+          </div>
+          <div class="sae-block">
+            <strong>Apprentissages critiques mobilisés</strong>
+            <ul>
+              <li>AC2.1, identifier les processus comptables</li>
+              <li>AC2.2, utiliser les outils numériques de gestion</li>
+              <li>AC2.3, appliquer le cadre fiscal applicable</li>
+              <li>AC3.1, communiquer dans un contexte professionnel</li>
+              <li>AC3.2, travailler en équipe sous pression de temps</li>
+            </ul>
+          </div>
+          <div class="sae-block">
+            <strong>Ce que j'en retire</strong>
+            <p>Travailler sous contrainte de temps oblige à arbitrer en permanence entre vitesse et qualité. J'ai appris à découper un livrable en sous-tâches priorisées et à accepter qu'on ne peut pas tout polir. La dimension management m'a confirmé que je suis à l'aise pour animer un groupe sous tension, et que c'est une des compétences que je veux continuer à développer.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────────── Démarche réflexive ──────────────── -->
+<section class="alt" id="reflexion">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-eyebrow">07 - démarche réflexive</span>
+      <h2 class="section-title">Ce que je maîtrise, ce qui me reste à apprendre</h2>
+      <p class="section-subtitle">Auto-analyse honnête de ma 1ère année de BUT GEA, conformément aux attendus du portfolio.</p>
+    </div>
+
+    <div class="reflex-grid reveal-stagger">
+      <article class="reflex-card">
+        <div class="reflex-tag">Ce que je maîtrise déjà</div>
+        <h3>Outils numériques, structuration de projet, esprit d'équipe</h3>
+        <p>Mes meilleurs résultats du semestre se concentrent sur les outils numériques de gestion (19/20), les ressources humaines (16/20) et la capacité à situer une organisation (16/20 sur S1C1). Ces notes confirment ce que je ressens en cours et en SAÉ, je suis à l'aise quand il faut structurer un travail, faire fonctionner un outil et coordonner un collectif. Le rôle de meneur de fait que j'ai eu en SAÉ 1 va dans le même sens.</p>
+      </article>
+
+      <article class="reflex-card">
+        <div class="reflex-tag">Ce sur quoi je dois progresser</div>
+        <h3>Comptabilité et institutions publiques, deux matières exigeantes</h3>
+        <p>Deux matières m'ont demandé plus d'efforts que les autres en S1, la comptabilité et l'environnement institutionnel public. Le contenu est dense, technique, et le rythme de la 1ère année ne laisse pas toujours le temps d'assimiler en profondeur. C'est sur ces deux blocs que je dois investir le plus de travail personnel en S3.</p>
+      </article>
+
+      <article class="reflex-card">
+        <div class="reflex-tag">Analyse de mes notes décevantes</div>
+        <h3>Quand la note baisse, c'est une question de travail, pas de capacité</h3>
+        <p>Je préfère être honnête sur ce point plutôt que chercher des excuses, les évaluations où mes notes ont été en deçà de mes attentes correspondent à des moments où je n'ai pas assez travaillé en amont. Je ne rencontre pas de problème particulier de gestion du temps, j'ai même pris conscience que je suis souvent à l'aise et que cette aisance peut entraîner un relâchement sur la révision.</p>
+        <p><strong>Régulation mise en place</strong>, intégrer une routine de révision active dès la semaine d'introduction de chaque chapitre, et ne plus considérer qu'un cours bien compris en TD est un cours acquis. C'est une discipline simple à formuler, l'enjeu est de la tenir dans la durée.</p>
+      </article>
+
+      <article class="reflex-card">
+        <div class="reflex-tag">Compétence transverse identifiée</div>
+        <h3>Capacité à fédérer un groupe sans avoir été nommé chef</h3>
+        <p>La SAÉ 1 m'a fait prendre conscience que je structure naturellement un travail de groupe quand le cadre est flou. Ce n'est pas une posture que je revendique au départ, elle s'installe par l'action. J'en retire deux choses, c'est un vrai atout pour les projets à venir (SAÉ 3, alternance, stage long), et c'est aussi une responsabilité, prendre le pilotage suppose de laisser de la place aux autres et d'écouter avant de décider.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ──────────────── Contact ──────────────── -->
 <section class="contact alt" id="contact">
   <div class="container">
     <div class="contact-grid">
       <div class="reveal">
-        <span class="section-eyebrow">05 — Contact</span>
+        <span class="section-eyebrow">08 — Contact</span>
         <h2>Une opportunité, un projet, une question ?</h2>
         <p class="contact-lead">Stage, alternance, mission ponctuelle — j'ai envi d'apprendre et de contribuer. Écrivez-moi, je réponds vite.</p>
       </div>

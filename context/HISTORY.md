@@ -7,6 +7,44 @@
 
 ---
 
+## 2026-05-28
+
+### Décision produit + marque : lancement PureSun™ (lunettes de soleil, marché FR)
+
+**Roméo a tranché la niche et le produit cible, 2 semaines avant la deadline du 13/06.**
+
+**Référence copiée :** [quicksunbrand.com](https://quicksunbrand.com/) — boutique italienne de lunettes de soleil minimalistes, 29,99 €, offre 1+1 à -50%, livraison gratuite, repérée via TrendTrack.
+
+**Analyse TrendTrack (28/05/2026) :**
+- QuickSun : 59 ads actives, top ad 838k reach et ~7 500 € de spend estimé sur 36 jours
+- Scaling démarré le 22/04/2026 (5 semaines), courbe en hockey stick
+- Mono-pays Italie, page FB toute neuve (493 likes)
+- 0 trafic SimilarWeb : 100% paid social, pas de SEO
+- Concurrents EU : Meller (Espagne, 1,4M visites/mois), Jimmy Fairly (FR mais haut de gamme prescription)
+- Aucun concurrent direct identifié sur le positionnement précis "lunettes mode 30 € DTC 1+1 à -50% France"
+- Verdict : signal très positif, time-to-market critique (2-4 semaines avant copy-cats FR)
+
+**Décisions actées :**
+- **Niche** : lunettes de soleil
+- **Produit** : lunettes minimalistes inspiration QuickSun (modèles type Classic)
+- **Pays cible** : France
+- **Marque** : **PureSun™** (choisi parmi PureSun, EasySun, NeatSun, Solario, Lume, Sereno)
+- **Méthode** : copie intégrale de la page quicksunbrand.com, traduction FR, branding PureSun™
+- **Sourcing** : Roméo s'en charge en autonomie (pas via Jarvis)
+
+**Recalibrage planning :**
+- Sprint #1 anticipé : dès validation micro-entreprise (sans attendre le 13/06)
+- Objectif : boutique en ligne + ads tournants sous 2 semaines après validation
+- Semaine d'examens (8-12 juin) à gérer en parallèle si nécessaire
+- Plan automne/hiver à définir avant fin août (saisonnalité lunettes en FR)
+
+**Posture associé en session :**
+- Données TrendTrack présentées cash : signal positif, mais time-to-market identifié comme risque numéro 1
+- Réserve maintenue et exprimée sur le choix d'un nom avec "Sun" (enferme dans l'été, complique le pivot hiver), mais aligné sur la décision de Roméo de garder la même vibe que QuickSun
+- Conseil donné : prioriser .com plutôt que .fr pour ne pas s'enfermer en France
+
+---
+
 ## 2026-05-26 (mise à jour 7)
 
 ### Création du skill `connaissance-mutuelle` + commande `/decouverte`

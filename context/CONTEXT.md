@@ -71,11 +71,12 @@
 - Modèle économique : Dropshipping (pas de stock propre)
 - Statut : Micro-entreprise en cours de validation (création déléguée, réponse attendue dans les prochains jours)
 - Première tentative business (aucun lancement précédent, vierge total)
-- **Niche : à retrouver** (recherche en cours, repart de zéro le 29/05/2026 après pivot)
-- **Produit cible : à trouver**
-- **Marque : à définir**
-- **Pays cible : France** (par défaut, ajustable selon produit)
-- **Contrainte sourcing actée** : le fournisseur actuel ne peut pas livrer de catalogue large (70+ références). → orientation **one-product store** ou niche compatible avec un catalogue restreint (1 à 10 produits max).
+- **Niche : confiance corporelle masculine** (sport/santé adjacent), actée le 29/05/2026
+- **Produit cible : débardeur de compression gainant homme** (modèle type Underfit, référence copiée : underfitmen.com)
+- **Marque : à définir** (nom anglais à créer pour le marché UK)
+- **Marché cible : Royaume-Uni**, en anglais (un seul marché au lancement). Expansion future possible vers US et Allemagne, seulement si le produit performe.
+- **Modèle** : one-product store, copie/traduction du concept underfitmen.com vers l'anglais UK
+- **Contrainte sourcing actée** : le fournisseur actuel ne peut pas livrer de catalogue large (70+ références). → orientation **one-product store** ou niche compatible avec un catalogue restreint (1 à 10 produits max). Compatible avec ce produit (mono-produit).
 
 ### Budget
 - **Plafond test publicitaire :** 200-400 €/mois max avant premières ventes
@@ -141,7 +142,7 @@
 - **🔁 Tous les dimanches 17h-18h** — Rendez-vous hebdo `/semaine` : bilan semaine + objectifs de la semaine à venir. **Premier rendez-vous : dimanche 31 mai 2026.**
 - **🗓️ 13-14 juin 2026** — Faire la Phase 4 du processus de personnalisation Jarvis (workflow et préférences de travail), à enchaîner juste après les examens
 - **🚀 13 juin → 27 juin 2026** — Sprint #1 business, 5-6h/jour, objectif : boutique Shopify lancée + premier test ads tournant
-- **🔎 Avant validation micro-entreprise** — Refaire la recherche produit (TrendTrack + analyse), dans une logique one-product store compatible avec la contrainte fournisseur. Décision niche + produit avant de relancer Shopify.
+- **🇬🇧 Boutique UK à construire** — Niche/produit/marché actés le 29/05/2026 (débardeur gainant homme, marché Royaume-Uni). Reste à faire : creuser le marché UK (saturation, CPM, concurrents locaux, offre en £), créer la marque + le nom anglais, construire la boutique, traduire/adapter les créas. Démarre au Sprint #1 (13-27 juin) ou avant si la validation micro-entreprise tombe.
 
 ---
 
@@ -151,8 +152,9 @@
 
 ### Business
 - 🟡 **Validation micro-entreprise** — En attente depuis le 26/05/2026. Déléguée. Réponse attendue dans les jours qui viennent. À relancer chaque session jusqu'à confirmation. Déclenche l'ouverture Shopify + Meta BM + Revolut pro.
-- 🟡 **Recherche produit (V2)** — Relancée le 29/05/2026 après pivot. Critère bloquant : doit être faisable en one-product store (1 à 10 références max), compatible avec les capacités actuelles du fournisseur. PRIORITÉ ACTIVE.
-- 🟡 **Sourcing produit** — Roméo s'en charge lui-même (CJ/Zendrop/AliExpress). Contrainte connue : pas de catalogue large possible pour l'instant.
+- ✅ **Recherche produit (V2)** — Résolue le 29/05/2026. Produit acté : débardeur de compression gainant homme (modèle Underfit / underfitmen.com), marché Royaume-Uni. One-product store.
+- 🟡 **Boutique UK** — PRIORITÉ ACTIVE. Prochaine étape : creuser le marché UK (saturation, CPM, concurrents locaux, offre en £), puis nom de marque anglais, boutique, créas. Expansion US/Allemagne en réserve si ça performe.
+- 🟡 **Sourcing produit** — Roméo s'en charge lui-même (CJ/Zendrop/AliExpress). Vérifier que le fournisseur livre bien au Royaume-Uni dans des délais corrects.
 
 ### Études
 - 🟡 **Affectation centre aéré** — RDV 30/05/2026 à 14h30 pour savoir où il bossera cet été. À relancer juste après cette date. (Garde le focus business : c'est lié à la trésorerie pour le sprint.)

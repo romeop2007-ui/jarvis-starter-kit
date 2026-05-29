@@ -1,0 +1,42 @@
+{%- comment -%}
+  Defyne — Barre "As seen in" (logos de presse).
+  Eyebrow éditable + 1 bloc par logo (texte). Style typographique repris de la maquette.
+{%- endcomment -%}
+<div class="press">
+  <div class="wrap">
+    <p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    <div class="press-logos">
+      {%- for block in section.blocks -%}
+        <span style="{{ block.settings.style }}" {{ block.shopify_attributes }}>{{ block.settings.name | escape }}</span>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Defyne — Presse",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "As seen in" }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo presse",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Nom", "default": "GQ" },
+        { "type": "text", "id": "style", "label": "Style CSS (optionnel)", "info": "Ex : font-family:Georgia,serif;letter-spacing:.2em" }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+        { "type": "logo", "settings": { "name": "VOGUE", "style": "font-family:Georgia,serif;letter-spacing:.2em" } },
+        { "type": "logo", "settings": { "name": "GQ" } },
+        { "type": "logo", "settings": { "name": "L'ÉQUIPE", "style": "font-style:italic" } },
+        { "type": "logo", "settings": { "name": "Men's Health" } }
+    ]
+  }
+}
+{% endschema %}

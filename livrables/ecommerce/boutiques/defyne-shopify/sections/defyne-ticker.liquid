@@ -1,0 +1,39 @@
+{%- comment -%}
+  Defyne — Ticker (bandeau défilant du haut). Chrome partagé via le layout.
+  Chaque message est un bloc : ajoute / supprime / réordonne dans Personnaliser.
+  Les messages sont dupliqués automatiquement pour que le défilement boucle sans trou.
+{%- endcomment -%}
+<div class="ticker">
+  <div class="ticker-track">
+    {%- for block in section.blocks -%}
+      <span {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</span>
+    {%- endfor -%}
+    {%- comment -%} Deuxième passe identique : assure une boucle fluide {%- endcomment -%}
+    {%- for block in section.blocks -%}
+      <span aria-hidden="true">{{ block.settings.text | escape }}</span>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Defyne — Ticker",
+  "tag": "section",
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Texte du message", "default": "Free shipping until midnight tonight" }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+        { "type": "message", "settings": { "text": "In stock — selling out fast" } },
+        { "type": "message", "settings": { "text": "Limited-time sale" } },
+        { "type": "message", "settings": { "text": "Free shipping until midnight tonight" } }
+    ]
+  }
+}
+{% endschema %}

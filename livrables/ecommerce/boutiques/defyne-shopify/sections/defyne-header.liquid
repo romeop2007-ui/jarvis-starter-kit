@@ -1,0 +1,56 @@
+{%- comment -%}
+  Defyne — Header / menu de navigation. Chrome partagé via le layout.
+  - Logo : 2 parties (texte normal + texte accentué en bleu), éditables.
+  - Liens de nav : 1 bloc par lien (libellé + URL). Le lien de la page courante
+    se met en surbrillance automatiquement.
+  - Libellé de devise éditable (cosmétique, comme la maquette).
+{%- endcomment -%}
+<header>
+  <div class="wrap nav">
+    <a href="{{ routes.root_url }}" class="logo">{{ section.settings.logo_text }}<b>{{ section.settings.logo_accent }}</b></a>
+    <nav class="nav-links">
+      {%- for block in section.blocks -%}
+        {%- assign is_active = false -%}
+        {%- if block.settings.url != blank and block.settings.url == request.path -%}{%- assign is_active = true -%}{%- endif -%}
+        <a href="{{ block.settings.url | default: '#' }}"{% if is_active %} class="active"{% endif %} {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</a>
+      {%- endfor -%}
+    </nav>
+    <div class="nav-utils">
+      <span class="cur">{{ section.settings.currency_label }} <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M6 9l6 6 6-6"/></svg></span>
+      <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <a href="{{ routes.cart_url }}" aria-label="Cart">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6L5 3H2"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Defyne — Header",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "logo_text", "label": "Logo — début", "default": "De" },
+    { "type": "text", "id": "logo_accent", "label": "Logo — partie bleue", "default": "fyne" },
+    { "type": "text", "id": "currency_label", "label": "Libellé devise", "default": "USD $" }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Lien de menu",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Libellé", "default": "Home" },
+        { "type": "url", "id": "url", "label": "Lien" }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+        { "type": "link", "settings": { "label": "Home" } },
+        { "type": "link", "settings": { "label": "Defyne" } },
+        { "type": "link", "settings": { "label": "Contact" } },
+        { "type": "link", "settings": { "label": "Track my order" } }
+    ]
+  }
+}
+{% endschema %}

@@ -1,0 +1,251 @@
+{%- comment -%}
+  Defyne — Boîte d'achat (buy box). La section commerciale centrale.
+  Blocs disponibles (ajout/suppression/ordre dans Personnaliser) :
+    - thumb  : vignette de galerie
+    - bullet : argument coché
+    - tier   : palier de prix (avec options couleur/taille si sélectionné)
+    - ugc    : cadre vidéo (unboxing, témoignage...)
+    - detail : ligne d'accordéon (titre + texte)
+  Les listes Couleurs / Tailles (réglages section) alimentent les menus
+  déroulants des paliers. Le bouton "Buy now" est cosmétique pour l'instant :
+  à brancher sur un vrai produit Shopify plus tard.
+{%- endcomment -%}
+<section id="product">
+  <div class="wrap">
+    <div class="buy-grid">
+
+      {%- comment -%} -------- Galerie -------- {%- endcomment -%}
+      <div class="gallery">
+        <div class="thumbs">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'thumb' -%}
+              <div class="frame{% if block.settings.image != blank %} has-img{% endif %}" {{ block.shopify_attributes }}>
+                {%- if block.settings.image != blank -%}
+                  <img src="{{ block.settings.image | image_url: width: 200 }}" alt="" loading="lazy">
+                {%- else -%}
+                  <span>{{ block.settings.label | escape }}</span>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+        <div class="frame hero-img{% if section.settings.main_image != blank %} has-img{% endif %}">
+          {%- if section.settings.main_image != blank -%}
+            <img src="{{ section.settings.main_image | image_url: width: 1000 }}" alt="{{ section.settings.title | escape }}" loading="lazy">
+          {%- else -%}
+            <span>{{ section.settings.main_frame_label | escape }}</span>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- comment -%} -------- Infos achat -------- {%- endcomment -%}
+      <div class="buy-info">
+        <div class="rating"><span class="stars">★★★★★</span> {{ section.settings.rating_text | escape }}</div>
+        <h2>{{ section.settings.title | escape }}</h2>
+        <p class="desc">{{ section.settings.desc | escape }}</p>
+
+        <div class="bullets">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'bullet' -%}
+              <div class="bullet" {{ block.shopify_attributes }}><svg class="ic" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg> {{ block.settings.text | escape }}</div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        <div class="stock">{{ section.settings.stock_text }}</div>
+        <a href="{{ section.settings.size_anchor | default: '#size' }}" class="size-link"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><rect x="3" y="9" width="18" height="6" rx="1"/><path d="M7 9v3M11 9v4M15 9v3"/></svg> {{ section.settings.size_link_label | escape }}</a>
+
+        <p class="promo-label">{{ section.settings.promo_label | escape }}</p>
+
+        {%- assign colors = section.settings.colors | split: ',' -%}
+        {%- assign sizes = section.settings.sizes | split: ',' -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'tier' -%}
+            <div class="tier{% if block.settings.selected %} sel{% endif %}" onclick="defyneSelectTier(this)" {{ block.shopify_attributes }}>
+              {%- if block.settings.flag != blank -%}
+                <span class="flag{% if block.settings.flag_hot %} hot{% endif %}">{{ block.settings.flag | escape }}</span>
+              {%- endif -%}
+              <span class="pack">{{ block.settings.pack | escape }}</span>
+              <span class="label">{{ block.settings.label | escape }} {% if block.settings.ship != blank %}<span class="ship">{{ block.settings.ship | escape }}</span>{% endif %}</span>
+              <span class="price"><span class="now">{{ block.settings.price_now | escape }}</span><br><span class="was">{{ block.settings.price_was | escape }}</span></span>
+              {%- if block.settings.options_rows > 0 -%}
+                <div class="tier-opts">
+                  {%- for i in (1..block.settings.options_rows) -%}
+                    <div class="opt-row"><span class="n">#{{ i }}</span>
+                      <select>{% for c in colors %}<option>{{ c | strip | escape }}</option>{% endfor %}</select>
+                      <select>{% for s in sizes %}<option>{{ s | strip | escape }}</option>{% endfor %}</select>
+                    </div>
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+
+        <div class="last-chance">
+          <h3>{{ section.settings.lc_heading | escape }}</h3>
+          <div class="lc-eq">
+            <div class="frame{% if section.settings.lc_image1 != blank %} has-img{% endif %}">
+              {%- if section.settings.lc_image1 != blank -%}<img src="{{ section.settings.lc_image1 | image_url: width: 300 }}" alt="" loading="lazy">{%- else -%}<span>{{ section.settings.lc_label1 | escape }}</span>{%- endif -%}
+            </div>
+            <span class="op">=</span>
+            <div class="frame{% if section.settings.lc_image2 != blank %} has-img{% endif %}">
+              {%- if section.settings.lc_image2 != blank -%}<img src="{{ section.settings.lc_image2 | image_url: width: 300 }}" alt="" loading="lazy">{%- else -%}<span>{{ section.settings.lc_label2 | escape }}</span>{%- endif -%}
+            </div>
+          </div>
+          <p class="lc-line">{{ section.settings.lc_line_pre | escape }} <span class="accent">{{ section.settings.lc_line_accent | escape }}</span> <em>{{ section.settings.lc_line_em | escape }}</em></p>
+          <div class="lc-badges">
+            <span class="a">{{ section.settings.lc_badge_a }}</span>
+            <span class="b">{{ section.settings.lc_badge_b }}</span>
+          </div>
+          <button class="btn btn-accent btn-block" style="background:{{ section.settings.buy_btn_color }};color:#101114">{{ section.settings.buy_btn_label | escape }}</button>
+          <div class="pay-row">
+            {%- assign pays = section.settings.pay_row | split: ',' -%}
+            {%- for p in pays -%}<span>{{ p | strip | escape }}</span>{%- endfor -%}
+          </div>
+        </div>
+
+        {%- assign has_ugc = false -%}
+        {%- for block in section.blocks -%}{%- if block.type == 'ugc' -%}{%- assign has_ugc = true -%}{%- endif -%}{%- endfor -%}
+        {%- if has_ugc -%}
+          <div class="ugc">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'ugc' -%}
+                <div class="frame{% if block.settings.image != blank %} has-img{% endif %}" {{ block.shopify_attributes }}>
+                  {%- if block.settings.image != blank -%}<img src="{{ block.settings.image | image_url: width: 400 }}" alt="" loading="lazy">{%- else -%}<span>{{ block.settings.label | escape }}</span>{%- endif -%}
+                  <div class="play"><svg viewBox="0 0 24 24"><path d="M7 5v14l12-7z"/></svg></div>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        <div class="acc" style="margin-top:36px">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'detail' -%}
+              <details class="row" {{ block.shopify_attributes }}><summary>{{ block.settings.summary | escape }} <span class="pm">+</span></summary>
+                <div class="body">{{ block.settings.body | escape }}</div></details>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* Sélection d'un palier de prix : surligne le palier choisi et affiche ses options. Cosmétique. */
+function defyneSelectTier(el){
+  el.closest('.buy-info').querySelectorAll('.tier').forEach(function(t){ t.classList.remove('sel'); });
+  el.classList.add('sel');
+}
+</script>
+
+{% schema %}
+{
+  "name": "Defyne — Produit",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "Galerie" },
+    { "type": "image_picker", "id": "main_image", "label": "Image principale" },
+    { "type": "text", "id": "main_frame_label", "label": "Libellé cadre principal (si pas d'image)", "default": "Product — three colorways, \"Buy 2 + 1 Free\"" },
+    { "type": "header", "content": "Titre & description" },
+    { "type": "text", "id": "rating_text", "label": "Ligne de note", "default": "Excellent · 10,310+ reviews" },
+    { "type": "text", "id": "title", "label": "Titre produit", "default": "Defyne™ | Shaping Compression Tank" },
+    { "type": "textarea", "id": "desc", "label": "Description", "default": "The compression tank that helps you stand tall, slim your silhouette and erase every problem area the moment you put it on." },
+    { "type": "text", "id": "stock_text", "label": "Bandeau stock", "default": "● Only 6 tanks left in stock." },
+    { "type": "text", "id": "size_link_label", "label": "Libellé lien guide des tailles", "default": "Size guide" },
+    { "type": "text", "id": "size_anchor", "label": "Ancre guide des tailles", "default": "#size" },
+    { "type": "text", "id": "promo_label", "label": "Bandeau promo", "default": "Limited-time sale · 24h" },
+    { "type": "header", "content": "Options des paliers (menus déroulants)" },
+    { "type": "text", "id": "colors", "label": "Couleurs (séparées par virgules)", "default": "Black, White, Grey" },
+    { "type": "text", "id": "sizes", "label": "Tailles (séparées par virgules)", "default": "S (110–152 lb), M (154–196 lb), L (198–240 lb), XL (243–284 lb)" },
+    { "type": "header", "content": "Bloc \"Last chance\"" },
+    { "type": "text", "id": "lc_heading", "label": "Titre", "default": "Last chance" },
+    { "type": "image_picker", "id": "lc_image1", "label": "Image 1" },
+    { "type": "text", "id": "lc_label1", "label": "Libellé cadre 1", "default": "2 tanks" },
+    { "type": "image_picker", "id": "lc_image2", "label": "Image 2" },
+    { "type": "text", "id": "lc_label2", "label": "Libellé cadre 2", "default": "+ 1 gift" },
+    { "type": "text", "id": "lc_line_pre", "label": "Ligne — début", "default": "Buy 2 = 1" },
+    { "type": "text", "id": "lc_line_accent", "label": "Ligne — mot bleu", "default": "Defyne" },
+    { "type": "text", "id": "lc_line_em", "label": "Ligne — mot vert", "default": "Free" },
+    { "type": "text", "id": "lc_badge_a", "label": "Badge vert", "default": "🔒 30-day money-back" },
+    { "type": "text", "id": "lc_badge_b", "label": "Badge rouge", "default": "⏳ Low stock!" },
+    { "type": "text", "id": "buy_btn_label", "label": "Bouton — texte", "default": "Buy now" },
+    { "type": "color", "id": "buy_btn_color", "label": "Bouton — couleur", "default": "#f6c000" },
+    { "type": "text", "id": "pay_row", "label": "Badges paiement (virgules)", "default": "AMEX, Apple Pay, G Pay, Mastercard, PayPal, Shop, VISA" }
+  ],
+  "blocks": [
+    {
+      "type": "thumb",
+      "name": "Vignette galerie",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "label", "label": "Libellé (si pas d'image)", "default": "1" }
+      ]
+    },
+    {
+      "type": "bullet",
+      "name": "Argument coché",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Texte", "default": "Goodbye beer belly" }
+      ]
+    },
+    {
+      "type": "tier",
+      "name": "Palier de prix",
+      "settings": [
+        { "type": "checkbox", "id": "selected", "label": "Sélectionné par défaut", "default": false },
+        { "type": "text", "id": "flag", "label": "Étiquette (optionnel)" },
+        { "type": "checkbox", "id": "flag_hot", "label": "Étiquette rouge", "default": false },
+        { "type": "text", "id": "pack", "label": "Quantité (ex : ×3)", "default": "×1" },
+        { "type": "text", "id": "label", "label": "Libellé", "default": "1 Defyne" },
+        { "type": "text", "id": "ship", "label": "Badge livraison", "default": "Free Shipping" },
+        { "type": "text", "id": "price_now", "label": "Prix actuel", "default": "$29.99" },
+        { "type": "text", "id": "price_was", "label": "Prix barré", "default": "$34.90" },
+        { "type": "range", "id": "options_rows", "label": "Nb de lignes d'options (couleur/taille)", "min": 0, "max": 5, "step": 1, "default": 0 }
+      ]
+    },
+    {
+      "type": "ugc",
+      "name": "Vidéo UGC",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Vignette" },
+        { "type": "text", "id": "label", "label": "Libellé (si pas d'image)", "default": "Unboxing video" }
+      ]
+    },
+    {
+      "type": "detail",
+      "name": "Accordéon (détail)",
+      "settings": [
+        { "type": "text", "id": "summary", "label": "Titre", "default": "Product details" },
+        { "type": "textarea", "id": "body", "label": "Texte", "default": "Four-way stretch technical knit with targeted compression zones." }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+        { "type": "thumb", "settings": { "label": "1" } },
+        { "type": "thumb", "settings": { "label": "2" } },
+        { "type": "thumb", "settings": { "label": "3" } },
+        { "type": "thumb", "settings": { "label": "4" } },
+        { "type": "thumb", "settings": { "label": "5" } },
+        { "type": "bullet", "settings": { "text": "Goodbye beer belly" } },
+        { "type": "bullet", "settings": { "text": "Speeds up weight loss" } },
+        { "type": "bullet", "settings": { "text": "Man boobs flattened" } },
+        { "type": "bullet", "settings": { "text": "Love handles erased" } },
+        { "type": "tier", "settings": { "pack": "×1", "label": "1 Defyne", "ship": "Free Shipping", "price_now": "$29.99", "price_was": "$34.90", "options_rows": 0 } },
+        { "type": "tier", "settings": { "selected": true, "flag": "Most popular 🔥", "flag_hot": true, "pack": "×3", "label": "2 + 1 Free", "ship": "Free Shipping", "price_now": "$59.98", "price_was": "$104.70", "options_rows": 3 } },
+        { "type": "tier", "settings": { "flag": "Best value 💎", "pack": "×5", "label": "3 + 2 Free", "ship": "Free Shipping", "price_now": "$79.98", "price_was": "$174.50", "options_rows": 0 } },
+        { "type": "ugc", "settings": { "label": "Unboxing video" } },
+        { "type": "ugc", "settings": { "label": "Testimonial video" } },
+        { "type": "ugc", "settings": { "label": "Try-on video" } },
+        { "type": "detail", "settings": { "summary": "Product details", "body": "Four-way stretch technical knit with targeted compression zones across the abdomen, chest and flanks. Flatlock seams, breathable mesh back panel, tagless finish." } },
+        { "type": "detail", "settings": { "summary": "Size & comfort", "body": "Runs true to weight — see the size guide below. The fabric holds firm without restricting movement and is designed to be worn all day under any shirt." } },
+        { "type": "detail", "settings": { "summary": "Care", "body": "Machine wash cold on a gentle cycle. Do not bleach, do not tumble dry, do not iron the compression panels. Hang to dry to preserve elasticity." } },
+        { "type": "detail", "settings": { "summary": "30-day money-back", "body": "Not happy within 30 days? Send it back for a full refund — no questions asked." } },
+        { "type": "detail", "settings": { "summary": "Free returns & exchanges", "body": "Free returns and size exchanges within 30 days of delivery." } }
+    ]
+  }
+}
+{% endschema %}

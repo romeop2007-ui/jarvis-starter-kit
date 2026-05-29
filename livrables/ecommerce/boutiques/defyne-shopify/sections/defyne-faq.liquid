@@ -1,0 +1,53 @@
+{%- comment -%}
+  Defyne — FAQ. Chaque question est un bloc (question + réponse).
+{%- endcomment -%}
+<section class="faq tint" id="faq">
+  <div class="wrap">
+    <div class="faq-head">
+      <p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      <h2 class="display" style="text-transform:none">{{ section.settings.heading | escape }}</h2>
+    </div>
+    <div class="faq-list acc">
+      {%- for block in section.blocks -%}
+        <details class="row" {{ block.shopify_attributes }}><summary>{{ block.settings.question | escape }} <span class="pm">+</span></summary>
+          <div class="body">{{ block.settings.answer | escape }}</div></details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Defyne — FAQ",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "FAQ" },
+    { "type": "textarea", "id": "heading", "label": "Titre", "default": "Didn't find your answer? We're here to help." }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Who is Defyne™ for?" },
+        { "type": "textarea", "id": "answer", "label": "Réponse", "default": "Any man who wants a slimmer, more confident silhouette under his clothes." }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+        { "type": "item", "settings": { "question": "Who is Defyne™ for?", "answer": "Any man who wants a slimmer, more confident silhouette under his clothes — whether you're carrying a little extra around the middle or simply want better posture and support through the day." } },
+        { "type": "item", "settings": { "question": "How does Defyne™ actually work?", "answer": "Targeted compression zones gently flatten the stomach, chest and love handles while supporting your back, so you stand taller and look leaner the moment you put it on." } },
+        { "type": "item", "settings": { "question": "When will I see results?", "answer": "The shaping effect is instant. Most customers notice better posture and confidence the first day, with the most dramatic difference reported after a few weeks of daily wear." } },
+        { "type": "item", "settings": { "question": "What if my size doesn't fit?", "answer": "We offer free size exchanges within 30 days. Pick by weight using the size guide, and size up if you're at the top of a range." } },
+        { "type": "item", "settings": { "question": "Can I machine wash Defyne™?", "answer": "Yes — wash cold on a gentle cycle and hang to dry. Avoid bleach, tumble drying and ironing the compression panels." } },
+        { "type": "item", "settings": { "question": "What is Defyne™ made of?", "answer": "A breathable four-way-stretch technical knit (nylon-elastane blend) engineered for firm, comfortable compression that lasts wash after wash." } },
+        { "type": "item", "settings": { "question": "Does it show under a white t-shirt?", "answer": "No. It's thin and seamless, designed to stay invisible even under a fitted white shirt." } },
+        { "type": "item", "settings": { "question": "Is it comfortable or too tight?", "answer": "It's firm but breathable — supportive without cutting in. Choosing the right size is key, so follow the weight-based guide." } },
+        { "type": "item", "settings": { "question": "Does it really work or is it just marketing?", "answer": "The slimming effect is physical and immediate, and it's backed by a 30-day money-back guarantee — so you can judge for yourself risk-free." } },
+        { "type": "item", "settings": { "question": "Does it shrink in the wash?", "answer": "No, provided you follow the care instructions: cold wash and hang to dry keeps the shape and elasticity intact." } },
+        { "type": "item", "settings": { "question": "Why is it more expensive than a normal t-shirt?", "answer": "It isn't a normal t-shirt — it's a technical compression garment with engineered shaping zones, premium materials and durable construction built to perform every day." } }
+    ]
+  }
+}
+{% endschema %}

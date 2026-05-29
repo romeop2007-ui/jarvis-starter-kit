@@ -1,0 +1,75 @@
+{%- comment -%}
+  Defyne — Tableau comparatif "Why Defyne?".
+  3 colonnes (la 1re = ta marque, mise en avant). Chaque ligne est un bloc :
+  libellé + 3 cases à cocher (oui/non par colonne).
+{%- endcomment -%}
+<section class="why tint">
+  <div class="wrap">
+    <h2 class="display center">{{ section.settings.heading | escape }}</h2>
+    <table class="compare">
+      <thead>
+        <tr>
+          <th></th>
+          <th><div class="frame ch-frame{% if section.settings.col1_image != blank %} has-img{% endif %}">{% if section.settings.col1_image != blank %}<img src="{{ section.settings.col1_image | image_url: width: 200 }}" alt="">{% else %}<span>{{ section.settings.col1_label | escape }}</span>{% endif %}</div><div class="colhead brand">{{ section.settings.col1_head | escape }}</div></th>
+          <th><div class="frame ch-frame{% if section.settings.col2_image != blank %} has-img{% endif %}">{% if section.settings.col2_image != blank %}<img src="{{ section.settings.col2_image | image_url: width: 200 }}" alt="">{% else %}<span>{{ section.settings.col2_label | escape }}</span>{% endif %}</div><div class="colhead">{{ section.settings.col2_head | escape }}</div></th>
+          <th><div class="frame ch-frame{% if section.settings.col3_image != blank %} has-img{% endif %}">{% if section.settings.col3_image != blank %}<img src="{{ section.settings.col3_image | image_url: width: 200 }}" alt="">{% else %}<span>{{ section.settings.col3_label | escape }}</span>{% endif %}</div><div class="colhead">{{ section.settings.col3_head | escape }}</div></th>
+        </tr>
+      </thead>
+      <tbody>
+        {%- for block in section.blocks -%}
+          <tr {{ block.shopify_attributes }}>
+            <td>{{ block.settings.label | escape }}</td>
+            <td class="brandcol">{% if block.settings.c1 %}<span class="yes">✓</span>{% else %}<span class="no">✕</span>{% endif %}</td>
+            <td>{% if block.settings.c2 %}<span class="yes">✓</span>{% else %}<span class="no">✕</span>{% endif %}</td>
+            <td>{% if block.settings.c3 %}<span class="yes">✓</span>{% else %}<span class="no">✕</span>{% endif %}</td>
+          </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Defyne — Comparatif",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Why Defyne™?" },
+    { "type": "header", "content": "Colonne 1 (ta marque)" },
+    { "type": "image_picker", "id": "col1_image", "label": "Image" },
+    { "type": "text", "id": "col1_label", "label": "Libellé cadre", "default": "Defyne" },
+    { "type": "text", "id": "col1_head", "label": "Titre colonne", "default": "Defyne™" },
+    { "type": "header", "content": "Colonne 2" },
+    { "type": "image_picker", "id": "col2_image", "label": "Image" },
+    { "type": "text", "id": "col2_label", "label": "Libellé cadre", "default": "Tee" },
+    { "type": "text", "id": "col2_head", "label": "Titre colonne", "default": "Classic compression tee" },
+    { "type": "header", "content": "Colonne 3" },
+    { "type": "image_picker", "id": "col3_image", "label": "Image" },
+    { "type": "text", "id": "col3_label", "label": "Libellé cadre", "default": "Shirt" },
+    { "type": "text", "id": "col3_head", "label": "Titre colonne", "default": "Classic t-shirt" }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Ligne",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Critère", "default": "All-day comfort compression" },
+        { "type": "checkbox", "id": "c1", "label": "Colonne 1 (✓)", "default": true },
+        { "type": "checkbox", "id": "c2", "label": "Colonne 2 (✓)", "default": false },
+        { "type": "checkbox", "id": "c3", "label": "Colonne 3 (✓)", "default": false }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+        { "type": "row", "settings": { "label": "All-day comfort compression", "c1": true, "c2": false, "c3": false } },
+        { "type": "row", "settings": { "label": "Erases belly and love handles", "c1": true, "c2": false, "c3": false } },
+        { "type": "row", "settings": { "label": "Invisible under any shirt", "c1": true, "c2": false, "c3": false } },
+        { "type": "row", "settings": { "label": "High-quality technical shaping fabric", "c1": true, "c2": true, "c3": false } },
+        { "type": "row", "settings": { "label": "Lightweight anti-sweat fabric", "c1": true, "c2": true, "c3": false } },
+        { "type": "row", "settings": { "label": "Doubles as a sharp sports tee", "c1": true, "c2": false, "c3": false } },
+        { "type": "row", "settings": { "label": "30-day money-back guarantee", "c1": true, "c2": false, "c3": false } }
+    ]
+  }
+}
+{% endschema %}

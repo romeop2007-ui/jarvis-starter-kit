@@ -1,0 +1,101 @@
+{%- comment -%}
+  Defyne — Footer (pied de page). Chrome partagé via le layout.
+  - Newsletter : titre éditable (le champ email est cosmétique, comme la maquette).
+  - 2 colonnes de liens (Menu / Information) : 1 bloc par lien, avec choix de la colonne.
+  - Bas de page : libellé de pays/devise, copyright, et badges de paiement
+    (liste séparée par des virgules).
+{%- endcomment -%}
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-news">
+        <h3>{{ section.settings.news_heading | escape }}</h3>
+        <form class="news-input" onsubmit="return false">
+          <input type="email" placeholder="{{ section.settings.news_placeholder | escape }}" />
+          <button type="submit">›</button>
+        </form>
+      </div>
+
+      <div class="foot-col">
+        <h4>{{ section.settings.col1_title | escape }}</h4>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'menu_link' -%}
+            <a href="{{ block.settings.url | default: '#' }}" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      <div class="foot-col">
+        <h4>{{ section.settings.col2_title | escape }}</h4>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'info_link' -%}
+            <a href="{{ block.settings.url | default: '#' }}" {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="foot-bot">
+      <span class="cur">{{ section.settings.country_label }} <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px;stroke:#fff"><path d="M6 9l6 6 6-6"/></svg></span>
+      <span class="cp">{{ section.settings.copyright | escape }}</span>
+      <div class="foot-pay">
+        {%- assign pays = section.settings.payments | split: ',' -%}
+        {%- for p in pays -%}
+          <span>{{ p | strip | escape }}</span>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Defyne — Footer",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "Newsletter" },
+    { "type": "text", "id": "news_heading", "label": "Titre newsletter", "default": "Sign up for our newsletter" },
+    { "type": "text", "id": "news_placeholder", "label": "Placeholder email", "default": "E-mail" },
+    { "type": "header", "content": "Colonnes de liens" },
+    { "type": "text", "id": "col1_title", "label": "Titre colonne 1", "default": "Menu" },
+    { "type": "text", "id": "col2_title", "label": "Titre colonne 2", "default": "Information" },
+    { "type": "header", "content": "Bas de page" },
+    { "type": "text", "id": "country_label", "label": "Pays / devise", "default": "🇺🇸 United States (USD $)" },
+    { "type": "text", "id": "copyright", "label": "Copyright", "default": "© 2026, Defyne" },
+    { "type": "text", "id": "payments", "label": "Badges paiement (séparés par des virgules)", "default": "AMEX, Apple Pay, Diners, Discover, G Pay, JCB, Mastercard, VISA" }
+  ],
+  "blocks": [
+    {
+      "type": "menu_link",
+      "name": "Lien colonne 1 (Menu)",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Libellé", "default": "Home" },
+        { "type": "url", "id": "url", "label": "Lien" }
+      ]
+    },
+    {
+      "type": "info_link",
+      "name": "Lien Information",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Libellé", "default": "Contact" },
+        { "type": "url", "id": "url", "label": "Lien" }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+        { "type": "menu_link", "settings": { "label": "Home" } },
+        { "type": "menu_link", "settings": { "label": "Defyne" } },
+        { "type": "menu_link", "settings": { "label": "Contact" } },
+        { "type": "menu_link", "settings": { "label": "Track my order" } },
+        { "type": "info_link", "settings": { "label": "Contact" } },
+        { "type": "info_link", "settings": { "label": "Privacy policy" } },
+        { "type": "info_link", "settings": { "label": "Refund policy" } },
+        { "type": "info_link", "settings": { "label": "Shipping policy" } },
+        { "type": "info_link", "settings": { "label": "Terms of sale" } },
+        { "type": "info_link", "settings": { "label": "Terms of use" } },
+        { "type": "info_link", "settings": { "label": "Legal notice" } }
+    ]
+  }
+}
+{% endschema %}

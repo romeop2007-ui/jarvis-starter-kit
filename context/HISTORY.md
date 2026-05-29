@@ -7,6 +7,39 @@
 
 ---
 
+## 2026-05-29 (mise à jour 2)
+
+### Décision produit + marché : débardeur gainant homme, lancement Royaume-Uni
+
+**Roméo avait déjà refait sa recherche produit de son côté (il aime chercher seul) et est revenu avec une cible : la niche sport/confiance corporelle masculine, via le site français underfitmen.com.**
+
+**Le produit :** débardeur de compression gainant pour homme. Angle émotionnel fort (ventre de bière, poignées d'amour, "seins d'homme", confiance). One-product store, evergreen, achat impulsif. Coche les cases d'un bon produit.
+
+**Analyse TrendTrack (29/05/2026) :**
+- Le concurrent original (page "Trywhite", domaine underfitmen.com) est un gagnant FRAIS : page démarrée ~avril 2026, explose en mai (~9M reach/30j, 142 pubs actives, top pub ~987k reach et ~8 900 € spend estimé sur 28j). Offre 23 €/pièce, 2 achetés = 1 offert.
+- Il ne cible QUE la France et la Belgique.
+- Le produit "débardeur gainant homme" est quasi désert hors de France : personne ne le scale ailleurs. La version femme du shapewear, elle, explose (notamment en Allemagne).
+- La verticale "insécurité masculine" (calvitie, testostérone, ED) scale fort en UK, Allemagne, Espagne, Italie → demande validée pour les produits confiance/corps homme.
+
+**Correction honnête restituée à Roméo :** j'avais d'abord affirmé (sans donnée) que ce produit était saturé dans l'anglophone. Les chiffres TrendTrack montrent l'inverse : le produit précis est ouvert hors de France. Le cas est un "traduire avant d'innover" idéal (gagnant FR récent → marché neuf).
+
+**Décisions actées par Roméo :**
+- **Niche** : confiance corporelle masculine
+- **Produit** : débardeur de compression gainant homme (modèle Underfit)
+- **Marché** : **Royaume-Uni uniquement** au lancement, en anglais
+- **Expansion** : US et Allemagne en réserve, à rajouter seulement si le produit performe
+- **Modèle** : one-product store, copie/traduction du concept underfitmen.com vers l'anglais UK
+- **Marque** : nom anglais à créer
+
+**Mise à jour CONTEXT.md :**
+- Section business : niche / produit / marché renseignés (UK au lieu de France par défaut)
+- Sujet "Recherche produit V2" passé en ✅ résolu, nouveau sujet 🟡 "Boutique UK" en priorité active
+- Engagement "refaire la recherche produit" remplacé par "Boutique UK à construire"
+
+**Prochaine étape :** creuser le marché UK pour de vrai (saturation fine, CPM, concurrents locaux, offre en £).
+
+---
+
 ## 2026-05-29
 
 ### Pivot complet : abandon PureSun, retour à la case recherche produit

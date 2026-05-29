@@ -1,0 +1,73 @@
+{%- comment -%}
+  ===========================================================================
+  Defyne — Section "Badges de confiance" (réutilisable)
+  ---------------------------------------------------------------------------
+  La rangée de 4 badges identique à la maquette (Free shipping, 24/7,
+  garantie 30 jours, paiements sécurisés). Réutilisable sur contact,
+  homepage, track order. Les 4 libellés sont éditables dans le
+  personnalisateur. Icônes fixes (correspondance 1:1 avec la maquette).
+  ===========================================================================
+{%- endcomment -%}
+
+<section class="dfy-trust-sec">
+  <div class="dfy-wrap">
+    <div class="dfy-tb-grid">
+      <div class="dfy-tb">
+        <div class="dfy-circ dfy-circ--dark"><svg viewBox="0 0 24 24"><path d="M3 8l9-5 9 5-9 5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></div>
+        <p>{{ section.settings.badge1 | escape }}</p>
+      </div>
+      <div class="dfy-tb">
+        <div class="dfy-circ"><svg viewBox="0 0 24 24"><path d="M4 13a8 8 0 0116 0M4 13v3a2 2 0 002 2M20 13v3a2 2 0 01-2 2h-3"/></svg></div>
+        <p>{{ section.settings.badge2 | escape }}</p>
+      </div>
+      <div class="dfy-tb">
+        <div class="dfy-circ"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-3-6.7M21 4v5h-5"/></svg></div>
+        <p>{{ section.settings.badge3 | escape }}</p>
+      </div>
+      <div class="dfy-tb">
+        <div class="dfy-circ"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></div>
+        <p>{{ section.settings.badge4 | escape }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+.dfy-trust-sec{
+  --dfy-ink:#101114;
+  --dfy-maxw:1180px;
+  --dfy-gutter:24px;
+  font-family:'Archivo',system-ui,sans-serif;
+  color:var(--dfy-ink);
+  padding:0 0 100px;
+}
+.dfy-trust-sec .dfy-wrap{max-width:var(--dfy-maxw);margin:0 auto;padding:0 var(--dfy-gutter)}
+.dfy-tb-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+.dfy-tb{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+.dfy-tb .dfy-circ{width:74px;height:74px;border-radius:50%;background:#dbe7ee;
+  display:flex;align-items:center;justify-content:center}
+.dfy-tb .dfy-circ--dark{background:var(--dfy-ink)}
+.dfy-tb .dfy-circ--dark svg{stroke:#fff}
+.dfy-tb .dfy-circ svg{width:30px;height:30px;stroke:#4a5560;fill:none;stroke-width:1.6}
+.dfy-tb p{font-weight:700;font-size:15px;max-width:16ch;margin:0}
+
+@media (max-width:980px){
+  .dfy-tb-grid{grid-template-columns:1fr 1fr;gap:40px}
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Defyne — Badges confiance",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "badge1", "label": "Badge 1", "default": "Free shipping" },
+    { "type": "text", "id": "badge2", "label": "Badge 2", "default": "24/7 customer service" },
+    { "type": "text", "id": "badge3", "label": "Badge 3", "default": "30-day money-back guarantee" },
+    { "type": "text", "id": "badge4", "label": "Badge 4", "default": "Secure payments" }
+  ],
+  "presets": [
+    { "name": "Defyne — Badges confiance" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,192 @@
+{% layout 'defyne' %}
+{%- comment -%}
+  ===========================================================================
+  Defyne — Template page "Track my order" (rendu 1:1 de "Defyne Track Order.html")
+  ---------------------------------------------------------------------------
+  Reproduction EXACTE : ticker, header/nav, bloc de suivi centré, badges, footer.
+  Le champ de suivi est cosmétique (comme la maquette) : à brancher plus tard
+  sur ton transporteur / appli de tracking. Liens de nav adaptés aux URL Shopify.
+  Utilise le layout isolé 'defyne'.
+  ===========================================================================
+{%- endcomment -%}
+
+<style>
+:root{
+  --ink:#101114; --paper:#ffffff; --soft:#f4f5f7; --muted:#73777e;
+  --line:#e6e8eb; --accent:#1496d6; --accent-deep:#0c79b3; --ok:#1f9d57; --warn:#d2473c;
+  --maxw:1180px; --gutter:24px; --r:14px; --t-h1:clamp(40px, 6vw, 84px); --t-body:17px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',system-ui,sans-serif;color:var(--ink);background:var(--paper);
+  font-size:var(--t-body);line-height:1.55;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+.display{font-weight:900;line-height:1.02;letter-spacing:-.01em}
+.accent{color:var(--accent)}
+.icon{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.7}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:14px;
+  letter-spacing:.08em;text-transform:uppercase;padding:18px 56px;border-radius:999px;transition:transform .15s ease, background .15s ease;}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:#000}
+.ticker{background:var(--ink);color:#fff;overflow:hidden;white-space:nowrap}
+.ticker-track{display:inline-flex;padding:10px 0;animation:scroll 28s linear infinite}
+.ticker-track span{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:0 36px;position:relative;}
+.ticker-track span::after{content:"•";position:absolute;right:-4px;opacity:.45}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{font-weight:900;font-size:22px;letter-spacing:.04em;text-transform:uppercase}
+.logo b{color:var(--accent)}
+.nav-links{display:flex;gap:34px}
+.nav-links a{font-weight:600;font-size:15px;position:relative}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+.nav-utils{display:flex;align-items:center;gap:22px}
+.nav-utils .cur{font-weight:600;font-size:14px;display:flex;align-items:center;gap:6px}
+.track{padding:110px 0 120px;text-align:center}
+.track h1{font-size:var(--t-h1);max-width:12ch;margin:0 auto 30px}
+.track .intro{color:var(--muted);font-size:18px;max-width:60ch;margin:0 auto 48px;text-wrap:pretty}
+.track .intro a{font-weight:700;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.track-form{max-width:640px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:34px}
+.track-form input{width:100%;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:22px 22px;
+  font-family:inherit;font-size:17px;color:var(--ink);text-align:center;outline:none;transition:border-color .15s, box-shadow .15s, background .15s;}
+.track-form input::placeholder{color:var(--muted)}
+.track-form input:focus{background:#fff;border-color:var(--accent);box-shadow:0 0 0 3px rgba(20,150,214,.12)}
+.track-result{display:none;margin-top:4px;color:var(--muted);font-size:15px}
+.track-result.show{display:block}
+.trust-sec{padding:0 0 100px}
+.tb-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+.tb{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+.tb .circ{width:74px;height:74px;border-radius:50%;background:#dbe7ee;display:flex;align-items:center;justify-content:center}
+.tb:first-child .circ{background:var(--ink)}
+.tb:first-child .circ svg{stroke:#fff}
+.tb .circ svg{width:30px;height:30px;stroke:#4a5560;fill:none;stroke-width:1.6}
+.tb p{font-weight:700;font-size:15px;max-width:16ch}
+footer{background:var(--ink);color:#fff;padding:80px 0 40px}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:64px}
+.foot-news h3{font-size:30px;font-weight:700;line-height:1.15;margin-bottom:24px;max-width:14ch}
+.news-input{display:flex;border:1px solid #34373d;border-radius:10px;overflow:hidden;max-width:420px}
+.news-input input{flex:1;background:transparent;border:none;color:#fff;padding:16px 18px;font-family:inherit;font-size:15px;outline:none}
+.news-input input::placeholder{color:#7c8088}
+.news-input button{padding:0 20px;color:#fff;font-size:18px}
+.foot-col h4{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8b9099;margin-bottom:20px}
+.foot-col a{display:block;color:#d4d6da;font-size:15px;padding:7px 0}
+.foot-col a:hover{color:#fff}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #2a2d33;padding-top:30px;flex-wrap:wrap;gap:20px}
+.foot-bot .cur{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px}
+.foot-bot .cp{font-size:13px;color:#8b9099}
+.foot-pay{display:flex;gap:8px;flex-wrap:wrap}
+.foot-pay span{font-size:10px;font-weight:700;color:#9ba0a7;border:1px solid #34373d;border-radius:5px;padding:5px 8px}
+@media (max-width:980px){
+  .nav-links{display:none}
+  .foot-top{grid-template-columns:1fr;gap:36px}
+  .tb-grid{grid-template-columns:1fr 1fr;gap:40px}
+}
+@media (max-width:560px){
+  .track{padding:64px 0 72px}
+  .btn{width:100%}
+}
+</style>
+
+<!-- ============ ANNOUNCEMENT TICKER ============ -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>In stock — selling out fast</span>
+    <span>Limited-time sale</span>
+    <span>Free shipping until midnight tonight</span>
+    <span>In stock — selling out fast</span>
+    <span>Limited-time sale</span>
+    <span>Free shipping until midnight tonight</span>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap nav">
+    <a href="{{ routes.root_url }}" class="logo">De<b>fyne</b></a>
+    <nav class="nav-links">
+      <a href="{{ routes.root_url }}">Home</a>
+      <a href="{{ routes.root_url }}#product">Defyne</a>
+      <a href="/pages/contact">Contact</a>
+      <a href="{{ request.path }}" class="active">Track my order</a>
+    </nav>
+    <div class="nav-utils">
+      <span class="cur">USD&nbsp;$ <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M6 9l6 6 6-6"/></svg></span>
+      <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <svg class="icon" viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6L5 3H2"/></svg>
+    </div>
+  </div>
+</header>
+
+<!-- ============ TRACK MY ORDER ============ -->
+<section class="track">
+  <div class="wrap">
+    <h1 class="display">Track my order</h1>
+    <p class="intro">Enter the tracking number from the shipping confirmation email you received. Need help tracking your order? <a href="/pages/contact">Get in touch via our contact form</a>.</p>
+    <form class="track-form" onsubmit="return trackOrder(event)">
+      <input type="text" id="trackingNo" placeholder="Tracking number" required />
+      <button type="submit" class="btn btn-primary">Track</button>
+      <p class="track-result" id="trackResult">We couldn't find that tracking number yet. Newly shipped orders can take up to 24 hours to appear — please try again shortly.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ TRUST BADGES ============ -->
+<section class="trust-sec">
+  <div class="wrap">
+    <div class="tb-grid">
+      <div class="tb"><div class="circ"><svg viewBox="0 0 24 24"><path d="M3 8l9-5 9 5-9 5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></div><p>Free shipping</p></div>
+      <div class="tb"><div class="circ"><svg viewBox="0 0 24 24"><path d="M4 13a8 8 0 0116 0M4 13v3a2 2 0 002 2M20 13v3a2 2 0 01-2 2h-3"/></svg></div><p>24/7 customer service</p></div>
+      <div class="tb"><div class="circ"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-3-6.7M21 4v5h-5"/></svg></div><p>30-day money-back guarantee</p></div>
+      <div class="tb"><div class="circ"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></div><p>Secure payments</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-news">
+        <h3>Sign up for our newsletter</h3>
+        <form class="news-input" onsubmit="return false">
+          <input type="email" placeholder="E-mail" />
+          <button type="submit">›</button>
+        </form>
+      </div>
+      <div class="foot-col">
+        <h4>Menu</h4>
+        <a href="{{ routes.root_url }}">Home</a>
+        <a href="{{ routes.root_url }}#product">Defyne</a>
+        <a href="/pages/contact">Contact</a>
+        <a href="{{ request.path }}">Track my order</a>
+      </div>
+      <div class="foot-col">
+        <h4>Information</h4>
+        <a href="/pages/contact">Contact</a>
+        <a href="#">Privacy policy</a>
+        <a href="#">Refund policy</a>
+        <a href="#">Shipping policy</a>
+        <a href="#">Terms of sale</a>
+        <a href="#">Terms of use</a>
+        <a href="#">Legal notice</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span class="cur">🇺🇸 United States (USD $) <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px;stroke:#fff"><path d="M6 9l6 6 6-6"/></svg></span>
+      <span class="cp">© 2026, Defyne</span>
+      <div class="foot-pay"><span>AMEX</span><span>Apple Pay</span><span>Diners</span><span>Discover</span><span>G Pay</span><span>JCB</span><span>Mastercard</span><span>VISA</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Track lookup — cosmétique. À brancher sur ton transporteur / appli de suivi plus tard. */
+function trackOrder(e){
+  e.preventDefault();
+  document.getElementById('trackResult').classList.add('show');
+  return false;
+}
+</script>

@@ -64,7 +64,7 @@
 
 **Prochaine étape actée :**
 - Refaire une recherche produit V2 (via TrendTrack), orientée one-product store
-- Une fois le produit trouvé, et la micro-entreprise validée (en attente), enchaîner sur le reste
+- Une fois le produit trouvé, enchaîner sur la construction de la boutique (Shopify + visuel ne dépendent pas de la validation micro-entreprise)
 
 **Mise à jour CONTEXT.md :**
 - Niche / produit / marque : tous repassés en "à trouver"
@@ -99,8 +99,8 @@
 - **Sourcing** : Roméo s'en charge en autonomie (pas via Jarvis)
 
 **Recalibrage planning :**
-- Sprint #1 anticipé : dès validation micro-entreprise (sans attendre le 13/06)
-- Objectif : boutique en ligne + ads tournants sous 2 semaines après validation
+- Sprint #1 anticipé : démarrage du déploiement boutique (sans attendre le 13/06)
+- Objectif : boutique en ligne + ads tournants sous 2 semaines
 - Semaine d'examens (8-12 juin) à gérer en parallèle si nécessaire
 - Plan automne/hiver à définir avant fin août (saisonnalité lunettes en FR)
 

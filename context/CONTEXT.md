@@ -86,7 +86,8 @@
 
 ### Comptes et outils
 - **Déjà payés/actifs :** Claude Code Pro, TrendTrack (MCP actif, 10 000 crédits/mois)
-- **À ouvrir post-validation micro-entreprise :** Shopify (abonnement annuel), Meta Business Manager, Revolut pro
+- **À démarrer dès maintenant (pas besoin de la micro-entreprise) :** Shopify (abonnement annuel) + toute la construction visuelle de la boutique (thème, sections, pages)
+- **À ouvrir post-validation micro-entreprise :** Meta Business Manager, Revolut pro
 - **Pas encore décidé :** fournisseur (CJ Dropshipping, Zendrop ou agent privé), à choisir une fois le produit identifié
 
 ### Niveau de connaissance technique actuel (honnête)
@@ -138,11 +139,11 @@
 > Liste des engagements en cours dont Claude doit me rappeler l'existence au début de chaque session (via `/prime` ou directement).
 
 - **🗓️ 30 mai 2026 à 14h30** — Réunion centre aéré (affectation lieu de travail été)
-- **⏳ En attente** — Validation micro-entreprise (réponse attendue dans les prochains jours, prévenir Claude dès réception pour enchaîner ouverture Shopify + Meta BM + Revolut pro)
+- **⏳ En attente** — Validation micro-entreprise (réponse attendue dans les prochains jours, prévenir Claude dès réception pour enchaîner ouverture Meta BM + Revolut pro). Ne bloque pas le Shopify ni le visuel, qui peuvent avancer dès maintenant.
 - **🔁 Tous les dimanches 17h-18h** — Rendez-vous hebdo `/semaine` : bilan semaine + objectifs de la semaine à venir. **Premier rendez-vous : dimanche 31 mai 2026.**
 - **🗓️ 13-14 juin 2026** — Faire la Phase 4 du processus de personnalisation Jarvis (workflow et préférences de travail), à enchaîner juste après les examens
 - **🚀 13 juin → 27 juin 2026** — Sprint #1 business, 5-6h/jour, objectif : boutique Shopify lancée + premier test ads tournant
-- **🇬🇧 Boutique UK à construire** — Niche/produit/marché actés le 29/05/2026 (débardeur gainant homme, marché Royaume-Uni). Reste à faire : creuser le marché UK (saturation, CPM, concurrents locaux, offre en £), créer la marque + le nom anglais, construire la boutique, traduire/adapter les créas. Démarre au Sprint #1 (13-27 juin) ou avant si la validation micro-entreprise tombe.
+- **🇬🇧 Boutique UK à construire** — Niche/produit/marché actés le 29/05/2026 (débardeur gainant homme, marché Royaume-Uni). Reste à faire : creuser le marché UK (saturation, CPM, concurrents locaux, offre en £), construire la boutique, traduire/adapter les créas. La construction (Shopify + visuel) peut démarrer dès maintenant, sans attendre la validation micro-entreprise.
 
 ---
 
@@ -151,7 +152,7 @@
 > Choses que Roméo m'a racontées qui méritent un suivi proactif. À chaque début de session, je sélectionne 1 à 3 sujets pertinents et lui pose des questions du type *"au fait, la dernière fois tu m'avais parlé de X, où ça en est ?"*. Je mets à jour le statut (en cours, résolu, abandonné, reporté) au fil de ses réponses.
 
 ### Business
-- 🟡 **Validation micro-entreprise** — En attente depuis le 26/05/2026. Déléguée. Réponse attendue dans les jours qui viennent. À relancer chaque session jusqu'à confirmation. Déclenche l'ouverture Shopify + Meta BM + Revolut pro.
+- 🟡 **Validation micro-entreprise** — En attente depuis le 26/05/2026. Déléguée. Réponse attendue dans les jours qui viennent. À relancer chaque session jusqu'à confirmation. Déclenche l'ouverture Meta BM + Revolut pro (le Shopify et le visuel peuvent avancer sans attendre).
 - ✅ **Recherche produit (V2)** — Résolue le 29/05/2026. Produit acté : débardeur de compression gainant homme (modèle Underfit / underfitmen.com), marché Royaume-Uni. One-product store.
 - 🟡 **Boutique UK** — PRIORITÉ ACTIVE. Prochaine étape : creuser le marché UK (saturation, CPM, concurrents locaux, offre en £), puis nom de marque anglais, boutique, créas. Expansion US/Allemagne en réserve si ça performe.
 - 🟡 **Sourcing produit** — Roméo s'en charge lui-même (CJ/Zendrop/AliExpress). Vérifier que le fournisseur livre bien au Royaume-Uni dans des délais corrects.

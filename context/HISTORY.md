@@ -7,6 +7,39 @@
 
 ---
 
+## 2026-05-29
+
+### Pivot complet : abandon PureSun, retour à la case recherche produit
+
+**Roméo a réalisé après une nuit de recul qu'il fallait abandonner le projet PureSun.**
+
+**Raison du pivot :**
+- Le marché des lunettes de soleil exige un catalogue large (concurrents avec 50-100 modèles)
+- Pour copier la logique du concurrent référent, il faudrait reproduire ~70 paires
+- Son fournisseur actuel ne peut pas livrer un catalogue de cette taille
+- Démarrer avec 1 produit dans une catégorie où les marques en ont 70+ ne tient pas crédibilité
+
+**Décision :**
+- Abandon total du projet PureSun (boutique, produit, marque, design)
+- Boutique et produit Shopify supprimés par Roméo lui-même
+- Tous les artefacts locaux PureSun + références QuickSun supprimés du workspace
+- Retour à la case « recherche produit » avec un nouveau critère bloquant : **doit être faisable en one-product store** (1 à 10 références max)
+
+**Posture associé sur ce pivot :**
+- Décision validée comme lucide : copier un catalogue large avec 1 produit, ça ne tient pas crédibilité de marque
+- Pas de jugement, pas de relance sur les efforts précédents : on remet à plat et on avance
+
+**Prochaine étape actée :**
+- Refaire une recherche produit V2 (via TrendTrack), orientée one-product store
+- Une fois le produit trouvé, et la micro-entreprise validée (en attente), enchaîner sur le reste
+
+**Mise à jour CONTEXT.md :**
+- Niche / produit / marque : tous repassés en "à trouver"
+- Engagements actifs : retrait du sprint anticipé PureSun
+- Sujets ouverts à relancer : choix niche/produit/marque rouverts, items PureSun-spécifiques (domaine, saisonnalité, time-to-market) supprimés
+
+---
+
 ## 2026-05-28
 
 ### Décision produit + marque : lancement PureSun™ (lunettes de soleil, marché FR)

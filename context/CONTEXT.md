@@ -71,12 +71,11 @@
 - Modèle économique : Dropshipping (pas de stock propre)
 - Statut : Micro-entreprise en cours de validation (création déléguée, réponse attendue dans les prochains jours)
 - Première tentative business (aucun lancement précédent, vierge total)
-- **Niche : lunettes de soleil** (tranché le 28/05/2026)
-- **Produit cible : lunettes minimalistes inspiration QuickSun™ Italia** (modèles type Classic, prix cible ~29,99 €, offre 1+1 à -50%)
-- **Marque : PureSun™**
-- **Pays cible : France**
-- **Méthode** : copie intégrale de la page quicksunbrand.com, traduction FR, branding PureSun™. Méthode "traduire avant d'innover" de la formation.
-- **Source du repérage** : TrendTrack, signal validé le 28/05/2026 : 59 ads actives QuickSun, top ad 838k reach et ~7 500 € de spend estimé sur 36 jours, scaling démarré le 22/04/2026, mono-pays Italie, aucun concurrent direct identifié sur le segment FR. Time-to-market critique (fenêtre estimée 2-4 semaines avant copy-cats FR).
+- **Niche : à retrouver** (recherche en cours, repart de zéro le 29/05/2026 après pivot)
+- **Produit cible : à trouver**
+- **Marque : à définir**
+- **Pays cible : France** (par défaut, ajustable selon produit)
+- **Contrainte sourcing actée** : le fournisseur actuel ne peut pas livrer de catalogue large (70+ références). → orientation **one-product store** ou niche compatible avec un catalogue restreint (1 à 10 produits max).
 
 ### Budget
 - **Plafond test publicitaire :** 200-400 €/mois max avant premières ventes
@@ -142,7 +141,7 @@
 - **🔁 Tous les dimanches 17h-18h** — Rendez-vous hebdo `/semaine` : bilan semaine + objectifs de la semaine à venir. **Premier rendez-vous : dimanche 31 mai 2026.**
 - **🗓️ 13-14 juin 2026** — Faire la Phase 4 du processus de personnalisation Jarvis (workflow et préférences de travail), à enchaîner juste après les examens
 - **🚀 13 juin → 27 juin 2026** — Sprint #1 business, 5-6h/jour, objectif : boutique Shopify lancée + premier test ads tournant
-- **⚡ Sprint anticipé PureSun** — Dès validation micro-entreprise, déclencher le lancement (sans attendre le 13 juin). Time-to-market critique pour devancer les copy-cats FR sur la formule QuickSun. Sprint à mener en parallèle de la semaine d'examens (8-12 juin) si nécessaire.
+- **🔎 Avant validation micro-entreprise** — Refaire la recherche produit (TrendTrack + analyse), dans une logique one-product store compatible avec la contrainte fournisseur. Décision niche + produit avant de relancer Shopify.
 
 ---
 
@@ -151,14 +150,9 @@
 > Choses que Roméo m'a racontées qui méritent un suivi proactif. À chaque début de session, je sélectionne 1 à 3 sujets pertinents et lui pose des questions du type *"au fait, la dernière fois tu m'avais parlé de X, où ça en est ?"*. Je mets à jour le statut (en cours, résolu, abandonné, reporté) au fil de ses réponses.
 
 ### Business
-- 🟡 **Validation micro-entreprise** — En attente depuis le 26/05/2026. Déléguée. Réponse attendue dans les jours qui viennent. À relancer chaque session jusqu'à confirmation. **PRIORITÉ MAX** : déclenche l'ouverture Shopify + Meta BM + Revolut pro et le lancement boutique PureSun.
-- ✅ **Choix de la niche** — Tranché le 28/05/2026 : lunettes de soleil.
-- ✅ **Choix du produit cible** — Tranché le 28/05/2026 : lunettes minimalistes inspiration QuickSun.
-- ✅ **Nom de marque** — Tranché le 28/05/2026 : PureSun™.
-- 🟡 **Domaine PureSun** — À acheter dès cette semaine. Ordre de priorité : puresun.com, puresunbrand.com, puresun.co, puresun.fr.
-- 🟡 **Sourcing produit** — Roméo s'en charge lui-même (CJ/Zendrop/AliExpress).
-- 🟡 **Plan saisonnalité automne/hiver** — Lunettes de soleil = produit saisonnier FR (pic mai-août, creux sept-fév). À ré-aborder avant fin août 2026 : soit accepter saison creuse pendant Saragosse, soit prévoir produit d'hiver dans la boutique. Pas de pression avant.
-- 🟡 **Time-to-market PureSun** — Fenêtre critique. Objectif : boutique en ligne et ads tournants dans les 2 semaines suivant la validation micro-entreprise pour devancer les copy-cats FR.
+- 🟡 **Validation micro-entreprise** — En attente depuis le 26/05/2026. Déléguée. Réponse attendue dans les jours qui viennent. À relancer chaque session jusqu'à confirmation. Déclenche l'ouverture Shopify + Meta BM + Revolut pro.
+- 🟡 **Recherche produit (V2)** — Relancée le 29/05/2026 après pivot. Critère bloquant : doit être faisable en one-product store (1 à 10 références max), compatible avec les capacités actuelles du fournisseur. PRIORITÉ ACTIVE.
+- 🟡 **Sourcing produit** — Roméo s'en charge lui-même (CJ/Zendrop/AliExpress). Contrainte connue : pas de catalogue large possible pour l'instant.
 
 ### Études
 - 🟡 **Affectation centre aéré** — RDV 30/05/2026 à 14h30 pour savoir où il bossera cet été. À relancer juste après cette date. (Garde le focus business : c'est lié à la trésorerie pour le sprint.)

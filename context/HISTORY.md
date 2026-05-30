@@ -7,6 +7,24 @@
 
 ---
 
+## 2026-05-30 (mise à jour 7)
+
+### Galerie homepage alignée sur la page produit (sculpted-product)
+
+**Problème :** La section "Sculpted — Produit" de la homepage utilisait des images codées en dur via `image_picker`, au lieu de lire les photos de l'onglet Produit Shopify comme la page produit.
+
+**Fix appliqué dans `sculpted-product.liquid` :**
+- Résolution `sc_prod` corrigée : fallback sur `product` si le réglage "Produit Shopify" est vide (aligné sur `sculpted-buybox`)
+- Galerie remplacée : lit maintenant `sc_prod.images` automatiquement avec vignettes cliquables (`sculptedSwapHero`)
+- Repli intelligent conservé sur les blocs `image_picker` si le produit n'a aucune photo
+- Fonction `sculptedSwapHero` ajoutée au bloc `<script>` de la section
+
+**Commit :** `11fe5c1`
+
+**Prochaine étape :** `shopify theme push --store cqqah9-t1.myshopify.com --theme 200683258201 --path "livrables/ecommerce/boutiques/sculpted-shopify"` pour mettre en ligne tous les commits en attente (galerie buybox, fix 404 nav, galerie homepage).
+
+---
+
 ## 2026-05-31 (mise à jour 2)
 
 ### Fix 404 : lien nav "Sculpted" redirigé vers la fiche produit

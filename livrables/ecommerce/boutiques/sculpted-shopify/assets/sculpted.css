@@ -140,11 +140,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .tier .price .was{font-size:13px;color:var(--muted);text-decoration:line-through}
 .tier .flag{position:absolute;top:-11px;right:16px;font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--ink);padding:4px 10px;border-radius:6px}
 .tier .flag.hot{background:var(--warn)}
-.tier-opts{display:none;gap:10px;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
-.tier.sel .tier-opts{display:flex;flex-direction:column}
-.opt-row{display:flex;align-items:center;gap:10px;font-size:13px}
-.opt-row .n{width:24px;font-weight:700;color:var(--muted)}
-.opt-row select{flex:1;padding:9px 12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:13px;background:#fff}
+.buy-opts{display:flex;gap:12px;margin:4px 0 16px;text-align:left}
+.buy-opts .opt{flex:1;display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.buy-opts .opt select{padding:11px 12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink);background:#fff;text-transform:none;letter-spacing:0}
+.btn.sc-buy:disabled{opacity:.6;cursor:wait}
 .last-chance{text-align:center;margin:34px 0 14px}
 .last-chance h3{font-size:26px;font-weight:900;text-transform:uppercase;margin-bottom:18px}
 .lc-eq{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:14px}

@@ -7,6 +7,23 @@
 
 ---
 
+## 2026-05-30 (mise à jour 5)
+
+### Fix page produit Shopify + correction homepage cassée
+
+**Problème :** page produit en 404 (template manquant), puis homepage cassée après un premier fix incorrect.
+
+**Cause du bug homepage :** le premier `product.liquid` réutilisait toutes les sections de `index.liquid`. Dans Shopify, une section statique ne peut appartenir qu'à un seul template dans l'éditeur. Résultat : conflit qui cassait la homepage.
+
+**Fix propre :**
+- Création de `sections/sculpted-buybox.liquid` : section dédiée à la page produit (copie de `sculpted-product` mais avec un nom distinct pour éviter tout conflit)
+- `templates/product.liquid` refait pour n'appeler que `sculpted-buybox`, sans aucune section partagée avec `index.liquid`
+- Commit `a1c8937`
+
+**Prochaine étape :** lancer `shopify theme push --store cqqah9-t1.myshopify.com --theme 200671494489` pour pousser les fixes.
+
+---
+
 ## 2026-05-30 (mise à jour 4)
 
 ### Micro-entreprise validée

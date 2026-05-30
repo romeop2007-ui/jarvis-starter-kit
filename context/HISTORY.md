@@ -7,6 +7,21 @@
 
 ---
 
+## 2026-05-30 (mise à jour 2)
+
+### Ajout section banner image (boutique Sculpted)
+
+- Nouvelle section `sculpted-banner.liquid` insérée entre le header et le hero dans `templates/index.liquid`
+- Paramètres éditables dans Personnaliser : image (image_picker), hauteur (champ number, sans limite), cadrage haut/centre/bas, lien optionnel
+- CSS ajouté dans `sculpted.css`
+- Bug Shopify contourné : le type `range` cachait l'ancienne valeur max (900px) malgré le push → remplacé par type `number` (champ texte libre, pas de limite)
+- Thème poussé sur Shopify (`shopify theme push`) par Roméo
+- Commit `daee2ab`
+
+**Prochaine étape :** uploader la photo produit dans Personnaliser → "Sculpted — Banner image", puis uploader les vraies photos produit sur les autres sections, brancher le bouton "Buy now" sur un vrai produit Shopify, puis créas Meta Ads.
+
+---
+
 ## 2026-05-30
 
 ### Rebrand boutique : Defyne → Sculpted

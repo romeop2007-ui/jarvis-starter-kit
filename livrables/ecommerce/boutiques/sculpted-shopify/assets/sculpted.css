@@ -119,6 +119,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .thumbs{display:flex;flex-direction:column;gap:12px}
 .thumbs .frame{aspect-ratio:1;min-height:0;border-radius:10px}
 .gallery .hero-img{aspect-ratio:1;min-height:0}
+.thumbs .frame[onclick]{cursor:pointer;border:1px solid var(--line)}
+.thumbs .frame.sel{border-color:var(--accent);box-shadow:0 0 0 2px rgba(20,150,214,.35)}
 .buy-info .rating{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);font-weight:600}
 .buy-info .rating .stars{font-size:15px}
 .buy-info h2{font-size:28px;font-weight:800;margin:14px 0 12px;line-height:1.15}

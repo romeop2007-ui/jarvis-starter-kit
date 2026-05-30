@@ -1,5 +1,5 @@
 {%- comment -%}
-  Defyne — Footer (pied de page). Chrome partagé via le layout.
+  Sculpted — Footer (pied de page). Chrome partagé via le layout.
   - Newsletter : titre éditable (le champ email est cosmétique, comme la maquette).
   - 2 colonnes de liens (Menu / Information) : 1 bloc par lien, avec choix de la colonne.
   - Bas de page : libellé de pays/devise, copyright, et badges de paiement
@@ -50,7 +50,7 @@
 
 {% schema %}
 {
-  "name": "Defyne — Footer",
+  "name": "Sculpted — Footer",
   "tag": "section",
   "settings": [
     { "type": "header", "content": "Newsletter" },
@@ -61,7 +61,7 @@
     { "type": "text", "id": "col2_title", "label": "Titre colonne 2", "default": "Information" },
     { "type": "header", "content": "Bas de page" },
     { "type": "text", "id": "country_label", "label": "Pays / devise", "default": "🇺🇸 United States (USD $)" },
-    { "type": "text", "id": "copyright", "label": "Copyright", "default": "© 2026, Defyne" },
+    { "type": "text", "id": "copyright", "label": "Copyright", "default": "© 2026, Sculpted" },
     { "type": "text", "id": "payments", "label": "Badges paiement (séparés par des virgules)", "default": "AMEX, Apple Pay, Diners, Discover, G Pay, JCB, Mastercard, VISA" }
   ],
   "blocks": [
@@ -85,7 +85,7 @@
   "default": {
     "blocks": [
         { "type": "menu_link", "settings": { "label": "Home" } },
-        { "type": "menu_link", "settings": { "label": "Defyne" } },
+        { "type": "menu_link", "settings": { "label": "Sculpted" } },
         { "type": "menu_link", "settings": { "label": "Contact" } },
         { "type": "menu_link", "settings": { "label": "Track my order" } },
         { "type": "info_link", "settings": { "label": "Contact" } },

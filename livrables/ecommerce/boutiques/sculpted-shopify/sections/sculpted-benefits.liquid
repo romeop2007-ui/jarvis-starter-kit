@@ -1,5 +1,5 @@
 {%- comment -%}
-  Defyne — Bénéfices (2 colonnes d'atouts autour d'une image centrale).
+  Sculpted — Bénéfices (2 colonnes d'atouts autour d'une image centrale).
   - Titre central éditable.
   - Image centrale optionnelle (sinon cadre placeholder).
   - 4 blocs "bénéfice" : les 2 premiers vont à gauche, les 2 suivants à droite.
@@ -13,7 +13,7 @@
         {%- for block in section.blocks -%}
           {%- if forloop.index <= 2 -%}
             <div class="benefit" {{ block.shopify_attributes }}>
-              {% render 'defyne-benefit-icon', icon: block.settings.icon %}
+              {% render 'sculpted-benefit-icon', icon: block.settings.icon %}
               <h3>{{ block.settings.title | escape | newline_to_br }}</h3>
             </div>
           {%- endif -%}
@@ -32,7 +32,7 @@
         {%- for block in section.blocks -%}
           {%- if forloop.index > 2 -%}
             <div class="benefit" {{ block.shopify_attributes }}>
-              {% render 'defyne-benefit-icon', icon: block.settings.icon %}
+              {% render 'sculpted-benefit-icon', icon: block.settings.icon %}
               <h3>{{ block.settings.title | escape | newline_to_br }}</h3>
             </div>
           {%- endif -%}
@@ -44,13 +44,13 @@
 
 {% schema %}
 {
-  "name": "Defyne — Bénéfices",
+  "name": "Sculpted — Bénéfices",
   "tag": "section",
   "settings": [
     { "type": "text", "id": "heading", "label": "Titre", "default": "Your new secret weapon against the beer belly." },
     { "type": "image_picker", "id": "image", "label": "Image centrale" },
-    { "type": "text", "id": "image_alt", "label": "Texte alternatif", "default": "Front of the Defyne tank" },
-    { "type": "text", "id": "frame_label", "label": "Libellé du cadre (si pas d'image)", "default": "Product — front of the Defyne tank" }
+    { "type": "text", "id": "image_alt", "label": "Texte alternatif", "default": "Front of the Sculpted tank" },
+    { "type": "text", "id": "frame_label", "label": "Libellé du cadre (si pas d'image)", "default": "Product — front of the Sculpted tank" }
   ],
   "blocks": [
     {

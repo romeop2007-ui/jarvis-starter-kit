@@ -1,21 +1,21 @@
 {%- comment -%}
   ===========================================================================
-  Defyne — Layout isolé (gabarit de page autonome)
+  Sculpted — Layout isolé (gabarit de page autonome)
   ---------------------------------------------------------------------------
   Layout MINIMAL qui n'inclut PAS le header/footer du thème Shopify (Dawn).
-  Il rend les pages Defyne (homepage, track order) exactement comme la maquette
+  Il rend les pages Sculpted (homepage, track order) exactement comme la maquette
   Claude Design, sans interférence du thème en place.
 
   Chrome partagé (édité une seule fois, valable sur toutes les pages qui
   utilisent ce layout) :
-    - defyne-ticker  : le bandeau défilant du haut
-    - defyne-header  : le menu de navigation
-    - defyne-footer  : le pied de page
+    - sculpted-ticker  : le bandeau défilant du haut
+    - sculpted-header  : le menu de navigation
+    - sculpted-footer  : le pied de page
   Ces 3 sections sont éditables dans Personnaliser (textes, liens, blocs).
 
-  Le CSS commun vit dans assets/defyne.css (rendu identique à la maquette).
+  Le CSS commun vit dans assets/sculpted.css (rendu identique à la maquette).
 
-  À utiliser via la 1re ligne d'un template :  {% layout 'defyne' %}
+  À utiliser via la 1re ligne d'un template :  {% layout 'sculpted' %}
   ===========================================================================
 {%- endcomment -%}
 <!doctype html>
@@ -27,13 +27,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  {{ 'defyne.css' | asset_url | stylesheet_tag }}
+  {{ 'sculpted.css' | asset_url | stylesheet_tag }}
   {{ content_for_header }}
 </head>
 <body>
-  {% section 'defyne-ticker' %}
-  {% section 'defyne-header' %}
+  {% section 'sculpted-ticker' %}
+  {% section 'sculpted-header' %}
   {{ content_for_layout }}
-  {% section 'defyne-footer' %}
+  {% section 'sculpted-footer' %}
 </body>
 </html>

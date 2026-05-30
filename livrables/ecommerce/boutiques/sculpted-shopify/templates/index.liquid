@@ -1,0 +1,28 @@
+{%- comment -%}
+  ===========================================================================
+  Sculpted — Page d'accueil (assemblage de sections éditables)
+  ---------------------------------------------------------------------------
+  La homepage est maintenant découpée en sections Shopify. Chaque section est
+  éditable dans Personnaliser (textes, images, liens, et blocs add/remove pour
+  les listes : atouts, témoignages, paliers, avis, FAQ...).
+
+  Le ticker, le menu et le footer viennent du layout 'sculpted' (chrome partagé).
+  Le CSS commun vit dans assets/sculpted.css → rendu identique à la maquette.
+
+  Ordre des sections = ordre des lignes ci-dessous (sections statiques :
+  réglages et blocs éditables, mais ordre fixé ici dans le code).
+  ===========================================================================
+{%- endcomment -%}
+{% layout 'sculpted' %}
+{% section 'sculpted-hero' %}
+{% section 'sculpted-press' %}
+{% section 'sculpted-benefits' %}
+{% section 'sculpted-social-proof' %}
+{% section 'sculpted-product' %}
+{% section 'sculpted-how' %}
+{% section 'sculpted-stats' %}
+{% section 'sculpted-comparison' %}
+{% section 'sculpted-size-guide' %}
+{% section 'sculpted-faq' %}
+{% section 'sculpted-reviews' %}
+{% section 'sculpted-trust-badges' %}

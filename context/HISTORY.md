@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-05-29 (mise à jour 3)
+
+### Boutique Defyne : conversion en sections Shopify éditables + déploiement
+
+- Toute la boutique Defyne a été refactorisée : homepage et page Track order passent de templates HTML statiques à des sections Shopify avec `{% schema %}`, entièrement éditables dans l'éditeur Personnaliser.
+- 21 fichiers créés ou modifiés : 1 CSS partagé (`assets/defyne.css`), 1 layout, 1 snippet, 15 sections (chrome + contenu), 2 templates.
+- Chrome partagé (ticker, header, footer) éditable une seule fois pour toutes les pages Defyne.
+- Sections de contenu homepage : hero, presse, bénéfices, preuve sociale, buy box, how it works, stats, comparatif, guide des tailles, FAQ, avis.
+- Thème "Defyne (preview)" créé et déployé via Shopify CLI sur cqqah9-t1.myshopify.com (thème ID 200671494489).
+- Commit : 6077124.
+- Prochaine étape : remplir les vraies images produit dans Personnaliser, et brancher le bouton "Buy now" sur un vrai produit Shopify.
+
+---
+
 ## 2026-05-29 (mise à jour 2)
 
 ### Décision produit + marché : débardeur gainant homme, lancement Royaume-Uni
@@ -37,77 +51,6 @@
 - Engagement "refaire la recherche produit" remplacé par "Boutique UK à construire"
 
 **Prochaine étape :** creuser le marché UK pour de vrai (saturation fine, CPM, concurrents locaux, offre en £).
-
----
-
-## 2026-05-29
-
-### Pivot complet : abandon PureSun, retour à la case recherche produit
-
-**Roméo a réalisé après une nuit de recul qu'il fallait abandonner le projet PureSun.**
-
-**Raison du pivot :**
-- Le marché des lunettes de soleil exige un catalogue large (concurrents avec 50-100 modèles)
-- Pour copier la logique du concurrent référent, il faudrait reproduire ~70 paires
-- Son fournisseur actuel ne peut pas livrer un catalogue de cette taille
-- Démarrer avec 1 produit dans une catégorie où les marques en ont 70+ ne tient pas crédibilité
-
-**Décision :**
-- Abandon total du projet PureSun (boutique, produit, marque, design)
-- Boutique et produit Shopify supprimés par Roméo lui-même
-- Tous les artefacts locaux PureSun + références QuickSun supprimés du workspace
-- Retour à la case « recherche produit » avec un nouveau critère bloquant : **doit être faisable en one-product store** (1 à 10 références max)
-
-**Posture associé sur ce pivot :**
-- Décision validée comme lucide : copier un catalogue large avec 1 produit, ça ne tient pas crédibilité de marque
-- Pas de jugement, pas de relance sur les efforts précédents : on remet à plat et on avance
-
-**Prochaine étape actée :**
-- Refaire une recherche produit V2 (via TrendTrack), orientée one-product store
-- Une fois le produit trouvé, enchaîner sur la construction de la boutique (Shopify + visuel ne dépendent pas de la validation micro-entreprise)
-
-**Mise à jour CONTEXT.md :**
-- Niche / produit / marque : tous repassés en "à trouver"
-- Engagements actifs : retrait du sprint anticipé PureSun
-- Sujets ouverts à relancer : choix niche/produit/marque rouverts, items PureSun-spécifiques (domaine, saisonnalité, time-to-market) supprimés
-
----
-
-## 2026-05-28
-
-### Décision produit + marque : lancement PureSun™ (lunettes de soleil, marché FR)
-
-**Roméo a tranché la niche et le produit cible, 2 semaines avant la deadline du 13/06.**
-
-**Référence copiée :** [quicksunbrand.com](https://quicksunbrand.com/) — boutique italienne de lunettes de soleil minimalistes, 29,99 €, offre 1+1 à -50%, livraison gratuite, repérée via TrendTrack.
-
-**Analyse TrendTrack (28/05/2026) :**
-- QuickSun : 59 ads actives, top ad 838k reach et ~7 500 € de spend estimé sur 36 jours
-- Scaling démarré le 22/04/2026 (5 semaines), courbe en hockey stick
-- Mono-pays Italie, page FB toute neuve (493 likes)
-- 0 trafic SimilarWeb : 100% paid social, pas de SEO
-- Concurrents EU : Meller (Espagne, 1,4M visites/mois), Jimmy Fairly (FR mais haut de gamme prescription)
-- Aucun concurrent direct identifié sur le positionnement précis "lunettes mode 30 € DTC 1+1 à -50% France"
-- Verdict : signal très positif, time-to-market critique (2-4 semaines avant copy-cats FR)
-
-**Décisions actées :**
-- **Niche** : lunettes de soleil
-- **Produit** : lunettes minimalistes inspiration QuickSun (modèles type Classic)
-- **Pays cible** : France
-- **Marque** : **PureSun™** (choisi parmi PureSun, EasySun, NeatSun, Solario, Lume, Sereno)
-- **Méthode** : copie intégrale de la page quicksunbrand.com, traduction FR, branding PureSun™
-- **Sourcing** : Roméo s'en charge en autonomie (pas via Jarvis)
-
-**Recalibrage planning :**
-- Sprint #1 anticipé : démarrage du déploiement boutique (sans attendre le 13/06)
-- Objectif : boutique en ligne + ads tournants sous 2 semaines
-- Semaine d'examens (8-12 juin) à gérer en parallèle si nécessaire
-- Plan automne/hiver à définir avant fin août (saisonnalité lunettes en FR)
-
-**Posture associé en session :**
-- Données TrendTrack présentées cash : signal positif, mais time-to-market identifié comme risque numéro 1
-- Réserve maintenue et exprimée sur le choix d'un nom avec "Sun" (enferme dans l'été, complique le pivot hiver), mais aligné sur la décision de Roméo de garder la même vibe que QuickSun
-- Conseil donné : prioriser .com plutôt que .fr pour ne pas s'enfermer en France
 
 ---
 

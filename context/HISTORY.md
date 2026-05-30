@@ -7,6 +7,24 @@
 
 ---
 
+## 2026-05-30 (mise à jour 6)
+
+### Bouton Buy now branché + remise automatique BXGY Shopify
+
+**Ce qui a été fait :**
+- `sculpted-buybox.liquid` et `sculpted-product.liquid` entièrement refaits : bouton Buy now fonctionnel via AJAX `/cart/add.js` → vide le panier, ajoute la bonne quantité, redirige vers `/checkout`
+- Paliers réels : ×1 (£29.99) / ×3 "2+1 Free" (£59.98) / ×6 "4+2 Free" (£119.96), chaque palier porte son attribut `data-qty`
+- Sélecteurs couleur + taille transmis en propriétés de ligne (visibles sur la commande pour le fournisseur)
+- Remise automatique BXGY créée sur Shopify (id `gid://shopify/DiscountAutomaticNode/2263845110105`) : "Buy 2 Get 1 Free", active, le 3e article est offert à 100% automatiquement au checkout
+- `sculpted.css` : styles pour les sélecteurs + état disabled du bouton pendant l'ajout
+- `snippets/meta-tags.liquid` créé pour corriger l'erreur Liquid du thème Dawn ("Could not find asset snippets/meta-tags.liquid")
+- ID thème corrigé : l'ancien (200671494489) n'existait plus → bon ID = 200683258201 ("Sculpted UK")
+- Commits : `40ffbc8`
+
+**Prochaine étape :** pousser le thème (`shopify theme push --store cqqah9-t1.myshopify.com --theme 200683258201 --path "livrables/ecommerce/boutiques/sculpted-shopify"`) puis faire 1 commande test avec la Bogus Gateway pour vérifier le checkout. Activer "continuer la vente en rupture" sur le produit (stock actuel : 8 unités).
+
+---
+
 ## 2026-05-30 (mise à jour 5)
 
 ### Fix page produit Shopify + correction homepage cassée

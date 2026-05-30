@@ -3,13 +3,27 @@
   Blocs disponibles (ajout/suppression/ordre dans Personnaliser) :
     - thumb  : vignette de galerie
     - bullet : argument coché
-    - tier   : palier de prix (avec options couleur/taille si sélectionné)
+    - tier   : palier de prix (quantité ajoutée au panier paramétrable)
     - ugc    : cadre vidéo (unboxing, témoignage...)
     - detail : ligne d'accordéon (titre + texte)
-  Les listes Couleurs / Tailles (réglages section) alimentent les menus
-  déroulants des paliers. Le bouton "Buy now" est cosmétique pour l'instant :
-  à brancher sur un vrai produit Shopify plus tard.
+  Couleur / Taille (réglages section) → menus déroulants envoyés en propriétés
+  de ligne au panier.
+
+  Bouton "Buy now" FONCTIONNEL : ajoute au panier le variant du produit lié
+  (réglage "Produit Shopify") avec la quantité du palier choisi, couleur/taille
+  en propriétés, puis redirige vers le checkout. Sur la homepage il faut donc
+  renseigner le produit dans Personnaliser.
 {%- endcomment -%}
+
+{%- comment -%} Résolution du produit/variant pour le bouton d'achat {%- endcomment -%}
+{%- assign sc_prod = all_products[section.settings.product] -%}
+{%- assign sc_vid = sc_prod.selected_or_first_available_variant.id -%}
+{%- if sc_vid == blank and product != blank -%}
+  {%- assign sc_vid = product.selected_or_first_available_variant.id -%}
+{%- endif -%}
+{%- assign colors = section.settings.colors | split: ',' -%}
+{%- assign sizes = section.settings.sizes | split: ',' -%}
+
 <section id="product">
   <div class="wrap">
     <div class="buy-grid">
@@ -57,27 +71,15 @@
 
         <p class="promo-label">{{ section.settings.promo_label | escape }}</p>
 
-        {%- assign colors = section.settings.colors | split: ',' -%}
-        {%- assign sizes = section.settings.sizes | split: ',' -%}
         {%- for block in section.blocks -%}
           {%- if block.type == 'tier' -%}
-            <div class="tier{% if block.settings.selected %} sel{% endif %}" onclick="sculptedSelectTier(this)" {{ block.shopify_attributes }}>
+            <div class="tier{% if block.settings.selected %} sel{% endif %}" data-qty="{{ block.settings.qty | default: 1 }}" onclick="sculptedSelectTier(this)" {{ block.shopify_attributes }}>
               {%- if block.settings.flag != blank -%}
                 <span class="flag{% if block.settings.flag_hot %} hot{% endif %}">{{ block.settings.flag | escape }}</span>
               {%- endif -%}
               <span class="pack">{{ block.settings.pack | escape }}</span>
               <span class="label">{{ block.settings.label | escape }} {% if block.settings.ship != blank %}<span class="ship">{{ block.settings.ship | escape }}</span>{% endif %}</span>
               <span class="price"><span class="now">{{ block.settings.price_now | escape }}</span><br><span class="was">{{ block.settings.price_was | escape }}</span></span>
-              {%- if block.settings.options_rows > 0 -%}
-                <div class="tier-opts">
-                  {%- for i in (1..block.settings.options_rows) -%}
-                    <div class="opt-row"><span class="n">#{{ i }}</span>
-                      <select>{% for c in colors %}<option>{{ c | strip | escape }}</option>{% endfor %}</select>
-                      <select>{% for s in sizes %}<option>{{ s | strip | escape }}</option>{% endfor %}</select>
-                    </div>
-                  {%- endfor -%}
-                </div>
-              {%- endif -%}
             </div>
           {%- endif -%}
         {%- endfor -%}
@@ -98,7 +100,23 @@
             <span class="a">{{ section.settings.lc_badge_a }}</span>
             <span class="b">{{ section.settings.lc_badge_b }}</span>
           </div>
-          <button class="btn btn-accent btn-block" style="background:{{ section.settings.buy_btn_color }};color:#101114">{{ section.settings.buy_btn_label | escape }}</button>
+
+          {%- if section.settings.colors != blank or section.settings.sizes != blank -%}
+            <div class="buy-opts">
+              {%- if section.settings.colors != blank -%}
+                <label class="opt"><span>{{ section.settings.color_label | default: 'Color' | escape }}</span>
+                  <select class="sc-color">{% for c in colors %}<option>{{ c | strip | escape }}</option>{% endfor %}</select>
+                </label>
+              {%- endif -%}
+              {%- if section.settings.sizes != blank -%}
+                <label class="opt"><span>{{ section.settings.size_label | default: 'Size' | escape }}</span>
+                  <select class="sc-size">{% for s in sizes %}<option>{{ s | strip | escape }}</option>{% endfor %}</select>
+                </label>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          <button type="button" class="btn btn-accent btn-block sc-buy" data-vid="{{ sc_vid }}" style="background:{{ section.settings.buy_btn_color }};color:#101114" onclick="sculptedBuyNow(this)">{{ section.settings.buy_btn_label | escape }}</button>
           <div class="pay-row">
             {%- assign pays = section.settings.pay_row | split: ',' -%}
             {%- for p in pays -%}<span>{{ p | strip | escape }}</span>{%- endfor -%}
@@ -134,10 +152,38 @@
 </section>
 
 <script>
-/* Sélection d'un palier de prix : surligne le palier choisi et affiche ses options. Cosmétique. */
+/* Sélection d'un palier de prix : surligne le palier choisi. */
 function sculptedSelectTier(el){
   el.closest('.buy-info').querySelectorAll('.tier').forEach(function(t){ t.classList.remove('sel'); });
   el.classList.add('sel');
+}
+
+/* Buy now : vide le panier, ajoute la quantité du palier choisi avec
+   couleur/taille en propriétés, puis va au checkout. */
+function sculptedBuyNow(btn){
+  var vid = btn.getAttribute('data-vid');
+  if(!vid){ alert('Product is temporarily unavailable. Please try again later.'); return; }
+  var root = btn.closest('.buy-info');
+  var sel = root.querySelector('.tier.sel') || root.querySelector('.tier');
+  var qty = sel && sel.dataset.qty ? parseInt(sel.dataset.qty, 10) : 1;
+  if(!qty || qty < 1){ qty = 1; }
+  var props = {};
+  var col = root.querySelector('.sc-color'); if(col){ props['Color'] = col.value; }
+  var siz = root.querySelector('.sc-size'); if(siz){ props['Size'] = siz.value; }
+  if(sel){ var lbl = sel.querySelector('.label'); if(lbl){ props['Pack'] = lbl.textContent.replace(/\s+/g, ' ').trim(); } }
+  var orig = btn.textContent;
+  btn.disabled = true; btn.textContent = 'Adding…';
+  fetch('/cart/clear.js', { method: 'POST', headers: { 'Content-Type': 'application/json' } })
+    .then(function(){
+      return fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: [{ id: vid, quantity: qty, properties: props }] })
+      });
+    })
+    .then(function(r){ if(!r.ok){ throw new Error('add failed'); } return r.json(); })
+    .then(function(){ window.location.href = '/checkout'; })
+    .catch(function(){ btn.disabled = false; btn.textContent = orig; alert('Something went wrong adding to cart. Please try again.'); });
 }
 </script>
 
@@ -146,6 +192,9 @@ function sculptedSelectTier(el){
   "name": "Sculpted — Produit",
   "tag": "section",
   "settings": [
+    { "type": "header", "content": "Produit lié (bouton Buy now)" },
+    { "type": "product", "id": "product", "label": "Produit Shopify" },
+    { "type": "paragraph", "content": "Obligatoire ici : sur la page d'accueil il n'y a pas de produit courant, le bouton a besoin de ce lien pour ajouter au panier." },
     { "type": "header", "content": "Galerie" },
     { "type": "image_picker", "id": "main_image", "label": "Image principale" },
     { "type": "text", "id": "main_frame_label", "label": "Libellé cadre principal (si pas d'image)", "default": "Product — three colorways, \"Buy 2 + 1 Free\"" },
@@ -157,8 +206,10 @@ function sculptedSelectTier(el){
     { "type": "text", "id": "size_link_label", "label": "Libellé lien guide des tailles", "default": "Size guide" },
     { "type": "text", "id": "size_anchor", "label": "Ancre guide des tailles", "default": "#size" },
     { "type": "text", "id": "promo_label", "label": "Bandeau promo", "default": "Limited-time sale · 24h" },
-    { "type": "header", "content": "Options des paliers (menus déroulants)" },
+    { "type": "header", "content": "Sélecteurs couleur / taille (propriétés de ligne)" },
+    { "type": "text", "id": "color_label", "label": "Libellé couleur", "default": "Color" },
     { "type": "text", "id": "colors", "label": "Couleurs (séparées par virgules)", "default": "Black, White, Grey" },
+    { "type": "text", "id": "size_label", "label": "Libellé taille", "default": "Size" },
     { "type": "text", "id": "sizes", "label": "Tailles (séparées par virgules)", "default": "S (110–152 lb), M (154–196 lb), L (198–240 lb), XL (243–284 lb)" },
     { "type": "header", "content": "Bloc \"Last chance\"" },
     { "type": "text", "id": "lc_heading", "label": "Titre", "default": "Last chance" },
@@ -201,9 +252,9 @@ function sculptedSelectTier(el){
         { "type": "text", "id": "pack", "label": "Quantité (ex : ×3)", "default": "×1" },
         { "type": "text", "id": "label", "label": "Libellé", "default": "1 Sculpted" },
         { "type": "text", "id": "ship", "label": "Badge livraison", "default": "Free Shipping" },
-        { "type": "text", "id": "price_now", "label": "Prix actuel", "default": "$29.99" },
-        { "type": "text", "id": "price_was", "label": "Prix barré", "default": "$34.90" },
-        { "type": "range", "id": "options_rows", "label": "Nb de lignes d'options (couleur/taille)", "min": 0, "max": 5, "step": 1, "default": 0 }
+        { "type": "text", "id": "price_now", "label": "Prix actuel", "default": "£29.99" },
+        { "type": "text", "id": "price_was", "label": "Prix barré", "default": "£34.90" },
+        { "type": "number", "id": "qty", "label": "Quantité ajoutée au panier", "default": 1 }
       ]
     },
     {
@@ -234,9 +285,9 @@ function sculptedSelectTier(el){
         { "type": "bullet", "settings": { "text": "Speeds up weight loss" } },
         { "type": "bullet", "settings": { "text": "Man boobs flattened" } },
         { "type": "bullet", "settings": { "text": "Love handles erased" } },
-        { "type": "tier", "settings": { "pack": "×1", "label": "1 Sculpted", "ship": "Free Shipping", "price_now": "$29.99", "price_was": "$34.90", "options_rows": 0 } },
-        { "type": "tier", "settings": { "selected": true, "flag": "Most popular 🔥", "flag_hot": true, "pack": "×3", "label": "2 + 1 Free", "ship": "Free Shipping", "price_now": "$59.98", "price_was": "$104.70", "options_rows": 3 } },
-        { "type": "tier", "settings": { "flag": "Best value 💎", "pack": "×5", "label": "3 + 2 Free", "ship": "Free Shipping", "price_now": "$79.98", "price_was": "$174.50", "options_rows": 0 } },
+        { "type": "tier", "settings": { "pack": "×1", "label": "1 Sculpted", "ship": "Free Shipping", "price_now": "£29.99", "price_was": "£34.90", "qty": 1 } },
+        { "type": "tier", "settings": { "selected": true, "flag": "Most popular 🔥", "flag_hot": true, "pack": "×3", "label": "2 + 1 Free", "ship": "Free Shipping", "price_now": "£59.98", "price_was": "£104.70", "qty": 3 } },
+        { "type": "tier", "settings": { "flag": "Best value 💎", "pack": "×6", "label": "4 + 2 Free", "ship": "Free Shipping", "price_now": "£119.96", "price_was": "£209.40", "qty": 6 } },
         { "type": "ugc", "settings": { "label": "Unboxing video" } },
         { "type": "ugc", "settings": { "label": "Testimonial video" } },
         { "type": "ugc", "settings": { "label": "Try-on video" } },

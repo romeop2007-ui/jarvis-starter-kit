@@ -1,0 +1,467 @@
+{
+  "current": {
+    "logo_width": 90,
+    "type_header_font": "assistant_n4",
+    "heading_scale": 100,
+    "type_body_font": "assistant_n4",
+    "body_scale": 100,
+    "page_width": 1200,
+    "spacing_sections": 0,
+    "spacing_grid_horizontal": 8,
+    "spacing_grid_vertical": 8,
+    "animations_reveal_on_scroll": true,
+    "animations_hover_elements": "none",
+    "buttons_border_thickness": 1,
+    "buttons_border_opacity": 100,
+    "buttons_radius": 0,
+    "buttons_shadow_opacity": 0,
+    "buttons_shadow_horizontal_offset": 0,
+    "buttons_shadow_vertical_offset": 4,
+    "buttons_shadow_blur": 5,
+    "variant_pills_border_thickness": 1,
+    "variant_pills_border_opacity": 55,
+    "variant_pills_radius": 40,
+    "variant_pills_shadow_opacity": 0,
+    "variant_pills_shadow_horizontal_offset": 0,
+    "variant_pills_shadow_vertical_offset": 4,
+    "variant_pills_shadow_blur": 5,
+    "inputs_border_thickness": 1,
+    "inputs_border_opacity": 55,
+    "inputs_radius": 0,
+    "inputs_shadow_opacity": 0,
+    "inputs_shadow_horizontal_offset": 0,
+    "inputs_shadow_vertical_offset": 4,
+    "inputs_shadow_blur": 5,
+    "card_style": "standard",
+    "card_image_padding": 0,
+    "card_text_alignment": "left",
+    "card_color_scheme": "scheme-2",
+    "card_border_thickness": 0,
+    "card_border_opacity": 10,
+    "card_corner_radius": 0,
+    "card_shadow_opacity": 0,
+    "card_shadow_horizontal_offset": 0,
+    "card_shadow_vertical_offset": 4,
+    "card_shadow_blur": 5,
+    "collection_card_style": "standard",
+    "collection_card_image_padding": 0,
+    "collection_card_text_alignment": "left",
+    "collection_card_color_scheme": "scheme-2",
+    "collection_card_border_thickness": 0,
+    "collection_card_border_opacity": 10,
+    "collection_card_corner_radius": 0,
+    "collection_card_shadow_opacity": 0,
+    "collection_card_shadow_horizontal_offset": 0,
+    "collection_card_shadow_vertical_offset": 4,
+    "collection_card_shadow_blur": 5,
+    "blog_card_style": "standard",
+    "blog_card_image_padding": 0,
+    "blog_card_text_alignment": "left",
+    "blog_card_color_scheme": "scheme-2",
+    "blog_card_border_thickness": 0,
+    "blog_card_border_opacity": 10,
+    "blog_card_corner_radius": 0,
+    "blog_card_shadow_opacity": 0,
+    "blog_card_shadow_horizontal_offset": 0,
+    "blog_card_shadow_vertical_offset": 4,
+    "blog_card_shadow_blur": 5,
+    "text_boxes_border_thickness": 0,
+    "text_boxes_border_opacity": 10,
+    "text_boxes_radius": 0,
+    "text_boxes_shadow_opacity": 0,
+    "text_boxes_shadow_horizontal_offset": 0,
+    "text_boxes_shadow_vertical_offset": 4,
+    "text_boxes_shadow_blur": 5,
+    "media_border_thickness": 1,
+    "media_border_opacity": 5,
+    "media_radius": 0,
+    "media_shadow_opacity": 0,
+    "media_shadow_horizontal_offset": 0,
+    "media_shadow_vertical_offset": 4,
+    "media_shadow_blur": 5,
+    "popup_border_thickness": 1,
+    "popup_border_opacity": 10,
+    "popup_corner_radius": 0,
+    "popup_shadow_opacity": 5,
+    "popup_shadow_horizontal_offset": 0,
+    "popup_shadow_vertical_offset": 4,
+    "popup_shadow_blur": 5,
+    "drawer_border_thickness": 1,
+    "drawer_border_opacity": 10,
+    "drawer_shadow_opacity": 0,
+    "drawer_shadow_horizontal_offset": 0,
+    "drawer_shadow_vertical_offset": 4,
+    "drawer_shadow_blur": 5,
+    "badge_position": "bottom left",
+    "badge_corner_radius": 40,
+    "sale_badge_color_scheme": "scheme-4",
+    "sold_out_badge_color_scheme": "scheme-3",
+    "brand_headline": "",
+    "brand_description": "<p></p>",
+    "brand_image_width": 100,
+    "social_facebook_link": "",
+    "social_instagram_link": "",
+    "social_youtube_link": "",
+    "social_tiktok_link": "",
+    "social_twitter_link": "",
+    "social_snapchat_link": "",
+    "social_pinterest_link": "",
+    "social_tumblr_link": "",
+    "social_vimeo_link": "",
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "currency_code_enabled": true,
+    "cart_type": "notification",
+    "show_vendor": false,
+    "show_cart_note": false,
+    "cart_drawer_collection": "",
+    "cart_color_scheme": "scheme-1",
+    "sections": {
+      "sculpted-ticker": {
+        "type": "sculpted-ticker",
+        "blocks": {
+          "sculpted-ticker-0": {
+            "type": "message",
+            "settings": { "text": "In stock — selling out fast" }
+          },
+          "sculpted-ticker-1": {
+            "type": "message",
+            "settings": { "text": "Limited-time sale" }
+          },
+          "sculpted-ticker-2": {
+            "type": "message",
+            "settings": { "text": "Free shipping until midnight tonight" }
+          }
+        },
+        "block_order": ["sculpted-ticker-0", "sculpted-ticker-1", "sculpted-ticker-2"],
+        "settings": {}
+      },
+      "sculpted-header": {
+        "type": "sculpted-header",
+        "blocks": {
+          "sculpted-header-0": {
+            "type": "link",
+            "settings": { "label": "Home", "url": "/" }
+          },
+          "sculpted-header-1": {
+            "type": "link",
+            "settings": { "label": "Sculpted", "url": "/collections/sculpted" }
+          },
+          "sculpted-header-2": {
+            "type": "link",
+            "settings": { "label": "Contact", "url": "/pages/contact" }
+          },
+          "sculpted-header-3": {
+            "type": "link",
+            "settings": { "label": "Track my order", "url": "/pages/track-order" }
+          }
+        },
+        "block_order": ["sculpted-header-0", "sculpted-header-1", "sculpted-header-2", "sculpted-header-3"],
+        "settings": {
+          "logo_text": "Scul",
+          "logo_accent": "pted",
+          "currency_label": "GBP £"
+        }
+      },
+      "sculpted-hero": {
+        "type": "sculpted-hero",
+        "blocks": {
+          "sculpted-hero-0": {
+            "type": "feature",
+            "settings": { "icon": "bolt", "text": "Instant effect when you put it on" }
+          },
+          "sculpted-hero-1": {
+            "type": "feature",
+            "settings": { "icon": "body", "text": "Slimmer silhouette" }
+          },
+          "sculpted-hero-2": {
+            "type": "feature",
+            "settings": { "icon": "sun", "text": "All-day comfort" }
+          }
+        },
+        "block_order": ["sculpted-hero-0", "sculpted-hero-1", "sculpted-hero-2"],
+        "settings": {
+          "heading": "A physical transformation",
+          "heading_pill": "in one tank top",
+          "rating": "Excellent 4.8/5",
+          "reviews_count": "10,310+ Reviews",
+          "image_alt": "Man wearing the Sculpted tank",
+          "frame_label": "Hero — man wearing the Sculpted tank"
+        }
+      },
+      "sculpted-press": {
+        "type": "sculpted-press",
+        "blocks": {
+          "sculpted-press-0": { "type": "logo", "settings": { "name": "VOGUE", "style": "font-family:Georgia,serif;letter-spacing:.2em" } },
+          "sculpted-press-1": { "type": "logo", "settings": { "name": "GQ", "style": "" } },
+          "sculpted-press-2": { "type": "logo", "settings": { "name": "L'ÉQUIPE", "style": "font-style:italic" } },
+          "sculpted-press-3": { "type": "logo", "settings": { "name": "Men's Health", "style": "" } }
+        },
+        "block_order": ["sculpted-press-0", "sculpted-press-1", "sculpted-press-2", "sculpted-press-3"],
+        "settings": { "eyebrow": "As seen in" }
+      },
+      "sculpted-benefits": {
+        "type": "sculpted-benefits",
+        "blocks": {
+          "sculpted-benefits-0": { "type": "benefit", "settings": { "icon": "ribs", "title": "Goodbye\nbeer belly" } },
+          "sculpted-benefits-1": { "type": "benefit", "settings": { "icon": "shirt-check", "title": "Invisible.\nUnstoppable." } },
+          "sculpted-benefits-2": { "type": "benefit", "settings": { "icon": "waves", "title": "Bloated\nstomach? Gone." } },
+          "sculpted-benefits-3": { "type": "benefit", "settings": { "icon": "shirt", "title": "Man boobs?\nFlattened." } }
+        },
+        "block_order": ["sculpted-benefits-0", "sculpted-benefits-1", "sculpted-benefits-2", "sculpted-benefits-3"],
+        "settings": {
+          "heading": "Your new secret weapon against the beer belly.",
+          "image_alt": "Front of the Sculpted tank",
+          "frame_label": "Product — front of the Sculpted tank"
+        }
+      },
+      "sculpted-social-proof": {
+        "type": "sculpted-social-proof",
+        "blocks": {
+          "sculpted-social-proof-0": { "type": "testimonial", "settings": { "frame_label": "Before / After — Nicolas", "name": "Nicolas F. — 45", "quote": "Since I gained weight I refused family photos. This weekend I was in front of the camera for the first time in 4 years. My sister told me I looked fit." } },
+          "sculpted-social-proof-1": { "type": "testimonial", "settings": { "frame_label": "Before / After — Thomas", "name": "Thomas R. — 33", "quote": "It's not just a tank top. After 3 months wearing it daily my posture completely changed and I lost weight without changing anything else. Colleagues asked if I'd started training. A real transformation." } },
+          "sculpted-social-proof-2": { "type": "testimonial", "settings": { "frame_label": "Wearing Sculpted — Alex", "name": "Alex B. — 41", "quote": "I used to suck in my stomach in meetings without realizing it, for years. Exhausting. With Sculpted I don't think about it anymore. My shirt fits well and I've got my confidence back." } },
+          "sculpted-social-proof-3": { "type": "testimonial", "settings": { "frame_label": "Wearing Sculpted — Mathieu", "name": "Mathieu D. — 38", "quote": "Honestly I didn't believe it. I always had this belly I hid under loose t-shirts. The first time I put it on my wife asked if I'd lost weight. I'd changed nothing." } },
+          "sculpted-social-proof-4": { "type": "testimonial", "settings": { "frame_label": "Side profile — Sofiane", "name": "Sofiane M. — 29", "quote": "I expected nothing. After a month my relationship with the mirror completely changed. I'm not fighting my reflection anymore. It's the first time I feel good in my body." } }
+        },
+        "block_order": ["sculpted-social-proof-0", "sculpted-social-proof-1", "sculpted-social-proof-2", "sculpted-social-proof-3", "sculpted-social-proof-4"],
+        "settings": {
+          "heading": "Over 10,000 men have regained their confidence. What about you?",
+          "rating_label": "Excellent",
+          "rating_value": "4.8 / 5",
+          "link_label": "Verified reviews on Trustpilot",
+          "link_url": ""
+        }
+      },
+      "sculpted-product": {
+        "type": "sculpted-product",
+        "blocks": {
+          "sculpted-product-0": { "type": "thumb", "settings": { "label": "1" } },
+          "sculpted-product-1": { "type": "thumb", "settings": { "label": "2" } },
+          "sculpted-product-2": { "type": "thumb", "settings": { "label": "3" } },
+          "sculpted-product-3": { "type": "thumb", "settings": { "label": "4" } },
+          "sculpted-product-4": { "type": "thumb", "settings": { "label": "5" } },
+          "sculpted-product-5": { "type": "bullet", "settings": { "text": "Goodbye beer belly" } },
+          "sculpted-product-6": { "type": "bullet", "settings": { "text": "Speeds up weight loss" } },
+          "sculpted-product-7": { "type": "bullet", "settings": { "text": "Man boobs flattened" } },
+          "sculpted-product-8": { "type": "bullet", "settings": { "text": "Love handles erased" } },
+          "sculpted-product-9": { "type": "tier", "settings": { "selected": false, "flag": "", "flag_hot": false, "pack": "×1", "label": "1 Sculpted", "ship": "Free Shipping", "price_now": "$29.99", "price_was": "$34.90", "options_rows": 0 } },
+          "sculpted-product-10": { "type": "tier", "settings": { "selected": true, "flag": "Most popular 🔥", "flag_hot": true, "pack": "×3", "label": "2 + 1 Free", "ship": "Free Shipping", "price_now": "$59.98", "price_was": "$104.70", "options_rows": 3 } },
+          "sculpted-product-11": { "type": "tier", "settings": { "selected": false, "flag": "Best value 💎", "flag_hot": false, "pack": "×5", "label": "3 + 2 Free", "ship": "Free Shipping", "price_now": "$79.98", "price_was": "$174.50", "options_rows": 0 } },
+          "sculpted-product-12": { "type": "ugc", "settings": { "label": "Unboxing video" } },
+          "sculpted-product-13": { "type": "ugc", "settings": { "label": "Testimonial video" } },
+          "sculpted-product-14": { "type": "ugc", "settings": { "label": "Try-on video" } },
+          "sculpted-product-15": { "type": "detail", "settings": { "summary": "Product details", "body": "Four-way stretch technical knit with targeted compression zones across the abdomen, chest and flanks. Flatlock seams, breathable mesh back panel, tagless finish." } },
+          "sculpted-product-16": { "type": "detail", "settings": { "summary": "Size & comfort", "body": "Runs true to weight — see the size guide below. The fabric holds firm without restricting movement and is designed to be worn all day under any shirt." } },
+          "sculpted-product-17": { "type": "detail", "settings": { "summary": "Care", "body": "Machine wash cold on a gentle cycle. Do not bleach, do not tumble dry, do not iron the compression panels. Hang to dry to preserve elasticity." } },
+          "sculpted-product-18": { "type": "detail", "settings": { "summary": "30-day money-back", "body": "Not happy within 30 days? Send it back for a full refund — no questions asked." } },
+          "sculpted-product-19": { "type": "detail", "settings": { "summary": "Free returns & exchanges", "body": "Free returns and size exchanges within 30 days of delivery." } }
+        },
+        "block_order": ["sculpted-product-0","sculpted-product-1","sculpted-product-2","sculpted-product-3","sculpted-product-4","sculpted-product-5","sculpted-product-6","sculpted-product-7","sculpted-product-8","sculpted-product-9","sculpted-product-10","sculpted-product-11","sculpted-product-12","sculpted-product-13","sculpted-product-14","sculpted-product-15","sculpted-product-16","sculpted-product-17","sculpted-product-18","sculpted-product-19"],
+        "settings": {
+          "main_image": "shopify://shop_images/3239387c-806c-4883-ba53-2dc107ab11e5.png",
+          "main_frame_label": "Product — three colorways, \"Buy 2 + 1 Free\"",
+          "rating_text": "Excellent · 10,310+ reviews",
+          "title": "Sculpted™ | Shaping Compression Tank",
+          "desc": "The compression tank that helps you stand tall, slim your silhouette and erase every problem area the moment you put it on.",
+          "stock_text": "● Only 6 tanks left in stock.",
+          "size_link_label": "Size guide",
+          "size_anchor": "#size",
+          "promo_label": "Limited-time sale · 24h",
+          "colors": "Black, White, Grey",
+          "sizes": "S (110–152 lb), M (154–196 lb), L (198–240 lb), XL (243–284 lb)",
+          "lc_heading": "Last chance",
+          "lc_label1": "2 tanks",
+          "lc_label2": "+ 1 gift",
+          "lc_line_pre": "Buy 2 = 1",
+          "lc_line_accent": "Sculpted",
+          "lc_line_em": "Free",
+          "lc_badge_a": "🔒 30-day money-back",
+          "lc_badge_b": "⏳ Low stock!",
+          "buy_btn_label": "Buy now",
+          "buy_btn_color": "#f6c000",
+          "pay_row": "AMEX, Apple Pay, G Pay, Mastercard, PayPal, Shop, VISA"
+        }
+      },
+      "sculpted-how": {
+        "type": "sculpted-how",
+        "blocks": {
+          "sculpted-how-0": { "type": "note", "settings": { "title": "Ionic fabric", "text": "Improves circulation, reinforces support and boosts energy." } },
+          "sculpted-how-1": { "type": "note", "settings": { "title": "Reinforced action", "text": "Compresses love handles and instantly slims the silhouette." } },
+          "sculpted-how-2": { "type": "note", "settings": { "title": "Active compression", "text": "Erases man boobs with targeted support." } },
+          "sculpted-how-3": { "type": "note", "settings": { "title": "Breathable mesh", "text": "Keeps you cool and dry from morning to night." } }
+        },
+        "block_order": ["sculpted-how-0", "sculpted-how-1", "sculpted-how-2", "sculpted-how-3"],
+        "settings": {
+          "heading": "How does Sculpted™ work?",
+          "image_alt": "Sculpted tank with callouts",
+          "frame_label": "Diagram — Sculpted tank with callouts"
+        }
+      },
+      "sculpted-stats": {
+        "type": "sculpted-stats",
+        "blocks": {
+          "sculpted-stats-0": { "type": "stat", "settings": { "k": "1st stat", "v": "89%", "bar": 89, "text": "See a visibly slimmer silhouette within the first month." } },
+          "sculpted-stats-1": { "type": "stat", "settings": { "k": "2nd stat", "v": "94%", "bar": 94, "text": "Say they stand taller and feel more confident since wearing Sculpted™ daily." } },
+          "sculpted-stats-2": { "type": "stat", "settings": { "k": "3rd stat", "v": "96%", "bar": 96, "text": "Would recommend it to a friend to reach their silhouette and confidence goals." } }
+        },
+        "block_order": ["sculpted-stats-0", "sculpted-stats-1", "sculpted-stats-2"],
+        "settings": {
+          "heading": "A real transformation",
+          "heading_accent": "in 30 days",
+          "footnote": "*Based on a post-purchase survey of 2,000+ Sculpted™ customers in 2026.",
+          "before_tag": "Week 1",
+          "before_label": "Before",
+          "before_cap": "Before Sculpted™",
+          "after_tag": "Week 12",
+          "after_label": "After",
+          "after_cap": "After Sculpted™"
+        }
+      },
+      "sculpted-comparison": {
+        "type": "sculpted-comparison",
+        "blocks": {
+          "sculpted-comparison-0": { "type": "row", "settings": { "label": "All-day comfort compression", "c1": true, "c2": false, "c3": false } },
+          "sculpted-comparison-1": { "type": "row", "settings": { "label": "Erases belly and love handles", "c1": true, "c2": false, "c3": false } },
+          "sculpted-comparison-2": { "type": "row", "settings": { "label": "Invisible under any shirt", "c1": true, "c2": false, "c3": false } },
+          "sculpted-comparison-3": { "type": "row", "settings": { "label": "High-quality technical shaping fabric", "c1": true, "c2": true, "c3": false } },
+          "sculpted-comparison-4": { "type": "row", "settings": { "label": "Lightweight anti-sweat fabric", "c1": true, "c2": true, "c3": false } },
+          "sculpted-comparison-5": { "type": "row", "settings": { "label": "Doubles as a sharp sports tee", "c1": true, "c2": false, "c3": false } },
+          "sculpted-comparison-6": { "type": "row", "settings": { "label": "30-day money-back guarantee", "c1": true, "c2": false, "c3": false } }
+        },
+        "block_order": ["sculpted-comparison-0","sculpted-comparison-1","sculpted-comparison-2","sculpted-comparison-3","sculpted-comparison-4","sculpted-comparison-5","sculpted-comparison-6"],
+        "settings": {
+          "heading": "Why Sculpted™?",
+          "col1_label": "Sculpted",
+          "col1_head": "Sculpted™",
+          "col2_label": "Tee",
+          "col2_head": "Classic compression tee",
+          "col3_label": "Shirt",
+          "col3_head": "Classic t-shirt"
+        }
+      },
+      "sculpted-size-guide": {
+        "type": "sculpted-size-guide",
+        "blocks": {
+          "sculpted-size-guide-0": { "type": "size", "settings": { "size": "S", "range": "110–152 lb" } },
+          "sculpted-size-guide-1": { "type": "size", "settings": { "size": "M", "range": "154–196 lb" } },
+          "sculpted-size-guide-2": { "type": "size", "settings": { "size": "L", "range": "198–240 lb" } },
+          "sculpted-size-guide-3": { "type": "size", "settings": { "size": "XL", "range": "243–284 lb" } },
+          "sculpted-size-guide-4": { "type": "size", "settings": { "size": "2XL", "range": "287–328 lb" } },
+          "sculpted-size-guide-5": { "type": "size", "settings": { "size": "3XL", "range": "331–373 lb" } },
+          "sculpted-size-guide-6": { "type": "size", "settings": { "size": "4XL", "range": "375–417 lb" } },
+          "sculpted-size-guide-7": { "type": "size", "settings": { "size": "5XL", "range": "419–463 lb" } }
+        },
+        "block_order": ["sculpted-size-guide-0","sculpted-size-guide-1","sculpted-size-guide-2","sculpted-size-guide-3","sculpted-size-guide-4","sculpted-size-guide-5","sculpted-size-guide-6","sculpted-size-guide-7"],
+        "settings": {
+          "heading": "Sculpted™ size guide",
+          "tip": "Tip: if you're at the top of a range, size up for better comfort.",
+          "image_alt": "Sculpted worn front view",
+          "frame_label": "Fit reference — Sculpted worn front view"
+        }
+      },
+      "sculpted-faq": {
+        "type": "sculpted-faq",
+        "blocks": {
+          "sculpted-faq-0": { "type": "item", "settings": { "question": "Who is Sculpted™ for?", "answer": "Any man who wants a slimmer, more confident silhouette under his clothes — whether you're carrying a little extra around the middle or simply want better posture and support through the day." } },
+          "sculpted-faq-1": { "type": "item", "settings": { "question": "How does Sculpted™ actually work?", "answer": "Targeted compression zones gently flatten the stomach, chest and love handles while supporting your back, so you stand taller and look leaner the moment you put it on." } },
+          "sculpted-faq-2": { "type": "item", "settings": { "question": "When will I see results?", "answer": "The shaping effect is instant. Most customers notice better posture and confidence the first day, with the most dramatic difference reported after a few weeks of daily wear." } },
+          "sculpted-faq-3": { "type": "item", "settings": { "question": "What if my size doesn't fit?", "answer": "We offer free size exchanges within 30 days. Pick by weight using the size guide, and size up if you're at the top of a range." } },
+          "sculpted-faq-4": { "type": "item", "settings": { "question": "Can I machine wash Sculpted™?", "answer": "Yes — wash cold on a gentle cycle and hang to dry. Avoid bleach, tumble drying and ironing the compression panels." } },
+          "sculpted-faq-5": { "type": "item", "settings": { "question": "What is Sculpted™ made of?", "answer": "A breathable four-way-stretch technical knit (nylon-elastane blend) engineered for firm, comfortable compression that lasts wash after wash." } },
+          "sculpted-faq-6": { "type": "item", "settings": { "question": "Does it show under a white t-shirt?", "answer": "No. It's thin and seamless, designed to stay invisible even under a fitted white shirt." } },
+          "sculpted-faq-7": { "type": "item", "settings": { "question": "Is it comfortable or too tight?", "answer": "It's firm but breathable — supportive without cutting in. Choosing the right size is key, so follow the weight-based guide." } },
+          "sculpted-faq-8": { "type": "item", "settings": { "question": "Does it really work or is it just marketing?", "answer": "The slimming effect is physical and immediate, and it's backed by a 30-day money-back guarantee — so you can judge for yourself risk-free." } },
+          "sculpted-faq-9": { "type": "item", "settings": { "question": "Does it shrink in the wash?", "answer": "No, provided you follow the care instructions: cold wash and hang to dry keeps the shape and elasticity intact." } },
+          "sculpted-faq-10": { "type": "item", "settings": { "question": "Why is it more expensive than a normal t-shirt?", "answer": "It isn't a normal t-shirt — it's a technical compression garment with engineered shaping zones, premium materials and durable construction built to perform every day." } }
+        },
+        "block_order": ["sculpted-faq-0","sculpted-faq-1","sculpted-faq-2","sculpted-faq-3","sculpted-faq-4","sculpted-faq-5","sculpted-faq-6","sculpted-faq-7","sculpted-faq-8","sculpted-faq-9","sculpted-faq-10"],
+        "settings": {
+          "eyebrow": "FAQ",
+          "heading": "Didn't find your answer? We're here to help."
+        }
+      },
+      "sculpted-reviews": {
+        "type": "sculpted-reviews",
+        "blocks": {
+          "sculpted-reviews-0": { "type": "review", "settings": { "text": "Got it yesterday, wore it today at the office. My boss asked if I'd changed my haircut. Nope — just Sculpted under my shirt. Impressive.", "name": "Arnaud L.", "date": "2 days ago" } },
+          "sculpted-reviews-1": { "type": "review", "settings": { "text": "After my post-lockdown weight gain I avoided mirrors. First morning with Sculpted I looked in the mirror and smiled. It had been a while.", "name": "Bertrand C.", "date": "1 week ago" } },
+          "sculpted-reviews-2": { "type": "review", "settings": { "text": "I'm skeptical by nature but I'm blown away. My stomach looks flat, my posture is better and I genuinely feel good. Ordered 2 more.", "name": "Romain L.", "date": "3 weeks ago" } },
+          "sculpted-reviews-3": { "type": "review", "settings": { "text": "I'm a restaurant waiter, on my feet 8h a day. Sculpted holds perfectly, nothing rides up, and my posture has really improved.", "name": "Enzo R.", "date": "4 days ago" } },
+          "sculpted-reviews-4": { "type": "review", "settings": { "text": "I'm a sales rep and see clients all day. Image matters. Sculpted gave me back the confidence I'd lost.", "name": "Samy B.", "date": "10 days ago" } },
+          "sculpted-reviews-5": { "type": "review", "settings": { "text": "My girlfriend gave me Sculpted for my birthday. At first I wasn't convinced. Now she has to force me to take it off to wash it.", "name": "Kevin T.", "date": "3 weeks ago" } },
+          "sculpted-reviews-6": { "type": "review", "settings": { "text": "I was afraid it'd feel like a girdle. Not at all. It's discreet and genuinely improves your stature. I stand straight now.", "name": "Tarek M.", "date": "6 days ago" } },
+          "sculpted-reviews-7": { "type": "review", "settings": { "text": "In sales, on my feet all day. Sculpted holds perfectly, nothing rides up, and it's invisible under a white shirt. Perfect.", "name": "Julien M.", "date": "2 weeks ago" } }
+        },
+        "block_order": ["sculpted-reviews-0","sculpted-reviews-1","sculpted-reviews-2","sculpted-reviews-3","sculpted-reviews-4","sculpted-reviews-5","sculpted-reviews-6","sculpted-reviews-7"],
+        "settings": {
+          "eyebrow": "Customer reviews",
+          "heading": "What they say about Sculpted™",
+          "verified_label": "✓ Verified",
+          "more_label": "Load more reviews →",
+          "more_url": ""
+        }
+      },
+      "sculpted-footer": {
+        "type": "sculpted-footer",
+        "blocks": {
+          "sculpted-footer-0": { "type": "menu_link", "settings": { "label": "Home", "url": "/" } },
+          "sculpted-footer-1": { "type": "menu_link", "settings": { "label": "Sculpted", "url": "/collections/sculpted" } },
+          "sculpted-footer-2": { "type": "menu_link", "settings": { "label": "Contact", "url": "/pages/contact" } },
+          "sculpted-footer-3": { "type": "menu_link", "settings": { "label": "Track my order", "url": "/pages/track-order" } },
+          "sculpted-footer-4": { "type": "info_link", "settings": { "label": "Contact", "url": "/pages/contact" } },
+          "sculpted-footer-5": { "type": "info_link", "settings": { "label": "Privacy policy", "url": "/policies/privacy-policy" } },
+          "sculpted-footer-6": { "type": "info_link", "settings": { "label": "Refund policy", "url": "/policies/refund-policy" } },
+          "sculpted-footer-7": { "type": "info_link", "settings": { "label": "Shipping policy", "url": "/policies/shipping-policy" } },
+          "sculpted-footer-8": { "type": "info_link", "settings": { "label": "Terms of sale", "url": "/policies/terms-of-service" } },
+          "sculpted-footer-9": { "type": "info_link", "settings": { "label": "Terms of use", "url": "/policies/terms-of-service" } },
+          "sculpted-footer-10": { "type": "info_link", "settings": { "label": "Legal notice", "url": "/policies/legal-notice" } }
+        },
+        "block_order": ["sculpted-footer-0","sculpted-footer-1","sculpted-footer-2","sculpted-footer-3","sculpted-footer-4","sculpted-footer-5","sculpted-footer-6","sculpted-footer-7","sculpted-footer-8","sculpted-footer-9","sculpted-footer-10"],
+        "settings": {
+          "news_heading": "Sign up for our newsletter",
+          "news_placeholder": "E-mail",
+          "col1_title": "Menu",
+          "col2_title": "Information",
+          "country_label": "🇬🇧 United Kingdom (GBP £)",
+          "copyright": "© 2026, Sculpted",
+          "payments": "AMEX, Apple Pay, Diners, Discover, G Pay, JCB, Mastercard, VISA"
+        }
+      },
+      "sculpted-banner": {
+        "type": "sculpted-banner",
+        "settings": {
+          "image": "shopify://shop_images/27be38a8-9325-4818-8bae-8a62e7544ce6.png",
+          "max_height": 1800,
+          "object_position": "center top",
+          "link": ""
+        }
+      }
+    },
+    "content_for_index": [],
+    "color_schemes": {
+      "scheme-1": { "settings": { "background": "#ffffff", "background_gradient": "", "text": "#121212", "button": "#121212", "button_label": "#ffffff", "secondary_button_label": "#121212", "shadow": "#121212" } },
+      "scheme-2": { "settings": { "background": "#f3f3f3", "background_gradient": "", "text": "#121212", "button": "#121212", "button_label": "#f3f3f3", "secondary_button_label": "#121212", "shadow": "#121212" } },
+      "scheme-3": { "settings": { "background": "#242833", "background_gradient": "", "text": "#ffffff", "button": "#ffffff", "button_label": "#000000", "secondary_button_label": "#ffffff", "shadow": "#121212" } },
+      "scheme-4": { "settings": { "background": "#121212", "background_gradient": "", "text": "#ffffff", "button": "#ffffff", "button_label": "#121212", "secondary_button_label": "#ffffff", "shadow": "#121212" } },
+      "scheme-5": { "settings": { "background": "#334fb4", "background_gradient": "", "text": "#ffffff", "button": "#ffffff", "button_label": "#334fb4", "secondary_button_label": "#ffffff", "shadow": "#121212" } }
+    }
+  },
+  "presets": {
+    "Dawn": {
+      "logo_width": 90,
+      "color_schemes": {
+        "scheme-1": { "settings": { "background": "#FFFFFF", "background_gradient": "", "text": "#121212", "button": "#121212", "button_label": "#FFFFFF", "secondary_button_label": "#121212", "shadow": "#121212" } },
+        "scheme-2": { "settings": { "background": "#F3F3F3", "background_gradient": "", "text": "#121212", "button": "#121212", "button_label": "#F3F3F3", "secondary_button_label": "#121212", "shadow": "#121212" } },
+        "scheme-3": { "settings": { "background": "#242833", "background_gradient": "", "text": "#FFFFFF", "button": "#FFFFFF", "button_label": "#000000", "secondary_button_label": "#FFFFFF", "shadow": "#121212" } },
+        "scheme-4": { "settings": { "background": "#121212", "background_gradient": "", "text": "#FFFFFF", "button": "#FFFFFF", "button_label": "#121212", "secondary_button_label": "#FFFFFF", "shadow": "#121212" } },
+        "scheme-5": { "settings": { "background": "#334FB4", "background_gradient": "", "text": "#FFFFFF", "button": "#FFFFFF", "button_label": "#334FB4", "secondary_button_label": "#FFFFFF", "shadow": "#121212" } }
+      },
+      "sections": {
+        "main-password-header": { "type": "main-password-header", "settings": { "color_scheme": "scheme-1" } },
+        "main-password-footer": { "type": "main-password-footer", "settings": { "color_scheme": "scheme-1" } }
+      }
+    }
+  }
+}

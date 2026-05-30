@@ -7,6 +7,32 @@
 
 ---
 
+## 2026-05-30 (mise à jour 4)
+
+### Micro-entreprise validée
+
+Micro-entreprise confirmée validée. Demande ACRE déposée, résultat en attente (ne bloque rien).
+
+**Débloqué :** Meta Business Manager et Revolut pro peuvent être ouverts maintenant.
+
+---
+
+## 2026-05-30 (mise à jour 3)
+
+### Structure Shopify rendue fonctionnelle
+
+**Ce qui a été fait :**
+- Collection "Sculpted" créée sur Shopify (ID : gid://shopify/Collection/702588911961), produit "Sculptd - Compression Shaping Tank Top" ajouté dedans
+- Page Contact : template corrigé `defyne-contact` → `sculpted-contact`
+- Page Track my order : template corrigé `defyne-track-order` → `sculpted-track-order`
+- `config/settings_data.json` créé en local avec toutes les URLs branchées : nav (Home `/`, Sculpted `/collections/sculpted`, Contact `/pages/contact`, Track my order `/pages/track-order`), footer idem + liens policies
+- Footer corrigé : `🇺🇸 United States (USD $)` → `🇬🇧 United Kingdom (GBP £)`
+- Commits `daee2ab` (banner) + `ea809df` (settings)
+
+**Prochaine étape :** lancer `shopify theme push` pour pousser le `settings_data.json` sur le store, puis uploader les vraies photos produit dans Personnaliser.
+
+---
+
 ## 2026-05-30 (mise à jour 2)
 
 ### Ajout section banner image (boutique Sculpted)

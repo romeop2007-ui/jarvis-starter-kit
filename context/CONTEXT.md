@@ -69,7 +69,7 @@
 ### Modèle et statut
 - Activité : E-commerce, dropshipping
 - Modèle économique : Dropshipping (pas de stock propre)
-- Statut : Micro-entreprise en cours de validation (création déléguée, réponse attendue dans les prochains jours)
+- Statut : Micro-entreprise **validée** (30/05/2026). ACRE en attente de résultat (demande déposée, réponse attendue).
 - Première tentative business (aucun lancement précédent, vierge total)
 - **Niche : confiance corporelle masculine** (sport/santé adjacent), actée le 29/05/2026
 - **Produit cible : débardeur de compression gainant homme** (modèle type Underfit, référence copiée : underfitmen.com)
@@ -139,7 +139,7 @@
 > Liste des engagements en cours dont Claude doit me rappeler l'existence au début de chaque session (via `/prime` ou directement).
 
 - **🗓️ 30 mai 2026 à 14h30** — Réunion centre aéré (affectation lieu de travail été)
-- **⏳ En attente** — Validation micro-entreprise (réponse attendue dans les prochains jours, prévenir Claude dès réception pour enchaîner ouverture Meta BM + Revolut pro). Ne bloque pas le Shopify ni le visuel, qui peuvent avancer dès maintenant.
+- **✅ Micro-entreprise validée** (30/05/2026). Meta BM + Revolut pro peuvent être ouverts maintenant. ACRE en attente de résultat (ne bloque rien).
 - **🔁 Tous les dimanches 17h-18h** — Rendez-vous hebdo `/semaine` : bilan semaine + objectifs de la semaine à venir. **Premier rendez-vous : dimanche 31 mai 2026.**
 - **🗓️ 13-14 juin 2026** — Faire la Phase 4 du processus de personnalisation Jarvis (workflow et préférences de travail), à enchaîner juste après les examens
 - **🚀 13 juin → 27 juin 2026** — Sprint #1 business, 5-6h/jour, objectif : boutique Shopify lancée + premier test ads tournant
@@ -152,7 +152,7 @@
 > Choses que Roméo m'a racontées qui méritent un suivi proactif. À chaque début de session, je sélectionne 1 à 3 sujets pertinents et lui pose des questions du type *"au fait, la dernière fois tu m'avais parlé de X, où ça en est ?"*. Je mets à jour le statut (en cours, résolu, abandonné, reporté) au fil de ses réponses.
 
 ### Business
-- 🟡 **Validation micro-entreprise** — En attente depuis le 26/05/2026. Déléguée. Réponse attendue dans les jours qui viennent. À relancer chaque session jusqu'à confirmation. Déclenche l'ouverture Meta BM + Revolut pro (le Shopify et le visuel peuvent avancer sans attendre).
+- ✅ **Validation micro-entreprise** — Validée le 30/05/2026. ACRE en attente de résultat (ne bloque pas les prochaines étapes). Meta BM + Revolut pro peuvent être ouverts maintenant.
 - ✅ **Recherche produit (V2)** — Résolue le 29/05/2026. Produit acté : débardeur de compression gainant homme (modèle Underfit / underfitmen.com), marché Royaume-Uni. One-product store.
 - 🟡 **Boutique UK Sculpted** — Thème poussé sur Shopify, section banner ajoutée (30/05/2026). Prochaine étape : uploader photos produit réelles, brancher vrai produit Shopify, puis créas Meta Ads. Expansion US/Allemagne en réserve si ça performe.
 - 🟡 **Sourcing produit** — Roméo s'en charge lui-même (CJ/Zendrop/AliExpress). Vérifier que le fournisseur livre bien au Royaume-Uni dans des délais corrects.

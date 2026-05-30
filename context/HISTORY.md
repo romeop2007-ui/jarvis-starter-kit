@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-05-30 (mise à jour 8)
+
+### Fix double header sur la page Contact
+
+**Problème :** La page Contact affichait deux headers empilés : le bon (SCULPTED, rendu par le layout `sculpted`) et un header DEFYNE codé en dur directement dans `page.sculpted-contact.liquid` (vestige du rebrand Defyne → Sculpted).
+
+**Fix appliqué :** Suppression du bloc ticker + header hardcodé dans `templates/page.sculpted-contact.liquid`, ainsi que les styles CSS associés (sections 4 et 5). Le layout `sculpted` s'occupe déjà du chrome.
+
+**Commit :** `2dd8a34`
+
+**Prochaine étape :** `shopify theme push --store cqqah9-t1.myshopify.com --theme 200683258201 --path "livrables/ecommerce/boutiques/sculpted-shopify"` pour mettre tous les commits locaux en ligne.
+
+---
+
 ## 2026-05-30 (mise à jour 7)
 
 ### Galerie homepage alignée sur la page produit (sculpted-product)

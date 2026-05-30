@@ -7,6 +7,26 @@
 
 ---
 
+## 2026-05-31
+
+### Galerie page produit branchée sur les photos de l'onglet Produit Shopify
+
+**Problème résolu :** La galerie de la page produit utilisait des images posées en dur dans le design (réglages `image_picker` du thème). Il fallait uploader les photos deux fois : une fois sur le produit, une fois dans Personnaliser. Plus le carrousel ne fonctionnait pas (vignettes non cliquables).
+
+**Ce qui a été fait :**
+- `sculpted-buybox.liquid` : galerie refactorisée. Elle lit maintenant `product.images` automatiquement (photos de l'onglet Produit Shopify). Repli intelligent sur les images de design si le produit n'a pas encore de photo.
+- Vignettes cliquables : fonction JS `sculptedSwapHero()` ajoutée pour switcher la grande image au clic.
+- CSS `sculpted.css` : contour bleu ajouté sur la vignette active (`.frame.sel`).
+- Labels des anciens réglages de galerie renommés "(repli uniquement)" dans le schéma pour éviter la confusion.
+- Résolution produit/variant corrigée : `sc_prod` = réglage "Produit Shopify" sinon produit courant de la page.
+- Commit : `c8ae3ca`
+
+**Prochaine étape :** uploader les vraies photos sur le produit Shopify (Admin → Produits → Médias), puis `shopify theme push --store cqqah9-t1.myshopify.com --theme 200683258201 --path "livrables/ecommerce/boutiques/sculpted-shopify"`.
+
+**Question ouverte :** la homepage a sa propre buy box (`sculpted-product`) qui utilise encore les images de design. À aligner avec la même logique lors de la prochaine session si besoin.
+
+---
+
 ## 2026-05-30 (mise à jour 6)
 
 ### Bouton Buy now branché + remise automatique BXGY Shopify

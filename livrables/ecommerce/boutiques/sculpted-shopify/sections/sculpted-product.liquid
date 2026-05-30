@@ -1,5 +1,5 @@
 {%- comment -%}
-  Defyne — Boîte d'achat (buy box). La section commerciale centrale.
+  Sculpted — Boîte d'achat (buy box). La section commerciale centrale.
   Blocs disponibles (ajout/suppression/ordre dans Personnaliser) :
     - thumb  : vignette de galerie
     - bullet : argument coché
@@ -61,7 +61,7 @@
         {%- assign sizes = section.settings.sizes | split: ',' -%}
         {%- for block in section.blocks -%}
           {%- if block.type == 'tier' -%}
-            <div class="tier{% if block.settings.selected %} sel{% endif %}" onclick="defyneSelectTier(this)" {{ block.shopify_attributes }}>
+            <div class="tier{% if block.settings.selected %} sel{% endif %}" onclick="sculptedSelectTier(this)" {{ block.shopify_attributes }}>
               {%- if block.settings.flag != blank -%}
                 <span class="flag{% if block.settings.flag_hot %} hot{% endif %}">{{ block.settings.flag | escape }}</span>
               {%- endif -%}
@@ -135,7 +135,7 @@
 
 <script>
 /* Sélection d'un palier de prix : surligne le palier choisi et affiche ses options. Cosmétique. */
-function defyneSelectTier(el){
+function sculptedSelectTier(el){
   el.closest('.buy-info').querySelectorAll('.tier').forEach(function(t){ t.classList.remove('sel'); });
   el.classList.add('sel');
 }
@@ -143,7 +143,7 @@ function defyneSelectTier(el){
 
 {% schema %}
 {
-  "name": "Defyne — Produit",
+  "name": "Sculpted — Produit",
   "tag": "section",
   "settings": [
     { "type": "header", "content": "Galerie" },
@@ -151,7 +151,7 @@ function defyneSelectTier(el){
     { "type": "text", "id": "main_frame_label", "label": "Libellé cadre principal (si pas d'image)", "default": "Product — three colorways, \"Buy 2 + 1 Free\"" },
     { "type": "header", "content": "Titre & description" },
     { "type": "text", "id": "rating_text", "label": "Ligne de note", "default": "Excellent · 10,310+ reviews" },
-    { "type": "text", "id": "title", "label": "Titre produit", "default": "Defyne™ | Shaping Compression Tank" },
+    { "type": "text", "id": "title", "label": "Titre produit", "default": "Sculpted™ | Shaping Compression Tank" },
     { "type": "textarea", "id": "desc", "label": "Description", "default": "The compression tank that helps you stand tall, slim your silhouette and erase every problem area the moment you put it on." },
     { "type": "text", "id": "stock_text", "label": "Bandeau stock", "default": "● Only 6 tanks left in stock." },
     { "type": "text", "id": "size_link_label", "label": "Libellé lien guide des tailles", "default": "Size guide" },
@@ -167,7 +167,7 @@ function defyneSelectTier(el){
     { "type": "image_picker", "id": "lc_image2", "label": "Image 2" },
     { "type": "text", "id": "lc_label2", "label": "Libellé cadre 2", "default": "+ 1 gift" },
     { "type": "text", "id": "lc_line_pre", "label": "Ligne — début", "default": "Buy 2 = 1" },
-    { "type": "text", "id": "lc_line_accent", "label": "Ligne — mot bleu", "default": "Defyne" },
+    { "type": "text", "id": "lc_line_accent", "label": "Ligne — mot bleu", "default": "Sculpted" },
     { "type": "text", "id": "lc_line_em", "label": "Ligne — mot vert", "default": "Free" },
     { "type": "text", "id": "lc_badge_a", "label": "Badge vert", "default": "🔒 30-day money-back" },
     { "type": "text", "id": "lc_badge_b", "label": "Badge rouge", "default": "⏳ Low stock!" },
@@ -199,7 +199,7 @@ function defyneSelectTier(el){
         { "type": "text", "id": "flag", "label": "Étiquette (optionnel)" },
         { "type": "checkbox", "id": "flag_hot", "label": "Étiquette rouge", "default": false },
         { "type": "text", "id": "pack", "label": "Quantité (ex : ×3)", "default": "×1" },
-        { "type": "text", "id": "label", "label": "Libellé", "default": "1 Defyne" },
+        { "type": "text", "id": "label", "label": "Libellé", "default": "1 Sculpted" },
         { "type": "text", "id": "ship", "label": "Badge livraison", "default": "Free Shipping" },
         { "type": "text", "id": "price_now", "label": "Prix actuel", "default": "$29.99" },
         { "type": "text", "id": "price_was", "label": "Prix barré", "default": "$34.90" },
@@ -234,7 +234,7 @@ function defyneSelectTier(el){
         { "type": "bullet", "settings": { "text": "Speeds up weight loss" } },
         { "type": "bullet", "settings": { "text": "Man boobs flattened" } },
         { "type": "bullet", "settings": { "text": "Love handles erased" } },
-        { "type": "tier", "settings": { "pack": "×1", "label": "1 Defyne", "ship": "Free Shipping", "price_now": "$29.99", "price_was": "$34.90", "options_rows": 0 } },
+        { "type": "tier", "settings": { "pack": "×1", "label": "1 Sculpted", "ship": "Free Shipping", "price_now": "$29.99", "price_was": "$34.90", "options_rows": 0 } },
         { "type": "tier", "settings": { "selected": true, "flag": "Most popular 🔥", "flag_hot": true, "pack": "×3", "label": "2 + 1 Free", "ship": "Free Shipping", "price_now": "$59.98", "price_was": "$104.70", "options_rows": 3 } },
         { "type": "tier", "settings": { "flag": "Best value 💎", "pack": "×5", "label": "3 + 2 Free", "ship": "Free Shipping", "price_now": "$79.98", "price_was": "$174.50", "options_rows": 0 } },
         { "type": "ugc", "settings": { "label": "Unboxing video" } },

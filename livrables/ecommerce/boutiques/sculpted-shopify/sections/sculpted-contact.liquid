@@ -1,15 +1,15 @@
 {%- comment -%}
   ===========================================================================
-  Defyne — Section "Contact" (page contact)
+  Sculpted — Section "Contact" (page contact)
   ---------------------------------------------------------------------------
-  Recréation Shopify de la maquette "Defyne Contact.html".
+  Recréation Shopify de la maquette "Sculpted Contact.html".
   - Intro "Questions?" + coordonnées (email, SAV, délai de réponse)
   - Formulaire de contact NATIF Shopify ({% form 'contact' %}) : les messages
     arrivent sur l'email admin de la boutique, aucun service externe requis.
   - Tous les textes sont éditables dans le personnalisateur Shopify (schema).
 
   Header / footer / ticker viennent du thème, pas de cette section.
-  Les badges de confiance sont une section séparée (defyne-trust-badges).
+  Les badges de confiance sont une section séparée (sculpted-trust-badges).
   ===========================================================================
 {%- endcomment -%}
 
@@ -82,7 +82,7 @@
 </section>
 
 {% stylesheet %}
-/* ---------- TOKENS (identiques à la maquette Defyne, préfixés --dfy- pour
+/* ---------- TOKENS (identiques à la maquette Sculpted, préfixés --dfy- pour
    ne pas entrer en conflit avec les variables du thème) ------------------ */
 .dfy-contact{
   --dfy-ink:#101114;
@@ -165,17 +165,17 @@
 
 {% schema %}
 {
-  "name": "Defyne — Contact",
+  "name": "Sculpted — Contact",
   "tag": "section",
   "class": "dfy-contact-wrapper",
   "settings": [
     { "type": "header", "content": "Intro" },
     { "type": "text", "id": "heading", "label": "Titre", "default": "Questions?" },
     { "type": "textarea", "id": "intro", "label": "Texte d'intro", "default": "Get in touch below, or email us anytime — we reply within 24 hours." },
-    { "type": "text", "id": "email", "label": "Email affiché", "default": "hello@defyne.com" },
+    { "type": "text", "id": "email", "label": "Email affiché", "default": "hello@sculpted.com" },
     { "type": "header", "content": "Coordonnées (3 lignes)" },
     { "type": "text", "id": "meta1_label", "label": "Ligne 1 — titre", "default": "Email" },
-    { "type": "text", "id": "meta1_value", "label": "Ligne 1 — valeur", "default": "hello@defyne.com" },
+    { "type": "text", "id": "meta1_value", "label": "Ligne 1 — valeur", "default": "hello@sculpted.com" },
     { "type": "text", "id": "meta2_label", "label": "Ligne 2 — titre", "default": "Customer service" },
     { "type": "text", "id": "meta2_value", "label": "Ligne 2 — valeur", "default": "Available 24/7" },
     { "type": "text", "id": "meta3_label", "label": "Ligne 3 — titre", "default": "Response time" },
@@ -191,7 +191,7 @@
     { "type": "textarea", "id": "success_text", "label": "Message de confirmation", "default": "Thanks — your message is on its way. We'll be in touch within 24 hours." }
   ],
   "presets": [
-    { "name": "Defyne — Contact" }
+    { "name": "Sculpted — Contact" }
   ]
 }
 {% endschema %}

@@ -1,9 +1,9 @@
-{% layout 'defyne' %}
+{% layout 'sculpted' %}
 {%- comment -%}
   ===========================================================================
-  Defyne — Template de page Contact (rendu 1:1 de la maquette Claude Design)
+  Sculpted — Template de page Contact (rendu 1:1 de la maquette Claude Design)
   ---------------------------------------------------------------------------
-  Reproduction EXACTE de "Defyne Contact.html" : ticker, header/nav, intro
+  Reproduction EXACTE de "Sculpted Contact.html" : ticker, header/nav, intro
   "Questions?", formulaire, badges de confiance, footer noir. Le CSS et le
   markup sont identiques à la maquette. Seules différences fonctionnelles :
     - le formulaire utilise le formulaire contact NATIF Shopify
@@ -11,7 +11,7 @@
     - les liens de nav pointent vers des URL Shopify (à ajuster quand les
       autres pages existeront)
 
-  Déploiement : ce template utilise le layout isolé 'defyne' (1re ligne),
+  Déploiement : ce template utilise le layout isolé 'sculpted' (1re ligne),
   donc il ne dépend PAS du header/footer de ton thème.
   ===========================================================================
 {%- endcomment -%}
@@ -171,7 +171,7 @@ footer{background:var(--ink);color:#fff;padding:80px 0 40px}
     <a href="{{ routes.root_url }}" class="logo">De<b>fyne</b></a>
     <nav class="nav-links">
       <a href="{{ routes.root_url }}">Home</a>
-      <a href="{{ routes.root_url }}#product">Defyne</a>
+      <a href="{{ routes.root_url }}#product">Sculpted</a>
       <a href="{{ request.path }}" class="active">Contact</a>
       <a href="/pages/track-order">Track my order</a>
     </nav>
@@ -191,12 +191,12 @@ footer{background:var(--ink);color:#fff;padding:80px 0 40px}
     <div class="contact-intro">
       <h1 class="display">Questions?</h1>
       <p>Get in touch below, or email us anytime — we reply within 24 hours.</p>
-      <a href="mailto:hello@defyne.com" class="mail">hello@defyne.com</a>
+      <a href="mailto:hello@sculpted.com" class="mail">hello@sculpted.com</a>
 
       <div class="contact-meta">
         <div class="row">
           <svg class="ic" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 6l8 6 8-6"/></svg>
-          <div><b>Email</b><span>hello@defyne.com</span></div>
+          <div><b>Email</b><span>hello@sculpted.com</span></div>
         </div>
         <div class="row">
           <svg class="ic" viewBox="0 0 24 24"><path d="M4 13a8 8 0 0116 0M4 13v3a2 2 0 002 2M20 13v3a2 2 0 01-2 2h-3"/></svg>
@@ -264,7 +264,7 @@ footer{background:var(--ink);color:#fff;padding:80px 0 40px}
       <div class="foot-col">
         <h4>Menu</h4>
         <a href="{{ routes.root_url }}">Home</a>
-        <a href="{{ routes.root_url }}#product">Defyne</a>
+        <a href="{{ routes.root_url }}#product">Sculpted</a>
         <a href="{{ request.path }}">Contact</a>
         <a href="/pages/track-order">Track my order</a>
       </div>
@@ -281,7 +281,7 @@ footer{background:var(--ink);color:#fff;padding:80px 0 40px}
     </div>
     <div class="foot-bot">
       <span class="cur">🇺🇸 United States (USD $) <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px;stroke:#fff"><path d="M6 9l6 6 6-6"/></svg></span>
-      <span class="cp">© 2026, Defyne</span>
+      <span class="cp">© 2026, Sculpted</span>
       <div class="foot-pay"><span>AMEX</span><span>Apple Pay</span><span>Diners</span><span>Discover</span><span>G Pay</span><span>JCB</span><span>Mastercard</span><span>VISA</span></div>
     </div>
   </div>

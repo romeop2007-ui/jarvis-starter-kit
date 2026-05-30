@@ -59,29 +59,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .btn:active{transform:translateY(1px)}
 .btn-primary{background:var(--ink);color:#fff}
 .btn-primary:hover{background:#000}
-/* ---------- 4. ANNOUNCEMENT TICKER ---------- */
-.ticker{background:var(--ink);color:#fff;overflow:hidden;white-space:nowrap}
-.ticker-track{display:inline-flex;padding:10px 0;animation:scroll 28s linear infinite}
-.ticker-track span{
-  font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-  padding:0 36px;position:relative;
-}
-.ticker-track span::after{content:"•";position:absolute;right:-4px;opacity:.45}
-@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-/* ---------- 5. HEADER ----------------------- */
-header{
-  position:sticky;top:0;z-index:50;
-  background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);
-}
-.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
-.logo{font-weight:900;font-size:22px;letter-spacing:.04em;text-transform:uppercase}
-.logo b{color:var(--accent)}
-.nav-links{display:flex;gap:34px}
-.nav-links a{font-weight:600;font-size:15px;position:relative}
-.nav-links a:hover,.nav-links a.active{color:var(--accent)}
-.nav-utils{display:flex;align-items:center;gap:22px}
-.nav-utils .cur{font-weight:600;font-size:14px;display:flex;align-items:center;gap:6px}
 /* ---------- 6. CONTACT SECTION -------------- */
 .contact{padding:96px 0 110px}
 .contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:start}
@@ -151,37 +128,6 @@ footer{background:var(--ink);color:#fff;padding:80px 0 40px}
   .form-card{padding:26px}
 }
 </style>
-
-<!-- ============ ANNOUNCEMENT TICKER ============ -->
-<div class="ticker">
-  <div class="ticker-track">
-    <span>In stock — selling out fast</span>
-    <span>Limited-time sale</span>
-    <span>Free shipping until midnight tonight</span>
-    <span>In stock — selling out fast</span>
-    <span>Limited-time sale</span>
-    <span>Free shipping until midnight tonight</span>
-  </div>
-</div>
-
-<!-- ============ HEADER ============ -->
-{%- comment -%} Liens de nav : à pointer vers les vraies pages Shopify quand elles existeront. {%- endcomment -%}
-<header>
-  <div class="wrap nav">
-    <a href="{{ routes.root_url }}" class="logo">De<b>fyne</b></a>
-    <nav class="nav-links">
-      <a href="{{ routes.root_url }}">Home</a>
-      <a href="{{ routes.root_url }}#product">Sculpted</a>
-      <a href="{{ request.path }}" class="active">Contact</a>
-      <a href="/pages/track-order">Track my order</a>
-    </nav>
-    <div class="nav-utils">
-      <span class="cur">USD&nbsp;$ <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M6 9l6 6 6-6"/></svg></span>
-      <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-      <svg class="icon" viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6L5 3H2"/></svg>
-    </div>
-  </div>
-</header>
 
 <!-- ============ CONTACT ============ -->
 <section class="contact">

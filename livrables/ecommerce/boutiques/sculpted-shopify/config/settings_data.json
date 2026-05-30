@@ -146,7 +146,7 @@
           },
           "sculpted-header-1": {
             "type": "link",
-            "settings": { "label": "Sculpted", "url": "/collections/sculpted" }
+            "settings": { "label": "Sculpted", "url": "/products/sculptd-compression-shaping-tank-top" }
           },
           "sculpted-header-2": {
             "type": "link",
@@ -408,7 +408,7 @@
         "type": "sculpted-footer",
         "blocks": {
           "sculpted-footer-0": { "type": "menu_link", "settings": { "label": "Home", "url": "/" } },
-          "sculpted-footer-1": { "type": "menu_link", "settings": { "label": "Sculpted", "url": "/collections/sculpted" } },
+          "sculpted-footer-1": { "type": "menu_link", "settings": { "label": "Sculpted", "url": "/products/sculptd-compression-shaping-tank-top" } },
           "sculpted-footer-2": { "type": "menu_link", "settings": { "label": "Contact", "url": "/pages/contact" } },
           "sculpted-footer-3": { "type": "menu_link", "settings": { "label": "Track my order", "url": "/pages/track-order" } },
           "sculpted-footer-4": { "type": "info_link", "settings": { "label": "Contact", "url": "/pages/contact" } },

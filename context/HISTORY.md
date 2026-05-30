@@ -7,6 +7,22 @@
 
 ---
 
+## 2026-05-31 (mise à jour 3)
+
+### Fix snippet sculpted-benefit-icon manquant
+
+**Problème :** La section `sculpted-benefits` affichait des erreurs Liquid "Could not find asset snippets/sculpted-benefit-icon.liquid" à la place des icônes SVG, sur chacun des 4 blocs bénéfices.
+
+**Cause :** Le rebrand Defyne → Sculpted avait renommé tous les fichiers mais avait loupé `snippets/defyne-benefit-icon.liquid`. La section appelait `sculpted-benefit-icon` qui n'existait pas.
+
+**Fix appliqué :** Création de `snippets/sculpted-benefit-icon.liquid` (contenu identique au fichier defyne, 4 icônes SVG : ribs, shirt-check, waves, shirt).
+
+**Commit :** `5f78de7`
+
+**Push effectué :** oui (via `shopify theme push --allow-live`). Thème en ligne sur cqqah9-t1.myshopify.com (#200683258201). Erreurs résiduelles non bloquantes au push : 3 fichiers protégés Shopify (`layout/theme.liquid`, `templates/gift_card.liquid`, `config/settings_schema.json`) ne peuvent pas être supprimés par le CLI — comportement normal, sans impact sur le thème.
+
+---
+
 ## 2026-05-30 (mise à jour 8)
 
 ### Fix double header sur la page Contact

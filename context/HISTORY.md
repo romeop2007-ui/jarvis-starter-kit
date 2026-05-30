@@ -7,6 +7,22 @@
 
 ---
 
+## 2026-05-30
+
+### Rebrand boutique : Defyne → Sculpted
+
+La marque s'appelle désormais **Sculpted** et le produit s'appelle le **Sculpted**.
+
+**Ce qui a été fait :**
+- Renommage complet du dossier `defyne-shopify` → `sculpted-shopify`
+- Renommage de tous les fichiers : `defyne-*.liquid` → `sculpted-*.liquid`, `defyne.css` → `sculpted.css`, `defyne.liquid` → `sculpted.liquid`, templates idem
+- Remplacement de toutes les occurrences textuelles "Defyne/defyne" → "Sculpted/sculpted" dans le contenu des fichiers (noms de sections, commentaires, balises Liquid, références CSS)
+- Commit `c5a89f5` : 29 fichiers modifiés
+
+**Prochaine étape :** pousser les fichiers sur Shopify (`shopify theme push --store cqqah9-t1.myshopify.com --theme 200671494489`), puis continuer les modifications de la boutique étape par étape.
+
+---
+
 ## 2026-05-29 (mise à jour 3)
 
 ### Boutique Defyne : conversion en sections Shopify éditables + déploiement

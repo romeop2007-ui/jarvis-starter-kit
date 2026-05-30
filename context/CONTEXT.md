@@ -143,7 +143,7 @@
 - **🔁 Tous les dimanches 17h-18h** — Rendez-vous hebdo `/semaine` : bilan semaine + objectifs de la semaine à venir. **Premier rendez-vous : dimanche 31 mai 2026.**
 - **🗓️ 13-14 juin 2026** — Faire la Phase 4 du processus de personnalisation Jarvis (workflow et préférences de travail), à enchaîner juste après les examens
 - **🚀 13 juin → 27 juin 2026** — Sprint #1 business, 5-6h/jour, objectif : boutique Shopify lancée + premier test ads tournant
-- **🇬🇧 Boutique UK Sculpted** — Structure Shopify terminée + rebrandée Sculpted, thème poussé sur cqqah9-t1.myshopify.com. Section banner image ajoutée entre header et hero (30/05/2026). Reste à faire : uploader les vraies photos produit (banner + sections), brancher le bouton "Buy now" sur un vrai produit Shopify, puis créas Meta Ads.
+- **🇬🇧 Boutique UK Sculpted** — Structure Shopify terminée + rebrandée Sculpted, thème poussé sur cqqah9-t1.myshopify.com. Fix 404 nav appliqué (31/05/2026) : lien "Sculpted" pointe maintenant vers `/products/sculptd-compression-shaping-tank-top`. Reste à faire : shopify theme push pour mettre le fix en ligne, puis uploader les vraies photos produit, puis créas Meta Ads.
 
 ---
 
@@ -154,7 +154,7 @@
 ### Business
 - ✅ **Validation micro-entreprise** — Validée le 30/05/2026. ACRE en attente de résultat (ne bloque pas les prochaines étapes). Meta BM + Revolut pro peuvent être ouverts maintenant.
 - ✅ **Recherche produit (V2)** — Résolue le 29/05/2026. Produit acté : débardeur de compression gainant homme (modèle Underfit / underfitmen.com), marché Royaume-Uni. One-product store.
-- 🟡 **Boutique UK Sculpted** — Thème poussé sur Shopify, section banner ajoutée (30/05/2026). Prochaine étape : uploader photos produit réelles, brancher vrai produit Shopify, puis créas Meta Ads. Expansion US/Allemagne en réserve si ça performe.
+- 🟡 **Boutique UK Sculpted** — Fix 404 nav appliqué (31/05/2026), commit `59035e0`. Prochaine étape immédiate : `shopify theme push` pour mettre le fix en ligne. Ensuite : uploader photos produit réelles, puis créas Meta Ads. Expansion US/Allemagne en réserve si ça performe.
 - 🟡 **Sourcing produit** — Roméo s'en charge lui-même (CJ/Zendrop/AliExpress). Vérifier que le fournisseur livre bien au Royaume-Uni dans des délais corrects.
 
 ### Études

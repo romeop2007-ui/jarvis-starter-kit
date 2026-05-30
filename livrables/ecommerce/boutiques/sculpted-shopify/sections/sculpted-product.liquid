@@ -17,10 +17,10 @@
 
 {%- comment -%} Résolution du produit/variant pour le bouton d'achat {%- endcomment -%}
 {%- assign sc_prod = all_products[section.settings.product] -%}
-{%- assign sc_vid = sc_prod.selected_or_first_available_variant.id -%}
-{%- if sc_vid == blank and product != blank -%}
-  {%- assign sc_vid = product.selected_or_first_available_variant.id -%}
+{%- if sc_prod == blank and product != blank -%}
+  {%- assign sc_prod = product -%}
 {%- endif -%}
+{%- assign sc_vid = sc_prod.selected_or_first_available_variant.id -%}
 {%- assign colors = section.settings.colors | split: ',' -%}
 {%- assign sizes = section.settings.sizes | split: ',' -%}
 
@@ -29,28 +29,45 @@
     <div class="buy-grid">
 
       {%- comment -%} -------- Galerie -------- {%- endcomment -%}
-      <div class="gallery">
-        <div class="thumbs">
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'thumb' -%}
-              <div class="frame{% if block.settings.image != blank %} has-img{% endif %}" {{ block.shopify_attributes }}>
-                {%- if block.settings.image != blank -%}
-                  <img src="{{ block.settings.image | image_url: width: 200 }}" alt="" loading="lazy">
-                {%- else -%}
-                  <span>{{ block.settings.label | escape }}</span>
-                {%- endif -%}
+      {%- if sc_prod != blank and sc_prod.images.size > 0 -%}
+        {%- comment -%} Galerie automatique : photos de l'onglet Produit Shopify {%- endcomment -%}
+        <div class="gallery">
+          <div class="thumbs">
+            {%- for image in sc_prod.images -%}
+              <div class="frame has-img{% if forloop.first %} sel{% endif %}" onclick="sculptedSwapHero(this)" data-full="{{ image | image_url: width: 1000 }}">
+                <img src="{{ image | image_url: width: 200 }}" alt="{{ image.alt | default: sc_prod.title | escape }}" loading="lazy">
               </div>
+            {%- endfor -%}
+          </div>
+          <div class="frame hero-img has-img">
+            <img id="sc-hero-img" src="{{ sc_prod.featured_image | image_url: width: 1000 }}" alt="{{ sc_prod.title | escape }}" loading="lazy">
+          </div>
+        </div>
+      {%- else -%}
+        {%- comment -%} Repli : images du thème (si le produit n'a pas encore de photo) {%- endcomment -%}
+        <div class="gallery">
+          <div class="thumbs">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'thumb' -%}
+                <div class="frame{% if block.settings.image != blank %} has-img{% endif %}" {{ block.shopify_attributes }}>
+                  {%- if block.settings.image != blank -%}
+                    <img src="{{ block.settings.image | image_url: width: 200 }}" alt="" loading="lazy">
+                  {%- else -%}
+                    <span>{{ block.settings.label | escape }}</span>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+          <div class="frame hero-img{% if section.settings.main_image != blank %} has-img{% endif %}">
+            {%- if section.settings.main_image != blank -%}
+              <img src="{{ section.settings.main_image | image_url: width: 1000 }}" alt="{{ section.settings.title | escape }}" loading="lazy">
+            {%- else -%}
+              <span>{{ section.settings.main_frame_label | escape }}</span>
             {%- endif -%}
-          {%- endfor -%}
+          </div>
         </div>
-        <div class="frame hero-img{% if section.settings.main_image != blank %} has-img{% endif %}">
-          {%- if section.settings.main_image != blank -%}
-            <img src="{{ section.settings.main_image | image_url: width: 1000 }}" alt="{{ section.settings.title | escape }}" loading="lazy">
-          {%- else -%}
-            <span>{{ section.settings.main_frame_label | escape }}</span>
-          {%- endif -%}
-        </div>
-      </div>
+      {%- endif -%}
 
       {%- comment -%} -------- Infos achat -------- {%- endcomment -%}
       <div class="buy-info">
@@ -152,6 +169,16 @@
 </section>
 
 <script>
+/* Galerie : clic sur une vignette produit → remplace la grande image. */
+function sculptedSwapHero(el){
+  var full = el.getAttribute('data-full');
+  var hero = document.getElementById('sc-hero-img');
+  if(full && hero){ hero.src = full; }
+  var thumbs = el.closest('.thumbs');
+  if(thumbs){ thumbs.querySelectorAll('.frame').forEach(function(f){ f.classList.remove('sel'); }); }
+  el.classList.add('sel');
+}
+
 /* Sélection d'un palier de prix : surligne le palier choisi. */
 function sculptedSelectTier(el){
   el.closest('.buy-info').querySelectorAll('.tier').forEach(function(t){ t.classList.remove('sel'); });

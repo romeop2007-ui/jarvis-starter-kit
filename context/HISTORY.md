@@ -7,6 +7,24 @@
 
 ---
 
+## 2026-05-31 (mise à jour 2)
+
+### Fix 404 : lien nav "Sculpted" redirigé vers la fiche produit
+
+**Problème :** Cliquer sur "Sculpted" dans la navigation amenait sur une page 404. Cause : le lien pointait vers `/collections/sculpted`, mais le template `collection.liquid` est absent du thème Sculpted UK (on n'a que nos sections custom + product/index templates). Shopify ne sait pas rendre la collection → 404.
+
+**Diagnostic :** Le produit (`sculptd-compression-shaping-tank-top`, actif, handle confirmé via MCP) et la collection (`sculpted`, handle confirmé via MCP) existent bien côté Shopify. Le problème était uniquement l'absence du template collection côté thème.
+
+**Fix appliqué :** Mise à jour de `settings_data.json` — lien "Sculpted" dans le header ET le footer redirigé de `/collections/sculpted` vers `/products/sculptd-compression-shaping-tank-top`.
+
+Cohérent avec la stratégie one-product store : tout le trafic va directement à la fiche produit, pas via une collection intermédiaire.
+
+**Commit :** `59035e0`
+
+**Prochaine étape :** `shopify theme push --store cqqah9-t1.myshopify.com --theme 200683258201 --path "livrables/ecommerce/boutiques/sculpted-shopify"` pour mettre le fix en ligne.
+
+---
+
 ## 2026-05-31
 
 ### Galerie page produit branchée sur les photos de l'onglet Produit Shopify

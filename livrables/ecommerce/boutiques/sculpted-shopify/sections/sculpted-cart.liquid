@@ -1,0 +1,158 @@
+{%- comment -%}
+  Sculpted — Page panier (/cart).
+  Corrige la 404 de l'icône caddie (header) ET du logo au checkout : tous deux
+  pointent vers routes.cart_url. Sans template cart, Shopify renvoyait une 404.
+
+  Fonctionne SANS JavaScript : le formulaire standard Shopify gère la mise à
+  jour des quantités (champ "updates[]" + bouton "update"), la suppression
+  (lien item.url_to_remove) et le passage en caisse (bouton "checkout").
+  Les remises automatiques (ex : Buy 2 Get 1 Free) sont déjà reflétées dans
+  cart.total_price.
+{%- endcomment -%}
+
+<section class="cart-page">
+  <div class="wrap">
+    <h1 class="cart-title display">{{ section.settings.heading | escape }}</h1>
+
+    {%- if cart.item_count > 0 -%}
+      <form action="{{ routes.cart_url }}" method="post" novalidate class="cart-form">
+        <div class="cart-items">
+          <div class="cart-head">
+            <span>{{ section.settings.col_product | escape }}</span>
+            <span class="cart-head__qty">{{ section.settings.col_qty | escape }}</span>
+            <span class="cart-head__price">{{ section.settings.col_total | escape }}</span>
+          </div>
+
+          {%- for item in cart.items -%}
+            {%- comment -%} Ligne "offerte" = entièrement gratuite (article cadeau). On verrouille sa quantité. {%- endcomment -%}
+            {%- assign is_gift = false -%}
+            {%- if item.final_line_price == 0 and item.original_price > 0 -%}{%- assign is_gift = true -%}{%- endif -%}
+            <div class="cart-item{% if is_gift %} cart-item--gift{% endif %}">
+              <a href="{{ item.url }}" class="cart-item__media frame{% if item.image %} has-img{% endif %}">
+                {%- if item.image -%}
+                  <img src="{{ item.image | image_url: width: 220 }}" alt="{{ item.title | escape }}" loading="lazy">
+                {%- endif -%}
+              </a>
+
+              <div class="cart-item__info">
+                <a href="{{ item.url }}" class="cart-item__name">{{ item.product.title | escape }}</a>
+                {%- if item.variant.title and item.variant.title != 'Default Title' -%}
+                  <p class="cart-item__variant">{{ item.variant.title | escape }}</p>
+                {%- endif -%}
+                {%- for p in item.properties -%}
+                  {%- if p.last != blank -%}
+                    <p class="cart-item__prop">{{ p.first | escape }}: {{ p.last | escape }}</p>
+                  {%- endif -%}
+                {%- endfor -%}
+                {%- unless is_gift -%}
+                  <a href="{{ item.url_to_remove }}" class="cart-item__remove">{{ section.settings.remove_label | escape }}</a>
+                {%- endunless -%}
+              </div>
+
+              <div class="cart-item__qty">
+                {%- if is_gift -%}
+                  {%- comment -%} updates[] doit garder une entrée par ligne (sinon décalage). On envoie la quantité en champ caché, non modifiable. {%- endcomment -%}
+                  <input type="hidden" name="updates[]" value="{{ item.quantity }}">
+                  <span class="cart-qty-locked" aria-label="Quantity locked">{{ item.quantity }}<span class="cart-gift-badge">{{ section.settings.gift_badge | escape }}</span></span>
+                {%- else -%}
+                  <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" inputmode="numeric" aria-label="Quantity" class="cart-qty-input" data-line="{{ forloop.index }}">
+                {%- endif -%}
+              </div>
+
+              <div class="cart-item__price">
+                {%- if is_gift -%}
+                  <span class="now cart-price-free">{{ section.settings.free_label | escape }}</span>
+                  {%- if item.original_line_price > 0 -%}
+                    <span class="was">{{ item.original_line_price | money }}</span>
+                  {%- endif -%}
+                {%- else -%}
+                  <span class="now">{{ item.final_line_price | money }}</span>
+                  {%- if item.original_line_price != item.final_line_price -%}
+                    <span class="was">{{ item.original_line_price | money }}</span>
+                  {%- endif -%}
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <div class="cart-foot">
+          <button type="submit" name="update" class="btn btn-ghost cart-update">{{ section.settings.update_label | escape }}</button>
+
+          <div class="cart-summary">
+            {%- if cart.total_discount > 0 -%}
+              <p class="cart-discount"><span>{{ section.settings.discount_label | escape }}</span> <b>−{{ cart.total_discount | money }}</b></p>
+            {%- endif -%}
+            <p class="cart-subtotal"><span>{{ section.settings.subtotal_label | escape }}</span> <b>{{ cart.total_price | money }}</b></p>
+            <p class="cart-note">{{ section.settings.shipping_note | escape }}</p>
+            <button type="submit" name="checkout" class="btn btn-accent btn-block cart-checkout">{{ section.settings.checkout_label | escape }}</button>
+            <a href="{{ section.settings.continue_url | default: routes.root_url }}" class="cart-continue">{{ section.settings.continue_label | escape }}</a>
+          </div>
+        </div>
+      </form>
+
+    {%- else -%}
+      <div class="cart-empty">
+        <p>{{ section.settings.empty_text | escape }}</p>
+        <a href="{{ section.settings.continue_url | default: routes.root_url }}" class="btn btn-accent">{{ section.settings.empty_btn | escape }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+<script>
+/* Recalcul live de la quantité : on change la case → /cart/change.js → on
+   recharge la page pour afficher le bon total (et la bonne remise auto BXGY).
+   Si le JS est désactivé, le bouton "Update cart" du formulaire prend le relais. */
+(function(){
+  var inputs = document.querySelectorAll('.cart-qty-input[data-line]');
+  if(!inputs.length){ return; }
+  inputs.forEach(function(input){
+    input.addEventListener('change', function(){
+      var line = parseInt(input.getAttribute('data-line'), 10);
+      var qty = parseInt(input.value, 10);
+      if(isNaN(qty) || qty < 0){ qty = 0; }
+      input.disabled = true;
+      fetch('/cart/change.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ line: line, quantity: qty })
+      })
+      .then(function(r){ if(!r.ok){ throw new Error('change failed'); } return r.json(); })
+      .then(function(){ window.location.reload(); })
+      .catch(function(){ input.disabled = false; alert('Could not update quantity. Please try again.'); });
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Sculpted — Panier",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Your cart" },
+    { "type": "header", "content": "En-têtes de colonnes" },
+    { "type": "text", "id": "col_product", "label": "Colonne produit", "default": "Product" },
+    { "type": "text", "id": "col_qty", "label": "Colonne quantité", "default": "Qty" },
+    { "type": "text", "id": "col_total", "label": "Colonne total", "default": "Total" },
+    { "type": "header", "content": "Libellés" },
+    { "type": "text", "id": "remove_label", "label": "Lien supprimer", "default": "Remove" },
+    { "type": "text", "id": "gift_badge", "label": "Badge article offert", "default": "Gift" },
+    { "type": "text", "id": "free_label", "label": "Libellé prix offert", "default": "Free" },
+    { "type": "text", "id": "update_label", "label": "Bouton mettre à jour", "default": "Update cart" },
+    { "type": "text", "id": "subtotal_label", "label": "Libellé sous-total", "default": "Subtotal" },
+    { "type": "text", "id": "discount_label", "label": "Libellé remise", "default": "Discount" },
+    { "type": "text", "id": "shipping_note", "label": "Note livraison/taxes", "default": "Shipping & taxes calculated at checkout." },
+    { "type": "text", "id": "checkout_label", "label": "Bouton checkout", "default": "Checkout" },
+    { "type": "text", "id": "continue_label", "label": "Lien continuer mes achats", "default": "Continue shopping" },
+    { "type": "url", "id": "continue_url", "label": "Lien \"continuer mes achats\"" },
+    { "type": "header", "content": "Panier vide" },
+    { "type": "text", "id": "empty_text", "label": "Message panier vide", "default": "Your cart is empty." },
+    { "type": "text", "id": "empty_btn", "label": "Bouton panier vide", "default": "Shop now" }
+  ],
+  "presets": [
+    { "name": "Sculpted — Panier" }
+  ]
+}
+{% endschema %}

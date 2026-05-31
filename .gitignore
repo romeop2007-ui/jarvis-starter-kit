@@ -5,6 +5,8 @@
 .secrets
 *.pem
 *.key
+*recovery_codes*
+*recovery-codes*
 
 # Dépendances
 node_modules/

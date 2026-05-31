@@ -7,6 +7,49 @@
 
 ---
 
+## Semaine du 1er au 7 juin 2026 (premier `/semaine`)
+
+**Bilan semaine écoulée (sans objectifs formels, c'était le 1er RDV) :** grosse semaine de fondation. Produit + marché actés, boutique Shopify créée (site, produits, structure), micro-entreprise validée. Énergie correcte, motivation en légère baisse de nouveauté → Roméo identifie lui-même le bon levier : discipline > motivation. Reprise muscu prévue aux vacances (carburant énergie).
+
+**Changement acté :** compte pro = **Qonto** (opérationnel 31/05). Revolut business refusé. Qonto remplace Revolut partout dans le contexte.
+
+**Objectifs de la semaine :**
+- [ ] **Objectif 1 :** Boutique Sculpted 100% fonctionnelle et prête à vendre (photos intégrées, parcours testé de bout en bout panier → checkout réel UK, zéro bug)
+- [ ] **Objectif 2 :** Meta Business Manager créé et configuré, Qonto relié comme moyen de paiement (socle pub prêt, sans lancer)
+- [ ] **Objectif 3 :** 5-6 créatives adaptées en anglais (sous-titres EN + voix off anglaise), prêtes à charger dans Meta, pas publiées
+
+**Décision :** lancement des pubs Meta repoussé au sprint #1 (13 juin), pas pendant les exams / dispo réduite (impossible de surveiller et optimiser, gaspillage du budget test).
+
+**Note créas :** ce ne sont pas des créas à créer mais à **adapter** (5-6 gagnantes d'underfitmen.com, juste à traduire). Méthode "traduire avant d'innover" appliquée aux créas.
+
+**Risque principal identifié :** les créatives (brique technique neuve, niveau zéro). Risque de blocage = traduction/tournures anglaises.
+**Blocages possibles :** cours + sorties improvisées avec les copains.
+**Préparation Claude :** dès que Roméo donne les transcriptions FR des créas, produire les sous-titres + scripts de voix off en anglais UK prêts à l'emploi, pour transformer l'objectif le plus risqué en simple tâche d'exécution.
+
+---
+
+## 2026-05-31 (mise à jour 5)
+
+### Création de la page panier Shopify (fix des 404 caddie + logo checkout)
+
+**Point de départ :** Roméo voulait supprimer le logo affiché au checkout (il faisait une 404 au clic). Diagnostic : le checkout Shopify n'est **pas éditable** sur le plan **Basic** (l'API `checkoutBranding` exige le plan Plus, ~2 000 $/mois). Mutation `checkoutBrandingUpsert` tentée pour preuve → refus explicite de Shopify. Idée du logo abandonnée par Roméo.
+
+**Vraie cause des 404 :** le thème n'avait **aucun template `cart.liquid`**. L'icône caddie du header ET le logo du checkout pointent tous deux vers `/cart` → page inexistante → 404 (même classe de bug que l'ancien 404 collection).
+
+**Solution livrée :** création d'une vraie page panier.
+- `templates/cart.liquid` (nouveau) + `sections/sculpted-cart.liquid` (nouveau) + styles dans `assets/sculpted.css` (+56 lignes), au design exact de la boutique.
+- Fonctionne sans JS (formulaire Shopify standard `updates[]` + bouton update + checkout), avec **recalcul live des quantités** en JS (changement de quantité → `/cart/change.js` → rechargement, prix à jour instantanément, plus besoin de cliquer "Update").
+- **Verrouillage des lignes offertes** : toute ligne à 0 € (article cadeau) voit sa quantité figée (champ caché pour garder l'alignement `updates[]`), badge "Gift", pas de suppression, prix "Free". Robuste si un vrai cadeau séparé est ajouté plus tard ; sur le BXGY même-produit actuel, pas de ligne offerte distincte (gratuité fondue dans la ligne produit).
+- Poussé en ligne via Shopify CLI (`--only` sur les 3 fichiers, plan Basic, thème "Sculpted UK" #200683258201). Commit `1071337`.
+
+**Sujets résolus :** le doute de la session précédente sur le checkout qty=1 ("Standard (Example)") était bien un aperçu éditeur, et le recalcul de prix est maintenant correct. Bundle confirmé fonctionnel par Roméo.
+
+**Détail noté (sans urgence) :** fuseau horaire de la boutique réglé sur **CEST** (heure française) alors que le marché est UK. À passer sur Londres plus tard pour lire les stats à l'heure locale.
+
+**Prochaine étape boutique :** uploader les vraies photos produit, puis créas Meta Ads.
+
+---
+
 ## 2026-05-31 (mise à jour 4)
 
 ### Fix bundle + livraison gratuite (réglages Shopify, pas le thème) + sécurité Git

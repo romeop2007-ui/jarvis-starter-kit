@@ -86,9 +86,10 @@
 
 ### Comptes et outils
 - **Déjà payés/actifs :** Claude Code Pro, TrendTrack (MCP actif, 10 000 crédits/mois)
+- **Compte pro :** **Qonto** opérationnel (31/05/2026). Remplace Revolut business (refusé). C'est le compte qui accompagne tout le parcours business, dont le paiement des pubs Meta.
 - **À démarrer dès maintenant (pas besoin de la micro-entreprise) :** Shopify (abonnement annuel) + toute la construction visuelle de la boutique (thème, sections, pages)
-- **À ouvrir post-validation micro-entreprise :** Meta Business Manager, Revolut pro
-- **Pas encore décidé :** fournisseur (CJ Dropshipping, Zendrop ou agent privé), à choisir une fois le produit identifié
+- **À ouvrir post-validation micro-entreprise :** Meta Business Manager
+- **Fournisseur :** identifié par Roméo, à activer une fois le site finalisé (il s'en charge lui-même)
 
 ### Niveau de connaissance technique actuel (honnête)
 - Shopify : **zéro** (jamais touché)
@@ -139,11 +140,11 @@
 > Liste des engagements en cours dont Claude doit me rappeler l'existence au début de chaque session (via `/prime` ou directement).
 
 - **🗓️ 30 mai 2026 à 14h30** — Réunion centre aéré (affectation lieu de travail été)
-- **✅ Micro-entreprise validée** (30/05/2026). Meta BM + Revolut pro peuvent être ouverts maintenant. ACRE en attente de résultat (ne bloque rien).
+- **✅ Micro-entreprise validée** (30/05/2026). Compte pro Qonto opérationnel (31/05). Reste à ouvrir : Meta Business Manager. ACRE en attente de résultat (ne bloque rien). Délai Urssaf de déclaration (2-4 sem) en cours, ne bloque pas l'activité.
 - **🔁 Tous les dimanches 17h-18h** — Rendez-vous hebdo `/semaine` : bilan semaine + objectifs de la semaine à venir. **Premier rendez-vous : dimanche 31 mai 2026.**
 - **🗓️ 13-14 juin 2026** — Faire la Phase 4 du processus de personnalisation Jarvis (workflow et préférences de travail), à enchaîner juste après les examens
 - **🚀 13 juin → 27 juin 2026** — Sprint #1 business, 5-6h/jour, objectif : boutique Shopify lancée + premier test ads tournant
-- **🇬🇧 Boutique UK Sculpted** — Structure Shopify terminée + rebrandée Sculpted, thème poussé sur cqqah9-t1.myshopify.com. Fix 404 nav appliqué (31/05/2026) : lien "Sculpted" pointe maintenant vers `/products/sculptd-compression-shaping-tank-top`. Reste à faire : shopify theme push pour mettre le fix en ligne, puis uploader les vraies photos produit, puis créas Meta Ads.
+- **🇬🇧 Boutique UK Sculpted** — Structure Shopify terminée + rebrandée Sculpted, thème poussé sur cqqah9-t1.myshopify.com. Page panier `/cart` créée et en ligne (31/05/2026) : corrige la 404 de l'icône caddie ET du logo au checkout (tous deux pointaient vers `/cart` qui n'existait pas). Bundle "Buy 2 Get 1 Free" fonctionnel. Photos produit récupérées par Roméo (OK de son côté). **Reste à faire : intégrer les photos + tester le parcours de bout en bout, créer le Meta BM, adapter les 5-6 créas en anglais. Lancement ads au sprint #1 (13 juin).**
 
 ---
 
@@ -154,7 +155,7 @@
 ### Business
 - ✅ **Validation micro-entreprise** — Validée le 30/05/2026. ACRE en attente de résultat (ne bloque pas les prochaines étapes). Meta BM + Revolut pro peuvent être ouverts maintenant.
 - ✅ **Recherche produit (V2)** — Résolue le 29/05/2026. Produit acté : débardeur de compression gainant homme (modèle Underfit / underfitmen.com), marché Royaume-Uni. One-product store.
-- 🟡 **Boutique UK Sculpted** — Bundle + livraison réglés côté Shopify (31/05/2026) : remise conflictuelle "Buy 3 Get 2 Free" désactivée, livraison UK passée à gratuite ("Free Shipping" 0 €). **Point ouvert à relancer** : la capture checkout de Roméo montrait qty=1 + un mode "Standard (Example)" → suspicion d'aperçu éditeur, pas un vrai checkout. À retester sur le vrai storefront avec adresse UK ; si la quantité reste à 1, corriger le bug de quantité dans le thème. Ensuite : uploader photos produit réelles, puis créas Meta Ads. Expansion US/Allemagne en réserve si ça performe.
+- 🟡 **Boutique UK Sculpted** — Bundle + livraison réglés (31/05/2026) : remise "Buy 3 Get 2 Free" désactivée, livraison UK gratuite. Le bundle fonctionne (Roméo l'a confirmé lui-même). L'ancien doute sur le checkout qty=1 est **résolu** : c'était un aperçu éditeur, et le recalcul de prix est désormais correct via la nouvelle page panier (recalcul live des quantités). Page `/cart` créée → plus de 404 sur le caddie ni le logo checkout. **Reste à relancer : uploader les vraies photos produit, puis lancer les créas Meta Ads.** Expansion US/Allemagne en réserve si ça performe.
 - 🟡 **Sourcing produit** — Roméo s'en charge lui-même (CJ/Zendrop/AliExpress). Vérifier que le fournisseur livre bien au Royaume-Uni dans des délais corrects.
 
 ### Études

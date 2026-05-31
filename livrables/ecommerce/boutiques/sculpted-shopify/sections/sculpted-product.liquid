@@ -70,7 +70,7 @@
       {%- endif -%}
 
       {%- comment -%} -------- Infos achat -------- {%- endcomment -%}
-      <div class="buy-info">
+      <div class="buy-info" data-colors="{{ section.settings.colors | escape }}" data-sizes="{{ section.settings.sizes | escape }}" data-color-label="{{ section.settings.color_label | default: 'Color' | escape }}" data-size-label="{{ section.settings.size_label | default: 'Size' | escape }}" data-items-head="{{ section.settings.opts_head | default: 'Choose color & size for each item' | escape }}">
         <div class="rating"><span class="stars">★★★★★</span> {{ section.settings.rating_text | escape }}</div>
         <h2>{{ section.settings.title | escape }}</h2>
         <p class="desc">{{ section.settings.desc | escape }}</p>
@@ -91,12 +91,15 @@
         {%- for block in section.blocks -%}
           {%- if block.type == 'tier' -%}
             <div class="tier{% if block.settings.selected %} sel{% endif %}" data-qty="{{ block.settings.qty | default: 1 }}" onclick="sculptedSelectTier(this)" {{ block.shopify_attributes }}>
-              {%- if block.settings.flag != blank -%}
-                <span class="flag{% if block.settings.flag_hot %} hot{% endif %}">{{ block.settings.flag | escape }}</span>
-              {%- endif -%}
-              <span class="pack">{{ block.settings.pack | escape }}</span>
-              <span class="label">{{ block.settings.label | escape }} {% if block.settings.ship != blank %}<span class="ship">{{ block.settings.ship | escape }}</span>{% endif %}</span>
-              <span class="price"><span class="now">{{ block.settings.price_now | escape }}</span><br><span class="was">{{ block.settings.price_was | escape }}</span></span>
+              <div class="tier-head">
+                {%- if block.settings.flag != blank -%}
+                  <span class="flag{% if block.settings.flag_hot %} hot{% endif %}">{{ block.settings.flag | escape }}</span>
+                {%- endif -%}
+                <span class="pack">{{ block.settings.pack | escape }}</span>
+                <span class="label">{{ block.settings.label | escape }} {% if block.settings.ship != blank %}<span class="ship">{{ block.settings.ship | escape }}</span>{% endif %}</span>
+                <span class="price"><span class="now">{{ block.settings.price_now | escape }}</span><br><span class="was">{{ block.settings.price_was | escape }}</span></span>
+              </div>
+              <div class="tier-items" onclick="event.stopPropagation()"></div>
             </div>
           {%- endif -%}
         {%- endfor -%}
@@ -117,21 +120,6 @@
             <span class="a">{{ section.settings.lc_badge_a }}</span>
             <span class="b">{{ section.settings.lc_badge_b }}</span>
           </div>
-
-          {%- if section.settings.colors != blank or section.settings.sizes != blank -%}
-            <div class="buy-opts">
-              {%- if section.settings.colors != blank -%}
-                <label class="opt"><span>{{ section.settings.color_label | default: 'Color' | escape }}</span>
-                  <select class="sc-color">{% for c in colors %}<option>{{ c | strip | escape }}</option>{% endfor %}</select>
-                </label>
-              {%- endif -%}
-              {%- if section.settings.sizes != blank -%}
-                <label class="opt"><span>{{ section.settings.size_label | default: 'Size' | escape }}</span>
-                  <select class="sc-size">{% for s in sizes %}<option>{{ s | strip | escape }}</option>{% endfor %}</select>
-                </label>
-              {%- endif -%}
-            </div>
-          {%- endif -%}
 
           <button type="button" class="btn btn-accent btn-block sc-buy" data-vid="{{ sc_vid }}" style="background:{{ section.settings.buy_btn_color }};color:#101114" onclick="sculptedBuyNow(this)">{{ section.settings.buy_btn_label | escape }}</button>
           <div class="pay-row">
@@ -179,14 +167,68 @@ function sculptedSwapHero(el){
   el.classList.add('sel');
 }
 
-/* Sélection d'un palier de prix : surligne le palier choisi. */
-function sculptedSelectTier(el){
-  el.closest('.buy-info').querySelectorAll('.tier').forEach(function(t){ t.classList.remove('sel'); });
-  el.classList.add('sel');
+/* Liste d'options à partir d'une chaîne "a, b, c" (vide -> tableau vide). */
+function sculptedOptList(str){
+  if(!str){ return []; }
+  return str.split(',').map(function(s){ return s.trim(); }).filter(function(s){ return s.length > 0; });
 }
 
-/* Buy now : vide le panier, ajoute la quantité du palier choisi avec
-   couleur/taille en propriétés, puis va au checkout. */
+/* Construit un <select> (option = texte, pas de variant réel). */
+function sculptedMakeSelect(cls, label, opts){
+  var wrap = document.createElement('label'); wrap.className = 'opt';
+  var span = document.createElement('span'); span.textContent = label; wrap.appendChild(span);
+  var sel = document.createElement('select'); sel.className = cls;
+  opts.forEach(function(o){ var op = document.createElement('option'); op.textContent = o; sel.appendChild(op); });
+  wrap.appendChild(sel); return wrap;
+}
+
+/* Déplie sous le palier choisi une ligne par article (#1, #2...) avec
+   son propre menu Couleur + Taille. Chaque article peut donc avoir une
+   couleur/taille différente. */
+function sculptedBuildTierItems(tier){
+  var box = tier.querySelector('.tier-items');
+  if(!box){ return; }
+  var info = tier.closest('.buy-info');
+  var qty = parseInt(tier.getAttribute('data-qty'), 10); if(!qty || qty < 1){ qty = 1; }
+  var colors = sculptedOptList(info.getAttribute('data-colors'));
+  var sizes = sculptedOptList(info.getAttribute('data-sizes'));
+  var colorLabel = info.getAttribute('data-color-label') || 'Color';
+  var sizeLabel = info.getAttribute('data-size-label') || 'Size';
+  box.innerHTML = '';
+  if(!colors.length && !sizes.length){ return; }
+  if(info.getAttribute('data-items-head')){
+    var head = document.createElement('div'); head.className = 'tier-items__head';
+    head.textContent = info.getAttribute('data-items-head'); box.appendChild(head);
+  }
+  for(var i = 1; i <= qty; i++){
+    var row = document.createElement('div'); row.className = 'tier-row';
+    var num = document.createElement('span'); num.className = 'num'; num.textContent = '#' + i; row.appendChild(num);
+    if(colors.length){ row.appendChild(sculptedMakeSelect('sc-color', colorLabel, colors)); }
+    if(sizes.length){ row.appendChild(sculptedMakeSelect('sc-size', sizeLabel, sizes)); }
+    box.appendChild(row);
+  }
+}
+
+/* Sélection d'un palier de prix : surligne le palier choisi et (re)construit
+   ses lignes d'articles. Ne rien refaire si le palier est déjà ouvert. */
+function sculptedSelectTier(el){
+  var box = el.querySelector('.tier-items');
+  if(el.classList.contains('sel') && box && box.children.length){ return; }
+  el.closest('.buy-info').querySelectorAll('.tier').forEach(function(t){
+    t.classList.remove('sel');
+    var b = t.querySelector('.tier-items'); if(b){ b.innerHTML = ''; }
+  });
+  el.classList.add('sel');
+  sculptedBuildTierItems(el);
+}
+
+/* Au chargement : construit les lignes du palier déjà sélectionné. */
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.buy-info .tier.sel').forEach(function(t){ sculptedBuildTierItems(t); });
+});
+
+/* Buy now : vide le panier, ajoute UN article par ligne avec sa couleur/taille
+   en propriétés (articles identiques fusionnés par Shopify), puis va au checkout. */
 function sculptedBuyNow(btn){
   var vid = btn.getAttribute('data-vid');
   if(!vid){ alert('Product is temporarily unavailable. Please try again later.'); return; }
@@ -194,10 +236,18 @@ function sculptedBuyNow(btn){
   var sel = root.querySelector('.tier.sel') || root.querySelector('.tier');
   var qty = sel && sel.dataset.qty ? parseInt(sel.dataset.qty, 10) : 1;
   if(!qty || qty < 1){ qty = 1; }
-  var props = {};
-  var col = root.querySelector('.sc-color'); if(col){ props['Color'] = col.value; }
-  var siz = root.querySelector('.sc-size'); if(siz){ props['Size'] = siz.value; }
-  if(sel){ var lbl = sel.querySelector('.label'); if(lbl){ props['Pack'] = lbl.textContent.replace(/\s+/g, ' ').trim(); } }
+  var items = [];
+  var rows = sel ? sel.querySelectorAll('.tier-row') : [];
+  if(rows && rows.length){
+    rows.forEach(function(row){
+      var props = {};
+      var c = row.querySelector('.sc-color'); if(c){ props['Color'] = c.value; }
+      var s = row.querySelector('.sc-size'); if(s){ props['Size'] = s.value; }
+      items.push({ id: vid, quantity: 1, properties: props });
+    });
+  } else {
+    items.push({ id: vid, quantity: qty });
+  }
   var orig = btn.textContent;
   btn.disabled = true; btn.textContent = 'Adding…';
   fetch('/cart/clear.js', { method: 'POST', headers: { 'Content-Type': 'application/json' } })
@@ -205,7 +255,7 @@ function sculptedBuyNow(btn){
       return fetch('/cart/add.js', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: [{ id: vid, quantity: qty, properties: props }] })
+        body: JSON.stringify({ items: items })
       });
     })
     .then(function(r){ if(!r.ok){ throw new Error('add failed'); } return r.json(); })
@@ -237,7 +287,8 @@ function sculptedBuyNow(btn){
     { "type": "text", "id": "color_label", "label": "Libellé couleur", "default": "Color" },
     { "type": "text", "id": "colors", "label": "Couleurs (séparées par virgules)", "default": "Black, White, Grey" },
     { "type": "text", "id": "size_label", "label": "Libellé taille", "default": "Size" },
-    { "type": "text", "id": "sizes", "label": "Tailles (séparées par virgules)", "default": "S (110–152 lb), M (154–196 lb), L (198–240 lb), XL (243–284 lb)" },
+    { "type": "text", "id": "sizes", "label": "Tailles (séparées par virgules)", "default": "S (110–152 lb), M (154–196 lb), L (198–240 lb), XL (243–284 lb), 2XL (287–328 lb), 3XL (331–373 lb), 4XL (375–417 lb), 5XL (419–463 lb)" },
+    { "type": "text", "id": "opts_head", "label": "Titre au-dessus des choix par article", "default": "Choose color & size for each item" },
     { "type": "header", "content": "Bloc \"Last chance\"" },
     { "type": "text", "id": "lc_heading", "label": "Titre", "default": "Last chance" },
     { "type": "image_picker", "id": "lc_image1", "label": "Image 1" },

@@ -24,99 +24,54 @@
           </div>
 
           {%- comment -%}
-            TOUJOURS 2 lignes max, peu importe le nombre d'articles ou de variantes.
-              1) une seule ligne "payée"   = unités réellement facturées par Shopify
-              2) une seule ligne "offerte" = le reste (unités offertes par le bundle)
-
-            ⚠️ On NE devine PAS le partage (pas de "÷3") : on le DÉDUIT du montant réel.
-            paid_units = cart.total_price ÷ prix unitaire (arrondi) → ce que Shopify
-            facture vraiment, quelle que soit la remise active. free_units = total
-            d'unités au panier − payées. Comme ça l'affichage colle toujours au prix
-            réel du checkout. Les vraies lignes restent intactes via updates[].
+            UNE LIGNE PAR ARTICLE RÉEL du panier (article par article, avec sa
+            couleur et sa taille). On n'agrège plus et on ne devine plus le
+            partage payé/offert : on lit le VRAI prix de chaque ligne.
+            item.final_line_price reflète déjà la remise auto "Buy 2 Get 1 Free"
+            (Shopify met l'unité offerte à 0) → ce qu'on affiche = ce qu'on paie.
+            Le champ caché updates[] (1 par ligne) préserve le panier lors d'un
+            "Update" sans JavaScript.
           {%- endcomment -%}
-          {%- assign rep = cart.items.first -%}
-          {%- assign single_line = false -%}
-          {%- if cart.items.size == 1 -%}{%- assign single_line = true -%}{%- endif -%}
           {%- for item in cart.items -%}
-            {%- comment -%} Champ caché : préserve chaque vraie ligne lors d'un "Update" sans JS {%- endcomment -%}
-            <input type="hidden" name="updates[]" value="{{ item.quantity }}">
-          {%- endfor -%}
-
-          {%- assign unit = rep.original_price -%}
-          {%- assign total_units = cart.item_count -%}
-          {%- if unit > 0 -%}
-            {%- assign half_unit = unit | divided_by: 2 -%}
-            {%- assign paid_units = cart.total_price | plus: half_unit | divided_by: unit -%}
-          {%- else -%}
-            {%- assign paid_units = total_units -%}
-          {%- endif -%}
-          {%- if paid_units > total_units -%}{%- assign paid_units = total_units -%}{%- endif -%}
-          {%- assign free_units = total_units | minus: paid_units -%}
-          {%- assign free_was = free_units | times: unit -%}
-
-          {%- comment -%} -------- LIGNE 1 : payée (agrégée) -------- {%- endcomment -%}
-          {%- if paid_units > 0 -%}
-            <div class="cart-item">
-              <a href="{{ rep.url }}" class="cart-item__media frame{% if rep.image %} has-img{% endif %}">
-                {%- if rep.image -%}
-                  <img src="{{ rep.image | image_url: width: 220 }}" alt="{{ rep.title | escape }}" loading="lazy">
+            {%- assign is_free = false -%}
+            {%- if item.final_line_price == 0 -%}{%- assign is_free = true -%}{%- endif -%}
+            <div class="cart-item{% if is_free %} cart-item--gift{% endif %}">
+              <a href="{{ item.url }}" class="cart-item__media frame{% if item.image %} has-img{% endif %}">
+                {%- if item.image -%}
+                  <img src="{{ item.image | image_url: width: 220 }}" alt="{{ item.title | escape }}" loading="lazy">
                 {%- endif -%}
               </a>
 
               <div class="cart-item__info">
-                <a href="{{ rep.url }}" class="cart-item__name">{{ rep.product.title | escape }}</a>
-                {%- if single_line -%}
-                  {%- if rep.variant.title and rep.variant.title != 'Default Title' -%}
-                    <p class="cart-item__variant">{{ rep.variant.title | escape }}</p>
-                  {%- endif -%}
-                  {%- for p in rep.properties -%}
-                    {%- if p.last != blank -%}
-                      <p class="cart-item__prop">{{ p.first | escape }}: {{ p.last | escape }}</p>
-                    {%- endif -%}
-                  {%- endfor -%}
+                <a href="{{ item.url }}" class="cart-item__name">{{ item.product.title | escape }}</a>
+                {%- if item.variant.title and item.variant.title != 'Default Title' -%}
+                  <p class="cart-item__variant">{{ item.variant.title | escape }}</p>
                 {%- endif -%}
-                <a href="{{ routes.cart_clear_url }}" class="cart-item__remove">{{ section.settings.remove_label | escape }}</a>
+                {%- for p in item.properties -%}
+                  {%- unless p.first contains '_' or p.last == blank -%}
+                    <p class="cart-item__prop">{{ p.first | escape }}: {{ p.last | escape }}</p>
+                  {%- endunless -%}
+                {%- endfor -%}
+                <a href="{{ item.url_to_remove }}" class="cart-item__remove">{{ section.settings.remove_label | escape }}</a>
               </div>
 
               <div class="cart-item__qty">
-                {%- if single_line -%}
-                  {%- comment -%} Une seule vraie ligne : qty éditable, le champ = unités payées. {%- endcomment -%}
-                  <input type="number" value="{{ paid_units }}" min="0" inputmode="numeric" aria-label="Quantity" class="cart-qty-input" data-line="1">
+                <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" inputmode="numeric" aria-label="Quantity" class="cart-qty-input" data-line="{{ forloop.index }}">
+              </div>
+
+              <div class="cart-item__price">
+                {%- if is_free -%}
+                  <span class="now cart-price-free">{{ section.settings.free_label | escape }}<span class="cart-gift-badge">{{ section.settings.gift_badge | escape }}</span></span>
+                  <span class="was">{{ item.original_line_price | money }}</span>
                 {%- else -%}
-                  {%- comment -%} Plusieurs vraies lignes : on agrège l'affichage, qty figée. {%- endcomment -%}
-                  <span class="cart-qty-locked" aria-label="Paid quantity">{{ paid_units }}</span>
+                  <span class="now">{{ item.final_line_price | money }}</span>
+                  {%- if item.original_line_price > item.final_line_price -%}
+                    <span class="was">{{ item.original_line_price | money }}</span>
+                  {%- endif -%}
                 {%- endif -%}
               </div>
-
-              <div class="cart-item__price">
-                <span class="now">{{ cart.total_price | money }}</span>
-              </div>
             </div>
-          {%- endif -%}
-
-          {%- comment -%} -------- LIGNE 2 : offerte (agrégée) -------- {%- endcomment -%}
-          {%- if free_units > 0 -%}
-            <div class="cart-item cart-item--gift">
-              <a href="{{ rep.url }}" class="cart-item__media frame{% if rep.image %} has-img{% endif %}">
-                {%- if rep.image -%}
-                  <img src="{{ rep.image | image_url: width: 220 }}" alt="{{ rep.title | escape }}" loading="lazy">
-                {%- endif -%}
-              </a>
-
-              <div class="cart-item__info">
-                <a href="{{ rep.url }}" class="cart-item__name">{{ rep.product.title | escape }}</a>
-              </div>
-
-              <div class="cart-item__qty">
-                <span class="cart-qty-locked" aria-label="Quantity locked">{{ free_units }}<span class="cart-gift-badge">{{ section.settings.gift_badge | escape }}</span></span>
-              </div>
-
-              <div class="cart-item__price">
-                <span class="now cart-price-free">{{ section.settings.free_label | escape }}</span>
-                {%- if free_was > 0 -%}<span class="was">{{ free_was | money }}</span>{%- endif -%}
-              </div>
-            </div>
-          {%- endif -%}
+          {%- endfor -%}
         </div>
 
         <div class="cart-foot">
@@ -144,33 +99,23 @@
 </section>
 
 <script>
-/* Offre "achète 2, le 3e offert" rendue visible dans le panier.
-   Le champ quantité = nombre PAYÉ. L'offert se calcule tout seul :
-   offert = floor(payé / 2) ; total réel envoyé à Shopify = payé + offert.
-   La remise auto Shopify "Buy 2 Get 1 Free" zérote ces unités → ce que tu
-   vois dans le panier = ce que tu paies au checkout. Une seule action par
-   changement, pas de rechargement automatique en boucle. */
+/* Mise à jour live des quantités, ligne par ligne. La quantité saisie est la
+   vraie quantité envoyée à Shopify ; la remise auto "Buy 2 Get 1 Free" se
+   recalcule toute seule au rechargement (l'article offert repasse à 0 = "Free").
+   Sans JavaScript, le bouton "Update cart" fait le même travail via updates[]. */
 (function(){
   var inputs = document.querySelectorAll('.cart-qty-input[data-line]');
   if(!inputs.length){ return; }
-
-  // payés -> quantité totale réelle (payés + offerts)
-  function totalFromPaid(paid){
-    if(paid <= 0){ return 0; }
-    return paid + Math.floor(paid / 2);
-  }
-
   inputs.forEach(function(input){
     input.addEventListener('change', function(){
       var line = parseInt(input.getAttribute('data-line'), 10);
-      var paid = parseInt(input.value, 10);
-      if(isNaN(paid) || paid < 0){ paid = 0; }
-      var total = totalFromPaid(paid);
+      var qty = parseInt(input.value, 10);
+      if(isNaN(qty) || qty < 0){ qty = 0; }
       input.disabled = true;
       fetch('/cart/change.js', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ line: line, quantity: total })
+        body: JSON.stringify({ line: line, quantity: qty })
       })
       .then(function(r){ if(!r.ok){ throw new Error('change failed'); } return r.json(); })
       .then(function(){ window.location.reload(); })

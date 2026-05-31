@@ -7,6 +7,25 @@
 
 ---
 
+## 2026-05-31 (mise à jour 4)
+
+### Fix bundle + livraison gratuite (réglages Shopify, pas le thème) + sécurité Git
+
+**Contexte :** Roméo signale que les paliers (×1 / ×3 / ×6) facturent toujours le même montant au checkout, et que la livraison n'est pas gratuite.
+
+**Diagnostic :** les deux problèmes étaient des **réglages boutique Shopify** (remises + frais de port), pas du code de thème. Le variant produit est unique à £29.99 ; les prix £59.98/£119.96 des paliers sont du texte, le vrai montant = £29.99 × quantité moins remise.
+
+**Fixes appliqués via l'API Admin (MCP) :**
+- **Bundle :** deux remises automatiques BXGY actives se télescopaient ("Buy 2, Get 1 Free" + "Buy 3, Get 2 Free"). Shopify n'en applique qu'une → totaux faussés. "Buy 3, Get 2 Free" (`2264120590681`) **désactivée** (statut EXPIRED, réversible). "Buy 2, Get 1 Free" seule suffit pour les 2 paliers (elle se répète) : ×3 → paie 2 = £59.98, ×6 → paie 4 = £119.96.
+- **Livraison :** le UK était dans la zone "International" facturée 29 €. Tarif mis à **0 € et renommé "Free Shipping"** via `deliveryProfileUpdate`. Toute la zone International devient gratuite (sans impact, ads UK-only). Isoler une zone UK dédiée butait sur l'exigence de provinces des autres pays.
+- Thème publié vérifié = **"Sculpted UK" (#200683258201)**, bien en MAIN. Aucun `theme push` nécessaire (rien de modifié côté fichiers).
+
+**⚠️ Point resté OUVERT (à reprendre) :** une capture du checkout envoyée par Roméo montrait **qty = 1** (sous-total 29,99 £) alors qu'il testait le palier ×3, + un mode d'expédition "**Standard (Example)**" à 10 £ et une adresse bidon (+33 1 42 34 56 10). Forte suspicion que c'était l'**aperçu du checkout de l'éditeur Shopify** (données fictives), pas un vrai passage en caisse. À confirmer au prochain coup : faire un **vrai test sur le storefront en ligne avec adresse UK**. Si la quantité reste à 1 sur un vrai checkout, alors il y a un **bug de quantité à corriger dans le thème** (vérifier les `data-qty` des blocs tier dans le settings_data.json live). Question non tranchée par Roméo (il a lancé /commit avant de répondre).
+
+**Sécurité Git :** fichier `livrables/ecommerce/boutiques/shopify_recovery_codes.txt` (codes de récupération = secret) détecté en untracked. Ajout de `*recovery_codes*` / `*recovery-codes*` au `.gitignore`. Commit `0937072` (seul le .gitignore, le fichier de codes reste hors Git).
+
+---
+
 ## 2026-05-31 (mise à jour 3)
 
 ### Fix snippet sculpted-benefit-icon manquant

@@ -154,7 +154,7 @@
 ### Business
 - ✅ **Validation micro-entreprise** — Validée le 30/05/2026. ACRE en attente de résultat (ne bloque pas les prochaines étapes). Meta BM + Revolut pro peuvent être ouverts maintenant.
 - ✅ **Recherche produit (V2)** — Résolue le 29/05/2026. Produit acté : débardeur de compression gainant homme (modèle Underfit / underfitmen.com), marché Royaume-Uni. One-product store.
-- 🟡 **Boutique UK Sculpted** — Fix 404 nav appliqué (31/05/2026), commit `59035e0`. Prochaine étape immédiate : `shopify theme push` pour mettre le fix en ligne. Ensuite : uploader photos produit réelles, puis créas Meta Ads. Expansion US/Allemagne en réserve si ça performe.
+- 🟡 **Boutique UK Sculpted** — Bundle + livraison réglés côté Shopify (31/05/2026) : remise conflictuelle "Buy 3 Get 2 Free" désactivée, livraison UK passée à gratuite ("Free Shipping" 0 €). **Point ouvert à relancer** : la capture checkout de Roméo montrait qty=1 + un mode "Standard (Example)" → suspicion d'aperçu éditeur, pas un vrai checkout. À retester sur le vrai storefront avec adresse UK ; si la quantité reste à 1, corriger le bug de quantité dans le thème. Ensuite : uploader photos produit réelles, puis créas Meta Ads. Expansion US/Allemagne en réserve si ça performe.
 - 🟡 **Sourcing produit** — Roméo s'en charge lui-même (CJ/Zendrop/AliExpress). Vérifier que le fournisseur livre bien au Royaume-Uni dans des délais corrects.
 
 ### Études

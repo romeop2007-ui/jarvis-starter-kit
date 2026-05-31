@@ -11,7 +11,7 @@
 
   Bouton "Buy now" FONCTIONNEL : ajoute au panier le variant du produit lié
   (réglage "Produit Shopify") avec la quantité du palier choisi, couleur/taille
-  en propriétés, puis redirige vers le checkout. Sur la homepage il faut donc
+  en propriétés, puis redirige vers la page panier. Sur la homepage il faut donc
   renseigner le produit dans Personnaliser.
 {%- endcomment -%}
 
@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 /* Buy now : vide le panier, ajoute UN article par ligne avec sa couleur/taille
-   en propriétés (articles identiques fusionnés par Shopify), puis va au checkout. */
+   en propriétés (articles identiques fusionnés par Shopify), puis va au panier. */
 function sculptedBuyNow(btn){
   var vid = btn.getAttribute('data-vid');
   if(!vid){ alert('Product is temporarily unavailable. Please try again later.'); return; }
@@ -259,7 +259,7 @@ function sculptedBuyNow(btn){
       });
     })
     .then(function(r){ if(!r.ok){ throw new Error('add failed'); } return r.json(); })
-    .then(function(){ window.location.href = '/checkout'; })
+    .then(function(){ window.location.href = '/cart'; })
     .catch(function(){ btn.disabled = false; btn.textContent = orig; alert('Something went wrong adding to cart. Please try again.'); });
 }
 </script>

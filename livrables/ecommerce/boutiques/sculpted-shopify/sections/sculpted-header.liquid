@@ -3,7 +3,7 @@
   - Logo : 2 parties (texte normal + texte accentué en bleu), éditables.
   - Liens de nav : 1 bloc par lien (libellé + URL). Le lien de la page courante
     se met en surbrillance automatiquement.
-  - Libellé de devise éditable (cosmétique, comme la maquette).
+  - Côté droit : uniquement l'icône panier (sac bleu) → page /cart.
 {%- endcomment -%}
 <header>
   <div class="wrap nav">
@@ -16,10 +16,8 @@
       {%- endfor -%}
     </nav>
     <div class="nav-utils">
-      <span class="cur">{{ section.settings.currency_label }} <svg class="icon" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M6 9l6 6 6-6"/></svg></span>
-      <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-      <a href="{{ routes.cart_url }}" aria-label="Cart">
-        <svg class="icon" viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6L5 3H2"/></svg>
+      <a href="{{ routes.cart_url }}" class="cart-link" aria-label="Cart">
+        <svg class="icon cart-bag" viewBox="0 0 24 24"><path d="M5.5 8h13l-1 11.4a1 1 0 0 1-1 .9H7.5a1 1 0 0 1-1-.9L5.5 8z"/><path d="M8.5 8V6.5a3.5 3.5 0 0 1 7 0V8"/></svg>
       </a>
     </div>
   </div>
@@ -31,8 +29,7 @@
   "tag": "section",
   "settings": [
     { "type": "text", "id": "logo_text", "label": "Logo — début", "default": "De" },
-    { "type": "text", "id": "logo_accent", "label": "Logo — partie bleue", "default": "fyne" },
-    { "type": "text", "id": "currency_label", "label": "Libellé devise", "default": "USD $" }
+    { "type": "text", "id": "logo_accent", "label": "Logo — partie bleue", "default": "fyne" }
   ],
   "blocks": [
     {

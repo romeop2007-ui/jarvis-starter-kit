@@ -7,6 +7,21 @@
 
 ---
 
+## 2026-05-31 (mise à jour 7)
+
+### Header nettoyé + "Buy now" vers le panier
+
+**Bouton "Buy now" :** redirige désormais vers la page panier `/cart` au lieu d'aller direct au checkout, pour laisser le client revoir avant de payer. Modif dans `sculpted-buybox.liquid` (page produit) et `sculpted-product.liquid` (homepage). Note conversion restituée à Roméo : ajouter une étape avant le paiement peut faire baisser le taux de conversion (Underfit va direct au checkout), candidat idéal à un A/B test plus tard.
+
+**Header (section partagée `sculpted-header.liquid`, donc appliqué à toutes les pages via le layout) :**
+- Loupe de recherche supprimée (inutile sur un one-product store)
+- Sélecteur de devise GBP£ supprimé (marché UK only, devise non changeable) + réglage "Libellé devise" retiré du schéma
+- Icône panier remplacée par un sac arrondi (anse) en bleu de la marque `#1496d6`, style `.cart-bag` ajouté dans `sculpted.css`
+
+**Déployé** en live sur "Sculpted UK" (#200683258201) via Shopify CLI (push des 4 fichiers : header, css, buybox, product). À figer dans Git via `/commit`.
+
+---
+
 ## 2026-05-31 (mise à jour 6)
 
 ### Panier : 2 lignes max + partage payé/offert calé sur le montant réel

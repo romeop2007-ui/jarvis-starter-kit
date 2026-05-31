@@ -131,9 +131,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .stock{display:inline-block;margin:20px 0 8px;background:#fdeceb;color:var(--warn);font-weight:700;font-size:13px;padding:7px 14px;border-radius:8px}
 .size-link{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;text-decoration:underline;text-underline-offset:3px;margin-bottom:26px}
 .promo-label{font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:16px}
-.tier{position:relative;display:flex;align-items:center;gap:16px;border:1.5px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px;cursor:pointer;transition:border-color .15s}
+.tier{position:relative;border:1.5px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px;cursor:pointer;transition:border-color .15s}
 .tier:hover{border-color:var(--ink)}
 .tier.sel{border-color:var(--accent);box-shadow:0 0 0 3px rgba(20,150,214,.12)}
+.tier-head{display:flex;align-items:center;gap:16px}
 .tier .pack{font-size:13px;font-weight:800;color:var(--muted);width:34px}
 .tier .label{font-weight:800;font-size:17px;flex:1}
 .tier .ship{font-size:11px;font-weight:700;color:var(--accent-deep);background:rgba(20,150,214,.1);padding:4px 9px;border-radius:6px;margin-left:8px}
@@ -145,6 +146,15 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .buy-opts{display:flex;gap:12px;margin:4px 0 16px;text-align:left}
 .buy-opts .opt{flex:1;display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
 .buy-opts .opt select{padding:11px 12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink);background:#fff;text-transform:none;letter-spacing:0}
+/* Sélecteurs couleur/taille par article, dépliés sous le palier choisi */
+.tier-items{display:none;margin-top:16px;padding-top:16px;border-top:1px solid var(--line);cursor:default;text-align:left}
+.tier.sel .tier-items:not(:empty){display:block}
+.tier-items__head{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.tier-row{display:flex;align-items:flex-end;gap:10px;margin-bottom:10px}
+.tier-row:last-child{margin-bottom:0}
+.tier-row .num{font-size:13px;font-weight:800;color:var(--muted);width:24px;flex:none;padding-bottom:11px}
+.tier-row .opt{flex:1;display:flex;flex-direction:column;gap:4px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;min-width:0}
+.tier-row .opt select{width:100%;padding:10px 11px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink);background:#fff;text-transform:none;letter-spacing:0}
 .btn.sc-buy:disabled{opacity:.6;cursor:wait}
 .last-chance{text-align:center;margin:34px 0 14px}
 .last-chance h3{font-size:26px;font-weight:900;text-transform:uppercase;margin-bottom:18px}

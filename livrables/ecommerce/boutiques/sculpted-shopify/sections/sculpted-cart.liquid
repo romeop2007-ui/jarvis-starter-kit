@@ -24,10 +24,27 @@
           </div>
 
           {%- for item in cart.items -%}
-            {%- comment -%} Ligne "offerte" = entièrement gratuite (article cadeau). On verrouille sa quantité. {%- endcomment -%}
-            {%- assign is_gift = false -%}
-            {%- if item.final_line_price == 0 and item.original_price > 0 -%}{%- assign is_gift = true -%}{%- endif -%}
-            <div class="cart-item{% if is_gift %} cart-item--gift{% endif %}">
+            {%- comment -%}
+              Offre "Buy 2 Get 1 Free" sur une seule vraie ligne Shopify.
+              On découpe la ligne VISUELLEMENT en "payés" + "offerts" sans créer
+              de fausse ligne (le checkout recalcule sur la vraie ligne unique).
+              free_qty = floor(quantité / 3) = ce que la remise BXGY zérote.
+              paid_qty = quantité - free_qty = ce que le client paie réellement.
+              Le champ quantité visible représente les PAYÉS ; le offert suit tout seul.
+            {%- endcomment -%}
+            {%- assign legacy_gift = false -%}
+            {%- if item.final_line_price == 0 and item.original_price > 0 -%}{%- assign legacy_gift = true -%}{%- endif -%}
+            {%- if legacy_gift -%}
+              {%- assign free_qty = item.quantity -%}
+              {%- assign paid_qty = 0 -%}
+            {%- else -%}
+              {%- assign free_qty = item.quantity | divided_by: 3 -%}
+              {%- assign paid_qty = item.quantity | minus: free_qty -%}
+            {%- endif -%}
+
+            {%- comment -%} -------- Ligne payée (vraie ligne, porte updates[]) -------- {%- endcomment -%}
+            {%- unless legacy_gift -%}
+            <div class="cart-item">
               <a href="{{ item.url }}" class="cart-item__media frame{% if item.image %} has-img{% endif %}">
                 {%- if item.image -%}
                   <img src="{{ item.image | image_url: width: 220 }}" alt="{{ item.title | escape }}" loading="lazy">
@@ -44,35 +61,54 @@
                     <p class="cart-item__prop">{{ p.first | escape }}: {{ p.last | escape }}</p>
                   {%- endif -%}
                 {%- endfor -%}
-                {%- unless is_gift -%}
-                  <a href="{{ item.url_to_remove }}" class="cart-item__remove">{{ section.settings.remove_label | escape }}</a>
-                {%- endunless -%}
+                <a href="{{ item.url_to_remove }}" class="cart-item__remove">{{ section.settings.remove_label | escape }}</a>
               </div>
 
               <div class="cart-item__qty">
-                {%- if is_gift -%}
-                  {%- comment -%} updates[] doit garder une entrée par ligne (sinon décalage). On envoie la quantité en champ caché, non modifiable. {%- endcomment -%}
-                  <input type="hidden" name="updates[]" value="{{ item.quantity }}">
-                  <span class="cart-qty-locked" aria-label="Quantity locked">{{ item.quantity }}<span class="cart-gift-badge">{{ section.settings.gift_badge | escape }}</span></span>
-                {%- else -%}
-                  <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" inputmode="numeric" aria-label="Quantity" class="cart-qty-input" data-line="{{ forloop.index }}">
-                {%- endif -%}
+                {%- comment -%} updates[] = vraie quantité totale (repli sans JS). Le champ visible = payés. {%- endcomment -%}
+                <input type="hidden" name="updates[]" value="{{ item.quantity }}">
+                <input type="number" value="{{ paid_qty }}" min="0" inputmode="numeric" aria-label="Quantity" class="cart-qty-input" data-line="{{ forloop.index }}" data-paid="{{ paid_qty }}" data-total="{{ item.quantity }}">
               </div>
 
               <div class="cart-item__price">
-                {%- if is_gift -%}
-                  <span class="now cart-price-free">{{ section.settings.free_label | escape }}</span>
-                  {%- if item.original_line_price > 0 -%}
-                    <span class="was">{{ item.original_line_price | money }}</span>
-                  {%- endif -%}
-                {%- else -%}
-                  <span class="now">{{ item.final_line_price | money }}</span>
-                  {%- if item.original_line_price != item.final_line_price -%}
-                    <span class="was">{{ item.original_line_price | money }}</span>
-                  {%- endif -%}
+                <span class="now">{{ item.final_line_price | money }}</span>
+                {%- if item.original_line_price != item.final_line_price -%}
+                  <span class="was">{{ item.original_line_price | money }}</span>
                 {%- endif -%}
               </div>
             </div>
+            {%- else -%}
+              {%- comment -%} Repli : si une vraie ligne 100% offerte existe (legacy), on garde sa place dans updates[]. {%- endcomment -%}
+              <input type="hidden" name="updates[]" value="{{ item.quantity }}">
+            {%- endunless -%}
+
+            {%- comment -%} -------- Ligne(s) offerte(s) : purement visuelles, dérivées de la même ligne -------- {%- endcomment -%}
+            {%- if free_qty > 0 -%}
+              {%- assign free_was = item.original_price | times: free_qty -%}
+              <div class="cart-item cart-item--gift">
+                <a href="{{ item.url }}" class="cart-item__media frame{% if item.image %} has-img{% endif %}">
+                  {%- if item.image -%}
+                    <img src="{{ item.image | image_url: width: 220 }}" alt="{{ item.title | escape }}" loading="lazy">
+                  {%- endif -%}
+                </a>
+
+                <div class="cart-item__info">
+                  <a href="{{ item.url }}" class="cart-item__name">{{ item.product.title | escape }}</a>
+                  {%- if item.variant.title and item.variant.title != 'Default Title' -%}
+                    <p class="cart-item__variant">{{ item.variant.title | escape }}</p>
+                  {%- endif -%}
+                </div>
+
+                <div class="cart-item__qty">
+                  <span class="cart-qty-locked" aria-label="Quantity locked">{{ free_qty }}<span class="cart-gift-badge">{{ section.settings.gift_badge | escape }}</span></span>
+                </div>
+
+                <div class="cart-item__price">
+                  <span class="now cart-price-free">{{ section.settings.free_label | escape }}</span>
+                  <span class="was">{{ free_was | money }}</span>
+                </div>
+              </div>
+            {%- endif -%}
           {%- endfor -%}
         </div>
 
@@ -101,22 +137,33 @@
 </section>
 
 <script>
-/* Recalcul live de la quantité : on change la case → /cart/change.js → on
-   recharge la page pour afficher le bon total (et la bonne remise auto BXGY).
-   Si le JS est désactivé, le bouton "Update cart" du formulaire prend le relais. */
+/* Offre "achète 2, le 3e offert" rendue visible dans le panier.
+   Le champ quantité = nombre PAYÉ. L'offert se calcule tout seul :
+   offert = floor(payé / 2) ; total réel envoyé à Shopify = payé + offert.
+   La remise auto Shopify "Buy 2 Get 1 Free" zérote ces unités → ce que tu
+   vois dans le panier = ce que tu paies au checkout. Une seule action par
+   changement, pas de rechargement automatique en boucle. */
 (function(){
   var inputs = document.querySelectorAll('.cart-qty-input[data-line]');
   if(!inputs.length){ return; }
+
+  // payés -> quantité totale réelle (payés + offerts)
+  function totalFromPaid(paid){
+    if(paid <= 0){ return 0; }
+    return paid + Math.floor(paid / 2);
+  }
+
   inputs.forEach(function(input){
     input.addEventListener('change', function(){
       var line = parseInt(input.getAttribute('data-line'), 10);
-      var qty = parseInt(input.value, 10);
-      if(isNaN(qty) || qty < 0){ qty = 0; }
+      var paid = parseInt(input.value, 10);
+      if(isNaN(paid) || paid < 0){ paid = 0; }
+      var total = totalFromPaid(paid);
       input.disabled = true;
       fetch('/cart/change.js', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ line: line, quantity: qty })
+        body: JSON.stringify({ line: line, quantity: total })
       })
       .then(function(r){ if(!r.ok){ throw new Error('change failed'); } return r.json(); })
       .then(function(){ window.location.reload(); })

@@ -7,6 +7,26 @@
 
 ---
 
+## 2026-05-31 (mise à jour 6)
+
+### Panier : 2 lignes max + partage payé/offert calé sur le montant réel
+
+**Problème signalé par Roméo (capture à l'appui) :** le panier affichait des lignes qui se multipliaient quand on ajoutait des articles, et un décalage visuel (quantité affichée 3 alors que le total facturé = 4 unités à £119.96, offert affiché 3 incohérent).
+
+**Cause 1 (lignes multiples) :** le code bouclait `for item in cart.items` et générait une paire (payée + offerte) PAR article → 4, 6 lignes dès qu'on ajoute des variantes.
+**Fix 1 :** agrégation. Le panier affiche désormais **2 lignes max** quel que soit le nombre d'articles : une ligne payée (somme des unités payées) + une ligne offerte (somme des offertes, verte, badge Gift, "Free"). En dessous de 3 unités : 1 seule ligne (pas encore de cadeau).
+
+**Cause 2 (décalage prix) :** le partage payé/offert était **deviné** par une formule "÷3", qui ne tombait pas toujours d'accord avec la remise réelle appliquée par Shopify → affichage ≠ montant checkout.
+**Fix 2 :** on ne devine plus. `paid_units = cart.total_price ÷ prix unitaire` (arrondi) = ce que Shopify facture vraiment ; `free_units = cart.item_count − paid_units`. L'affichage colle donc toujours au prix réel du checkout, quelle que soit la remise active.
+
+**Détails :** lien "Remove" de la ligne payée → vide tout le panier (`cart_clear_url`). Quantité éditable seulement quand une seule vraie ligne Shopify (cas normal one-product) ; agrégée et figée si plusieurs variantes. Champs cachés `updates[]` conservés pour l'intégrité du panier sans JS.
+
+**Déployé** sur le thème live "Sculpted UK" (#200683258201) via Shopify CLI. Commit `7dae57f`.
+
+**À confirmer au prochain coup :** Roméo doit valider visuellement le rendu après ce 2e push (×3 → 2 payés + 1 offert ; ×6 → 4 payés + 2 offerts).
+
+---
+
 ## Semaine du 1er au 7 juin 2026 (premier `/semaine`)
 
 **Bilan semaine écoulée (sans objectifs formels, c'était le 1er RDV) :** grosse semaine de fondation. Produit + marché actés, boutique Shopify créée (site, produits, structure), micro-entreprise validée. Énergie correcte, motivation en légère baisse de nouveauté → Roméo identifie lui-même le bon levier : discipline > motivation. Reprise muscu prévue aux vacances (carburant énergie).

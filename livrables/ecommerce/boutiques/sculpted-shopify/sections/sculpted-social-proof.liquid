@@ -15,7 +15,7 @@
         <div class="tcard" {{ block.shopify_attributes }}>
           <div class="frame{% if block.settings.image != blank %} has-img{% endif %}">
             {%- if block.settings.image != blank -%}
-              <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.name | escape }}" loading="lazy">
+              <img src="{{ block.settings.image | image_url: width: 1254 }}" alt="{{ block.settings.name | escape }}" width="1254" height="1254" loading="lazy">
             {%- else -%}
               <span>{{ block.settings.frame_label | escape }}</span>
             {%- endif -%}

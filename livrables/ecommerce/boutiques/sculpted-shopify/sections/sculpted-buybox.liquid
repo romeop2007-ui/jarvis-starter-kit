@@ -116,7 +116,7 @@
           <button type="button" class="btn btn-accent btn-block sc-buy" data-vid="{{ sc_vid }}" style="background:{{ section.settings.buy_btn_color }};color:#101114" onclick="sculptedBuyNow(this)">{{ section.settings.buy_btn_label | escape }}</button>
           <div class="pay-row">
             {%- assign pays = section.settings.pay_row | split: ',' -%}
-            {%- for p in pays -%}<span>{{ p | strip | escape }}</span>{%- endfor -%}
+            {%- for p in pays -%}{% render 'sculpted-pay-icon', name: p %}{%- endfor -%}
           </div>
         </div>
 

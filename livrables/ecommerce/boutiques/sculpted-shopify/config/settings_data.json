@@ -127,8 +127,8 @@
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
     "sections": {
-      "sculpted-ticker": {
-        "type": "sculpted-ticker",
+      "sculpted-header": {
+        "type": "sculpted-header",
         "blocks": {
           "sculpted-ticker-0": {
             "type": "message",
@@ -147,18 +147,7 @@
             "settings": {
               "text": "Free shipping until midnight tonight"
             }
-          }
-        },
-        "block_order": [
-          "sculpted-ticker-0",
-          "sculpted-ticker-1",
-          "sculpted-ticker-2"
-        ],
-        "settings": {}
-      },
-      "sculpted-header": {
-        "type": "sculpted-header",
-        "blocks": {
+          },
           "sculpted-header-0": {
             "type": "link",
             "settings": {
@@ -189,6 +178,9 @@
           }
         },
         "block_order": [
+          "sculpted-ticker-0",
+          "sculpted-ticker-1",
+          "sculpted-ticker-2",
           "sculpted-header-0",
           "sculpted-header-1",
           "sculpted-header-2",

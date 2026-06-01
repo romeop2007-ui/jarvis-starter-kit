@@ -60,15 +60,16 @@ section{padding:96px 0}
 .sculpted-banner--empty{background:repeating-linear-gradient(135deg,#1a1c20 0 14px,#212429 14px 28px);
   display:flex;align-items:center;justify-content:center;color:#8b9099;
   font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:16px}
-/* ---------- 6. ANNOUNCEMENT TICKER ----------------------------------- */
+/* ---------- 6. ANNOUNCEMENT TICKER (intégré en haut du header) -------- */
 .ticker{background:var(--ink);color:#fff;overflow:hidden;white-space:nowrap}
-.ticker-track{display:inline-flex;gap:0;padding:10px 0;animation:scroll 28s linear infinite;}
-.ticker-track span{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:0 36px;position:relative;}
+.ticker-track{display:inline-flex;gap:0;padding:7px 0;animation:scroll 28s linear infinite;}
+.ticker-track span{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:0 36px;position:relative;}
 .ticker-track span::after{content:"•";position:absolute;right:-4px;opacity:.45}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 /* ---------- 6. HEADER ------------------------------------------------ */
 header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
-.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.header-ticker{margin:0}
+.nav{display:flex;align-items:center;justify-content:space-between;height:58px}
 .logo{font-weight:900;font-size:22px;letter-spacing:.04em;text-transform:uppercase}
 .logo b{color:var(--accent)}
 .nav-links{display:flex;gap:34px}
@@ -98,6 +99,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .press-logos{display:flex;align-items:center;justify-content:center;gap:clamp(28px,6vw,72px);flex-wrap:wrap;}
 .press-logos span{font-weight:800;font-size:24px;letter-spacing:.04em;color:#2a2d33;opacity:.8}
 /* ---------- 9. BENEFITS SPLIT ---------------------------------------- */
+.benefits{padding-top:28px}
 .benefits .lead{max-width:18ch;margin:0 auto 70px;font-size:var(--t-h1)}
 .benefits-grid{display:grid;grid-template-columns:1fr 1.05fr 1fr;gap:48px;align-items:center;}
 .benefit{display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}

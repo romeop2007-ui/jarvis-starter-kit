@@ -6,7 +6,7 @@
   éditable dans Personnaliser (textes, images, liens, et blocs add/remove pour
   les listes : atouts, témoignages, paliers, avis, FAQ...).
 
-  Le ticker, le menu et le footer viennent du layout 'sculpted' (chrome partagé).
+  Le header (avec ticker intégré) et le footer viennent du layout 'sculpted' (chrome partagé).
   Le CSS commun vit dans assets/sculpted.css → rendu identique à la maquette.
 
   Ordre des sections = ordre des lignes ci-dessous (sections statiques :
@@ -15,8 +15,6 @@
 {%- endcomment -%}
 {% layout 'sculpted' %}
 {% section 'sculpted-banner' %}
-{% section 'sculpted-hero' %}
-{% section 'sculpted-press' %}
 {% section 'sculpted-benefits' %}
 {% section 'sculpted-social-proof' %}
 {% section 'sculpted-product' %}

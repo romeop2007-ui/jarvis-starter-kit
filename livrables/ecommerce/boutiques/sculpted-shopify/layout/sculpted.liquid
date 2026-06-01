@@ -8,10 +8,9 @@
 
   Chrome partagé (édité une seule fois, valable sur toutes les pages qui
   utilisent ce layout) :
-    - sculpted-ticker  : le bandeau défilant du haut
-    - sculpted-header  : le menu de navigation
+    - sculpted-header  : le menu de navigation + le bandeau ticker intégré en haut
     - sculpted-footer  : le pied de page
-  Ces 3 sections sont éditables dans Personnaliser (textes, liens, blocs).
+  Ces 2 sections sont éditables dans Personnaliser (textes, liens, blocs).
 
   Le CSS commun vit dans assets/sculpted.css (rendu identique à la maquette).
 
@@ -31,7 +30,6 @@
   {{ content_for_header }}
 </head>
 <body>
-  {% section 'sculpted-ticker' %}
   {% section 'sculpted-header' %}
   {{ content_for_layout }}
   {% section 'sculpted-footer' %}

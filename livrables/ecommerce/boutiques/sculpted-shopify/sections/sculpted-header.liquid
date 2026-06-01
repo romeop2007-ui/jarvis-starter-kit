@@ -1,15 +1,33 @@
 {%- comment -%}
   Sculpted — Header / menu de navigation. Chrome partagé via le layout.
+  Le bandeau ticker (messages défilants) est désormais intégré EN HAUT du header,
+  pour former un seul bloc compact (plus de zone vide entre ticker et nav).
+  - Bandeau ticker : blocs "Message" (défilent en boucle).
   - Logo : 2 parties (texte normal + texte accentué en bleu), éditables.
-  - Liens de nav : 1 bloc par lien (libellé + URL). Le lien de la page courante
-    se met en surbrillance automatiquement.
+  - Liens de nav : blocs "Lien de menu" (libellé + URL). Le lien de la page
+    courante se met en surbrillance automatiquement.
   - Côté droit : uniquement l'icône panier (sac bleu) → page /cart.
 {%- endcomment -%}
 <header>
+  {%- assign ticker_blocks = section.blocks | where: 'type', 'message' -%}
+  {%- if ticker_blocks.size > 0 -%}
+    <div class="ticker header-ticker">
+      <div class="ticker-track">
+        {%- for block in ticker_blocks -%}
+          <span {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</span>
+        {%- endfor -%}
+        {%- comment -%} Deuxième passe identique : assure une boucle fluide {%- endcomment -%}
+        {%- for block in ticker_blocks -%}
+          <span aria-hidden="true">{{ block.settings.text | escape }}</span>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
   <div class="wrap nav">
     <a href="{{ routes.root_url }}" class="logo">{{ section.settings.logo_text }}<b>{{ section.settings.logo_accent }}</b></a>
     <nav class="nav-links">
       {%- for block in section.blocks -%}
+        {%- if block.type != 'link' -%}{%- continue -%}{%- endif -%}
         {%- assign is_active = false -%}
         {%- if block.settings.url != blank and block.settings.url == request.path -%}{%- assign is_active = true -%}{%- endif -%}
         <a href="{{ block.settings.url | default: '#' }}"{% if is_active %} class="active"{% endif %} {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</a>
@@ -26,12 +44,19 @@
 {% schema %}
 {
   "name": "Sculpted — Header",
-  "tag": "section",
+  "tag": "div",
   "settings": [
     { "type": "text", "id": "logo_text", "label": "Logo — début", "default": "De" },
     { "type": "text", "id": "logo_accent", "label": "Logo — partie bleue", "default": "fyne" }
   ],
   "blocks": [
+    {
+      "type": "message",
+      "name": "Message ticker",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Texte du message", "default": "Free shipping until midnight tonight" }
+      ]
+    },
     {
       "type": "link",
       "name": "Lien de menu",
@@ -43,6 +68,9 @@
   ],
   "default": {
     "blocks": [
+        { "type": "message", "settings": { "text": "In stock — selling out fast" } },
+        { "type": "message", "settings": { "text": "Limited-time sale" } },
+        { "type": "message", "settings": { "text": "Free shipping until midnight tonight" } },
         { "type": "link", "settings": { "label": "Home" } },
         { "type": "link", "settings": { "label": "Sculpted" } },
         { "type": "link", "settings": { "label": "Contact" } },

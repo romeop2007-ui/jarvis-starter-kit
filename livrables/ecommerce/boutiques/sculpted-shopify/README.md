@@ -26,8 +26,7 @@ sculpted-shopify/
 │   └── sculpted-benefit-icon.liquid       # Icônes de la section Bénéfices
 ├── sections/
 │   │  # --- Chrome partagé (rendu par le layout, sur toutes les pages Sculpted) ---
-│   ├── sculpted-ticker.liquid             # Bandeau défilant du haut (1 bloc par message)
-│   ├── sculpted-header.liquid             # Menu de navigation (1 bloc par lien)
+│   ├── sculpted-header.liquid             # Bandeau ticker intégré (blocs Message) + menu de navigation (blocs Lien)
 │   ├── sculpted-footer.liquid             # Pied de page (newsletter, 2 colonnes de liens, paiements)
 │   │  # --- Contenu homepage ---
 │   ├── sculpted-hero.liquid               # Hero (titre, note, 3 atouts, image de fond optionnelle)

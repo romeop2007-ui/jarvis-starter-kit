@@ -101,17 +101,13 @@
         {%- endfor -%}
 
         <div class="last-chance">
-          <h3>{{ section.settings.lc_heading | escape }}</h3>
-          <div class="lc-eq">
-            <div class="frame{% if section.settings.lc_image1 != blank %} has-img{% endif %}">
-              {%- if section.settings.lc_image1 != blank -%}<img src="{{ section.settings.lc_image1 | image_url: width: 300 }}" alt="" loading="lazy">{%- else -%}<span>{{ section.settings.lc_label1 | escape }}</span>{%- endif -%}
-            </div>
-            <span class="op">=</span>
-            <div class="frame{% if section.settings.lc_image2 != blank %} has-img{% endif %}">
-              {%- if section.settings.lc_image2 != blank -%}<img src="{{ section.settings.lc_image2 | image_url: width: 300 }}" alt="" loading="lazy">{%- else -%}<span>{{ section.settings.lc_label2 | escape }}</span>{%- endif -%}
-            </div>
+          <div class="lc-banner{% if section.settings.lc_banner == blank %} is-empty{% endif %}">
+            {%- if section.settings.lc_banner != blank -%}
+              <img src="{{ section.settings.lc_banner | image_url: width: 1672 }}" width="1672" height="941" alt="Buy 2 get 1 Sculpted free" loading="lazy">
+            {%- else -%}
+              <span>Image 1672 × 941</span>
+            {%- endif -%}
           </div>
-          <p class="lc-line">{{ section.settings.lc_line_pre | escape }} <span class="accent">{{ section.settings.lc_line_accent | escape }}</span> <em>{{ section.settings.lc_line_em | escape }}</em></p>
           <div class="lc-badges">
             <span class="a">{{ section.settings.lc_badge_a }}</span>
             <span class="b">{{ section.settings.lc_badge_b }}</span>
@@ -287,14 +283,7 @@ function sculptedBuyNow(btn){
     { "type": "text", "id": "sizes", "label": "Tailles (séparées par virgules)", "default": "S (110–152 lb), M (154–196 lb), L (198–240 lb), XL (243–284 lb), 2XL (287–328 lb), 3XL (331–373 lb), 4XL (375–417 lb), 5XL (419–463 lb)" },
     { "type": "text", "id": "opts_head", "label": "Titre au-dessus des choix par article", "default": "Choose color & size for each item" },
     { "type": "header", "content": "Bloc \"Last chance\"" },
-    { "type": "text", "id": "lc_heading", "label": "Titre", "default": "Last chance" },
-    { "type": "image_picker", "id": "lc_image1", "label": "Image 1" },
-    { "type": "text", "id": "lc_label1", "label": "Libellé cadre 1", "default": "2 tanks" },
-    { "type": "image_picker", "id": "lc_image2", "label": "Image 2" },
-    { "type": "text", "id": "lc_label2", "label": "Libellé cadre 2", "default": "+ 1 gift" },
-    { "type": "text", "id": "lc_line_pre", "label": "Ligne — début", "default": "Buy 2 = 1" },
-    { "type": "text", "id": "lc_line_accent", "label": "Ligne — mot bleu", "default": "Sculpted" },
-    { "type": "text", "id": "lc_line_em", "label": "Ligne — mot vert", "default": "Free" },
+    { "type": "image_picker", "id": "lc_banner", "label": "Image offre (1672 × 941)" },
     { "type": "text", "id": "lc_badge_a", "label": "Badge vert", "default": "🔒 30-day money-back" },
     { "type": "text", "id": "lc_badge_b", "label": "Badge rouge", "default": "⏳ Low stock!" },
     { "type": "text", "id": "buy_btn_label", "label": "Bouton — texte", "default": "Buy now" },

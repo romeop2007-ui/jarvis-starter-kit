@@ -1,0 +1,27 @@
+{%- comment -%}
+  Affiche le logo officiel Shopify d'un moyen de paiement à partir de son libellé.
+  Usage : {% render 'sculpted-pay-icon', name: 'PayPal' %}
+  Si le libellé n'est pas reconnu, on retombe sur le texte (comportement d'avant).
+{%- endcomment -%}
+{%- assign n = name | strip | downcase -%}
+{%- assign t = '' -%}
+{%- case n -%}
+  {%- when 'amex', 'american express' -%}{%- assign t = 'american_express' -%}
+  {%- when 'apple pay', 'applepay' -%}{%- assign t = 'apple_pay' -%}
+  {%- when 'g pay', 'gpay', 'google pay' -%}{%- assign t = 'google_pay' -%}
+  {%- when 'mastercard', 'master' -%}{%- assign t = 'master' -%}
+  {%- when 'maestro' -%}{%- assign t = 'maestro' -%}
+  {%- when 'paypal' -%}{%- assign t = 'paypal' -%}
+  {%- when 'shop', 'shop pay', 'shopify pay' -%}{%- assign t = 'shopify_pay' -%}
+  {%- when 'visa' -%}{%- assign t = 'visa' -%}
+  {%- when 'diners', 'diners club' -%}{%- assign t = 'diners_club' -%}
+  {%- when 'discover' -%}{%- assign t = 'discover' -%}
+  {%- when 'jcb' -%}{%- assign t = 'jcb' -%}
+  {%- when 'union pay', 'unionpay' -%}{%- assign t = 'unionpay' -%}
+  {%- when 'klarna' -%}{%- assign t = 'klarna' -%}
+{%- endcase -%}
+{%- if t != blank -%}
+  {{ t | payment_type_svg_tag: class: 'pay-svg' }}
+{%- else -%}
+  <span>{{ name | strip | escape }}</span>
+{%- endif -%}

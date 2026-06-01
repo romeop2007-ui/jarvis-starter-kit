@@ -28,7 +28,8 @@ a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
 section{padding:96px 0}
-#product{padding-top:28px;padding-bottom:28px}
+#product{padding-top:28px;padding-bottom:0}
+.transform{padding-top:20px}
 .tint{background:var(--soft)}
 .eyebrow{font-size:var(--t-eyebrow);font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;}
 .display{font-weight:900;line-height:1.02;letter-spacing:-.01em;text-transform:uppercase;}
@@ -197,6 +198,7 @@ details.row .body{padding:0 2px 22px;color:var(--muted);font-size:15px;max-width
 .how-note p{color:var(--muted);font-size:14px}
 /* ---------- 13. TRANSFORMATION STATS --------------------------------- */
 .transform-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.transform-grid > div:first-child{align-self:start}
 .transform h2{font-size:var(--t-h1);margin-bottom:44px;line-height:1.05}
 .stat{margin-bottom:34px}
 .stat .k{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}

@@ -1,13 +1,13 @@
 {%- comment -%}
-  Sculpted — "How does it work". Une seule image 1254×1254 (tout le visuel inclus dans l'image).
+  Sculpted — "How does it work". Une seule image paysage 1496×1051 (tout le visuel inclus dans l'image, affichée en entier sans recadrage).
 {%- endcomment -%}
 <section class="how tint center">
   <div class="wrap">
-    <div class="frame size-single{% if section.settings.image != blank %} has-img{% endif %}">
+    <div class="frame size-single how-single{% if section.settings.image != blank %} has-img{% endif %}">
       {%- if section.settings.image != blank -%}
-        <img src="{{ section.settings.image | image_url: width: 1254 }}" alt="{{ section.settings.image_alt | escape }}" width="1254" height="1254" loading="lazy">
+        <img src="{{ section.settings.image | image_url: width: 1496 }}" alt="{{ section.settings.image_alt | escape }}" width="1496" height="1051" loading="lazy">
       {%- else -%}
-        <span>1254 × 1254</span>
+        <span>1496 × 1051</span>
       {%- endif -%}
     </div>
   </div>
@@ -18,7 +18,7 @@
   "name": "Sculpted — How it works",
   "tag": "section",
   "settings": [
-    { "type": "image_picker", "id": "image", "label": "Image (1254 × 1254 px)" },
+    { "type": "image_picker", "id": "image", "label": "Image (1496 × 1051 px, paysage)" },
     { "type": "text", "id": "image_alt", "label": "Texte alternatif (invisible, SEO)", "default": "How Sculpted works" }
   ]
 }

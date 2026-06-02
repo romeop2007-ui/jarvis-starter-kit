@@ -1,0 +1,30 @@
+{% layout 'sculpted' %}
+{%- comment -%}
+  ===========================================================================
+  Sculpted — Template de page "Politique" (page.policy)
+  ---------------------------------------------------------------------------
+  Template générique pour les pages légales (Privacy, Refund, Shipping, Terms,
+  Legal notice). Utilise le layout 'sculpted' → header + footer de marque.
+  Le contenu vient du champ "Contenu" de la page Shopify ({{ page.content }}),
+  déjà rédigé en HTML (titres, listes, gras).
+  Affecter ce template à une page via : templateSuffix = "policy".
+  ===========================================================================
+{%- endcomment -%}
+<style>
+  .policy-page{background:#ffffff;color:#101114;padding:64px 20px 88px;}
+  .policy-wrap{max-width:760px;margin:0 auto;}
+  .policy-body{font-family:'Archivo',sans-serif;font-size:16px;line-height:1.75;color:#33363b;}
+  .policy-body h2{font-family:'Archivo',sans-serif;font-size:30px;font-weight:800;color:#101114;letter-spacing:-.02em;margin:0 0 6px;}
+  .policy-body h3{font-family:'Archivo',sans-serif;font-size:18px;font-weight:700;color:#101114;margin:34px 0 8px;}
+  .policy-body p{margin:0 0 14px;}
+  .policy-body ul{margin:0 0 16px;padding-left:22px;}
+  .policy-body li{margin:0 0 8px;}
+  .policy-body strong{color:#101114;font-weight:700;}
+  .policy-body em{color:#6b7077;font-style:normal;font-size:14px;}
+  .policy-body a{color:#1496d6;text-decoration:underline;}
+</style>
+<main class="policy-page">
+  <div class="policy-wrap">
+    <div class="policy-body rte">{{ page.content }}</div>
+  </div>
+</main>

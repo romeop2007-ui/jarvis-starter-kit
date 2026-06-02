@@ -322,8 +322,8 @@
           "sculpted-social-proof-0": {
             "type": "testimonial",
             "settings": {
-              "frame_label": "Before / After — Nicolas",
-              "name": "Nicolas F. — 45",
+              "frame_label": "Before / After — Andrew",
+              "name": "Andrew F. — 45",
               "quote": "Since I gained weight I refused family photos. This weekend I was in front of the camera for the first time in 4 years. My sister told me I looked fit."
             }
           },
@@ -346,16 +346,16 @@
           "sculpted-social-proof-3": {
             "type": "testimonial",
             "settings": {
-              "frame_label": "Wearing Sculpted — Mathieu",
-              "name": "Mathieu D. — 38",
+              "frame_label": "Wearing Sculpted — Michael",
+              "name": "Michael D. — 38",
               "quote": "Honestly I didn't believe it. I always had this belly I hid under loose t-shirts. The first time I put it on my wife asked if I'd lost weight. I'd changed nothing."
             }
           },
           "sculpted-social-proof-4": {
             "type": "testimonial",
             "settings": {
-              "frame_label": "Side profile — Sofiane",
-              "name": "Sofiane M. — 29",
+              "frame_label": "Side profile — Ryan",
+              "name": "Ryan M. — 29",
               "quote": "I expected nothing. After a month my relationship with the mirror completely changed. I'm not fighting my reflection anymore. It's the first time I feel good in my body."
             }
           }
@@ -933,7 +933,7 @@
             "type": "review",
             "settings": {
               "text": "Got it yesterday, wore it today at the office. My boss asked if I'd changed my haircut. Nope — just Sculpted under my shirt. Impressive.",
-              "name": "Arnaud L.",
+              "name": "James L.",
               "date": "2 days ago"
             }
           },
@@ -941,7 +941,7 @@
             "type": "review",
             "settings": {
               "text": "After my post-lockdown weight gain I avoided mirrors. First morning with Sculpted I looked in the mirror and smiled. It had been a while.",
-              "name": "Bertrand C.",
+              "name": "William C.",
               "date": "1 week ago"
             }
           },
@@ -949,7 +949,7 @@
             "type": "review",
             "settings": {
               "text": "I'm skeptical by nature but I'm blown away. My stomach looks flat, my posture is better and I genuinely feel good. Ordered 2 more.",
-              "name": "Romain L.",
+              "name": "George L.",
               "date": "3 weeks ago"
             }
           },
@@ -957,7 +957,7 @@
             "type": "review",
             "settings": {
               "text": "I'm a restaurant waiter, on my feet 8h a day. Sculpted holds perfectly, nothing rides up, and my posture has really improved.",
-              "name": "Enzo R.",
+              "name": "Jack R.",
               "date": "4 days ago"
             }
           },
@@ -965,7 +965,7 @@
             "type": "review",
             "settings": {
               "text": "I'm a sales rep and see clients all day. Image matters. Sculpted gave me back the confidence I'd lost.",
-              "name": "Samy B.",
+              "name": "Thomas B.",
               "date": "10 days ago"
             }
           },
@@ -973,7 +973,7 @@
             "type": "review",
             "settings": {
               "text": "My girlfriend gave me Sculpted for my birthday. At first I wasn't convinced. Now she has to force me to take it off to wash it.",
-              "name": "Kevin T.",
+              "name": "Daniel T.",
               "date": "3 weeks ago"
             }
           },
@@ -981,7 +981,7 @@
             "type": "review",
             "settings": {
               "text": "I was afraid it'd feel like a girdle. Not at all. It's discreet and genuinely improves your stature. I stand straight now.",
-              "name": "Tarek M.",
+              "name": "Harry M.",
               "date": "6 days ago"
             }
           },
@@ -989,7 +989,7 @@
             "type": "review",
             "settings": {
               "text": "In sales, on my feet all day. Sculpted holds perfectly, nothing rides up, and it's invisible under a white shirt. Perfect.",
-              "name": "Julien M.",
+              "name": "Oliver M.",
               "date": "2 weeks ago"
             }
           }

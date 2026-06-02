@@ -188,8 +188,7 @@
         ],
         "settings": {
           "logo_text": "Scul",
-          "logo_accent": "pted",
-          "currency_label": "GBP £"
+          "logo_accent": "pted"
         }
       },
       "sculpted-hero": {
@@ -566,12 +565,6 @@
           "colors": "Black, White, Grey",
           "size_label": "Size",
           "sizes": "S (110–152 lb), M (154–196 lb), L (198–240 lb), XL (243–284 lb), 2XL (287–328 lb), 3XL (331–373 lb), 4XL (375–417 lb), 5XL (419–463 lb)",
-          "lc_heading": "Last chance",
-          "lc_label1": "2 tanks",
-          "lc_label2": "+ 1 gift",
-          "lc_line_pre": "Buy 2 = 1",
-          "lc_line_accent": "Sculpted",
-          "lc_line_em": "Free",
           "lc_badge_a": "🔒 30-day money-back",
           "lc_badge_b": "⏳ Low stock!",
           "buy_btn_label": "Buy now",
@@ -1060,36 +1053,36 @@
           "sculpted-footer-5": {
             "type": "info_link",
             "settings": {
-              "label": "Privacy policy",
-              "url": "/policies/privacy-policy"
+              "label": "Privacy Policy",
+              "url": "/pages/privacy-policy"
             }
           },
           "sculpted-footer-6": {
             "type": "info_link",
             "settings": {
-              "label": "Refund policy",
-              "url": "/policies/refund-policy"
+              "label": "Refund Policy",
+              "url": "/pages/refund-policy"
             }
           },
           "sculpted-footer-7": {
             "type": "info_link",
             "settings": {
-              "label": "Shipping policy",
-              "url": "/policies/shipping-policy"
+              "label": "Shipping Policy",
+              "url": "/pages/shipping-policy"
             }
           },
           "sculpted-footer-8": {
             "type": "info_link",
             "settings": {
               "label": "Terms of Service",
-              "url": "/policies/terms-of-service"
+              "url": "/pages/terms-of-service"
             }
           },
           "sculpted-footer-10": {
             "type": "info_link",
             "settings": {
               "label": "Legal Notice",
-              "url": "/policies/contact-information"
+              "url": "/pages/legal-notice"
             }
           }
         },
@@ -1343,12 +1336,6 @@
           "colors": "Black, White, Grey",
           "size_label": "Size",
           "sizes": "S (110–152 lb), M (154–196 lb), L (198–240 lb), XL (243–284 lb), 2XL (287–328 lb), 3XL (331–373 lb), 4XL (375–417 lb), 5XL (419–463 lb)",
-          "lc_heading": "Last chance",
-          "lc_label1": "2 tanks",
-          "lc_label2": "+ 1 gift",
-          "lc_line_pre": "Buy 2 = 1",
-          "lc_line_accent": "Sculpted",
-          "lc_line_em": "Free",
           "lc_badge_a": "🔒 30-day money-back",
           "lc_badge_b": "⏳ Low stock!",
           "buy_btn_label": "Buy now",

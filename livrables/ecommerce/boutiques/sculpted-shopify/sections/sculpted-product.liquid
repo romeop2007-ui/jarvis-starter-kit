@@ -130,9 +130,13 @@
           <div class="ugc">
             {%- for block in section.blocks -%}
               {%- if block.type == 'ugc' -%}
-                <div class="frame{% if block.settings.image != blank %} has-img{% endif %}" {{ block.shopify_attributes }}>
-                  {%- if block.settings.image != blank -%}<img src="{{ block.settings.image | image_url: width: 400 }}" alt="" loading="lazy">{%- else -%}<span>{{ block.settings.label | escape }}</span>{%- endif -%}
-                  <div class="play"><svg viewBox="0 0 24 24"><path d="M7 5v14l12-7z"/></svg></div>
+                <div class="frame{% if block.settings.video != blank %} has-img{% endif %}" {{ block.shopify_attributes }}>
+                  {%- if block.settings.video != blank -%}
+                    {{ block.settings.video | video_tag: controls: true, loop: true, muted: true, playsinline: true, preload: 'metadata' }}
+                  {%- else -%}
+                    <span>{{ block.settings.label | escape }}</span>
+                    <div class="play"><svg viewBox="0 0 24 24"><path d="M7 5v14l12-7z"/></svg></div>
+                  {%- endif -%}
                 </div>
               {%- endif -%}
             {%- endfor -%}
@@ -328,8 +332,8 @@ function sculptedBuyNow(btn){
       "type": "ugc",
       "name": "Vidéo UGC",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Vignette" },
-        { "type": "text", "id": "label", "label": "Libellé (si pas d'image)", "default": "Unboxing video" }
+        { "type": "video", "id": "video", "label": "Vidéo (upload Shopify)" },
+        { "type": "text", "id": "label", "label": "Libellé (si pas de vidéo)", "default": "Unboxing video" }
       ]
     },
     {

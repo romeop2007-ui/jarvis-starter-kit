@@ -1,34 +1,14 @@
 {%- comment -%}
-  Sculpted — "How does it work" (diagramme + 4 notes).
-  Les 2 premières notes vont à gauche, les 2 suivantes à droite.
+  Sculpted — "How does it work". Une seule image 1254×1254 (tout le visuel inclus dans l'image).
 {%- endcomment -%}
 <section class="how tint center">
   <div class="wrap">
-    <h2 class="display">{{ section.settings.heading | escape }}</h2>
-    <div class="how-grid">
-      <div class="how-col left">
-        {%- for block in section.blocks -%}
-          {%- if forloop.index <= 2 -%}
-            <div class="how-note" {{ block.shopify_attributes }}>
-              <div class="tag"><span class="dot"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span> {{ block.settings.title | escape }}</div>
-              <p>{{ block.settings.text | escape }}</p>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-      <div class="frame how-frame{% if section.settings.image != blank %} has-img{% endif %}">
-        {%- if section.settings.image != blank -%}<img src="{{ section.settings.image | image_url: width: 900 }}" alt="{{ section.settings.image_alt | escape }}" loading="lazy">{%- else -%}<span>{{ section.settings.frame_label | escape }}</span>{%- endif -%}
-      </div>
-      <div class="how-col right">
-        {%- for block in section.blocks -%}
-          {%- if forloop.index > 2 -%}
-            <div class="how-note" {{ block.shopify_attributes }}>
-              <div class="tag"><span class="dot"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span> {{ block.settings.title | escape }}</div>
-              <p>{{ block.settings.text | escape }}</p>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
+    <div class="frame size-single{% if section.settings.image != blank %} has-img{% endif %}">
+      {%- if section.settings.image != blank -%}
+        <img src="{{ section.settings.image | image_url: width: 1254 }}" alt="{{ section.settings.image_alt | escape }}" width="1254" height="1254" loading="lazy">
+      {%- else -%}
+        <span>1254 × 1254</span>
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -38,29 +18,8 @@
   "name": "Sculpted — How it works",
   "tag": "section",
   "settings": [
-    { "type": "text", "id": "heading", "label": "Titre", "default": "How does Sculpted™ work?" },
-    { "type": "image_picker", "id": "image", "label": "Diagramme / image" },
-    { "type": "text", "id": "image_alt", "label": "Texte alternatif", "default": "Sculpted tank with callouts" },
-    { "type": "text", "id": "frame_label", "label": "Libellé cadre (si pas d'image)", "default": "Diagram — Sculpted tank with callouts" }
-  ],
-  "blocks": [
-    {
-      "type": "note",
-      "name": "Note",
-      "limit": 4,
-      "settings": [
-        { "type": "text", "id": "title", "label": "Titre", "default": "Ionic fabric" },
-        { "type": "textarea", "id": "text", "label": "Texte", "default": "Improves circulation, reinforces support and boosts energy." }
-      ]
-    }
-  ],
-  "default": {
-    "blocks": [
-        { "type": "note", "settings": { "title": "Ionic fabric", "text": "Improves circulation, reinforces support and boosts energy." } },
-        { "type": "note", "settings": { "title": "Reinforced action", "text": "Compresses love handles and instantly slims the silhouette." } },
-        { "type": "note", "settings": { "title": "Active compression", "text": "Erases man boobs with targeted support." } },
-        { "type": "note", "settings": { "title": "Breathable mesh", "text": "Keeps you cool and dry from morning to night." } }
-    ]
-  }
+    { "type": "image_picker", "id": "image", "label": "Image (1254 × 1254 px)" },
+    { "type": "text", "id": "image_alt", "label": "Texte alternatif (invisible, SEO)", "default": "How Sculpted works" }
+  ]
 }
 {% endschema %}

@@ -20,9 +20,14 @@
 }
 /* ---------- 2. RESET / BASE ------------------------------------------ */
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+/* Verrou anti-glissement horizontal : empêche la page de pouvoir partir sur
+   les côtés (scroll latéral parasite = "zigzag" au scroll sur mobile). N'a
+   AUCUN effet visuel, bloque juste le déplacement gauche/droite. On utilise
+   "clip" (et pas "hidden") pour ne pas casser le header collant en haut. */
+html{scroll-behavior:smooth;overflow-x:clip}
 body{font-family:'Archivo',system-ui,sans-serif;color:var(--ink);background:var(--paper);
-  font-size:var(--t-body);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  font-size:var(--t-body);line-height:1.55;-webkit-font-smoothing:antialiased;
+  overflow-x:clip;max-width:100%;}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
@@ -324,7 +329,19 @@ footer{background:var(--ink);color:#fff;padding:80px 0 40px}
 .track-result{display:none;margin-top:4px;color:var(--muted);font-size:15px}
 .track-result.show{display:block}
 
-/* ---------- 20. RESPONSIVE ------------------------------------------- */
+/* ==========================================================================
+   📱 RESPONSIVE — RÈGLES MOBILE / TABLETTE
+   --------------------------------------------------------------------------
+   À LIRE avant de toucher au mobile :
+   Le site n'a PAS deux versions séparées. C'est UN seul code. Le design PC est
+   défini TOUT EN HAUT de ce fichier. Les blocs "@media" ci-dessous ne
+   s'appliquent QUE sur petit écran et ne touchent JAMAIS le rendu PC.
+
+   • @media (max-width:980px) = tablette + mobile, règles communes À TOUTES les pages
+   • @media (max-width:560px) = petits téléphones, règles communes à toutes les pages
+   • 📱 ZONE MOBILE — PAGE PRODUIT (plus bas) = réservée à la fiche produit,
+     c'est LÀ qu'on travaille le téléphone de la page produit.
+   ========================================================================== */
 @media (max-width:980px){
   .nav-links{display:none}
   .benefits-grid{grid-template-columns:1fr;gap:48px}
@@ -345,6 +362,32 @@ footer{background:var(--ink);color:#fff;padding:80px 0 40px}
   .compare th,.compare td{padding:12px 8px}
   .track{padding:64px 0 72px}
   .track-form .btn{width:100%}
+}
+
+/* ==========================================================================
+   📱📱📱   ZONE MOBILE — PAGE PRODUIT   (éditable librement)   📱📱📱
+   --------------------------------------------------------------------------
+   ÉDITE ICI tout ce qui concerne l'affichage TÉLÉPHONE de la page produit :
+   galerie photos, paliers de prix, bouton "Buy now", bénéfices, vidéos UGC,
+   accordéons, etc.
+
+   Tout ce qui est écrit dans ce bloc ne s'applique QUE sur téléphone
+   (écran ≤ 760px de large). Le design PC, défini plus haut dans ce fichier,
+   n'est JAMAIS impacté par ce qu'on met ici. Et inversement : modifier le PC
+   plus haut ne touchera pas ce bloc.
+
+   👉 Règle simple : "je veux changer le mobile de la page produit" = on écrit
+      ICI, et nulle part ailleurs. Le PC est considéré comme terminé.
+
+   (Note : ces classes servent aussi la zone d'achat de la page d'accueil, donc
+   un réglage ici s'appliquera aux deux pages produit, ce qui garde la
+   cohérence du parcours d'achat. C'est volontaire.)
+   ========================================================================== */
+@media (max-width:760px){
+
+  /* (vide pour l'instant — on remplira ce bloc ensemble, au fur et à mesure
+     de ce que tu veux corriger sur le téléphone) */
+
 }
 
 /* ---------- 21. CART (page panier /cart) ----------------------------- */

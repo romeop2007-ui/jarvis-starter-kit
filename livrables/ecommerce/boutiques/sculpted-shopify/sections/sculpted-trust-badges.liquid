@@ -1,33 +1,87 @@
 {%- comment -%}
   ===========================================================================
-  Sculpted — Section "Badges de confiance" (réutilisable)
+  Sculpted — Section "Badges de confiance" (réutilisable + interactive)
   ---------------------------------------------------------------------------
-  La rangée de 4 badges identique à la maquette (Free shipping, 24/7,
-  garantie 30 jours, paiements sécurisés). Réutilisable sur contact,
-  homepage, track order. Les 4 libellés sont éditables dans le
-  personnalisateur. Icônes fixes (correspondance 1:1 avec la maquette).
+  Rangée de 4 badges cliquables (Free shipping, 24/7, garantie 30 jours,
+  paiements sécurisés). Au clic, une pop-up explicative s'ouvre. Les libellés
+  ET les textes explicatifs sont éditables dans le personnalisateur.
+  Réutilisable sur contact, homepage, track order.
   ===========================================================================
 {%- endcomment -%}
 
+{%- assign uid = section.id -%}
+
 <section class="dfy-trust-sec">
   <div class="dfy-wrap">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="dfy-tb-title">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
     <div class="dfy-tb-grid">
-      <div class="dfy-tb">
-        <div class="dfy-circ dfy-circ--dark"><svg viewBox="0 0 24 24"><path d="M3 8l9-5 9 5-9 5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></div>
-        <p>{{ section.settings.badge1 | escape }}</p>
-      </div>
-      <div class="dfy-tb">
-        <div class="dfy-circ"><svg viewBox="0 0 24 24"><path d="M4 13a8 8 0 0116 0M4 13v3a2 2 0 002 2M20 13v3a2 2 0 01-2 2h-3"/></svg></div>
-        <p>{{ section.settings.badge2 | escape }}</p>
-      </div>
-      <div class="dfy-tb">
-        <div class="dfy-circ"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-3-6.7M21 4v5h-5"/></svg></div>
-        <p>{{ section.settings.badge3 | escape }}</p>
-      </div>
-      <div class="dfy-tb">
-        <div class="dfy-circ"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></div>
-        <p>{{ section.settings.badge4 | escape }}</p>
-      </div>
+      {%- comment -%} Badge 1 — Livraison {%- endcomment -%}
+      <button type="button" class="dfy-tb"
+              data-dfy-open="{{ uid }}"
+              data-title="{{ section.settings.badge1 | escape }}"
+              data-desc="{{ section.settings.desc1 | escape }}"
+              data-icon="ship">
+        <span class="dfy-circ dfy-circ--dark">
+          <svg viewBox="0 0 24 24"><path d="M3 8l9-5 9 5-9 5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>
+        </span>
+        <span class="dfy-tb-label">{{ section.settings.badge1 | escape }}</span>
+        <span class="dfy-tb-more">En savoir plus</span>
+      </button>
+
+      {%- comment -%} Badge 2 — Service client {%- endcomment -%}
+      <button type="button" class="dfy-tb"
+              data-dfy-open="{{ uid }}"
+              data-title="{{ section.settings.badge2 | escape }}"
+              data-desc="{{ section.settings.desc2 | escape }}"
+              data-icon="support">
+        <span class="dfy-circ">
+          <svg viewBox="0 0 24 24"><path d="M4 13a8 8 0 0116 0M4 13v3a2 2 0 002 2M20 13v3a2 2 0 01-2 2h-3"/></svg>
+        </span>
+        <span class="dfy-tb-label">{{ section.settings.badge2 | escape }}</span>
+        <span class="dfy-tb-more">En savoir plus</span>
+      </button>
+
+      {%- comment -%} Badge 3 — Garantie {%- endcomment -%}
+      <button type="button" class="dfy-tb"
+              data-dfy-open="{{ uid }}"
+              data-title="{{ section.settings.badge3 | escape }}"
+              data-desc="{{ section.settings.desc3 | escape }}"
+              data-icon="refund">
+        <span class="dfy-circ">
+          <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-3-6.7M21 4v5h-5"/></svg>
+        </span>
+        <span class="dfy-tb-label">{{ section.settings.badge3 | escape }}</span>
+        <span class="dfy-tb-more">En savoir plus</span>
+      </button>
+
+      {%- comment -%} Badge 4 — Paiement {%- endcomment -%}
+      <button type="button" class="dfy-tb"
+              data-dfy-open="{{ uid }}"
+              data-title="{{ section.settings.badge4 | escape }}"
+              data-desc="{{ section.settings.desc4 | escape }}"
+              data-icon="lock">
+        <span class="dfy-circ">
+          <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>
+        </span>
+        <span class="dfy-tb-label">{{ section.settings.badge4 | escape }}</span>
+        <span class="dfy-tb-more">En savoir plus</span>
+      </button>
+    </div>
+  </div>
+
+  {%- comment -%} ============== POP-UP (une seule, alimentée en JS) ============== {%- endcomment -%}
+  <div class="dfy-modal" id="dfy-modal-{{ uid }}" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="dfy-modal__backdrop" data-dfy-close="{{ uid }}"></div>
+    <div class="dfy-modal__box" role="document">
+      <button type="button" class="dfy-modal__x" data-dfy-close="{{ uid }}" aria-label="Fermer">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="dfy-modal__icon" data-dfy-icon></div>
+      <h3 class="dfy-modal__title" data-dfy-title></h3>
+      <p class="dfy-modal__desc" data-dfy-desc></p>
     </div>
   </div>
 </section>
@@ -35,36 +89,178 @@
 {% stylesheet %}
 .dfy-trust-sec{
   --dfy-ink:#101114;
+  --dfy-accent:#1496d6;
+  --dfy-accent-deep:#0c79b3;
+  --dfy-soft:#e9f3f9;
   --dfy-maxw:1180px;
   --dfy-gutter:24px;
   font-family:'Archivo',system-ui,sans-serif;
   color:var(--dfy-ink);
-  padding:0 0 100px;
+  padding:0 0 56px;
 }
 .dfy-trust-sec .dfy-wrap{max-width:var(--dfy-maxw);margin:0 auto;padding:0 var(--dfy-gutter)}
-.dfy-tb-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
-.dfy-tb{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
-.dfy-tb .dfy-circ{width:74px;height:74px;border-radius:50%;background:#dbe7ee;
-  display:flex;align-items:center;justify-content:center}
-.dfy-tb .dfy-circ--dark{background:var(--dfy-ink)}
-.dfy-tb .dfy-circ--dark svg{stroke:#fff}
-.dfy-tb .dfy-circ svg{width:30px;height:30px;stroke:#4a5560;fill:none;stroke-width:1.6}
-.dfy-tb p{font-weight:700;font-size:15px;max-width:16ch;margin:0}
+.dfy-tb-title{
+  text-align:center;font-size:22px;font-weight:800;letter-spacing:-.01em;
+  margin:0 0 5px;
+}
+
+.dfy-tb-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+
+/* Carte cliquable */
+.dfy-tb{
+  appearance:none;-webkit-appearance:none;
+  background:#fff;border:1px solid #eceef1;border-radius:18px;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  text-align:center;cursor:pointer;
+  padding:30px 18px 24px;
+  font-family:inherit;color:inherit;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.dfy-tb:hover{
+  transform:translateY(-4px);
+  border-color:var(--dfy-accent);
+  box-shadow:0 14px 30px -16px rgba(20,150,214,.45);
+}
+.dfy-tb:focus-visible{outline:2px solid var(--dfy-accent);outline-offset:3px}
+
+.dfy-circ{
+  width:72px;height:72px;border-radius:50%;background:var(--dfy-soft);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .18s ease,transform .18s ease;
+}
+.dfy-circ--dark{background:var(--dfy-ink)}
+.dfy-circ--dark svg{stroke:#fff}
+.dfy-circ svg{width:30px;height:30px;stroke:#3b76a0;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.dfy-tb:hover .dfy-circ{transform:scale(1.06)}
+.dfy-tb:hover .dfy-circ:not(.dfy-circ--dark){background:var(--dfy-accent)}
+.dfy-tb:hover .dfy-circ:not(.dfy-circ--dark) svg{stroke:#fff}
+
+.dfy-tb-label{font-weight:700;font-size:15px;max-width:18ch;line-height:1.3}
+.dfy-tb-more{
+  font-size:12px;font-weight:600;color:var(--dfy-accent);
+  opacity:0;transform:translateY(-4px);transition:opacity .18s ease,transform .18s ease;
+}
+.dfy-tb:hover .dfy-tb-more{opacity:1;transform:translateY(0)}
+
+/* ===================== POP-UP ===================== */
+.dfy-modal{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  opacity:0;visibility:hidden;transition:opacity .22s ease,visibility .22s ease;
+}
+.dfy-modal.is-open{opacity:1;visibility:visible}
+.dfy-modal__backdrop{
+  position:absolute;inset:0;
+  background:rgba(16,17,20,.55);
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+}
+.dfy-modal__box{
+  position:relative;z-index:1;
+  background:#fff;border-radius:22px;
+  width:100%;max-width:440px;
+  padding:40px 34px 36px;text-align:center;
+  box-shadow:0 30px 70px -20px rgba(16,17,20,.5);
+  transform:translateY(18px) scale(.97);transition:transform .26s cubic-bezier(.2,.8,.25,1);
+}
+.dfy-modal.is-open .dfy-modal__box{transform:translateY(0) scale(1)}
+.dfy-modal__x{
+  position:absolute;top:14px;right:14px;
+  width:34px;height:34px;border-radius:50%;border:none;cursor:pointer;
+  background:#f3f5f7;display:flex;align-items:center;justify-content:center;
+  transition:background .15s ease;
+}
+.dfy-modal__x:hover{background:#e6e9ec}
+.dfy-modal__x svg{width:16px;height:16px;stroke:#5a6470;fill:none;stroke-width:2;stroke-linecap:round}
+.dfy-modal__icon{
+  width:78px;height:78px;border-radius:50%;margin:0 auto 20px;
+  background:var(--dfy-soft);display:flex;align-items:center;justify-content:center;
+}
+.dfy-modal__icon.is-dark{background:var(--dfy-ink)}
+.dfy-modal__icon svg{width:34px;height:34px;fill:none;stroke:var(--dfy-accent-deep);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.dfy-modal__icon.is-dark svg{stroke:#fff}
+.dfy-modal__title{font-size:21px;font-weight:800;margin:0 0 10px;letter-spacing:-.01em}
+.dfy-modal__desc{font-size:15px;line-height:1.6;color:#525a64;margin:0}
 
 @media (max-width:980px){
-  .dfy-tb-grid{grid-template-columns:1fr 1fr;gap:40px}
+  .dfy-tb-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .dfy-trust-sec{padding:0 0 44px}
+  .dfy-tb-more{display:none}
+}
+@media (max-width:560px){
+  .dfy-tb{padding:24px 12px 20px;border-radius:16px}
+  .dfy-circ{width:62px;height:62px}
+  .dfy-circ svg{width:26px;height:26px}
+  .dfy-tb-label{font-size:14px}
 }
 {% endstylesheet %}
+
+<script>
+(function(){
+  var uid = {{ section.id | json }};
+  var modal = document.getElementById('dfy-modal-' + uid);
+  if(!modal) return;
+
+  var icons = {
+    ship:'<svg viewBox="0 0 24 24"><path d="M3 8l9-5 9 5-9 5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>',
+    support:'<svg viewBox="0 0 24 24"><path d="M4 13a8 8 0 0116 0M4 13v3a2 2 0 002 2M20 13v3a2 2 0 01-2 2h-3"/></svg>',
+    refund:'<svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-3-6.7M21 4v5h-5"/></svg>',
+    lock:'<svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>'
+  };
+
+  var elIcon  = modal.querySelector('[data-dfy-icon]');
+  var elTitle = modal.querySelector('[data-dfy-title]');
+  var elDesc  = modal.querySelector('[data-dfy-desc]');
+  var lastTrigger = null;
+
+  function open(btn){
+    var key = btn.getAttribute('data-icon');
+    elIcon.innerHTML = icons[key] || '';
+    elIcon.classList.toggle('is-dark', key === 'ship');
+    elTitle.textContent = btn.getAttribute('data-title') || '';
+    elDesc.textContent  = btn.getAttribute('data-desc') || '';
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow = 'hidden';
+    lastTrigger = btn;
+  }
+  function close(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    document.documentElement.style.overflow = '';
+    if(lastTrigger){ lastTrigger.focus(); lastTrigger = null; }
+  }
+
+  document.querySelectorAll('[data-dfy-open="' + uid + '"]').forEach(function(btn){
+    btn.addEventListener('click', function(){ open(btn); });
+  });
+  modal.querySelectorAll('[data-dfy-close="' + uid + '"]').forEach(function(el){
+    el.addEventListener('click', close);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('is-open')) close();
+  });
+})();
+</script>
 
 {% schema %}
 {
   "name": "Sculpted — Trust badges",
   "tag": "section",
   "settings": [
-    { "type": "text", "id": "badge1", "label": "Badge 1", "default": "Free shipping" },
-    { "type": "text", "id": "badge2", "label": "Badge 2", "default": "24/7 customer service" },
-    { "type": "text", "id": "badge3", "label": "Badge 3", "default": "30-day money-back guarantee" },
-    { "type": "text", "id": "badge4", "label": "Badge 4", "default": "Secure payments" }
+    { "type": "text", "id": "heading", "label": "Titre de section (optionnel)", "default": "Why shop with us" },
+    { "type": "header", "content": "Badge 1 — Livraison" },
+    { "type": "text", "id": "badge1", "label": "Libellé", "default": "Free shipping" },
+    { "type": "textarea", "id": "desc1", "label": "Texte de la pop-up", "default": "Enjoy free, fully tracked delivery on every order across the UK. No minimum spend and no hidden fees at checkout." },
+    { "type": "header", "content": "Badge 2 — Service client" },
+    { "type": "text", "id": "badge2", "label": "Libellé", "default": "24/7 customer service" },
+    { "type": "textarea", "id": "desc2", "label": "Texte de la pop-up", "default": "Our support team is here around the clock. Reach out any time and we'll get back to you within a few hours." },
+    { "type": "header", "content": "Badge 3 — Garantie" },
+    { "type": "text", "id": "badge3", "label": "Libellé", "default": "30-day money-back guarantee" },
+    { "type": "textarea", "id": "desc3", "label": "Texte de la pop-up", "default": "Not happy with your Sculpted? Send it back within 30 days for a full refund, no questions asked." },
+    { "type": "header", "content": "Badge 4 — Paiement" },
+    { "type": "text", "id": "badge4", "label": "Libellé", "default": "Secure payments" },
+    { "type": "textarea", "id": "desc4", "label": "Texte de la pop-up", "default": "Every transaction is encrypted and processed through secure, PCI-compliant providers. Shop with complete peace of mind." }
   ],
   "presets": [
     { "name": "Sculpted — Trust badges" }

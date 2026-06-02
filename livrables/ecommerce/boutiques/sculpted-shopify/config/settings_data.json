@@ -543,6 +543,7 @@
       "sculpted-how": {
         "type": "sculpted-how",
         "settings": {
+          "image": "shopify://shop_images/ChatGPT_Image_2_juin_2026_18_43_03.png",
           "image_alt": "Sculpted tank with callouts"
         }
       },
@@ -961,7 +962,6 @@
           "news_placeholder": "E-mail",
           "col1_title": "Menu",
           "col2_title": "Information",
-          "country_label": "🇬🇧 United Kingdom (GBP £)",
           "copyright": "© 2026, Sculpted",
           "payments": "AMEX, Apple Pay, G Pay, Mastercard, PayPal, Shop, VISA"
         }
@@ -1112,18 +1112,21 @@
           "sculpted-buybox-12": {
             "type": "ugc",
             "settings": {
+              "video": "shopify://files/videos/UnderFit Débardeur Compression Ventre Plat en 30 Jours (2).mp4",
               "label": "Unboxing video"
             }
           },
           "sculpted-buybox-13": {
             "type": "ugc",
             "settings": {
+              "video": "shopify://files/videos/UnderFit Débardeur Compression Ventre Plat en 30 Jours (1).mp4",
               "label": "Testimonial video"
             }
           },
           "sculpted-buybox-14": {
             "type": "ugc",
             "settings": {
+              "video": "shopify://files/videos/UnderFit Débardeur Compression Ventre Plat en 30 Jours.mp4",
               "label": "Try-on video"
             }
           },
@@ -1186,7 +1189,7 @@
           "sculpted-buybox-19"
         ],
         "settings": {
-          "product": "",
+          "product": "sculptd-compression-shaping-tank-top",
           "main_frame_label": "Product — three colorways, \"Buy 2 + 1 Free\"",
           "rating_text": "Excellent · 10,310+ reviews",
           "title": "Sculpted™ | Shaping Compression Tank",
@@ -1199,6 +1202,8 @@
           "colors": "Black, White, Grey",
           "size_label": "Size",
           "sizes": "S (110–152 lb), M (154–196 lb), L (198–240 lb), XL (243–284 lb), 2XL (287–328 lb), 3XL (331–373 lb), 4XL (375–417 lb), 5XL (419–463 lb)",
+          "opts_head": "Choose color & size for each item",
+          "lc_banner": "shopify://shop_images/5ad29b2d-6fda-43d8-bbe1-9190785b1511_feef07d8-7b56-4282-9588-3f8ee8889655.png",
           "lc_badge_a": "🔒 30-day money-back",
           "lc_badge_b": "⏳ Low stock!",
           "buy_btn_label": "Buy now",

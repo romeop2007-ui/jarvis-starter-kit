@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-06-02 (mise à jour 2)
+
+### Bénéfices interactifs (pop-up) + fix espaces blancs footer et badges
+
+- **4 bénéfices transformés en boutons cliquables avec pop-up** (homepage `sculpted-product` + page produit `sculpted-buybox`) : chaque ligne (Goodbye beer belly, etc.) devient un bouton (check + texte + ⓘ), effet de survol, et au clic une pop-up explique le bénéfice. Réutilise le moteur de pop-up des trust badges. Textes explicatifs UK câblés dans le code (s'affichent direct), + champ "Explication pop-up" éditable par bullet dans Personnaliser.
+- **Fix blanc fantôme sous le footer** : la section avait `tag: section`, donc son emballage Shopify récupérait les 96px de la règle globale `section{padding:96px 0}`. Passé en `tag: div` (même correctif que le header qui était déjà en div).
+- **Section "Why shop with us" (trust badges)** : titre retiré (rendu + réglage schéma, donc disparaît aussi sur Contact et Track order car section partagée), même fix `tag: section` → `div`, et badges remontés au max via marge négative (-72px desktop / -44px mobile) pour les coller à la section avis au-dessus.
+- Tout déployé en live sur "Sculpted UK" (#200683258201) via push ciblés `--only` et committé (`a7ffd2b`).
+
+---
+
 ## 2026-06-02
 
 ### Sections boutique en image unique 1254×1254 + vidéos UGC + règle de synchro

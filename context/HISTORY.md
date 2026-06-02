@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-06-02
+
+### Sections boutique en image unique 1254×1254 + vidéos UGC + règle de synchro
+
+- Plusieurs sections homepage/produit converties en **image unique 1254×1254** : témoignages (preuve sociale, qui gardent nom + citation), size guide, bénéfices, how it works, et l'image droite de la section Stats (le bloc avant/après à deux cadres a été supprimé au profit d'une seule image).
+- **Cadres UGC** (homepage `sculpted-product` + page produit `sculpted-buybox`) : passés d'une vignette image à un **vrai lecteur vidéo** (setting `video`, upload Shopify, rendu `video_tag`). Plus possible d'insérer une image, seulement des vidéos.
+- **Fix taille image Stats** : un bug d'`aspect-ratio` combiné à `align-items:center` réduisait l'image à un carré de 120px. Corrigé avec `width:100%` (le carré se calcule sur la largeur de colonne) + colonne image élargie (ratio 1 / 1,5).
+- Classe CSS `size-single` créée et rendue réutilisable pour toutes les sections "image unique".
+- **Règle de synchro Shopify actée (gravée dans CLAUDE.md + mémoire)** : la boutique vit à deux endroits non synchronisés (éditeur en ligne = contenu de Roméo dans `settings_data.json` / fichiers locaux Git = code de Claude). Désormais : pull avant toute intervention, jamais de push `settings_data.json` sans prévenir, push ciblé `--only`, validation explicite avant tout déploiement live. Permet de bosser à deux sans s'écraser.
+- Tout déployé sur le thème live "Sculpted UK" (#200683258201) via Shopify CLI + committé (`bc3288b`).
+- **Reste à faire côté Roméo** : uploader ses visuels 1254×1254 et ses vidéos UGC dans l'éditeur Shopify pour voir le rendu final.
+
+---
+
 ## 2026-05-31 (mise à jour 7)
 
 ### Header nettoyé + "Buy now" vers le panier

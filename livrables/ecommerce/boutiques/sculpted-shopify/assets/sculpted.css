@@ -240,6 +240,8 @@ details.row .body{padding:0 2px 22px;color:var(--muted);font-size:15px;max-width
 .size .tip{margin-top:20px;font-style:italic;color:var(--muted);font-size:14px}
 .size .frame{aspect-ratio:3/4;min-height:0}
 .frame.size-single{aspect-ratio:1;max-width:760px;margin:0 auto}
+.frame.size-single.how-single{aspect-ratio:1496/1051;max-width:980px}
+.frame.size-single.how-single img{object-fit:contain}
 /* ---------- 16. FAQ -------------------------------------------------- */
 .faq-head{text-align:center;margin-bottom:50px}
 .faq-head h2{font-size:var(--t-h2);font-weight:800;max-width:22ch;margin:0 auto}

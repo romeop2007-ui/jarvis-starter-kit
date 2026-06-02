@@ -40,9 +40,7 @@
       <span class="cp">{{ section.settings.copyright | escape }}</span>
       <div class="foot-pay">
         {%- assign pays = section.settings.payments | split: ',' -%}
-        {%- for p in pays -%}
-          <span>{{ p | strip | escape }}</span>
-        {%- endfor -%}
+        {%- for p in pays -%}{% render 'sculpted-pay-icon', name: p %}{%- endfor -%}
       </div>
     </div>
   </div>
@@ -62,7 +60,7 @@
     { "type": "header", "content": "Bas de page" },
     { "type": "text", "id": "country_label", "label": "Pays / devise", "default": "🇺🇸 United States (USD $)" },
     { "type": "text", "id": "copyright", "label": "Copyright", "default": "© 2026, Sculpted" },
-    { "type": "text", "id": "payments", "label": "Badges paiement (séparés par des virgules)", "default": "AMEX, Apple Pay, Diners, Discover, G Pay, JCB, Mastercard, VISA" }
+    { "type": "text", "id": "payments", "label": "Badges paiement (séparés par des virgules)", "default": "AMEX, Apple Pay, G Pay, Mastercard, PayPal, Shop, VISA" }
   ],
   "blocks": [
     {

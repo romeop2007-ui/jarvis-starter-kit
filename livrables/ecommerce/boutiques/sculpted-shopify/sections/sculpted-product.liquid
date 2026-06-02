@@ -78,7 +78,20 @@
         <div class="bullets">
           {%- for block in section.blocks -%}
             {%- if block.type == 'bullet' -%}
-              <div class="bullet" {{ block.shopify_attributes }}><svg class="ic" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg> {{ block.settings.text | escape }}</div>
+              {%- assign bn_desc = block.settings.explain -%}
+              {%- if bn_desc == blank -%}
+                {%- case block.settings.text -%}
+                  {%- when 'Speeds up weight loss' -%}{%- assign bn_desc = 'The snug compression fit supports better posture and keeps your core engaged all day, helping you feel lighter, more active and motivated to stay on track with your goals.' -%}
+                  {%- when 'Man boobs flattened' -%}{%- assign bn_desc = 'Firm chest compression smooths and tightens the chest area, flattening the look of man boobs so you feel sharp and confident in fitted tops or shirtless.' -%}
+                  {%- when 'Love handles erased' -%}{%- assign bn_desc = '360° compression wraps your sides and lower back to smooth out love handles and muffin top, so your clothes sit cleaner and your waistline instantly looks tighter.' -%}
+                  {%- else -%}{%- assign bn_desc = 'Targeted compression around your midsection instantly flattens and holds in your belly, giving you a leaner, more defined silhouette under any shirt, the moment you put it on.' -%}
+                {%- endcase -%}
+              {%- endif -%}
+              <button type="button" class="bullet" data-bn-open="{{ section.id }}" data-title="{{ block.settings.text | escape }}" data-desc="{{ bn_desc | escape }}" {{ block.shopify_attributes }}>
+                <svg class="ic" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
+                <span class="bn-txt">{{ block.settings.text | escape }}</span>
+                <svg class="bn-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v4.5"/><path d="M12 8h.01"/></svg>
+              </button>
             {%- endif -%}
           {%- endfor -%}
         </div>
@@ -155,6 +168,19 @@
     </div>
   </div>
 </section>
+
+{%- comment -%} ===== POP-UP bénéfices (alimentée en JS, une seule par section) ===== {%- endcomment -%}
+<div class="bn-modal" id="bn-modal-{{ section.id }}" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="bn-modal__backdrop" data-bn-close="{{ section.id }}"></div>
+  <div class="bn-modal__box" role="document">
+    <button type="button" class="bn-modal__x" data-bn-close="{{ section.id }}" aria-label="Close">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="bn-modal__icon"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></div>
+    <h3 class="bn-modal__title"><span data-bn-title></span></h3>
+    <p class="bn-modal__desc" data-bn-desc></p>
+  </div>
+</div>
 
 <script>
 /* Galerie : clic sur une vignette produit → remplace la grande image. */
@@ -262,6 +288,39 @@ function sculptedBuyNow(btn){
     .then(function(){ window.location.href = '/cart'; })
     .catch(function(){ btn.disabled = false; btn.textContent = orig; alert('Something went wrong adding to cart. Please try again.'); });
 }
+
+/* Pop-up bénéfices : clic sur une ligne → ouvre l'explication. */
+(function(){
+  var uid = {{ section.id | json }};
+  var modal = document.getElementById('bn-modal-' + uid);
+  if(!modal) return;
+  var elTitle = modal.querySelector('[data-bn-title]');
+  var elDesc  = modal.querySelector('[data-bn-desc]');
+  var last = null;
+  function open(btn){
+    elTitle.textContent = btn.getAttribute('data-title') || '';
+    elDesc.textContent  = btn.getAttribute('data-desc') || '';
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow = 'hidden';
+    last = btn;
+  }
+  function close(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    document.documentElement.style.overflow = '';
+    if(last){ last.focus(); last = null; }
+  }
+  document.querySelectorAll('[data-bn-open="' + uid + '"]').forEach(function(b){
+    b.addEventListener('click', function(){ open(b); });
+  });
+  modal.querySelectorAll('[data-bn-close="' + uid + '"]').forEach(function(e){
+    e.addEventListener('click', close);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('is-open')) close();
+  });
+})();
 </script>
 
 {% schema %}
@@ -310,7 +369,8 @@ function sculptedBuyNow(btn){
       "type": "bullet",
       "name": "Argument coché",
       "settings": [
-        { "type": "text", "id": "text", "label": "Texte", "default": "Goodbye beer belly" }
+        { "type": "text", "id": "text", "label": "Texte", "default": "Goodbye beer belly" },
+        { "type": "textarea", "id": "explain", "label": "Explication pop-up (laisser vide = texte auto par défaut)" }
       ]
     },
     {

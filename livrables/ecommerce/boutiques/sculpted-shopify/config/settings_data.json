@@ -1081,22 +1081,15 @@
           "sculpted-footer-8": {
             "type": "info_link",
             "settings": {
-              "label": "Terms of sale",
-              "url": "/policies/terms-of-service"
-            }
-          },
-          "sculpted-footer-9": {
-            "type": "info_link",
-            "settings": {
-              "label": "Terms of use",
+              "label": "Terms of Service",
               "url": "/policies/terms-of-service"
             }
           },
           "sculpted-footer-10": {
             "type": "info_link",
             "settings": {
-              "label": "Legal notice",
-              "url": "/policies/legal-notice"
+              "label": "Legal Notice",
+              "url": "/policies/contact-information"
             }
           }
         },
@@ -1110,7 +1103,6 @@
           "sculpted-footer-6",
           "sculpted-footer-7",
           "sculpted-footer-8",
-          "sculpted-footer-9",
           "sculpted-footer-10"
         ],
         "settings": {

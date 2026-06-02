@@ -172,6 +172,26 @@ Comportements que Claude doit appliquer automatiquement, sans que Roméo ait à 
 
 Cette règle s'applique sans qu'il soit nécessaire que Roméo le redemande. Elle a été actée le 26/05/2026.
 
+### Synchronisation boutique Shopify (travail à deux sans s'écraser)
+
+**Contexte du problème :** la boutique vit à deux endroits qui ne se synchronisent pas tout seuls. (1) L'éditeur Shopify en ligne (le "Personnaliser"), où Roméo modifie le contenu et le visuel, enregistré côté Shopify dans `config/settings_data.json`. (2) Les fichiers locaux suivis par Git (dossier `livrables/ecommerce/boutiques/sculpted-shopify`), où Claude modifie le code. Un `theme push` qui inclut `settings_data.json` écrase la version en ligne par la version locale, et donc supprime les changements que Roméo a faits dans l'éditeur entre-temps.
+
+**Règles que Claude doit appliquer automatiquement, sans que Roméo le redemande :**
+
+1. **Toujours `pull` avant de toucher à la boutique.** Avant toute intervention sur le thème, Claude lance d'abord :
+   `shopify theme pull --store cqqah9-t1.myshopify.com --theme 200683258201 --only config/settings_data.json --path "livrables/ecommerce/boutiques/sculpted-shopify"`
+   pour récupérer dans les fichiers locaux le travail le plus récent de Roméo (textes, photos, réglages). Ça garantit qu'on part toujours de son état à jour et qu'on n'écrase rien.
+
+2. **Séparation des rôles = source de vérité par fichier :**
+   - **`config/settings_data.json`** (contenu et visuel : photos, textes, noms, réglages, ordre des sections) → **la version EN LIGNE fait foi**, c'est le terrain de Roméo. Claude ne pousse jamais ce fichier sans avoir fait le `pull` juste avant ET sans avoir prévenu Roméo.
+   - **Fichiers `.liquid`, CSS, templates** (code, structure, design, fonctionnalités) → **la version LOCALE/Git fait foi**, c'est le terrain de Claude.
+
+3. **Push ciblé.** Quand Claude pousse du code, il pousse uniquement les fichiers concernés avec `--only`, jamais un push global, pour ne pas toucher au reste de la boutique.
+
+4. **Déploiement live = validation explicite.** Tout `theme push --allow-live` est une action en production : Claude prévient toujours Roméo et attend son OK avant de pousser (cf. blocage automatique du classifier).
+
+Règle actée le 02/06/2026.
+
 ---
 
 ## Notes importantes

@@ -385,8 +385,55 @@ footer{background:var(--ink);color:#fff;padding:80px 0 40px}
    ========================================================================== */
 @media (max-width:760px){
 
-  /* (vide pour l'instant — on remplira ce bloc ensemble, au fur et à mesure
-     de ce que tu veux corriger sur le téléphone) */
+  /* --- Galerie produit : grande photo en haut + carrousel de vignettes glissable dessous ---
+     Sur téléphone, on empile : la grande image d'abord, puis une bande de
+     vignettes qu'on fait défiler au doigt horizontalement. Taper une vignette
+     change la grande photo (géré par le JS sculptedSwapHero, déjà en place). */
+  .gallery{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    min-width:0;          /* autorise la bande de vignettes à défiler au lieu d'élargir la page */
+  }
+  .gallery .hero-img{
+    order:1;              /* grande image = tout en haut */
+    width:100%;
+    aspect-ratio:auto;    /* on annule le carré forcé du PC */
+    height:auto;
+    max-height:56vh;      /* l'image tient dans l'écran, ne déborde plus */
+    background:var(--soft);
+  }
+  /* L'image entière s'affiche, mise à l'échelle pour tenir (pas de rognage) */
+  .gallery .hero-img img{
+    position:static;
+    width:auto;
+    max-width:100%;
+    height:auto;
+    max-height:56vh;
+    margin:0 auto;
+    object-fit:contain;
+  }
+  .gallery .thumbs{
+    order:2;                       /* vignettes = juste en dessous */
+    flex-direction:row;            /* bande horizontale (et non plus colonne) */
+    flex-wrap:nowrap;
+    gap:10px;
+    min-width:0;                   /* CLÉ : la bande défile à l'intérieur au lieu de déborder/être coupée */
+    overflow-x:auto;               /* on peut la faire glisser au doigt */
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x proximity;  /* les vignettes "accrochent" légèrement au scroll */
+    padding-bottom:6px;            /* petit air sous la bande */
+  }
+  .gallery .thumbs .frame{
+    flex:0 0 68px;        /* chaque vignette garde sa taille, ne s'écrase pas */
+    width:68px;
+    aspect-ratio:1;
+    min-height:0;
+    scroll-snap-align:start;
+  }
+  /* Masque la barre de scroll pour un rendu propre (le glissement reste actif) */
+  .gallery .thumbs{scrollbar-width:none}
+  .gallery .thumbs::-webkit-scrollbar{display:none}
 
 }
 

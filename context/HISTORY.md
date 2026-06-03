@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-06-03
+
+### Boutique : pop-up guide des tailles + fixes UI, et workflow créas établi
+
+- **Pop-up guide des tailles** (image 1440×1440) sur homepage `sculpted-product` + page produit `sculpted-buybox`, PC + mobile, au lieu du scroll qui sortait le client du contexte d'achat. Le lien "Size guide" devient un bouton qui ouvre une modale image (réglage `image_picker` éditable, placeholder rayé tant qu'aucune image). Réutilise le moteur de modale des bénéfices. **Reste côté Roméo : uploader l'image dans l'éditeur aux 2 endroits.**
+- **Fixes UI** : libellés du comparatif mobile (`sculpted-comparison`) qui ne se chevauchent plus (coupure mots longs, interlettrage 0). Petit espace ajouté entre la section avis et les badges de confiance (`sculpted-trust-badges`, marge négative -72 → -44px PC, -20px mobile).
+- **Thème entièrement versionné dans Git** : ajout de `layout/theme.liquid` (squelette principal qui manquait), `config/settings_schema.json`, `locales/en.default.json`, `layout/password.liquid`, `templates/gift_card.liquid`.
+- **Incident CLI Shopify** : 404 transitoire sur tous les appels du CLI (panne côté Shopify, API store OK via MCP). Contourné par retry automatique, push live finalement passé. Écritures MCP confirmées bloquées sur le thème live (sécurité).
+- **Workflow d'adaptation des créas FR vers anglais UK posé** : Vmake AI ("Video & image remover" pour effacer les sous-titres FR incrustés) → ElevenLabs (voix off accent UK) → CapCut (montage + auto-captions EN). Claude fournit les scripts traduits. Décision "brancher ElevenLabs en MCP" laissée en suspens. Outils créas (CapCut, ElevenLabs, Vmake AI) ajoutés à CONTEXT.md.
+- Commits : `49784da`, `067634c`, `1a7c791`, `80282bc`.
+
+---
+
 ## 2026-06-02 (mise à jour 2)
 
 ### Bénéfices interactifs (pop-up) + fix espaces blancs footer et badges

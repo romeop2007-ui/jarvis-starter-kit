@@ -97,7 +97,7 @@
         </div>
 
         <div class="stock">{{ section.settings.stock_text }}</div>
-        <a href="{{ section.settings.size_anchor | default: '#size' }}" class="size-link"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><rect x="3" y="9" width="18" height="6" rx="1"/><path d="M7 9v3M11 9v4M15 9v3"/></svg> {{ section.settings.size_link_label | escape }}</a>
+        <button type="button" class="size-link" data-sg-open="{{ section.id }}"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><rect x="3" y="9" width="18" height="6" rx="1"/><path d="M7 9v3M11 9v4M15 9v3"/></svg> {{ section.settings.size_link_label | escape }}</button>
 
         <p class="promo-label">{{ section.settings.promo_label | escape }}</p>
 
@@ -182,6 +182,21 @@
     <div class="bn-modal__icon"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></div>
     <h3 class="bn-modal__title"><span data-bn-title></span></h3>
     <p class="bn-modal__desc" data-bn-desc></p>
+  </div>
+</div>
+
+{%- comment -%} ===== POP-UP guide des tailles (image uploadée) ===== {%- endcomment -%}
+<div class="sg-modal" id="sg-modal-{{ section.id }}" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="sg-modal__backdrop" data-sg-close="{{ section.id }}"></div>
+  <div class="sg-modal__box" role="document">
+    <button type="button" class="bn-modal__x" data-sg-close="{{ section.id }}" aria-label="Close">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    {%- if section.settings.size_image != blank -%}
+      <img class="sg-modal__img" src="{{ section.settings.size_image | image_url: width: 1440 }}" alt="{{ section.settings.size_link_label | escape }}" loading="lazy">
+    {%- else -%}
+      <div class="sg-modal__ph"><strong>{{ section.settings.size_link_label | escape }}</strong><br>Upload your size guide image (1440×1440) in the editor.</div>
+    {%- endif -%}
   </div>
 </div>
 
@@ -324,6 +339,35 @@ function sculptedBuyNow(btn){
     if(e.key === 'Escape' && modal.classList.contains('is-open')) close();
   });
 })();
+
+/* Pop-up guide des tailles : clic sur le lien → ouvre l'image (pas de scroll). */
+(function(){
+  var uid = {{ section.id | json }};
+  var modal = document.getElementById('sg-modal-' + uid);
+  if(!modal) return;
+  var last = null;
+  function open(btn){
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow = 'hidden';
+    last = btn;
+  }
+  function close(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    document.documentElement.style.overflow = '';
+    if(last){ last.focus(); last = null; }
+  }
+  document.querySelectorAll('[data-sg-open="' + uid + '"]').forEach(function(b){
+    b.addEventListener('click', function(e){ e.preventDefault(); open(b); });
+  });
+  modal.querySelectorAll('[data-sg-close="' + uid + '"]').forEach(function(e){
+    e.addEventListener('click', close);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('is-open')) close();
+  });
+})();
 </script>
 
 {% schema %}
@@ -343,7 +387,8 @@ function sculptedBuyNow(btn){
     { "type": "textarea", "id": "desc", "label": "Description", "default": "The compression tank that helps you stand tall, slim your silhouette and erase every problem area the moment you put it on." },
     { "type": "text", "id": "stock_text", "label": "Bandeau stock", "default": "● Only 6 tanks left in stock." },
     { "type": "text", "id": "size_link_label", "label": "Libellé lien guide des tailles", "default": "Size guide" },
-    { "type": "text", "id": "size_anchor", "label": "Ancre guide des tailles", "default": "#size" },
+    { "type": "image_picker", "id": "size_image", "label": "Image guide des tailles (pop-up, 1440×1440)" },
+    { "type": "text", "id": "size_anchor", "label": "Ancre (plus utilisée — la pop-up s'ouvre au clic)", "default": "#size" },
     { "type": "text", "id": "promo_label", "label": "Bandeau promo", "default": "Limited-time sale · 24h" },
     { "type": "header", "content": "Sélecteurs couleur / taille (propriétés de ligne)" },
     { "type": "text", "id": "color_label", "label": "Libellé couleur", "default": "Color" },

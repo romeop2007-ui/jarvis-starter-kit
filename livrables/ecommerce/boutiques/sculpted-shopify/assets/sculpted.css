@@ -388,10 +388,11 @@ footer{background:var(--ink);color:#fff;padding:80px 0 40px}
   .ugc{grid-template-columns:1fr}   /* mobile : vidéos UGC en pleine largeur, empilées une par une */
   /* Comparatif : colonnes proportionnelles qui tiennent dans l'écran (sinon la 3e colonne débordait et était coupée) */
   .compare{font-size:12px;table-layout:fixed}
-  .compare th,.compare td{padding:10px 4px}
+  .compare th,.compare td{padding:10px 3px}
   .compare th:first-child,.compare td:first-child{width:34%;font-size:12px}   /* colonne critère */
-  .compare .ch-frame{width:42px;margin-bottom:6px}                            /* mini visuels produit */
-  .compare .colhead{font-size:9px;letter-spacing:.04em}
+  .compare .ch-frame{width:40px;margin-bottom:6px}                            /* mini visuels produit */
+  /* libellés colonnes : on coupe les mots longs pour qu'ils restent dans leur colonne et ne se collent plus */
+  .compare .colhead{font-size:9px;letter-spacing:0;line-height:1.2;overflow-wrap:break-word;word-break:break-word;hyphens:auto}
   .compare .yes,.compare .no{font-size:15px}
   .track{padding:64px 0 72px}
   .track-form .btn{width:100%}

@@ -105,9 +105,12 @@
                   <span class="flag{% if block.settings.flag_hot %} hot{% endif %}">{{ block.settings.flag | escape }}</span>
                 {%- endif -%}
                 <span class="pack">{{ block.settings.pack | escape }}</span>
-                <span class="label">{{ block.settings.label | escape }} {% if block.settings.ship != blank %}<span class="ship">{{ block.settings.ship | escape }}</span>{% endif %}</span>
+                <span class="label">{{ block.settings.label | escape }}</span>
                 <span class="price"><span class="now">{{ block.settings.price_now | escape }}</span><br><span class="was">{{ block.settings.price_was | escape }}</span></span>
               </div>
+              {%- if block.settings.ship != blank -%}
+                <div class="tier-ship"><span class="ship">{{ block.settings.ship | escape }}</span></div>
+              {%- endif -%}
               <div class="tier-items" onclick="event.stopPropagation()"></div>
             </div>
           {%- endif -%}

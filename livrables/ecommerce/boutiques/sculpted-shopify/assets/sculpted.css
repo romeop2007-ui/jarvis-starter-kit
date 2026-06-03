@@ -174,7 +174,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .tier-head{display:flex;align-items:center;gap:16px}
 .tier .pack{font-size:13px;font-weight:800;color:var(--muted);width:34px}
 .tier .label{font-weight:800;font-size:17px;flex:1}
-.tier .ship{font-size:11px;font-weight:700;color:var(--accent-deep);background:rgba(20,150,214,.1);padding:4px 9px;border-radius:6px;margin-left:8px}
+.tier .ship{font-size:11px;font-weight:700;color:var(--accent-deep);background:rgba(20,150,214,.1);padding:4px 9px;border-radius:6px}
+.tier-ship{margin-top:10px;padding-left:50px}  /* badge livraison : ligne propre sous l'offre, alignée sous le libellé (largeur pack 34px + gap 16px) */
 .tier .price{text-align:right}
 .tier .price .now{font-weight:800;font-size:18px}
 .tier .price .was{font-size:13px;color:var(--muted);text-decoration:line-through}

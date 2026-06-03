@@ -24,6 +24,11 @@
     </div>
   {%- endif -%}
   <div class="wrap nav">
+    {%- comment -%} Bouton hamburger (téléphone uniquement, masqué sur PC via le CSS) {%- endcomment -%}
+    <input type="checkbox" id="sc-menu-toggle" class="sc-menu-toggle">
+    <label for="sc-menu-toggle" class="sc-burger" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </label>
     <a href="{{ routes.root_url }}" class="logo">{{ section.settings.logo_text }}<b>{{ section.settings.logo_accent }}</b></a>
     <nav class="nav-links">
       {%- for block in section.blocks -%}

@@ -32,9 +32,15 @@ img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
-section{padding:96px 0}
-#product{padding-top:28px;padding-bottom:0}
-.transform{padding-top:20px}
+/* RYTHME VERTICAL UNIFORME ENTRE LES SECTIONS
+   Une seule valeur de padding pour toutes les sections de contenu, donc le même
+   espace partout (gap = 72 bas + 72 haut = 144px sur PC). On NE met PAS de
+   surcharge par section : c'est ce qui créait les trous irréguliers. */
+section{padding:72px 0}
+/* L'emballage Shopify de chaque section ne porte aucun espacement : seul le
+   <section> de contenu interne fixe le rythme. Sans ça, les sections en
+   tag:section recevaient le padding deux fois (emballage + contenu) = trous géants. */
+.shopify-section{padding:0}
 .tint{background:var(--soft)}
 .eyebrow{font-size:var(--t-eyebrow);font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;}
 .display{font-weight:900;line-height:1.02;letter-spacing:-.01em;text-transform:uppercase;}
@@ -110,7 +116,6 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .press-logos{display:flex;align-items:center;justify-content:center;gap:clamp(28px,6vw,72px);flex-wrap:wrap;}
 .press-logos span{font-weight:800;font-size:24px;letter-spacing:.04em;color:#2a2d33;opacity:.8}
 /* ---------- 9. BENEFITS SPLIT ---------------------------------------- */
-.benefits{padding-top:28px}
 .benefits .lead{max-width:18ch;margin:0 auto 70px;font-size:var(--t-h1)}
 .benefits-grid{display:grid;grid-template-columns:1fr 1.05fr 1fr;gap:48px;align-items:center;}
 .benefit{display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
@@ -378,7 +383,7 @@ footer{background:var(--ink);color:#fff;padding:80px 0 40px}
   .hero-feats{grid-template-columns:1fr;gap:24px}
 }
 @media (max-width:560px){
-  section{padding:64px 0}
+  section{padding:48px 0}   /* mobile : même rythme uniforme, resserré (gap = 96px) */
   .bullets{grid-template-columns:1fr}
   .ugc{grid-template-columns:1fr}   /* mobile : vidéos UGC en pleine largeur, empilées une par une */
   .compare{font-size:13px}

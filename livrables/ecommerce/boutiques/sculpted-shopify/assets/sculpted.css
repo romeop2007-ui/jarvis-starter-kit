@@ -386,8 +386,13 @@ footer{background:var(--ink);color:#fff;padding:80px 0 40px}
   section{padding:48px 0}   /* mobile : même rythme uniforme, resserré (gap = 96px) */
   .bullets{grid-template-columns:1fr}
   .ugc{grid-template-columns:1fr}   /* mobile : vidéos UGC en pleine largeur, empilées une par une */
-  .compare{font-size:13px}
-  .compare th,.compare td{padding:12px 8px}
+  /* Comparatif : colonnes proportionnelles qui tiennent dans l'écran (sinon la 3e colonne débordait et était coupée) */
+  .compare{font-size:12px;table-layout:fixed}
+  .compare th,.compare td{padding:10px 4px}
+  .compare th:first-child,.compare td:first-child{width:34%;font-size:12px}   /* colonne critère */
+  .compare .ch-frame{width:42px;margin-bottom:6px}                            /* mini visuels produit */
+  .compare .colhead{font-size:9px;letter-spacing:.04em}
+  .compare .yes,.compare .no{font-size:15px}
   .track{padding:64px 0 72px}
   .track-form .btn{width:100%}
 }

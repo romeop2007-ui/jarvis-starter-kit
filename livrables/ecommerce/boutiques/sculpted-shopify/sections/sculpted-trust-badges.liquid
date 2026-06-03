@@ -93,7 +93,7 @@
   font-family:'Archivo',system-ui,sans-serif;
   color:var(--dfy-ink);
   padding:0 0 56px;
-  margin-top:-72px; /* remonte les badges au plus près de la section au-dessus (avis) */
+  margin-top:-44px; /* remonte les badges sous la section avis, mais en laissant un petit espace esthetique (~28px) */
 }
 .dfy-trust-sec .dfy-wrap{max-width:var(--dfy-maxw);margin:0 auto;padding:0 var(--dfy-gutter)}
 .dfy-tb-title{
@@ -185,6 +185,7 @@
   .dfy-tb-more{display:none}
 }
 @media (max-width:560px){
+  .dfy-trust-sec{margin-top:-20px} /* mobile : meme petit espace (~28px) malgre le padding avis reduit */
   .dfy-tb{padding:24px 12px 20px;border-radius:16px}
   .dfy-circ{width:62px;height:62px}
   .dfy-circ svg{width:26px;height:26px}

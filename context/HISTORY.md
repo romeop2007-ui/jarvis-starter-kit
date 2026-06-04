@@ -7,6 +7,24 @@
 
 ---
 
+## 2026-06-04
+
+### Créas terminées + finitions boutique (bannière mobile, rail UGC, 10 avis) + audit pré-lancement
+
+- **Créas : TOUTES terminées** (objectif 3 du `/semaine` bouclé en avance). Roméo a monté ses pubs dans CapCut (sous-titres auto EN, voix off ElevenLabs, montage). Réglages d'export confirmés : 1080P, H.264, mp4, 30fps. Point d'attention restitué : une 3e pub (AD3) était en paysage 16:9 alors que les autres sont en vertical 9:16, le ratio se corrige dans l'éditeur (pas dans la fenêtre d'export) en passant le canvas en 9:16 puis en recadrant les plans.
+- **Bannière homepage : image PC et image mobile désormais indépendantes** (`sculpted-banner.liquid` + `sculpted.css`). 2e champ `image_mobile` ajouté dans Personnaliser, repli sur l'image PC si vide, bascule à 749px. Modifier l'une ne touche jamais l'autre.
+- **Vidéos UGC sur mobile : passées en rail horizontal swipeable** (`sculpted.css`, zone mobile ≤760px), même mécanique que le carrousel de vignettes (overflow-x, scroll-snap, barre masquée). Chaque vidéo ~60% de l'écran, format 9/14, scroll-snap mandatory. Avant : empilées verticalement. Couvre homepage + page produit (classes `.ugc` partagées).
+- **10 avis clients ajoutés** (8 → 18) dans `settings_data.json`, même format (texte/nom/date, 5★ + "✓ Verified"). Ton UK, niche confiance corporelle masculine, profils/dates variés (Charlie W., Freddie H., Henry P., Alfie S., Louis B., Edward G., Sam K., Theo R., Marcus D., Joseph A.). Re-pull effectué juste avant édition (règle de synchro respectée).
+- Tout déployé en live sur "Sculpted UK" (#200683258201) via push ciblés `--only`. Commit `5737297`.
+- **🔴 AUDIT PRÉ-LANCEMENT (important, à traiter avant de lancer les ads) :** vérification de l'état technique de la boutique via MCP Shopify. Bloqueurs et points relevés :
+  - **STOCK À 0 sur les 24 variantes** → bouton "Sold out", produit invendable. À régler : décocher "Suivre la quantité" (ou activer "continuer la vente en rupture") sur le produit. **Bloqueur n°1.**
+  - **Domaine = `zooryn.com`** alors que la marque est Sculpted → incohérence de marque (signal arnaque potentiel + à vérifier côté Meta). Décision domaine à trancher.
+  - Checklist lancement restituée : (1) stock achetable, (2) moyen de paiement actif (recevoir l'argent), (3) **test de commande réelle de bout en bout**, (4) pages légales (Meta refuse sans), (5) **pixel Meta + API Conversions installés AVANT de lancer**, (6) routing fournisseur (livre UK, délais).
+  - Détails mineurs : vendor affiché "Ma boutique" → Sculpted ; fuseau horaire CEST → Londres.
+- Roméo se considère prêt à lancer, il ne reste "que" la campagne Meta + les points de l'audit ci-dessus.
+
+---
+
 ## 2026-06-03
 
 ### Boutique : pop-up guide des tailles + fixes UI, et workflow créas établi

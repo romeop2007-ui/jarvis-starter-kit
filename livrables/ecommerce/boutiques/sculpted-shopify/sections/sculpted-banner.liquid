@@ -5,16 +5,18 @@
 {%- endcomment -%}
 
 {%- assign img   = section.settings.image -%}
+{%- assign img_m = section.settings.image_mobile -%}
 {%- assign lnk   = section.settings.link -%}
 {%- assign max_h = section.settings.max_height -%}
 {%- assign pos   = section.settings.object_position -%}
 
-<div class="sculpted-banner{% unless img %} sculpted-banner--empty{% endunless %}"
+<div class="sculpted-banner{% if img_m %} sb-has-mobile{% endif %}{% unless img %} sculpted-banner--empty{% endunless %}"
      style="--bh:{{ max_h }}px;--bpos:{{ pos }}">
   {%- if lnk != blank -%}<a href="{{ lnk }}" class="sculpted-banner__link">{%- endif -%}
 
   {%- if img -%}
-    <img
+    {%- comment -%} Image PC : visible sur ordinateur, masquée sur téléphone si une image mobile existe {%- endcomment -%}
+    <img class="sb-img sb-desktop"
       src="{{ img | image_url: width: 1800 }}"
       srcset="{{ img | image_url: width: 600 }} 600w,
               {{ img | image_url: width: 1200 }} 1200w,
@@ -24,6 +26,18 @@
       loading="eager">
   {%- else -%}
     <span>Upload your banner image in Customise &rarr; "Sculpted &mdash; Banner image"</span>
+  {%- endif -%}
+
+  {%- if img_m -%}
+    {%- comment -%} Image mobile : visible uniquement sur téléphone {%- endcomment -%}
+    <img class="sb-img sb-mobile"
+      src="{{ img_m | image_url: width: 1000 }}"
+      srcset="{{ img_m | image_url: width: 500 }} 500w,
+              {{ img_m | image_url: width: 750 }} 750w,
+              {{ img_m | image_url: width: 1000 }} 1000w"
+      sizes="100vw"
+      alt="{{ img_m.alt | default: 'Sculpted banner' | escape }}"
+      loading="eager">
   {%- endif -%}
 
   {%- if lnk != blank -%}</a>{%- endif -%}
@@ -37,7 +51,13 @@
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Image"
+      "label": "Image (PC / ordinateur)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Image (mobile / téléphone)",
+      "info": "Optionnel. Si vide, l'image PC s'affiche aussi sur téléphone. La modifier ne change PAS l'image PC."
     },
     {
       "type": "number",

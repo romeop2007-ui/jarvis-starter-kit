@@ -187,8 +187,8 @@
           "sculpted-header-3"
         ],
         "settings": {
-          "logo_text": "Scul",
-          "logo_accent": "pted"
+          "logo_text": "ZOO",
+          "logo_accent": "ryn"
         }
       },
       "sculpted-hero": {
@@ -285,7 +285,7 @@
           "sculpted-social-proof-0": {
             "type": "testimonial",
             "settings": {
-              "image": "shopify://shop_images/d8448483-2b95-4beb-b1fa-47ee3683bea2.png",
+              "image": "shopify://shop_images/5e03b362-ace3-42e7-9581-3f143f178bb7.png",
               "name": "Andrew F. — 45",
               "quote": "Since I gained weight I refused family photos. This weekend I was in front of the camera for the first time in 4 years. My sister told me I looked fit."
             }
@@ -293,7 +293,7 @@
           "sculpted-social-proof-1": {
             "type": "testimonial",
             "settings": {
-              "image": "shopify://shop_images/d751a1e2-b2a6-41f3-98b2-cc397620c732.png",
+              "image": "shopify://shop_images/64e3160b-7d9a-49f3-8185-ac6ef5edc311.png",
               "name": "Thomas R. — 33",
               "quote": "It's not just a tank top. After 3 months wearing it daily my posture completely changed and I lost weight without changing anything else. Colleagues asked if I'd started training. A real transformation."
             }
@@ -334,7 +334,7 @@
           "heading": "Over 10,000 men have regained their confidence. What about you?",
           "rating_label": "Excellent",
           "rating_value": "4.8 / 5",
-          "link_label": "Verified reviews on Trustpilot",
+          "link_label": "",
           "link_url": ""
         }
       },
@@ -374,25 +374,29 @@
           "sculpted-product-5": {
             "type": "bullet",
             "settings": {
-              "text": "Goodbye beer belly"
+              "text": "Goodbye beer belly",
+              "explain": ""
             }
           },
           "sculpted-product-6": {
             "type": "bullet",
             "settings": {
-              "text": "Speeds up weight loss"
+              "text": "Speeds up weight loss",
+              "explain": ""
             }
           },
           "sculpted-product-7": {
             "type": "bullet",
             "settings": {
-              "text": "Man boobs flattened"
+              "text": "Man boobs flattened",
+              "explain": ""
             }
           },
           "sculpted-product-8": {
             "type": "bullet",
             "settings": {
-              "text": "Love handles erased"
+              "text": "Love handles erased",
+              "explain": ""
             }
           },
           "sculpted-product-9": {
@@ -525,6 +529,7 @@
           "desc": "The compression tank that helps you stand tall, slim your silhouette and erase every problem area the moment you put it on.",
           "stock_text": "● Only 6 tanks left in stock.",
           "size_link_label": "Size guide",
+          "size_image": "shopify://shop_images/339b9186-fba2-483a-85ca-a5d77badcf06.png",
           "size_anchor": "#size",
           "promo_label": "Limited-time sale · 24h",
           "color_label": "Color",
@@ -682,7 +687,7 @@
       "sculpted-size-guide": {
         "type": "sculpted-size-guide",
         "settings": {
-          "image": "shopify://shop_images/4d6d6f26-8894-4a58-8aa0-bd99ac0683a8.png",
+          "image": "shopify://shop_images/339b9186-fba2-483a-85ca-a5d77badcf06.png",
           "image_alt": "Sculpted worn front view"
         }
       },
@@ -851,6 +856,86 @@
               "name": "Oliver M.",
               "date": "2 weeks ago"
             }
+          },
+          "sculpted-reviews-8": {
+            "type": "review",
+            "settings": {
+              "text": "Honestly didn't expect much for the price. Put it on, looked down, and my gut just vanished under my shirt. Wearing it every day now.",
+              "name": "Charlie W.",
+              "date": "5 days ago"
+            }
+          },
+          "sculpted-reviews-9": {
+            "type": "review",
+            "settings": {
+              "text": "Always hated how my love handles spilled over my belt. With Sculpted under a slim shirt they're just gone. Mad that it works this well.",
+              "name": "Freddie H.",
+              "date": "1 week ago"
+            }
+          },
+          "sculpted-reviews-10": {
+            "type": "review",
+            "settings": {
+              "text": "I work in finance, suits all day. Tucked in and tight, I look sharper in every meeting. Already bought a second one for the gym bag.",
+              "name": "Henry P.",
+              "date": "12 days ago"
+            }
+          },
+          "sculpted-reviews-11": {
+            "type": "review",
+            "settings": {
+              "text": "Been self-conscious about man boobs since uni. This flattens my chest without feeling like a corset. First time in years I'm comfy in a plain t-shirt.",
+              "name": "Alfie S.",
+              "date": "2 weeks ago"
+            }
+          },
+          "sculpted-reviews-12": {
+            "type": "review",
+            "settings": {
+              "text": "Got it for a stag do and wore it under my shirt all weekend. Held everything in through the lot, food, beer, the works. Didn't budge once.",
+              "name": "Louis B.",
+              "date": "6 days ago"
+            }
+          },
+          "sculpted-reviews-13": {
+            "type": "review",
+            "settings": {
+              "text": "My back used to ache by midday. The compression keeps me upright without thinking about it. Posture sorted and my belt sits flatter.",
+              "name": "Edward G.",
+              "date": "3 weeks ago"
+            }
+          },
+          "sculpted-reviews-14": {
+            "type": "review",
+            "settings": {
+              "text": "Skeptical at first, the fabric feels thin. But the support is unreal. Invisible under a white shirt and surprisingly cool, even on the Tube.",
+              "name": "Sam K.",
+              "date": "8 days ago"
+            }
+          },
+          "sculpted-reviews-15": {
+            "type": "review",
+            "settings": {
+              "text": "Bought it before a holiday so I'd feel better in the photos. Now I wear it on normal days too. Proper confidence boost, no faff.",
+              "name": "Theo R.",
+              "date": "2 weeks ago"
+            }
+          },
+          "sculpted-reviews-16": {
+            "type": "review",
+            "settings": {
+              "text": "Dad bod creeping in after 35. This buys me time while I sort the gym out. My shirts fit how they used to. Genuinely chuffed with it.",
+              "name": "Marcus D.",
+              "date": "4 days ago"
+            }
+          },
+          "sculpted-reviews-17": {
+            "type": "review",
+            "settings": {
+              "text": "Ordered one to try, ordered two more a week later. Says it all really. Wash it, wear it, repeat. Brilliant bit of kit.",
+              "name": "Joseph A.",
+              "date": "3 weeks ago"
+            }
           }
         },
         "block_order": [
@@ -861,7 +946,17 @@
           "sculpted-reviews-4",
           "sculpted-reviews-5",
           "sculpted-reviews-6",
-          "sculpted-reviews-7"
+          "sculpted-reviews-7",
+          "sculpted-reviews-8",
+          "sculpted-reviews-9",
+          "sculpted-reviews-10",
+          "sculpted-reviews-11",
+          "sculpted-reviews-12",
+          "sculpted-reviews-13",
+          "sculpted-reviews-14",
+          "sculpted-reviews-15",
+          "sculpted-reviews-16",
+          "sculpted-reviews-17"
         ],
         "settings": {
           "eyebrow": "Customer reviews",
@@ -969,8 +1064,9 @@
       "sculpted-banner": {
         "type": "sculpted-banner",
         "settings": {
-          "image": "shopify://shop_images/ChatGPT_Image_1_juin_2026_17_26_15.png",
-          "max_height": 600,
+          "image": "shopify://shop_images/af29acae-e254-4b1b-989c-3a2059b513a4.png",
+          "image_mobile": "shopify://shop_images/cadd34a0-14b1-4410-a4d8-61fb8c7d4b61.png",
+          "max_height": 550,
           "object_position": "center top",
           "link": ""
         }
@@ -978,7 +1074,6 @@
       "sculpted-trust-badges": {
         "type": "sculpted-trust-badges",
         "settings": {
-          "heading": "Why shop with us",
           "badge1": "Free shipping",
           "desc1": "Enjoy free, fully tracked delivery on every order across the UK. No minimum spend and no hidden fees at checkout.",
           "badge2": "24/7 customer service",
@@ -1046,25 +1141,29 @@
           "sculpted-buybox-5": {
             "type": "bullet",
             "settings": {
-              "text": "Goodbye beer belly"
+              "text": "Goodbye beer belly",
+              "explain": ""
             }
           },
           "sculpted-buybox-6": {
             "type": "bullet",
             "settings": {
-              "text": "Speeds up weight loss"
+              "text": "Speeds up weight loss",
+              "explain": ""
             }
           },
           "sculpted-buybox-7": {
             "type": "bullet",
             "settings": {
-              "text": "Man boobs flattened"
+              "text": "Man boobs flattened",
+              "explain": ""
             }
           },
           "sculpted-buybox-8": {
             "type": "bullet",
             "settings": {
-              "text": "Love handles erased"
+              "text": "Love handles erased",
+              "explain": ""
             }
           },
           "sculpted-buybox-9": {
@@ -1196,6 +1295,7 @@
           "desc": "The compression tank that helps you stand tall, slim your silhouette and erase every problem area the moment you put it on.",
           "stock_text": "● Only 6 tanks left in stock.",
           "size_link_label": "Size guide",
+          "size_image": "shopify://shop_images/339b9186-fba2-483a-85ca-a5d77badcf06.png",
           "size_anchor": "#size",
           "promo_label": "Limited-time sale · 24h",
           "color_label": "Color",
@@ -1209,6 +1309,18 @@
           "buy_btn_label": "Buy now",
           "buy_btn_color": "#f6c000",
           "pay_row": "AMEX, Apple Pay, G Pay, Mastercard, PayPal, Shop, VISA"
+        }
+      },
+      "sculpted-track": {
+        "type": "sculpted-track",
+        "settings": {
+          "heading": "Track my order",
+          "intro": "Enter the tracking number from the shipping confirmation email you received. Need help tracking your order?",
+          "link_label": "Get in touch via our contact form",
+          "link_url": "shopify://pages/contact",
+          "placeholder": "Tracking number",
+          "button_label": "Track",
+          "not_found": "We couldn't find that tracking number yet. Newly shipped orders can take up to 24 hours to appear — please try again shortly."
         }
       }
     },

@@ -7,6 +7,23 @@
 
 ---
 
+## 2026-06-06
+
+### 🚀 LANCEMENT : boutique en ligne + première campagne Meta Ads active
+
+**Cap historique : Roméo a lancé.** Sa toute première boutique e-commerce est en ligne et sa **toute première campagne publicitaire de sa vie tourne** sur Meta. Lancé avant même la date prévue (sprint #1 du 13 juin).
+
+- **Campagne Meta active** : « Sculpted 04/06/26 », type d'achat Enchères, **objectif Ventes**, 1 ensemble de publicités (Adset 1), **7 publicités** (AD1 à AD7, palier « T1 »). Statut : Active. Advantage+ activé sur la campagne.
+- **Pixel Meta vérifié et VIVANT (point critique levé).** Au niveau de l'adset, section Conversion : ensemble de données = **« Shopify: cqqah9t1 1780177846's pixel »** (créé automatiquement par l'intégration Shopify-Meta), événement de conversion = **« Achat »**. Le Gestionnaire d'événements montre une activité continue en temps réel (pic à 247, puis vagues régulières) → le pixel reçoit bien le trafic et enregistre les événements. Il ne manque que les événements « Achat » eux-mêmes, qui viendront avec les premières ventes (le message orange « aucune activité d'achat depuis 14 jours » est normal pour une boutique neuve sans vente).
+- **Point laissé en suspens (non urgent)** : onglet « Diagnostics 2 » du pixel a un badge orange (2 points relevés, souvent doublon pixel/API Conversions ou paramètre manquant, non bloquant). À regarder lors d'un moment calme.
+- **Email pro `contact@zooryn.com` (en cours)** : dans Shopify, l'« E-mail de l'expéditeur » (Paramètres → Notifications) est ce qui régit l'adresse vue par les clients et la réception du formulaire de contact (≠ « E-mail de la boutique » dans Général, qui sert juste à ce que Shopify joigne Roméo). Sender email passé sur `contact@zooryn.com`. Pour authentifier le domaine (DKIM, éviter les spams), Shopify a demandé 6 enregistrements CNAME → **ajoutés sur Namecheap** (Advanced DNS) : `nfl._domainkey`, `nfl2._domainkey`, `pdk1._domainkey.mailer2rk`, `pdk2._domainkey.mailer2rk`, `mailernfl`, `mailer2rk`. Les enregistrements existants (A @ 23.227.38.65, CNAME www, TXT privateemail._domainkey) ont été conservés. **Reste : laisser propager 15-30 min puis valider côté Shopify.** Rappel des pièges Namecheap : Host sans `.zooryn.com`, valeur sans point final ajouté à la main.
+- **Souci rencontré (contourné)** : code de confirmation Meta envoyé sur `romeop2007@gmail.com` jamais reçu malgré ~20 « Renvoyer ». Roméo a fini par passer outre et lancer. À noter pour la suite : vérifier onglets Gmail (Réseaux sociaux / Notifications), spam, et que l'adresse du compte Meta est bien la bonne.
+- **À CONFIRMER post-lancement (audit pré-lancement non clos)** : Roméo a lancé sans qu'on ait validé ensemble le reste de l'audit. Restent à vérifier : **stock réellement achetable** (était à 0 sur les 24 variantes = bloqueur n°1), **moyen de paiement actif**, **test de commande réelle de bout en bout**, **pages légales**, **cohérence domaine `zooryn.com` vs marque**. Si une vente arrive et que le stock est encore à 0 ou le paiement non configuré, c'est du budget pub gaspillé. À checker en priorité au prochain point.
+
+**Note marque** : le store Shopify s'appelle désormais **« Zooryn »** (domaine zooryn.com), cohérent avec le pivot marque ombrelle Zooryn (Sculpted = 1er produit). À réconcilier proprement dans CONTEXT.md qui parle encore partout de « marque Sculpted ».
+
+---
+
 ## 2026-06-04
 
 ### Créas terminées + finitions boutique (bannière mobile, rail UGC, 10 avis) + audit pré-lancement

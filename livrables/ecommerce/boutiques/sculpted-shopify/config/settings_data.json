@@ -1057,7 +1057,7 @@
           "news_placeholder": "E-mail",
           "col1_title": "Menu",
           "col2_title": "Information",
-          "copyright": "© 2026, Sculpted",
+          "copyright": "© 2026, Zooryn",
           "payments": "AMEX, Apple Pay, G Pay, Mastercard, PayPal, Shop, VISA"
         }
       },
@@ -1066,7 +1066,7 @@
         "settings": {
           "image": "shopify://shop_images/af29acae-e254-4b1b-989c-3a2059b513a4.png",
           "image_mobile": "shopify://shop_images/cadd34a0-14b1-4410-a4d8-61fb8c7d4b61.png",
-          "max_height": 550,
+          "max_height": 600,
           "object_position": "center top",
           "link": ""
         }

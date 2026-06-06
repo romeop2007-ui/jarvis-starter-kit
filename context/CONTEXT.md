@@ -71,15 +71,18 @@
 - Modèle économique : Dropshipping (pas de stock propre)
 - Statut : Micro-entreprise **validée** (30/05/2026). ACRE en attente de résultat (demande déposée, réponse attendue).
 - Première tentative business (aucun lancement précédent, vierge total)
-- **Niche : confiance corporelle masculine** (sport/santé adjacent), actée le 29/05/2026
-- **Produit cible : débardeur de compression gainant homme** (modèle type Underfit, référence copiée : underfitmen.com)
-- **Marque : à définir** (nom anglais à créer pour le marché UK)
-- **Marché cible : Royaume-Uni**, en anglais (un seul marché au lancement). Expansion future possible vers US et Allemagne, seulement si le produit performe.
-- **Modèle** : one-product store, copie/traduction du concept underfitmen.com vers l'anglais UK
-- **Contrainte sourcing actée** : le fournisseur actuel ne peut pas livrer de catalogue large (70+ références). → orientation **one-product store** ou niche compatible avec un catalogue restreint (1 à 10 produits max). Compatible avec ce produit (mono-produit).
+- **Marque : Zooryn** (marque ombrelle, domaine zooryn.com), positionnée **santé / sport / sport-santé / bien-être**, confiance corporelle masculine incluse. **Exclusion : tout l'ingérable** (compléments alimentaires, nourriture) pour éviter les contraintes réglementaires et le SAV. Modèle type Gymshark : la marque est l'actif durable, les produits sont testés un par un dedans. (Élargissement acté le 06/06/2026, remplace l'ancienne niche mono « confiance corporelle masculine » du 29/05.)
+- **Branding à garder neutre/large santé-sport** : les produits peuvent viser des audiences très différentes (ex : homme complexé pour Sculpted vs footballeur pour des protège-tibias), donc l'identité Zooryn ne doit pas être trop centrée sur un seul angle.
+- **1er produit : Sculpted** = débardeur de compression gainant homme (modèle type Underfit, référence : underfitmen.com). Lancé le 06/06/2026.
+- **2e produit en réflexion (06/06/2026)** : protège-tibias sous forme de chaussettes. Référence concurrente en scaling repérée par Roméo : footplug.shop. Candidat « traduire avant d'innover » si Sculpted ne prend pas (ou en parallèle plus tard sous Zooryn).
+- **Marché cible : Royaume-Uni**, en anglais (un seul marché au lancement). Expansion future possible vers US et Allemagne, seulement si un produit performe.
+- **Modèle boutique : marque ombrelle Zooryn, un produit testé à la fois.** À chaque test : 50 €/jour de pub, on garde la boutique (actif durable : design, pixel chauffé), on swap uniquement le produit si ça ne rentabilise pas (cf. section Budget). Fini le « one-product store » figé : la structure reste, le produit est jetable.
+- **Contrainte sourcing** : le fournisseur ne peut pas livrer un catalogue large (70+ références). Compatible avec le modèle « un produit à la fois » sous Zooryn (1 à 10 produits max en ligne).
 
-### Budget
-- **Plafond test publicitaire :** 200-400 €/mois max avant premières ventes
+### Budget et méthode de testing (actée 06/06/2026)
+- **Testing : 50 €/jour par produit** (≈ 43,25 £, conforme à la méthode « testing petit budget » de la formation, ligne 169 de la synthèse). Un produit = un test à 50 €/jour.
+- **On laisse le budget se dépenser entièrement (~20h) avant d'analyser.** Pas de décision à chaud sur quelques euros. À la fin de journée : lecture CPC, CPM, CTR, ROAS, ventes.
+- **Règle kill / continue (stratégie de départ) :** journée rentable (ventes qui couvrent la dépense) → on relance 50 € le lendemain et on cherche à scaler avec quelques améliorations. Journée non rentable → on coupe les pubs, on retire le produit, et on relance un autre produit sous 3-4 jours. On répète jusqu'à ce qu'un produit prenne.
 - **Politique :** réinvestissement total des bénéfices, pas de profit perso avant scaling
 - Pas de financement extérieur additionnel prévu
 - Job d'animateur centre aéré cet été pour faire trésorerie

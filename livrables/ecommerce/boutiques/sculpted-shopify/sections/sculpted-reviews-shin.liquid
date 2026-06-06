@@ -1,0 +1,96 @@
+{%- comment -%}
+  Zooryn — Avis clients PROTÈGE-TIBIAS (mur d'avis, page produit dédiée).
+  Copie de sculpted-reviews avec un nom de section distinct : une section statique ne
+  peut appartenir qu'à un seul template à la fois. Utilisée uniquement dans
+  templates/product.shin-protectors.liquid → avis indépendants de la fiche Sculpted.
+  Étoiles fixes à 5 et libellé "Verified" commun, comme la maquette.
+{%- endcomment -%}
+<section class="reviews">
+  <div class="wrap">
+    <p class="eyebrow center">{{ section.settings.eyebrow | escape }}</p>
+    <h2 class="display">{{ section.settings.heading | escape }}</h2>
+    <div class="rev-grid">
+      {%- for block in section.blocks -%}
+        <div class="rev{% if forloop.index > section.settings.visible_count %} rev--hidden{% endif %}" {{ block.shopify_attributes }}>
+          <div class="top"><span class="stars">★★★★★</span><span class="ver">{{ section.settings.verified_label }}</span></div>
+          <p>{{ block.settings.text | escape }}</p>
+          <div class="who"><b>{{ block.settings.name | escape }}</b><span>{{ block.settings.date | escape }}</span></div>
+        </div>
+      {%- endfor -%}
+    </div>
+    {%- assign hidden_count = section.blocks.size | minus: section.settings.visible_count -%}
+    {%- if section.settings.more_label != blank and hidden_count > 0 -%}
+      <div class="rev-more"><button type="button" class="btn btn-ghost" data-rev-more="{{ section.id }}">{{ section.settings.more_label | escape }}</button></div>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>#shopify-section-{{ section.id }} .rev--hidden{display:none}</style>
+
+<script>
+/* "Load more reviews" : révèle les avis cachés puis retire le bouton. */
+(function(){
+  var uid = {{ section.id | json }};
+  var btn = document.querySelector('[data-rev-more="' + uid + '"]');
+  if(!btn){ return; }
+  btn.addEventListener('click', function(){
+    var root = document.getElementById('shopify-section-' + uid) || document;
+    root.querySelectorAll('.rev--hidden').forEach(function(r){ r.classList.remove('rev--hidden'); });
+    var wrap = btn.closest('.rev-more');
+    if(wrap){ wrap.remove(); } else { btn.remove(); }
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Zooryn — Avis tibias",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Customer reviews" },
+    { "type": "text", "id": "heading", "label": "Titre", "default": "What players say about Zooryn™ Shin Protectors" },
+    { "type": "text", "id": "verified_label", "label": "Libellé vérifié", "default": "✓ Verified" },
+    { "type": "range", "id": "visible_count", "min": 3, "max": 30, "step": 1, "label": "Avis affichés avant le bouton", "default": 18 },
+    { "type": "text", "id": "more_label", "label": "Bouton — texte (vide = pas de bouton)", "default": "Load more reviews →" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Avis",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Avis", "default": "Forgot I was even wearing guards. Zero slip the whole game." },
+        { "type": "text", "id": "name", "label": "Nom", "default": "James O." },
+        { "type": "text", "id": "date", "label": "Date", "default": "3 days ago" }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+        { "type": "review", "settings": { "text": "Forgot I was even wearing guards. Zero slip the whole game. The sock tape is going in the bin.", "name": "James O.", "date": "3 days ago" } },
+        { "type": "review", "settings": { "text": "Bought for my 11-year-old who hated his old shin pads. He wears these without a fight now.", "name": "Hannah P.", "date": "1 week ago" } },
+        { "type": "review", "settings": { "text": "The in-boot grip is unreal. My feet don't slide on turns anymore. Felt sharper instantly.", "name": "Connor M.", "date": "2 weeks ago" } },
+        { "type": "review", "settings": { "text": "Slim and light, you barely feel them but the protection's there. Ordered two more pairs.", "name": "Ben R.", "date": "5 days ago" } },
+        { "type": "review", "settings": { "text": "Played 90 minutes, guards didn't move an inch. No tape, no faff. Exactly what I wanted.", "name": "Tom K.", "date": "4 days ago" } },
+        { "type": "review", "settings": { "text": "Coach recommended them to the whole squad. Half the team's switched already.", "name": "Ryan D.", "date": "3 weeks ago" } },
+        { "type": "review", "settings": { "text": "Comfiest football socks I've owned and the guard stays locked. Brilliant.", "name": "Jake S.", "date": "6 days ago" } },
+        { "type": "review", "settings": { "text": "Used to readjust my shin pads every five minutes. Not once with these. Game changer.", "name": "Luke H.", "date": "2 weeks ago" } },
+        { "type": "review", "settings": { "text": "Quality is better than I expected for the price. Washed great, grip still perfect.", "name": "Daniel W.", "date": "1 week ago" } },
+        { "type": "review", "settings": { "text": "My keeper son loves the grip in his boots for quick footwork. Worth every penny.", "name": "Emma J.", "date": "10 days ago" } },
+        { "type": "review", "settings": { "text": "I play right-back and I'm flying down the wing all game. These don't shift an inch. No tape ever again.", "name": "Charlotte B.", "date": "4 days ago" } },
+        { "type": "review", "settings": { "text": "Was sceptical about the price but you feel the quality straight away. Two months in, still grip like day one.", "name": "Oliver T.", "date": "3 weeks ago" } },
+        { "type": "review", "settings": { "text": "Bought a pair each for both my boys. No more lost shin pads, no more taping socks before every match. Lifesaver.", "name": "Megan S.", "date": "1 week ago" } },
+        { "type": "review", "settings": { "text": "The compression actually helps my calves on long games. Guard stays put and my legs feel fresher. Didn't expect that.", "name": "Harry W.", "date": "5 days ago" } },
+        { "type": "review", "settings": { "text": "Slipped them on for a 5-a-side and didn't think about my shins once. That's the whole point, isn't it.", "name": "Sophie L.", "date": "2 weeks ago" } },
+        { "type": "review", "settings": { "text": "Used to hate that mid-match slide inside my boots. These lock my foot in completely. Turns feel so much sharper.", "name": "Callum R.", "date": "6 days ago" } },
+        { "type": "review", "settings": { "text": "Comfortable, breathable and they wash brilliantly. Played in the rain and they dried fine for the next game.", "name": "Grace M.", "date": "2 weeks ago" } },
+        { "type": "review", "settings": { "text": "Honestly the best football kit upgrade I've made this season. No tape, no slipping, just play. Already told the lads.", "name": "Nathan P.", "date": "1 week ago" } },
+        { "type": "review", "settings": { "text": "Astroturf five-a-side twice a week and my guards never budge now. Wish I'd found these years ago.", "name": "Adam F.", "date": "5 days ago" } },
+        { "type": "review", "settings": { "text": "Got them for my daughter's Sunday games. She says they're comfy and she's stopped fiddling with her pads. Win win.", "name": "Lucy T.", "date": "2 weeks ago" } },
+        { "type": "review", "settings": { "text": "The grip on the sole is the standout for me. No more sliding in the boot when I plant to shoot. Proper difference.", "name": "Joel B.", "date": "4 days ago" } },
+        { "type": "review", "settings": { "text": "Trained in them all pre-season. They held up to everything and still look new after loads of washes.", "name": "Ellie W.", "date": "3 weeks ago" } },
+        { "type": "review", "settings": { "text": "Used to dread taping up before every match. Slip these on and I'm ready in seconds. Never going back.", "name": "Reece M.", "date": "1 week ago" } },
+        { "type": "review", "settings": { "text": "Light, snug and the guard genuinely stays locked for the full game. Exactly what was promised.", "name": "Owen H.", "date": "6 days ago" } }
+    ]
+  }
+}
+{% endschema %}

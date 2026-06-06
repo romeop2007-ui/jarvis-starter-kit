@@ -1517,8 +1517,10 @@
           "rating_text": "Excellent · 4,200+ reviews",
           "title": "Zooryn™ Shin Protectors | Lock-In Grip Socks",
           "desc": "The shin guard socks that lock in place, grip your boots and protect every tackle — no tape, no slipping, all match long.",
+          "info_body": "",
           "stock_text": "● Only 7 pairs left in stock.",
           "size_link_label": "Size guide",
+          "size_image": "shopify://shop_images/53793467-7a68-4bb1-9495-b09bbe25386f.png",
           "size_anchor": "#size",
           "promo_label": "Limited-time sale · 24h",
           "color_label": "Colour",
@@ -1567,6 +1569,7 @@
           "sculpted-skador-shin-2"
         ],
         "settings": {
+          "image": "shopify://shop_images/7185fbf8-e1ce-40c7-b5a3-2d676a05eaf6.png",
           "image_alt": "Zooryn Shin Protectors close-up",
           "frame_label": "Product close-up",
           "heading": "Zooryn™ Shin Protectors"
@@ -1578,6 +1581,7 @@
           "sculpted-proof-shin-0": {
             "type": "testimonial",
             "settings": {
+              "image": "shopify://shop_images/60b0cc11-e70f-4d86-9578-7cd584db00cc.png",
               "name": "Liam — Sunday League",
               "quote": "I used to tape both legs every game. First match in these I forgot I had guards on. They don't move. Done with tape for good."
             }
@@ -1585,6 +1589,7 @@
           "sculpted-proof-shin-1": {
             "type": "testimonial",
             "settings": {
+              "image": "shopify://shop_images/r4_png.webp",
               "name": "Sophie — football mum",
               "quote": "My son kept losing his shin pads and moaning they slid down. He actually keeps these on now. No more arguments before training."
             }
@@ -1592,6 +1597,7 @@
           "sculpted-proof-shin-2": {
             "type": "testimonial",
             "settings": {
+              "image": "shopify://shop_images/imgi_21_Screenshot_2026-06-03_at_4.42.45_AM_430x_97067106-cc2b-470b-9fd0-9580446cfc7f.webp",
               "name": "Marcus — semi-pro",
               "quote": "The in-boot grip is the real surprise. My feet don't slide on quick turns anymore. Sharper, more stable, more confident on the ball."
             }
@@ -1599,6 +1605,7 @@
           "sculpted-proof-shin-3": {
             "type": "testimonial",
             "settings": {
+              "image": "shopify://shop_images/imgi_18_Screenshot_2026-06-03_at_4.36.22_AM_430x_ea1ca016-07fa-4763-bc8d-6eb005333eea.webp",
               "name": "Aaron — grassroots coach",
               "quote": "Half my squad turned up with guards held on by hope. Showed them these. Now it's what the whole team wears."
             }
@@ -1614,7 +1621,7 @@
           "heading": "Here's what parents and players say",
           "rating_label": "Excellent",
           "rating_value": "4.8 / 5",
-          "link_label": "Verified reviews on Trustpilot",
+          "link_label": "",
           "link_url": ""
         }
       },
@@ -1691,6 +1698,342 @@
         "settings": {
           "eyebrow": "FAQ",
           "heading": "Frequently asked questions"
+        }
+      },
+      "zooryn-brand-hero": {
+        "type": "zooryn-brand-hero",
+        "settings": {
+          "image": "shopify://shop_images/ef75458f-af3e-440b-a3bf-dd6d14479b5d.png",
+          "image_mobile": "shopify://shop_images/da7b1a79-0921-420c-90f9-d0c4757b8acc.png",
+          "height": 640,
+          "overlay": 40,
+          "eyebrow": "Health · Sport · Confidence",
+          "title": "BUILT FOR HOW YOU MOVE",
+          "subtitle": "Performance gear for health, sport and everyday confidence. We test one product at a time and only keep what truly earns its place.",
+          "btn1_label": "Shop now",
+          "btn1_link": "",
+          "btn2_label": "Our story",
+          "btn2_link": ""
+        }
+      },
+      "zooryn-story": {
+        "type": "zooryn-story",
+        "settings": {
+          "reverse": false,
+          "tint": true,
+          "eyebrow": "Our story",
+          "heading": "One label. Only what earns its place.",
+          "body": "<p>Zooryn is a health and sport label built on one idea: your gear should make you feel stronger in your own body.</p><p>We don't drop a hundred products and hope. We test one at a time, in the real world, and keep only the ones that genuinely perform. From compression wear to match-day protection, everything under Zooryn has to earn its place.</p>",
+          "btn_label": "",
+          "btn_link": ""
+        }
+      },
+      "zooryn-products": {
+        "type": "zooryn-products",
+        "blocks": {
+          "zooryn-products-0": {
+            "type": "product",
+            "settings": {
+              "image": "shopify://shop_images/imgi_18_hf_20260424_145329_1873eb2d-37fc-423c-9439-b82792024e4e.png",
+              "badge": "",
+              "name": "Sculpted™",
+              "tagline": "The compression shaping tank that sculpts your frame the moment you put it on.",
+              "price": "From £29.99",
+              "url": "shopify://products/sculptd-compression-shaping-tank-top",
+              "btn_label": "learn more"
+            }
+          },
+          "zooryn-products-1": {
+            "type": "product",
+            "settings": {
+              "image": "shopify://shop_images/imgi_23_SE_Footplug_static_playground.jpg",
+              "badge": "",
+              "name": "Zooryn™ Shin Protectors",
+              "tagline": "Lock-in shin guard socks that grip your boots and never slip — no tape, all match long.",
+              "price": "From £24.99",
+              "url": "shopify://products/zooryn-shin-protectors",
+              "btn_label": "learn more"
+            }
+          }
+        },
+        "block_order": [
+          "zooryn-products-0",
+          "zooryn-products-1"
+        ],
+        "settings": {
+          "eyebrow": "Our products",
+          "heading": "The Zooryn line-up"
+        }
+      },
+      "zooryn-family": {
+        "type": "zooryn-family",
+        "blocks": {
+          "zooryn-family-0": {
+            "type": "review",
+            "settings": {
+              "text": "Ordered from Zooryn twice now and they've nailed it both times. The brand just gets it.",
+              "name": "Megan R.",
+              "date": "1 week ago"
+            }
+          },
+          "zooryn-family-1": {
+            "type": "review",
+            "settings": {
+              "text": "You can tell they actually care. Quick delivery, real quality, proper support. I recommend Zooryn to everyone.",
+              "name": "Daniel K.",
+              "date": "4 days ago"
+            }
+          },
+          "zooryn-family-2": {
+            "type": "review",
+            "settings": {
+              "text": "Finally a label that doesn't overpromise. Everything I've bought has lived up to it. Customer for life.",
+              "name": "Sophie A.",
+              "date": "2 weeks ago"
+            }
+          },
+          "zooryn-family-3": {
+            "type": "review",
+            "settings": {
+              "text": "Was nervous buying from a newer brand, but Zooryn won me over. It feels like a community, not just a shop.",
+              "name": "Liam T.",
+              "date": "5 days ago"
+            }
+          },
+          "zooryn-family-4": {
+            "type": "review",
+            "settings": {
+              "text": "The quality across the board is what keeps me coming back. Zooryn is the real deal.",
+              "name": "Hannah W.",
+              "date": "3 weeks ago"
+            }
+          },
+          "zooryn-family-5": {
+            "type": "review",
+            "settings": {
+              "text": "Sizing help, fast shipping, no-fuss returns. This is how a brand should treat you.",
+              "name": "Oliver B.",
+              "date": "6 days ago"
+            }
+          },
+          "zooryn-family-6": {
+            "type": "review",
+            "settings": {
+              "text": "Recommended Zooryn to half my mates already. Every one of them came back happy.",
+              "name": "Jack M.",
+              "date": "1 week ago"
+            }
+          },
+          "zooryn-family-7": {
+            "type": "review",
+            "settings": {
+              "text": "It's rare to find a brand you genuinely trust these days. Zooryn earned mine.",
+              "name": "Grace P.",
+              "date": "2 weeks ago"
+            }
+          },
+          "zooryn-family-8": {
+            "type": "review",
+            "settings": {
+              "text": "Proud to rep Zooryn. It feels like being part of something, not just buying stuff.",
+              "name": "Nathan L.",
+              "date": "4 days ago"
+            }
+          }
+        },
+        "block_order": [
+          "zooryn-family-0",
+          "zooryn-family-1",
+          "zooryn-family-2",
+          "zooryn-family-3",
+          "zooryn-family-4",
+          "zooryn-family-5",
+          "zooryn-family-6",
+          "zooryn-family-7",
+          "zooryn-family-8"
+        ],
+        "settings": {
+          "eyebrow": "",
+          "heading": "A family of 12,000+",
+          "subtitle": "Real people who keep coming back. Join the Zooryn family.",
+          "verified_label": "✓ Verified",
+          "trust_text": "Rated Excellent on Trustpilot"
+        }
+      },
+      "sculpted-reviews-shin": {
+        "type": "sculpted-reviews-shin",
+        "blocks": {
+          "sculpted-reviews-shin-0": {
+            "type": "review",
+            "settings": {
+              "text": "Forgot I was even wearing guards. Zero slip the whole game. The sock tape is going in the bin.",
+              "name": "James O.",
+              "date": "3 days ago"
+            }
+          },
+          "sculpted-reviews-shin-1": {
+            "type": "review",
+            "settings": {
+              "text": "Bought for my 11-year-old who hated his old shin pads. He wears these without a fight now.",
+              "name": "Hannah P.",
+              "date": "1 week ago"
+            }
+          },
+          "sculpted-reviews-shin-2": {
+            "type": "review",
+            "settings": {
+              "text": "The in-boot grip is unreal. My feet don't slide on turns anymore. Felt sharper instantly.",
+              "name": "Connor M.",
+              "date": "2 weeks ago"
+            }
+          },
+          "sculpted-reviews-shin-3": {
+            "type": "review",
+            "settings": {
+              "text": "Slim and light, you barely feel them but the protection's there. Ordered two more pairs.",
+              "name": "Ben R.",
+              "date": "5 days ago"
+            }
+          },
+          "sculpted-reviews-shin-4": {
+            "type": "review",
+            "settings": {
+              "text": "Played 90 minutes, guards didn't move an inch. No tape, no faff. Exactly what I wanted.",
+              "name": "Tom K.",
+              "date": "4 days ago"
+            }
+          },
+          "sculpted-reviews-shin-5": {
+            "type": "review",
+            "settings": {
+              "text": "Coach recommended them to the whole squad. Half the team's switched already.",
+              "name": "Ryan D.",
+              "date": "3 weeks ago"
+            }
+          },
+          "sculpted-reviews-shin-6": {
+            "type": "review",
+            "settings": {
+              "text": "Comfiest football socks I've owned and the guard stays locked. Brilliant.",
+              "name": "Jake S.",
+              "date": "6 days ago"
+            }
+          },
+          "sculpted-reviews-shin-7": {
+            "type": "review",
+            "settings": {
+              "text": "Used to readjust my shin pads every five minutes. Not once with these. Game changer.",
+              "name": "Luke H.",
+              "date": "2 weeks ago"
+            }
+          },
+          "sculpted-reviews-shin-8": {
+            "type": "review",
+            "settings": {
+              "text": "Quality is better than I expected for the price. Washed great, grip still perfect.",
+              "name": "Daniel W.",
+              "date": "1 week ago"
+            }
+          },
+          "sculpted-reviews-shin-9": {
+            "type": "review",
+            "settings": {
+              "text": "My keeper son loves the grip in his boots for quick footwork. Worth every penny.",
+              "name": "Emma J.",
+              "date": "10 days ago"
+            }
+          },
+          "sculpted-reviews-shin-10": {
+            "type": "review",
+            "settings": {
+              "text": "I play right-back and I'm flying down the wing all game. These don't shift an inch. No tape ever again.",
+              "name": "Charlotte B.",
+              "date": "4 days ago"
+            }
+          },
+          "sculpted-reviews-shin-11": {
+            "type": "review",
+            "settings": {
+              "text": "Was sceptical about the price but you feel the quality straight away. Two months in, still grip like day one.",
+              "name": "Oliver T.",
+              "date": "3 weeks ago"
+            }
+          },
+          "sculpted-reviews-shin-12": {
+            "type": "review",
+            "settings": {
+              "text": "Bought a pair each for both my boys. No more lost shin pads, no more taping socks before every match. Lifesaver.",
+              "name": "Megan S.",
+              "date": "1 week ago"
+            }
+          },
+          "sculpted-reviews-shin-13": {
+            "type": "review",
+            "settings": {
+              "text": "The compression actually helps my calves on long games. Guard stays put and my legs feel fresher. Didn't expect that.",
+              "name": "Harry W.",
+              "date": "5 days ago"
+            }
+          },
+          "sculpted-reviews-shin-14": {
+            "type": "review",
+            "settings": {
+              "text": "Slipped them on for a 5-a-side and didn't think about my shins once. That's the whole point, isn't it.",
+              "name": "Sophie L.",
+              "date": "2 weeks ago"
+            }
+          },
+          "sculpted-reviews-shin-15": {
+            "type": "review",
+            "settings": {
+              "text": "Used to hate that mid-match slide inside my boots. These lock my foot in completely. Turns feel so much sharper.",
+              "name": "Callum R.",
+              "date": "6 days ago"
+            }
+          },
+          "sculpted-reviews-shin-16": {
+            "type": "review",
+            "settings": {
+              "text": "Comfortable, breathable and they wash brilliantly. Played in the rain and they dried fine for the next game.",
+              "name": "Grace M.",
+              "date": "2 weeks ago"
+            }
+          },
+          "sculpted-reviews-shin-17": {
+            "type": "review",
+            "settings": {
+              "text": "Honestly the best football kit upgrade I've made this season. No tape, no slipping, just play. Already told the lads.",
+              "name": "Nathan P.",
+              "date": "1 week ago"
+            }
+          }
+        },
+        "block_order": [
+          "sculpted-reviews-shin-0",
+          "sculpted-reviews-shin-1",
+          "sculpted-reviews-shin-2",
+          "sculpted-reviews-shin-3",
+          "sculpted-reviews-shin-4",
+          "sculpted-reviews-shin-5",
+          "sculpted-reviews-shin-6",
+          "sculpted-reviews-shin-7",
+          "sculpted-reviews-shin-8",
+          "sculpted-reviews-shin-9",
+          "sculpted-reviews-shin-10",
+          "sculpted-reviews-shin-11",
+          "sculpted-reviews-shin-12",
+          "sculpted-reviews-shin-13",
+          "sculpted-reviews-shin-14",
+          "sculpted-reviews-shin-15",
+          "sculpted-reviews-shin-16",
+          "sculpted-reviews-shin-17"
+        ],
+        "settings": {
+          "eyebrow": "Customer reviews",
+          "heading": "What players say about Zooryn™ Shin Protectors",
+          "verified_label": "✓ Verified",
+          "visible_count": 18,
+          "more_label": "Load more reviews →"
         }
       }
     },

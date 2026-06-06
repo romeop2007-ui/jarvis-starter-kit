@@ -167,7 +167,7 @@
 - **Libellé vérifié** : `✓ Verified`
 - **Bouton — texte** : `Load more reviews →`
 
-**Avis** (1 bloc chacun) :
+**Avis** (1 bloc chacun, 18 au total) :
 
 1. `Forgot I was even wearing guards. Zero slip the whole game. The sock tape is going in the bin.` — **James O.** · `3 days ago`
 2. `Bought for my 11-year-old who hated his old shin pads. He wears these without a fight now.` — **Hannah P.** · `1 week ago`
@@ -179,6 +179,14 @@
 8. `Used to readjust my shin pads every five minutes. Not once with these. Game changer.` — **Luke H.** · `2 weeks ago`
 9. `Quality is better than I expected for the price. Washed great, grip still perfect.` — **Daniel W.** · `1 week ago`
 10. `My keeper son loves the grip in his boots for quick footwork. Worth every penny.` — **Emma J.** · `10 days ago`
+11. `I play right-back and I'm flying down the wing all game. These don't shift an inch. No tape ever again.` — **Charlotte B.** · `4 days ago`
+12. `Was sceptical about the price but you feel the quality straight away. Two months in, still grip like day one.` — **Oliver T.** · `3 weeks ago`
+13. `Bought a pair each for both my boys. No more lost shin pads, no more taping socks before every match. Lifesaver.` — **Megan S.** · `1 week ago`
+14. `The compression actually helps my calves on long games. Guard stays put and my legs feel fresher. Didn't expect that.` — **Harry W.** · `5 days ago`
+15. `Slipped them on for a 5-a-side and didn't think about my shins once. That's the whole point, isn't it.` — **Sophie L.** · `2 weeks ago`
+16. `Used to hate that mid-match slide inside my boots. These lock my foot in completely. Turns feel so much sharper.` — **Callum R.** · `6 days ago`
+17. `Comfortable, breathable and they wash brilliantly. Played in the rain and they dried fine for the next game.` — **Grace M.** · `2 weeks ago`
+18. `Honestly the best football kit upgrade I've made this season. No tape, no slipping, just play. Already told the lads.` — **Nathan P.** · `1 week ago`
 
 ---
 

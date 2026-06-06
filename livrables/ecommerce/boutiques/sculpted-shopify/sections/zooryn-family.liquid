@@ -1,10 +1,13 @@
 {%- comment -%}
   ===========================================================================
-  Zooryn — Famille de clients / preuve sociale (page d'accueil)
+  Zooryn — Famille de clients / preuve sociale de MARQUE (page d'accueil)
   ---------------------------------------------------------------------------
-  Titre "A family of X+", sous-titre, galerie de photos clients (UGC) en
-  rangée pleine largeur (carrousel swipeable sur mobile), et ligne Trustpilot
-  optionnelle. Chaque photo = un bloc "Photo" (image + @pseudo facultatif).
+  Titre "A family of X+", sous-titre, puis un RAIL HORIZONTAL d'avis sur la
+  marque (pas sur un produit) : mêmes cartes que les avis produit (★★★★★,
+  ✓ Verified, texte, nom + date). Aucune image à fournir.
+  Défilement horizontal : swipe au doigt sur mobile, molette verticale -> scroll
+  horizontal sur PC (et rend le scroll de page une fois en bout de rail).
+  Chaque avis = un bloc "Avis" (texte, nom, date).
   ===========================================================================
 {%- endcomment -%}
 
@@ -16,15 +19,12 @@
   </div>
 
   {%- if section.blocks.size > 0 -%}
-    <div class="zfam-grid">
+    <div class="zfam-track" id="zfam-track-{{ section.id }}">
       {%- for block in section.blocks -%}
-        <div class="zfam-cell frame{% if block.settings.image %} has-img{% endif %}" {{ block.shopify_attributes }}>
-          {%- if block.settings.image -%}
-            <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.handle | default: 'Zooryn customer' | escape }}" loading="lazy">
-          {%- else -%}
-            <span>Customer photo</span>
-          {%- endif -%}
-          {%- if block.settings.handle != blank -%}<span class="zfam-cap">{{ block.settings.handle | escape }}</span>{%- endif -%}
+        <div class="rev zfam-rev" {{ block.shopify_attributes }}>
+          <div class="top"><span class="stars">★★★★★</span><span class="ver">{{ section.settings.verified_label }}</span></div>
+          <p>{{ block.settings.text | escape }}</p>
+          <div class="who"><b>{{ block.settings.name | escape }}</b><span>{{ block.settings.date | escape }}</span></div>
         </div>
       {%- endfor -%}
     </div>
@@ -38,16 +38,33 @@
 <style>
   .zfam-h{font-size:var(--t-h1)}
   .zfam-sub{color:var(--muted);margin:10px auto 0;max-width:52ch}
-  .zfam-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:40px;padding:0 var(--gutter)}
-  .zfam-cell{position:relative;aspect-ratio:1/1;border-radius:10px;overflow:hidden;min-height:0}
-  .zfam-cap{position:absolute;left:10px;bottom:8px;z-index:2;color:#fff;font-size:12px;font-weight:700;text-shadow:0 1px 5px rgba(0,0,0,.65)}
+  .zfam-track{display:flex;gap:16px;margin-top:40px;padding:4px var(--gutter) 10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .zfam-track::-webkit-scrollbar{display:none}
+  .zfam-track .rev{flex:0 0 360px;max-width:85vw;scroll-snap-align:start;text-align:left}
   .zfam-trust{margin-top:30px;color:var(--muted);font-weight:700;font-size:14px;letter-spacing:.04em}
   @media (max-width:749px){
-    .zfam-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-    .zfam-grid::-webkit-scrollbar{display:none}
-    .zfam-cell{scroll-snap-align:start}
+    .zfam-track .rev{flex-basis:80%}
   }
 </style>
+
+<script>
+/* Rail d'avis marque : sur PC, la molette verticale fait défiler horizontalement.
+   On rend le scroll de page une fois arrivé en bout de rail pour ne pas le bloquer. */
+(function(){
+  var track = document.getElementById('zfam-track-{{ section.id }}');
+  if(!track){ return; }
+  track.addEventListener('wheel', function(e){
+    if(track.scrollWidth <= track.clientWidth){ return; }
+    var dy = e.deltaY;
+    if(dy === 0){ return; }
+    var atStart = track.scrollLeft <= 0;
+    var atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+    if((dy < 0 && atStart) || (dy > 0 && atEnd)){ return; }
+    e.preventDefault();
+    track.scrollLeft += dy;
+  }, { passive: false });
+})();
+</script>
 
 {% schema %}
 {
@@ -56,26 +73,32 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Sur-titre" },
     { "type": "text", "id": "heading", "label": "Titre", "default": "A family of 12,000+" },
-    { "type": "textarea", "id": "subtitle", "label": "Sous-titre", "default": "Real customers, real results. Join the Zooryn community." },
+    { "type": "textarea", "id": "subtitle", "label": "Sous-titre", "default": "Real people who keep coming back. Join the Zooryn family." },
+    { "type": "text", "id": "verified_label", "label": "Libellé vérifié", "default": "✓ Verified" },
     { "type": "text", "id": "trust_text", "label": "Ligne Trustpilot (optionnelle)", "default": "Rated Excellent on Trustpilot" }
   ],
   "blocks": [
     {
-      "type": "photo",
-      "name": "Photo client",
+      "type": "review",
+      "name": "Avis",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Photo (carrée 1254 × 1254)" },
-        { "type": "text", "id": "handle", "label": "@pseudo (optionnel)" }
+        { "type": "textarea", "id": "text", "label": "Avis", "default": "Ordered from Zooryn twice now and they've nailed it both times. The brand just gets it." },
+        { "type": "text", "id": "name", "label": "Nom", "default": "Megan R." },
+        { "type": "text", "id": "date", "label": "Date", "default": "1 week ago" }
       ]
     }
   ],
   "default": {
     "blocks": [
-      { "type": "photo", "settings": { "handle": "@yourcustomer" } },
-      { "type": "photo", "settings": { "handle": "@yourcustomer" } },
-      { "type": "photo", "settings": { "handle": "@yourcustomer" } },
-      { "type": "photo", "settings": { "handle": "@yourcustomer" } },
-      { "type": "photo", "settings": { "handle": "@yourcustomer" } }
+      { "type": "review", "settings": { "text": "Ordered from Zooryn twice now and they've nailed it both times. The brand just gets it.", "name": "Megan R.", "date": "1 week ago" } },
+      { "type": "review", "settings": { "text": "You can tell they actually care. Quick delivery, real quality, proper support. I recommend Zooryn to everyone.", "name": "Daniel K.", "date": "4 days ago" } },
+      { "type": "review", "settings": { "text": "Finally a label that doesn't overpromise. Everything I've bought has lived up to it. Customer for life.", "name": "Sophie A.", "date": "2 weeks ago" } },
+      { "type": "review", "settings": { "text": "Was nervous buying from a newer brand, but Zooryn won me over. It feels like a community, not just a shop.", "name": "Liam T.", "date": "5 days ago" } },
+      { "type": "review", "settings": { "text": "The quality across the board is what keeps me coming back. Zooryn is the real deal.", "name": "Hannah W.", "date": "3 weeks ago" } },
+      { "type": "review", "settings": { "text": "Sizing help, fast shipping, no-fuss returns. This is how a brand should treat you.", "name": "Oliver B.", "date": "6 days ago" } },
+      { "type": "review", "settings": { "text": "Recommended Zooryn to half my mates already. Every one of them came back happy.", "name": "Jack M.", "date": "1 week ago" } },
+      { "type": "review", "settings": { "text": "It's rare to find a brand you genuinely trust these days. Zooryn earned mine.", "name": "Grace P.", "date": "2 weeks ago" } },
+      { "type": "review", "settings": { "text": "Proud to rep Zooryn. It feels like being part of something, not just buying stuff.", "name": "Nathan L.", "date": "4 days ago" } }
     ]
   }
 }

@@ -7,6 +7,33 @@
 
 ---
 
+## 2026-06-07 (mise à jour 2)
+
+### Page collection mobile : refonte des cartes produit + campagne Meta #1 coupée
+
+**Boutique (UI mobile) :** page collection (`sculpted-collection.liquid`) retravaillée pour le mobile, partie de "pas droit / pas beau" sur téléphone.
+- Problèmes corrigés : noms produit coupés par des "...", cartes de hauteurs inégales, prix et boutons "View product" décalés d'une carte à l'autre, trop de vide.
+- Solution : zone de titre à hauteur fixe (3 lignes) identique sur toutes les cartes → noms complets, prix alignés au même niveau, cartes égales. Padding resserré sur mobile, images produit centrées (h+v) dans leur cadre via flex + max-width/height + margin auto.
+- Aussi : fix mobile section bénéfices protège-tibias (`sculpted-skador-shin.liquid`) : titre réduit, padding compact, image en object-fit cover avec coins arrondis.
+- 4 commits live sur le thème Zooryn (#201043444057) : `0a4b1ec`, `28d364f`, `42acaba`, `bdcd75e`.
+- Point appris : l'aperçu éditeur Shopify (PC) et le vrai site sur navigateur mobile peuvent diverger à cause du cache navigateur. Toujours vérifier en navigation privée.
+
+**Campagne Meta #1 : coupée et bonne pour la suppression.** La toute première campagne (« Sculpted 04/06/26 ») n'a pas marché (0 vente). Roméo l'a terminée et va la supprimer. **Nouvelle campagne prévue dans ~23h (≈ 8 juin 2026, même heure).** Le frein identifié lors de la lecture des chiffres (06/06) était la page produit, pas la créa (CTR correct, 0 add to cart) → d'où le travail de fond sur la boutique entre les deux tests.
+
+---
+
+## 2026-06-07
+
+### Reset boutique + fix mobile image section bénéfices protège-tibias
+
+**Contexte :** La 1ère campagne Meta (Sculpted, 06/06) n'a pas abouti au résultat attendu. Roméo a supprimé le thème "Sculpted UK" (#200683258201) et reparti sur une nouvelle base avec le thème "Zooryn" (#201043444057, anciennement le brouillon multi-produits), qu'il a rendu actif. Nouveau test prévu dès le lendemain soir.
+
+**Fix déployé :** Section `sculpted-skador-shin.liquid` (bloc bénéfices protège-tibias). Sur mobile, l'image produit s'affichait en miniature dans le coin supérieur gauche au lieu de prendre toute la largeur. Cause : `align-self:stretch` entrait en conflit avec `aspect-ratio:1/1` dans une grille colonne unique (hauteur auto), effondrant le conteneur image. Fix : `align-self:stretch` limité au breakpoint desktop (≥860px), `width:100%` explicite sur mobile. Poussé en live sur le thème Zooryn, commit `a6b993c`.
+
+**Mise à jour infra :** ID thème actif corrigé partout (CLAUDE.md + mémoire Shopify) : `200683258201` → `201043444057`.
+
+---
+
 ## 2026-06-06 (mise à jour 3)
 
 ### Lecture des premiers chiffres Meta Ads (22h de run)

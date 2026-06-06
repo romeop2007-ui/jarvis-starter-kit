@@ -271,8 +271,9 @@ document.addEventListener('DOMContentLoaded', function(){
   document.querySelectorAll('.buy-info .tier.sel').forEach(function(t){ sculptedBuildTierItems(t); });
 });
 
-/* Buy now : vide le panier, ajoute UN article par ligne avec sa couleur/taille
-   en propriétés (articles identiques fusionnés par Shopify), puis va au panier. */
+/* Add to cart : ajoute UN article par ligne avec sa couleur/taille en propriétés
+   (articles identiques fusionnés par Shopify) SANS vider le panier, pour cumuler
+   plusieurs produits, puis va au panier. */
 function sculptedBuyNow(btn){
   var vid = btn.getAttribute('data-vid');
   if(!vid){ alert('Product is temporarily unavailable. Please try again later.'); return; }
@@ -294,14 +295,12 @@ function sculptedBuyNow(btn){
   }
   var orig = btn.textContent;
   btn.disabled = true; btn.textContent = 'Adding…';
-  fetch('/cart/clear.js', { method: 'POST', headers: { 'Content-Type': 'application/json' } })
-    .then(function(){
-      return fetch('/cart/add.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: items })
-      });
-    })
+  if(window.SculptedCart && window.SculptedCart.add){ window.SculptedCart.add(items, btn, orig); return; }
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ items: items })
+  })
     .then(function(r){ if(!r.ok){ throw new Error('add failed'); } return r.json(); })
     .then(function(){ window.location.href = '/cart'; })
     .catch(function(){ btn.disabled = false; btn.textContent = orig; alert('Something went wrong adding to cart. Please try again.'); });

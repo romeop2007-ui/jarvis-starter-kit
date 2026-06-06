@@ -58,7 +58,7 @@
   .zcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none;color:var(--ink);transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
   .zcard:hover{transform:translateY(-3px);border-color:#d3d7dc;box-shadow:0 18px 40px -24px rgba(16,17,20,.45)}
   .zcard-media{position:relative;aspect-ratio:1/1;background:#fff;display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box}
-  .zcard-media img{width:100%;height:100%;object-fit:contain}
+  .zcard-media img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;object-position:center;margin:auto}
   .zcard-ph{color:var(--muted);font-size:14px;text-align:center;padding:0 16px}
   .zcard-flag{position:absolute;top:12px;left:12px;background:var(--accent);color:#fff;font-weight:700;font-size:12px;padding:4px 10px;border-radius:999px}
   .zcard-body{flex:1;padding:16px 18px 20px;display:flex;flex-direction:column}

@@ -1709,7 +1709,7 @@
           "overlay": 40,
           "eyebrow": "Health · Sport · Confidence",
           "title": "BUILT FOR HOW YOU MOVE",
-          "subtitle": "Performance gear for health, sport and everyday confidence. We test one product at a time and only keep what truly earns its place.",
+          "subtitle": "Performance gear for health, sport and everyday confidence.",
           "btn1_label": "Shop now",
           "btn1_link": "",
           "btn2_label": "Our story",
@@ -1719,6 +1719,7 @@
       "zooryn-story": {
         "type": "zooryn-story",
         "settings": {
+          "image": "shopify://shop_images/e791eb41-918e-4d06-b989-d4a8367db6c5.png",
           "reverse": false,
           "tint": true,
           "eyebrow": "Our story",
@@ -1734,7 +1735,7 @@
           "zooryn-products-0": {
             "type": "product",
             "settings": {
-              "image": "shopify://shop_images/imgi_18_hf_20260424_145329_1873eb2d-37fc-423c-9439-b82792024e4e.png",
+              "image": "shopify://shop_images/image_white_bg.png",
               "badge": "",
               "name": "Sculpted™",
               "tagline": "The compression shaping tank that sculpts your frame the moment you put it on.",
@@ -1854,10 +1855,10 @@
         ],
         "settings": {
           "eyebrow": "",
-          "heading": "A family of 12,000+",
+          "heading": "A family of 2,700+",
           "subtitle": "Real people who keep coming back. Join the Zooryn family.",
           "verified_label": "✓ Verified",
-          "trust_text": "Rated Excellent on Trustpilot"
+          "trust_text": ""
         }
       },
       "sculpted-reviews-shin": {

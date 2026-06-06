@@ -1,0 +1,233 @@
+{%- comment -%}
+  Sculpted — Panier tiroir (slide-in cart, façon Loop Earplugs).
+  Rendu une fois dans le layout → présent sur toutes les pages.
+
+  Fonctionnement :
+  - L'icône panier du header (et tout élément [data-cart-open]) ouvre le tiroir.
+  - Les boutons "Add to cart" appellent window.SculptedCart.add(items) : ajout en
+    AJAX SANS recharger la page, puis ouverture du tiroir.
+  - Quantités (+/−) et suppression via /cart/change.js, re-render via la
+    Section Rendering API (sections=sculpted-cart-drawer) → toujours à jour.
+  - Les remises automatiques produit (ex : "Buy 2 Get 1 Free", cumulables) sont
+    déjà reflétées dans item.final_line_price → l'article offert s'affiche "Free".
+  - Barre de progression livraison gratuite éditable dans Personnaliser.
+  - Repli sans JavaScript : la page /cart reste accessible.
+{%- endcomment -%}
+
+{%- assign savings = cart.original_total_price | minus: cart.total_price -%}
+
+<div id="CartDrawer" class="cart-drawer" aria-hidden="true">
+  <div class="cart-drawer__overlay" data-cart-close></div>
+  <aside class="cart-drawer__panel" role="dialog" aria-modal="true" aria-label="{{ section.settings.heading | escape }}">
+    <div class="cart-drawer__top">
+      <h2 class="cart-drawer__title">{{ section.settings.heading | escape }}</h2>
+      <button type="button" class="cart-drawer__close" data-cart-close aria-label="Close">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <div class="cart-drawer__inner">
+      <span data-cart-count-source data-count="{{ cart.item_count }}" hidden></span>
+
+      {%- if cart.item_count > 0 -%}
+        <div class="cd-items">
+          {%- comment -%}
+            On REGROUPE par produit (pas par ligne brute Shopify). Pour chaque
+            produit : total = somme des unités, offerts = total ÷ 3 (chaque 3e
+            offert → 2 payés = 1 offert, 4 payés = 2 offerts), payés = total −
+            offerts. Le compteur affiché = unités PAYÉES. La ligne offerte gérée
+            par Shopify n'est jamais affichée ni éditable séparément.
+            data-control = clé de la 1re ligne (où l'on écrit le nouveau total),
+            data-others = clés des autres lignes du produit (remises à 0).
+          {%- endcomment -%}
+          {%- assign seen = '' -%}
+          {%- for item in cart.items -%}
+            {%- assign pid = item.product_id | append: '' -%}
+            {%- assign marker = '|' | append: pid | append: '|' -%}
+            {%- unless seen contains marker -%}
+              {%- assign seen = seen | append: marker -%}
+              {%- assign tot = 0 -%}
+              {%- assign unit = 0 -%}
+              {%- assign ctrl_key = '' -%}
+              {%- assign others = '' -%}
+              {%- assign first_item = item -%}
+              {%- assign vsummary = '' -%}
+              {%- for it2 in cart.items -%}
+                {%- if it2.product_id == item.product_id -%}
+                  {%- assign tot = tot | plus: it2.quantity -%}
+                  {%- if ctrl_key == '' -%}
+                    {%- assign ctrl_key = it2.key -%}
+                    {%- assign unit = it2.original_price -%}
+                    {%- assign first_item = it2 -%}
+                  {%- else -%}
+                    {%- assign others = others | append: it2.key | append: ',' -%}
+                  {%- endif -%}
+                  {%- if it2.variant.title and it2.variant.title != 'Default Title' -%}
+                    {%- assign vsummary = vsummary | append: it2.variant.title | append: ' ×' | append: it2.quantity | append: ' · ' -%}
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
+              {%- assign free = tot | divided_by: 3 -%}
+              {%- assign paid = tot | minus: free -%}
+              {%- assign line_total = paid | times: unit -%}
+              {%- assign orig_total = tot | times: unit -%}
+              <div class="cd-item" data-control="{{ ctrl_key }}" data-others="{{ others | strip }}" data-paid="{{ paid }}">
+                <a class="cd-item__media{% if first_item.image %} has-img{% endif %}" href="{{ first_item.url }}">
+                  {%- if first_item.image -%}<img src="{{ first_item.image | image_url: width: 200 }}" alt="{{ first_item.product.title | escape }}" loading="lazy">{%- endif -%}
+                </a>
+                <div class="cd-item__main">
+                  <div class="cd-item__row">
+                    <a class="cd-item__name" href="{{ first_item.url }}">{{ first_item.product.title | escape }}</a>
+                    <button type="button" class="cd-item__remove" data-action="remove" aria-label="Remove">
+                      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </button>
+                  </div>
+                  {%- if vsummary != '' -%}
+                    <p class="cd-item__opt">{{ vsummary | split: ' · ' | join: ' · ' }}</p>
+                  {%- endif -%}
+                  {%- if free > 0 -%}
+                    <p class="cd-item__gift">+{{ free }} {{ section.settings.gift_badge | escape }}</p>
+                  {%- endif -%}
+                  <div class="cd-item__foot">
+                    <div class="cd-qty">
+                      <button type="button" data-action="dec" aria-label="Decrease">−</button>
+                      <span>{{ paid }}</span>
+                      <button type="button" data-action="inc" aria-label="Increase">+</button>
+                    </div>
+                    <div class="cd-price">
+                      <span class="cd-price__now">{{ line_total | money }}</span>
+                      {%- if free > 0 -%}
+                        <span class="cd-price__was">{{ orig_total | money }}</span>
+                      {%- endif -%}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {%- endunless -%}
+          {%- endfor -%}
+        </div>
+
+        <div class="cart-drawer__foot">
+          {%- if savings > 0 -%}
+            <div class="cd-row cd-row--save"><span>{{ section.settings.savings_label | escape }}</span><b>−{{ savings | money }}</b></div>
+          {%- endif -%}
+          <div class="cd-row cd-row--total"><span>{{ section.settings.subtotal_label | escape }}</span><b>{{ cart.total_price | money }}</b></div>
+          <p class="cd-note">{{ section.settings.shipping_note | escape }}</p>
+          <form action="{{ routes.cart_url }}" method="post">
+            <button type="submit" name="checkout" class="btn btn-accent btn-block cd-checkout">{{ section.settings.checkout_label | escape }}</button>
+          </form>
+          <button type="button" class="cd-continue" data-cart-close>{{ section.settings.continue_label | escape }}</button>
+        </div>
+      {%- else -%}
+        <div class="cd-empty">
+          <p>{{ section.settings.empty_text | escape }}</p>
+          <button type="button" class="btn btn-accent" data-cart-close>{{ section.settings.empty_btn | escape }}</button>
+        </div>
+      {%- endif -%}
+    </div>
+  </aside>
+</div>
+
+<script>
+(function(){
+  var drawer = document.getElementById('CartDrawer');
+  if(!drawer){ return; }
+  var SECTION = 'sculpted-cart-drawer';
+  function inner(){ return drawer.querySelector('.cart-drawer__inner'); }
+  function open(){ drawer.classList.add('is-open'); drawer.setAttribute('aria-hidden','false'); document.documentElement.classList.add('cd-lock'); }
+  function close(){ drawer.classList.remove('is-open'); drawer.setAttribute('aria-hidden','true'); document.documentElement.classList.remove('cd-lock'); }
+  function busy(b){ drawer.classList.toggle('is-busy', !!b); }
+
+  function setCount(n){
+    document.querySelectorAll('[data-cart-count]').forEach(function(el){
+      el.textContent = n;
+      if(parseInt(n,10) > 0){ el.removeAttribute('hidden'); } else { el.setAttribute('hidden',''); }
+    });
+  }
+  function replaceInner(html){
+    try{
+      var doc = new DOMParser().parseFromString(html, 'text/html');
+      var fresh = doc.querySelector('.cart-drawer__inner');
+      if(fresh){ inner().innerHTML = fresh.innerHTML; }
+      var src = doc.querySelector('[data-cart-count-source]');
+      if(src){ setCount(src.getAttribute('data-count')); }
+    }catch(e){}
+  }
+  function pull(){
+    return fetch(window.location.pathname + '?sections=' + SECTION, { headers: { 'Accept': 'application/json' } })
+      .then(function(r){ return r.json(); })
+      .then(function(d){ if(d && d[SECTION]){ replaceInner(d[SECTION]); } });
+  }
+  function add(items, btn, orig){
+    busy(true);
+    return fetch('/cart/add.js', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ items: items, sections: SECTION, sections_url: window.location.pathname }) })
+      .then(function(r){ if(!r.ok){ throw new Error('add'); } return r.json(); })
+      .then(function(data){ if(data.sections && data.sections[SECTION]){ replaceInner(data.sections[SECTION]); return; } return pull(); })
+      .then(function(){ busy(false); if(btn){ btn.disabled=false; if(orig){ btn.textContent=orig; } } open(); })
+      .catch(function(){ busy(false); if(btn){ btn.disabled=false; if(orig){ btn.textContent=orig; } } alert('Something went wrong adding to cart. Please try again.'); });
+  }
+  /* On envoie un objet "updates" keyé par clé de ligne : la ligne de contrôle
+     reçoit le nouveau total du produit, les autres lignes passent à 0. Shopify
+     recalcule alors lui-même la remise (offerts = total ÷ 3). */
+  function update(updates){
+    busy(true);
+    return fetch('/cart/update.js', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ updates: updates, sections: SECTION, sections_url: window.location.pathname }) })
+      .then(function(r){ if(!r.ok){ throw new Error('update'); } return r.json(); })
+      .then(function(data){ if(data.sections && data.sections[SECTION]){ replaceInner(data.sections[SECTION]); return; } return pull(); })
+      .then(function(){ busy(false); })
+      .catch(function(){ busy(false); alert('Could not update the cart. Please try again.'); });
+  }
+
+  window.SculptedCart = { open: function(){ open(); pull(); }, close: close, add: add, refresh: pull };
+
+  document.addEventListener('click', function(e){
+    var opener = e.target.closest('[data-cart-open]');
+    if(opener){ e.preventDefault(); open(); pull(); }
+  });
+  drawer.addEventListener('click', function(e){
+    if(e.target.closest('[data-cart-close]')){ close(); return; }
+    var ctrl = e.target.closest('[data-action]');
+    if(!ctrl){ return; }
+    var itemEl = ctrl.closest('.cd-item');
+    if(!itemEl){ return; }
+    var act = ctrl.getAttribute('data-action');
+    var control = itemEl.getAttribute('data-control');
+    var others = (itemEl.getAttribute('data-others') || '').split(',').filter(Boolean);
+    var paid = parseInt(itemEl.getAttribute('data-paid'), 10) || 0;
+    var newPaid = paid;
+    if(act === 'inc'){ newPaid = paid + 1; }
+    else if(act === 'dec'){ newPaid = paid - 1; }
+    else if(act === 'remove'){ newPaid = 0; }
+    if(newPaid < 0){ newPaid = 0; }
+    /* total à mettre en panier pour obtenir floor(newPaid/2) offerts via la
+       remise Shopify "buy 2 get 1" (offerts = total ÷ 3). */
+    var newTotal = newPaid + Math.floor(newPaid / 2);
+    var updates = {};
+    if(control){ updates[control] = newTotal; }
+    others.forEach(function(k){ updates[k] = 0; });
+    update(updates);
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && drawer.classList.contains('is-open')){ close(); } });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Sculpted — Panier tiroir",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Your cart" },
+    { "type": "header", "content": "Libellés" },
+    { "type": "text", "id": "gift_badge", "label": "Badge article offert", "default": "Free gift" },
+    { "type": "text", "id": "free_label", "label": "Prix article offert", "default": "Free" },
+    { "type": "text", "id": "savings_label", "label": "Libellé économies", "default": "You save" },
+    { "type": "text", "id": "subtotal_label", "label": "Libellé sous-total", "default": "Subtotal" },
+    { "type": "text", "id": "shipping_note", "label": "Note livraison/taxes", "default": "Shipping & taxes calculated at checkout." },
+    { "type": "text", "id": "checkout_label", "label": "Bouton checkout", "default": "Checkout" },
+    { "type": "text", "id": "continue_label", "label": "Lien continuer", "default": "Continue shopping" },
+    { "type": "header", "content": "Panier vide" },
+    { "type": "text", "id": "empty_text", "label": "Message panier vide", "default": "Your cart is empty." },
+    { "type": "text", "id": "empty_btn", "label": "Bouton panier vide", "default": "Shop now" }
+  ]
+}
+{% endschema %}

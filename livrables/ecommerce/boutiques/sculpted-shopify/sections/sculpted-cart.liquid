@@ -56,7 +56,12 @@
               </div>
 
               <div class="cart-item__qty">
-                <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" inputmode="numeric" aria-label="Quantity" class="cart-qty-input" data-line="{{ forloop.index }}">
+                {%- if is_free -%}
+                  <span class="cart-qty-locked">{{ item.quantity }}</span>
+                  <input type="hidden" name="updates[]" value="{{ item.quantity }}">
+                {%- else -%}
+                  <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" inputmode="numeric" aria-label="Quantity" class="cart-qty-input" data-line="{{ forloop.index }}">
+                {%- endif -%}
               </div>
 
               <div class="cart-item__price">

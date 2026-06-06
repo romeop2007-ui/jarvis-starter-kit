@@ -1,0 +1,83 @@
+{%- comment -%}
+  Zooryn — Grille de collection (rendue avec le design Sculpted, via le layout 'sculpted').
+  Affiche les produits de la collection courante en cartes cliquables → fiche produit.
+  Sur une page collection, l'objet `collection` est fourni automatiquement par Shopify.
+  Titre et sous-titre éditables dans Personnaliser. Aucune dépendance au thème Dawn.
+{%- endcomment -%}
+<section class="zcol">
+  <div class="wrap">
+    <div class="zcol-head">
+      {%- assign col_title = section.settings.heading | default: collection.title -%}
+      <h1 class="display center">{{ col_title | escape }}</h1>
+      {%- if section.settings.subheading != blank -%}
+        <p class="zcol-sub center">{{ section.settings.subheading | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if collection.products.size > 0 -%}
+      <div class="zcol-grid">
+        {%- for product in collection.products -%}
+          <a href="{{ product.url }}" class="zcard">
+            <div class="zcard-media">
+              {%- if product.featured_image != blank -%}
+                <img src="{{ product.featured_image | image_url: width: 800 }}"
+                     alt="{{ product.featured_image.alt | default: product.title | escape }}"
+                     width="800" height="800" loading="lazy">
+              {%- else -%}
+                <span class="zcard-ph">{{ product.title | escape }}</span>
+              {%- endif -%}
+              {%- if product.compare_at_price > product.price -%}
+                <span class="zcard-flag">Sale</span>
+              {%- endif -%}
+            </div>
+            <div class="zcard-body">
+              <h2 class="zcard-title">{{ product.title | escape }}</h2>
+              <div class="zcard-price">
+                <span class="now">{{ product.price | money }}</span>
+                {%- if product.compare_at_price > product.price -%}
+                  <span class="was">{{ product.compare_at_price | money }}</span>
+                {%- endif -%}
+              </div>
+              <span class="zcard-cta">{{ section.settings.cta_label | default: 'View product' | escape }}</span>
+            </div>
+          </a>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <p class="center" style="opacity:.7;padding:48px 0">{{ section.settings.empty_text | escape }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+<style>
+  .zcol{padding:48px 0 72px}
+  .zcol-head{margin-bottom:32px}
+  .zcol-sub{max-width:620px;margin:12px auto 0;color:var(--muted)}
+  .zcol-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  @media(min-width:760px){.zcol-grid{grid-template-columns:repeat(3,1fr);gap:28px}}
+  .zcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none;color:var(--ink);transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+  .zcard:hover{transform:translateY(-3px);border-color:#d3d7dc;box-shadow:0 18px 40px -24px rgba(16,17,20,.45)}
+  .zcard-media{position:relative;aspect-ratio:1/1;background:#fff;display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box}
+  .zcard-media img{width:100%;height:100%;object-fit:contain}
+  .zcard-ph{color:var(--muted);font-size:14px;text-align:center;padding:0 16px}
+  .zcard-flag{position:absolute;top:12px;left:12px;background:var(--accent);color:#fff;font-weight:700;font-size:12px;padding:4px 10px;border-radius:999px}
+  .zcard-body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px}
+  .zcard-title{font-size:16px;font-weight:700;margin:0;line-height:1.3;color:var(--ink)}
+  .zcard-price{display:flex;align-items:baseline;gap:8px}
+  .zcard-price .now{font-weight:700;color:var(--ink)}
+  .zcard-price .was{color:var(--muted);text-decoration:line-through;font-size:14px}
+  .zcard-cta{margin-top:8px;font-size:14px;font-weight:700;color:var(--accent)}
+</style>
+
+{% schema %}
+{
+  "name": "Zooryn — Collection",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre (vide = nom de la collection)" },
+    { "type": "textarea", "id": "subheading", "label": "Sous-titre (optionnel)" },
+    { "type": "text", "id": "cta_label", "label": "Libellé bouton carte", "default": "View product" },
+    { "type": "text", "id": "empty_text", "label": "Texte si collection vide", "default": "No products in this collection yet." }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,86 @@
+{%- comment -%}
+  Zooryn — Bloc marque + 3 bénéfices (page produit protège-tibias).
+  Inspiré d'une page produit foot : grande image à gauche, nom de marque + 3
+  bénéfices à icône à droite. Tout éditable dans Personnaliser. Light theme.
+{%- endcomment -%}
+<section class="zskad tint">
+  <div class="wrap zskad-grid">
+    <div class="frame zskad-media{% if section.settings.image != blank %} has-img{% endif %}">
+      {%- if section.settings.image != blank -%}
+        <img src="{{ section.settings.image | image_url: width: 1100 }}" alt="{{ section.settings.image_alt | escape }}" loading="lazy">
+      {%- else -%}
+        <span>{{ section.settings.frame_label | escape }}</span>
+      {%- endif -%}
+    </div>
+    <div class="zskad-body">
+      <h2 class="display">{{ section.settings.heading | escape }}</h2>
+      {%- for block in section.blocks -%}
+        <div class="zskad-item" {{ block.shopify_attributes }}>
+          <span class="zskad-ic">
+            {%- case block.settings.icon -%}
+              {%- when 'shield' -%}<svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4-3 7-7 9-4-2-7-5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+              {%- when 'fit' -%}<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+              {%- when 'durable' -%}<svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5l2 2M20 12a8 8 0 0 1-14 5l-2-2"/><path d="M18 4v5h-5M6 20v-5h5"/></svg>
+              {%- else -%}<svg viewBox="0 0 24 24"><rect x="6" y="11" width="12" height="9" rx="2"/><path d="M9 11V8a3 3 0 0 1 6 0v3"/></svg>
+            {%- endcase -%}
+          </span>
+          <div>
+            <h3>{{ block.settings.title | escape }}</h3>
+            <p>{{ block.settings.text | escape }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .zskad{padding:64px 0}
+  .zskad-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
+  @media(min-width:860px){.zskad-grid{grid-template-columns:1fr 1fr;gap:56px}}
+  .zskad-media{aspect-ratio:1/1;align-self:stretch}
+  .zskad-body{display:flex;flex-direction:column;gap:26px}
+  .zskad-body .display{font-size:var(--t-h1);margin-bottom:2px}
+  .zskad-item{display:flex;align-items:flex-start;gap:18px}
+  .zskad-ic{flex:none;width:52px;height:52px;display:flex;align-items:center;justify-content:center;border-radius:14px;background:#fff;border:1px solid var(--line)}
+  .zskad-ic svg{width:28px;height:28px;fill:none;stroke:var(--accent);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .zskad-item h3{font-size:21px;font-weight:800;line-height:1.2;margin:0 0 4px}
+  .zskad-item p{color:var(--muted);font-size:15px;line-height:1.6;margin:0}
+</style>
+
+{% schema %}
+{
+  "name": "Zooryn — Bénéfices",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image (carrée, ~1100px)" },
+    { "type": "text", "id": "image_alt", "label": "Texte alternatif (SEO)", "default": "Zooryn Shin Protectors close-up" },
+    { "type": "text", "id": "frame_label", "label": "Libellé cadre (si pas d'image)", "default": "Product close-up" },
+    { "type": "text", "id": "heading", "label": "Titre / marque", "default": "ZOORYN" }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Bénéfice",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icône", "default": "shield",
+          "options": [
+            { "value": "shield", "label": "Bouclier (protection)" },
+            { "value": "lock", "label": "Cadenas (maintien)" },
+            { "value": "fit", "label": "Cible (ajustement)" },
+            { "value": "durable", "label": "Cycle (durabilité)" }
+          ] },
+        { "type": "text", "id": "title", "label": "Titre", "default": "Unmatched protection" },
+        { "type": "textarea", "id": "text", "label": "Texte", "default": "A flexible honeycomb shield absorbs every knock and tackle, with full coverage that never feels rigid or bulky." }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "benefit", "settings": { "icon": "shield", "title": "Unmatched protection", "text": "A flexible honeycomb shield absorbs every knock and tackle, with full coverage that never feels rigid or bulky." } },
+      { "type": "benefit", "settings": { "icon": "lock", "title": "Locked-in fit", "text": "The compression sleeve grips your shin and your foot, so the guard never slides, twists or needs taping mid-match." } },
+      { "type": "benefit", "settings": { "icon": "durable", "title": "Built to last", "text": "Holds its shape and grip wash after wash at 30°C, ready for every training session and game day." } }
+    ]
+  }
+}
+{% endschema %}

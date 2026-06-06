@@ -1402,8 +1402,9 @@
               "pack": "×1",
               "label": "1 Pair",
               "ship": "Free Shipping",
-              "price_now": "£24.99",
-              "price_was": "£34.99",
+              "price_now": "£23.99",
+              "price_was": "£39.99",
+              "savings": "Save 40%",
               "qty": 1
             }
           },
@@ -1411,28 +1412,45 @@
             "type": "tier",
             "settings": {
               "selected": true,
-              "flag": "Most popular 🔥",
+              "flag": "Most popular",
               "flag_hot": true,
-              "pack": "×3",
-              "label": "2 + 1 Free",
+              "pack": "×2",
+              "label": "2 Pairs",
               "ship": "Free Shipping",
-              "price_now": "£49.98",
-              "price_was": "£74.97",
-              "qty": 3
+              "price_now": "£31.99",
+              "price_was": "£63.99",
+              "savings": "Save 50%",
+              "qty": 2
             }
           },
           "sculpted-buybox-shin-11": {
             "type": "tier",
             "settings": {
               "selected": false,
-              "flag": "Best value 💎",
+              "flag": "",
               "flag_hot": false,
-              "pack": "×6",
-              "label": "4 + 2 Free",
+              "pack": "×3",
+              "label": "3 Pairs",
               "ship": "Free Shipping",
-              "price_now": "£99.96",
-              "price_was": "£149.94",
-              "qty": 6
+              "price_now": "£39.99",
+              "price_was": "£99.99",
+              "savings": "Save 60%",
+              "qty": 3
+            }
+          },
+          "sculpted-buybox-shin-20": {
+            "type": "tier",
+            "settings": {
+              "selected": false,
+              "flag": "",
+              "flag_hot": false,
+              "pack": "×4",
+              "label": "4 Pairs",
+              "ship": "Free Shipping",
+              "price_now": "£47.99",
+              "price_was": "£159.99",
+              "savings": "Save 70%",
+              "qty": 4
             }
           },
           "sculpted-buybox-shin-12": {
@@ -1502,6 +1520,7 @@
           "sculpted-buybox-shin-9",
           "sculpted-buybox-shin-10",
           "sculpted-buybox-shin-11",
+          "sculpted-buybox-shin-20",
           "sculpted-buybox-shin-12",
           "sculpted-buybox-shin-13",
           "sculpted-buybox-shin-14",
@@ -1712,7 +1731,7 @@
           "subtitle": "Performance gear for health, sport and everyday confidence.",
           "btn1_label": "Shop now",
           "btn1_link": "",
-          "btn2_label": "Our story",
+          "btn2_label": "",
           "btn2_link": ""
         }
       },
@@ -2035,6 +2054,21 @@
           "verified_label": "✓ Verified",
           "visible_count": 18,
           "more_label": "Load more reviews →"
+        }
+      },
+      "sculpted-cart-drawer": {
+        "type": "sculpted-cart-drawer",
+        "settings": {
+          "heading": "Your cart",
+          "gift_badge": "Free gift",
+          "free_label": "Free",
+          "savings_label": "You save",
+          "subtotal_label": "Subtotal",
+          "shipping_note": "Shipping & taxes calculated at checkout.",
+          "checkout_label": "Checkout",
+          "continue_label": "Continue shopping",
+          "empty_text": "Your cart is empty.",
+          "empty_btn": "Shop now"
         }
       }
     },

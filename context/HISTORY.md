@@ -7,6 +7,32 @@
 
 ---
 
+## 2026-06-06 (mise à jour 3)
+
+### Lecture des premiers chiffres Meta Ads (22h de run)
+
+Premier bilan de la campagne « Sculpted 04/06/26 » via le MCP Facebook Ads.
+
+**Résultats bruts (22h, budget ~£50/jour) :**
+- £34.34 dépensés
+- 1 315 impressions, 1 103 reach, frequency 1.19
+- 34 clics, CTR 2.59%, CPC £1.01, CPM £26.11
+- 22 landing page views, 16 content views
+- 0 add to cart, 1 checkout initié, 0 achat
+
+**Analyse par pub :**
+- Meilleures : AD7 (CPC £0.77, CPM £18.84), AD3 (volume max, CPM £19.66), AD4 (CTR 3.05%, bon hook 26 plays 3s)
+- Sous-performantes : AD5 (0 clic, CPM £50.53), AD1 (CPC £1.74), AD2 (CPC link £2.77)
+- AD6 : CTR explosif 6.45% mais CPM £61.45, trop peu de volume pour conclure
+
+**Lecture de l'entonnoir :** 33 clics → 22 LP views → 16 content views → 0 add to cart → 1 checkout → 0 achat. Le frein est sur la page produit, pas sur la créa (CTR correct).
+
+**Décision actée :** ne pas couper avant que le budget 24h soit entièrement consommé. Analyse finale demain matin selon la règle kill/continue.
+
+**Page "Our Story" Zooryn :** section + template créés (`zooryn-story-page.liquid` + `page.zooryn-story.liquid`), committés `5dd002d`. Page dédiée à l'histoire de la marque ombrelle, éditable dans Personnaliser.
+
+---
+
 ## 2026-06-06 (mise à jour 2)
 
 ### ✅ Audit pré-lancement clos : les 3 bloqueurs levés

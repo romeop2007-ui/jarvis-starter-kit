@@ -179,7 +179,7 @@ Cette règle s'applique sans qu'il soit nécessaire que Roméo le redemande. Ell
 **Règles que Claude doit appliquer automatiquement, sans que Roméo le redemande :**
 
 1. **Toujours `pull` avant de toucher à la boutique.** Avant toute intervention sur le thème, Claude lance d'abord :
-   `shopify theme pull --store cqqah9-t1.myshopify.com --theme 200683258201 --only config/settings_data.json --path "livrables/ecommerce/boutiques/sculpted-shopify"`
+   `shopify theme pull --store cqqah9-t1.myshopify.com --theme 201043444057 --only config/settings_data.json --path "livrables/ecommerce/boutiques/sculpted-shopify"`
    pour récupérer dans les fichiers locaux le travail le plus récent de Roméo (textes, photos, réglages). Ça garantit qu'on part toujours de son état à jour et qu'on n'écrase rien.
 
 2. **Séparation des rôles = source de vérité par fichier :**

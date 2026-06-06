@@ -1404,7 +1404,6 @@
               "ship": "Free Shipping",
               "price_now": "£23.99",
               "price_was": "£39.99",
-              "savings": "Save 40%",
               "qty": 1
             }
           },
@@ -1419,7 +1418,6 @@
               "ship": "Free Shipping",
               "price_now": "£31.99",
               "price_was": "£63.99",
-              "savings": "Save 50%",
               "qty": 2
             }
           },
@@ -1434,7 +1432,6 @@
               "ship": "Free Shipping",
               "price_now": "£39.99",
               "price_was": "£99.99",
-              "savings": "Save 60%",
               "qty": 3
             }
           },
@@ -1449,7 +1446,6 @@
               "ship": "Free Shipping",
               "price_now": "£47.99",
               "price_was": "£159.99",
-              "savings": "Save 70%",
               "qty": 4
             }
           },

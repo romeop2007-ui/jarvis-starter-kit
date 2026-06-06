@@ -1,0 +1,51 @@
+{%- comment -%}
+  Zooryn — FAQ protège-tibias (page produit dédiée).
+  Même structure que la FAQ de la home, contenu indépendant. 1 bloc par question.
+{%- endcomment -%}
+<section class="faq tint" id="faq-shin">
+  <div class="wrap">
+    <div class="faq-head">
+      <p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      <h2 class="display" style="text-transform:none">{{ section.settings.heading | escape }}</h2>
+    </div>
+    <div class="faq-list acc">
+      {%- for block in section.blocks -%}
+        <details class="row" {{ block.shopify_attributes }}><summary>{{ block.settings.question | escape }} <span class="pm">+</span></summary>
+          <div class="body">{{ block.settings.answer | escape }}</div></details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Zooryn — FAQ",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "FAQ" },
+    { "type": "textarea", "id": "heading", "label": "Titre", "default": "Frequently asked questions" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Do the shin guards really stay in place?" },
+        { "type": "textarea", "id": "answer", "label": "Réponse", "default": "Yes. The integrated lock-in sleeve grips the guard and the compression knit holds your leg, so the guard stays put for the full 90 — no tape needed." }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "item", "settings": { "question": "Who are Zooryn Shin Protectors for?", "answer": "Any footballer — from grassroots and Sunday League to semi-pro — who's sick of taping their socks and chasing slipping shin guards. They're also a favourite with parents buying for younger players." } },
+      { "type": "item", "settings": { "question": "Do the shin guards really stay in place?", "answer": "Yes. The integrated lock-in sleeve grips the guard and the compression knit holds your leg, so the guard stays put for the full 90 — no tape needed." } },
+      { "type": "item", "settings": { "question": "Are they match-legal?", "answer": "They're designed to meet standard shin guard regulations. Leagues vary, so always check your competition's specific rules before play." } },
+      { "type": "item", "settings": { "question": "Is the grip on the sole allowed?", "answer": "Yes. The anti-slip pads sit inside your boot and simply stop your foot sliding — the same idea as the grip socks worn across professional football." } },
+      { "type": "item", "settings": { "question": "How do I choose my size?", "answer": "Pick by shoe size using the size guide. We offer free size exchanges within 30 days if you're between sizes." } },
+      { "type": "item", "settings": { "question": "Can I machine wash them?", "answer": "Yes — wash at 30°C on a gentle cycle and hang to dry. Avoid bleach, tumble drying and ironing the grip pads." } },
+      { "type": "item", "settings": { "question": "Are they comfortable or too tight?", "answer": "Firm but breathable. The compression is what keeps everything locked in, but it shouldn't cut in — pick the right size and they feel like a second skin." } },
+      { "type": "item", "settings": { "question": "Will they fit a child?", "answer": "Yes, we stock a Kids UK 10-2 size. Measure by shoe size and size up if your child is between sizes or still growing." } }
+    ]
+  }
+}
+{% endschema %}

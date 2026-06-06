@@ -158,8 +158,8 @@
           "sculpted-header-1": {
             "type": "link",
             "settings": {
-              "label": "Sculpted",
-              "url": "/products/sculptd-compression-shaping-tank-top"
+              "label": "Collection",
+              "url": "shopify://collections/zooryn-shin-protectors"
             }
           },
           "sculpted-header-2": {
@@ -979,7 +979,7 @@
           "sculpted-footer-1": {
             "type": "menu_link",
             "settings": {
-              "label": "Sculpted",
+              "label": "Collection",
               "url": "/products/sculptd-compression-shaping-tank-top"
             }
           },
@@ -1321,6 +1321,376 @@
           "placeholder": "Tracking number",
           "button_label": "Track",
           "not_found": "We couldn't find that tracking number yet. Newly shipped orders can take up to 24 hours to appear — please try again shortly."
+        }
+      },
+      "sculpted-collection": {
+        "type": "sculpted-collection",
+        "settings": {
+          "heading": "",
+          "subheading": "",
+          "cta_label": "View product",
+          "empty_text": "No products in this collection yet."
+        }
+      },
+      "sculpted-buybox-shin": {
+        "type": "sculpted-buybox-shin",
+        "blocks": {
+          "sculpted-buybox-shin-0": {
+            "type": "thumb",
+            "settings": {
+              "label": "1"
+            }
+          },
+          "sculpted-buybox-shin-1": {
+            "type": "thumb",
+            "settings": {
+              "label": "2"
+            }
+          },
+          "sculpted-buybox-shin-2": {
+            "type": "thumb",
+            "settings": {
+              "label": "3"
+            }
+          },
+          "sculpted-buybox-shin-3": {
+            "type": "thumb",
+            "settings": {
+              "label": "4"
+            }
+          },
+          "sculpted-buybox-shin-4": {
+            "type": "thumb",
+            "settings": {
+              "label": "5"
+            }
+          },
+          "sculpted-buybox-shin-5": {
+            "type": "bullet",
+            "settings": {
+              "text": "No tape, no slipping",
+              "explain": "An integrated lock-in sleeve grips your shin guard and holds it dead still for the full 90 minutes — no sock tape, no readjusting, no guard sliding down to your ankle."
+            }
+          },
+          "sculpted-buybox-shin-6": {
+            "type": "bullet",
+            "settings": {
+              "text": "Pro-level grip in your boots",
+              "explain": "Anti-slip silicone pads lock your foot inside the boot, killing the in-shoe slide that costs you sharp turns, sprints and balance on the pitch."
+            }
+          },
+          "sculpted-buybox-shin-7": {
+            "type": "bullet",
+            "settings": {
+              "text": "Lightweight protection that moves with you",
+              "explain": "A slim, flexible shin shield absorbs impact without the bulky, sweaty feel of old-school guards — full protection you forget you're wearing."
+            }
+          },
+          "sculpted-buybox-shin-8": {
+            "type": "bullet",
+            "settings": {
+              "text": "Match-legal & machine washable",
+              "explain": "Meets standard match regulations and washes clean at 30°C, keeping its grip and shape wash after wash."
+            }
+          },
+          "sculpted-buybox-shin-9": {
+            "type": "tier",
+            "settings": {
+              "selected": false,
+              "flag": "",
+              "flag_hot": false,
+              "pack": "×1",
+              "label": "1 Pair",
+              "ship": "Free Shipping",
+              "price_now": "£24.99",
+              "price_was": "£34.99",
+              "qty": 1
+            }
+          },
+          "sculpted-buybox-shin-10": {
+            "type": "tier",
+            "settings": {
+              "selected": true,
+              "flag": "Most popular 🔥",
+              "flag_hot": true,
+              "pack": "×3",
+              "label": "2 + 1 Free",
+              "ship": "Free Shipping",
+              "price_now": "£49.98",
+              "price_was": "£74.97",
+              "qty": 3
+            }
+          },
+          "sculpted-buybox-shin-11": {
+            "type": "tier",
+            "settings": {
+              "selected": false,
+              "flag": "Best value 💎",
+              "flag_hot": false,
+              "pack": "×6",
+              "label": "4 + 2 Free",
+              "ship": "Free Shipping",
+              "price_now": "£99.96",
+              "price_was": "£149.94",
+              "qty": 6
+            }
+          },
+          "sculpted-buybox-shin-12": {
+            "type": "ugc",
+            "settings": {
+              "label": "Match footage"
+            }
+          },
+          "sculpted-buybox-shin-13": {
+            "type": "ugc",
+            "settings": {
+              "label": "Try-on video"
+            }
+          },
+          "sculpted-buybox-shin-14": {
+            "type": "ugc",
+            "settings": {
+              "label": "Testimonial video"
+            }
+          },
+          "sculpted-buybox-shin-15": {
+            "type": "detail",
+            "settings": {
+              "summary": "Product details",
+              "body": "Compression knit sock with an integrated lock-in shin guard pocket, a slim impact-absorbing shield, anti-slip silicone grip pads on the sole and reinforced ankle support. Breathable, tagless, built for 90 minutes."
+            }
+          },
+          "sculpted-buybox-shin-16": {
+            "type": "detail",
+            "settings": {
+              "summary": "Size & comfort",
+              "body": "Pick by shoe size using the guide below. The compression knit holds firm without cutting in, so the guard stays put and your foot stays locked in your boot."
+            }
+          },
+          "sculpted-buybox-shin-17": {
+            "type": "detail",
+            "settings": {
+              "summary": "Care",
+              "body": "Machine wash at 30°C on a gentle cycle. Do not bleach, do not tumble dry, do not iron the grip pads. Hang to dry to keep the grip and elasticity."
+            }
+          },
+          "sculpted-buybox-shin-18": {
+            "type": "detail",
+            "settings": {
+              "summary": "Match-legal",
+              "body": "Designed to meet standard shin guard match regulations. Leagues vary, so always check your competition's specific rules before play."
+            }
+          },
+          "sculpted-buybox-shin-19": {
+            "type": "detail",
+            "settings": {
+              "summary": "30-day money-back",
+              "body": "Not happy within 30 days? Send them back for a full refund — no questions asked."
+            }
+          }
+        },
+        "block_order": [
+          "sculpted-buybox-shin-0",
+          "sculpted-buybox-shin-1",
+          "sculpted-buybox-shin-2",
+          "sculpted-buybox-shin-3",
+          "sculpted-buybox-shin-4",
+          "sculpted-buybox-shin-5",
+          "sculpted-buybox-shin-6",
+          "sculpted-buybox-shin-7",
+          "sculpted-buybox-shin-8",
+          "sculpted-buybox-shin-9",
+          "sculpted-buybox-shin-10",
+          "sculpted-buybox-shin-11",
+          "sculpted-buybox-shin-12",
+          "sculpted-buybox-shin-13",
+          "sculpted-buybox-shin-14",
+          "sculpted-buybox-shin-15",
+          "sculpted-buybox-shin-16",
+          "sculpted-buybox-shin-17",
+          "sculpted-buybox-shin-18",
+          "sculpted-buybox-shin-19"
+        ],
+        "settings": {
+          "product": "",
+          "main_frame_label": "Product — Black & White, \"Buy 2 + 1 Free\"",
+          "rating_text": "Excellent · 4,200+ reviews",
+          "title": "Zooryn™ Shin Protectors | Lock-In Grip Socks",
+          "desc": "The shin guard socks that lock in place, grip your boots and protect every tackle — no tape, no slipping, all match long.",
+          "stock_text": "● Only 7 pairs left in stock.",
+          "size_link_label": "Size guide",
+          "size_anchor": "#size",
+          "promo_label": "Limited-time sale · 24h",
+          "color_label": "Colour",
+          "colors": "Black, White",
+          "size_label": "Size",
+          "sizes": "XS, S, M, L, XL",
+          "opts_head": "Choose colour & size for each pair",
+          "lc_badge_a": "🔒 30-day money-back",
+          "lc_badge_b": "⏳ Low stock!",
+          "buy_btn_label": "Buy now",
+          "buy_btn_color": "#f6c000",
+          "pay_row": "AMEX, Apple Pay, G Pay, Mastercard, PayPal, Shop, VISA"
+        }
+      },
+      "sculpted-skador-shin": {
+        "type": "sculpted-skador-shin",
+        "blocks": {
+          "sculpted-skador-shin-0": {
+            "type": "benefit",
+            "settings": {
+              "icon": "shield",
+              "title": "Unmatched protection",
+              "text": "A flexible honeycomb shield absorbs every knock and tackle, with full coverage that never feels rigid or bulky."
+            }
+          },
+          "sculpted-skador-shin-1": {
+            "type": "benefit",
+            "settings": {
+              "icon": "lock",
+              "title": "Locked-in fit",
+              "text": "The compression sleeve grips your shin and your foot, so the guard never slides, twists or needs taping mid-match."
+            }
+          },
+          "sculpted-skador-shin-2": {
+            "type": "benefit",
+            "settings": {
+              "icon": "durable",
+              "title": "Built to last",
+              "text": "Holds its shape and grip wash after wash at 30°C, ready for every training session and game day."
+            }
+          }
+        },
+        "block_order": [
+          "sculpted-skador-shin-0",
+          "sculpted-skador-shin-1",
+          "sculpted-skador-shin-2"
+        ],
+        "settings": {
+          "image_alt": "Zooryn Shin Protectors close-up",
+          "frame_label": "Product close-up",
+          "heading": "Zooryn™ Shin Protectors"
+        }
+      },
+      "sculpted-proof-shin": {
+        "type": "sculpted-proof-shin",
+        "blocks": {
+          "sculpted-proof-shin-0": {
+            "type": "testimonial",
+            "settings": {
+              "name": "Liam — Sunday League",
+              "quote": "I used to tape both legs every game. First match in these I forgot I had guards on. They don't move. Done with tape for good."
+            }
+          },
+          "sculpted-proof-shin-1": {
+            "type": "testimonial",
+            "settings": {
+              "name": "Sophie — football mum",
+              "quote": "My son kept losing his shin pads and moaning they slid down. He actually keeps these on now. No more arguments before training."
+            }
+          },
+          "sculpted-proof-shin-2": {
+            "type": "testimonial",
+            "settings": {
+              "name": "Marcus — semi-pro",
+              "quote": "The in-boot grip is the real surprise. My feet don't slide on quick turns anymore. Sharper, more stable, more confident on the ball."
+            }
+          },
+          "sculpted-proof-shin-3": {
+            "type": "testimonial",
+            "settings": {
+              "name": "Aaron — grassroots coach",
+              "quote": "Half my squad turned up with guards held on by hope. Showed them these. Now it's what the whole team wears."
+            }
+          }
+        },
+        "block_order": [
+          "sculpted-proof-shin-0",
+          "sculpted-proof-shin-1",
+          "sculpted-proof-shin-2",
+          "sculpted-proof-shin-3"
+        ],
+        "settings": {
+          "heading": "Here's what parents and players say",
+          "rating_label": "Excellent",
+          "rating_value": "4.8 / 5",
+          "link_label": "Verified reviews on Trustpilot",
+          "link_url": ""
+        }
+      },
+      "sculpted-faq-shin": {
+        "type": "sculpted-faq-shin",
+        "blocks": {
+          "sculpted-faq-shin-0": {
+            "type": "item",
+            "settings": {
+              "question": "Who are Zooryn Shin Protectors for?",
+              "answer": "Any footballer — from grassroots and Sunday League to semi-pro — who's sick of taping their socks and chasing slipping shin guards. They're also a favourite with parents buying for younger players."
+            }
+          },
+          "sculpted-faq-shin-1": {
+            "type": "item",
+            "settings": {
+              "question": "Do the shin guards really stay in place?",
+              "answer": "Yes. The integrated lock-in sleeve grips the guard and the compression knit holds your leg, so the guard stays put for the full 90 — no tape needed."
+            }
+          },
+          "sculpted-faq-shin-2": {
+            "type": "item",
+            "settings": {
+              "question": "Are they match-legal?",
+              "answer": "They're designed to meet standard shin guard regulations. Leagues vary, so always check your competition's specific rules before play."
+            }
+          },
+          "sculpted-faq-shin-3": {
+            "type": "item",
+            "settings": {
+              "question": "Is the grip on the sole allowed?",
+              "answer": "Yes. The anti-slip pads sit inside your boot and simply stop your foot sliding — the same idea as the grip socks worn across professional football."
+            }
+          },
+          "sculpted-faq-shin-4": {
+            "type": "item",
+            "settings": {
+              "question": "How do I choose my size?",
+              "answer": "Pick by shoe size using the size guide. We offer free size exchanges within 30 days if you're between sizes."
+            }
+          },
+          "sculpted-faq-shin-5": {
+            "type": "item",
+            "settings": {
+              "question": "Can I machine wash them?",
+              "answer": "Yes — wash at 30°C on a gentle cycle and hang to dry. Avoid bleach, tumble drying and ironing the grip pads."
+            }
+          },
+          "sculpted-faq-shin-6": {
+            "type": "item",
+            "settings": {
+              "question": "Are they comfortable or too tight?",
+              "answer": "Firm but breathable. The compression is what keeps everything locked in, but it shouldn't cut in — pick the right size and they feel like a second skin."
+            }
+          },
+          "sculpted-faq-shin-7": {
+            "type": "item",
+            "settings": {
+              "question": "Will they fit a child?",
+              "answer": "Yes, we stock a Kids UK 10-2 size. Measure by shoe size and size up if your child is between sizes or still growing."
+            }
+          }
+        },
+        "block_order": [
+          "sculpted-faq-shin-0",
+          "sculpted-faq-shin-1",
+          "sculpted-faq-shin-2",
+          "sculpted-faq-shin-3",
+          "sculpted-faq-shin-4",
+          "sculpted-faq-shin-5",
+          "sculpted-faq-shin-6",
+          "sculpted-faq-shin-7"
+        ],
+        "settings": {
+          "eyebrow": "FAQ",
+          "heading": "Frequently asked questions"
         }
       }
     },

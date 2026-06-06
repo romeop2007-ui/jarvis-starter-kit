@@ -1,0 +1,470 @@
+{%- comment -%}
+  Zooryn — Boîte d'achat PROTÈGE-TIBIAS (page produit dédiée).
+  Copie de sculpted-buybox avec un nom de section distinct : une section statique ne
+  peut appartenir qu'à un seul template à la fois. Utilisée uniquement dans
+  templates/product.shin-protectors.liquid → contenu indépendant de la fiche Sculpted.
+
+  Bouton "Buy now" FONCTIONNEL : ajoute au panier le variant du produit lié
+  (réglage "Produit Shopify" ou, sur la page produit, le produit courant) avec la
+  quantité du palier choisi, puis redirige vers la page panier.
+{%- endcomment -%}
+
+{%- assign sc_prod = all_products[section.settings.product] -%}
+{%- if sc_prod == blank and product != blank -%}
+  {%- assign sc_prod = product -%}
+{%- endif -%}
+{%- assign sc_vid = sc_prod.selected_or_first_available_variant.id -%}
+{%- assign colors = section.settings.colors | split: ',' -%}
+{%- assign sizes = section.settings.sizes | split: ',' -%}
+
+<section id="product">
+  <div class="wrap">
+    <div class="buy-grid">
+
+      {%- comment -%} -------- Galerie -------- {%- endcomment -%}
+      {%- if sc_prod != blank and sc_prod.images.size > 0 -%}
+        <div class="gallery">
+          <div class="thumbs">
+            {%- for image in sc_prod.images -%}
+              <div class="frame has-img{% if forloop.first %} sel{% endif %}" onclick="sculptedSwapHero(this)" data-full="{{ image | image_url: width: 1000 }}">
+                <img src="{{ image | image_url: width: 200 }}" alt="{{ image.alt | default: sc_prod.title | escape }}" loading="lazy">
+              </div>
+            {%- endfor -%}
+          </div>
+          <div class="frame hero-img has-img">
+            <img id="sc-hero-img" src="{{ sc_prod.featured_image | image_url: width: 1000 }}" alt="{{ sc_prod.title | escape }}" loading="lazy">
+          </div>
+        </div>
+      {%- else -%}
+        <div class="gallery">
+          <div class="thumbs">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'thumb' -%}
+                <div class="frame{% if block.settings.image != blank %} has-img{% endif %}" {{ block.shopify_attributes }}>
+                  {%- if block.settings.image != blank -%}
+                    <img src="{{ block.settings.image | image_url: width: 200 }}" alt="" loading="lazy">
+                  {%- else -%}
+                    <span>{{ block.settings.label | escape }}</span>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+          <div class="frame hero-img{% if section.settings.main_image != blank %} has-img{% endif %}">
+            {%- if section.settings.main_image != blank -%}
+              <img src="{{ section.settings.main_image | image_url: width: 1000 }}" alt="{{ section.settings.title | escape }}" loading="lazy">
+            {%- else -%}
+              <span>{{ section.settings.main_frame_label | escape }}</span>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- comment -%} -------- Infos achat -------- {%- endcomment -%}
+      <div class="buy-info" data-colors="{{ section.settings.colors | escape }}" data-sizes="{{ section.settings.sizes | escape }}" data-color-label="{{ section.settings.color_label | default: 'Colour' | escape }}" data-size-label="{{ section.settings.size_label | default: 'Size' | escape }}" data-items-head="{{ section.settings.opts_head | default: 'Choose colour & size for each pair' | escape }}">
+        <div class="rating"><span class="stars">★★★★★</span> {{ section.settings.rating_text | escape }}</div>
+        <h2>{{ section.settings.title | escape }}</h2>
+        <p class="desc">{{ section.settings.desc | escape }}</p>
+
+        <div class="bullets">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'bullet' -%}
+              {%- assign bn_desc = block.settings.explain -%}
+              {%- if bn_desc == blank -%}
+                {%- case block.settings.text -%}
+                  {%- when 'Pro-level grip in your boots' -%}{%- assign bn_desc = 'Anti-slip silicone pads lock your foot inside the boot, killing the in-shoe slide that costs you sharp turns, sprints and balance on the pitch.' -%}
+                  {%- when 'Lightweight protection that moves with you' -%}{%- assign bn_desc = 'A slim, flexible shin shield absorbs impact without the bulky, sweaty feel of old-school guards — full protection you forget you are wearing.' -%}
+                  {%- when 'Match-legal & machine washable' -%}{%- assign bn_desc = 'Meets standard match regulations and washes clean at 30°C, keeping its grip and shape wash after wash.' -%}
+                  {%- else -%}{%- assign bn_desc = 'An integrated lock-in sleeve grips your shin guard and holds it dead still for the full 90 minutes — no sock tape, no readjusting, no guard sliding down to your ankle.' -%}
+                {%- endcase -%}
+              {%- endif -%}
+              <button type="button" class="bullet" data-bn-open="{{ section.id }}" data-title="{{ block.settings.text | escape }}" data-desc="{{ bn_desc | escape }}" {{ block.shopify_attributes }}>
+                <svg class="ic" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
+                <span class="bn-txt">{{ block.settings.text | escape }}</span>
+                <svg class="bn-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v4.5"/><path d="M12 8h.01"/></svg>
+              </button>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+
+        <div class="stock">{{ section.settings.stock_text }}</div>
+        <button type="button" class="size-link" data-sg-open="{{ section.id }}"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px"><rect x="3" y="9" width="18" height="6" rx="1"/><path d="M7 9v3M11 9v4M15 9v3"/></svg> {{ section.settings.size_link_label | escape }}</button>
+
+        <p class="promo-label">{{ section.settings.promo_label | escape }}</p>
+
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'tier' -%}
+            <div class="tier{% if block.settings.selected %} sel{% endif %}" data-qty="{{ block.settings.qty | default: 1 }}" onclick="sculptedSelectTier(this)" {{ block.shopify_attributes }}>
+              <div class="tier-head">
+                {%- if block.settings.flag != blank -%}
+                  <span class="flag{% if block.settings.flag_hot %} hot{% endif %}">{{ block.settings.flag | escape }}</span>
+                {%- endif -%}
+                <span class="pack">{{ block.settings.pack | escape }}</span>
+                <span class="label">{{ block.settings.label | escape }}</span>
+                <span class="price"><span class="now">{{ block.settings.price_now | escape }}</span><br><span class="was">{{ block.settings.price_was | escape }}</span></span>
+              </div>
+              {%- if block.settings.ship != blank -%}
+                <div class="tier-ship"><span class="ship">{{ block.settings.ship | escape }}</span></div>
+              {%- endif -%}
+              <div class="tier-items" onclick="event.stopPropagation()"></div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+
+        <div class="last-chance">
+          <div class="lc-banner{% if section.settings.lc_banner == blank %} is-empty{% endif %}">
+            {%- if section.settings.lc_banner != blank -%}
+              <img src="{{ section.settings.lc_banner | image_url: width: 1672 }}" width="1672" height="941" alt="Buy 2 get 1 Zooryn Shin Protectors free" loading="lazy">
+            {%- else -%}
+              <span>Image 1672 × 941</span>
+            {%- endif -%}
+          </div>
+          <div class="lc-badges">
+            <span class="a">{{ section.settings.lc_badge_a }}</span>
+            <span class="b">{{ section.settings.lc_badge_b }}</span>
+          </div>
+
+          <button type="button" class="btn btn-accent btn-block sc-buy" data-vid="{{ sc_vid }}" style="background:{{ section.settings.buy_btn_color }};color:#101114" onclick="sculptedBuyNow(this)">{{ section.settings.buy_btn_label | escape }}</button>
+          <div class="pay-row">
+            {%- assign pays = section.settings.pay_row | split: ',' -%}
+            {%- for p in pays -%}{% render 'sculpted-pay-icon', name: p %}{%- endfor -%}
+          </div>
+        </div>
+
+        {%- assign has_ugc = false -%}
+        {%- for block in section.blocks -%}{%- if block.type == 'ugc' -%}{%- assign has_ugc = true -%}{%- endif -%}{%- endfor -%}
+        {%- if has_ugc -%}
+          <div class="ugc">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'ugc' -%}
+                <div class="frame{% if block.settings.video != blank %} has-img{% endif %}" {{ block.shopify_attributes }}>
+                  {%- if block.settings.video != blank -%}
+                    {{ block.settings.video | video_tag: controls: true, loop: true, muted: true, playsinline: true, preload: 'metadata' }}
+                  {%- else -%}
+                    <span>{{ block.settings.label | escape }}</span>
+                    <div class="play"><svg viewBox="0 0 24 24"><path d="M7 5v14l12-7z"/></svg></div>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        <div class="acc" style="margin-top:36px">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'detail' -%}
+              <details class="row" {{ block.shopify_attributes }}><summary>{{ block.settings.summary | escape }} <span class="pm">+</span></summary>
+                <div class="body">{{ block.settings.body | escape }}</div></details>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- comment -%} ===== POP-UP bénéfices (alimentée en JS, une seule par section) ===== {%- endcomment -%}
+<div class="bn-modal" id="bn-modal-{{ section.id }}" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="bn-modal__backdrop" data-bn-close="{{ section.id }}"></div>
+  <div class="bn-modal__box" role="document">
+    <button type="button" class="bn-modal__x" data-bn-close="{{ section.id }}" aria-label="Close">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="bn-modal__icon"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></div>
+    <h3 class="bn-modal__title"><span data-bn-title></span></h3>
+    <p class="bn-modal__desc" data-bn-desc></p>
+  </div>
+</div>
+
+{%- comment -%} ===== POP-UP guide des tailles (image uploadée) ===== {%- endcomment -%}
+<div class="sg-modal" id="sg-modal-{{ section.id }}" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="sg-modal__backdrop" data-sg-close="{{ section.id }}"></div>
+  <div class="sg-modal__box" role="document">
+    <button type="button" class="bn-modal__x" data-sg-close="{{ section.id }}" aria-label="Close">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    {%- if section.settings.size_image != blank -%}
+      <img class="sg-modal__img" src="{{ section.settings.size_image | image_url: width: 1440 }}" alt="{{ section.settings.size_link_label | escape }}" loading="lazy">
+    {%- else -%}
+      <div class="sg-modal__ph"><strong>{{ section.settings.size_link_label | escape }}</strong><br>Upload your size guide image (1440×1440) in the editor.</div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+/* Galerie : clic sur une vignette produit → remplace la grande image. */
+function sculptedSwapHero(el){
+  var full = el.getAttribute('data-full');
+  var hero = document.getElementById('sc-hero-img');
+  if(full && hero){ hero.src = full; }
+  var thumbs = el.closest('.thumbs');
+  if(thumbs){ thumbs.querySelectorAll('.frame').forEach(function(f){ f.classList.remove('sel'); }); }
+  el.classList.add('sel');
+}
+
+/* Liste d'options à partir d'une chaîne "a, b, c" (vide -> tableau vide). */
+function sculptedOptList(str){
+  if(!str){ return []; }
+  return str.split(',').map(function(s){ return s.trim(); }).filter(function(s){ return s.length > 0; });
+}
+
+/* Construit un <select> (option = texte, pas de variant réel). */
+function sculptedMakeSelect(cls, label, opts){
+  var wrap = document.createElement('label'); wrap.className = 'opt';
+  var span = document.createElement('span'); span.textContent = label; wrap.appendChild(span);
+  var sel = document.createElement('select'); sel.className = cls;
+  opts.forEach(function(o){ var op = document.createElement('option'); op.textContent = o; sel.appendChild(op); });
+  wrap.appendChild(sel); return wrap;
+}
+
+/* Déplie sous le palier choisi une ligne par article (#1, #2...) avec
+   son propre menu Couleur + Taille. */
+function sculptedBuildTierItems(tier){
+  var box = tier.querySelector('.tier-items');
+  if(!box){ return; }
+  var info = tier.closest('.buy-info');
+  var qty = parseInt(tier.getAttribute('data-qty'), 10); if(!qty || qty < 1){ qty = 1; }
+  var colors = sculptedOptList(info.getAttribute('data-colors'));
+  var sizes = sculptedOptList(info.getAttribute('data-sizes'));
+  var colorLabel = info.getAttribute('data-color-label') || 'Colour';
+  var sizeLabel = info.getAttribute('data-size-label') || 'Size';
+  box.innerHTML = '';
+  if(!colors.length && !sizes.length){ return; }
+  if(info.getAttribute('data-items-head')){
+    var head = document.createElement('div'); head.className = 'tier-items__head';
+    head.textContent = info.getAttribute('data-items-head'); box.appendChild(head);
+  }
+  for(var i = 1; i <= qty; i++){
+    var row = document.createElement('div'); row.className = 'tier-row';
+    var num = document.createElement('span'); num.className = 'num'; num.textContent = '#' + i; row.appendChild(num);
+    if(colors.length){ row.appendChild(sculptedMakeSelect('sc-color', colorLabel, colors)); }
+    if(sizes.length){ row.appendChild(sculptedMakeSelect('sc-size', sizeLabel, sizes)); }
+    box.appendChild(row);
+  }
+}
+
+/* Sélection d'un palier de prix : surligne le palier choisi et (re)construit ses lignes. */
+function sculptedSelectTier(el){
+  var box = el.querySelector('.tier-items');
+  if(el.classList.contains('sel') && box && box.children.length){ return; }
+  el.closest('.buy-info').querySelectorAll('.tier').forEach(function(t){
+    t.classList.remove('sel');
+    var b = t.querySelector('.tier-items'); if(b){ b.innerHTML = ''; }
+  });
+  el.classList.add('sel');
+  sculptedBuildTierItems(el);
+}
+
+/* Au chargement : construit les lignes du palier déjà sélectionné. */
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.buy-info .tier.sel').forEach(function(t){ sculptedBuildTierItems(t); });
+});
+
+/* Buy now : vide le panier, ajoute UN article par ligne avec sa couleur/taille en propriétés. */
+function sculptedBuyNow(btn){
+  var vid = btn.getAttribute('data-vid');
+  if(!vid){ alert('Product is temporarily unavailable. Please try again later.'); return; }
+  var root = btn.closest('.buy-info');
+  var sel = root.querySelector('.tier.sel') || root.querySelector('.tier');
+  var qty = sel && sel.dataset.qty ? parseInt(sel.dataset.qty, 10) : 1;
+  if(!qty || qty < 1){ qty = 1; }
+  var items = [];
+  var rows = sel ? sel.querySelectorAll('.tier-row') : [];
+  if(rows && rows.length){
+    rows.forEach(function(row){
+      var props = {};
+      var c = row.querySelector('.sc-color'); if(c){ props['Colour'] = c.value; }
+      var s = row.querySelector('.sc-size'); if(s){ props['Size'] = s.value; }
+      items.push({ id: vid, quantity: 1, properties: props });
+    });
+  } else {
+    items.push({ id: vid, quantity: qty });
+  }
+  var orig = btn.textContent;
+  btn.disabled = true; btn.textContent = 'Adding…';
+  fetch('/cart/clear.js', { method: 'POST', headers: { 'Content-Type': 'application/json' } })
+    .then(function(){
+      return fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: items })
+      });
+    })
+    .then(function(r){ if(!r.ok){ throw new Error('add failed'); } return r.json(); })
+    .then(function(){ window.location.href = '/cart'; })
+    .catch(function(){ btn.disabled = false; btn.textContent = orig; alert('Something went wrong adding to cart. Please try again.'); });
+}
+
+/* Pop-up bénéfices : clic sur une ligne → ouvre l'explication. */
+(function(){
+  var uid = {{ section.id | json }};
+  var modal = document.getElementById('bn-modal-' + uid);
+  if(!modal) return;
+  var elTitle = modal.querySelector('[data-bn-title]');
+  var elDesc  = modal.querySelector('[data-bn-desc]');
+  var last = null;
+  function open(btn){
+    elTitle.textContent = btn.getAttribute('data-title') || '';
+    elDesc.textContent  = btn.getAttribute('data-desc') || '';
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow = 'hidden';
+    last = btn;
+  }
+  function close(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    document.documentElement.style.overflow = '';
+    if(last){ last.focus(); last = null; }
+  }
+  document.querySelectorAll('[data-bn-open="' + uid + '"]').forEach(function(b){
+    b.addEventListener('click', function(){ open(b); });
+  });
+  modal.querySelectorAll('[data-bn-close="' + uid + '"]').forEach(function(e){
+    e.addEventListener('click', close);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('is-open')) close();
+  });
+})();
+
+/* Pop-up guide des tailles : clic sur le lien → ouvre l'image (pas de scroll). */
+(function(){
+  var uid = {{ section.id | json }};
+  var modal = document.getElementById('sg-modal-' + uid);
+  if(!modal) return;
+  var last = null;
+  function open(btn){
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow = 'hidden';
+    last = btn;
+  }
+  function close(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    document.documentElement.style.overflow = '';
+    if(last){ last.focus(); last = null; }
+  }
+  document.querySelectorAll('[data-sg-open="' + uid + '"]').forEach(function(b){
+    b.addEventListener('click', function(e){ e.preventDefault(); open(b); });
+  });
+  modal.querySelectorAll('[data-sg-close="' + uid + '"]').forEach(function(e){
+    e.addEventListener('click', close);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('is-open')) close();
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Zooryn — Tibias",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "Produit lié (bouton Buy now)" },
+    { "type": "product", "id": "product", "label": "Produit Shopify" },
+    { "type": "paragraph", "content": "Sur la page produit, le produit courant est utilisé automatiquement si ce champ est vide." },
+    { "type": "header", "content": "Galerie (repli uniquement)" },
+    { "type": "paragraph", "content": "La galerie utilise automatiquement les photos de l'onglet Produit. Ces réglages ne servent que si le produit n'a aucune photo." },
+    { "type": "image_picker", "id": "main_image", "label": "Image principale (repli)" },
+    { "type": "text", "id": "main_frame_label", "label": "Libellé cadre principal (si pas d'image)", "default": "Product — Black & White, \"Buy 2 + 1 Free\"" },
+    { "type": "header", "content": "Titre & description" },
+    { "type": "text", "id": "rating_text", "label": "Ligne de note", "default": "Excellent · 4,200+ reviews" },
+    { "type": "text", "id": "title", "label": "Titre produit", "default": "Zooryn™ Shin Protectors | Lock-In Grip Socks" },
+    { "type": "textarea", "id": "desc", "label": "Description", "default": "The shin guard socks that lock in place, grip your boots and protect every tackle — no tape, no slipping, all match long." },
+    { "type": "text", "id": "stock_text", "label": "Bandeau stock", "default": "● Only 7 pairs left in stock." },
+    { "type": "text", "id": "size_link_label", "label": "Libellé lien guide des tailles", "default": "Size guide" },
+    { "type": "image_picker", "id": "size_image", "label": "Image guide des tailles (pop-up, 1440×1440)" },
+    { "type": "text", "id": "size_anchor", "label": "Ancre (plus utilisée — la pop-up s'ouvre au clic)", "default": "#size" },
+    { "type": "text", "id": "promo_label", "label": "Bandeau promo", "default": "Limited-time sale · 24h" },
+    { "type": "header", "content": "Sélecteurs couleur / taille (propriétés de ligne)" },
+    { "type": "text", "id": "color_label", "label": "Libellé couleur", "default": "Colour" },
+    { "type": "text", "id": "colors", "label": "Couleurs (séparées par virgules)", "default": "Black, White" },
+    { "type": "text", "id": "size_label", "label": "Libellé taille", "default": "Size" },
+    { "type": "text", "id": "sizes", "label": "Tailles (séparées par virgules)", "default": "XS, S, M, L, XL" },
+    { "type": "text", "id": "opts_head", "label": "Titre au-dessus des choix par article", "default": "Choose colour & size for each pair" },
+    { "type": "header", "content": "Bloc \"Last chance\"" },
+    { "type": "image_picker", "id": "lc_banner", "label": "Image offre (1672 × 941)" },
+    { "type": "text", "id": "lc_badge_a", "label": "Badge vert", "default": "🔒 30-day money-back" },
+    { "type": "text", "id": "lc_badge_b", "label": "Badge rouge", "default": "⏳ Low stock!" },
+    { "type": "text", "id": "buy_btn_label", "label": "Bouton — texte", "default": "Buy now" },
+    { "type": "color", "id": "buy_btn_color", "label": "Bouton — couleur", "default": "#f6c000" },
+    { "type": "text", "id": "pay_row", "label": "Badges paiement (virgules)", "default": "AMEX, Apple Pay, G Pay, Mastercard, PayPal, Shop, VISA" }
+  ],
+  "blocks": [
+    {
+      "type": "thumb",
+      "name": "Vignette galerie",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "label", "label": "Libellé (si pas d'image)", "default": "1" }
+      ]
+    },
+    {
+      "type": "bullet",
+      "name": "Argument coché",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Texte", "default": "No tape, no slipping" },
+        { "type": "textarea", "id": "explain", "label": "Explication pop-up (laisser vide = texte auto par défaut)" }
+      ]
+    },
+    {
+      "type": "tier",
+      "name": "Palier de prix",
+      "settings": [
+        { "type": "checkbox", "id": "selected", "label": "Sélectionné par défaut", "default": false },
+        { "type": "text", "id": "flag", "label": "Étiquette (optionnel)" },
+        { "type": "checkbox", "id": "flag_hot", "label": "Étiquette rouge", "default": false },
+        { "type": "text", "id": "pack", "label": "Quantité (ex : ×3)", "default": "×1" },
+        { "type": "text", "id": "label", "label": "Libellé", "default": "1 Pair" },
+        { "type": "text", "id": "ship", "label": "Badge livraison", "default": "Free Shipping" },
+        { "type": "text", "id": "price_now", "label": "Prix actuel", "default": "£24.99" },
+        { "type": "text", "id": "price_was", "label": "Prix barré", "default": "£34.99" },
+        { "type": "number", "id": "qty", "label": "Quantité ajoutée au panier", "default": 1 }
+      ]
+    },
+    {
+      "type": "ugc",
+      "name": "Vidéo UGC",
+      "settings": [
+        { "type": "video", "id": "video", "label": "Vidéo (upload Shopify)" },
+        { "type": "text", "id": "label", "label": "Libellé (si pas de vidéo)", "default": "Match footage" }
+      ]
+    },
+    {
+      "type": "detail",
+      "name": "Accordéon (détail)",
+      "settings": [
+        { "type": "text", "id": "summary", "label": "Titre", "default": "Product details" },
+        { "type": "textarea", "id": "body", "label": "Texte", "default": "Compression knit sock with an integrated lock-in shin guard pocket." }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+        { "type": "thumb", "settings": { "label": "1" } },
+        { "type": "thumb", "settings": { "label": "2" } },
+        { "type": "thumb", "settings": { "label": "3" } },
+        { "type": "thumb", "settings": { "label": "4" } },
+        { "type": "thumb", "settings": { "label": "5" } },
+        { "type": "bullet", "settings": { "text": "No tape, no slipping", "explain": "An integrated lock-in sleeve grips your shin guard and holds it dead still for the full 90 minutes — no sock tape, no readjusting, no guard sliding down to your ankle." } },
+        { "type": "bullet", "settings": { "text": "Pro-level grip in your boots", "explain": "Anti-slip silicone pads lock your foot inside the boot, killing the in-shoe slide that costs you sharp turns, sprints and balance on the pitch." } },
+        { "type": "bullet", "settings": { "text": "Lightweight protection that moves with you", "explain": "A slim, flexible shin shield absorbs impact without the bulky, sweaty feel of old-school guards — full protection you forget you're wearing." } },
+        { "type": "bullet", "settings": { "text": "Match-legal & machine washable", "explain": "Meets standard match regulations and washes clean at 30°C, keeping its grip and shape wash after wash." } },
+        { "type": "tier", "settings": { "pack": "×1", "label": "1 Pair", "ship": "Free Shipping", "price_now": "£24.99", "price_was": "£34.99", "qty": 1 } },
+        { "type": "tier", "settings": { "selected": true, "flag": "Most popular 🔥", "flag_hot": true, "pack": "×3", "label": "2 + 1 Free", "ship": "Free Shipping", "price_now": "£49.98", "price_was": "£74.97", "qty": 3 } },
+        { "type": "tier", "settings": { "flag": "Best value 💎", "pack": "×6", "label": "4 + 2 Free", "ship": "Free Shipping", "price_now": "£99.96", "price_was": "£149.94", "qty": 6 } },
+        { "type": "ugc", "settings": { "label": "Match footage" } },
+        { "type": "ugc", "settings": { "label": "Try-on video" } },
+        { "type": "ugc", "settings": { "label": "Testimonial video" } },
+        { "type": "detail", "settings": { "summary": "Product details", "body": "Compression knit sock with an integrated lock-in shin guard pocket, a slim impact-absorbing shield, anti-slip silicone grip pads on the sole and reinforced ankle support. Breathable, tagless, built for 90 minutes." } },
+        { "type": "detail", "settings": { "summary": "Size & comfort", "body": "Pick by shoe size using the guide below. The compression knit holds firm without cutting in, so the guard stays put and your foot stays locked in your boot." } },
+        { "type": "detail", "settings": { "summary": "Care", "body": "Machine wash at 30°C on a gentle cycle. Do not bleach, do not tumble dry, do not iron the grip pads. Hang to dry to keep the grip and elasticity." } },
+        { "type": "detail", "settings": { "summary": "Match-legal", "body": "Designed to meet standard shin guard match regulations. Leagues vary, so always check your competition's specific rules before play." } },
+        { "type": "detail", "settings": { "summary": "30-day money-back", "body": "Not happy within 30 days? Send them back for a full refund — no questions asked." } }
+    ]
+  }
+}
+{% endschema %}

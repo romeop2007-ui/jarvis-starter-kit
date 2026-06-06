@@ -1,0 +1,62 @@
+{%- comment -%}
+  Zooryn — Avis parents & joueurs (page produit protège-tibias).
+  Même structure que la preuve sociale de la home (classes .proof/.tcards/.tcard),
+  mais contenu dédié et indépendant. 1 bloc par témoignage (image + nom + citation).
+{%- endcomment -%}
+<section class="proof tint center">
+  <div class="wrap">
+    <h2 class="lead display" style="text-transform:none">{{ section.settings.heading | escape }}</h2>
+    <div class="proof-trust">
+      <div class="trust"><span>{{ section.settings.rating_label }} <b>{{ section.settings.rating_value | escape }}</b></span><span class="stars" style="color:#00b67a">★★★★★</span></div>
+      <a href="{{ section.settings.link_url | default: '#' }}">{{ section.settings.link_label | escape }}</a>
+    </div>
+    <div class="tcards">
+      {%- for block in section.blocks -%}
+        <div class="tcard" {{ block.shopify_attributes }}>
+          <div class="frame{% if block.settings.image != blank %} has-img{% endif %}">
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: width: 1254 }}" alt="{{ block.settings.name | escape }}" width="1254" height="1254" loading="lazy">
+            {%- else -%}
+              <span>1254 × 1254</span>
+            {%- endif -%}
+          </div>
+          <div class="name">{{ block.settings.name | escape }}</div>
+          <blockquote>{{ block.settings.quote | escape }}</blockquote>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Zooryn — Avis",
+  "tag": "section",
+  "settings": [
+    { "type": "textarea", "id": "heading", "label": "Titre", "default": "Here's what parents and players say" },
+    { "type": "text", "id": "rating_label", "label": "Texte note", "default": "Excellent" },
+    { "type": "text", "id": "rating_value", "label": "Valeur note", "default": "4.8 / 5" },
+    { "type": "text", "id": "link_label", "label": "Libellé lien", "default": "Verified reviews on Trustpilot" },
+    { "type": "url", "id": "link_url", "label": "Lien" }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Témoignage",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image (1254 × 1254 px)" },
+        { "type": "text", "id": "name", "label": "Nom", "default": "Liam — Sunday League" },
+        { "type": "textarea", "id": "quote", "label": "Citation", "default": "I used to tape both legs every game. First match in these I forgot I had guards on. They don't move." }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "testimonial", "settings": { "name": "Liam — Sunday League", "quote": "I used to tape both legs every game. First match in these I forgot I had guards on. They don't move. Done with tape for good." } },
+      { "type": "testimonial", "settings": { "name": "Sophie — football mum", "quote": "My son kept losing his shin pads and moaning they slid down. He actually keeps these on now. No more arguments before training." } },
+      { "type": "testimonial", "settings": { "name": "Marcus — semi-pro", "quote": "The in-boot grip is the real surprise. My feet don't slide on quick turns anymore. Sharper, more stable, more confident on the ball." } },
+      { "type": "testimonial", "settings": { "name": "Aaron — grassroots coach", "quote": "Half my squad turned up with guards held on by hope. Showed them these. Now it's what the whole team wears." } }
+    ]
+  }
+}
+{% endschema %}

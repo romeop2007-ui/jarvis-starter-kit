@@ -7,6 +7,22 @@
 
 ---
 
+## 2026-06-06 (mise à jour 2)
+
+### ✅ Audit pré-lancement clos : les 3 bloqueurs levés
+
+Vérification post-lancement faite avec Romy, captures à l'appui. Les trois points critiques laissés en suspens hier sont confirmés OK :
+
+- **Stock** : le produit Sculpted est en **"Stock non suivi"** → Shopify ne bloque jamais l'ajout au panier, quelle que soit la quantité. Le bloqueur n°1 (24 variantes à 0) est levé.
+- **Moyen de paiement** : **Shopify Payments actif** (Acceptation des paiements + Réception des versements en vert). Compte de versement = **Qonto ...4029**, en **EUR**. Détail noté : la boutique vend en GBP, Shopify convertit GBP→EUR avant versement (petite commission de change, non bloquant).
+- **Test de commande réel** : réussi. Romy a activé le **mode test** Shopify Payments, passé une commande complète sur le storefront, elle est **bien arrivée dans Shopify avec tous les détails**. Tunnel panier → paiement → commande validé de bout en bout. **Mode test recoupé ensuite → boutique en encaissement réel.**
+
+**Conclusion : la boutique est officiellement opérationnelle et prête à convertir.** Une vraie vente issue des pubs ira jusqu'au bout et sera encaissée sur le Qonto.
+
+**Restent en suivi (non bloquants)** : pages légales, cohérence domaine zooryn.com vs marque, email pro DKIM à valider, API Conversions (Diagnostics 2 du pixel), routing fournisseur UK, versement EUR vs vente GBP. Penser à supprimer la commande test dans Shopify pour ne pas fausser les futures stats.
+
+---
+
 ## 2026-06-06
 
 ### 🚀 LANCEMENT : boutique en ligne + première campagne Meta Ads active

@@ -53,7 +53,7 @@
   .zcol{padding:48px 0 72px}
   .zcol-head{margin-bottom:32px}
   .zcol-sub{max-width:620px;margin:12px auto 0;color:var(--muted)}
-  .zcol-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .zcol-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;align-items:stretch}
   @media(min-width:760px){.zcol-grid{grid-template-columns:repeat(3,1fr);gap:28px}}
   .zcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;text-decoration:none;color:var(--ink);transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
   .zcard:hover{transform:translateY(-3px);border-color:#d3d7dc;box-shadow:0 18px 40px -24px rgba(16,17,20,.45)}
@@ -61,16 +61,16 @@
   .zcard-media img{width:100%;height:100%;object-fit:contain}
   .zcard-ph{color:var(--muted);font-size:14px;text-align:center;padding:0 16px}
   .zcard-flag{position:absolute;top:12px;left:12px;background:var(--accent);color:#fff;font-weight:700;font-size:12px;padding:4px 10px;border-radius:999px}
-  .zcard-body{flex:1;padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px}
-  .zcard-title{font-size:16px;font-weight:700;margin:0;line-height:1.3;color:var(--ink);min-height:calc(2 * 1.3em);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-  .zcard-price{display:flex;align-items:baseline;gap:8px;margin-top:auto;padding-top:10px}
+  .zcard-body{flex:1;padding:16px 18px 20px;display:flex;flex-direction:column}
+  .zcard-title{font-size:15px;font-weight:700;margin:0;line-height:1.3;color:var(--ink);min-height:calc(3 * 1.3em)}
+  .zcard-price{display:flex;align-items:baseline;gap:8px;margin-top:12px}
   .zcard-price .now{font-weight:700;color:var(--ink)}
   .zcard-price .was{color:var(--muted);text-decoration:line-through;font-size:14px}
-  .zcard-cta{margin-top:8px;font-size:14px;font-weight:700;color:var(--accent)}
+  .zcard-cta{margin-top:10px;font-size:14px;font-weight:700;color:var(--accent)}
   @media(max-width:759px){
     .zcard-media{padding:12px}
     .zcard-body{padding:14px 14px 16px}
-    .zcard-title{font-size:15px}
+    .zcard-title{font-size:14px}
   }
 </style>
 

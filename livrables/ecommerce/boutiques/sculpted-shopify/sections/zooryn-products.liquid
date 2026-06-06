@@ -1,0 +1,109 @@
+{%- comment -%}
+  ===========================================================================
+  Zooryn — Vitrine produits (page d'accueil)
+  ---------------------------------------------------------------------------
+  Grille de cartes produit. Chaque carte = un bloc "Produit" (image, nom,
+  accroche, prix, lien, libellé du bouton). Clic sur la carte → page produit.
+  Ajoute / retire / réordonne les cartes dans Personnaliser.
+  ===========================================================================
+{%- endcomment -%}
+
+<section class="zprod">
+  <div class="wrap">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="eyebrow center">{{ section.settings.eyebrow | escape }}</p>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="display center zprod-h">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    <div class="zprod-grid">
+      {%- for block in section.blocks -%}
+        <a class="zprod-card" href="{{ block.settings.url | default: '#' }}" {{ block.shopify_attributes }}>
+          <div class="zprod-media frame{% if block.settings.image %} has-img{% endif %}">
+            {%- if block.settings.image -%}
+              <img src="{{ block.settings.image | image_url: width: 1254 }}" alt="{{ block.settings.name | default: 'Zooryn product' | escape }}" loading="lazy">
+            {%- else -%}
+              <span>Product image</span>
+            {%- endif -%}
+            {%- if block.settings.badge != blank -%}<span class="zprod-badge">{{ block.settings.badge | escape }}</span>{%- endif -%}
+          </div>
+          <div class="zprod-body">
+            {%- if block.settings.name != blank -%}<h3 class="zprod-name">{{ block.settings.name | escape }}</h3>{%- endif -%}
+            {%- if block.settings.tagline != blank -%}<p class="zprod-tag">{{ block.settings.tagline | escape }}</p>{%- endif -%}
+            {%- if block.settings.price != blank -%}<p class="zprod-price">{{ block.settings.price | escape }}</p>{%- endif -%}
+            {%- if block.settings.btn_label != blank -%}<span class="btn btn-accent zprod-btn">{{ block.settings.btn_label | escape }}</span>{%- endif -%}
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .zprod-h{margin-bottom:44px}
+  .zprod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+  .zprod-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff;transition:transform .18s ease, box-shadow .18s ease}
+  .zprod-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(16,17,20,.10)}
+  .zprod-media{aspect-ratio:1/1;min-height:0;border:0;border-radius:0}
+  .zprod-badge{position:absolute;top:14px;left:14px;z-index:2;background:var(--accent);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+  .zprod-body{padding:26px 24px 30px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .zprod-name{font-size:22px;font-weight:900;letter-spacing:-.01em;text-transform:uppercase}
+  .zprod-tag{color:var(--muted);font-size:15px;max-width:34ch;line-height:1.5}
+  .zprod-price{font-weight:700;font-size:16px}
+  .zprod-btn{margin-top:14px}
+  @media (max-width:749px){
+    .zprod-grid{grid-template-columns:1fr;gap:20px}
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Zooryn — Vitrine produits",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Our products" },
+    { "type": "text", "id": "heading", "label": "Titre", "default": "The Zooryn line-up" }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Produit",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image (carrée 1254 × 1254)" },
+        { "type": "text", "id": "badge", "label": "Badge (optionnel)", "info": "Ex : Bestseller, New" },
+        { "type": "text", "id": "name", "label": "Nom du produit" },
+        { "type": "textarea", "id": "tagline", "label": "Accroche" },
+        { "type": "text", "id": "price", "label": "Prix" },
+        { "type": "url", "id": "url", "label": "Lien vers la page produit" },
+        { "type": "text", "id": "btn_label", "label": "Bouton — texte", "default": "Discover" }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "product",
+        "settings": {
+          "badge": "Bestseller",
+          "name": "Sculpted™",
+          "tagline": "The compression shaping tank that sculpts your frame the moment you put it on.",
+          "price": "From £29.99",
+          "url": "/products/sculptd-compression-shaping-tank-top",
+          "btn_label": "Discover Sculpted"
+        }
+      },
+      {
+        "type": "product",
+        "settings": {
+          "name": "Zooryn™ Shin Protectors",
+          "tagline": "Lock-in shin guard socks that grip your boots and never slip — no tape, all match long.",
+          "price": "From £24.99",
+          "url": "",
+          "btn_label": "Discover"
+        }
+      }
+    ]
+  }
+}
+{% endschema %}

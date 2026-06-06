@@ -1,0 +1,98 @@
+{%- comment -%}
+  ===========================================================================
+  Zooryn — Hero de marque (page d'accueil)
+  ---------------------------------------------------------------------------
+  Grande bannière plein écran qui présente la MARQUE Zooryn (pas un produit).
+  Image de fond (PC + mobile indépendantes), voile sombre réglable, titre,
+  sous-titre et 2 boutons (libellé + lien éditables dans Personnaliser).
+  Tout est éditable → "Zooryn — Hero de marque".
+  ===========================================================================
+{%- endcomment -%}
+
+{%- assign img   = section.settings.image -%}
+{%- assign img_m = section.settings.image_mobile -%}
+
+<div class="zhero{% if img_m %} zhero--hasmob{% endif %}{% unless img %} zhero--empty{% endunless %}"
+     style="--zh:{{ section.settings.height }}px;--zveil:{{ section.settings.overlay | divided_by: 100.0 }}">
+
+  {%- if img -%}
+    <img class="zhero-bg zhero-desktop"
+         src="{{ img | image_url: width: 2000 }}"
+         srcset="{{ img | image_url: width: 800 }} 800w,
+                 {{ img | image_url: width: 1400 }} 1400w,
+                 {{ img | image_url: width: 2000 }} 2000w"
+         sizes="100vw"
+         alt="{{ img.alt | default: 'Zooryn' | escape }}" loading="eager">
+  {%- endif -%}
+  {%- if img_m -%}
+    <img class="zhero-bg zhero-mobile"
+         src="{{ img_m | image_url: width: 1000 }}"
+         srcset="{{ img_m | image_url: width: 600 }} 600w,
+                 {{ img_m | image_url: width: 1000 }} 1000w"
+         sizes="100vw"
+         alt="{{ img_m.alt | default: 'Zooryn' | escape }}" loading="eager">
+  {%- endif -%}
+
+  <div class="zhero-veil"></div>
+
+  <div class="zhero-inner wrap">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="eyebrow zhero-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {%- endif -%}
+    {%- if section.settings.title != blank -%}
+      <h1 class="display zhero-title">{{ section.settings.title | escape }}</h1>
+    {%- endif -%}
+    {%- if section.settings.subtitle != blank -%}
+      <p class="zhero-sub">{{ section.settings.subtitle | escape }}</p>
+    {%- endif -%}
+    <div class="zhero-cta">
+      {%- if section.settings.btn1_label != blank -%}
+        <a class="btn btn-accent" href="{{ section.settings.btn1_link | default: '#' }}">{{ section.settings.btn1_label | escape }}</a>
+      {%- endif -%}
+      {%- if section.settings.btn2_label != blank -%}
+        <a class="btn zhero-ghost" href="{{ section.settings.btn2_link | default: '#' }}">{{ section.settings.btn2_label | escape }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  .zhero{position:relative;width:100%;min-height:var(--zh,640px);display:flex;align-items:center;overflow:hidden;background:#0c0d10}
+  .zhero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .zhero-mobile{display:none}
+  .zhero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,calc(var(--zveil,.4) * .6)),rgba(0,0,0,var(--zveil,.4)))}
+  .zhero-inner{position:relative;z-index:2;color:#fff;text-align:center;padding-top:64px;padding-bottom:64px}
+  .zhero-eyebrow{color:#fff;opacity:.88;margin-bottom:16px}
+  .zhero-title{font-size:var(--t-hero);max-width:18ch;margin:0 auto 18px}
+  .zhero-sub{font-size:18px;line-height:1.55;max-width:48ch;margin:0 auto 30px;opacity:.92}
+  .zhero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .zhero-ghost{border:1px solid #fff;color:#fff}
+  .zhero-ghost:hover{background:#fff;color:var(--ink)}
+  .zhero--empty{background:repeating-linear-gradient(135deg,#1a1c20 0 14px,#212429 14px 28px)}
+  @media (max-width:749px){
+    .zhero--hasmob .zhero-desktop{display:none}
+    .zhero-mobile{display:block}
+    .zhero-sub{font-size:16px}
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Zooryn — Hero de marque",
+  "tag": "div",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image de fond (PC)" },
+    { "type": "image_picker", "id": "image_mobile", "label": "Image de fond (mobile)", "info": "Optionnel. Si vide, l'image PC s'affiche aussi sur téléphone." },
+    { "type": "number", "id": "height", "label": "Hauteur (px)", "default": 640 },
+    { "type": "range", "id": "overlay", "label": "Assombrissement (%)", "min": 0, "max": 80, "step": 5, "unit": "%", "default": 40, "info": "Plus la valeur est haute, plus le texte blanc est lisible sur l'image." },
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Health · Sport · Confidence" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "BUILT FOR HOW YOU MOVE" },
+    { "type": "textarea", "id": "subtitle", "label": "Sous-titre", "default": "Performance gear for health, sport and everyday confidence. We test one product at a time and only keep what truly earns its place." },
+    { "type": "text", "id": "btn1_label", "label": "Bouton 1 — texte", "default": "Shop now" },
+    { "type": "url", "id": "btn1_link", "label": "Bouton 1 — lien" },
+    { "type": "text", "id": "btn2_label", "label": "Bouton 2 — texte", "default": "Our story" },
+    { "type": "url", "id": "btn2_link", "label": "Bouton 2 — lien" }
+  ],
+  "presets": [ { "name": "Zooryn — Hero de marque" } ]
+}
+{% endschema %}

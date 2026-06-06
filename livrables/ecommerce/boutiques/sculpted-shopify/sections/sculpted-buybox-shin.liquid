@@ -112,13 +112,6 @@
         {%- endfor -%}
 
         <div class="last-chance">
-          <div class="lc-banner{% if section.settings.lc_banner == blank %} is-empty{% endif %}">
-            {%- if section.settings.lc_banner != blank -%}
-              <img src="{{ section.settings.lc_banner | image_url: width: 1672 }}" width="1672" height="941" alt="Buy 2 get 1 Zooryn Shin Protectors free" loading="lazy">
-            {%- else -%}
-              <span>Image 1672 × 941</span>
-            {%- endif -%}
-          </div>
           <div class="lc-badges">
             <span class="a">{{ section.settings.lc_badge_a }}</span>
             <span class="b">{{ section.settings.lc_badge_b }}</span>
@@ -131,32 +124,56 @@
           </div>
         </div>
 
-        {%- assign has_ugc = false -%}
-        {%- for block in section.blocks -%}{%- if block.type == 'ugc' -%}{%- assign has_ugc = true -%}{%- endif -%}{%- endfor -%}
-        {%- if has_ugc -%}
-          <div class="ugc">
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'ugc' -%}
-                <div class="frame{% if block.settings.video != blank %} has-img{% endif %}" {{ block.shopify_attributes }}>
-                  {%- if block.settings.video != blank -%}
-                    {{ block.settings.video | video_tag: controls: true, loop: true, muted: true, playsinline: true, preload: 'metadata' }}
-                  {%- else -%}
-                    <span>{{ block.settings.label | escape }}</span>
-                    <div class="play"><svg viewBox="0 0 24 24"><path d="M7 5v14l12-7z"/></svg></div>
-                  {%- endif -%}
-                </div>
-              {%- endif -%}
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
-
+        {%- comment -%} -------- Accordéons (sous le bouton d'achat) -------- {%- endcomment -%}
         <div class="acc" style="margin-top:36px">
-          {%- for block in section.blocks -%}
-            {%- if block.type == 'detail' -%}
-              <details class="row" {{ block.shopify_attributes }}><summary>{{ block.settings.summary | escape }} <span class="pm">+</span></summary>
-                <div class="body">{{ block.settings.body | escape }}</div></details>
-            {%- endif -%}
-          {%- endfor -%}
+
+          {%- comment -%} 1. Informations produit (texte par défaut intégré, surchargeable via "Informations produit") {%- endcomment -%}
+          <details class="row" open>
+            <summary>Product information <span class="pm">+</span></summary>
+            <div class="body acc-rich">
+              {%- if section.settings.info_body != blank -%}
+                {{ section.settings.info_body }}
+              {%- else -%}
+                <p>Zooryn Shin Protectors are built with high-quality honeycomb padding that shields your legs from every knock, impact and tackle, without ever compromising on comfort. The cushioning sits exactly where you need it and spreads the force of a hit across the whole pad, instead of letting it dig into your shin.</p>
+                <p>At just 30 grams each, you'll barely know they're there. They're light enough to forget about mid-game, yet protective enough to trust in the hardest challenges, which makes them ideal for football, handball and any other contact sport.</p>
+                <p><strong>In short:</strong></p>
+                <ul>
+                  <li>EVA foam padding that absorbs impact effectively</li>
+                  <li>Lightweight, just 30 grams per piece</li>
+                  <li>Stays firmly in place without slipping during play</li>
+                  <li>Soft-on-skin and breathable</li>
+                  <li>Machine washable and easy to clean</li>
+                  <li>Adapts to every leg shape</li>
+                  <li>Can be worn under your shin guards</li>
+                </ul>
+              {%- endif -%}
+            </div>
+          </details>
+
+          {%- comment -%} 2. Guide des tailles (image 1440×1440 uploadée dans "Image guide des tailles") {%- endcomment -%}
+          <details class="row">
+            <summary>Size guide <span class="pm">+</span></summary>
+            <div class="body">
+              {%- if section.settings.size_image != blank -%}
+                <img class="acc-size-img" src="{{ section.settings.size_image | image_url: width: 1440 }}" alt="Zooryn Shin Protectors size guide" loading="lazy">
+              {%- else -%}
+                <span class="acc-size-ph">Upload your size guide image (1440 × 1440) in the editor → "Image guide des tailles".</span>
+              {%- endif -%}
+            </div>
+          </details>
+
+          {%- comment -%} 3. Entretien {%- endcomment -%}
+          <details class="row">
+            <summary>Care &amp; washing <span class="pm">+</span></summary>
+            <div class="body acc-rich"><p>Machine wash at 30°C on a gentle cycle. Do not bleach, tumble dry or iron the padding. Hang to dry to keep the cushioning and elasticity match after match.</p></div>
+          </details>
+
+          {%- comment -%} 4. Livraison & retours {%- endcomment -%}
+          <details class="row">
+            <summary>Shipping &amp; 30-day returns <span class="pm">+</span></summary>
+            <div class="body acc-rich"><p>Free UK shipping on every order. Not happy within 30 days? Send them back for a full refund, no questions asked.</p></div>
+          </details>
+
         </div>
       </div>
     </div>
@@ -358,6 +375,17 @@ function sculptedBuyNow(btn){
 })();
 </script>
 
+<style>
+  /* Contenu riche des accordéons (le reset global supprime puces et marges) */
+  #product .acc-rich p{margin-bottom:12px;line-height:1.6}
+  #product .acc-rich p:last-child{margin-bottom:0}
+  #product .acc-rich strong{font-weight:700}
+  #product .acc-rich ul{list-style:disc;padding-left:20px;margin:8px 0 0}
+  #product .acc-rich li{margin-bottom:6px;line-height:1.5}
+  #product .acc-size-img{width:100%;border-radius:10px;display:block;margin-top:4px}
+  #product .acc-size-ph{display:block;color:var(--muted);font-size:13px}
+</style>
+
 {% schema %}
 {
   "name": "Zooryn — Tibias",
@@ -374,6 +402,7 @@ function sculptedBuyNow(btn){
     { "type": "text", "id": "rating_text", "label": "Ligne de note", "default": "Excellent · 4,200+ reviews" },
     { "type": "text", "id": "title", "label": "Titre produit", "default": "Zooryn™ Shin Protectors | Lock-In Grip Socks" },
     { "type": "textarea", "id": "desc", "label": "Description", "default": "The shin guard socks that lock in place, grip your boots and protect every tackle — no tape, no slipping, all match long." },
+    { "type": "richtext", "id": "info_body", "label": "Informations produit (vide = texte par défaut)" },
     { "type": "text", "id": "stock_text", "label": "Bandeau stock", "default": "● Only 7 pairs left in stock." },
     { "type": "text", "id": "size_link_label", "label": "Libellé lien guide des tailles", "default": "Size guide" },
     { "type": "image_picker", "id": "size_image", "label": "Image guide des tailles (pop-up, 1440×1440)" },
@@ -386,7 +415,6 @@ function sculptedBuyNow(btn){
     { "type": "text", "id": "sizes", "label": "Tailles (séparées par virgules)", "default": "XS, S, M, L, XL" },
     { "type": "text", "id": "opts_head", "label": "Titre au-dessus des choix par article", "default": "Choose colour & size for each pair" },
     { "type": "header", "content": "Bloc \"Last chance\"" },
-    { "type": "image_picker", "id": "lc_banner", "label": "Image offre (1672 × 941)" },
     { "type": "text", "id": "lc_badge_a", "label": "Badge vert", "default": "🔒 30-day money-back" },
     { "type": "text", "id": "lc_badge_b", "label": "Badge rouge", "default": "⏳ Low stock!" },
     { "type": "text", "id": "buy_btn_label", "label": "Bouton — texte", "default": "Buy now" },
@@ -455,15 +483,7 @@ function sculptedBuyNow(btn){
         { "type": "bullet", "settings": { "text": "Match-legal & machine washable", "explain": "Meets standard match regulations and washes clean at 30°C, keeping its grip and shape wash after wash." } },
         { "type": "tier", "settings": { "pack": "×1", "label": "1 Pair", "ship": "Free Shipping", "price_now": "£24.99", "price_was": "£34.99", "qty": 1 } },
         { "type": "tier", "settings": { "selected": true, "flag": "Most popular 🔥", "flag_hot": true, "pack": "×3", "label": "2 + 1 Free", "ship": "Free Shipping", "price_now": "£49.98", "price_was": "£74.97", "qty": 3 } },
-        { "type": "tier", "settings": { "flag": "Best value 💎", "pack": "×6", "label": "4 + 2 Free", "ship": "Free Shipping", "price_now": "£99.96", "price_was": "£149.94", "qty": 6 } },
-        { "type": "ugc", "settings": { "label": "Match footage" } },
-        { "type": "ugc", "settings": { "label": "Try-on video" } },
-        { "type": "ugc", "settings": { "label": "Testimonial video" } },
-        { "type": "detail", "settings": { "summary": "Product details", "body": "Compression knit sock with an integrated lock-in shin guard pocket, a slim impact-absorbing shield, anti-slip silicone grip pads on the sole and reinforced ankle support. Breathable, tagless, built for 90 minutes." } },
-        { "type": "detail", "settings": { "summary": "Size & comfort", "body": "Pick by shoe size using the guide below. The compression knit holds firm without cutting in, so the guard stays put and your foot stays locked in your boot." } },
-        { "type": "detail", "settings": { "summary": "Care", "body": "Machine wash at 30°C on a gentle cycle. Do not bleach, do not tumble dry, do not iron the grip pads. Hang to dry to keep the grip and elasticity." } },
-        { "type": "detail", "settings": { "summary": "Match-legal", "body": "Designed to meet standard shin guard match regulations. Leagues vary, so always check your competition's specific rules before play." } },
-        { "type": "detail", "settings": { "summary": "30-day money-back", "body": "Not happy within 30 days? Send them back for a full refund — no questions asked." } }
+        { "type": "tier", "settings": { "flag": "Best value 💎", "pack": "×6", "label": "4 + 2 Free", "ship": "Free Shipping", "price_now": "£99.96", "price_was": "£149.94", "qty": 6 } }
     ]
   }
 }

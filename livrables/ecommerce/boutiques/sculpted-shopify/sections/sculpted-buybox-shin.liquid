@@ -101,10 +101,13 @@
                 {%- endif -%}
                 <span class="pack">{{ block.settings.pack | escape }}</span>
                 <span class="label">{{ block.settings.label | escape }}</span>
-                <span class="price"><span class="now">{{ block.settings.price_now | escape }}</span><br><span class="was">{{ block.settings.price_was | escape }}</span></span>
+                <span class="price"><span class="now">{{ block.settings.price_now | escape }}</span>{%- if block.settings.price_was != blank -%}<br><span class="was">{{ block.settings.price_was | escape }}</span>{%- endif -%}</span>
               </div>
-              {%- if block.settings.ship != blank -%}
-                <div class="tier-ship"><span class="ship">{{ block.settings.ship | escape }}</span></div>
+              {%- if block.settings.savings != blank or block.settings.ship != blank -%}
+                <div class="tier-sub">
+                  {%- if block.settings.ship != blank -%}<span class="ship">{{ block.settings.ship | escape }}</span>{%- endif -%}
+                  {%- if block.settings.savings != blank -%}<span class="tier-save">{{ block.settings.savings | escape }}</span>{%- endif -%}
+                </div>
               {%- endif -%}
               <div class="tier-items" onclick="event.stopPropagation()"></div>
             </div>
@@ -376,6 +379,8 @@ function sculptedBuyNow(btn){
 
 <style>
   /* Contenu riche des accordéons (le reset global supprime puces et marges) */
+  #product .tier-sub{display:flex;align-items:center;gap:8px;margin-top:4px;flex-wrap:wrap}
+  #product .tier-save{font-size:12px;font-weight:700;color:#16a34a;background:#dcfce7;border-radius:4px;padding:2px 7px;white-space:nowrap}
   #product .acc-rich p{margin-bottom:12px;line-height:1.6}
   #product .acc-rich p:last-child{margin-bottom:0}
   #product .acc-rich strong{font-weight:700}
@@ -448,7 +453,8 @@ function sculptedBuyNow(btn){
         { "type": "text", "id": "label", "label": "Libellé", "default": "1 Pair" },
         { "type": "text", "id": "ship", "label": "Badge livraison", "default": "Free Shipping" },
         { "type": "text", "id": "price_now", "label": "Prix actuel", "default": "£24.99" },
-        { "type": "text", "id": "price_was", "label": "Prix barré", "default": "£34.99" },
+        { "type": "text", "id": "price_was", "label": "Prix barré", "default": "" },
+        { "type": "text", "id": "savings", "label": "Label économies (ex : Save 40%)" },
         { "type": "number", "id": "qty", "label": "Quantité ajoutée au panier", "default": 1 }
       ]
     },
@@ -480,9 +486,10 @@ function sculptedBuyNow(btn){
         { "type": "bullet", "settings": { "text": "Pro-level grip in your boots", "explain": "Anti-slip silicone pads lock your foot inside the boot, killing the in-shoe slide that costs you sharp turns, sprints and balance on the pitch." } },
         { "type": "bullet", "settings": { "text": "Lightweight protection that moves with you", "explain": "A slim, flexible shin shield absorbs impact without the bulky, sweaty feel of old-school guards — full protection you forget you're wearing." } },
         { "type": "bullet", "settings": { "text": "Match-legal & machine washable", "explain": "Meets standard match regulations and washes clean at 30°C, keeping its grip and shape wash after wash." } },
-        { "type": "tier", "settings": { "pack": "×1", "label": "1 Pair", "ship": "Free Shipping", "price_now": "£24.99", "price_was": "£34.99", "qty": 1 } },
-        { "type": "tier", "settings": { "selected": true, "flag": "Most popular 🔥", "flag_hot": true, "pack": "×3", "label": "2 + 1 Free", "ship": "Free Shipping", "price_now": "£49.98", "price_was": "£74.97", "qty": 3 } },
-        { "type": "tier", "settings": { "flag": "Best value 💎", "pack": "×6", "label": "4 + 2 Free", "ship": "Free Shipping", "price_now": "£99.96", "price_was": "£149.94", "qty": 6 } }
+        { "type": "tier", "settings": { "pack": "×1", "label": "1 Pair", "ship": "Free Shipping", "price_now": "£24.99", "price_was": "", "qty": 1 } },
+        { "type": "tier", "settings": { "selected": true, "flag": "Most popular", "flag_hot": true, "pack": "×2", "label": "2 Pairs", "ship": "Free Shipping", "price_now": "£49.98", "price_was": "", "qty": 2 } },
+        { "type": "tier", "settings": { "pack": "×3", "label": "3 Pairs", "ship": "Free Shipping", "price_now": "£74.97", "price_was": "", "qty": 3 } },
+        { "type": "tier", "settings": { "pack": "×4", "label": "4 Pairs", "ship": "Free Shipping", "price_now": "£99.96", "price_was": "", "qty": 4 } }
     ]
   }
 }

@@ -1,0 +1,63 @@
+{%- comment -%}
+  ===========================================================================
+  Zooryn — Histoire / valeurs de marque (page d'accueil)
+  ---------------------------------------------------------------------------
+  Bloc image + texte qui raconte la marque ombrelle Zooryn (santé / sport /
+  confiance). Image, sur-titre, titre, texte et bouton éditables. Inversion
+  gauche/droite réglable.
+  ===========================================================================
+{%- endcomment -%}
+
+{%- assign img = section.settings.image -%}
+
+<section class="zstory{% if section.settings.tint %} tint{% endif %}" id="story">
+  <div class="wrap zstory-grid{% if section.settings.reverse %} zstory-grid--rev{% endif %}">
+    <div class="zstory-media frame{% if img %} has-img{% endif %}">
+      {%- if img -%}
+        <img src="{{ img | image_url: width: 1254 }}" alt="{{ img.alt | default: 'Zooryn' | escape }}" loading="lazy">
+      {%- else -%}
+        <span>Brand image (1254 × 1254)</span>
+      {%- endif -%}
+    </div>
+    <div class="zstory-text">
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<h2 class="display zstory-h">{{ section.settings.heading | escape }}</h2>{%- endif -%}
+      {%- if section.settings.body != blank -%}<div class="zstory-body">{{ section.settings.body }}</div>{%- endif -%}
+      {%- if section.settings.btn_label != blank -%}
+        <a class="btn btn-primary zstory-btn" href="{{ section.settings.btn_link | default: '#' }}">{{ section.settings.btn_label | escape }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .zstory-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .zstory-grid--rev .zstory-media{order:2}
+  .zstory-media{aspect-ratio:1/1;border-radius:var(--r)}
+  .zstory-h{font-size:var(--t-h1);margin:14px 0 20px}
+  .zstory-body{color:var(--muted);font-size:17px;line-height:1.65}
+  .zstory-body p{margin-bottom:14px}
+  .zstory-btn{margin-top:26px}
+  @media (max-width:860px){
+    .zstory-grid{grid-template-columns:1fr;gap:32px}
+    .zstory-grid--rev .zstory-media{order:0}
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Zooryn — Histoire",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image (carrée, 1254 × 1254)" },
+    { "type": "checkbox", "id": "reverse", "label": "Image à droite", "default": false },
+    { "type": "checkbox", "id": "tint", "label": "Fond gris clair", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre", "default": "Our story" },
+    { "type": "text", "id": "heading", "label": "Titre", "default": "One label. Only what earns its place." },
+    { "type": "richtext", "id": "body", "label": "Texte", "default": "<p>Zooryn is a health and sport label built on one idea: your gear should make you feel stronger in your own body.</p><p>We don't drop a hundred products and hope. We test one at a time, in the real world, and keep only the ones that genuinely perform. From compression wear to match-day protection, everything under Zooryn has to earn its place.</p>" },
+    { "type": "text", "id": "btn_label", "label": "Bouton — texte" },
+    { "type": "url", "id": "btn_link", "label": "Bouton — lien" }
+  ],
+  "presets": [ { "name": "Zooryn — Histoire" } ]
+}
+{% endschema %}

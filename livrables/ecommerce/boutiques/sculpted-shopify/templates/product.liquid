@@ -1,7 +1,29 @@
 {%- comment -%}
-  Sculpted — Page produit
-  Utilise sculpted-buybox (section dédiée) pour éviter tout conflit avec
-  les sections statiques de index.liquid dans l'éditeur Shopify.
+  ===========================================================================
+  Sculpted — Fiche produit COMPLÈTE (longue page de vente)
+  ---------------------------------------------------------------------------
+  C'est l'ancienne page d'accueil : tout son contenu (bannière, bénéfices,
+  preuve sociale, buy box, how it works, stats, comparatif, guide des tailles,
+  FAQ, avis, badges) a été déplacé ici. On y arrive depuis la home de marque
+  (vitrine Zooryn) en cliquant "Discover Sculpted".
+
+  La buy box (sculpted-product) se branche automatiquement sur le produit de
+  la page (fallback `product`), donc le bouton Buy now achète bien le Sculpted.
+
+  Ces sections n'apparaissent plus que sur cette fiche produit (déplacées, pas
+  dupliquées) → pas de conflit d'éditeur. Le contenu rempli dans Personnaliser
+  est conservé (Shopify stocke les réglages par section, pas par page).
+  ===========================================================================
 {%- endcomment -%}
 {% layout 'sculpted' %}
-{% section 'sculpted-buybox' %}
+{% section 'sculpted-banner' %}
+{% section 'sculpted-benefits' %}
+{% section 'sculpted-social-proof' %}
+{% section 'sculpted-product' %}
+{% section 'sculpted-how' %}
+{% section 'sculpted-stats' %}
+{% section 'sculpted-comparison' %}
+{% section 'sculpted-size-guide' %}
+{% section 'sculpted-faq' %}
+{% section 'sculpted-reviews' %}
+{% section 'sculpted-trust-badges' %}

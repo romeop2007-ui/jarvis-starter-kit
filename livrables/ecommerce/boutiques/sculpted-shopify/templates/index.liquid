@@ -1,27 +1,24 @@
 {%- comment -%}
   ===========================================================================
-  Sculpted — Page d'accueil (assemblage de sections éditables)
+  Zooryn — Page d'accueil DE MARQUE (assemblage de sections éditables)
   ---------------------------------------------------------------------------
-  La homepage est maintenant découpée en sections Shopify. Chaque section est
-  éditable dans Personnaliser (textes, images, liens, et blocs add/remove pour
-  les listes : atouts, témoignages, paliers, avis, FAQ...).
+  La home présente désormais la MARQUE OMBRELLE Zooryn (et non plus un seul
+  produit). La longue page de vente Sculpted a été déplacée sur la fiche
+  produit (templates/product.liquid) : on y arrive en cliquant sur une carte
+  de la vitrine ci-dessous.
 
-  Le header (avec ticker intégré) et le footer viennent du layout 'sculpted' (chrome partagé).
-  Le CSS commun vit dans assets/sculpted.css → rendu identique à la maquette.
+  Sections (éditables dans Personnaliser) :
+    1. Hero de marque (zooryn-brand-hero)
+    2. Vitrine produits (zooryn-products) → cartes vers chaque page produit
+    3. Histoire / valeurs Zooryn (zooryn-story)
+    4. Famille de clients / preuve sociale (zooryn-family)
 
-  Ordre des sections = ordre des lignes ci-dessous (sections statiques :
-  réglages et blocs éditables, mais ordre fixé ici dans le code).
+  Header (ticker) + footer viennent du layout 'sculpted'. CSS commun :
+  assets/sculpted.css. Chaque nouvelle section embarque ses styles propres.
   ===========================================================================
 {%- endcomment -%}
 {% layout 'sculpted' %}
-{% section 'sculpted-banner' %}
-{% section 'sculpted-benefits' %}
-{% section 'sculpted-social-proof' %}
-{% section 'sculpted-product' %}
-{% section 'sculpted-how' %}
-{% section 'sculpted-stats' %}
-{% section 'sculpted-comparison' %}
-{% section 'sculpted-size-guide' %}
-{% section 'sculpted-faq' %}
-{% section 'sculpted-reviews' %}
-{% section 'sculpted-trust-badges' %}
+{% section 'zooryn-brand-hero' %}
+{% section 'zooryn-products' %}
+{% section 'zooryn-story' %}
+{% section 'zooryn-family' %}

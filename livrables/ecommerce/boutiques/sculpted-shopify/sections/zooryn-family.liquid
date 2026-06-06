@@ -1,0 +1,82 @@
+{%- comment -%}
+  ===========================================================================
+  Zooryn — Famille de clients / preuve sociale (page d'accueil)
+  ---------------------------------------------------------------------------
+  Titre "A family of X+", sous-titre, galerie de photos clients (UGC) en
+  rangée pleine largeur (carrousel swipeable sur mobile), et ligne Trustpilot
+  optionnelle. Chaque photo = un bloc "Photo" (image + @pseudo facultatif).
+  ===========================================================================
+{%- endcomment -%}
+
+<section class="zfam">
+  <div class="wrap center">
+    {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+    {%- if section.settings.heading != blank -%}<h2 class="display zfam-h">{{ section.settings.heading | escape }}</h2>{%- endif -%}
+    {%- if section.settings.subtitle != blank -%}<p class="zfam-sub">{{ section.settings.subtitle | escape }}</p>{%- endif -%}
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="zfam-grid">
+      {%- for block in section.blocks -%}
+        <div class="zfam-cell frame{% if block.settings.image %} has-img{% endif %}" {{ block.shopify_attributes }}>
+          {%- if block.settings.image -%}
+            <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.handle | default: 'Zooryn customer' | escape }}" loading="lazy">
+          {%- else -%}
+            <span>Customer photo</span>
+          {%- endif -%}
+          {%- if block.settings.handle != blank -%}<span class="zfam-cap">{{ block.settings.handle | escape }}</span>{%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.trust_text != blank -%}
+    <p class="zfam-trust center">{{ section.settings.trust_text | escape }}</p>
+  {%- endif -%}
+</section>
+
+<style>
+  .zfam-h{font-size:var(--t-h1)}
+  .zfam-sub{color:var(--muted);margin:10px auto 0;max-width:52ch}
+  .zfam-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:40px;padding:0 var(--gutter)}
+  .zfam-cell{position:relative;aspect-ratio:1/1;border-radius:10px;overflow:hidden;min-height:0}
+  .zfam-cap{position:absolute;left:10px;bottom:8px;z-index:2;color:#fff;font-size:12px;font-weight:700;text-shadow:0 1px 5px rgba(0,0,0,.65)}
+  .zfam-trust{margin-top:30px;color:var(--muted);font-weight:700;font-size:14px;letter-spacing:.04em}
+  @media (max-width:749px){
+    .zfam-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .zfam-grid::-webkit-scrollbar{display:none}
+    .zfam-cell{scroll-snap-align:start}
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Zooryn — Famille",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Sur-titre" },
+    { "type": "text", "id": "heading", "label": "Titre", "default": "A family of 12,000+" },
+    { "type": "textarea", "id": "subtitle", "label": "Sous-titre", "default": "Real customers, real results. Join the Zooryn community." },
+    { "type": "text", "id": "trust_text", "label": "Ligne Trustpilot (optionnelle)", "default": "Rated Excellent on Trustpilot" }
+  ],
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Photo client",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo (carrée 1254 × 1254)" },
+        { "type": "text", "id": "handle", "label": "@pseudo (optionnel)" }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "photo", "settings": { "handle": "@yourcustomer" } },
+      { "type": "photo", "settings": { "handle": "@yourcustomer" } },
+      { "type": "photo", "settings": { "handle": "@yourcustomer" } },
+      { "type": "photo", "settings": { "handle": "@yourcustomer" } },
+      { "type": "photo", "settings": { "handle": "@yourcustomer" } }
+    ]
+  }
+}
+{% endschema %}

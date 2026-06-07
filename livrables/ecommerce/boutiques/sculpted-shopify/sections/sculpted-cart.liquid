@@ -90,6 +90,45 @@
             <p class="cart-note">{{ section.settings.shipping_note | escape }}</p>
             <button type="submit" name="checkout" class="btn btn-accent btn-block cart-checkout">{{ section.settings.checkout_label | escape }}</button>
             <a href="{{ section.settings.continue_url | default: routes.root_url }}" class="cart-continue">{{ section.settings.continue_label | escape }}</a>
+
+            {%- comment -%}
+              RÉASSURANCE : éléments de confiance ajoutés sous le bouton de paiement,
+              au moment de la décision finale. Tout est éditable dans Personnaliser
+              et masquable via les cases à cocher. N'affecte ni les prix, ni les
+              quantités, ni le passage en caisse.
+            {%- endcomment -%}
+            {%- if section.settings.show_trust -%}
+              <ul class="cart-trust">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                  <span>{{ section.settings.trust_1 | escape }}</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></svg>
+                  <span>{{ section.settings.trust_2 | escape }}</span>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+                  <span>{{ section.settings.trust_3 | escape }}</span>
+                </li>
+              </ul>
+            {%- endif -%}
+
+            {%- if section.settings.show_secure -%}
+              <p class="cart-secure">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+                <span>{{ section.settings.secure_text | escape }}</span>
+              </p>
+            {%- endif -%}
+
+            {%- if section.settings.show_payment -%}
+              <div class="cart-pay" aria-label="Accepted payment methods">
+                <span class="cart-pay__chip">VISA</span>
+                <span class="cart-pay__chip">Mastercard</span>
+                <span class="cart-pay__chip">AMEX</span>
+                <span class="cart-pay__chip">PayPal</span>
+              </div>
+            {%- endif -%}
           </div>
         </div>
       </form>
@@ -102,6 +141,17 @@
     {%- endif -%}
   </div>
 </section>
+
+<style>
+/* Réassurance panier (auto-contenu, n'affecte pas le reste du thème). */
+.cart-trust{list-style:none;margin:18px 0 0;padding:14px 0 0;border-top:1px solid rgba(0,0,0,.08);display:flex;flex-direction:column;gap:10px}
+.cart-trust li{display:flex;align-items:center;gap:10px;font-size:13.5px;line-height:1.3;color:#222}
+.cart-trust svg{width:20px;height:20px;flex:0 0 20px;color:#1496d6}
+.cart-secure{display:flex;align-items:center;justify-content:center;gap:7px;margin:14px 0 0;font-size:12.5px;font-weight:600;letter-spacing:.02em;color:#3a7d44}
+.cart-secure svg{width:15px;height:15px;flex:0 0 15px}
+.cart-pay{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:10px 0 0}
+.cart-pay__chip{font-size:10.5px;font-weight:700;letter-spacing:.03em;color:#555;background:#f4f5f7;border:1px solid rgba(0,0,0,.07);border-radius:5px;padding:4px 8px}
+</style>
 
 <script>
 /* Mise à jour live des quantités, ligne par ligne. La quantité saisie est la
@@ -151,6 +201,14 @@
     { "type": "text", "id": "checkout_label", "label": "Bouton checkout", "default": "Checkout" },
     { "type": "text", "id": "continue_label", "label": "Lien continuer mes achats", "default": "Continue shopping" },
     { "type": "url", "id": "continue_url", "label": "Lien \"continuer mes achats\"" },
+    { "type": "header", "content": "Réassurance (confiance client)" },
+    { "type": "checkbox", "id": "show_trust", "label": "Afficher les 3 piliers de confiance", "default": true },
+    { "type": "text", "id": "trust_1", "label": "Pilier 1 (livraison)", "default": "Free UK delivery on every order" },
+    { "type": "text", "id": "trust_2", "label": "Pilier 2 (garantie)", "default": "30-day money-back guarantee" },
+    { "type": "text", "id": "trust_3", "label": "Pilier 3 (paiement)", "default": "Secure & encrypted payment" },
+    { "type": "checkbox", "id": "show_secure", "label": "Afficher la ligne \"Secure checkout\"", "default": true },
+    { "type": "text", "id": "secure_text", "label": "Texte paiement sécurisé", "default": "Secure checkout — SSL encrypted" },
+    { "type": "checkbox", "id": "show_payment", "label": "Afficher les logos de paiement", "default": true },
     { "type": "header", "content": "Panier vide" },
     { "type": "text", "id": "empty_text", "label": "Message panier vide", "default": "Your cart is empty." },
     { "type": "text", "id": "empty_btn", "label": "Bouton panier vide", "default": "Shop now" }

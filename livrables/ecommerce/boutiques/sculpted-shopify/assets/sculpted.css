@@ -230,7 +230,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .lc-banner.is-empty{display:flex;align-items:center;justify-content:center;background:repeating-linear-gradient(135deg,#eceef1 0 14px,#f3f5f7 14px 28px);border:1px solid var(--line)}
 .lc-banner.is-empty span{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8b9099}
 .lc-badges{display:flex;justify-content:center;gap:10px;margin:14px 0 18px;flex-wrap:wrap}
-.lc-badges span{font-size:11px;font-weight:700;padding:6px 12px;border-radius:8px}
+.lc-badges span,.lc-badges button{font-size:11px;font-weight:700;padding:6px 12px;border-radius:8px;display:inline-flex;align-items:center;gap:5px;font-family:inherit;line-height:1.2}
+.lc-badges button{border:none;cursor:pointer;transition:filter .15s}
+.lc-badges button:hover{filter:brightness(.95)}
+.lc-badges .lc-i{width:13px;height:13px;opacity:.65}
 .lc-badges .a{background:#e9f7ef;color:var(--ok)}
 .lc-badges .b{background:#fdeceb;color:var(--warn)}
 .pay-row{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin-top:22px}

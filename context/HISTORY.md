@@ -7,6 +7,22 @@
 
 ---
 
+## Semaine du 8 au 14 juin 2026 (deuxième `/semaine`)
+
+**Bilan semaine écoulée (1er au 7 juin) :** les 3 objectifs sont cochés ET dépassés. Boutique reconstruite et adaptée au nouveau produit, recherche d'un 2e produit (protège-tibias) faite, et surtout **premier test produit réel mené** (Sculpted, ~50 € dépensés, 0 vente). Roméo en sort avec le bon réflexe : lecture critique de l'entonnoir (les gens cliquent mais bloquent → frein page produit, pas créa) plutôt que frustration. Vrai gain de la semaine = développement de l'esprit critique sur ses propres erreurs. Énergie bonne, envie de reprendre le sport (prévu aux vacances), seule ombre = la double charge examens/business qui parasite la concentration (se résout dans une semaine).
+
+**Décision produit actée :** Sculpted mis en pause (campagne #1 abandonnée), Roméo switch sur le protège-tibias. Point d'associé soulevé : son diagnostic disait "frein = page produit", il a corrigé la page mais ne re-teste pas Sculpted avec la page neuve → il change 2 variables à la fois (produit + page) et ne pourra pas isoler ce qui joue. Roméo assume, c'est un choix data + cœur (il croit plus au protège-tibias). Leçon retenue pour la suite : corriger une variable à la fois et la tester seule.
+
+**Objectif de la semaine (un seul, ferme) :**
+- [ ] **Tester le protège-tibias de bout en bout** : campagne lancée ce soir (50 €/jour) → laisser le budget se consumer ~24h sans décision à chaud → lire la data ensemble (CPC, CPM, CTR, add to cart, ROAS) → décision kill/continue. Le cœur de l'objectif n'est pas le lancement mais l'étape "lire + décider".
+
+**Stretch écarté volontairement :** l'idée d'un 2e produit testé dans la semaine a été posée puis abandonnée par Roméo (semaine d'examens, année à valider). Sain. Il garde sa marge du samedi après les exams si besoin.
+
+**Risque principal :** que la charge examens déborde. Mitigation : objectif volontairement minimal, pas de stretch.
+**Préparation Claude :** lecture de la data du protège-tibias avec Roméo dès 24h de run ; si kill, dégainer une short-list TrendTrack pour le produit suivant + scripts créas EN prêts à monter (à déclencher seulement au moment voulu, pas en amont).
+
+---
+
 ## 2026-06-07 (mise à jour 2)
 
 ### Page collection mobile : refonte des cartes produit + campagne Meta #1 coupée
@@ -190,10 +206,10 @@ Vérification post-lancement faite avec Romy, captures à l'appui. Les trois poi
 
 **Changement acté :** compte pro = **Qonto** (opérationnel 31/05). Revolut business refusé. Qonto remplace Revolut partout dans le contexte.
 
-**Objectifs de la semaine :**
-- [ ] **Objectif 1 :** Boutique Sculpted 100% fonctionnelle et prête à vendre (photos intégrées, parcours testé de bout en bout panier → checkout réel UK, zéro bug)
-- [ ] **Objectif 2 :** Meta Business Manager créé et configuré, Qonto relié comme moyen de paiement (socle pub prêt, sans lancer)
-- [ ] **Objectif 3 :** 5-6 créatives adaptées en anglais (sous-titres EN + voix off anglaise), prêtes à charger dans Meta, pas publiées
+**Objectifs de la semaine :** ✅ **Les 3 atteints et dépassés** (boutique lancée + 1re campagne Meta tournée avant même la date prévue du 13 juin).
+- [x] **Objectif 1 :** Boutique Sculpted 100% fonctionnelle et prête à vendre (photos intégrées, parcours testé de bout en bout panier → checkout réel UK, zéro bug)
+- [x] **Objectif 2 :** Meta Business Manager créé et configuré, Qonto relié comme moyen de paiement (socle pub prêt, sans lancer)
+- [x] **Objectif 3 :** 5-6 créatives adaptées en anglais (sous-titres EN + voix off anglaise), prêtes à charger dans Meta, pas publiées
 
 **Décision :** lancement des pubs Meta repoussé au sprint #1 (13 juin), pas pendant les exams / dispo réduite (impossible de surveiller et optimiser, gaspillage du budget test).
 

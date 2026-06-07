@@ -1,41 +1,79 @@
 {%- comment -%}
-  Sculpted — Bloc "Track my order" (suivi de commande).
-  Champ cosmétique (comme la maquette) : à brancher plus tard sur ton transporteur
-  ou une appli de suivi. Tous les textes sont éditables.
+  Zooryn — Bloc "Track my order" (suivi de commande) branché sur PARCEL PANEL.
+
+  Le widget Parcel Panel s'injecte tout seul dans le conteneur
+  <div id="pp-tracking-page-app"></div> via son script. C'est LUI qui affiche le
+  formulaire de recherche (numéro de commande + email, ou numéro de suivi) et le
+  statut de livraison brandé Zooryn. Le masquage de l'origine (Chine / transporteur)
+  se règle dans le tableau de bord Parcel Panel, pas ici.
+
+  Titre + sous-titre restent éditables dans Personnaliser. Nouveaux ids de réglages
+  (title / subtitle) volontairement différents des anciens (heading / intro) pour
+  repartir sur des textes propres sans dépendre de l'ancien contenu enregistré.
 {%- endcomment -%}
 <section class="track">
   <div class="wrap">
-    <h1 class="display">{{ section.settings.heading | escape }}</h1>
-    <p class="intro">{{ section.settings.intro | escape }}{% if section.settings.link_label != blank %} <a href="{{ section.settings.link_url | default: '#' }}">{{ section.settings.link_label | escape }}</a>.{% endif %}</p>
-    <form class="track-form" onsubmit="return sculptedTrackOrder(event)">
-      <input type="text" id="sculptedTrackingNo" placeholder="{{ section.settings.placeholder | escape }}" required />
-      <button type="submit" class="btn btn-primary">{{ section.settings.button_label | escape }}</button>
-      <p class="track-result" id="sculptedTrackResult">{{ section.settings.not_found | escape }}</p>
-    </form>
+    <h1 class="display">{{ section.settings.title | escape }}</h1>
+    {%- if section.settings.subtitle != blank -%}
+      <p class="intro">{{ section.settings.subtitle | escape }}</p>
+    {%- endif -%}
+
+    {%- comment -%} ----- Widget Parcel Panel (formulaire + suivi réels) ----- {%- endcomment -%}
+    <div class="track-pp">
+      <div id="pp-tracking-page-app"></div>
+      <script src="//pp-proxy.parcelpanel.com/assets/tracking/track-page.js" type="text/javascript"></script>
+    </div>
+
+    {%- comment -%}
+      Masque le crédit "Powered by ParcelPanel". On cible par le TEXTE (pas par une
+      classe, qui peut changer côté Parcel Panel) à l'intérieur du widget, et on
+      ré-applique via MutationObserver car le widget se charge en asynchrone.
+    {%- endcomment -%}
+    <script>
+    (function(){
+      var root = document.getElementById('pp-tracking-page-app');
+      if(!root){ return; }
+      function hidePowered(){
+        var nodes = root.querySelectorAll('a,div,span,p,small');
+        for(var i = 0; i < nodes.length; i++){
+          var el = nodes[i];
+          var txt = (el.textContent || '').trim().toLowerCase();
+          if(txt && txt.length < 40 && txt.indexOf('powered by') === 0 && txt.indexOf('parcel') !== -1){
+            el.style.setProperty('display', 'none', 'important');
+          }
+        }
+      }
+      hidePowered();
+      try{
+        var obs = new MutationObserver(hidePowered);
+        obs.observe(root, { childList: true, subtree: true });
+      }catch(e){}
+    })();
+    </script>
+
+    {%- if section.settings.help_label != blank -%}
+      <p class="track-help">{{ section.settings.help_label | escape }}{% if section.settings.help_url != blank %} <a href="{{ section.settings.help_url }}">{{ section.settings.help_link | default: 'Contact us' | escape }}</a>.{% endif %}</p>
+    {%- endif -%}
   </div>
 </section>
 
-<script>
-/* Suivi cosmétique : affiche le message d'aide. À brancher sur ton suivi réel plus tard. */
-function sculptedTrackOrder(e){
-  e.preventDefault();
-  document.getElementById('sculptedTrackResult').classList.add('show');
-  return false;
-}
-</script>
+<style>
+  .track .track-pp{margin-top:20px;min-height:120px}
+  .track .track-help{margin-top:18px;font-size:14px;color:var(--muted,#6b7280)}
+</style>
 
 {% schema %}
 {
-  "name": "Sculpted — Track order",
+  "name": "Zooryn — Track order",
   "tag": "section",
   "settings": [
-    { "type": "text", "id": "heading", "label": "Titre", "default": "Track my order" },
-    { "type": "textarea", "id": "intro", "label": "Texte d'intro", "default": "Enter the tracking number from the shipping confirmation email you received. Need help tracking your order?" },
-    { "type": "text", "id": "link_label", "label": "Lien — libellé", "default": "Get in touch via our contact form" },
-    { "type": "url", "id": "link_url", "label": "Lien — URL" },
-    { "type": "text", "id": "placeholder", "label": "Placeholder du champ", "default": "Tracking number" },
-    { "type": "text", "id": "button_label", "label": "Bouton", "default": "Track" },
-    { "type": "textarea", "id": "not_found", "label": "Message si non trouvé", "default": "We couldn't find that tracking number yet. Newly shipped orders can take up to 24 hours to appear — please try again shortly." }
+    { "type": "paragraph", "content": "Le formulaire de suivi et les statuts sont gérés par l'app Parcel Panel (recherche par numéro de commande + email). Le masquage de l'origine (Chine) se configure dans le dashboard Parcel Panel → Tracking page." },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Track your order" },
+    { "type": "textarea", "id": "subtitle", "label": "Sous-titre", "default": "Enter your order number and the email you used at checkout to see the latest updates on your delivery." },
+    { "type": "header", "content": "Lien d'aide (optionnel)" },
+    { "type": "text", "id": "help_label", "label": "Texte avant le lien", "default": "Can't find your order?" },
+    { "type": "text", "id": "help_link", "label": "Libellé du lien", "default": "Contact us" },
+    { "type": "url", "id": "help_url", "label": "URL du lien" }
   ]
 }
 {% endschema %}

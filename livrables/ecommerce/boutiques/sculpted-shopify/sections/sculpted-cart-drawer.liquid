@@ -15,6 +15,13 @@
 {%- endcomment -%}
 
 {%- assign savings = cart.original_total_price | minus: cart.total_price -%}
+{%- comment -%}
+  Seul ce produit déclenche la mécanique cadeau "Buy 2 Get 1 Free" dans le tiroir
+  (c'est le seul à porter la remise BXGY côté Shopify). Tous les autres produits
+  (protège-tibias, futurs produits) sont affichés sans cadeau, sans offre, sans
+  remise. Défaut = ID du produit Sculpted ; éditable dans Personnaliser.
+{%- endcomment -%}
+{%- assign gift_pid = section.settings.gift_product_id | default: '16329009922393' -%}
 
 <div id="CartDrawer" class="cart-drawer" aria-hidden="true">
   <div class="cart-drawer__overlay" data-cart-close></div>
@@ -43,67 +50,158 @@
           {%- assign seen = '' -%}
           {%- for item in cart.items -%}
             {%- assign pid = item.product_id | append: '' -%}
-            {%- assign marker = '|' | append: pid | append: '|' -%}
-            {%- unless seen contains marker -%}
-              {%- assign seen = seen | append: marker -%}
-              {%- assign tot = 0 -%}
-              {%- assign unit = 0 -%}
-              {%- assign ctrl_key = '' -%}
-              {%- assign others = '' -%}
-              {%- assign first_item = item -%}
-              {%- assign vsummary = '' -%}
-              {%- for it2 in cart.items -%}
-                {%- if it2.product_id == item.product_id -%}
-                  {%- assign tot = tot | plus: it2.quantity -%}
-                  {%- if ctrl_key == '' -%}
-                    {%- assign ctrl_key = it2.key -%}
-                    {%- assign unit = it2.original_price -%}
-                    {%- assign first_item = it2 -%}
-                  {%- else -%}
-                    {%- assign others = others | append: it2.key | append: ',' -%}
+            {%- assign is_gift = false -%}
+            {%- if pid == gift_pid -%}{%- assign is_gift = true -%}{%- endif -%}
+
+            {%- if is_gift -%}
+              {%- comment -%}
+                PRODUIT À OFFRE (Sculpted) : on REGROUPE par produit. offerts = total
+                ÷ 3 (chaque 3e offert), payés = total − offerts. Le compteur affiché =
+                unités PAYÉES. data-control = 1re ligne, data-others = lignes à 0.
+              {%- endcomment -%}
+              {%- assign marker = '|' | append: pid | append: '|' -%}
+              {%- unless seen contains marker -%}
+                {%- assign seen = seen | append: marker -%}
+                {%- assign tot = 0 -%}
+                {%- assign unit = 0 -%}
+                {%- assign ctrl_key = '' -%}
+                {%- assign others = '' -%}
+                {%- assign first_item = item -%}
+                {%- assign vsummary = '' -%}
+                {%- for it2 in cart.items -%}
+                  {%- if it2.product_id == item.product_id -%}
+                    {%- assign tot = tot | plus: it2.quantity -%}
+                    {%- if ctrl_key == '' -%}
+                      {%- assign ctrl_key = it2.key -%}
+                      {%- assign unit = it2.original_price -%}
+                      {%- assign first_item = it2 -%}
+                    {%- else -%}
+                      {%- assign others = others | append: it2.key | append: ',' -%}
+                    {%- endif -%}
+                    {%- if it2.variant.title and it2.variant.title != 'Default Title' -%}
+                      {%- assign vsummary = vsummary | append: it2.variant.title | append: ' ×' | append: it2.quantity | append: ' · ' -%}
+                    {%- endif -%}
                   {%- endif -%}
-                  {%- if it2.variant.title and it2.variant.title != 'Default Title' -%}
-                    {%- assign vsummary = vsummary | append: it2.variant.title | append: ' ×' | append: it2.quantity | append: ' · ' -%}
-                  {%- endif -%}
-                {%- endif -%}
-              {%- endfor -%}
-              {%- assign free = tot | divided_by: 3 -%}
-              {%- assign paid = tot | minus: free -%}
-              {%- assign line_total = paid | times: unit -%}
-              {%- assign orig_total = tot | times: unit -%}
-              <div class="cd-item" data-control="{{ ctrl_key }}" data-others="{{ others | strip }}" data-paid="{{ paid }}">
-                <a class="cd-item__media{% if first_item.image %} has-img{% endif %}" href="{{ first_item.url }}">
-                  {%- if first_item.image -%}<img src="{{ first_item.image | image_url: width: 200 }}" alt="{{ first_item.product.title | escape }}" loading="lazy">{%- endif -%}
-                </a>
-                <div class="cd-item__main">
-                  <div class="cd-item__row">
-                    <a class="cd-item__name" href="{{ first_item.url }}">{{ first_item.product.title | escape }}</a>
-                    <button type="button" class="cd-item__remove" data-action="remove" aria-label="Remove">
-                      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                    </button>
-                  </div>
-                  {%- if vsummary != '' -%}
-                    <p class="cd-item__opt">{{ vsummary | split: ' · ' | join: ' · ' }}</p>
-                  {%- endif -%}
-                  {%- if free > 0 -%}
-                    <p class="cd-item__gift">+{{ free }} {{ section.settings.gift_badge | escape }}</p>
-                  {%- endif -%}
-                  <div class="cd-item__foot">
-                    <div class="cd-qty">
-                      <button type="button" data-action="dec" aria-label="Decrease">−</button>
-                      <span>{{ paid }}</span>
-                      <button type="button" data-action="inc" aria-label="Increase">+</button>
+                {%- endfor -%}
+                {%- assign free = tot | divided_by: 3 -%}
+                {%- assign paid = tot | minus: free -%}
+                {%- assign line_total = paid | times: unit -%}
+                {%- assign orig_total = tot | times: unit -%}
+                <div class="cd-item" data-control="{{ ctrl_key }}" data-others="{{ others | strip }}" data-paid="{{ paid }}" data-gift="true">
+                  <a class="cd-item__media{% if first_item.image %} has-img{% endif %}" href="{{ first_item.url }}">
+                    {%- if first_item.image -%}<img src="{{ first_item.image | image_url: width: 200 }}" alt="{{ first_item.product.title | escape }}" loading="lazy">{%- endif -%}
+                  </a>
+                  <div class="cd-item__main">
+                    <div class="cd-item__row">
+                      <a class="cd-item__name" href="{{ first_item.url }}">{{ first_item.product.title | escape }}</a>
+                      <button type="button" class="cd-item__remove" data-action="remove" aria-label="Remove">
+                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                      </button>
                     </div>
-                    <div class="cd-price">
-                      <span class="cd-price__now">{{ line_total | money }}</span>
-                      {%- if free > 0 -%}
-                        <span class="cd-price__was">{{ orig_total | money }}</span>
-                      {%- endif -%}
+                    {%- if vsummary != '' -%}
+                      <p class="cd-item__opt">{{ vsummary | split: ' · ' | join: ' · ' }}</p>
+                    {%- endif -%}
+                    {%- if free > 0 -%}
+                      <p class="cd-item__gift">+{{ free }} {{ section.settings.gift_badge | escape }}</p>
+                    {%- endif -%}
+                    <div class="cd-item__foot">
+                      <div class="cd-qty">
+                        <button type="button" data-action="dec" aria-label="Decrease">−</button>
+                        <span>{{ paid }}</span>
+                        <button type="button" data-action="inc" aria-label="Increase">+</button>
+                      </div>
+                      <div class="cd-price">
+                        <span class="cd-price__now">{{ line_total | money }}</span>
+                        {%- if free > 0 -%}
+                          <span class="cd-price__was">{{ orig_total | money }}</span>
+                        {%- endif -%}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            {%- endunless -%}
+              {%- endunless -%}
+
+            {%- else -%}
+              {%- assign is_pack = false -%}
+              {%- if item.product.options contains 'Pack' -%}{%- assign is_pack = true -%}{%- endif -%}
+
+              {%- if is_pack -%}
+                {%- comment -%}
+                  PRODUIT PACK (protège-tibias) : le +/− change de VARIANTE pack
+                  (1↔2↔3↔4 paires), PAS la quantité. Le libellé ("N Pairs") et le prix
+                  réel du pack suivent. Aucun cadeau. On passe au JS le mapping
+                  paires→variante et les propriétés couleur/taille à conserver.
+                {%- endcomment -%}
+                {%- assign pack_map = '' -%}
+                {%- assign pack_max = 1 -%}
+                {%- for v in item.product.variants -%}
+                  {%- assign vn = v.title | split: ' ' | first -%}
+                  {%- assign pack_map = pack_map | append: vn | append: ':' | append: v.id | append: ',' -%}
+                  {%- assign vni = vn | plus: 0 -%}
+                  {%- if vni > pack_max -%}{%- assign pack_max = vni -%}{%- endif -%}
+                {%- endfor -%}
+                {%- assign cur_pairs = item.variant.title | split: ' ' | first -%}
+                <div class="cd-item" data-pack="true" data-line="{{ item.key }}" data-current="{{ cur_pairs }}" data-max="{{ pack_max }}" data-map="{{ pack_map | strip }}" data-props="{{ item.properties | json | escape }}" data-gift="false">
+                  <a class="cd-item__media{% if item.image %} has-img{% endif %}" href="{{ item.url }}">
+                    {%- if item.image -%}<img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.product.title | escape }}" loading="lazy">{%- endif -%}
+                  </a>
+                  <div class="cd-item__main">
+                    <div class="cd-item__row">
+                      <a class="cd-item__name" href="{{ item.url }}">{{ item.product.title | escape }}</a>
+                      <button type="button" class="cd-item__remove" data-action="remove" aria-label="Remove">
+                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                      </button>
+                    </div>
+                    <p class="cd-item__opt">{{ item.variant.title | escape }}</p>
+                    <div class="cd-item__foot">
+                      <div class="cd-qty">
+                        <button type="button" data-action="dec" aria-label="Decrease">−</button>
+                        <span>{{ cur_pairs }}</span>
+                        <button type="button" data-action="inc" aria-label="Increase">+</button>
+                      </div>
+                      <div class="cd-price">
+                        <span class="cd-price__now">{{ item.final_line_price | money }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              {%- else -%}
+                {%- comment -%}
+                  PRODUIT SIMPLE sans offre : une carte par ligne, vraie quantité,
+                  vrai prix Shopify. inc/dec agit sur la quantité de la ligne.
+                {%- endcomment -%}
+                <div class="cd-item" data-control="{{ item.key }}" data-others="" data-paid="{{ item.quantity }}" data-gift="false">
+                  <a class="cd-item__media{% if item.image %} has-img{% endif %}" href="{{ item.url }}">
+                    {%- if item.image -%}<img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.product.title | escape }}" loading="lazy">{%- endif -%}
+                  </a>
+                  <div class="cd-item__main">
+                    <div class="cd-item__row">
+                      <a class="cd-item__name" href="{{ item.url }}">{{ item.product.title | escape }}</a>
+                      <button type="button" class="cd-item__remove" data-action="remove" aria-label="Remove">
+                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                      </button>
+                    </div>
+                    {%- if item.variant.title and item.variant.title != 'Default Title' -%}
+                      <p class="cd-item__opt">{{ item.variant.title | escape }}</p>
+                    {%- endif -%}
+                    <div class="cd-item__foot">
+                      <div class="cd-qty">
+                        <button type="button" data-action="dec" aria-label="Decrease">−</button>
+                        <span>{{ item.quantity }}</span>
+                        <button type="button" data-action="inc" aria-label="Increase">+</button>
+                      </div>
+                      <div class="cd-price">
+                        <span class="cd-price__now">{{ item.final_line_price | money }}</span>
+                        {%- if item.original_line_price > item.final_line_price -%}
+                          <span class="cd-price__was">{{ item.original_line_price | money }}</span>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {%- endif -%}
+            {%- endif -%}
           {%- endfor -%}
         </div>
 
@@ -117,6 +215,47 @@
             <button type="submit" name="checkout" class="btn btn-accent btn-block cd-checkout">{{ section.settings.checkout_label | escape }}</button>
           </form>
           <button type="button" class="cd-continue" data-cart-close>{{ section.settings.continue_label | escape }}</button>
+
+          {%- comment -%} Réassurance : piliers centrés et cliquables (pop-up d'explication). {%- endcomment -%}
+          {%- if section.settings.show_trust -%}
+            <ul class="cd-trust">
+              <li>
+                <button type="button" class="cd-trust__item" data-trust-open data-title="{{ section.settings.trust_1 | escape }}" data-desc="{{ section.settings.trust_1_desc | escape }}">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                  <span>{{ section.settings.trust_1 | escape }}</span>
+                  <svg class="cd-trust__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v4.5" stroke-linecap="round"/><path d="M12 8h.01" stroke-linecap="round"/></svg>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="cd-trust__item" data-trust-open data-title="{{ section.settings.trust_2 | escape }}" data-desc="{{ section.settings.trust_2_desc | escape }}">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></svg>
+                  <span>{{ section.settings.trust_2 | escape }}</span>
+                  <svg class="cd-trust__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v4.5" stroke-linecap="round"/><path d="M12 8h.01" stroke-linecap="round"/></svg>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="cd-trust__item" data-trust-open data-title="{{ section.settings.trust_3 | escape }}" data-desc="{{ section.settings.trust_3_desc | escape }}">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+                  <span>{{ section.settings.trust_3 | escape }}</span>
+                  <svg class="cd-trust__i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v4.5" stroke-linecap="round"/><path d="M12 8h.01" stroke-linecap="round"/></svg>
+                </button>
+              </li>
+            </ul>
+          {%- endif -%}
+
+          {%- if section.settings.show_secure -%}
+            <p class="cd-secure">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+              <span>{{ section.settings.secure_text | escape }}</span>
+            </p>
+          {%- endif -%}
+
+          {%- if section.settings.show_payment -%}
+            <div class="cd-pay" aria-label="Accepted payment methods">
+              {%- assign pays = section.settings.pay_row | split: ',' -%}
+              {%- for p in pays -%}{% render 'sculpted-pay-icon', name: p %}{%- endfor -%}
+            </div>
+          {%- endif -%}
         </div>
       {%- else -%}
         <div class="cd-empty">
@@ -125,8 +264,53 @@
         </div>
       {%- endif -%}
     </div>
+
+    {%- comment -%} Pop-up d'explication des piliers de confiance (hors zone re-rendue). {%- endcomment -%}
+    <div class="cd-tmodal" id="cd-tmodal" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="cd-tmodal__backdrop" data-tm-close></div>
+      <div class="cd-tmodal__box" role="document">
+        <button type="button" class="cd-tmodal__x" data-tm-close aria-label="Close">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="cd-tmodal__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div>
+        <h4 class="cd-tmodal__title" data-tm-title></h4>
+        <p class="cd-tmodal__desc" data-tm-desc></p>
+      </div>
+    </div>
   </aside>
 </div>
+
+<style>
+/* --- Fix scroll / débordement du tiroir (auto-contenu, override de sculpted.css) --- */
+.cart-drawer__inner{-webkit-overflow-scrolling:touch}
+.cd-items{flex:0 0 auto}            /* plus de vide géant : le pied suit le contenu */
+.cart-drawer__foot{flex:0 0 auto}   /* le pied participe au scroll de l'inner */
+
+/* --- Réassurance du tiroir (piliers centrés et cliquables) --- */
+.cd-trust{list-style:none;margin:16px 0 0;padding:14px 0 0;border-top:1px solid rgba(0,0,0,.08);display:flex;flex-direction:column;gap:4px}
+.cd-trust li{display:block}
+.cd-trust__item{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;background:none;border:none;cursor:pointer;font:inherit;color:#222;font-size:13px;line-height:1.3;padding:7px 8px;border-radius:8px;transition:background .15s}
+.cd-trust__item:hover{background:#f4f5f7}
+.cd-trust__item > svg:first-child{width:19px;height:19px;flex:0 0 19px;color:#1496d6}
+.cd-trust__item span{font-weight:500}
+.cd-trust__i{width:15px;height:15px;flex:0 0 15px;color:#9aa3ad}
+.cd-secure{display:flex;align-items:center;justify-content:center;gap:7px;margin:12px 0 0;font-size:12px;font-weight:600;letter-spacing:.02em;color:#3a7d44}
+.cd-secure svg{width:14px;height:14px;flex:0 0 14px}
+.cd-pay{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:7px;margin:11px 0 0}
+.cd-pay .pay-svg{height:24px;width:auto;display:block}
+
+/* --- Pop-up d'explication des piliers --- */
+.cd-tmodal{position:absolute;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:24px}
+.cd-tmodal.is-open{display:flex}
+.cd-tmodal__backdrop{position:absolute;inset:0;background:rgba(16,17,20,.5)}
+.cd-tmodal__box{position:relative;background:#fff;border-radius:16px;max-width:320px;width:100%;padding:26px 22px 24px;text-align:center;box-shadow:0 24px 60px -20px rgba(16,17,20,.5)}
+.cd-tmodal__x{position:absolute;top:10px;right:10px;display:flex;align-items:center;justify-content:center;width:34px;height:34px;border:none;background:none;color:#6b7280;cursor:pointer;border-radius:50%;transition:background .15s}
+.cd-tmodal__x:hover{background:#f4f5f7}
+.cd-tmodal__icon{width:46px;height:46px;margin:0 auto 12px;border-radius:50%;background:#e6f4fb;color:#1496d6;display:flex;align-items:center;justify-content:center}
+.cd-tmodal__icon svg{width:24px;height:24px}
+.cd-tmodal__title{font-size:17px;font-weight:800;margin:0 0 8px;color:#101114}
+.cd-tmodal__desc{font-size:14px;line-height:1.55;color:#4b5563;margin:0}
+</style>
 
 <script>
 (function(){
@@ -137,6 +321,23 @@
   function open(){ drawer.classList.add('is-open'); drawer.setAttribute('aria-hidden','false'); document.documentElement.classList.add('cd-lock'); }
   function close(){ drawer.classList.remove('is-open'); drawer.setAttribute('aria-hidden','true'); document.documentElement.classList.remove('cd-lock'); }
   function busy(b){ drawer.classList.toggle('is-busy', !!b); }
+
+  /* Pop-up d'explication d'un pilier de confiance. */
+  var tmodal = drawer.querySelector('#cd-tmodal');
+  function openTrust(btn){
+    if(!tmodal){ return; }
+    var t = tmodal.querySelector('[data-tm-title]');
+    var d = tmodal.querySelector('[data-tm-desc]');
+    if(t){ t.textContent = btn.getAttribute('data-title') || ''; }
+    if(d){ d.textContent = btn.getAttribute('data-desc') || ''; }
+    tmodal.classList.add('is-open');
+    tmodal.setAttribute('aria-hidden', 'false');
+  }
+  function closeTrust(){
+    if(!tmodal){ return; }
+    tmodal.classList.remove('is-open');
+    tmodal.setAttribute('aria-hidden', 'true');
+  }
 
   function setCount(n){
     document.querySelectorAll('[data-cart-count]').forEach(function(el){
@@ -178,6 +379,51 @@
       .catch(function(){ busy(false); alert('Could not update the cart. Please try again.'); });
   }
 
+  /* Produit PACK : le +/− change de variante (1↔2↔3↔4 paires) au lieu de la
+     quantité. On retire la ligne courante puis on ajoute la variante du pack
+     cible (quantité 1), en conservant les propriétés couleur/taille. Le prix et
+     le libellé "N Pairs" se mettent à jour tout seuls au re-render. */
+  function packStep(itemEl, act){
+    var cur = parseInt(itemEl.getAttribute('data-current'), 10) || 1;
+    var max = parseInt(itemEl.getAttribute('data-max'), 10) || cur;
+    var line = itemEl.getAttribute('data-line');
+    var target = cur;
+    if(act === 'inc'){ target = Math.min(cur + 1, max); }
+    else if(act === 'dec'){ target = cur - 1; }
+    else if(act === 'remove'){ target = 0; }
+    else { return; }
+    if(target === cur && act !== 'remove'){ return; }
+    /* Suppression (dernier pack atteint ou croix) : on passe par /cart/update.js,
+       le même mécanisme fiable que pour le reste du panier. */
+    if(target <= 0){
+      var u = {}; u[line] = 0;
+      update(u);
+      return;
+    }
+    /* Changement de pack : on retire la ligne courante puis on ajoute la variante
+       du pack cible (quantité 1), en conservant les propriétés couleur/taille. */
+    var map = {};
+    (itemEl.getAttribute('data-map') || '').split(',').filter(Boolean).forEach(function(p){
+      var i = p.indexOf(':'); if(i > 0){ map[p.slice(0, i)] = p.slice(i + 1); }
+    });
+    var props = {};
+    try{
+      var raw = JSON.parse(itemEl.getAttribute('data-props') || '{}');
+      if(raw && typeof raw === 'object'){ Object.keys(raw).forEach(function(k){ if(k.charAt(0) !== '_'){ props[k] = raw[k]; } }); }
+    }catch(e){}
+    var newVid = map[String(target)];
+    if(!newVid){ return; }
+    busy(true);
+    fetch('/cart/change.js', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ id: line, quantity: 0 }) })
+      .then(function(r){ if(!r.ok){ throw new Error('change'); }
+        return fetch('/cart/add.js', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ items:[{ id: parseInt(newVid, 10), quantity: 1, properties: props }], sections: SECTION, sections_url: window.location.pathname }) });
+      })
+      .then(function(r){ if(!r.ok){ throw new Error('add'); } return r.json(); })
+      .then(function(data){ if(data.sections && data.sections[SECTION]){ replaceInner(data.sections[SECTION]); return; } return pull(); })
+      .then(function(){ busy(false); })
+      .catch(function(){ busy(false); pull(); });
+  }
+
   window.SculptedCart = { open: function(){ open(); pull(); }, close: close, add: add, refresh: pull };
 
   document.addEventListener('click', function(e){
@@ -185,12 +431,16 @@
     if(opener){ e.preventDefault(); open(); pull(); }
   });
   drawer.addEventListener('click', function(e){
+    var trustBtn = e.target.closest('[data-trust-open]');
+    if(trustBtn){ openTrust(trustBtn); return; }
+    if(e.target.closest('[data-tm-close]')){ closeTrust(); return; }
     if(e.target.closest('[data-cart-close]')){ close(); return; }
     var ctrl = e.target.closest('[data-action]');
     if(!ctrl){ return; }
     var itemEl = ctrl.closest('.cd-item');
     if(!itemEl){ return; }
     var act = ctrl.getAttribute('data-action');
+    if(itemEl.getAttribute('data-pack') === 'true'){ packStep(itemEl, act); return; }
     var control = itemEl.getAttribute('data-control');
     var others = (itemEl.getAttribute('data-others') || '').split(',').filter(Boolean);
     var paid = parseInt(itemEl.getAttribute('data-paid'), 10) || 0;
@@ -199,15 +449,21 @@
     else if(act === 'dec'){ newPaid = paid - 1; }
     else if(act === 'remove'){ newPaid = 0; }
     if(newPaid < 0){ newPaid = 0; }
-    /* total à mettre en panier pour obtenir floor(newPaid/2) offerts via la
-       remise Shopify "buy 2 get 1" (offerts = total ÷ 3). */
-    var newTotal = newPaid + Math.floor(newPaid / 2);
+    /* total à mettre en panier. Produit avec offre (Sculpted) : on ajoute
+       floor(newPaid/2) offerts via la remise Shopify "buy 2 get 1" (total ÷ 3).
+       Tout autre produit (protège-tibias, etc.) : pas de bonus, total = payé. */
+    var isGift = itemEl.getAttribute('data-gift') === 'true';
+    var newTotal = isGift ? (newPaid + Math.floor(newPaid / 2)) : newPaid;
     var updates = {};
     if(control){ updates[control] = newTotal; }
     others.forEach(function(k){ updates[k] = 0; });
     update(updates);
   });
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && drawer.classList.contains('is-open')){ close(); } });
+  document.addEventListener('keydown', function(e){
+    if(e.key !== 'Escape'){ return; }
+    if(tmodal && tmodal.classList.contains('is-open')){ closeTrust(); return; }
+    if(drawer.classList.contains('is-open')){ close(); }
+  });
 })();
 </script>
 
@@ -217,6 +473,8 @@
   "tag": "div",
   "settings": [
     { "type": "text", "id": "heading", "label": "Titre", "default": "Your cart" },
+    { "type": "header", "content": "Offre cadeau (Buy 2 Get 1 Free)" },
+    { "type": "text", "id": "gift_product_id", "label": "ID du seul produit avec offre cadeau", "info": "Seul ce produit affiche un article offert dans le tiroir. Laisser l'ID du Sculpted. Les autres produits (protège-tibias…) n'ont jamais de cadeau.", "default": "16329009922393" },
     { "type": "header", "content": "Libellés" },
     { "type": "text", "id": "gift_badge", "label": "Badge article offert", "default": "Free gift" },
     { "type": "text", "id": "free_label", "label": "Prix article offert", "default": "Free" },
@@ -225,6 +483,18 @@
     { "type": "text", "id": "shipping_note", "label": "Note livraison/taxes", "default": "Shipping & taxes calculated at checkout." },
     { "type": "text", "id": "checkout_label", "label": "Bouton checkout", "default": "Checkout" },
     { "type": "text", "id": "continue_label", "label": "Lien continuer", "default": "Continue shopping" },
+    { "type": "header", "content": "Réassurance (confiance client)" },
+    { "type": "checkbox", "id": "show_trust", "label": "Afficher les 3 piliers de confiance", "default": true },
+    { "type": "text", "id": "trust_1", "label": "Pilier 1 (livraison)", "default": "Free UK delivery on every order" },
+    { "type": "textarea", "id": "trust_1_desc", "label": "Pilier 1 — explication pop-up", "default": "We ship every order across the UK for free, with tracked delivery so you always know where your parcel is." },
+    { "type": "text", "id": "trust_2", "label": "Pilier 2 (garantie)", "default": "30-day money-back guarantee" },
+    { "type": "textarea", "id": "trust_2_desc", "label": "Pilier 2 — explication pop-up", "default": "Not happy with your order? Send it back within 30 days for a full refund, no questions asked." },
+    { "type": "text", "id": "trust_3", "label": "Pilier 3 (paiement)", "default": "Secure & encrypted payment" },
+    { "type": "textarea", "id": "trust_3_desc", "label": "Pilier 3 — explication pop-up", "default": "Your payment is protected with bank-level SSL encryption. We never see or store your card details." },
+    { "type": "checkbox", "id": "show_secure", "label": "Afficher la ligne \"Secure checkout\"", "default": true },
+    { "type": "text", "id": "secure_text", "label": "Texte paiement sécurisé", "default": "Secure checkout — SSL encrypted" },
+    { "type": "checkbox", "id": "show_payment", "label": "Afficher les logos de paiement", "default": true },
+    { "type": "text", "id": "pay_row", "label": "Logos de paiement (séparés par virgules)", "default": "AMEX, Apple Pay, G Pay, Mastercard, PayPal, Shop, VISA" },
     { "type": "header", "content": "Panier vide" },
     { "type": "text", "id": "empty_text", "label": "Message panier vide", "default": "Your cart is empty." },
     { "type": "text", "id": "empty_btn", "label": "Bouton panier vide", "default": "Shop now" }

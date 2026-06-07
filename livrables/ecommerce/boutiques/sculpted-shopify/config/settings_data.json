@@ -1747,6 +1747,18 @@
       "zooryn-products": {
         "type": "zooryn-products",
         "blocks": {
+          "zooryn-products-1": {
+            "type": "product",
+            "settings": {
+              "image": "shopify://shop_images/imgi_23_SE_Footplug_static_playground.jpg",
+              "badge": "Bestseller",
+              "name": "Zooryn™ Shin Protectors",
+              "tagline": "Lock-in shin guard socks that grip your boots and never slip — no tape, all match long.",
+              "price": "From £24.99",
+              "url": "shopify://products/zooryn-shin-protectors",
+              "btn_label": "learn more"
+            }
+          },
           "zooryn-products-0": {
             "type": "product",
             "settings": {
@@ -1756,18 +1768,6 @@
               "tagline": "The compression shaping tank that sculpts your frame the moment you put it on.",
               "price": "From £29.99",
               "url": "shopify://products/sculptd-compression-shaping-tank-top",
-              "btn_label": "learn more"
-            }
-          },
-          "zooryn-products-1": {
-            "type": "product",
-            "settings": {
-              "image": "shopify://shop_images/imgi_23_SE_Footplug_static_playground.jpg",
-              "badge": "",
-              "name": "Zooryn™ Shin Protectors",
-              "tagline": "Lock-in shin guard socks that grip your boots and never slip — no tape, all match long.",
-              "price": "From £24.99",
-              "url": "shopify://products/zooryn-shin-protectors",
               "btn_label": "learn more"
             }
           }

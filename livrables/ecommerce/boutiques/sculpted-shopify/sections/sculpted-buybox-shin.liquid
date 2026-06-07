@@ -116,8 +116,8 @@
 
         <div class="last-chance">
           <div class="lc-badges">
-            <span class="a">{{ section.settings.lc_badge_a }}</span>
-            <span class="b">{{ section.settings.lc_badge_b }}</span>
+            <button type="button" class="a" data-bn-open="{{ section.id }}" data-title="{{ section.settings.lc_badge_a | escape }}" data-desc="{{ section.settings.lc_badge_a_desc | escape }}">{{ section.settings.lc_badge_a }}<svg class="lc-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v4.5" stroke-linecap="round"/><path d="M12 8h.01" stroke-linecap="round"/></svg></button>
+            <button type="button" class="b" data-bn-open="{{ section.id }}" data-title="{{ section.settings.lc_badge_b | escape }}" data-desc="{{ section.settings.lc_badge_b_desc | escape }}">{{ section.settings.lc_badge_b }}<svg class="lc-i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11.5v4.5" stroke-linecap="round"/><path d="M12 8h.01" stroke-linecap="round"/></svg></button>
           </div>
 
           <button type="button" class="btn btn-accent btn-block sc-buy" data-vid="{{ sc_vid }}" style="background:{{ section.settings.buy_btn_color }};color:#101114" onclick="sculptedBuyNow(this)">{{ section.settings.buy_btn_label | escape }}</button>
@@ -212,6 +212,17 @@
 </div>
 
 <script>
+/* Mapping quantité de paires → variante "pack" Shopify (prix bundle réel).
+   Construit depuis les variantes du produit : "1 Pair" → clé "1", etc.
+   Permet d'ajouter la bonne variante (donc le bon prix au checkout). */
+window.SHIN_PACK_VARIANTS = {
+{%- if sc_prod != blank -%}
+  {%- for v in sc_prod.variants -%}
+    "{{ v.title | split: ' ' | first }}": {{ v.id }}{% unless forloop.last %},{% endunless %}
+  {%- endfor -%}
+{%- endif -%}
+};
+
 /* Galerie : clic sur une vignette produit → remplace la grande image. */
 function sculptedSwapHero(el){
   var full = el.getAttribute('data-full');
@@ -280,34 +291,37 @@ document.addEventListener('DOMContentLoaded', function(){
   document.querySelectorAll('.buy-info .tier.sel').forEach(function(t){ sculptedBuildTierItems(t); });
 });
 
-/* Add to cart : ajoute UN article par ligne avec sa couleur/taille en propriétés,
-   SANS vider le panier, pour cumuler plusieurs produits, puis va au panier. */
+/* Add to cart : ajoute UNE seule ligne = la variante "pack" correspondant au
+   palier choisi (donc le bon prix bundle au checkout). La couleur + la taille de
+   chaque paire partent en propriétés de ligne ("Pair 1", "Pair 2"…) visibles sur
+   la commande pour le fournisseur. Pas de vidage du panier (cumul possible). */
 function sculptedBuyNow(btn){
-  var vid = btn.getAttribute('data-vid');
-  if(!vid){ alert('Product is temporarily unavailable. Please try again later.'); return; }
   var root = btn.closest('.buy-info');
   var sel = root.querySelector('.tier.sel') || root.querySelector('.tier');
   var qty = sel && sel.dataset.qty ? parseInt(sel.dataset.qty, 10) : 1;
   if(!qty || qty < 1){ qty = 1; }
-  var items = [];
+  var map = window.SHIN_PACK_VARIANTS || {};
+  var packVid = map[String(qty)] || parseInt(btn.getAttribute('data-vid'), 10);
+  if(!packVid){ alert('Product is temporarily unavailable. Please try again later.'); return; }
+  var props = {};
   var rows = sel ? sel.querySelectorAll('.tier-row') : [];
   if(rows && rows.length){
-    rows.forEach(function(row){
-      var props = {};
-      var c = row.querySelector('.sc-color'); if(c){ props['Colour'] = c.value; }
-      var s = row.querySelector('.sc-size'); if(s){ props['Size'] = s.value; }
-      items.push({ id: vid, quantity: 1, properties: props });
+    rows.forEach(function(row, idx){
+      var parts = [];
+      var c = row.querySelector('.sc-color'); if(c){ parts.push(c.value); }
+      var s = row.querySelector('.sc-size'); if(s){ parts.push(s.value); }
+      if(parts.length){ props['Pair ' + (idx + 1)] = parts.join(' / '); }
     });
-  } else {
-    items.push({ id: vid, quantity: qty });
   }
+  var item = { id: packVid, quantity: 1 };
+  if(Object.keys(props).length){ item.properties = props; }
   var orig = btn.textContent;
   btn.disabled = true; btn.textContent = 'Adding…';
-  if(window.SculptedCart && window.SculptedCart.add){ window.SculptedCart.add(items, btn, orig); return; }
+  if(window.SculptedCart && window.SculptedCart.add){ window.SculptedCart.add([item], btn, orig); return; }
   fetch('/cart/add.js', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ items: items })
+    body: JSON.stringify({ items: [item] })
   })
     .then(function(r){ if(!r.ok){ throw new Error('add failed'); } return r.json(); })
     .then(function(){ window.location.href = '/cart'; })
@@ -420,7 +434,9 @@ function sculptedBuyNow(btn){
     { "type": "text", "id": "opts_head", "label": "Titre au-dessus des choix par article", "default": "Choose colour & size for each pair" },
     { "type": "header", "content": "Bloc \"Last chance\"" },
     { "type": "text", "id": "lc_badge_a", "label": "Badge vert", "default": "🔒 30-day money-back" },
+    { "type": "textarea", "id": "lc_badge_a_desc", "label": "Badge vert — explication pop-up", "default": "Shop with total confidence. If these aren't right for you, return them within 30 days for a full refund — no questions asked." },
     { "type": "text", "id": "lc_badge_b", "label": "Badge rouge", "default": "⏳ Low stock!" },
+    { "type": "textarea", "id": "lc_badge_b_desc", "label": "Badge rouge — explication pop-up", "default": "These are in high demand and stock is limited. Order today to make sure you don't miss out." },
     { "type": "text", "id": "buy_btn_label", "label": "Bouton — texte", "default": "Buy now" },
     { "type": "color", "id": "buy_btn_color", "label": "Bouton — couleur", "default": "#f6c000" },
     { "type": "text", "id": "pay_row", "label": "Badges paiement (virgules)", "default": "AMEX, Apple Pay, G Pay, Mastercard, PayPal, Shop, VISA" }
@@ -453,7 +469,7 @@ function sculptedBuyNow(btn){
         { "type": "text", "id": "label", "label": "Libellé", "default": "1 Pair" },
         { "type": "text", "id": "ship", "label": "Badge livraison", "default": "Free Shipping" },
         { "type": "text", "id": "price_now", "label": "Prix actuel", "default": "£24.99" },
-        { "type": "text", "id": "price_was", "label": "Prix barré", "default": "" },
+        { "type": "text", "id": "price_was", "label": "Prix barré" },
         { "type": "text", "id": "savings", "label": "Label économies (ex : Save 40%)" },
         { "type": "number", "id": "qty", "label": "Quantité ajoutée au panier", "default": 1 }
       ]

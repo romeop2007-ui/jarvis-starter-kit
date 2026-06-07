@@ -153,6 +153,26 @@
                       </button>
                     </div>
                     <p class="cd-item__opt">{{ item.variant.title | escape }}</p>
+                    {%- comment -%}
+                      Détail de CE que le client a pris : couleur / taille de chaque paire,
+                      lu depuis les propriétés de ligne (Pair 1, Pair 2…). On saute les
+                      propriétés cachées (préfixe "_") et les valeurs vides.
+                    {%- endcomment -%}
+                    {%- assign show_pairs = false -%}
+                    {%- for property in item.properties -%}
+                      {%- assign pfirst = property.first | slice: 0 -%}
+                      {%- if property.last != blank and pfirst != '_' -%}{%- assign show_pairs = true -%}{%- endif -%}
+                    {%- endfor -%}
+                    {%- if show_pairs -%}
+                      <ul class="cd-item__pairs">
+                        {%- for property in item.properties -%}
+                          {%- assign pfirst = property.first | slice: 0 -%}
+                          {%- if property.last != blank and pfirst != '_' -%}
+                            <li><span>{{ property.first | escape }}:</span> {{ property.last | escape }}</li>
+                          {%- endif -%}
+                        {%- endfor -%}
+                      </ul>
+                    {%- endif -%}
                     <div class="cd-item__foot">
                       <div class="cd-qty">
                         <button type="button" data-action="dec" aria-label="Decrease">−</button>
@@ -281,6 +301,11 @@
 </div>
 
 <style>
+/* --- Détail des paires choisies (couleur / taille) sous la ligne "N Pairs" --- */
+#CartDrawer .cd-item__pairs{list-style:none;margin:5px 0 0;padding:0;display:flex;flex-direction:column;gap:2px}
+#CartDrawer .cd-item__pairs li{font-size:12px;line-height:1.35;color:#6b7280}
+#CartDrawer .cd-item__pairs li span{font-weight:600;color:#374151}
+
 /* --- Fix scroll / débordement du tiroir (auto-contenu, override de sculpted.css) --- */
 .cart-drawer__inner{-webkit-overflow-scrolling:touch}
 .cd-items{flex:0 0 auto}            /* plus de vide géant : le pied suit le contenu */

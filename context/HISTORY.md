@@ -7,6 +7,21 @@
 
 ---
 
+## 2026-06-09
+
+### Audit et fix du simulateur Kalypso (SAE jour J demain)
+
+Audit complet du fichier `livrables/etudes/projets/SAE/simulateur-kalypso.xlsx` avant la SAE. Inspection via Node.js + xlsx.
+
+**Résultat de l'audit :** formules principales toutes vivantes (Production, CoutRevient, Marges, Resultat). Trois champs statiques trouvés et corrigés :
+- `Decisions!B5` (quantité plastique commandée) → formule auto-calculée depuis Production × Parametres (ex : 80A = 16 t)
+- `Decisions!B7` (quantité bois commandée) → formule auto-calculée (ex : 80A = 8 m³)
+- `Resultat!B16` (publicité) → lié à `Decisions!B20 + pub spécifique A/B/C`
+
+Commit `02514a4`. Simulateur opérationnel à 100% pour le jour J.
+
+---
+
 ## Semaine du 8 au 14 juin 2026 (deuxième `/semaine`)
 
 **Bilan semaine écoulée (1er au 7 juin) :** les 3 objectifs sont cochés ET dépassés. Boutique reconstruite et adaptée au nouveau produit, recherche d'un 2e produit (protège-tibias) faite, et surtout **premier test produit réel mené** (Sculpted, ~50 € dépensés, 0 vente). Roméo en sort avec le bon réflexe : lecture critique de l'entonnoir (les gens cliquent mais bloquent → frein page produit, pas créa) plutôt que frustration. Vrai gain de la semaine = développement de l'esprit critique sur ses propres erreurs. Énergie bonne, envie de reprendre le sport (prévu aux vacances), seule ombre = la double charge examens/business qui parasite la concentration (se résout dans une semaine).

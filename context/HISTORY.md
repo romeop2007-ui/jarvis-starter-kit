@@ -7,6 +7,22 @@
 
 ---
 
+## 2026-06-09 (mise à jour 2)
+
+### SAE Kalypso — feuille de décisions + simulation résultat T1
+
+Clarifications sur la feuille de décisions remise aux animateurs :
+- Section "Autres charges et produits divers" : entièrement réservée à l'animateur, rien à remplir côté joueurs.
+- Charges à saisir explicitement : pub (marque 13 000 €/mois, spé B 1 400 €, spé C 4 800 €), études Markinform (1 étude à 5 000 €), Comptaservice et assurances si activées.
+
+**Simulation résultat T1 (décisions retenues) :**
+- Prix : B à 6 500 €, C à 18 250 €. Quantités : 43B + 10C/mois.
+- CA T1 estimé : 1 386 000 €. Charges T1 estimées : ~1 182 500 €.
+- **Résultat net estimé : ~152 000 € (bénéfice confortable, marge ~15%).**
+- Hypothèse clé : vente de toute la production. L'étude "effet prix" confirmera si les prix sont bien positionnés.
+
+---
+
 ## 2026-06-09
 
 ### Analyse stratégique SAE Kalypso — décisions T1 (jour J)

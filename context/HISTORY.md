@@ -9,6 +9,23 @@
 
 ## 2026-06-09
 
+### Analyse stratégique SAE Kalypso — décisions T1 (jour J)
+
+Session dédiée à la préparation des décisions du trimestre 1 pour la simulation Kalypso.
+
+**Bateaux retenus :** B (Maturité) et C (Croissance) uniquement. A abandonné (Déclin, margin/HTM la plus faible).
+
+**Quantités validées :** 43B + 10C par mois = 796 HTM moulage (bottleneck à 800 HTM) et 882 HTM finition (1 200 HTM dispo). Utilisation quasi-maximale du bottleneck.
+
+**Vérification ressources :**
+- Matières premières : 3 mois de plastique, 6 mois de bois couverts dès janvier (stock initial + commande décembre déjà passée)
+- Trésorerie : découvert bancaire de 145 808 € à couvrir immédiatement via le livret (1 100 000 € dispo). Action prioritaire décision T1.
+- VMP : 1 187 630 € disponibles en réserve de trésorerie
+
+**Commit 7dec143** — images bilan et données marché ajoutées.
+
+---
+
 ### Audit et fix du simulateur Kalypso (SAE jour J demain)
 
 Audit complet du fichier `livrables/etudes/projets/SAE/simulateur-kalypso.xlsx` avant la SAE. Inspection via Node.js + xlsx.

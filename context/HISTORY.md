@@ -7,6 +7,30 @@
 
 ---
 
+## 2026-06-09 (mise à jour 3)
+
+### SAE Kalypso — analyse résultat T1 réel + préparation décisions T2
+
+**Résultat T1 réel : PERTE de -20 625 €** (vs +152 000 € simulé). Lecture du compte de résultat CERFA, du bilan et du tableau de bord rendus par les animateurs (entreprise Nautilia).
+- Résultat d'exploitation quasi à l'équilibre (-381 €) : l'activité est saine. La perte vient du **résultat financier (-20 244 €)**, poids des intérêts d'emprunt (29 619 €) mal compensés par les placements (9 375 €).
+- Deux erreurs d'hypothèse identifiées : (1) "on vend tout" faux → 9 B + 11 C invendus (~118 000 € de stock immobilisé), CA réel 1 163 250 € vs 1 386 000 € simulé ; (2) charges financières sous-estimées.
+- Ventes réelles T1 : 120 B (prix 6 500 €) + 21 C (prix 18 250 €). Trésorerie saine, découvert couvert via le livret (950 000 € restants).
+
+**LE GAME CHANGER découvert : la saisonnalité.** Coefficient saisonnier du bateau B passe de 0,5 (T1) à **2,1 (T2 avril-mai-juin)**, soit demande ×4,2. Le "plafond" de 40 B/mois du T1 n'était pas un plafond mais la basse saison. Demande de base = 70 B/mois et 10 C/mois par société (lettre de l'économiste) → demande potentielle T2 = **147 B/mois (441/trimestre)**. Les invendus T1 deviennent un stock tampon.
+
+**Décisions T2 actées avec Roméo :**
+- **4 études Markinform** (20 000 €) : effet prix, prévision des ventes, concurrentielle, force de vente.
+- **Robots** (pas de leasing dispo → achat propriété, rentable même sur 2 mois) : +3 moulage (le goulot), +2 finition. Cible ~86 B + 13 C/mois.
+- **Personnel** : +2 représentants (indice 100), +2 employés admin catégorie C (indice 110). Risque signalé : 9 représentants peut-être insuffisants pour écouler ~99 bateaux/mois, à valider avec l'étude force de vente.
+- **Finance** : rembourser l'emprunt libre 400 000 € à 7 % par anticipation, ne pas acheter de VMP, mobiliser le livret.
+- **Dépôt de marque Europe** (6 000 €), Comptaservice + assurance.
+- **Bateau A reste fermé** (marge par HTM moulage : C 416 € > B 312 € > A 258 €).
+- 3 concurrents dans le jeu. Commande MP de mars déjà passée (avril servi par le stock).
+
+**Livrables créés :** `bilan-T1-presentation.md` (texte de présentation finale, réussites/erreurs) et `decisions-T2.md` (synthèse opérationnelle complète) dans `livrables/etudes/projets/SAE/`. **Reste à trancher avant la feuille T2 : prix de vente B et C.**
+
+---
+
 ## 2026-06-09 (mise à jour 2)
 
 ### SAE Kalypso — feuille de décisions + simulation résultat T1

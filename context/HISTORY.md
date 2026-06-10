@@ -7,6 +7,33 @@
 
 ---
 
+## 2026-06-10
+
+### SAE Kalypso — lecture résultat T2 réel + décisions T3 complètes
+
+**Résultat T2 : GROS SUCCÈS.** Lecture du compte de résultat CERFA (en cumulé, 6 mois), bilan actif/passif, synthèse économique, et des 4 études (force de vente, prévision des ventes, prix de vente, parts de marché).
+- **Bénéfice cumulé T1+T2 = +453 803 €.** Comme le T1 réel était à −20 625 €, le **T2 seul a rapporté ≈ +474 000 €**, au-dessus de mon scénario A le plus optimiste (+395 k€). CA T2 ≈ 2 843 000 € (B vendu 6 500 €, C vendu 18 500 € — recoupé exactement : 315 B × 6 500 + 43 C × 18 500). Résultat exploitation cumulé +460 251 €, financier seulement −6 447 € (vs −20 244 au T1).
+- **2 raisons du dépassement de ma simu :** (1) aucun IS appliqué (case HK = 0, j'avais provisionné ~132 k€), (2) on a vendu TOUTE la production.
+- **Question ouverte d'hier TRANCHÉE :** pas de décalage 1 mois sur les produits finis. Produit 306 B + stock initial 9 = stock final B = 0 → tout vendu dans le trimestre. Mon scénario A (sans décalage) était le bon.
+- **Parts de marché (4 entreprises : Nautilia/nous, Cap'Océan, Mariteen, HorizonBoa) : on est LEADER.** B = 34,69 % volume (n°1), C = 40 % volume (n°1), total valeur 35,88 % (n°1). HorizonBoa s'est replié sur le bateau A (100 % de A, marché minuscule).
+- **Diagnostic force de vente :** effectif normal = 7, on en a 11 (sur-staffé = bonne couverture). MAIS commission 8 % < norme 10 % → efficacité légèrement dégradée selon le livret.
+
+**LE RETOURNEMENT POUR LE T3 :** le bateau B retombe en BASSE saison (coef 2,1 → 0,9, demande ÷2,3). Le frein s'inverse : ce n'est plus la capacité (T2) mais la demande. Logique T3 = ne pas surproduire de B, garder la structure intacte, presser le C (meilleure marge 425 €/HTM, leader 40 %, en croissance) et gratter des parts B pendant que les rivaux se replient.
+
+**Décisions T3 actées (feuille créée : `decisions-T3.md`) :**
+- **Production :** A = 0 · B = 65/mois · C = 15/mois (goulot moulage 1 200 ≤ 1 600 HTM ✓). Stock d'entrée 0 B + 7 C.
+- **Machines : aucun achat, aucune cession.** Revente punitive (~18 750 € pour un robot acheté 75 000 €, moins-value qui plombe le résultat noté), la haute saison B revient chaque année → on garde, on accepte ~2 robots oisifs en creux. ⚠️ à reconfirmer le jour J : combien de trimestres restent ?
+- **Force de vente :** garder 11 reps (aucun licenciement, yo-yo pénalisé + on est leader), **commission 8 % → 10 %** (alignement norme, levier le moins cher pour presser).
+- **🔴 FINANCE — point urgent repéré dans le bilan :** découvert (concours bancaires) de **821 081,51 € à 13 %** en face d'un livret de 1 450 000 € à 3,75 %. Décision : **retrait livret ~1 221 000 €** pour (1) solder le découvert 13 % et (2) rembourser l'emprunt libre 400 000 € à 7 % (reporté du T2 exprès). Garder obligations + VMP (rapportent, pas besoin de cash).
+- **Appro réduit :** plastique 42 t/mois P1 comptant, bois 7 m³/mois B1 (on puise le stock de 58 m³).
+- **Marketing :** pub marque 15 000 €/mois, spécifique B 1 400 / C 4 800, axes Confort + Esthétique, prix B 6 500 / C 18 500, délai client comptant.
+- **Admin :** statu quo (1 A / 2 B / 7 C), dépôt marque déjà fait, assurance + Comptaservice maintenus.
+- **Études :** indispensable = concurrentielle parts de marché T3 (5 000 €) ; recommandée = effet publicité (5 000 €, permanente jamais achetée).
+
+**3 chiffres à confirmer avec l'animateur le jour J :** nb de trimestres restants (question machines), volume B absorbable (65 ou pousser à ~75 ?), prix B en basse saison.
+
+---
+
 ## 2026-06-09 (mise à jour 4)
 
 ### SAE Kalypso — feuille études Markinform T2 + simulation compte de résultat T2

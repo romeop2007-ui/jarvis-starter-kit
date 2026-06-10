@@ -7,6 +7,26 @@
 
 ---
 
+## 2026-06-10 (mise à jour 2)
+
+### SAE Kalypso — lecture résultat T3 réel + décisions T4 complètes
+
+Résultat T3 : bénéfice cumulé +635 966 € (T3 seul ≈ +182 000 €, en retrait vs T2 car basse saison B, mais toujours leader B et C). Finance assainie : découvert 13 % soldé, livret retombé à 229 k€, zéro concours bancaire.
+
+Signal clé dans le stock de produits finis : Bateau B produit 195 / vendu 195 / stock final 0 (la demande a tout absorbé, on s'était bridé) ; Bateau C produit 45 / vendu 38 / 14 en stock (pour C la limite est la demande). Lecture : pousser le volume B, caler C sur sa demande.
+
+Horizon confirmé : il reste 3 trimestres (T4, T5, T6), effectif reps = 11. Roadmap saisonnière B : T5 (jan-mars) basse saison, T6 (avr-juin) HAUTE saison + dernier tour = le money time.
+
+Décisions T4 actées (feuille créée : decisions-T4.md) : push volume, B = 130/mois, C = 11/mois, A = 0. Achat +2 robots moulage et +2 finition (300 000 € cash, obligatoire pour tenir 130 B, et rentabilisés surtout au T6). Appro chez P2/B2 (1 mois de délai) pour soulager la tréso pendant l'achat machines. Force de vente +2 → 13. Admin +1 cat C → 8. Pub marque 17 000, pub spé B 2 500 / C 4 800. Prix B 6 750 / C 18 500. Comptant client. Étude concurrentielle parts de marché T4 (5 000 €).
+
+Simulation T4 estimée : résultat ≈ +608 000 € (IS à 0 comme aux tours précédents), bénéfice cumulé projeté ≈ +1 244 000 €. Meilleur trimestre du jeu en perspective.
+
+Point ferme à vérifier le jour J avant de figer B à 130 : ouvrir l'étude prévision des ventes pour confirmer que 390 B sont absorbables au T4. Sinon, n'acheter que 2 robots moulage et caler B sur la capacité.
+
+Commit 876efa5.
+
+---
+
 ## 2026-06-10
 
 ### SAE Kalypso — lecture résultat T2 réel + décisions T3 complètes

@@ -7,6 +7,23 @@
 
 ---
 
+## 2026-06-09 (mise à jour 4)
+
+### SAE Kalypso — feuille études Markinform T2 + simulation compte de résultat T2
+
+**Études Markinform à cocher sur le bordereau (4 cases, 20 000 €) :** n° 16 (Parts de marché en volume et en valeur, Mark./Analyse = étude concurrentielle), n° 17 (Éléments prévision ventes, permanente), n° 18 (Force de vente, permanente), n° 20 (Prix de vente des produits finis, permanente = effet prix). Pour prix et force de vente, choix des versions « permanentes » plutôt que Comparatif/Évolutif (donnée de fond + abonnement). Colonne « À livrer et à payer ». **À confirmer le jour J avec l'animateur :** si une étude « à livrer » n'arrive qu'au tour suivant, on n'aura pas l'effet prix pour fixer les prix de CE tour → figer les prix à l'instinct et exploiter au T3.
+
+**Simulation compte de résultat T2 (estimation, pas le moteur de jeu) :**
+- **Demande via 27,5 % de part de marché :** marché total base 280 B + 40 C/mois (4 sociétés), saison T2 → 1 764 B + 144 C/trimestre. Notre part 27,5 % = **485 B + 40 C de demande**. Très supérieur à notre capacité → **le frein est la production, pas la demande**. On laisse ~170 B de demande à la concurrence.
+- **Produit vs vendu :** production 306 B + 39 C, stock ouverture 9 B + 11 C → **on vend toute la production** (la demande absorbe tout).
+- **Scénario A (sans décalage produits finis, probable selon le livret) :** vend 315 B + 39 C, CA 2 769 000 €, charges ~2 188 800 €, résultat exploitation ~+551 k€, financier ~−24 k€, IS ~−132 k€ → **RÉSULTAT NET ≈ +395 000 €** (vs perte −20 625 € au T1).
+- **Scénario B (avec décalage 1 mois) :** vend 213 B + 37 C, CA 2 069 000 €, **net ≈ +190 000 €**, 102 B + 13 C partent en stock T3.
+- **⚠️ Le point décisif (~200 k€ d'écart) :** confirmer avec l'animateur si un bateau produit dans le mois est vendable le mois même (le livret ne mentionne le décalage 1 mois que pour l'appro matières, pas pour les produits finis). J'avais supposé un décalage côté client dans les décisions d'hier, à trancher le jour J.
+- **Plus gros poste variable après les matières : commission représentants** (8 % CA + charges = ~310 k€). Résultat financier reste négatif car on ponctionne le livret pour les robots (arbitrage assumé vs découvert 13 %).
+- Proposition restée ouverte : brancher ces chiffres dans `simulateur-kalypso.xlsx` pour le calcul exact ligne à ligne.
+
+---
+
 ## 2026-06-09 (mise à jour 3)
 
 ### SAE Kalypso — analyse résultat T1 réel + préparation décisions T2

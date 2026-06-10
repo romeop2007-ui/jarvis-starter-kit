@@ -7,6 +7,35 @@
 
 ---
 
+## 2026-06-10 (mise à jour 3)
+
+### SAE Kalypso — lecture résultat T4 réel (clôture exercice année 1)
+
+Lecture du compte de résultat CERFA cumulé (Exercice N = T1→T4, 12 mois), bilan actif/passif et feuilles coûts de production / capacité / parts de marché / prix.
+
+**Chiffres clés cumulés (sûrs, lus directement) :**
+- CA net (production vendue biens) : **7 681 000 €**
+- Production stockée : **+685 948 €**
+- Résultat d'exploitation : **+667 039 €**
+- Résultat financier : **−54 795 €**
+- Résultat courant avant impôts : **+612 244 €**
+- Impôt sur les bénéfices (HK) : **−153 061 €**
+- **BÉNÉFICE NET cumulé : +459 183 €**
+
+**Twist n°1 — l'IS est enfin tombé (et c'est normal).** Toutes les cases HK étaient à 0 aux tours T1-T3. Explication : **l'IS se calcule à la clôture de l'exercice annuel, donc au T4.** Montant vérifié = exactement **25 % du résultat courant** (153 060,95 / 612 243,80 = 25,0 %). Ce n'est pas une mauvaise surprise, c'est l'impôt annuel encaissé d'un coup. C'est pour ça que le net (459k) paraît retomber vs le cumulé T3 (~636k) : léger tassement opérationnel (636→612) puis −153k d'IS d'un coup.
+
+**Twist n°2 (le vrai sujet) — surproduction du Bateau B.** Production stockée +686k et stock de produits finis au bilan qui explose à **702 136 €** (vs 16 188 € N-1). Feuille coûts de prod : **Bateau B stock en entrée = 290 unités**. On a poussé 130 B/mois au T4 mais le marché ne les a pas absorbés. C'est EXACTEMENT le risque qu'on s'était noté avant de figer B à 130 ("vérifier que 390 B sont absorbables, sinon caler sur la capacité") — il s'est matérialisé. T4 (oct-déc) n'est pas la haute saison du B (elle revient au T6). Pousser le volume était prématuré.
+
+**Conséquence cash :** 300k de robots + le stock invendu ont re-creusé la tréso → **le découvert est revenu à 311 206 € (concours bancaires, ligne EH)** alors qu'on l'avait soldé au T3. Charges financières lourdes (138k d'intérêts) → résultat financier −54 795 €. C'est ça qui mange le T4 opérationnel.
+
+**Points positifs :** on reste **leader B (33,4 % vol.) et C (36,4 % vol.)**, prix B le moins cher du marché (6 500 € vs 6 400-7 300). Capitaux propres solides à 2 754 049 €, VMP intactes à 1 197 630 €.
+
+**Implication T5 (basse saison B, jan-mars) :** on entre avec ~290 B sur les bras. Décision évidente à préparer : **ne pas produire de B au T5, écouler le stock existant**, solder le découvert 13 %, garder les robots au chaud pour le T6 (haute saison = money time). Le stock T4 n'est pas perdu (tampon) mais à vendre avant d'en refaire.
+
+**Réserve d'honnêteté :** le "T4 seul" (≈ −24k avant impôt) est obtenu par soustraction du cumulé T3 noté (635 966 €) ; les cumulés ci-dessus sont lus directement sur le CERFA, eux sont sûrs. Prochaine étape proposée : feuille de décisions T5.
+
+---
+
 ## 2026-06-10 (mise à jour 2)
 
 ### SAE Kalypso — lecture résultat T3 réel + décisions T4 complètes

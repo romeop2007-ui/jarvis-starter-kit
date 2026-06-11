@@ -11,7 +11,7 @@
 - **Prénom :** Roméo
 - **Âge :** 18 ans (né le 1er octobre 2007)
 - **Ville / Pays :** Valenciennes en semaine (études), Cambrai les week-ends et vacances (chez mes parents), France
-- **Situation actuelle :** Étudiant 1ère année BUT GEA et auto-entrepreneur en parallèle, en phase de lancement de mon activité e-commerce
+- **Situation actuelle :** Étudiant 1ère année BUT GEA (année validée, juin 2026) et auto-entrepreneur en parallèle, en phase de lancement de mon activité e-commerce
 - **Profil dominant :** Entrepreneur en construction (auto-entrepreneur, e-commerçant débutant)
 
 ### Famille
@@ -173,7 +173,6 @@
 
 ### Personnel
 - 🟡 **Reprise de la musculation** — Mise en pause volontaire pour focus business, reprise prévue "dès les vacances scolaires". Vérifier qu'il s'y est remis à partir de mi-juin. (Pilier identitaire, à garder dans le radar.)
-- ⏸️ **Examens semaine du 8 juin 2026** — Reporté. Roméo ne veut pas qu'on aborde la fin de semestre. Ne pas relancer.
 
 ---
 

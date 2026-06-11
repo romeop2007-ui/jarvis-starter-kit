@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-11
+
+### Test protège-tibias terminé (échec) + première recherche produit méthodique TrendTrack
+
+- **Test protège-tibias TERMINÉ : échec, résultats pubs pires que Sculpted.** La campagne Meta #2 (lancée le 07/06, 50 €/jour) est coupée. L'objectif ferme de la semaine (tester de bout en bout, lire la data, décider) est rempli : décision = kill. Plus aucun produit en test actif, place à la recherche du produit suivant.
+- Recherche produit data-first menée de bout en bout via TrendTrack (~70 shops examinés, critère strict : 4 créas ≥400k reach + TTM <2 mois sur la 1re créa active). Approche shops-first abandonnée en cours de route (filtres contradictoires), bascule en créative-first qui devient la méthode de référence.
+- Résultat : 0 produit retenu. Relivera (masseur épaule, seul validé sur les chiffres) invalidé car shop d'origine Hong Kong = données inexploitables hors UE. Bengka (compression postpartum, 3/4 créas) refusé car hors niche Zooryn.
+- 3 règles fermes actées pour toute future recherche produit : (1) origine du shop obligatoirement en Europe, à filtrer à TOUTES les étapes, (2) zéro visiteur ou audience UK chez le concurrent (marché cible de Roméo), (3) fit niche Zooryn (santé/sport/bien-être, hors ingérable) vérifié AVANT de présenter un produit.
+- Tout est gravé en mémoire persistante (règles + méthode complète réutilisable). Scan à relancer régulièrement : les explosions 4 créas ≥400k en moins de 2 mois sont rares.
+
+---
+
 ## Semaine du 8 au 14 juin 2026 (deuxième `/semaine`)
 
 **Bilan semaine écoulée (1er au 7 juin) :** les 3 objectifs sont cochés ET dépassés. Boutique reconstruite et adaptée au nouveau produit, recherche d'un 2e produit (protège-tibias) faite, et surtout **premier test produit réel mené** (Sculpted, ~50 € dépensés, 0 vente). Roméo en sort avec le bon réflexe : lecture critique de l'entonnoir (les gens cliquent mais bloquent → frein page produit, pas créa) plutôt que frustration. Vrai gain de la semaine = développement de l'esprit critique sur ses propres erreurs. Énergie bonne, envie de reprendre le sport (prévu aux vacances), seule ombre = la double charge examens/business qui parasite la concentration (se résout dans une semaine).

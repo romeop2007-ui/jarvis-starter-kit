@@ -7,6 +7,22 @@
 
 ---
 
+## 2026-06-11 (mise à jour 2)
+
+### SAE Kalypso — lecture résultat T6 réel + bilans T5 et T6 rédigés
+
+**Résultat T6 (dernier tour) : bénéfice net ≈ +462 868 € (trimestre seul).** Meilleur trimestre de toute la simulation. Résultat d'exploitation ≈ +437 929 €, résultat financier ≈ +24 939 € (positif pour la première fois depuis le T3 : découvert soldé + produits financiers). CERFA cumulé exercice N (T5+T6) : résultat net +188 137,98 €.
+
+**Données clés T6 :** production 130 B + 11 C/mois (vs plan 122 B + 19 C). Stock entrant 79 B. Stock sortant quasi nul (7 995,60 € de produits finis). Prix B 7 500 € et C 22 000 € = les plus chers du marché sur les deux modèles. Nautilia **leader B 44,12 % volume et C 42,29 % volume**, 43,48 % en valeur total. Disponibilités 711 591 € + VMP 784 582 €. Capitaux propres 2 942 186 €.
+
+**Pari du prix premium réussi :** 7 500 € sur le B alors que la concurrence est entre 6 500 € et 6 850 €, et Nautilia reste numéro un en volume. Validation de l'ancrage de marque construit depuis le T1.
+
+**Erreur principale confirmée :** le découvert de 512 703 € entré dans le T6 (non soldé au T5 alors que les moyens existaient) a coûté des charges financières inutiles un trimestre de plus. Le T6 a été assez fort pour absorber, mais c'était évitable.
+
+**Livrables créés :** `bilan-T5-presentation.md` et `bilan-T6-presentation.md` dans `livrables/etudes/projets/SAE/`, textes prêts à copier pour la soutenance finale.
+
+---
+
 ## 2026-06-11
 
 ### SAE Kalypso — lecture résultat T5 réel + décisions T6 complètes

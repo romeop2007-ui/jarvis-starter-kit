@@ -7,6 +7,31 @@
 
 ---
 
+## 2026-06-11
+
+### SAE Kalypso — lecture résultat T5 réel + décisions T6 complètes
+
+**Résultat T5 : perte de −274 730 € (trimestre seul, 3 mois).** Basse saison B assumée. L'activité reste saine (résultat exploitation −246 563 €, dégradation due aux charges fixes non couvertes en creux de demande), la perte vient surtout des charges fixes et d'un résultat financier −28 167 € (découvert 13 % remonté à 512 703 €). Le déstockage B a fonctionné exactement comme prévu : stock B 238 → 79 (159 vendus), stock C quasi nul (1 unité). Nautilia reste **leader B 38,3 % volume et C 44,3 % volume**. Livret à 229 000 €, VMP à 1 084 560 €.
+
+**Point noir principal : le découvert 13 % est remonté à 512 703 €** alors qu'on l'avait soldé au T3. Charges financières lourdes (34 124 €) qui plombent le résultat.
+
+**Données capacité confirmées pour T6 :** moulage 2 000 HTM/mois (10 postes × 200), finition 2 200 HTM/mois. Goulot = moulage. Plan 122 B + 19 C/mois = 1 964 HTM moulage, dans la capacité.
+
+**Décisions T6 actées (dernier trimestre du jeu, joué "comme si ça continue") :**
+- **Production :** A = 0, B = 122/mois, C = 19/mois. Stock B 79 unités en début de tour → 122×3 + 79 = 445 B dispo ≈ 148 B/mois vendables.
+- **Prix :** B = 7 500 € (plafond marché, Roméo assume le risque volume), C = 22 000 €. Délai client : comptant.
+- **Pub marque : 160 000 €/mois** (décision Roméo, maintenu malgré réserve sur rendement décroissant). Spécifique B 3 500 €/mois, C 5 500 €/mois.
+- **Force de vente : 11 reps, commission 10 %, aucun recrutement** (déjà sur-staffés selon étude T2).
+- **Finance (décision la plus rentable du tour) :** retrait livret 229 000 € + cession VMP ~284 000 € → solde intégral du découvert 512 703 € à 13 %. Garde ~800 000 € de VMP. Aucun emprunt nouveau.
+- **Appro (P2/B2, paiement 1 mois) :** plastique 43 t/mois, bois 21 m³/mois (besoin total ~127 t / ~63 m³, couvert par stock fin T5 89,4 t / 45,2 m³ + commandes).
+- **Machines : aucun achat, aucune cession** (dernier tour = investissement absurde, capacité suffisante).
+- **Admin : statu quo** (1A / 2B / 7C). Comptaservice + assurances maintenus.
+- **Études : 0** (dernier tour, option parts de marché à 5 000 € seulement si soutenance).
+
+**Réserves d'associé notées :** (1) prix B 7 500 € = le plus cher du marché, risque de ne pas écouler les 145/mois si la demande ne suit pas. (2) pub 160 000 €/mois = ×9 vs T4, rendement décroissant, aucune garantie sur les ventes. Roméo a assumé ces deux choix en connaissance de cause. Leçon à lire sur le résultat final.
+
+---
+
 ## 2026-06-10 (mise à jour 3)
 
 ### SAE Kalypso — lecture résultat T4 réel (clôture exercice année 1)

@@ -7,6 +7,24 @@
 
 ---
 
+## 2026-06-13 (mise à jour 6)
+
+### Pivot stratégique majeur : marché France, niche élargie H+F, méthode copier-le-winner
+
+Grosse session de réflexion stratégique (pas d'exécution). Après le constat des 2 sessions de recherche à 0 produit, diagnostic du vrai goulot et pivot complet.
+
+- **Diagnostic :** le critère bloquant n'était pas la niche mais le filtre « zéro UK » combiné à « origine UE ». Un produit désirable + frais + qui scale ne reste jamais coincé en UE, il part vite sur l'anglophone. Donc « UE + zéro UK + frais » ne laissait que du douleur/senior/médical.
+- **Pivot marché : UK → France** (+ Belgique/Luxembourg en option, EUR). Double gain : réservoir produit ouvert + travail dans la langue natale (copy, créas, voix off, SAV, la plus grosse faiblesse de Roméo). Canada francophone écarté pour le 1er test (petit volume, logistique, CPM pollué par les US), gardé en réserve.
+- **Correction technique importante :** le marché où Roméo VEND n'a aucun lien avec sa capacité à ANALYSER un concurrent. L'analysabilité dépend de la zone où le concurrent DIFFUSE ses pubs (UE/UK, transparence DSA). Le Canada ne « donne » aucune donnée.
+- **Niche élargie :** santé/sport/bien-être pour hommes ET femmes (avant : masculin seul). Réservoir démultiplié. Sculpted = registre sport. Exclusions maintenues : ingérable + topique/cosmétique ; produit cible = objet porté/utilisé.
+- **Méthode de lancement actée : copier intégralement un winner.** Repérer un dropshipper qui vient de percer (produit AliExpress générique sans marque, marché analysable), recopier tunnel + créas pour démarrer vite, innover seulement au scaling. Risque légal/ban quasi nul à 50 €/jour sur des produits sans marque. Garde-fous : jamais afficher une autre marque, remplacer les visuels au scaling.
+- **Refonte du site clarifiée :** refaire le THÈME de zéro (design/home/header/page produit) en copiant le winner, mais GARDER l'infra (compte, domaine, pixel, Shopify Payments, email DKIM). Nouveau thème dans le même compte, publié quand prêt. Produit d'abord, reconstruction ensuite. Produits hors-niche (protège-tibias) retirés.
+- **Concept débloqué : une landing page par produit.** Un site contient autant de landings que de produits (chaque page produit = sa landing) ; les pubs pointent sur la page produit, pas la home. Réconcilie marque ombrelle et conversion.
+- **Mindset :** Roméo assume les ~80 € et heures des 2 tests comme de l'apprentissage. Recul sain.
+- **Prochaine étape :** 1re recherche produit avec la nouvelle grille (angle large santé/sport H+F, seuil 4 créas ≥400k OU ≥60 €/jour, frais <2 mois).
+
+---
+
 ## 2026-06-13 (mise à jour 5)
 
 ### 2e session recherche produit — 0 retenu, bascule en logique de veille

@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-06-13 (mise à jour 5)
+
+### 2e session recherche produit — 0 retenu, bascule en logique de veille
+- 2e passe de recherche le 13/06, toujours 0 produit retenu.
+- Méthodes épuisées : créative-first par reach (UE), shop-first par fraîcheur + croissance trafic, route US par trafic boutique. La route US s'effondre sur une limite dure : TrendTrack ne mesure pas le reach hors UE.
+- Clarification majeure de Roméo : l'origine UE est un MUR (règle Meta de transparence), pas un curseur. Tout produit hors UE = données invisibles = jamais lancé. La piste « lâcher l'origine UE » est définitivement enterrée.
+- Constat d'associé acté : avec les critères empilés (origine UE + zéro UK + niche désirable masculine + porté + frais + scaling), le bon produit est rare. La recherche produit devient une veille régulière, pas un livrable de session. Décision de Roméo : « on trouvera avec le temps ».
+- Feedback fort gravé en mémoire : ne jamais survendre un produit, ne pas présenter de candidat hors-cible, dire clairement « rien » quand c'est le cas.
+
+---
+
 ## 2026-06-13 (mise à jour 4)
 
 ### Session recherche produit (avancée avant Sprint #1) — 0 produit retenu, méthode affinée

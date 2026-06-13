@@ -7,6 +7,29 @@
 
 ---
 
+## 2026-06-13 (mise à jour 2)
+
+### Phase 4 personnalisation Jarvis — workflow et préférences actés
+
+Session de calibration de 5 blocs. Préférences gravées dans CONTEXT.md.
+
+**Décisions actées :**
+- Sessions grandes et à n'importe quelle heure (sprint = dispo permanente)
+- Décisions toujours en pour/contre, jamais de recommandation directe imposée
+- Franchise totale, challenge inclus (rôle d'associé confirmé)
+- Décisions en temps réel, jamais reportées au lendemain
+- Explications techniques sur demande uniquement
+- Fin de session importante : Claude propose systématiquement un `/update`
+- Travail visuel Shopify : screenshot obligatoire avant tout code visuel (règle ferme, acte après constat d'allers-retours inutiles)
+- Sprint #1 : `/prime` affiche le cycle et le jour en cours pendant le sprint
+- Délégation : on fait ensemble, pas de délégation pure (Roméo est débutant, il apprend en faisant). Répartition Sprint : recherche + page produit = ensemble ; créas = Roméo seul ; analyse data = ensemble
+
+**Feedback honnête restitué :**
+- Point fort : meilleur investissement de sa vie (ses mots)
+- Point faible confirmé : travail visuel Shopify (allers-retours, travail à l'aveugle), corrigé par la règle screenshot
+
+---
+
 ## 2026-06-13
 
 ### Sprint #1 planifié — 5 tests produit du 15 au 25 juin

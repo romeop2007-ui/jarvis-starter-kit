@@ -7,6 +7,36 @@
 
 ---
 
+## 2026-06-13
+
+### Sprint #1 planifié — 5 tests produit du 15 au 25 juin
+
+Plan acté ce matin lors d'une session de préparation.
+
+**Objectif :** tester 5 produits en 15 jours avant le début du job d'été. Trouver un winner.
+
+**Structure :** cycles de 3 jours répétés 5 fois.
+- J1 : recherche produit TrendTrack (2h max) + boutique adaptée + créatives prêtes
+- J2 : campagne Meta lancée à 50 €/jour, on ne touche à rien
+- J3 matin : lecture data + décision kill/continue. 0 ATC après 50 € = kill automatique
+
+**Calendrier :**
+- Cycle #1 : 15-17 juin
+- Cycle #2 : 17 (après-midi) - 19 juin
+- Cycle #3 : 19 (après-midi) - 21 juin
+- Cycle #4 : 21 (après-midi) - 23 juin
+- Cycle #5 : 23 (après-midi) - 25 juin
+
+Fin du sprint : 25 juin. 4 jours de marge avant le job d'été.
+
+**Budget :** 50 € par test, trouvé au fur et à mesure. Pas de réserve globale.
+
+**Règle de kill fixée à l'avance :** 0 ATC après 50 € = kill sans discussion.
+
+**Contexte stratégique :** après 2 kills (Sculpted + protège-tibias), l'objectif du sprint est de faire 5 cycles propres et d'identifier si au moins un produit a de la traction dans la niche Zooryn. La question d'un éventuel élargissement de niche est reportée après les résultats du sprint.
+
+---
+
 ## 2026-06-11
 
 ### Test protège-tibias terminé (échec) + première recherche produit méthodique TrendTrack

@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-06-13 (mise à jour 7)
+
+### 3e session recherche produit (méthode FR rodée) — 0 retenu, leçons fortes
+- 1re vraie passe avec la grille France : ratissage par 6 chemins (catégories Fitness/Health, 4 angles de mots-clés, boutiques fraîches, scan large des scalers, angle correctif porté). Tous convergent : 0 produit qui coche tous les critères en même temps.
+- Garde-fou découvert et acté : sur TrendTrack, `advertising.topCountries` (find_similar_shops / search_ads) permet de vérifier en 1 appel si une version FR tourne déjà. C'est le filtre « zéro version FR active » qui nous manquait.
+- Leçon majeure : le NOMBRE de pubs actives est un piège, seul le REACH compte. Cas IROND (forearm trainer) : 44 pubs mais ~5k de reach total = boutique neuve sans traction, pas un winner.
+- Candidats sérieux examinés puis tués : (1) Stryde (strap genou) = déjà poussé en FR par PlayOnStrap (FR 100%) + niche genou saturée ; (2) AirVex (orthèse anti-ronflement) = niche vieille et saturée (QuietLab, ZQuiet, SnoreRx...), risque réglementaire (promesses apnée) + SAV/hygiène (objet en bouche) ; (3) IROND = pas de reach.
+- Observation stratégique notée : le débardeur de compression gainant homme (produit killé) explose frais en ce moment sur ES/IT/US/UK. Demande réelle, kill dû à l'exécution (page produit). MAIS la France n'est pas vierge dessus (underfitmen = shop FR d'origine). Posé comme question ouverte, pas rouvert.
+- Le scan large confirme que les winners frais de la niche sont concentrés dans ce que Roméo exclut : ingérables, topiques, électronique/médical, grosses marques. CoolTowel (serviette rafraîchissante) seul « porté » qui scale, mais commodité saisonnière sans valeur de marque, écarté.
+- Décision : recherche confirmée comme veille, pas livrable de session. Prochaine vraie passe au Cycle #1 (15/06).
+
+---
+
 ## 2026-06-13 (mise à jour 6)
 
 ### Pivot stratégique majeur : marché France, niche élargie H+F, méthode copier-le-winner

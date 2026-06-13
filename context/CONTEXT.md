@@ -23,8 +23,10 @@
 
 ### Santé et sport (pilier identitaire)
 - Très branché santé et bien-être, connaissance correcte du fonctionnement du corps
-- Passionné de musculation (pratique intensive habituelle, actuellement en pause volontaire pour me concentrer sur le business, reprise prévue dès les vacances scolaires)
-- Passionné de foot mais limité par ligaments arrachés aux chevilles, objectif de reprendre un jour
+- Reprise du sport actée mi-juin 2026. Objectif prioritaire : rejouer au foot au retour d'Espagne (février 2027)
+- Salle : objectif performance (mobilité, force fonctionnelle, cardio, explosivité) et non plus musculation esthétique
+- Chevilles : ligaments arrachés, programme de rééducation auto-guidé à venir (exercices internet que Roméo apportera à intégrer au programme)
+- Programme de base : Recode (mobilité progressive 14 niveaux), fichier dans `livrables/dev-perso/sport/programme-recode.md`
 - À ne pas négliger même en sprint business intense
 
 ### Valeurs et drive
@@ -168,12 +170,12 @@
 - ✅ **Email pro `contact@zooryn.com`** — Validé et bien connecté à Shopify (DKIM OK) au 07/06/2026. Souci annexe (historique) : code de confirmation Meta jamais reçu sur le Gmail perso (contourné), à creuser si ça se reproduit (onglets Gmail / spam / bonne adresse de compte).
 
 ### Études
-- 🟡 **Affectation centre aéré** — RDV 30/05/2026 à 14h30 pour savoir où il bossera cet été. À relancer juste après cette date. (Garde le focus business : c'est lié à la trésorerie pour le sprint.)
+- ✅ **Affectation centre aéré** — Confirmé : Roméo bosse à Cambrai cet été. Lié à la trésorerie Sprint.
 - ⏸️ **Stage BUT 2 chez entrepreneur** — Reporté. À ré-aborder à partir de Saragosse (sept 2026).
 - ⏸️ **Préparation Saragosse** — Reporté. À ré-aborder à l'approche de la date, pas avant.
 
 ### Personnel
-- 🟡 **Reprise de la musculation** — Mise en pause volontaire pour focus business, reprise prévue "dès les vacances scolaires". Vérifier qu'il s'y est remis à partir de mi-juin. (Pilier identitaire, à garder dans le radar.)
+- 🟡 **Reprise du sport** — Actée mi-juin 2026. Objectif = foot au retour d'Espagne (fév 2027). Programme Recode démarré. Reste à intégrer : programme rééducation chevilles spécifique (Roméo l'apportera). Suivre la progression.
 
 ---
 

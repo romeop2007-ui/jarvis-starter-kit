@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-13 (mise à jour 8)
+
+### Audit config boutique Zooryn pour le marché France + 2 corrections live
+- Audit complet des réglages boutique pour un client français via MCP Shopify.
+- Bon dès le départ : devise EUR, langue française (primaire + publiée), pays France, fuseau CEST (= heure FR, le souci UK est résolu de fait), région de vente = France.
+- 🔴 Bloqueur trouvé et corrigé : aucune méthode de livraison sur la zone Europe/France (le tarif Free Shipping UK avait sauté à la reconfiguration). Un client FR ne pouvait pas payer. Tarif "Livraison gratuite" 0,00 € EUR recréé et activé sur le profil par défaut (DeliveryProfile 136147468633).
+- Marché renommé "Royaume-Uni" → "France" (cosmétique, propre).
+- 🔴 Boutique vide : aucun produit en ligne (normal, en attente du prochain winner).
+- ⚠️ webPresence du marché remonté null à la 1re requête : à valider par une commande test en adresse FR une fois un produit remis (preuve ultime EUR + livraison au checkout).
+
+---
+
 ## 2026-06-13 (mise à jour 7)
 
 ### 3e session recherche produit (méthode FR rodée) — 0 retenu, leçons fortes

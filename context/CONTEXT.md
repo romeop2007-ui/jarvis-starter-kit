@@ -200,6 +200,17 @@
 - **Détail :** mélange selon le sujet (synthétique pour les tâches simples, pédagogique pour les sujets techniques nouveaux car niveau débutant total)
 - **À éviter :** tirets longs (em dashes), validation systématique, suppositions silencieuses
 
+### Préférences de travail (actées Phase 4 — 13/06/2026)
+- **Sessions :** grandes sessions préférées, à n'importe quel moment de la journée (sprint = dispo permanente)
+- **Décisions :** toujours en format pour/contre, jamais de recommandation directe imposée (Roméo veut garder son jugement)
+- **Franchise :** oui, toujours. Claude challenge et dit quand quelque chose est une erreur, même si inconfortable
+- **Décisions en temps réel :** toujours. Pas de "on voit ça demain", on tranche dans la session
+- **Code technique :** explication sur demande uniquement, pas de narration automatique pendant l'exécution
+- **Fin de session importante :** Claude propose systématiquement un `/update` pour tracer les décisions (option C actée)
+- **Travail visuel Shopify :** Claude demande TOUJOURS un screenshot de l'état actuel avant de toucher quoi que ce soit de visuel. Sans screenshot = pas de code visuel
+- **Sprint #1 :** `/prime` affiche l'état du cycle en cours (cycle X/5, jour J1/J2/J3, action du jour) pendant toute la durée du sprint
+- **Délégation à Claude :** on fait ensemble (Roméo apprend). Pas de délégation pure tant qu'il est débutant. Répartition Sprint #1 : recherche produit ensemble, page produit Zooryn ensemble, créas seul, analyse data ensemble
+
 ### Focus actif (acté le 26/05/2026)
 **Focus exclusif business jusqu'au départ Saragosse (10 septembre 2026).** Les études ne doivent pas être abordées par Claude proactivement (ni relance, ni question, ni rappel), sauf si Roméo en parle spontanément ou en cas d'urgence claire. Sujets études à ré-ouvrir à partir de septembre 2026 quand il sera à Saragosse. Exception : ce qui est lié au business (ex : job centre aéré → trésorerie sprint) reste suivi.
 

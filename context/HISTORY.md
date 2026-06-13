@@ -7,6 +7,24 @@
 
 ---
 
+## 2026-06-13 (mise à jour 3)
+
+### Objectifs sport recalibrés + programme Recode créé
+
+Roméo a clarifié ses objectifs sportifs : ce n'est plus "reprendre la muscu" mais viser la performance et rejouer au foot au retour d'Espagne (février 2027).
+
+**Décisions actées :**
+- Objectif sport = rejouer au foot en février 2027, après 8 mois de préparation
+- Salle = performance (mobilité, force fonctionnelle, cardio, explosivité), pas esthétique
+- Chevilles = vrai frein (ligaments arrachés). Rééducation auto-guidée avec programmes trouvés sur internet, à intégrer plus tard au programme Recode
+- Programme de base créé : Recode (14 niveaux progressifs, 3 phases), fichier `livrables/dev-perso/sport/programme-recode.md`
+- Démarrage maintenant (mi-juin) : Routine 1.1, 3 rounds/jour minimum
+
+**Infos mises à jour :**
+- Centre aéré cet été = Cambrai (confirmé)
+
+---
+
 ## 2026-06-13 (mise à jour 2)
 
 ### Phase 4 personnalisation Jarvis — workflow et préférences actés

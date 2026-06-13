@@ -7,6 +7,32 @@
 
 ---
 
+## 2026-06-13 (mise à jour 4)
+
+### Session recherche produit (avancée avant Sprint #1) — 0 produit retenu, méthode affinée
+
+Roméo a voulu s'avancer sur la recherche produit avant le démarrage officiel du cycle #1 (15 juin). Aucun produit retenu, mais la méthode et les critères se sont nettement durcis.
+
+**Méthode créative-first par angle masculin rodée :** plutôt que trier toute la base par reach (qui fait remonter les géants + douleur senior + beauté femme), on délimite d'abord l'univers par mots-clés masculins multi-langues UE dans le texte des créas, PUIS on trie par scaling (reachDelta30d), sur boutiques focalisées (`max_products` bas), origine UE + zéro UK. Le reach reste le juge de "ça perce", on pêche juste au bon endroit.
+
+**~16 angles/territoires ratissés :** ronflement (désert), posture/dos (médical senior), récup/genou, confiance corporelle, grooming (féminin ou électronique), sommeil (ingérable/féminin), performance/fitness (info-produits/EMS), cheveux/calvitie (topique), cheville, muscu/force, anti-transpiration, home-gym.
+
+**Tous les candidats écartés, avec les raisons (cash de Roméo) :**
+- ArcoFlex / SensaStore (semelles IT) : angle des créas féminin, et le vrai winner du shop multi-produits = un autre produit (oreillettes), pas les semelles.
+- Assiva (bas contention FR) : pas de créa active visible = rien à modéliser, + cible senior.
+- Flexi Pro (genouillère artisan FR) : produit qui existe depuis trop longtemps (saturé), l'inverse du "frais" recherché.
+- Vertaline (ceinture dos/sciatique IT) : hors niche (médical).
+- Vitalis (sérum anti-chute cheveux homme FR) : refusé car appliqué sur le corps (nouvelle règle).
+- GRIP FORCE / BASE FIT (straps muscu ES) : seul à passer tous les filtres sur le papier, mais 5-6 pubs seulement = aucune preuve de scaling. Écarté.
+
+**Nouvelle règle produit actée :** refus de tout produit appliqué sur le corps (sérum, huile, crème, soin peau/cheveux), au même titre que l'ingérable. Profil cible = objet tangible qu'on enfile/utilise (textile, maintien, accessoire). Gravé en mémoire persistante avec la préférence d'angle masculin.
+
+**Constat stratégique restitué en associé :** l'intersection de tous les critères de Roméo (UE + zéro UK + niche santé-sport + porté/utilisé + masculin + frais + désir + pas électronique) est étroite. Le seul produit frais/masculin/porté/désir qui scale fort partout en UE en ce moment = le débardeur gainant homme (= produit killé). Roméo tranche : un produit killé = oublié, on n'y revient pas, on ne s'éternise pas dessus.
+
+**Décision : recherche produit = plusieurs sessions assumées.** Prochaine session : attaquer 3 leviers TrendTrack pas encore utilisés (`find_winning_products`, `daily_radar`, `search_tiktok_library` — TikTok où beaucoup de produits sport masculins percent avant Meta).
+
+---
+
 ## 2026-06-13 (mise à jour 3)
 
 ### Objectifs sport recalibrés + programme Recode créé

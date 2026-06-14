@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-06-14 (mise à jour 2)
+
+### Refonte complète de la méthode de recherche produit
+- Diagnostic posé par Roméo : les critères empilés session après session avaient vidé l'entonnoir et installé une posture "kill par défaut" qui l'empêchait de voir les candidats. Au lieu de lui montrer 8 options avec leurs défauts, Claude éliminait avant présentation.
+- Décision : repartir de la fiche d'origine de Roméo comme référence unique, non négociable. Toutes les règles ajoutées par-dessus sont effacées.
+- Nouvelle méthode gravée : 2 critères durs seulement (TTM <2 mois sur first_seen du premier créatif + 4 créas ≥400k reach via ID page Facebook), filtres TrendTrack fixes (ads actives ≥40 en 24h, shop <3 mois, traffic max 1700, exclure France), règle d'or "traduire avant d'innover", posture court-liste 5-8 candidats avec pour/contre, c'est Roméo qui tranche.
+- Clarification technique actée : l'origine géographique du shop est sans importance. Si TrendTrack remonte du reach sur un shop, les données Meta sont accessibles. Point.
+- Mémoires de recherche produit réécrites / nettoyées en conséquence.
+
+---
+
 ## 2026-06-14
 
 ### Recherche produit TrendTrack : méthode recadrée + short-list de 2 candidats

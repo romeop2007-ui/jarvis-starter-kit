@@ -7,6 +7,16 @@
 
 ---
 
+## 2026-06-14 (mise à jour 3)
+
+### Abandon de la niche + refonte méthode recherche produit (shop-first)
+- Lâché la contrainte de niche santé/sport. On cible désormais tous produits sauf ceux à risque (contact corps/peau, santé, ingéré, topique). Conséquence : identité Zooryn (marque santé/sport) à repositionner au prochain produit retenu.
+- Diagnostic de fond : les échecs venaient d'une exécution à l'envers (partir des ads = remonter les gros shops stables) et d'une confiance aveugle aux filtres TrendTrack (`max_traffic` périmé, des boutiques à 13k visiteurs qui passaient le filtre 1700).
+- Méthode reformulée par Roméo : shop d'abord (frais, <1700 visiteurs, explosion d'ads, peu de produits, hors FR), traçabilité EU vérifiée (origine US OK si data visible, "No EU Data" = jeter), ads ensuite (4 créas ≥400k OU ≥60€/j, actives et fraîches).
+- 5e recherche : 0 produit retenu (EndoLab IT, MIRIS, Balomela, Try Elytra écartés). Mémoires de recherche produit réécrites.
+
+---
+
 ## 2026-06-14 (mise à jour 2)
 
 ### Refonte complète de la méthode de recherche produit

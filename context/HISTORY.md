@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-14 (mise à jour 4)
+
+### Recherche produit relancée — critère de fraîcheur des créas ajouté + 2 candidats en attente
+- Correctif clé apporté par Roméo : trier par scaling RÉCENT (`reachDelta30d` + créas créées récemment), pas par reach cumulé qui remonte les vieilles pubs déjà scalées. Fraîcheur de la créa gagnante = ≤1 mois idéal, 1,5 max, 2 mois = trop tard.
+- 1re passe (3 candidats) tous écartés : mrlampadino (lampe déco, bon produit mais 2 mois de diffusion = dépassé), shopwhiskerly (kit empreinte patte, ~22k visites = bien au-dessus de 1700), paropet (harnais anti-traction, déjà repéré il y a 1 mois, aujourd'hui scalé et sûrement copié en FR).
+- Leçon trafic gravée : re-vérifier le trafic réel <1700 à la main sur chaque candidat (le filtre auto ne suffit pas).
+- 2e passe (reachDelta30d + créas fraîches, hors France) : **sonnfit.de** retenu en priorité (Fit-Overs lunettes par-dessus lunettes de vue, trafic ~0 = début de courbe, créa du 7 mai en scaling, 1 produit, origine US mais diffusion DE analysable) ; **hakon.se** en second (ceinture, créa du 5 juin très fraîche mais trafic 2340 > seuil).
+- Tension stratégique soulevée puis reportée : sans niche, difficile d'alimenter une boutique multi-produits sourçables cohérents.
+- Suite : approfondir sonnfit (tunnel, prix/offre, sourcing AliExpress, version FR éventuelle) à la prochaine session.
+
+---
+
 ## 2026-06-14 (mise à jour 3)
 
 ### Abandon de la niche + refonte méthode recherche produit (shop-first)

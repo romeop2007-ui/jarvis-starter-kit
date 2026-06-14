@@ -7,6 +7,16 @@
 
 ---
 
+## 2026-06-14
+
+### Recherche produit TrendTrack : méthode recadrée + short-list de 2 candidats
+- Reprise de la recherche produit. J'ai d'abord dérivé sur des critères inventés (scaling 7 jours, boutiques fraîches, seuils reach bas) que Roméo a recadrés : on applique les critères actés (4 créas ≥400k reach, 1re créa <2 mois, filtres anti-marque max_traffic 1700 / max_facebook_likes 50000, tri par reach).
+- Correction de fond sur le critère "version FR" : ce n'est PAS un interrupteur. Seul le produit EXACTEMENT identique déjà actif en France est un signal de prudence (et pas automatique). La saturation de catégorie n'est jamais un motif de kill. Règle corrigée en mémoire.
+- Tri de 60 winners frais EU : la quasi-totalité est hors-niche (bijoux-cadeaux, cosmétique/patchs, déco, gadgets cuisine, POD). Deux candidats rentrent dans Zooryn : chevillère de maintien (hiwello.se, angle sport/foot, SE) et ceinture lombaire (schienafelice.it, posture/dos, IT). À creuser : produit exact déjà en FR ? + analyse des tunnels.
+- Aucun produit retenu définitivement, recherche en cours.
+
+---
+
 ## 2026-06-13 (mise à jour 8)
 
 ### Audit config boutique Zooryn pour le marché France + 2 corrections live

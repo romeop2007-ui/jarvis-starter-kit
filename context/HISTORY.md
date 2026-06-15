@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-06-15 (mise à jour 2)
+
+### Refonte méthode recherche produit V3 — fin du tourne-en-rond
+- Diagnostic d'associé : les 6+ sessions à 0 venaient de critères contradictoires (viser le tout début ET exiger 4 créas à 400k = les deux bouts de la même courbe = 0 mécanique, + posture "kill par défaut" qui privait Roméo de son rôle de décideur).
+- 5 arbitrages de fond tranchés par Roméo : (1) timing "entre les deux" (produit qui scale depuis 2-4 semaines, pas au pic) ; (2) preuve ads = une PENTE qui monte (2-3 créas en scaling, reachDelta30d positif fort), FIN du couperet "4 créas ≥400k OU ≥60€/j" ; (3) aucun ancrage thématique ; (4) tester dès "assez bon" (le test à 50€ EST le filtre).
+- Présence FR alignée sur la formation (règle d'or "traduire avant d'innover") : la saturation n'est JAMAIS un motif de kill, on copie un winner dont le marché principal n'est pas la FR et on lance en FR ; seul un funnel exact déjà dominant en FR appelle de la prudence/différenciation. Remplace le "kill dur FR".
+- Trafic strict <1700 maintenu (tension assumée avec la pente, gérée par la règle d'honnêteté : montrer un bon candidat même au-dessus en signalant). Sourcing = Roméo s'en charge après validation.
+- Fiche mémoire méthode entièrement réécrite en V3 (`feedback_regles_recherche_produit.md`). Aucune recherche relancée dans cette session : on a réparé la méthode, pas encore chassé.
+
+---
+
 ## 2026-06-15
 
 ### Recherche produit Cycle #1 (J1) — 0 retenu, grille encore affinée

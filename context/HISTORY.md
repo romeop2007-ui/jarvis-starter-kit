@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-06-15 (mise à jour 3)
+
+### Séquencement acté + piste de niche camping/outdoor (provisoire) + pipeline de 2 produits
+- **Modèle de séquencement tranché.** Roméo hésitait entre "trouver 5 produits, tout construire, lancer 5 ads en même temps" et "1 produit à la fois un peu à l'aveugle". Décision : **structurer en amont (niche + coquille neutre + pipeline de 4-5 produits) MAIS tester un produit à la fois à 50 €**, jamais plusieurs ads en parallèle (budget 50 €/test, lisibilité de la data, niveau Meta débutant). Le test à 50 € reste le filtre. Préparer le pipeline ne coûte rien (recherche + favoris), ça donne la structure sans le sur-investissement.
+- **Piste de niche en exploration : camping / plein air / outdoor.** PROVISOIRE et réversible (Roméo prévient : si l'univers se révèle trop fermé, on change de niche direct). Née de la convergence de 2 produits trouvés, pas d'un choix a priori. Affine la proposition initiale "maison/jardin" jugée trop vague.
+- **Zooryn : le nom peut rester.** Correction d'un raccourci : le souci n'a jamais été le nom (mot abstrait inventé, neutre, colle même bien à de l'outdoor) mais le positionnement santé/sport qu'on lui avait collé. Le branding définitif (nom inclus) se tranche après un winner. Donc on garde Zooryn comme marque-coquille de travail.
+- **Pipeline de 2 produits camping/outdoor :** (1) **matelas/tapis de sol ultraléger camping** (norrfjallen.se, SE/DK/FI, ~70 €/799 SEK, shop créé 14/04, 396 visites, pente de pubs forte encore en cours 0→121, copy excellent multi-angles à modéliser, sert de modèle de boutique entier) ; (2) **guirlande solaire jardin/camping** (belysningshuset.dk, SE/DK, 6M reach/30j, angle camping + jardin). Norrfjällen vend lui-même matelas + guirlande dans la même boutique = preuve vivante que les deux cohabitent.
+- **Leçon TrendTrack gravée (piège visits:0) :** belysningshuset.dk affichait 0 visite + reach énorme, Roméo soupçonnait une grosse entreprise établie. Vérifié : entité = **JCOM AB** (org. suédois 559575-2949, série récente, objet social = e-commerce générique), shop créé le 13/05, téléphone "à venir" sur le site = **petit dropshipper récent comme Roméo**, pas une grosse boîte. Le nom "Belysningshuset" (= "la maison de l'éclairage") est générique → collision avec de vraies vieilles boutiques homonymes. Le `visits:0` = donnée manquante, le reach lui est bien réel.
+- **Harnais anti-traction (pawdal/paropet) exploré puis écarté :** FR vérifié peu saturé (1 seul vendeur, angle perso différent), MAIS paropet est sur la liste des rejetés et pawdal repose sur 1 seule créa gagnante (fragile, profil hakon). Tension soulevée (paropet rejeté sous l'ancienne logique, motif "déjà copié en FR" contredit par la data) mais non rouvert.
+- Aucune recherche produit large relancée cette session (juste l'analyse des 2 candidats apportés).
+
+---
+
 ## 2026-06-15 (mise à jour 2)
 
 ### Refonte méthode recherche produit V3 — fin du tourne-en-rond

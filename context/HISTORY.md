@@ -7,6 +7,28 @@
 
 ---
 
+## 2026-06-15
+
+### Recherche produit Cycle #1 (J1) — 0 retenu, grille encore affinée
+- 3 angles TrendTrack passés (croissance de trafic, explosion de pubs, scaling de créas fraîches). Tous les candidats rejetés par Roméo.
+- Mes erreurs, tracées sans filtre : (1) présenté thefleececompany sans vérifier son trafic réel (1,7M de visites, le `visits:0` de TrendTrack = donnée MANQUANTE, pas faible trafic) ; (2) proposé du gros/lourd (rack de rangement, couverture) ; (3) ressorti sonnfit, déjà rejeté le 14/06.
+- 🔴 sonnfit.de (Fit-Overs) acté MORT : déjà écarté, ne plus jamais le reproposer.
+- 3 règles ajoutées à la grille (sans empiler de critère taille/poids rigide, pour ne pas re-vider l'entonnoir) : produit **non saisonnier** (doit tourner à l'année, la casquette d'été ne passe pas), produit **réel et copiable** (pas une curiosité introuvable type mycélium), **ne jamais reproposer un candidat rejeté**.
+- Le Cycle #1 démarre sans produit. Recherche stoppée à la demande de Roméo.
+
+---
+
+## 2026-06-14 (mise à jour 5)
+
+### Architecture site multi-produits Zooryn clarifiée + hakon mis en veille
+- hakon.se approfondi : 2 créas vraiment gagnantes (153 €/j depuis le 7 mai pour 650k vues, et 68 €/j), le reste retombe ; 0 pub active aujourd'hui. Pas copié, mis en veille, à re-checker vers le 21/06 (nouvelles créas en scaling = retestable, sinon mort).
+- Clarification clé : séparer la landing produit (où pointe la pub, ce qui vend, ~90 % de l'effort) de la coquille de marque (home + pages confiance, ce qui rassure, faible poids conversion). La quasi-totalité du trafic pub n'explore jamais la home.
+- On copie le tunnel/landing produit d'un winner, jamais une structure de site mono-produit (hakon = anti-modèle).
+- Déblocage de la tension niche/multi-produits : le site se remplit tout seul au fil des tests (1 produit testé = 1 page, on ne supprime pas les ratés, on coupe la pub et la page dort). Structure 3 couches : coquille fixe + pages empilées + winner en vedette.
+- Branding cohérent et tri des produits dormants = après un winner, pas en designant à vide.
+
+---
+
 ## 2026-06-14 (mise à jour 4)
 
 ### Recherche produit relancée — critère de fraîcheur des créas ajouté + 2 candidats en attente

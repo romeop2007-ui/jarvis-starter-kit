@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-16 (mise à jour 5)
+
+### Grosse session recherche produit data-first : 0 nouveau produit, puits sec sous standards stricts + nettoyage des contradictions du contexte
+- Principe « data avant produit » poussé à fond, puis ré-ancrage sur la niche en cours de route : l'élargissement drastique autorisé par Roméo a CONFIRMÉ que les produits hors-niche tuent la marque (chien, tronçonneuse rejetés malgré une data excellente).
+- **7 candidats vus, tous écartés sur la DATA, jamais sur le produit ni le type :** Atlas & Grey « Travelly Pro » + TravelTrunky GO (sacs cabine compression, type adoré et double-confirmé, mais pubs pas assez fortes / shops pas frais & saisonniers) ; Kalyma Traceo (traceur GPS, hors-niche léger + data non recoupable) ; Nomadike (coussin voyage compressible, FR + origine US + ne scale pas) ; Furtag (anti-tiques chien, data la plus violente mais tue la marque) ; Nordslip (affûteur tronçonneuse, data saine mais hors-niche + démarré début avril) ; Coziya (chaise pliable compacte, type parfait mais shop US = pas de data EU).
+- **2 watchs gardés :** craftaison « Thermoseat » (coussin chauffant, DE, recoupable, trop jeune 6 j → re-check ~23/06) ; types désirables sans shop EU exploitable (chaise pliable compacte + sac cabine compression).
+- **Leçon outil :** le bon filet data-first = `search_ads` par `category_ids` + `shop_created_after` (frais) + origine EU ; le tri global sans niche remonte surtout du hors-niche/hors-EU.
+- **Constat d'associé acté :** sous les standards stricts de Roméo, pas de 4e candidat propre aujourd'hui. On ne force pas un produit bancal, on a déjà 3 produits verrouillés solides (matelas n°1 ; le sling OFF-GRID scale fort en ce moment). On reprend la prochaine fois sur de meilleures bases.
+- **Nettoyage du contexte (validé par Roméo) :** suppression du paragraphe contradictoire « Abandon de la niche thématique » (14/06) qui disait de chercher TOUT produit, incompatible avec la niche outdoor/voyage actée les 15-16/06. Positionnement Zooryn réécrit en « marque ombrelle neutre, niche actuelle outdoor/voyage ». Mentions UK/GBP résiduelles du contexte courant corrigées (les entrées historiques datées sur l'ancienne boutique Sculpted UK sont conservées telles quelles).
+
+---
+
 ## 2026-06-16 (mise à jour 4)
 
 ### Principe « data avant produit » + test de profondeur de niche + niche élargie au voyage

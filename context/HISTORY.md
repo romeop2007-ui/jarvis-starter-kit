@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-06-16 (mise à jour 6)
+
+### Recherche produit "carte blanche" (nouvelles méthodes) : 0 retenu, décision de lancer le matelas
+- Roméo a donné carte blanche sur la méthode (TikTok, ads, autre) en gardant l'exigence data. 3 moteurs neufs testés : biblio TikTok (API HS aujourd'hui), `find_winning_products` (= marques outdoor établies type Ayamaya/Montem/Baltoro, inadapté), `search_advertisers` tri croissance (= géants Airbnb/Uber/Decathlon/Samsonite, confirmé mauvais). Le seul moteur utile reste `search_ads` en scaling 7j/30j par catégorie.
+- Angle mer/océan/nautique (catégories aquatiques 1199/1216/1218/1219/1217/819, France exclue origine + audience) = sec : pool floats saisonniers (veeloro), lunettes de natation enfant (nuviko/snapeyes), paddle de commerçant local (suprendeles.hu). Rien de durable + on-niche.
+- Angle dry-bag / sac étanche (mots-clés multi-langues, FR exclue) = vide : 15 faux positifs sur le mot "waterproof/vandtæt", surtout la guirlande Mira et un spot de jardin. Aucun vrai sac étanche frais hors-FR ne scale.
+- Candidats neufs tous écartés : **Hydrasta** (bouteille d'hydratation, origine + cible FR, prix 18,99 € = marge faible) ; **Heldda "Le Move"** (sac organisé 3-en-1, cible 100% FR) ; **Nordhem Vattenpennan** (embout de tuyau haute pression, SE, data la plus forte mais hors-niche maison/jardin).
+- Acquis reconfirmés en plein scaling : matelas (Eisenra +287k reach/7j), guirlande Mira (Belysningshuset 6M reach/30j, 140 pubs), douche (Camping Bruser 706k reach/30j).
+- Douche : Roméo observe le daily spend (30-60 €, sous son seuil) ~1 semaine avant de juger. Thermoseat (craftaison) : re-check ~23/06.
+- **Décision actée : on arrête de forcer un 4e produit, on lance le matelas (candidat n°1).** La recherche passe en veille (~1-2 candidats/semaine). Prochain chantier = modéliser le tunnel Eisenra/Norrfjällen, refaire le thème, monter créas + page produit FR.
+
+---
+
 ## 2026-06-16 (mise à jour 5)
 
 ### Grosse session recherche produit data-first : 0 nouveau produit, puits sec sous standards stricts + nettoyage des contradictions du contexte

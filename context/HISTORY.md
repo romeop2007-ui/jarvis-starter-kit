@@ -7,6 +7,29 @@
 
 ---
 
+## 2026-06-16 (mise à jour 2)
+
+### Clarification Skills vs Plugins vs slash commands + nettoyage
+- Modèle mental remis à l'endroit : un **Skill** est la chose auto-déclenchée et "intégrée" (description vue en permanence, Claude l'invoque seul quand la tâche colle) ; une **slash command** est manuelle (tapée par Roméo) ; un **Plugin** est un emballage de distribution qui peut contenir skills, commandes, sous-agents, hooks et MCP. Roméo avait inversé skills et plugins.
+- Démystifié le "ça prend de la place" : chargement progressif, seule la description (1 ligne) est chargée au repos, le corps complet (16-25k caractères) ne se charge qu'à l'invocation. Désinstaller = cosmétique, pas un gain de perf.
+- Acté : **aucun plugin à installer.** Seule marketplace = officielle Anthropic, catalogue quasi 100 % dev (LSP, code-review, intégrations MCP). Les outils e-commerce de Roméo (TrendTrack, Shopify, Facebook Ads, Notion) sont déjà en MCP direct, mieux qu'un plugin.
+- Constat clé : Roméo a déjà ~26 skills marketing installés en dur dans `.claude/skills/` (cro, copywriting, copy-editing, competitor-profiling, ads, emails, popups, ab-testing, product-marketing-context...) qui collent pile à son métier et qu'on n'utilisait pas. À brancher en exécution (cro + copywriting sur la page produit, competitor-profiling pour copier le winner, etc.).
+- Nettoyage : suppression des 2 fichiers parasites `canvas (1).zip` et `canvas (2).zip` dans le dossier skills. Rien d'autre touché.
+
+---
+
+## 2026-06-16
+
+### Recherche produit camping/outdoor large + vérif FR du panier barbecue
+- **Niche camping/outdoor confirmée viable** : plusieurs shops indépendants scalent les mêmes produits en ce moment = demande réelle.
+- **2 produits désormais VERROUILLÉS** (winner frais confirmé par 2 shops distincts qui scalent) : (1) **matelas ultraléger gonflable** (norrfjallen.se + norrdiva.com IT) = candidat n°1 de lancement, le plus solide ; (2) **guirlande solaire Mira** (belysningshuset.dk + valotalo.fi FI).
+- **Panier barbecue inox (bryngrill) passé en RÉSERVE.** Vérif demandée par Roméo : le produit EST déjà copié en France (nolarop.com, 29,90€) mais ce clone FR est dormant (0 pub active). Surtout, produit saturé partout en EU (galaxie de clones komoto/gryller/gebruder-grill/grillmesteren/grillburen/grillsasongen) + saisonnier. On n'est plus dans le « entre les deux », pas prioritaire.
+- **Cluster identifié à creuser** (catégorie bonne, copyable, winner-shop frais pas encore verrouillé) : mini-pompe rechargeable, anti-moustique portable lumineux, lampe frontale/lanterne LED, oreiller de camping gonflable, lit de camp pliable.
+- **Leçon outil gravée** : `find_similar_shops` remonte les grosses marques établies (REI, Sea to Summit, Big Agnes...) et peut se tromper de shop, donc inadapté pour trouver un dropshipper frais. Le bon filet = `search_ads` reachDelta30d + origine nordique + max_products bas + shop récent, puis lecture du texte des pubs. La recherche par mot-clé camping dans le texte des pubs = 100% bruit.
+- Honnêteté d'associé : pas de 3e winner frais propre sorti au-delà du barbecue ; le matelas reste le meilleur candidat de lancement. Reste à transformer 2-3 items du cluster en winners frais pour viser 4-5 verrouillés.
+
+---
+
 ## 2026-06-15 (mise à jour 3)
 
 ### Séquencement acté + piste de niche camping/outdoor (provisoire) + pipeline de 2 produits

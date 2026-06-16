@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-16 (mise à jour 4)
+
+### Principe « data avant produit » + test de profondeur de niche + niche élargie au voyage
+- **Nouveau principe directeur acté : LA DATA AVANT LE PRODUIT.** Claude doit filtrer d'abord sur la preuve de scale visible et analysable, le produit ensuite. Un produit sans preuve = mort, peu importe l'idée. Le fit produit est secondaire (ombrelle si large que tout y rentre) ; c'est Roméo qui juge le produit une fois donné. Né du recadrage : trop de candidats présentés sur la qualité de l'idée sans data solide (vélo, pêche, sacs à dos compression rokingpack/vagobag/suzunoa tous invalidés faute de data).
+- **Nouvelle méthode outil : recherche par CATÉGORIE, pas par tri global.** Le tri global de TrendTrack par scaling noie l'outdoor sous la santé/beauté (= fausse impression de niche vide, mon erreur de la session). Filtrer par `category_ids` (753/755/757 outdoor, 754 pêche, 1199 nautique, 1160 vélo, 1237/1241/1242/1245 voyage) + `min_active_ads` ≥40 + `max_traffic` <2000 isole les vrais produits.
+- **Test de profondeur de niche fait : la cadence « 1 winner tous les 3-4 jours » est un fantasme, abandonnée.** Sous standards stricts (preuve de scale + data EU + shop frais), l'outdoor/voyage tient sur ~1,5 page (page 3 vide). Aucune niche ne fournit ce rythme ; « strict » et « tous les 3 jours » sont incompatibles. **Arbitrage acté : modèle A = standards stricts, ~1-2 tests/semaine.** La niche est validée par la solidité des acquis, pas par un flux infini.
+- **Niche élargie « outdoor/aventure » → « voyage / extérieur / avion / nature / nomade ».** La cohérence du catalogue est un non-sujet (1 landing par produit). Acquis sur-confirmés : matelas = 5 shops indépendants (norrfjallen/Eisenra, norrdiva, heyfloaty, norrfjall.dk, campiosklep.pl) ; sac sling = 4 shops (offgridnordic, shevo.pl, nomalero.de, +1).
+- **Écartés (data, pas qualité) :** couvre-selle vélo (aktivnord/ridelab, pubs molles), leurre de pêche (trop étroit), chauffe-repas portable (vraie preuve de scale mais Roméo ne peut pas voir la data lui-même). **Type à rechasser avec preuve only :** sac à dos cabine compression sous-vide (excellent type, 0 shop analysable pour l'instant).
+- Prochaine session : recherche produit avec la méthode data-first par catégorie.
+
+---
+
 ## 2026-06-16 (mise à jour 3)
 
 ### Recherche produit (méthode V3) : 1 nouveau produit verrouillé (sac sling) + niche élargie en "outdoor/aventure"

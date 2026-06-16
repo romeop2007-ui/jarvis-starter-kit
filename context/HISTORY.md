@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-16 (mise à jour 3)
+
+### Recherche produit (méthode V3) : 1 nouveau produit verrouillé (sac sling) + niche élargie en "outdoor/aventure"
+- **Nouveau produit VERROUILLÉ (3e du pipeline) : sac sling anti-vol RFID** — `offgridnordic.com` (« OFF-GRID »), shop SE créé 11/05, 3 produits, ~35 €, scaling le plus fort du lot (74 pubs, +127k reach/jour), diffuse multi-marché SE/GB/DE. Trouvé via le filet V3 (search_ads reachDelta30d + origine nordique + max_products bas, page 2). Fit niche le plus lâche des 3 mais rentre dans l'ombrelle.
+- **Fil rouge de niche clarifié ensemble : "outdoor / aventure / nomade / plein air"**, pas "camping" strict. Les 3 produits (matelas, guirlande, sac) n'ont rien à voir entre eux mais tiennent sous cette ombrelle. Claude valide : pas une complication, car 1 landing par produit (la cohérence catalogue joue quasi rien sur la conversion) et le branding se tranche après un winner.
+- **Douche de camping portable : reportée, PAS tuée.** Double winner indépendant confirmé (campingbruser.dk + craftaison.de, même produit, même pattern que le matelas), fit parfait, France vierge sur ce produit précis. Écartée par Roméo non sur la qualité mais parce qu'il ne peut pas vérifier lui-même la data des pubs gagnantes (règle « rien à l'aveugle »). Rouvrable si accès data retrouvé. Claude a confirmé de son côté que les pubs qui scalent pointent bien sur la page produit douche.
+- **Barbecue bryngrill définitivement enterré** (~2 mois de diffusion = trop tard pour copier, saturé EU, déjà cloné FR dormant, saisonnier).
+- **Objectif acté : viser 4-5 produits verrouillés avant de lancer créas + site** (3 = trop peu pour valider une niche qu'on devra garder longtemps). La recherche continue en parallèle des testings ; prochaine session = chercher un 4e sur d'autres critères.
+- **Feedback fort de Roméo : la méthode de travail marche, on la conserve.** Il y a 2 jours on était bloqués (trop de critères, 0 produit même sans niche) ; aujourd'hui, sur une niche précise, on a déjà 3 produits cohérents. Méthode V3 validée par les résultats.
+
+---
+
 ## 2026-06-16 (mise à jour 2)
 
 ### Clarification Skills vs Plugins vs slash commands + nettoyage

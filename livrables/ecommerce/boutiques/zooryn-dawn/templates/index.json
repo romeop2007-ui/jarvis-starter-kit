@@ -1,0 +1,230 @@
+{
+  "sections": {
+    "hero": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Conçu pour ceux qui partent",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "Du matériel outdoor malin, léger et fiable, pour vivre chaque sortie pleinement, du bivouac au bout du monde.",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Découvrir la boutique",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": ["heading", "text", "button"],
+      "settings": {
+        "image_overlay_opacity": 40,
+        "image_height": "large",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "image_behavior": "none",
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "engagements": {
+      "type": "multicolumn",
+      "blocks": {
+        "col1": {
+          "type": "column",
+          "settings": {
+            "title": "Livraison offerte en France",
+            "text": "<p>Expédiée rapidement, avec suivi inclus sur chaque commande.</p>"
+          }
+        },
+        "col2": {
+          "type": "column",
+          "settings": {
+            "title": "Paiement 100 % sécurisé",
+            "text": "<p>Visa, Mastercard, Apple Pay. Transactions cryptées de bout en bout.</p>"
+          }
+        },
+        "col3": {
+          "type": "column",
+          "settings": {
+            "title": "Satisfait ou remboursé",
+            "text": "<p>30 jours pour changer d'avis, sans prise de tête.</p>"
+          }
+        },
+        "col4": {
+          "type": "column",
+          "settings": {
+            "title": "Support en français",
+            "text": "<p>Une question ? On répond vite, dans votre langue.</p>"
+          }
+        }
+      },
+      "block_order": ["col1", "col2", "col3", "col4"],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "circle",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "histoire": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Une marque née du plein air",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Zooryn part d'une idée simple : le bon matériel ne devrait jamais vous freiner. Trop lourd, trop cher, trop compliqué... on a voulu l'inverse. Des produits outdoor pensés pour durer, faciles à emporter, qui vous suivent du week-end en forêt au grand voyage. Moins d'équipement, plus d'aventure.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": ["heading", "text"],
+      "settings": {
+        "height": "large",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "q1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Quels sont les délais de livraison ?",
+            "icon": "truck",
+            "row_content": "<p>Vos commandes sont préparées sous 24 à 48h et livrées en France sous quelques jours ouvrés. Un numéro de suivi vous est envoyé dès l'expédition.</p>"
+          }
+        },
+        "q2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "La livraison est-elle vraiment gratuite ?",
+            "icon": "check_mark",
+            "row_content": "<p>Oui, la livraison est offerte partout en France, sans montant minimum de commande.</p>"
+          }
+        },
+        "q3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Puis-je retourner un article ?",
+            "icon": "return",
+            "row_content": "<p>Vous disposez de 30 jours pour nous retourner un produit qui ne vous convient pas et être remboursé.</p>"
+          }
+        },
+        "q4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Les paiements sont-ils sécurisés ?",
+            "icon": "lock",
+            "row_content": "<p>Absolument. Tous les paiements sont cryptés et traités par Shopify Payments. Nous n'avons jamais accès à vos données bancaires.</p>"
+          }
+        },
+        "q5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Comment vous contacter ?",
+            "icon": "chat_bubble",
+            "row_content": "<p>Via notre page Contact. On vous répond en français, en général sous 24h.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5"],
+      "settings": {
+        "caption": "On vous dit tout",
+        "heading": "Questions fréquentes",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "row",
+        "container_color_scheme": "scheme-2",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": false,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
+    "cta_final": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Prêt pour la prochaine aventure ?",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Parcourez la sélection Zooryn et trouvez l'équipement qui partira avec vous.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Explorer la boutique",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": ["heading", "text", "button"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "engagements",
+    "histoire",
+    "faq",
+    "cta_final"
+  ]
+}

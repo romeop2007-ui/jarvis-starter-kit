@@ -1314,13 +1314,11 @@
       "sculpted-track": {
         "type": "sculpted-track",
         "settings": {
-          "heading": "Track my order",
-          "intro": "Enter the tracking number from the shipping confirmation email you received. Need help tracking your order?",
-          "link_label": "Get in touch via our contact form",
-          "link_url": "shopify://pages/contact",
-          "placeholder": "Tracking number",
-          "button_label": "Track",
-          "not_found": "We couldn't find that tracking number yet. Newly shipped orders can take up to 24 hours to appear — please try again shortly."
+          "title": "",
+          "subtitle": "",
+          "help_label": "",
+          "help_link": "Contact us",
+          "help_url": "shopify://pages/contact"
         }
       },
       "sculpted-collection": {
@@ -1404,6 +1402,7 @@
               "ship": "Free Shipping",
               "price_now": "£23.99",
               "price_was": "£39.99",
+              "savings": "",
               "qty": 1
             }
           },
@@ -1418,6 +1417,7 @@
               "ship": "Free Shipping",
               "price_now": "£31.99",
               "price_was": "£63.99",
+              "savings": "",
               "qty": 2
             }
           },
@@ -1432,6 +1432,7 @@
               "ship": "Free Shipping",
               "price_now": "£39.99",
               "price_was": "£99.99",
+              "savings": "",
               "qty": 3
             }
           },
@@ -1446,6 +1447,7 @@
               "ship": "Free Shipping",
               "price_now": "£47.99",
               "price_was": "£159.99",
+              "savings": "",
               "qty": 4
             }
           },
@@ -1529,7 +1531,7 @@
         "settings": {
           "product": "",
           "main_frame_label": "Product — Black & White, \"Buy 2 + 1 Free\"",
-          "rating_text": "Excellent · 4,200+ reviews",
+          "rating_text": "Excellent · 1,200+ reviews",
           "title": "Zooryn™ Shin Protectors | Lock-In Grip Socks",
           "desc": "The shin guard socks that lock in place, grip your boots and protect every tackle — no tape, no slipping, all match long.",
           "info_body": "",
@@ -1544,7 +1546,9 @@
           "sizes": "XS, S, M, L, XL",
           "opts_head": "Choose colour & size for each pair",
           "lc_badge_a": "🔒 30-day money-back",
+          "lc_badge_a_desc": "Shop with total confidence. If these aren't right for you, return them within 30 days for a full refund — no questions asked.",
           "lc_badge_b": "⏳ Low stock!",
+          "lc_badge_b_desc": "These are in high demand and stock is limited. Order today to make sure you don't miss out.",
           "buy_btn_label": "Buy now",
           "buy_btn_color": "#f6c000",
           "pay_row": "AMEX, Apple Pay, G Pay, Mastercard, PayPal, Shop, VISA"
@@ -2056,6 +2060,7 @@
         "type": "sculpted-cart-drawer",
         "settings": {
           "heading": "Your cart",
+          "gift_product_id": "16329009922393",
           "gift_badge": "Free gift",
           "free_label": "Free",
           "savings_label": "You save",
@@ -2063,6 +2068,17 @@
           "shipping_note": "Shipping & taxes calculated at checkout.",
           "checkout_label": "Checkout",
           "continue_label": "Continue shopping",
+          "show_trust": true,
+          "trust_1": "Free UK delivery on every order",
+          "trust_1_desc": "We ship every order across the UK for free, with tracked delivery so you always know where your parcel is.",
+          "trust_2": "30-day money-back guarantee",
+          "trust_2_desc": "Not happy with your order? Send it back within 30 days for a full refund, no questions asked.",
+          "trust_3": "Secure & encrypted payment",
+          "trust_3_desc": "Your payment is protected with bank-level SSL encryption. We never see or store your card details.",
+          "show_secure": true,
+          "secure_text": "Secure checkout — SSL encrypted",
+          "show_payment": true,
+          "pay_row": "AMEX, Apple Pay, G Pay, Mastercard, PayPal, Shop, VISA",
           "empty_text": "Your cart is empty.",
           "empty_btn": "Shop now"
         }

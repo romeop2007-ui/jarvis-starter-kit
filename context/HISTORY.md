@@ -7,6 +7,22 @@
 
 ---
 
+## 2026-06-16 (mise à jour 7)
+
+### Construction du site : page d'accueil Zooryn refaite sur Dawn neuf (bascule de thème)
+- **Lancement de la construction du site, périmètre = page d'accueil seulement** (page produit, boutons d'achat, logo, police = reportés). Demande de Roméo : beau mais rapide, sans y passer trop de temps.
+- **Décisions design actées :** palette **Swiss Coffee OC-45** (crème, fond) + **Emerald Green #154230** (vert foncé, texte/accents) ; style **épuré premium** ; marque affichée = **Zooryn** ; **aucun produit mentionné** sur la home, page **Boutique vide** remplie à la main au fil du temps (pas de section produits vedettes).
+- **Bascule de thème majeure :** abandon du thème custom "Zooryn" #201043444057 (sculpted.css, sections sur-mesure liées à l'ancien produit) au profit d'un **Dawn neuf 15.4.1**, jugé plus propre, maintenable et auto-éditable par Roméo. L'ancien thème custom est conservé en bibliothèque comme "magasin de pièces" (badges de confiance à pop-up, mur d'avis à réimporter sur la **page produit** plus tard).
+- **Copie de travail "Zooryn FR" #201573302617** créée depuis le Dawn live. Décidé au départ de bosser en privé puis publier à la fin, mais le thème est **passé LIVE en cours de route** (clic "Publier" probable de Roméo). Arbitrage : **on laisse en ligne et on corrige en urgence** (pas de trafic). Question méthode live vs copie privée à recaler pour les prochaines modifs.
+- **Home FR construite (sections Dawn natives) :** bandeau rotatif (3 engagements) → hero "Conçu pour ceux qui partent" → bande de 4 engagements (livraison FR, paiement sécurisé, satisfait ou remboursé 30j, support FR) → histoire de marque (image+texte) → FAQ (5 questions) → CTA final. Footer émeraude, newsletter FR. Bandeau + sélecteurs pays/langue désactivés (boutique 100% FR).
+- **Menu corrigé (via API) :** "Accueil" pointait par erreur vers `/collections/all` → remis sur la vraie home ; "Notre histoire" retiré (header + footer) à la demande de Roméo ; "Collection" repointé sur `/collections/all` ; "Track Your Order" renommé "Suivi de commande".
+- **Risque légal levé :** avis clients fictifs (noms + 5 étoiles) retirés de la home (faux avis = illégal en France).
+- **404 éliminés (réutilisation de l'existant, pas de doublons) :** Contact (template Dawn `contact` réparé), CGV (ex terms-of-service), Mentions légales (ex legal-notice), Livraison & retours (ex shipping-policy) renommées + retraduites en FR.
+- **Reste à faire côté Roméo :** ajouter ses images (hero + histoire en placeholder gris), compléter les contenus légaux réels (SIRET, adresse, etc.) avant toute pub.
+- **À mettre à jour plus tard (noté, pas fait) :** CLAUDE.md (règles de sync Shopify + ID thème) et la mémoire Shopify pointent encore sur l'ancien thème #201043444057 / dossier `sculpted-shopify` ; nouveau terrain = thème live #201573302617 + dossier local `livrables/ecommerce/boutiques/zooryn-dawn`.
+
+---
+
 ## 2026-06-16 (mise à jour 6)
 
 ### Recherche produit "carte blanche" (nouvelles méthodes) : 0 retenu, décision de lancer le matelas

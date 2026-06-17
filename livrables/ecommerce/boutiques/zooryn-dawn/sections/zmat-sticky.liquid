@@ -1,0 +1,63 @@
+{%- comment -%}
+  ZOORYN — Matelas : barre d'achat collante (apparaît au scroll). Reliée au
+  formulaire de la buy box (#zmatForm) ; sinon renvoie vers le panier.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+{%- assign sid = section.id -%}
+<div class="zmat">
+  <div class="zmat-sticky-cta" id="zmatSticky-{{ sid }}">
+    <div class="wrap sticky-inner">
+      <div class="sticky-info">
+        {%- if s.image != blank -%}
+          <img class="sticky-thumb img-cover" src="{{ s.image | image_url: width: 100 }}" alt="" width="46" height="46">
+        {%- else -%}
+          <div class="placeholder sticky-thumb"><span></span></div>
+        {%- endif -%}
+        <div class="sticky-meta">
+          <b>{{ s.title | default: 'Matelas gonflable ultraléger PRO' }}</b>
+          <span>{{ s.prix | default: '69,95 €' }}{%- if s.prix_barre != blank -%} <s>{{ s.prix_barre }}</s>{%- endif -%}</span>
+        </div>
+      </div>
+      <button type="button" class="btn-cart" id="zmatStickyBtn-{{ sid }}">{{ s.cta_label | default: 'Ajouter au panier' }}</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var sticky = document.getElementById('zmatSticky-{{ sid }}');
+  if(!sticky){ return; }
+  var heroBtn  = document.getElementById('zmatHeroCta');
+  var heroForm = document.getElementById('zmatForm');
+  var stickyBtn = document.getElementById('zmatStickyBtn-{{ sid }}');
+
+  if(stickyBtn){
+    stickyBtn.addEventListener('click', function(){
+      if(heroForm){ heroForm.submit(); }
+      else { window.location.href = '{{ routes.cart_url }}'; }
+    });
+  }
+  if(heroBtn){
+    window.addEventListener('scroll', function(){
+      var rect = heroBtn.getBoundingClientRect();
+      if(rect.bottom < 0){ sticky.classList.add('show'); }
+      else { sticky.classList.remove('show'); }
+    });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Matelas — Barre collante",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Vignette" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Matelas gonflable ultraléger PRO" },
+    { "type": "text", "id": "prix", "label": "Prix", "default": "69,95 €" },
+    { "type": "text", "id": "prix_barre", "label": "Prix barré", "default": "139,90 €" },
+    { "type": "text", "id": "cta_label", "label": "Texte du bouton", "default": "Ajouter au panier" }
+  ],
+  "presets": [ { "name": "Matelas — Barre collante" } ]
+}
+{% endschema %}

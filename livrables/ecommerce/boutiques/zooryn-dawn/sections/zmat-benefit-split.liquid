@@ -1,0 +1,51 @@
+{%- comment -%}
+  ZOORYN — Matelas : bloc bénéfice "split" réutilisable (image + texte).
+  Options : image à gauche/droite, fond crème foncé, titre centré au-dessus,
+  titre dans le texte, et jusqu'à 2 sous-blocs (h3 + paragraphe).
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+<div class="zmat">
+  <section class="feature{% if s.alt_bg %} alt{% endif %}">
+    <div class="wrap">
+      {%- if s.centered_heading != blank -%}
+        <div class="feature-head reveal"><h2>{{ s.centered_heading }}</h2></div>
+      {%- endif -%}
+      <div class="split{% if s.reverse %} reverse{% endif %} reveal">
+        <div class="split-media">
+          {%- if s.image != blank -%}
+            <img class="img-cover" src="{{ s.image | image_url: width: 1000 }}" alt="{{ s.image.alt | escape }}" loading="lazy" width="1000" height="750">
+          {%- else -%}
+            <div class="placeholder" style="aspect-ratio:4/3;"><span>{{ s.placeholder_label | default: 'Image du bénéfice' }}</span></div>
+          {%- endif -%}
+        </div>
+        <div class="split-text">
+          {%- if s.heading != blank -%}<h2>{{ s.heading }}</h2>{%- endif -%}
+          {%- if s.body != blank -%}{{ s.body }}{%- endif -%}
+          {%- if s.sub1_h != blank -%}<div class="sub-block"><h3>{{ s.sub1_h }}</h3>{{ s.sub1_b }}</div>{%- endif -%}
+          {%- if s.sub2_h != blank -%}<div class="sub-block"><h3>{{ s.sub2_h }}</h3>{{ s.sub2_b }}</div>{%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% schema %}
+{
+  "name": "Matelas — Image+texte",
+  "tag": "section",
+  "settings": [
+    { "type": "checkbox", "id": "reverse", "label": "Image à droite", "default": false },
+    { "type": "checkbox", "id": "alt_bg", "label": "Fond crème foncé", "default": false },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "placeholder_label", "label": "Texte du damier (si pas d'image)", "default": "Image du bénéfice" },
+    { "type": "text", "id": "centered_heading", "label": "Titre centré au-dessus (optionnel)" },
+    { "type": "text", "id": "heading", "label": "Titre dans le texte (optionnel)", "default": "Titre du bénéfice" },
+    { "type": "richtext", "id": "body", "label": "Paragraphe", "default": "<p>Décrivez ici le bénéfice du produit.</p>" },
+    { "type": "header", "content": "Sous-blocs (optionnels)" },
+    { "type": "text", "id": "sub1_h", "label": "Sous-bloc 1 — titre" },
+    { "type": "richtext", "id": "sub1_b", "label": "Sous-bloc 1 — texte" },
+    { "type": "text", "id": "sub2_h", "label": "Sous-bloc 2 — titre" },
+    { "type": "richtext", "id": "sub2_b", "label": "Sous-bloc 2 — texte" }
+  ],
+  "presets": [ { "name": "Matelas — Image+texte" } ]
+}
+{% endschema %}

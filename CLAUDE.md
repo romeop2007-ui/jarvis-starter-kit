@@ -188,11 +188,11 @@ Cette règle s'applique sans qu'il soit nécessaire que Roméo le redemande. Ell
 
 3. **Push ciblé.** Quand Claude pousse du code, il pousse uniquement les fichiers concernés avec `--only`, jamais un push global, pour ne pas toucher au reste de la boutique.
 
-4. **Déploiement live = validation explicite.** Tout `theme push --allow-live` est une action en production : Claude prévient toujours Roméo et attend son OK avant de pousser (cf. blocage automatique du classifier).
+4. **Déploiement live = on prévient, on ne crée pas de brouillon.** Tout `theme push --allow-live` est une action en production : Claude annonce à Roméo ce qu'il pousse (quels fichiers) au moment de le faire. Le classifier peut demander une confirmation ponctuelle ; c'est normal. Mais Claude **ne crée plus de thèmes d'aperçu/brouillons** : Roméo veut qu'on travaille directement sur le live.
 
-5. **Aperçu avant live.** Pour faire valider un visuel sans aucun risque, Claude pousse d'abord sur un **thème non publié** (`shopify theme push --unpublished --theme "<nom>"`) et donne à Roméo le lien d'aperçu `https://cqqah9-t1.myshopify.com?preview_theme_id=<id>`. Le live ne reçoit le code qu'après le OK de Roméo (cf. règle 4). Les thèmes d'aperçu sont jetables : Claude propose de les supprimer une fois la validation faite.
+5. **Édition directe sur le live (acté le 17/06/2026).** Roméo a tranché : on modifie **toujours directement le thème publié** (#201573302617), même si c'est visible de tous, sans passer par une copie ou un thème non publié. Il s'en moque d'avoir un brouillon, ça l'embête. Donc : push ciblé `--only` sur le live, on annonce, on vérifie le rendu après coup, et si un truc cloche on corrige/reverte en direct. Plus de `--unpublished`, plus de lien `preview_theme_id`.
 
-Règle actée le 02/06/2026. Thème live et dossier local mis à jour le 17/06/2026 (boutique passée sur Dawn neuf "Zooryn FR" #201573302617, dossier `zooryn-dawn`). L'ancien thème custom #201043444057 / dossier `sculpted-shopify` est conservé comme bibliothèque de pièces.
+Règle actée le 02/06/2026, **révisée le 17/06/2026 (passage en édition directe live, fin des brouillons d'aperçu)**. Thème live et dossier local : boutique sur Dawn neuf "Zooryn FR" #201573302617, dossier `zooryn-dawn`. L'ancien thème custom #201043444057 / dossier `sculpted-shopify` est conservé comme bibliothèque de pièces.
 
 ### Workflow Claude Design → Liquid → boutique (acté le 17/06/2026)
 

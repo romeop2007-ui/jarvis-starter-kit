@@ -1,0 +1,26 @@
+{%- comment -%} ZOORYN — Matelas : bandeau défilant (garanties). {%- endcomment -%}
+{%- assign s = section.settings -%}
+{%- assign p1 = s.phrase1 | default: 'Essayez sans risque' -%}
+{%- assign p2 = s.phrase2 | default: 'Garantie 365 jours' -%}
+{%- assign p3 = s.phrase3 | default: 'Modèle 2025 amélioré' -%}
+<div class="zmat">
+  <div class="marquee">
+    <div class="marquee-track">
+      {%- for i in (1..4) -%}
+        <span>{{ p1 }}</span><span>{{ p2 }}</span><span>{{ p3 }}</span>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Matelas — Bandeau",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "phrase1", "label": "Phrase 1", "default": "Essayez sans risque" },
+    { "type": "text", "id": "phrase2", "label": "Phrase 2", "default": "Garantie 365 jours" },
+    { "type": "text", "id": "phrase3", "label": "Phrase 3", "default": "Modèle 2025 amélioré" }
+  ],
+  "presets": [ { "name": "Matelas — Bandeau" } ]
+}
+{% endschema %}

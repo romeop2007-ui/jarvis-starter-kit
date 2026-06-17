@@ -1,0 +1,72 @@
+{%- comment -%}
+  ZOORYN — Matelas : FAQ (accordéon). Éditable par blocs. Si aucun bloc n'est
+  ajouté, les 12 questions par défaut s'affichent.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+{%- assign sid = section.id -%}
+<div class="zmat" id="zmat-faq-{{ sid }}">
+  <section class="faq">
+    <div class="wrap">
+      <h2>{{ s.heading | default: 'Questions fréquentes' }}</h2>
+      <div class="faq-list">
+        {%- if section.blocks.size > 0 -%}
+          {%- for block in section.blocks -%}
+            <div class="faq-item" {{ block.shopify_attributes }}>
+              <button class="faq-q">{{ block.settings.q }} <span class="plus"></span></button>
+              <div class="faq-a"><div class="faq-a-inner">{{ block.settings.a }}</div></div>
+            </div>
+          {%- endfor -%}
+        {%- else -%}
+          <div class="faq-item"><button class="faq-q">Combien pèse le matelas et quelles sont ses dimensions ? <span class="plus"></span></button><div class="faq-a"><div class="faq-a-inner">Nous sommes vraiment fiers de la praticité de ce matelas ! Il ne pèse que <strong>750 grammes</strong> et s'enroule jusqu'à seulement <strong>30 x 15 cm</strong> – si petit que vous remarquerez à peine que vous l'avez avec vous. Entièrement gonflé, vous obtenez une surface confortable de <strong>195 x 70 x 10 cm</strong>, avec beaucoup de place pour vous détendre.</div></div></div>
+          <div class="faq-item"><button class="faq-q">Que se passe-t-il s'il se casse ou s'abîme ? <span class="plus"></span></button><div class="faq-a"><div class="faq-a-inner">Le matelas est fabriqué dans des matériaux résistants et de haute qualité, et supporte les sols irréguliers, les pierres tranchantes et un usage quotidien en plein air. Si un accident survient malgré tout, vous bénéficiez d'une <strong>garantie 365 jours</strong> – s'il se casse durant la première année, nous vous en envoyons un nouveau sans frais. Nous soutenons pleinement nos produits, pour que vous achetiez en toute confiance.</div></div></div>
+          <div class="faq-item"><button class="faq-q">Quelle est sa classe de température ? <span class="plus"></span></button><div class="faq-a"><div class="faq-a-inner">Le matelas a une <strong>valeur R de 4</strong>, ce qui signifie une bonne isolation même quand il fait froid dehors. Il fonctionne jusqu'à <strong>-1°C</strong> en bloquant le froid du sol et en conservant votre propre chaleur corporelle. Parfait pour le camping de printemps et d'automne, ainsi que les nuits d'hiver plus douces, sans avoir froid au dos.</div></div></div>
+          <div class="faq-item"><button class="faq-q">Fonctionne-t-il quelle que soit ma position ? <span class="plus"></span></button><div class="faq-a"><div class="faq-a-inner">Absolument ! La <strong>construction ergonomique</strong> s'adapte au corps quelle que soit la position de sommeil – dos, ventre ou côté. L'épaisseur est bien dimensionnée pour que vous ne sentiez pas le sol à travers le matelas, ce qui offre un soutien stable et un bon confort toute la nuit.</div></div></div>
+          <div class="faq-item"><button class="faq-q">Perd-il de l'air pendant la nuit ? <span class="plus"></span></button><div class="faq-a"><div class="faq-a-inner">Non ! La <strong>double valve anti-fuite</strong> garde l'air toute la nuit. Une fois bien gonflé le soir, il est tout aussi ferme au matin – vous évitez donc de vous réveiller le dos contre le sol froid, comme avec beaucoup d'autres matelas gonflables.</div></div></div>
+          <div class="faq-item"><button class="faq-q">Résiste-t-il aux terrains rugueux et pierreux ? <span class="plus"></span></button><div class="faq-a"><div class="faq-a-inner">Oui ! Il est fait de <strong>polyester 40D robuste</strong>, assez résistant et épais pour supporter pierres, branches et terrains accidentés sans se casser ni se percer. Vous n'avez pas à vous soucier des fuites ou des dommages même si le sol est loin d'être parfait. Il est conçu pour la vraie aventure.</div></div></div>
+          <div class="faq-item"><button class="faq-q">Plantez-vous des arbres quand j'achète ? <span class="plus"></span></button><div class="faq-a"><div class="faq-a-inner">C'est exact ! Une partie de nos bénéfices est consacrée à la plantation d'arbres. La raison est simple – chez Zooryn, nous aimons la nature et voulons contribuer à prendre soin de la planète. En achetant chez nous, vous participez à construire un avenir meilleur &lt;3</div></div></div>
+          <div class="faq-item"><button class="faq-q">Que se passe-t-il s'il se casse ? <span class="plus"></span></button><div class="faq-a"><div class="faq-a-inner">Vous avez une <strong>garantie 365 jours</strong> à partir de la date d'achat ! Si quelque chose se casse, nous vous envoyons un tout nouveau matelas à domicile. Voilà à quel point nous sommes sûrs de notre qualité.</div></div></div>
+          <div class="faq-item"><button class="faq-q">Combien de temps ai-je pour me décider ? <span class="plus"></span></button><div class="faq-a"><div class="faq-a-inner">Vous avez toujours <strong>14 jours de retour</strong> chez nous ! Prenez votre temps et réfléchissez tranquillement.</div></div></div>
+          <div class="faq-item"><button class="faq-q">La livraison est-elle traçable et assurée ? <span class="plus"></span></button><div class="faq-a"><div class="faq-a-inner">Vous suivez votre commande tout le long, de chez nous jusqu'à votre porte ;) La livraison est de plus toujours assurée quand nous expédions votre commande.</div></div></div>
+          <div class="faq-item"><button class="faq-q">Quelle est la qualité ? <span class="plus"></span></button><div class="faq-a"><div class="faq-a-inner">Chez Zooryn, nous savons à quel point il existe de produits de mauvaise qualité… C'est pourquoi la qualité est une priorité absolue pour nous. Vous devez pouvoir faire entièrement confiance à votre équipement – sans payer une fortune. P.S. N'oubliez pas notre <strong>garantie 365 jours</strong> ;)</div></div></div>
+          <div class="faq-item"><button class="faq-q">Puis-je l'essayer d'abord ? <span class="plus"></span></button><div class="faq-a"><div class="faq-a-inner">Bien sûr ! Commandez-le et testez-le pendant 14 jours pour voir s'il répond à vos attentes. Pensez simplement à ouvrir l'emballage avec précaution – le produit et l'emballage doivent être en état d'origine si vous souhaitez le retourner !</div></div></div>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('zmat-faq-{{ sid }}');
+  if(!root){ return; }
+  root.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click', function(){
+      var item = q.closest('.faq-item');
+      var ans = item.querySelector('.faq-a');
+      if(item.classList.contains('open')){ item.classList.remove('open'); ans.style.maxHeight = null; }
+      else { item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Matelas — FAQ",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Questions fréquentes" }
+  ],
+  "blocks": [
+    {
+      "type": "qa",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "q", "label": "Question" },
+        { "type": "richtext", "id": "a", "label": "Réponse" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "Matelas — FAQ" } ]
+}
+{% endschema %}

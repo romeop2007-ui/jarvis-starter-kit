@@ -1,0 +1,107 @@
+{
+  "sections": {
+    "buybox": {
+      "type": "zmat-buybox",
+      "settings": {}
+    },
+    "marquee": {
+      "type": "zmat-marquee",
+      "settings": {}
+    },
+    "intro": {
+      "type": "zmat-benefit-intro",
+      "settings": {
+        "alt_bg": false,
+        "heading": "Déroulez, gonflez, profitez !",
+        "col1": "Laissez le stress de la ville derrière vous et savourez le calme de la nature, en famille.",
+        "col2": "Grâce à la pompe intégrée efficace, le lit est prêt en un instant – parfait quand les enfants ont besoin de bouger.",
+        "col3": "Au matin, vous enroulez le matelas en un tour de main : plus de temps pour un petit-déjeuner cosy au coin du feu.",
+        "placeholder_label": "Démonstration en situation — famille en camping, matelas déroulé"
+      }
+    },
+    "split_compact": {
+      "type": "zmat-benefit-split",
+      "settings": {
+        "reverse": false,
+        "alt_bg": true,
+        "placeholder_label": "Matelas plié dans un sac à dos — format compact",
+        "centered_heading": "",
+        "heading": "Compact, léger comme une plume et toujours avec vous",
+        "body": "<p>Avec une taille de pliage de seulement 30 cm et un poids de 750 g, ce matelas est parfait pour voyager – <strong>il se glisse dans tous les sacs à dos et offre un confort maximal</strong> où que vous soyez !</p>"
+      }
+    },
+    "split_ergo": {
+      "type": "zmat-benefit-split",
+      "settings": {
+        "reverse": true,
+        "alt_bg": false,
+        "placeholder_label": "Personne allongée confortablement sur le matelas",
+        "centered_heading": "Ergonomique et ultra-confortable",
+        "heading": "",
+        "body": "",
+        "sub1_h": "Dormez comme à la maison – où que vous soyez",
+        "sub1_b": "<p>Le matelas Zooryn épouse les formes de votre corps et offre une base souple et stable contre le sol. Aucun froid qui remonte, aucun point dur qui dérange. Juste un repos pur, pour vous réveiller reposé et prêt pour la journée.</p>",
+        "sub2_h": "Un confort divin",
+        "sub2_b": "<p>Le design ergonomique offre un confort divin et un soutien parfait – si confortable que vous préférerez dormir dehors que dans votre lit, et les maux de dos n'ont aucune chance !</p>"
+      }
+    },
+    "split_extensible": {
+      "type": "zmat-benefit-split",
+      "settings": {
+        "reverse": false,
+        "alt_bg": true,
+        "placeholder_label": "Plusieurs matelas clipsés ensemble — grande surface",
+        "centered_heading": "",
+        "heading": "Extensible à l'infini",
+        "body": "<p>Grâce à la fonction clip innovante, vous pouvez <strong>relier plusieurs matelas</strong> de façon transparente et créer une immense surface de couchage en quelques secondes !</p>"
+      }
+    },
+    "split_etanche": {
+      "type": "zmat-benefit-split",
+      "settings": {
+        "reverse": true,
+        "alt_bg": false,
+        "placeholder_label": "Matelas sous la pluie / sur l'eau — démonstration résistance",
+        "centered_heading": "",
+        "heading": "100% imperméable et résistant",
+        "body": "<p>Extrêmement résistant à la déchirure, à la pression et à l'eau – ce matelas affronte toutes les aventures, reste inarrêtable même sous la pluie ou en terrain difficile, et peut même servir de matelas flottant sur l'eau !</p>"
+      }
+    },
+    "split_adapte": {
+      "type": "zmat-benefit-split",
+      "settings": {
+        "reverse": false,
+        "alt_bg": true,
+        "placeholder_label": "4 positions : à plat, plié, coussin d'assise, dossier",
+        "centered_heading": "",
+        "heading": "S'adapte à chaque situation",
+        "body": "<p>Qu'il soit à plat, plié, en coussin d'assise ou enroulé en dossier – ce matelas s'adapte à toutes les situations et offre un confort maximal !</p>"
+      }
+    },
+    "faq": {
+      "type": "zmat-faq",
+      "settings": {}
+    },
+    "reviews": {
+      "type": "zmat-reviews",
+      "settings": {}
+    },
+    "sticky": {
+      "type": "zmat-sticky",
+      "settings": {}
+    }
+  },
+  "order": [
+    "buybox",
+    "marquee",
+    "intro",
+    "split_compact",
+    "split_ergo",
+    "split_extensible",
+    "split_etanche",
+    "split_adapte",
+    "faq",
+    "reviews",
+    "sticky"
+  ]
+}

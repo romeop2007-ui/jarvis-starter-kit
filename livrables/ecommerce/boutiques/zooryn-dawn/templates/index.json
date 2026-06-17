@@ -44,47 +44,10 @@
       }
     },
     "engagements": {
-      "type": "multicolumn",
-      "blocks": {
-        "col1": {
-          "type": "column",
-          "settings": {
-            "title": "Livraison offerte en France",
-            "text": "<p>Expédiée rapidement, avec suivi inclus sur chaque commande.</p>"
-          }
-        },
-        "col2": {
-          "type": "column",
-          "settings": {
-            "title": "Paiement 100 % sécurisé",
-            "text": "<p>Visa, Mastercard, Apple Pay. Transactions cryptées de bout en bout.</p>"
-          }
-        },
-        "col3": {
-          "type": "column",
-          "settings": {
-            "title": "Satisfait ou remboursé",
-            "text": "<p>30 jours pour changer d'avis, sans prise de tête.</p>"
-          }
-        },
-        "col4": {
-          "type": "column",
-          "settings": {
-            "title": "Support en français",
-            "text": "<p>Une question ? On répond vite, dans votre langue.</p>"
-          }
-        }
-      },
-      "block_order": ["col1", "col2", "col3", "col4"],
+      "type": "engagements",
+      "blocks": {},
+      "block_order": [],
       "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "image_width": "full",
-        "image_ratio": "circle",
-        "columns_desktop": 4,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
         "color_scheme": "scheme-2",
         "columns_mobile": "2",
         "swipe_on_mobile": false,

@@ -1,0 +1,293 @@
+{% comment %} Section engagements / réassurance Zooryn {% endcomment %}
+
+{%- style -%}
+  .engagements {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  .engagements__grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 900px) {
+    .engagements__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 500px) {
+    .engagements__grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  }
+  .engagements__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.9rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background 0.18s;
+  }
+  .engagements__item:hover {
+    background: rgba(21,66,48,0.06);
+  }
+  .engagements__icon {
+    width: 72px;
+    height: 72px;
+    background: rgba(21,66,48,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.18s;
+  }
+  .engagements__item:hover .engagements__icon {
+    background: rgba(21,66,48,0.18);
+  }
+  .engagements__icon svg {
+    width: 34px;
+    height: 34px;
+    stroke: #154230;
+    fill: none;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .engagements__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-foreground);
+    margin: 0;
+    line-height: 1.3;
+  }
+  .engagements__text {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .engagements__hint {
+    font-size: 0.75rem;
+    color: #154230;
+    opacity: 0.7;
+    margin: 0;
+    letter-spacing: 0.03em;
+  }
+
+  /* Modal */
+  .eng-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .eng-modal-overlay.is-open {
+    display: flex;
+  }
+  .eng-modal {
+    background: var(--color-background, #f4f1ea);
+    border-radius: 12px;
+    max-width: 460px;
+    width: 100%;
+    padding: 2.2rem 2rem 2rem;
+    position: relative;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    animation: engModalIn 0.22s ease;
+  }
+  @keyframes engModalIn {
+    from { opacity: 0; transform: translateY(12px) scale(0.97); }
+    to   { opacity: 1; transform: none; }
+  }
+  .eng-modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.3rem;
+    color: #154230;
+    opacity: 0.6;
+    line-height: 1;
+    font-size: 1.4rem;
+  }
+  .eng-modal__close:hover { opacity: 1; }
+  .eng-modal__icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(21,66,48,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.2rem;
+  }
+  .eng-modal__icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: #154230;
+    fill: none;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .eng-modal__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 1rem;
+    color: var(--color-foreground);
+  }
+  .eng-modal__body {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    opacity: 0.8;
+    text-align: center;
+    margin: 0;
+    color: var(--color-foreground);
+  }
+{%- endstyle -%}
+
+<div class="engagements color-{{ section.settings.color_scheme }} gradient">
+  <div class="engagements__grid">
+
+    <button class="engagements__item" onclick="openEngModal('livraison')" aria-label="En savoir plus sur la livraison">
+      <div class="engagements__icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M1 3h15v13H1z"/>
+          <path d="M16 8h4l3 3v5h-7V8z"/>
+          <circle cx="5.5" cy="18.5" r="2.5"/>
+          <circle cx="18.5" cy="18.5" r="2.5"/>
+        </svg>
+      </div>
+      <p class="engagements__title">Livraison offerte en France</p>
+      <p class="engagements__text">Expédiée rapidement, avec suivi inclus.</p>
+      <p class="engagements__hint">En savoir plus →</p>
+    </button>
+
+    <button class="engagements__item" onclick="openEngModal('paiement')" aria-label="En savoir plus sur le paiement sécurisé">
+      <div class="engagements__icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="11" width="18" height="11" rx="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+      </div>
+      <p class="engagements__title">Paiement 100 % sécurisé</p>
+      <p class="engagements__text">Visa, Mastercard, Apple Pay.</p>
+      <p class="engagements__hint">En savoir plus →</p>
+    </button>
+
+    <button class="engagements__item" onclick="openEngModal('remboursement')" aria-label="En savoir plus sur le remboursement">
+      <div class="engagements__icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <p class="engagements__title">Satisfait ou remboursé</p>
+      <p class="engagements__text">30 jours pour changer d'avis.</p>
+      <p class="engagements__hint">En savoir plus →</p>
+    </button>
+
+    <button class="engagements__item" onclick="openEngModal('support')" aria-label="En savoir plus sur le support">
+      <div class="engagements__icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </div>
+      <p class="engagements__title">Support en français</p>
+      <p class="engagements__text">Une question ? On répond vite.</p>
+      <p class="engagements__hint">En savoir plus →</p>
+    </button>
+
+  </div>
+</div>
+
+<!-- Modales -->
+<div class="eng-modal-overlay" id="eng-modal-overlay" onclick="closeEngModal(event)">
+  <div class="eng-modal" role="dialog" aria-modal="true">
+    <button class="eng-modal__close" onclick="closeEngModalBtn()" aria-label="Fermer">✕</button>
+    <div class="eng-modal__icon" id="eng-modal-icon"></div>
+    <h3 class="eng-modal__title" id="eng-modal-title"></h3>
+    <p class="eng-modal__body" id="eng-modal-body"></p>
+  </div>
+</div>
+
+<script>
+  var engData = {
+    livraison: {
+      title: "Livraison offerte en France",
+      body: "Toutes vos commandes sont expédiées gratuitement en France métropolitaine. Un numéro de suivi vous est envoyé par email dès l'expédition, pour savoir exactement où se trouve votre colis à chaque instant. Délai estimé : 5 à 10 jours ouvrés.",
+      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#154230" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>'
+    },
+    paiement: {
+      title: "Paiement 100 % sécurisé",
+      body: "Vos paiements sont traités via Shopify Payments, certifié PCI DSS niveau 1 — le standard le plus élevé du secteur. Toutes les transactions sont cryptées de bout en bout (SSL). Moyens acceptés : Visa, Mastercard, Apple Pay, Google Pay. Aucune donnée bancaire n'est stockée sur notre site.",
+      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#154230" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>'
+    },
+    remboursement: {
+      title: "Satisfait ou remboursé 30 jours",
+      body: "Vous avez 30 jours à compter de la réception pour changer d'avis, sans avoir à vous justifier. Contactez-nous par email, on s'occupe du reste. Le remboursement est effectué sur votre moyen de paiement d'origine sous 5 à 10 jours ouvrés.",
+      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#154230" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
+    },
+    support: {
+      title: "Support en français",
+      body: "Une question avant de commander, un souci avec votre colis, ou besoin d'un conseil ? Notre équipe vous répond en français, par email à contact@zooryn.com. Délai de réponse : sous 24h en jours ouvrés. Pas de bot, pas de réponse automatique — une vraie personne.",
+      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#154230" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>'
+    }
+  };
+
+  function openEngModal(key) {
+    var d = engData[key];
+    document.getElementById('eng-modal-icon').innerHTML = d.icon;
+    document.getElementById('eng-modal-title').textContent = d.title;
+    document.getElementById('eng-modal-body').textContent = d.body;
+    document.getElementById('eng-modal-overlay').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeEngModal(e) {
+    if (e.target === document.getElementById('eng-modal-overlay')) {
+      closeEngModalBtn();
+    }
+  }
+
+  function closeEngModalBtn() {
+    document.getElementById('eng-modal-overlay').classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeEngModalBtn();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Engagements",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        { "value": "scheme-1", "label": "Schéma 1" },
+        { "value": "scheme-2", "label": "Schéma 2" },
+        { "value": "scheme-3", "label": "Schéma 3" }
+      ],
+      "default": "scheme-2",
+      "label": "Couleur de fond"
+    }
+  ],
+  "presets": [
+    { "name": "Engagements" }
+  ]
+}
+{% endschema %}

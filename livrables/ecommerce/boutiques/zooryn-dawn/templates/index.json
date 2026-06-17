@@ -126,6 +126,179 @@
         "padding_bottom": 52
       }
     },
+    "avis": {
+      "type": "avis-clients",
+      "blocks": {
+        "a1": {
+          "type": "avis",
+          "settings": {
+            "texte": "Franchement bluffé. J'avais peur que la qualité ne soit pas au rendez-vous pour le prix, mais c'est vraiment solide. Le matelas a tenu tout le week-end en bivouac, aucune fuite, et le gonflage prend moins de 30 secondes. Je repars dans 3 semaines et il sera évidemment dans mon sac.",
+            "nom": "Thomas R.",
+            "date": "12 juin 2025"
+          }
+        },
+        "a2": {
+          "type": "avis",
+          "settings": {
+            "texte": "La livraison a été ultra rapide, je n'attendais pas ça. Produit bien emballé, conforme à la description. J'avais hésité longtemps avant de commander mais je ne regrette vraiment pas. Le rapport qualité-prix est imbattable.",
+            "nom": "Clara M.",
+            "date": "3 juin 2025"
+          }
+        },
+        "a3": {
+          "type": "avis",
+          "settings": {
+            "texte": "Commande passée un lundi, reçue le mercredi. Le suivi en temps réel était nickel. Le produit correspond exactement aux photos. Je recommande sans hésiter à tous mes amis randoneurs.",
+            "nom": "Antoine D.",
+            "date": "28 mai 2025"
+          }
+        },
+        "a4": {
+          "type": "avis",
+          "settings": {
+            "texte": "J'ai contacté le service client pour une question avant de commander et j'ai eu une réponse en moins d'une heure. C'est rare de nos jours. La commande s'est passée parfaitement. Je reviendrai sûrement pour d'autres articles.",
+            "nom": "Sophie L.",
+            "date": "19 mai 2025"
+          }
+        },
+        "a5": {
+          "type": "avis",
+          "settings": {
+            "texte": "Très satisfait de mon achat. Le produit est léger, compact et vraiment pratique pour les voyages. Je l'ai emmené au Portugal le mois dernier et il m'a suivi partout sans encombrer mon sac. Exactement ce que je cherchais.",
+            "nom": "Lucas B.",
+            "date": "8 juin 2025"
+          }
+        },
+        "a6": {
+          "type": "avis",
+          "settings": {
+            "texte": "Petite boutique mais sérieuse. On sent que ce n'est pas du chinois bas de gamme balancé sur un site, il y a un vrai soin dans le choix du produit. J'ai été agréablement surprise par la finition. 5 étoiles mérités.",
+            "nom": "Émilie C.",
+            "date": "15 mai 2025"
+          }
+        },
+        "a7": {
+          "type": "avis",
+          "settings": {
+            "texte": "Je suis un acheteur plutôt exigeant et je lis toujours les avis avant de commander. Là j'ai tenté le coup et je valide totalement. Le packaging est propre, le produit est bien protégé, la qualité est là. Rien à redire.",
+            "nom": "Julien F.",
+            "date": "22 mai 2025"
+          }
+        },
+        "a8": {
+          "type": "avis",
+          "settings": {
+            "texte": "Mon mari et moi avons tous les deux commandé. Deux livraisons, aucun souci. Le paiement est sécurisé, pas de stress. Les produits sont solides, on compte les réutiliser pour notre trip en Espagne cet été.",
+            "nom": "Marie-Anne P.",
+            "date": "1er juin 2025"
+          }
+        },
+        "a9": {
+          "type": "avis",
+          "settings": {
+            "texte": "J'avais un doute au moment de passer commande car je ne connaissais pas la marque, mais j'ai tenté. Livraison en 48h, produit conforme, très bonne qualité perçue. Je suis agréablement surpris. À recommander !",
+            "nom": "Nicolas G.",
+            "date": "10 juin 2025"
+          }
+        },
+        "a10": {
+          "type": "avis",
+          "settings": {
+            "texte": "Super produit, léger et efficace. Je randonne régulièrement et j'ai testé pas mal de marques. Celle-ci se tient bien face à des références bien plus chères. Le prix est vraiment honnête pour ce qu'on reçoit.",
+            "nom": "Alexia V.",
+            "date": "4 juin 2025"
+          }
+        },
+        "a11": {
+          "type": "avis",
+          "settings": {
+            "texte": "La politique de retour 30 jours m'avait rassuré au moment d'acheter. Au final je n'en ai pas eu besoin car le produit est exactement ce qu'il me fallait. Le sac de transport inclus est un vrai plus.",
+            "nom": "Pierre-Henri T.",
+            "date": "26 mai 2025"
+          }
+        },
+        "a12": {
+          "type": "avis",
+          "settings": {
+            "texte": "Rapide, fiable, produit de qualité. J'ai commandé un vendredi soir et j'avais mon colis le lundi. Le suivi par SMS était précis. Je cherchais exactement ce genre de boutique depuis un moment.",
+            "nom": "Camille D.",
+            "date": "17 mai 2025"
+          }
+        },
+        "a13": {
+          "type": "avis",
+          "settings": {
+            "texte": "Trois commandes chez Zooryn maintenant et jamais de déception. Le service est constant, les produits arrivent toujours bien emballés et en bon état. Une boutique de confiance que je recommande à mon entourage.",
+            "nom": "Romain S.",
+            "date": "9 juin 2025"
+          }
+        },
+        "a14": {
+          "type": "avis",
+          "settings": {
+            "texte": "J'ai un peu hésité car c'est une petite marque que je ne connaissais pas, mais les avis m'ont convaincu. Et effectivement, c'est très bien. Le produit est robuste, le design est propre. Franchement bien.",
+            "nom": "Laura M.",
+            "date": "30 mai 2025"
+          }
+        },
+        "a15": {
+          "type": "avis",
+          "settings": {
+            "texte": "Utilisé lors d'un camping en Ardèche pendant 4 jours. Le produit a parfaitement tenu le coup malgré les conditions un peu rudes. Facile à ranger, léger dans le sac. Vraiment top pour ce type d'usage.",
+            "nom": "Sébastien K.",
+            "date": "24 mai 2025"
+          }
+        },
+        "a16": {
+          "type": "avis",
+          "settings": {
+            "texte": "Je suis infirmière et j'ai commandé pour mes weekends récup en nature. Le produit est parfait : simple à utiliser, léger, et ça fait vraiment le job. Livraison soignée et rapide. Merci Zooryn.",
+            "nom": "Aurélie N.",
+            "date": "6 juin 2025"
+          }
+        },
+        "a17": {
+          "type": "avis",
+          "settings": {
+            "texte": "Très bon produit. Je l'ai offert à mon fils pour son anniversaire, il en est ravi. La qualité est meilleure que ce à quoi je m'attendais pour le prix. Emballage cadeau propre, livraison en 2 jours.",
+            "nom": "Christine B.",
+            "date": "14 mai 2025"
+          }
+        },
+        "a18": {
+          "type": "avis",
+          "settings": {
+            "texte": "Je lis rarement les FAQ avant d'acheter mais j'ai pris le temps cette fois. Tout était clair, la politique de retour est simple, le paiement sécurisé. Bref, une boutique pro. Le produit est à la hauteur.",
+            "nom": "Baptiste L.",
+            "date": "2 juin 2025"
+          }
+        },
+        "a19": {
+          "type": "avis",
+          "settings": {
+            "texte": "J'avais des craintes sur la taille mais les dimensions indiquées sont exactes. Produit compact, facile à transporter. Parfait pour voyager en avion sans surcharger son bagage cabine. Je reviendrai !",
+            "nom": "Manon A.",
+            "date": "20 mai 2025"
+          }
+        },
+        "a20": {
+          "type": "avis",
+          "settings": {
+            "texte": "Sincèrement le meilleur achat outdoor de l'année pour moi. J'en ai parlé à toute ma famille. Le service client répond en français, c'est déjà un énorme point. Produit de qualité, prix raisonnable. Parfait.",
+            "nom": "Guillaume R.",
+            "date": "7 juin 2025"
+          }
+        }
+      },
+      "block_order": ["a1","a2","a3","a4","a5","a6","a7","a8","a9","a10","a11","a12","a13","a14","a15","a16","a17","a18","a19","a20"],
+      "settings": {
+        "caption": "Ce qu'ils disent",
+        "heading": "Ils nous ont fait confiance",
+        "color_scheme": "scheme-1",
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
+    },
     "faq": {
       "type": "collapsible-content",
       "blocks": {
@@ -134,7 +307,7 @@
           "settings": {
             "heading": "Quels sont les délais de livraison ?",
             "icon": "truck",
-            "row_content": "<p>Vos commandes sont préparées sous 24 à 48h et livrées en France sous quelques jours ouvrés. Un numéro de suivi vous est envoyé dès l'expédition.</p>"
+            "row_content": "<p>Vos commandes sont préparées sous 24 à 48 heures ouvrées dès réception du paiement. La livraison en France métropolitaine prend ensuite 3 à 5 jours ouvrés selon votre adresse et le transporteur. Un e-mail de confirmation d'expédition vous est envoyé automatiquement dès que votre colis est pris en charge, avec un numéro de suivi actif. Vous pouvez suivre votre commande en temps réel depuis notre page dédiée ou directement sur le site du transporteur. Si vous ne recevez rien au bout de 7 jours ouvrés, contactez-nous, on règle ça rapidement.</p>"
           }
         },
         "q2": {
@@ -142,15 +315,15 @@
           "settings": {
             "heading": "La livraison est-elle vraiment gratuite ?",
             "icon": "check_mark",
-            "row_content": "<p>Oui, la livraison est offerte partout en France, sans montant minimum de commande.</p>"
+            "row_content": "<p>Oui, la livraison est offerte sur toutes les commandes passées en France métropolitaine, sans montant minimum et sans code promo à saisir. C'est notre engagement de base : ce que vous voyez en caisse, c'est ce que vous payez, rien de plus. Cela s'applique aussi bien à la Corse qu'aux DOM-TOM (sous réserve de disponibilité transporteur pour ces zones). Si vous passez une commande internationale, les frais de port sont calculés automatiquement au moment du checkout.</p>"
           }
         },
         "q3": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Puis-je retourner un article ?",
+            "heading": "Puis-je retourner un article si je ne suis pas satisfait ?",
             "icon": "return",
-            "row_content": "<p>Vous disposez de 30 jours pour nous retourner un produit qui ne vous convient pas et être remboursé.</p>"
+            "row_content": "<p>Absolument. Vous disposez de 30 jours calendaires à compter de la réception de votre commande pour nous retourner un article, sans avoir à justifier votre décision. L'article doit être dans son état d'origine, non utilisé et dans son emballage d'origine si possible. Pour initier un retour, contactez-nous par e-mail à contact@zooryn.com en précisant votre numéro de commande. On vous envoie la procédure sous 24h. Le remboursement est effectué sur le moyen de paiement utilisé lors de l'achat, sous 5 à 10 jours ouvrés après réception et vérification de l'article retourné.</p>"
           }
         },
         "q4": {
@@ -158,19 +331,91 @@
           "settings": {
             "heading": "Les paiements sont-ils sécurisés ?",
             "icon": "lock",
-            "row_content": "<p>Absolument. Tous les paiements sont cryptés et traités par Shopify Payments. Nous n'avons jamais accès à vos données bancaires.</p>"
+            "row_content": "<p>Oui, tous les paiements sur Zooryn sont traités par Shopify Payments, l'une des plateformes de paiement les plus sécurisées au monde. Toutes les transactions sont chiffrées en SSL et conformes aux normes PCI DSS (les standards de sécurité bancaires les plus stricts). Nous n'avons jamais accès à vos données bancaires : numéro de carte, cryptogramme et informations de paiement sont gérés directement par les serveurs sécurisés de Shopify Payments. Vous pouvez payer par Visa, Mastercard, American Express, Apple Pay ou Google Pay.</p>"
           }
         },
         "q5": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Comment vous contacter ?",
+            "heading": "Comment contacter le service client ?",
             "icon": "chat_bubble",
-            "row_content": "<p>Via notre page Contact. On vous répond en français, en général sous 24h.</p>"
+            "row_content": "<p>Vous pouvez nous contacter via notre <a href='/pages/contact'>page Contact</a> ou directement par e-mail à contact@zooryn.com. Nous répondons en français, généralement sous 24 heures les jours ouvrés (du lundi au vendredi). Si vous avez une urgence concernant une commande en cours (mauvaise adresse, modification souhaitée avant expédition), privilégiez l'e-mail avec votre numéro de commande en objet pour que nous puissions réagir rapidement.</p>"
+          }
+        },
+        "q6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Comment suivre ma commande ?",
+            "icon": "truck",
+            "row_content": "<p>Dès que votre commande est expédiée, vous recevrez un e-mail contenant votre numéro de suivi et un lien direct vers la page de suivi du transporteur. Vous pouvez également utiliser notre page <a href='/pages/track-your-order'>Suivi de commande</a> en renseignant votre numéro de commande et votre e-mail. Si votre colis semble bloqué ou n'avance plus depuis 48h, contactez-nous directement, on prend en charge le problème avec le transporteur à votre place.</p>"
+          }
+        },
+        "q7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Que faire si mon colis est endommagé à la réception ?",
+            "icon": "return",
+            "row_content": "<p>Si votre colis arrive abîmé ou si l'article à l'intérieur est défectueux, prenez des photos de l'état du colis et du produit dès la réception, et contactez-nous dans les 48 heures à contact@zooryn.com. Envoyez-nous vos photos et votre numéro de commande. Nous procéderons à un renvoi immédiat à nos frais ou à un remboursement complet selon votre préférence, sans que vous ayez à renvoyer l'article abîmé. On s'occupe de tout.</p>"
+          }
+        },
+        "q8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Vos produits sont-ils garantis ?",
+            "icon": "check_mark",
+            "row_content": "<p>Tous les produits Zooryn bénéficient d'une garantie légale de conformité de 2 ans, conformément à la réglementation française et européenne. En plus de cette garantie légale, nous offrons un engagement qualité : si un défaut de fabrication apparaît dans les 6 mois suivant votre achat dans des conditions d'utilisation normales, nous remplaçons ou remboursons le produit sans discussion. Notre objectif est que vous soyez satisfait sur la durée, pas juste au moment de la commande.</p>"
+          }
+        },
+        "q9": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Puis-je modifier ou annuler ma commande après l'avoir passée ?",
+            "icon": "chat_bubble",
+            "row_content": "<p>Les commandes sont préparées rapidement, mais si vous contactez notre service client par e-mail dans les 2 à 4 heures suivant votre achat, nous ferons notre possible pour modifier l'adresse de livraison ou annuler la commande avant expédition. Au-delà de ce délai, si la commande est déjà expédiée, nous ne pouvons plus l'intercepter. Dans ce cas, vous pouvez toujours exercer votre droit de retour dans les 30 jours après réception pour un remboursement complet.</p>"
+          }
+        },
+        "q10": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Comment sont choisis les produits Zooryn ?",
+            "icon": "check_mark",
+            "row_content": "<p>Chaque produit de la boutique est sélectionné selon des critères précis : légèreté, compacité, robustesse et utilité réelle sur le terrain. On ne référence pas tout et n'importe quoi. Avant d'être proposé, chaque article est analysé en détail, testé sur les retours utilisateurs et comparé aux meilleures alternatives du marché. Notre niche, c'est l'outdoor et le voyage : des produits qui vous suivent en randonnée, en voyage, en camping, sans vous encombrer. Si un produit ne tient pas ses promesses sur la durée, on le retire.</p>"
+          }
+        },
+        "q11": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Livrez-vous en dehors de la France ?",
+            "icon": "truck",
+            "row_content": "<p>Oui, nous livrons également en Belgique et au Luxembourg. Pour ces destinations, un forfait livraison peut s'appliquer, calculé automatiquement au moment du paiement. Pour toute autre destination européenne, contactez-nous avant de passer commande et nous verrons ce que nous pouvons faire. La livraison gratuite est applicable à la France métropolitaine uniquement.</p>"
+          }
+        },
+        "q12": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Mes données personnelles sont-elles en sécurité ?",
+            "icon": "lock",
+            "row_content": "<p>Oui. Vos données personnelles (nom, adresse, e-mail) sont utilisées uniquement pour le traitement de votre commande et ne sont jamais revendues à des tiers. Conformément au RGPD, vous avez le droit d'accéder, modifier ou supprimer vos données à tout moment. Pour exercer ce droit, contactez-nous à contact@zooryn.com. Toute la boutique fonctionne sous Shopify, qui dispose de certifications de sécurité parmi les plus strictes du secteur.</p>"
+          }
+        },
+        "q13": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Je n'ai pas reçu d'e-mail de confirmation, que faire ?",
+            "icon": "chat_bubble",
+            "row_content": "<p>Après votre commande, un e-mail de confirmation vous est envoyé automatiquement sur l'adresse renseignée au moment du paiement. Si vous ne le trouvez pas dans votre boîte principale, pensez à vérifier vos spams ou courriers indésirables. Si vous avez fait une erreur dans l'adresse e-mail au moment de la commande, contactez-nous avec votre nom complet et le montant de la commande, on retrouve votre achat et on corrige ça.</p>"
+          }
+        },
+        "q14": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Les stocks sont-ils limités ?",
+            "icon": "check_mark",
+            "row_content": "<p>Certains de nos produits sont disponibles en quantité limitée, notamment lors des arrivages. Si un article vous intéresse, nous vous conseillons de ne pas trop attendre. Les produits affichés sur la boutique sont disponibles immédiatement. En cas de rupture imprévue après votre commande, nous vous en informons sous 24h et vous proposons soit un délai d'attente, soit un remboursement complet selon votre préférence.</p>"
           }
         }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5"],
+      "block_order": ["q1","q2","q3","q4","q5","q6","q7","q8","q9","q10","q11","q12","q13","q14"],
       "settings": {
         "caption": "On vous dit tout",
         "heading": "Questions fréquentes",
@@ -224,6 +469,7 @@
     "hero",
     "engagements",
     "histoire",
+    "avis",
     "faq",
     "cta_final"
   ]

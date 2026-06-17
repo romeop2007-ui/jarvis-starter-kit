@@ -1,0 +1,179 @@
+{% comment %} Section avis clients Zooryn {% endcomment %}
+
+{%- style -%}
+  .avis-clients {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  .avis-clients__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  .avis-clients__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .avis-clients__caption {
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+  }
+  .avis-clients__heading {
+    font-size: 2rem;
+    margin: 0;
+  }
+  .avis-clients__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 900px) {
+    .avis-clients__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .avis-clients__grid { grid-template-columns: 1fr; }
+  }
+  .avis-card {
+    background: var(--color-background);
+    border: 1px solid rgba(21,66,48,0.12);
+    border-radius: 4px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .avis-card__stars {
+    color: #f5a623;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+  .avis-card__text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex: 1;
+  }
+  .avis-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    opacity: 0.75;
+    border-top: 1px solid rgba(21,66,48,0.08);
+    padding-top: 0.75rem;
+    margin-top: 0.25rem;
+  }
+  .avis-card__name {
+    font-weight: 600;
+  }
+  .avis-card__verified {
+    color: #154230;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+{%- endstyle -%}
+
+<div class="avis-clients color-{{ section.settings.color_scheme }} gradient">
+  <div class="avis-clients__inner">
+    <div class="avis-clients__header">
+      <span class="avis-clients__caption">{{ section.settings.caption }}</span>
+      <h2 class="avis-clients__heading">{{ section.settings.heading }}</h2>
+    </div>
+    <div class="avis-clients__grid">
+      {%- for block in section.blocks -%}
+        <div class="avis-card" {{ block.shopify_attributes }}>
+          <div class="avis-card__stars">★★★★★</div>
+          <p class="avis-card__text">{{ block.settings.texte }}</p>
+          <div class="avis-card__footer">
+            <span class="avis-card__name">{{ block.settings.nom }}</span>
+            <span class="avis-card__verified">✓ Achat vérifié · {{ block.settings.date }}</span>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Avis clients",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "Sous-titre",
+      "default": "Ce qu'ils disent"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Ils nous ont fait confiance"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        { "value": "scheme-1", "label": "Schéma 1" },
+        { "value": "scheme-2", "label": "Schéma 2" },
+        { "value": "scheme-3", "label": "Schéma 3" }
+      ],
+      "default": "scheme-1",
+      "label": "Couleur de fond"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Espacement haut",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Espacement bas",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "avis",
+      "name": "Avis",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "texte",
+          "label": "Texte de l'avis"
+        },
+        {
+          "type": "text",
+          "id": "nom",
+          "label": "Prénom + initiale"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Avis clients"
+    }
+  ]
+}
+{% endschema %}

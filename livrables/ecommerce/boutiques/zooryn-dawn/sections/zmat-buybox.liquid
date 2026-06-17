@@ -1,0 +1,281 @@
+{%- comment -%}
+  ZOORYN — Matelas : Buy box (galerie + infos d'achat + bundles).
+  Rend le CSS partagé une seule fois (zmat-styles). Bouton d'achat câblé
+  sur le produit de la page (product) ou le produit rattaché du réglage.
+{%- endcomment -%}
+{%- render 'zmat-styles' -%}
+
+{%- assign mp = product | default: section.settings.product -%}
+{%- assign s = section.settings -%}
+{%- assign cta_label = s.cta_label | default: 'Ajouter au panier' -%}
+{%- assign sid = section.id -%}
+
+<div class="zmat" id="zmat-buybox-{{ sid }}">
+  <section class="product">
+    <div class="wrap product-grid">
+
+      <!-- Galerie -->
+      <div class="gallery">
+        <div class="gallery-main">
+          {%- if s.g1 != blank -%}
+            <img class="img-cover" id="zmatMainImg-{{ sid }}" src="{{ s.g1 | image_url: width: 1100 }}" alt="{{ s.g1.alt | escape }}" width="1100" height="1100">
+          {%- else -%}
+            <div class="placeholder" id="zmatMainPh-{{ sid }}" style="aspect-ratio:1/1;"><span>Photo produit principale</span></div>
+          {%- endif -%}
+        </div>
+        <div class="gallery-thumbs" id="zmatThumbs-{{ sid }}">
+          {%- assign thumb_labels = 'Vue 1,Vue 2,En situation,Détail valve,Plié / compact' | split: ',' -%}
+          {%- for i in (1..5) -%}
+            {%- assign key = 'g' | append: i -%}
+            {%- assign img = s[key] -%}
+            {%- assign lbl = thumb_labels[forloop.index0] -%}
+            <div class="thumb{% if forloop.first %} active{% endif %}" data-label="{{ lbl }}"{% if img != blank %} data-img="{{ img | image_url: width: 1100 }}"{% endif %}>
+              {%- if img != blank -%}
+                <img class="img-cover" src="{{ img | image_url: width: 220 }}" alt="{{ img.alt | escape }}" width="220" height="220">
+              {%- else -%}
+                <div class="placeholder"><span>{{ lbl }}</span></div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <!-- Infos & achat -->
+      <div class="product-info">
+        <div class="reviews-inline">
+          <span class="stars">★★★★★</span>
+          <span>{{ s.rating_text | default: '(4,8) 126 avis' }}</span>
+        </div>
+
+        <h1 class="product-title">{{ s.title | default: 'Zooryn Matelas gonflable ultraléger et compact PRO' }}</h1>
+
+        <div class="price-row">
+          <span class="price-now">{{ s.prix | default: '69,95 €' }}</span>
+          {%- if s.prix_barre != blank -%}<span class="price-old">{{ s.prix_barre }}</span>{%- endif -%}
+          {%- if s.badge_save != blank -%}<span class="badge-save">{{ s.badge_save }}</span>{%- endif -%}
+        </div>
+
+        <ul class="benefits-list">
+          {%- for i in (1..6) -%}
+            {%- assign bkey = 'benefit_' | append: i -%}
+            {%- if s[bkey] != blank -%}<li>{{ s[bkey] }}</li>{%- endif -%}
+          {%- endfor -%}
+        </ul>
+
+        {%- if s.stock_text != blank -%}<p class="stock-note"><strong>{{ s.stock_label }}</strong>&nbsp;{{ s.stock_text }}</p>{%- endif -%}
+
+        <!-- Sélecteur de bundles -->
+        {%- if s.bundle_head != blank -%}<div class="bundle-head">{{ s.bundle_head }}</div>{%- endif -%}
+        <div class="bundle-list" id="zmatBundles-{{ sid }}">
+
+          <!-- Pack 1 -->
+          <div class="bundle-card" data-bundle>
+            <div class="bundle-card-main">
+              <span class="bundle-radio"></span>
+              <div class="bundle-body">
+                <div class="bundle-title-row">
+                  <span class="bundle-name">{{ s.b1_name | default: 'Pack Solo' }}</span>
+                  {%- if s.b1_save != blank -%}<span class="bundle-save-badge">{{ s.b1_save }}</span>{%- endif -%}
+                </div>
+                {%- if s.b1_sub != blank -%}<p class="bundle-sub">{{ s.b1_sub }}</p>{%- endif -%}
+              </div>
+              <div class="bundle-price">
+                <span class="now">{{ s.b1_now | default: '69,95 €' }}</span>
+                {%- if s.b1_old != blank -%}<span class="old">{{ s.b1_old }}</span>{%- endif -%}
+              </div>
+            </div>
+          </div>
+
+          <!-- Pack 2 (mis en avant) -->
+          <div class="bundle-card selected has-ribbon" data-bundle>
+            {%- if s.b2_ribbon != blank -%}<span class="bundle-ribbon">{{ s.b2_ribbon }}</span>{%- endif -%}
+            <div class="bundle-card-main">
+              <span class="bundle-radio"></span>
+              <div class="bundle-body">
+                <div class="bundle-title-row">
+                  <span class="bundle-name">{{ s.b2_name | default: 'Achetez-en 2, recevez 2 oreillers.' }}</span>
+                </div>
+                {%- if s.b2_save != blank -%}<div class="bundle-title-row" style="margin-top:6px;"><span class="bundle-save-badge">{{ s.b2_save }}</span></div>{%- endif -%}
+                {%- if s.b2_sub != blank -%}<p class="bundle-sub">{{ s.b2_sub }}</p>{%- endif -%}
+                <div class="bundle-colors">
+                  <p class="bundle-colors-label">Couleur</p>
+                  <div class="color-row">
+                    <div class="placeholder color-swatch"><span></span></div>
+                    <div class="color-field"><select class="color-select"><option>Gris</option><option>Vert</option><option>Sable</option></select></div>
+                  </div>
+                  <div class="color-row">
+                    <div class="placeholder color-swatch"><span></span></div>
+                    <div class="color-field"><select class="color-select"><option>Gris</option><option>Vert</option><option>Sable</option></select></div>
+                  </div>
+                </div>
+              </div>
+              <div class="bundle-price">
+                <span class="now">{{ s.b2_now | default: '139,90 €' }}</span>
+                {%- if s.b2_old != blank -%}<span class="old">{{ s.b2_old }}</span>{%- endif -%}
+              </div>
+            </div>
+            {%- if s.b2_gift != blank -%}
+              <div class="bundle-gift dark">
+                <span class="bundle-gift-left"><span class="placeholder mini-thumb"><span></span></span>{{ s.b2_gift }}</span>
+              </div>
+            {%- endif -%}
+          </div>
+
+          <!-- Pack 3 -->
+          <div class="bundle-card" data-bundle>
+            <div class="bundle-card-main">
+              <span class="bundle-radio"></span>
+              <div class="bundle-body">
+                <div class="bundle-title-row">
+                  <span class="bundle-name">{{ s.b3_name | default: 'Achetez-en 4, recevez 4 oreillers.' }}</span>
+                </div>
+                {%- if s.b3_save != blank -%}<div class="bundle-title-row" style="margin-top:6px;"><span class="bundle-save-badge">{{ s.b3_save }}</span></div>{%- endif -%}
+                {%- if s.b3_sub != blank -%}<p class="bundle-sub">{{ s.b3_sub }}</p>{%- endif -%}
+              </div>
+              <div class="bundle-price">
+                <span class="now">{{ s.b3_now | default: '265,90 €' }}</span>
+                {%- if s.b3_old != blank -%}<span class="old">{{ s.b3_old }}</span>{%- endif -%}
+              </div>
+            </div>
+            {%- if s.b3_gift != blank -%}
+              <div class="bundle-gift light">
+                <span class="bundle-gift-left"><span class="placeholder mini-thumb"><span></span></span>{{ s.b3_gift }}</span>
+                {%- if s.b3_gift_old != blank -%}<span class="gift-old">{{ s.b3_gift_old }}</span>{%- endif -%}
+              </div>
+            {%- endif -%}
+          </div>
+
+        </div>
+
+        <!-- Add-on -->
+        {%- if s.addon_title != blank -%}
+          <div class="bundle-addon" id="zmatAddon-{{ sid }}">
+            <span class="addon-check"></span>
+            <div class="placeholder addon-thumb"><span></span></div>
+            <div class="addon-body">
+              <b>{{ s.addon_title }}</b>
+              {%- if s.addon_save != blank -%}<small>{{ s.addon_save }}</small>{%- endif -%}
+            </div>
+            <div class="addon-price">
+              <span class="now">{{ s.addon_now | default: '29,95 €' }}</span>
+              {%- if s.addon_old != blank -%}<span class="old">{{ s.addon_old }}</span>{%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+
+        {%- if mp != blank -%}
+          <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data" id="zmatForm">
+            <input type="hidden" name="id" value="{{ mp.selected_or_first_available_variant.id }}">
+            <input type="hidden" name="quantity" value="1">
+            <button type="submit" class="btn-cart" id="zmatHeroCta">{{ cta_label }}</button>
+          </form>
+        {%- else -%}
+          <button type="button" class="btn-cart" id="zmatHeroCta" onclick="window.location.href='{{ routes.cart_url }}'">{{ cta_label }}</button>
+        {%- endif -%}
+
+        <div class="pay-icons">
+          <div class="pay">MC</div><div class="pay">VISA</div><div class="pay">Apple Pay</div><div class="pay">G Pay</div><div class="pay">Klarna</div>
+        </div>
+
+        {%- if s.guarantee_main != blank -%}
+          <p class="guarantee-line">{{ s.guarantee_main }}{%- if s.guarantee_small != blank -%}<small>{{ s.guarantee_small }}</small>{%- endif -%}</p>
+        {%- endif -%}
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('zmat-buybox-{{ sid }}');
+  if(!root){ return; }
+
+  /* Galerie : clic vignette -> image principale */
+  var mainImg = document.getElementById('zmatMainImg-{{ sid }}');
+  var mainPh  = document.getElementById('zmatMainPh-{{ sid }}');
+  root.querySelectorAll('#zmatThumbs-{{ sid }} .thumb').forEach(function(t){
+    t.addEventListener('click', function(){
+      root.querySelectorAll('#zmatThumbs-{{ sid }} .thumb').forEach(function(x){ x.classList.remove('active'); });
+      t.classList.add('active');
+      var url = t.getAttribute('data-img');
+      var label = t.getAttribute('data-label') || 'Photo produit';
+      if(mainImg && url){ mainImg.src = url; }
+      else if(mainPh){ var sp = mainPh.querySelector('span'); if(sp){ sp.textContent = label; } }
+    });
+  });
+
+  /* Sélecteur de bundles */
+  root.querySelectorAll('[data-bundle]').forEach(function(card){
+    card.addEventListener('click', function(){
+      root.querySelectorAll('[data-bundle]').forEach(function(c){ c.classList.remove('selected'); });
+      card.classList.add('selected');
+    });
+  });
+
+  /* Add-on */
+  var addon = document.getElementById('zmatAddon-{{ sid }}');
+  if(addon){ addon.addEventListener('click', function(){ addon.classList.toggle('selected'); }); }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Matelas — Buy box",
+  "tag": "section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Produit rattaché", "info": "Sur une page produit, le produit de la page est utilisé automatiquement. Sert de secours pour les autres pages." },
+    { "type": "header", "content": "Galerie (laisser vide = damier gris)" },
+    { "type": "image_picker", "id": "g1", "label": "Image 1 (principale)" },
+    { "type": "image_picker", "id": "g2", "label": "Image 2" },
+    { "type": "image_picker", "id": "g3", "label": "Image 3" },
+    { "type": "image_picker", "id": "g4", "label": "Image 4" },
+    { "type": "image_picker", "id": "g5", "label": "Image 5" },
+    { "type": "header", "content": "En-tête produit" },
+    { "type": "text", "id": "rating_text", "label": "Texte note/avis", "default": "(4,8) 126 avis" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Zooryn Matelas gonflable ultraléger et compact PRO" },
+    { "type": "text", "id": "prix", "label": "Prix affiché", "default": "69,95 €" },
+    { "type": "text", "id": "prix_barre", "label": "Prix barré", "default": "139,90 €" },
+    { "type": "text", "id": "badge_save", "label": "Badge réduction", "default": "Économisez 50%" },
+    { "type": "text", "id": "benefit_1", "label": "Bénéfice 1", "default": "Gonflez-le avec vos pieds – aucune pompe nécessaire" },
+    { "type": "text", "id": "benefit_2", "label": "Bénéfice 2", "default": "Ne pèse que 750 g – se compresse jusqu'à presque rien" },
+    { "type": "text", "id": "benefit_3", "label": "Bénéfice 3", "default": "10 cm d'épaisseur pour un vrai confort de couchage" },
+    { "type": "text", "id": "benefit_4", "label": "Bénéfice 4", "default": "Isole du froid et de l'humidité du sol" },
+    { "type": "text", "id": "benefit_5", "label": "Bénéfice 5", "default": "Surface silencieuse – aucun froissement au milieu de la nuit" },
+    { "type": "text", "id": "benefit_6", "label": "Bénéfice 6 (optionnel)" },
+    { "type": "text", "id": "stock_label", "label": "Note de stock (en gras)", "default": "Ce produit" },
+    { "type": "text", "id": "stock_text", "label": "Note de stock (suite)", "default": "est en stock limité" },
+    { "type": "header", "content": "Bundles" },
+    { "type": "text", "id": "bundle_head", "label": "Titre de l'offre", "default": "Offre d'été !" },
+    { "type": "text", "id": "b1_name", "label": "Pack 1 — nom", "default": "Pack Solo" },
+    { "type": "text", "id": "b1_save", "label": "Pack 1 — badge", "default": "Économisez 69,95 €" },
+    { "type": "text", "id": "b1_sub", "label": "Pack 1 — sous-texte", "default": "Économisez 50%" },
+    { "type": "text", "id": "b1_now", "label": "Pack 1 — prix", "default": "69,95 €" },
+    { "type": "text", "id": "b1_old", "label": "Pack 1 — prix barré", "default": "139,90 €" },
+    { "type": "text", "id": "b2_ribbon", "label": "Pack 2 — ruban", "default": "Offre à durée limitée" },
+    { "type": "text", "id": "b2_name", "label": "Pack 2 — nom", "default": "Achetez-en 2, recevez 2 oreillers." },
+    { "type": "text", "id": "b2_save", "label": "Pack 2 — badge", "default": "Économisez 139,90 €" },
+    { "type": "text", "id": "b2_sub", "label": "Pack 2 — sous-texte", "default": "Économisez 50%" },
+    { "type": "text", "id": "b2_now", "label": "Pack 2 — prix", "default": "139,90 €" },
+    { "type": "text", "id": "b2_old", "label": "Pack 2 — prix barré", "default": "279,80 €" },
+    { "type": "text", "id": "b2_gift", "label": "Pack 2 — cadeau", "default": "+ 2 oreillers gratuits (d'une valeur de 104,90 €)" },
+    { "type": "text", "id": "b3_name", "label": "Pack 3 — nom", "default": "Achetez-en 4, recevez 4 oreillers." },
+    { "type": "text", "id": "b3_save", "label": "Pack 3 — badge", "default": "Économisez 293,90 €" },
+    { "type": "text", "id": "b3_sub", "label": "Pack 3 — sous-texte", "default": "Économisez 53%" },
+    { "type": "text", "id": "b3_now", "label": "Pack 3 — prix", "default": "265,90 €" },
+    { "type": "text", "id": "b3_old", "label": "Pack 3 — prix barré", "default": "559,80 €" },
+    { "type": "text", "id": "b3_gift", "label": "Pack 3 — cadeau", "default": "+ 4 oreillers gratuits (d'une valeur de 209,90 €)" },
+    { "type": "text", "id": "b3_gift_old", "label": "Pack 3 — valeur barrée cadeau", "default": "174,90 €" },
+    { "type": "header", "content": "Option supplémentaire (add-on)" },
+    { "type": "text", "id": "addon_title", "label": "Add-on — titre", "default": "+ 1 oreiller supplémentaire ?" },
+    { "type": "text", "id": "addon_save", "label": "Add-on — économie", "default": "Économisez 13,95 €" },
+    { "type": "text", "id": "addon_now", "label": "Add-on — prix", "default": "29,95 €" },
+    { "type": "text", "id": "addon_old", "label": "Add-on — prix barré", "default": "43,90 €" },
+    { "type": "header", "content": "Bouton & garantie" },
+    { "type": "text", "id": "cta_label", "label": "Texte du bouton", "default": "Ajouter au panier" },
+    { "type": "text", "id": "guarantee_main", "label": "Garantie (ligne 1)", "default": "Garantie 365 jours !" },
+    { "type": "text", "id": "guarantee_small", "label": "Garantie (ligne 2)", "default": "Marque de confiance – Fiable et simple." }
+  ],
+  "presets": [ { "name": "Matelas — Buy box" } ]
+}
+{% endschema %}

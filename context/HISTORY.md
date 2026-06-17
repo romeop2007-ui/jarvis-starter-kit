@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-06-17 (mise à jour 3)
+
+### Refonte propre de la page produit matelas en sections natives éditables + passage en édition directe live
+- **La page matelas n'était pas propre** : un seul gros bloc de code opaque ("Zooryn — Page matelas") dans le Personnalisateur, avec un header bricolé, rien d'éditable à la main. Reconstruite entièrement.
+- **Découpée en 9 sections natives indépendantes et éditables** (Buy box, Bandeau défilant, Bloc intro, 4× Image+texte, FAQ, Avis, Barre collante), posées sur le **vrai header/footer du site Dawn** (via un template JSON `product.matelaspro` + layout par défaut). CSS partagé dans un snippet `zmat-styles`. Visuel identique, mais chaque bloc se modifie maintenant dans le Personnalisateur (textes, prix, et emplacements d'images pour les vraies photos). FAQ et Avis = blocs ajoutables/supprimables, avec les 12 items actuels en repli par défaut.
+- **Le clic depuis la collection mène bien à la landing** (produit réassigné sur le template `matelaspro`, URL propre `/products/...`). Rendu vérifié sur le site public (header/footer du site + toutes les sections, zéro erreur Liquid).
+- **Détours techniques rencontrés :** (1) le suffixe `?view=` saute lors de la redirection d'aperçu Shopify (aperçu impossible par ce biais) ; (2) conflit `.json`/`.liquid` pour un même template → contourné en renommant le suffixe en `matelaspro` (l'ancien `product.matelas.liquid` reste orphelin, la suppression de fichiers sur le live étant bloquée par sécurité, à nettoyer depuis l'admin) ; (3) la redirection `.myshopify.com → zooryn.com` supprime les paramètres d'URL ; (4) propagation produit→template d'environ une minute.
+- **🔧 Nouvelle règle de travail actée par Roméo : édition DIRECTE sur le thème live, fini les brouillons / thèmes d'aperçu.** Il s'en moque que ce soit visible de tous, il ne veut pas avoir à manipuler une copie. CLAUDE.md (règles de sync 4 et 5) révisé en conséquence : push ciblé `--only` sur le live, on annonce, on vérifie après coup, on corrige en direct si besoin.
+- **Statut thème clarifié :** Roméo a republié "Zooryn FR" #201573302617, qui est de nouveau le thème live (un Dawn d'origine #201416606041 s'était retrouvé publié entre-temps).
+- **Restes avant test du matelas :** passer le stock en "non suivi" (sinon panier bloqué, inventaire à 0), mapper les bundles sur de vraies variantes, ajouter les vraies photos (désormais à la main dans le Personnalisateur).
+
+---
+
 ## 2026-06-17 (mise à jour 2)
 
 ### Construction de la page produit matelas (workflow Claude Design → Liquid → live)

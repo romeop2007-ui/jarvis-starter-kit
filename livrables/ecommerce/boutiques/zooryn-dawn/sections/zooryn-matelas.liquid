@@ -9,7 +9,8 @@
   ============================================================
 {%- endcomment -%}
 
-{%- assign mp = section.settings.product -%}
+{%- comment -%} Sur un template produit, l'objet `product` est dispo et fait foi ; sinon (page /pages/matelas) on retombe sur le produit rattaché du réglage. {%- endcomment -%}
+{%- assign mp = product | default: section.settings.product -%}
 {%- assign cta_label = section.settings.cta_label | default: 'Ajouter au panier' -%}
 
 <link rel="preconnect" href="https://fonts.googleapis.com">

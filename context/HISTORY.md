@@ -7,6 +7,16 @@
 
 ---
 
+## 2026-06-17 (mise à jour 4)
+
+### Logo de marque Zooryn créé et décliné en vert émeraude
+- Logo définitif Zooryn arrêté : symbole montagne double sommet (forme pleine) + wordmark « ZOORYN », généré via ChatGPT (prompts minimalistes itérés, du trait fin trop maigre à une version étoffée).
+- Recolorés en local du noir vers le vert émeraude #154230 (couleur de marque), fond transparent, marges rognées. 3 fichiers dans zooryn-dawn/assets/ : zooryn-logo-vert.png (combiné, header), zooryn-wordmark-vert.png (texte, footer/mails), zooryn-symbole-vert.png (symbole, favicon).
+- Outil : pas d'ImageMagick ni Python/Pillow sur le poste, recolore faite via script .NET System.Drawing (luminance → alpha pour préserver l'anti-aliasing). Méthode réutilisable.
+- Restes : upload header dans le Personnalisateur (terrain Roméo) ou push CLI ; version crème pour le footer vert + favicon en attente d'arbitrage.
+
+---
+
 ## 2026-06-17 (mise à jour 3)
 
 ### Refonte propre de la page produit matelas en sections natives éditables + passage en édition directe live

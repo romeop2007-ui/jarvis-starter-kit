@@ -194,6 +194,18 @@ Cette règle s'applique sans qu'il soit nécessaire que Roméo le redemande. Ell
 
 Règle actée le 02/06/2026. Thème live et dossier local mis à jour le 17/06/2026 (boutique passée sur Dawn neuf "Zooryn FR" #201573302617, dossier `zooryn-dawn`). L'ancien thème custom #201043444057 / dossier `sculpted-shopify` est conservé comme bibliothèque de pièces.
 
+### Workflow Claude Design → Liquid → boutique (acté le 17/06/2026)
+
+Pour les pages produit/landing copiées d'un winner, Roméo fait d'abord designer la page dans **Claude Design** (claude.ai/design), qui rend un **bundle HTML autonome** (lien `api.anthropic.com/v1/design/...`). Claude récupère ce bundle, lit le README + le transcript, puis **convertit le HTML en Liquid** et le déploie. Méthode rodée sur la page matelas :
+
+1. **Récupérer le bundle** : `WebFetch` sur le lien design renvoie un `.gz` ; le décompresser (`tar -xzf`) pour obtenir `README.md`, `chats/`, `project/*.html`. Lire le HTML en entier + le transcript (l'intention est dans le chat).
+2. **Isoler la page** dans son propre **layout dédié** (sans header/footer Dawn, pour éviter les doublons) + un **template** + une **section** auto-suffisante. Scoper tout le CSS sous une classe racine (ex. `.zmat`) pour zéro collision avec Dawn.
+3. **Corriger en Liquid ce qui doit l'être** : devise en € (le design sort souvent en devise du winner), bouton d'achat câblé sur un formulaire Shopify natif via un réglage `product` (inactif sans produit lié = ne casse rien), liens header/footer vers les vraies pages.
+4. **Visuels** = placeholders, Roméo les remplace à la main.
+5. **Déployer** via les règles d'aperçu/live ci-dessus (push non publié → OK Roméo → push `--only`).
+
+Une page rattachée à un template suffixe se crée via une page boutique (`pageCreate`, `templateSuffix`) pointée par le template `page.<suffixe>`.
+
 ---
 
 ## Notes importantes

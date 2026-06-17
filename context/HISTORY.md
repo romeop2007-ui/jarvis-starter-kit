@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-06-17 (mise à jour 2)
+
+### Construction de la page produit matelas (workflow Claude Design → Liquid → live)
+- Première utilisation du workflow Claude Design : Roméo a fait reproduire à l'identique la page produit du matelas (source norrfjällen.se) re-skinnée Zooryn, livrée en HTML, que Claude a convertie en Liquid et poussée sur la boutique.
+- Page LIVE : /pages/matelas (thème Zooryn FR #201573302617). Reproduction fidèle : barre annonce, header, hero (galerie + bundles + add-on), marquee, 6 blocs bénéfices, FAQ 12 questions, avis (126 avis / 4,8 / charger plus), footer, sticky CTA.
+- Architecture technique : page isolée dans un layout dédié `matelas` (sans header/footer Dawn pour éviter les doublons) + template `page.matelas` + section `zooryn-matelas`. CSS scopé `.zmat` (zéro collision avec Dawn).
+- Prix convertis kr → € (69,95 € / barré 139,90 €, bundles convertis), éditables.
+- Bouton "Ajouter au panier" câblé sur un formulaire Shopify natif via un réglage "Produit rattaché" : inactif tant qu'aucun produit n'est lié (ne casse rien), fonctionnel dès qu'on rattachera le produit.
+- Méthode aperçu respectée : push sur thème non publié → validation Roméo → push ciblé --only des 3 fichiers sur le live. Thème d'aperçu à supprimer (Roméo).
+- Reste à faire : visuels réels, créer le produit Shopify + variantes, rattacher le produit, mapper les bundles sur les variantes.
+
+---
+
 ## 2026-06-17
 
 ### Finitions UI home Zooryn (engagements + contact) poussées en live

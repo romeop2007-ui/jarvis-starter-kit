@@ -7,6 +7,16 @@
 
 ---
 
+## 2026-06-17
+
+### Finitions UI home Zooryn (engagements + contact) poussées en live
+- Section "engagements" (réassurance) refondue : cartes **vert émeraude**, icônes + titres + textes **crème** (inversion demandée par Roméo), apparition en cascade au scroll, **modale entièrement refaite** (fond sombre flouté, panneau crème solide, en-tête vert) pour corriger l'ancienne pop-up transparente illisible. Titre de section éditable ajouté.
+- **Formulaire de contact : champ téléphone retiré** (visuel + fonctionnel). Ne reste que Nom, Email, Commentaire. Pas besoin d'un numéro pour recevoir un mail.
+- **Méthode aperçu validée et actée** : on pousse d'abord sur un **thème non publié** (`--unpublished`, lien `preview_theme_id`) pour valider le rendu, puis sur le live seulement après OK. Les 2 fichiers `.liquid` poussés en `--only` sur le live **Zooryn FR #201573302617**.
+- **CLAUDE.md + mémoire Shopify mis à jour** : terrain courant = thème live #201573302617 + dossier `zooryn-dawn` (l'ancien #201043444057 / `sculpted-shopify` reste de la bibliothèque de pièces). Règle de sync n°5 "aperçu avant live" ajoutée.
+
+---
+
 ## 2026-06-16 (mise à jour 7)
 
 ### Construction du site : page d'accueil Zooryn refaite sur Dawn neuf (bascule de thème)

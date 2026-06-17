@@ -174,12 +174,12 @@ Cette règle s'applique sans qu'il soit nécessaire que Roméo le redemande. Ell
 
 ### Synchronisation boutique Shopify (travail à deux sans s'écraser)
 
-**Contexte du problème :** la boutique vit à deux endroits qui ne se synchronisent pas tout seuls. (1) L'éditeur Shopify en ligne (le "Personnaliser"), où Roméo modifie le contenu et le visuel, enregistré côté Shopify dans `config/settings_data.json`. (2) Les fichiers locaux suivis par Git (dossier `livrables/ecommerce/boutiques/sculpted-shopify`), où Claude modifie le code. Un `theme push` qui inclut `settings_data.json` écrase la version en ligne par la version locale, et donc supprime les changements que Roméo a faits dans l'éditeur entre-temps.
+**Contexte du problème :** la boutique vit à deux endroits qui ne se synchronisent pas tout seuls. (1) L'éditeur Shopify en ligne (le "Personnaliser"), où Roméo modifie le contenu et le visuel, enregistré côté Shopify dans `config/settings_data.json`. (2) Les fichiers locaux suivis par Git (dossier `livrables/ecommerce/boutiques/zooryn-dawn`), où Claude modifie le code. Un `theme push` qui inclut `settings_data.json` écrase la version en ligne par la version locale, et donc supprime les changements que Roméo a faits dans l'éditeur entre-temps.
 
 **Règles que Claude doit appliquer automatiquement, sans que Roméo le redemande :**
 
 1. **Toujours `pull` avant de toucher à la boutique.** Avant toute intervention sur le thème, Claude lance d'abord :
-   `shopify theme pull --store cqqah9-t1.myshopify.com --theme 201043444057 --only config/settings_data.json --path "livrables/ecommerce/boutiques/sculpted-shopify"`
+   `shopify theme pull --store cqqah9-t1.myshopify.com --theme 201573302617 --only config/settings_data.json --path "livrables/ecommerce/boutiques/zooryn-dawn"`
    pour récupérer dans les fichiers locaux le travail le plus récent de Roméo (textes, photos, réglages). Ça garantit qu'on part toujours de son état à jour et qu'on n'écrase rien.
 
 2. **Séparation des rôles = source de vérité par fichier :**
@@ -190,7 +190,9 @@ Cette règle s'applique sans qu'il soit nécessaire que Roméo le redemande. Ell
 
 4. **Déploiement live = validation explicite.** Tout `theme push --allow-live` est une action en production : Claude prévient toujours Roméo et attend son OK avant de pousser (cf. blocage automatique du classifier).
 
-Règle actée le 02/06/2026.
+5. **Aperçu avant live.** Pour faire valider un visuel sans aucun risque, Claude pousse d'abord sur un **thème non publié** (`shopify theme push --unpublished --theme "<nom>"`) et donne à Roméo le lien d'aperçu `https://cqqah9-t1.myshopify.com?preview_theme_id=<id>`. Le live ne reçoit le code qu'après le OK de Roméo (cf. règle 4). Les thèmes d'aperçu sont jetables : Claude propose de les supprimer une fois la validation faite.
+
+Règle actée le 02/06/2026. Thème live et dossier local mis à jour le 17/06/2026 (boutique passée sur Dawn neuf "Zooryn FR" #201573302617, dossier `zooryn-dawn`). L'ancien thème custom #201043444057 / dossier `sculpted-shopify` est conservé comme bibliothèque de pièces.
 
 ---
 

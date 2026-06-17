@@ -1,271 +1,413 @@
 {% comment %} Section engagements / réassurance Zooryn {% endcomment %}
 
 {%- style -%}
-  .engagements {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+  #shopify-section-{{ section.id }} {
+    --eng-emerald: #154230;
+    --eng-emerald-deep: #0f3324;
+    --eng-cream: #f4f1ea;
+    --eng-card: #ffffff;
+    --eng-muted: rgba(21,66,48,0.62);
+    --eng-line: rgba(21,66,48,0.12);
   }
-  .engagements__grid {
-    max-width: 1200px;
+
+  .engagements {
+    padding: 4.5rem 1.5rem;
+    background: transparent;
+  }
+  .engagements__inner {
+    max-width: 1180px;
     margin: 0 auto;
-    padding: 0 2rem;
+  }
+
+  .engagements__head {
+    text-align: center;
+    margin-bottom: 2.8rem;
+  }
+  .engagements__eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--eng-emerald);
+    opacity: 0.75;
+    margin: 0 0 0.7rem;
+  }
+  .engagements__heading {
+    font-size: clamp(1.5rem, 3vw, 2.05rem);
+    font-weight: 700;
+    color: var(--eng-emerald);
+    margin: 0;
+    line-height: 1.2;
+  }
+  .engagements__sub {
+    margin: 0.8rem auto 0;
+    max-width: 540px;
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: var(--eng-muted);
+  }
+
+  .engagements__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    gap: 1.4rem;
   }
   @media (max-width: 900px) {
     .engagements__grid { grid-template-columns: repeat(2, 1fr); }
   }
-  @media (max-width: 500px) {
-    .engagements__grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  @media (max-width: 520px) {
+    .engagements { padding: 3rem 1.1rem; }
+    .engagements__grid { grid-template-columns: 1fr; gap: 1rem; }
   }
+
   .engagements__item {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 0.9rem;
+    gap: 0.85rem;
+    width: 100%;
     cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 8px;
-    transition: background 0.18s;
+    padding: 2.1rem 1.4rem 1.7rem;
+    background: var(--eng-emerald);
+    border: 1px solid var(--eng-emerald);
+    border-radius: 18px;
+    box-shadow: 0 1px 2px rgba(21,66,48,0.06);
+    transition: transform 0.28s cubic-bezier(.22,.61,.36,1),
+                box-shadow 0.28s ease,
+                background 0.28s ease;
+    /* état d'entrée pour l'animation cascade */
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  .engagements__item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
   .engagements__item:hover {
-    background: rgba(21,66,48,0.06);
+    transform: translateY(-6px);
+    background: var(--eng-emerald-deep);
+    box-shadow: 0 18px 40px -16px rgba(21,66,48,0.55);
   }
+
   .engagements__icon {
-    width: 72px;
-    height: 72px;
-    background: rgba(21,66,48,0.1);
+    width: 76px;
+    height: 76px;
     border-radius: 50%;
+    background: rgba(244,241,234,0.12);
+    border: 1px solid rgba(244,241,234,0.22);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    transition: background 0.18s;
+    margin-bottom: 0.3rem;
+    transition: background 0.28s ease, transform 0.28s ease;
   }
   .engagements__item:hover .engagements__icon {
-    background: rgba(21,66,48,0.18);
+    background: var(--eng-cream);
+    border-color: var(--eng-cream);
+    transform: scale(1.06);
   }
   .engagements__icon svg {
     width: 34px;
     height: 34px;
-    stroke: #154230;
+    stroke: var(--eng-cream);
     fill: none;
     stroke-width: 1.7;
     stroke-linecap: round;
     stroke-linejoin: round;
+    transition: stroke 0.28s ease;
   }
+  .engagements__item:hover .engagements__icon svg {
+    stroke: var(--eng-emerald);
+  }
+
   .engagements__title {
-    font-size: 1.05rem;
+    font-size: 1.04rem;
     font-weight: 700;
-    color: var(--color-foreground);
+    color: var(--eng-cream);
     margin: 0;
     line-height: 1.3;
   }
   .engagements__text {
     font-size: 0.9rem;
-    opacity: 0.7;
+    color: rgba(244,241,234,0.78);
     margin: 0;
     line-height: 1.5;
   }
   .engagements__hint {
-    font-size: 0.75rem;
-    color: #154230;
-    opacity: 0.7;
-    margin: 0;
-    letter-spacing: 0.03em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.32em;
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--eng-cream);
+    margin: 0.35rem 0 0;
+  }
+  .engagements__hint span {
+    transition: transform 0.25s ease;
+  }
+  .engagements__item:hover .engagements__hint span {
+    transform: translateX(4px);
   }
 
-  /* Modal */
+  /* ---------- Modale ---------- */
   .eng-modal-overlay {
-    display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.45);
-    z-index: 9999;
+    z-index: 99999;
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 1.2rem;
+    background: rgba(10,24,18,0.55);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
   }
   .eng-modal-overlay.is-open {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
   }
   .eng-modal {
-    background: var(--color-background, #f4f1ea);
-    border-radius: 12px;
-    max-width: 460px;
-    width: 100%;
-    padding: 2.2rem 2rem 2rem;
     position: relative;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
-    animation: engModalIn 0.22s ease;
+    width: 100%;
+    max-width: 480px;
+    background: var(--eng-cream);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,0.55);
+    transform: translateY(18px) scale(0.96);
+    opacity: 0;
+    transition: transform 0.32s cubic-bezier(.22,.61,.36,1), opacity 0.32s ease;
   }
-  @keyframes engModalIn {
-    from { opacity: 0; transform: translateY(12px) scale(0.97); }
-    to   { opacity: 1; transform: none; }
+  .eng-modal-overlay.is-open .eng-modal {
+    transform: translateY(0) scale(1);
+    opacity: 1;
   }
-  .eng-modal__close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.3rem;
-    color: #154230;
-    opacity: 0.6;
-    line-height: 1;
-    font-size: 1.4rem;
+  .eng-modal__header {
+    background: var(--eng-emerald);
+    padding: 2.2rem 1.5rem 1.6rem;
+    text-align: center;
   }
-  .eng-modal__close:hover { opacity: 1; }
   .eng-modal__icon {
-    width: 64px;
-    height: 64px;
-    background: rgba(21,66,48,0.1);
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
+    background: rgba(244,241,234,0.12);
+    border: 1px solid rgba(244,241,234,0.25);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.2rem;
+    margin: 0 auto 1rem;
   }
   .eng-modal__icon svg {
-    width: 32px;
-    height: 32px;
-    stroke: #154230;
+    width: 34px;
+    height: 34px;
+    stroke: var(--eng-cream);
     fill: none;
     stroke-width: 1.7;
     stroke-linecap: round;
     stroke-linejoin: round;
   }
   .eng-modal__title {
-    font-size: 1.25rem;
+    font-size: 1.28rem;
     font-weight: 700;
-    text-align: center;
-    margin: 0 0 1rem;
-    color: var(--color-foreground);
+    color: var(--eng-cream);
+    margin: 0;
+    line-height: 1.25;
   }
   .eng-modal__body {
-    font-size: 0.95rem;
-    line-height: 1.65;
-    opacity: 0.8;
+    font-size: 0.96rem;
+    line-height: 1.7;
+    color: rgba(21,66,48,0.85);
     text-align: center;
     margin: 0;
-    color: var(--color-foreground);
+    padding: 1.8rem 2rem 2.2rem;
+  }
+  .eng-modal__close {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(244,241,234,0.15);
+    border: none;
+    cursor: pointer;
+    color: var(--eng-cream);
+    font-size: 1.15rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+  }
+  .eng-modal__close:hover { background: rgba(244,241,234,0.3); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .engagements__item { opacity: 1; transform: none; transition: none; }
+    .eng-modal { transition: opacity 0.2s ease; }
   }
 {%- endstyle -%}
 
-<div class="engagements color-{{ section.settings.color_scheme }} gradient">
-  <div class="engagements__grid">
+<div class="engagements">
+  <div class="engagements__inner">
 
-    <button class="engagements__item" onclick="openEngModal('livraison')" aria-label="En savoir plus sur la livraison">
-      <div class="engagements__icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M1 3h15v13H1z"/>
-          <path d="M16 8h4l3 3v5h-7V8z"/>
-          <circle cx="5.5" cy="18.5" r="2.5"/>
-          <circle cx="18.5" cy="18.5" r="2.5"/>
-        </svg>
+    {%- if section.settings.heading != blank or section.settings.eyebrow != blank -%}
+      <div class="engagements__head">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="engagements__eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="engagements__heading">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="engagements__sub">{{ section.settings.subheading }}</p>
+        {%- endif -%}
       </div>
-      <p class="engagements__title">Livraison offerte en France</p>
-      <p class="engagements__text">Expédiée rapidement, avec suivi inclus.</p>
-      <p class="engagements__hint">En savoir plus →</p>
-    </button>
+    {%- endif -%}
 
-    <button class="engagements__item" onclick="openEngModal('paiement')" aria-label="En savoir plus sur le paiement sécurisé">
-      <div class="engagements__icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="11" width="18" height="11" rx="2"/>
-          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-        </svg>
-      </div>
-      <p class="engagements__title">Paiement 100 % sécurisé</p>
-      <p class="engagements__text">Visa, Mastercard, Apple Pay.</p>
-      <p class="engagements__hint">En savoir plus →</p>
-    </button>
+    <div class="engagements__grid">
 
-    <button class="engagements__item" onclick="openEngModal('remboursement')" aria-label="En savoir plus sur le remboursement">
-      <div class="engagements__icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <polyline points="20 6 9 17 4 12"/>
-        </svg>
-      </div>
-      <p class="engagements__title">Satisfait ou remboursé</p>
-      <p class="engagements__text">30 jours pour changer d'avis.</p>
-      <p class="engagements__hint">En savoir plus →</p>
-    </button>
+      <button class="engagements__item" onclick="openEngModal('livraison')" aria-label="En savoir plus sur la livraison">
+        <div class="engagements__icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M1 3h15v13H1z"/>
+            <path d="M16 8h4l3 3v5h-7V8z"/>
+            <circle cx="5.5" cy="18.5" r="2.5"/>
+            <circle cx="18.5" cy="18.5" r="2.5"/>
+          </svg>
+        </div>
+        <p class="engagements__title">Livraison offerte en France</p>
+        <p class="engagements__text">Expédiée rapidement, avec suivi inclus.</p>
+        <p class="engagements__hint">En savoir plus <span>→</span></p>
+      </button>
 
-    <button class="engagements__item" onclick="openEngModal('support')" aria-label="En savoir plus sur le support">
-      <div class="engagements__icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        </svg>
-      </div>
-      <p class="engagements__title">Support en français</p>
-      <p class="engagements__text">Une question ? On répond vite.</p>
-      <p class="engagements__hint">En savoir plus →</p>
-    </button>
+      <button class="engagements__item" onclick="openEngModal('paiement')" aria-label="En savoir plus sur le paiement sécurisé">
+        <div class="engagements__icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <p class="engagements__title">Paiement 100 % sécurisé</p>
+        <p class="engagements__text">Visa, Mastercard, Apple Pay.</p>
+        <p class="engagements__hint">En savoir plus <span>→</span></p>
+      </button>
 
+      <button class="engagements__item" onclick="openEngModal('remboursement')" aria-label="En savoir plus sur le remboursement">
+        <div class="engagements__icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 12a9 9 0 1 0 3-6.7"/>
+            <polyline points="3 4 3 9 8 9"/>
+          </svg>
+        </div>
+        <p class="engagements__title">Satisfait ou remboursé</p>
+        <p class="engagements__text">30 jours pour changer d'avis.</p>
+        <p class="engagements__hint">En savoir plus <span>→</span></p>
+      </button>
+
+      <button class="engagements__item" onclick="openEngModal('support')" aria-label="En savoir plus sur le support">
+        <div class="engagements__icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <p class="engagements__title">Support en français</p>
+        <p class="engagements__text">Une question ? On répond vite.</p>
+        <p class="engagements__hint">En savoir plus <span>→</span></p>
+      </button>
+
+    </div>
   </div>
 </div>
 
-<!-- Modales -->
-<div class="eng-modal-overlay" id="eng-modal-overlay" onclick="closeEngModal(event)">
-  <div class="eng-modal" role="dialog" aria-modal="true">
-    <button class="eng-modal__close" onclick="closeEngModalBtn()" aria-label="Fermer">✕</button>
-    <div class="eng-modal__icon" id="eng-modal-icon"></div>
-    <h3 class="eng-modal__title" id="eng-modal-title"></h3>
-    <p class="eng-modal__body" id="eng-modal-body"></p>
+<!-- Modale -->
+<div class="eng-modal-overlay" id="eng-modal-overlay-{{ section.id }}" onclick="closeEngModal(event, this)">
+  <div class="eng-modal" role="dialog" aria-modal="true" aria-labelledby="eng-modal-title-{{ section.id }}">
+    <div class="eng-modal__header">
+      <button class="eng-modal__close" onclick="closeEngModalEl('eng-modal-overlay-{{ section.id }}')" aria-label="Fermer">✕</button>
+      <div class="eng-modal__icon" id="eng-modal-icon-{{ section.id }}"></div>
+      <h3 class="eng-modal__title" id="eng-modal-title-{{ section.id }}"></h3>
+    </div>
+    <p class="eng-modal__body" id="eng-modal-body-{{ section.id }}"></p>
   </div>
 </div>
 
 <script>
-  var engData = {
-    livraison: {
-      title: "Livraison offerte en France",
-      body: "Toutes vos commandes sont expédiées gratuitement en France métropolitaine. Un numéro de suivi vous est envoyé par email dès l'expédition, pour savoir exactement où se trouve votre colis à chaque instant. Délai estimé : 5 à 10 jours ouvrés.",
-      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#154230" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>'
-    },
-    paiement: {
-      title: "Paiement 100 % sécurisé",
-      body: "Vos paiements sont traités via Shopify Payments, certifié PCI DSS niveau 1 — le standard le plus élevé du secteur. Toutes les transactions sont cryptées de bout en bout (SSL). Moyens acceptés : Visa, Mastercard, Apple Pay, Google Pay. Aucune donnée bancaire n'est stockée sur notre site.",
-      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#154230" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>'
-    },
-    remboursement: {
-      title: "Satisfait ou remboursé 30 jours",
-      body: "Vous avez 30 jours à compter de la réception pour changer d'avis, sans avoir à vous justifier. Contactez-nous par email, on s'occupe du reste. Le remboursement est effectué sur votre moyen de paiement d'origine sous 5 à 10 jours ouvrés.",
-      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#154230" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'
-    },
-    support: {
-      title: "Support en français",
-      body: "Une question avant de commander, un souci avec votre colis, ou besoin d'un conseil ? Notre équipe vous répond en français, par email à contact@zooryn.com. Délai de réponse : sous 24h en jours ouvrés. Pas de bot, pas de réponse automatique — une vraie personne.",
-      icon: '<svg viewBox="0 0 24 24" fill="none" stroke="#154230" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>'
+  (function() {
+    var sid = {{ section.id | json }};
+    var engData = {
+      livraison: {
+        title: "Livraison offerte en France",
+        body: "Toutes vos commandes sont expédiées gratuitement en France métropolitaine. Un numéro de suivi vous est envoyé par email dès l'expédition, pour savoir exactement où se trouve votre colis à chaque instant. Délai estimé : 5 à 10 jours ouvrés.",
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>'
+      },
+      paiement: {
+        title: "Paiement 100 % sécurisé",
+        body: "Vos paiements sont traités via Shopify Payments, certifié PCI DSS niveau 1 — le standard le plus élevé du secteur. Toutes les transactions sont cryptées de bout en bout (SSL). Moyens acceptés : Visa, Mastercard, Apple Pay, Google Pay. Aucune donnée bancaire n'est stockée sur notre site.",
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>'
+      },
+      remboursement: {
+        title: "Satisfait ou remboursé 30 jours",
+        body: "Vous avez 30 jours à compter de la réception pour changer d'avis, sans avoir à vous justifier. Contactez-nous par email, on s'occupe du reste. Le remboursement est effectué sur votre moyen de paiement d'origine sous 5 à 10 jours ouvrés.",
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 4 3 9 8 9"/></svg>'
+      },
+      support: {
+        title: "Support en français",
+        body: "Une question avant de commander, un souci avec votre colis, ou besoin d'un conseil ? Notre équipe vous répond en français, par email à contact@zooryn.com. Délai de réponse : sous 24h en jours ouvrés. Pas de bot, pas de réponse automatique — une vraie personne.",
+        icon: '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>'
+      }
+    };
+
+    window.openEngModal = function(key) {
+      var d = engData[key];
+      if (!d) return;
+      document.getElementById('eng-modal-icon-' + sid).innerHTML = d.icon;
+      document.getElementById('eng-modal-title-' + sid).textContent = d.title;
+      document.getElementById('eng-modal-body-' + sid).textContent = d.body;
+      document.getElementById('eng-modal-overlay-' + sid).classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    };
+
+    window.closeEngModalEl = function(id) {
+      document.getElementById(id).classList.remove('is-open');
+      document.body.style.overflow = '';
+    };
+
+    window.closeEngModal = function(e, el) {
+      if (e.target === el) window.closeEngModalEl(el.id);
+    };
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') window.closeEngModalEl('eng-modal-overlay-' + sid);
+    });
+
+    // Apparition en cascade au scroll
+    var items = document.querySelectorAll('#shopify-section-' + sid + ' .engagements__item');
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            var i = Array.prototype.indexOf.call(items, el);
+            el.style.transitionDelay = (i * 0.1) + 's';
+            el.classList.add('is-visible');
+            obs.unobserve(el);
+          }
+        });
+      }, { threshold: 0.2 });
+      items.forEach(function(el) { obs.observe(el); });
+    } else {
+      items.forEach(function(el) { el.classList.add('is-visible'); });
     }
-  };
-
-  function openEngModal(key) {
-    var d = engData[key];
-    document.getElementById('eng-modal-icon').innerHTML = d.icon;
-    document.getElementById('eng-modal-title').textContent = d.title;
-    document.getElementById('eng-modal-body').textContent = d.body;
-    document.getElementById('eng-modal-overlay').classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeEngModal(e) {
-    if (e.target === document.getElementById('eng-modal-overlay')) {
-      closeEngModalBtn();
-    }
-  }
-
-  function closeEngModalBtn() {
-    document.getElementById('eng-modal-overlay').classList.remove('is-open');
-    document.body.style.overflow = '';
-  }
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeEngModalBtn();
-  });
+  })();
 </script>
 
 {% schema %}
@@ -275,15 +417,22 @@
   "class": "section",
   "settings": [
     {
-      "type": "select",
-      "id": "color_scheme",
-      "options": [
-        { "value": "scheme-1", "label": "Schéma 1" },
-        { "value": "scheme-2", "label": "Schéma 2" },
-        { "value": "scheme-3", "label": "Schéma 3" }
-      ],
-      "default": "scheme-2",
-      "label": "Couleur de fond"
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Sur-titre",
+      "default": "POURQUOI ZOORYN"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Commandez l'esprit tranquille"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sous-titre",
+      "default": "Cliquez sur chaque engagement pour en savoir plus."
     }
   ],
   "presets": [

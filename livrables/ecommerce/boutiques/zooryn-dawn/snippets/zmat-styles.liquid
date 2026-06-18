@@ -114,7 +114,9 @@
 .zmat .bundle-card.selected .bundle-colors{ display:block; }
 .zmat .bundle-colors-label{ font-size:13px; font-weight:700; color:var(--vert-accent); margin-bottom:8px; }
 .zmat .color-row{ display:flex; align-items:center; gap:10px; margin-bottom:8px; }
-.zmat .color-swatch{ width:40px; height:40px; flex:0 0 auto; border-radius:8px; }
+.zmat .color-swatch{ width:40px; height:40px; flex:0 0 auto; border-radius:8px; overflow:hidden; }
+.zmat .color-swatch .img-cover, .zmat .mini-thumb .img-cover, .zmat .addon-thumb .img-cover{ border-radius:inherit; aspect-ratio:auto; }
+.zmat .mini-thumb, .zmat .addon-thumb{ overflow:hidden; }
 .zmat .color-select{ position:relative; background:#fff; border:1px solid rgba(21,66,48,.2); border-radius:8px; padding:9px 32px 9px 14px; font-size:14px; font-weight:600; color:var(--vert); font-family:inherit; appearance:none; cursor:pointer; min-width:130px; }
 .zmat .color-field{ position:relative; }
 .zmat .color-field::after{ content:"▾"; position:absolute; right:12px; top:50%; transform:translateY(-50%); pointer-events:none; color:var(--vert); font-size:12px; }

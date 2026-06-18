@@ -23,7 +23,7 @@
 {%- endif -%}
 {%- assign addon_p = all_products['oreiller-gonflable-zooryn'] -%}
 
-<div class="zmat" id="zmat-buybox-{{ sid }}">
+<div class="zmat" id="zmat-buybox-{{ sid }}" data-img-gris="{{ s.img_gris | image_url: width: 120 }}" data-img-vert="{{ s.img_vert | image_url: width: 120 }}" data-img-bleu="{{ s.img_bleu | image_url: width: 120 }}">
   <section class="product">
     <div class="wrap product-grid">
 
@@ -123,7 +123,7 @@
                 <div class="bundle-colors">
                   <p class="bundle-colors-label">Couleur</p>
                   <div class="color-row">
-                    <div class="placeholder color-swatch"><span></span></div>
+                    {% if s.img_gris != blank or s.img_vert != blank or s.img_bleu != blank %}<div class="color-swatch" data-swatch><img class="img-cover" data-swatch-img alt="" loading="lazy"></div>{% else %}<div class="placeholder color-swatch"><span></span></div>{% endif %}
                     <div class="color-field"><select class="color-select"><option>Gris</option><option>Vert</option><option>Bleu</option></select></div>
                   </div>
                 </div>
@@ -149,11 +149,11 @@
                 <div class="bundle-colors">
                   <p class="bundle-colors-label">Couleur</p>
                   <div class="color-row">
-                    <div class="placeholder color-swatch"><span></span></div>
+                    {% if s.img_gris != blank or s.img_vert != blank or s.img_bleu != blank %}<div class="color-swatch" data-swatch><img class="img-cover" data-swatch-img alt="" loading="lazy"></div>{% else %}<div class="placeholder color-swatch"><span></span></div>{% endif %}
                     <div class="color-field"><select class="color-select"><option>Gris</option><option>Vert</option><option>Bleu</option></select></div>
                   </div>
                   <div class="color-row">
-                    <div class="placeholder color-swatch"><span></span></div>
+                    {% if s.img_gris != blank or s.img_vert != blank or s.img_bleu != blank %}<div class="color-swatch" data-swatch><img class="img-cover" data-swatch-img alt="" loading="lazy"></div>{% else %}<div class="placeholder color-swatch"><span></span></div>{% endif %}
                     <div class="color-field"><select class="color-select"><option>Gris</option><option>Vert</option><option>Bleu</option></select></div>
                   </div>
                 </div>
@@ -165,7 +165,7 @@
             </div>
             {%- if s.b2_gift != blank -%}
               <div class="bundle-gift dark">
-                <span class="bundle-gift-left"><span class="placeholder mini-thumb"><span></span></span>{{ s.b2_gift }}</span>
+                <span class="bundle-gift-left">{% if s.img_oreiller != blank %}<span class="mini-thumb"><img class="img-cover" src="{{ s.img_oreiller | image_url: width: 120 }}" alt="" loading="lazy"></span>{% else %}<span class="placeholder mini-thumb"><span></span></span>{% endif %}{{ s.b2_gift }}</span>
               </div>
             {%- endif -%}
           </div>
@@ -184,7 +184,7 @@
                   <p class="bundle-colors-label">Couleur</p>
                   {%- for i in (1..4) -%}
                   <div class="color-row">
-                    <div class="placeholder color-swatch"><span></span></div>
+                    {% if s.img_gris != blank or s.img_vert != blank or s.img_bleu != blank %}<div class="color-swatch" data-swatch><img class="img-cover" data-swatch-img alt="" loading="lazy"></div>{% else %}<div class="placeholder color-swatch"><span></span></div>{% endif %}
                     <div class="color-field"><select class="color-select"><option>Gris</option><option>Vert</option><option>Bleu</option></select></div>
                   </div>
                   {%- endfor -%}
@@ -197,7 +197,7 @@
             </div>
             {%- if s.b3_gift != blank -%}
               <div class="bundle-gift light">
-                <span class="bundle-gift-left"><span class="placeholder mini-thumb"><span></span></span>{{ s.b3_gift }}</span>
+                <span class="bundle-gift-left">{% if s.img_oreiller != blank %}<span class="mini-thumb"><img class="img-cover" src="{{ s.img_oreiller | image_url: width: 120 }}" alt="" loading="lazy"></span>{% else %}<span class="placeholder mini-thumb"><span></span></span>{% endif %}{{ s.b3_gift }}</span>
                 {%- if s.b3_gift_old != blank -%}<span class="gift-old">{{ s.b3_gift_old }}</span>{%- endif -%}
               </div>
             {%- endif -%}
@@ -209,7 +209,7 @@
         {%- if s.addon_title != blank -%}
           <div class="bundle-addon" id="zmatAddon-{{ sid }}" data-addon-id="{{ addon_p.variants.first.id }}">
             <span class="addon-check"></span>
-            <div class="placeholder addon-thumb"><span></span></div>
+            {% if s.img_oreiller != blank %}<div class="addon-thumb"><img class="img-cover" src="{{ s.img_oreiller | image_url: width: 160 }}" alt="" loading="lazy"></div>{% else %}<div class="placeholder addon-thumb"><span></span></div>{% endif %}
             <div class="addon-body">
               <b>{{ s.addon_title }}</b>
               {%- if s.addon_save != blank -%}<small>{{ s.addon_save }}</small>{%- endif -%}
@@ -277,6 +277,26 @@
     if(prevBtn){ prevBtn.style.display = 'none'; }
     if(nextBtn){ nextBtn.style.display = 'none'; }
   }
+
+  /* Pastilles couleur : l'image suit la couleur choisie dans le menu */
+  var colorMap = {
+    'Gris': root.getAttribute('data-img-gris') || '',
+    'Vert': root.getAttribute('data-img-vert') || '',
+    'Bleu': root.getAttribute('data-img-bleu') || ''
+  };
+  function updateSwatch(sel){
+    var row = sel.closest('.color-row');
+    if(!row){ return; }
+    var img = row.querySelector('[data-swatch-img]');
+    if(!img){ return; }
+    var url = colorMap[sel.value];
+    if(url){ img.src = url; img.style.display = ''; }
+    else { img.removeAttribute('src'); img.style.display = 'none'; }
+  }
+  root.querySelectorAll('.color-select').forEach(function(sel){
+    updateSwatch(sel);
+    sel.addEventListener('change', function(){ updateSwatch(sel); });
+  });
 
   /* Sélecteur de bundles */
   root.querySelectorAll('[data-bundle]').forEach(function(card){
@@ -353,6 +373,12 @@
     { "type": "text", "id": "benefit_6", "label": "Bénéfice 6 (optionnel)" },
     { "type": "text", "id": "stock_label", "label": "Note de stock (en gras)", "default": "Ce produit" },
     { "type": "text", "id": "stock_text", "label": "Note de stock (suite)", "default": "est en stock limité" },
+    { "type": "header", "content": "Pastilles couleur", "info": "Une image par couleur (idéal 1254×1254). La pastille affichée suit la couleur choisie dans le menu déroulant." },
+    { "type": "image_picker", "id": "img_gris", "label": "Couleur Gris" },
+    { "type": "image_picker", "id": "img_vert", "label": "Couleur Vert" },
+    { "type": "image_picker", "id": "img_bleu", "label": "Couleur Bleu" },
+    { "type": "header", "content": "Photo oreiller", "info": "Photo de l'oreiller (idéal 1254×1254). Utilisée dans les lignes cadeau des packs et dans l'option add-on." },
+    { "type": "image_picker", "id": "img_oreiller", "label": "Photo oreiller" },
     { "type": "header", "content": "Bundles" },
     { "type": "text", "id": "bundle_head", "label": "Titre de l'offre", "default": "Offre d'été !" },
     { "type": "text", "id": "b1_name", "label": "Pack 1 — nom", "default": "Pack Solo" },

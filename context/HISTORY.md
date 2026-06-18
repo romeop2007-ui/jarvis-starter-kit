@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-06-18 (mise à jour 4)
+
+### Champs d'insertion d'image ajoutés sur la buy box matelas (pastilles couleur + oreiller)
+- Problème : les pastilles de couleur et la vignette oreiller du cadeau étaient des damiers gris codés en dur, sans champ pour insérer une image dans le Personnalisateur.
+- Ajout de 4 champs image_picker dans la section "Matelas — Buy box" : Couleur Gris, Couleur Vert, Couleur Bleu, et Photo oreiller (utilisée dans les lignes cadeau des packs ET dans l'add-on).
+- La pastille affichée suit dynamiquement la couleur choisie dans le menu déroulant (JS colorMap).
+- Images prévues en 1254×1254, affichées à l'échelle dans les petites vignettes (taille inchangée), coins arrondis nets via overflow:hidden + border-radius:inherit. Damier gris conservé tant qu'un champ est vide.
+- Déployé en live (#201573302617) : push ciblé --only de sections/zmat-buybox.liquid + snippets/zmat-styles.liquid, après pull de settings_data.json. Reste côté Roméo : uploader les 4 images.
+
+---
+
 ## 2026-06-18 (mise à jour 3)
 
 ### Galerie page produit matelas branchée sur les vraies photos + carrousel à flèches

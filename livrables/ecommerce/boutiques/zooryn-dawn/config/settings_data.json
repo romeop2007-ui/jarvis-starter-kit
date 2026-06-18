@@ -139,6 +139,17 @@
         "settings": {
           "color_scheme": "scheme-1"
         }
+      },
+      "zooryn-oreiller": {
+        "type": "zooryn-oreiller",
+        "settings": {
+          "product": "",
+          "titre": "Zooryn  Oreiller gonflable ultraléger et compact PRO",
+          "annonce": "L'été est là — jusqu'à -53% + livraison offerte",
+          "prix": "39.99€",
+          "prix_barre": "44.99€",
+          "cta_label": "Ajouter au panier"
+        }
       }
     },
     "content_for_index": [],

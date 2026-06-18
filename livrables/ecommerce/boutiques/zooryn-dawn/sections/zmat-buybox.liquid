@@ -28,28 +28,57 @@
     <div class="wrap product-grid">
 
       <!-- Galerie -->
+      {%- comment -%}
+        Source des photos, par ordre de priorité :
+        1) les images du produit Shopify rattaché (mp.images) ;
+        2) les images choisies à la main dans le Personnalisateur (g1..g5) ;
+        3) un damier gris (placeholder) si rien n'est disponible.
+      {%- endcomment -%}
+      {%- assign use_product_imgs = false -%}
+      {%- if mp != blank and mp.images.size > 0 -%}{%- assign use_product_imgs = true -%}{%- endif -%}
+      {%- assign has_setting_imgs = false -%}
+      {%- if s.g1 != blank or s.g2 != blank or s.g3 != blank or s.g4 != blank or s.g5 != blank -%}{%- assign has_setting_imgs = true -%}{%- endif -%}
+      {%- assign thumb_labels = 'Vue 1,Vue 2,En situation,Détail valve,Plié / compact' | split: ',' -%}
+
       <div class="gallery">
         <div class="gallery-main">
-          {%- if s.g1 != blank -%}
+          {%- if use_product_imgs -%}
+            {%- assign main_img = mp.images.first -%}
+            <img class="img-cover" id="zmatMainImg-{{ sid }}" src="{{ main_img | image_url: width: 1100 }}" alt="{{ main_img.alt | escape }}" width="1100" height="1100">
+          {%- elsif s.g1 != blank -%}
             <img class="img-cover" id="zmatMainImg-{{ sid }}" src="{{ s.g1 | image_url: width: 1100 }}" alt="{{ s.g1.alt | escape }}" width="1100" height="1100">
           {%- else -%}
             <div class="placeholder" id="zmatMainPh-{{ sid }}" style="aspect-ratio:1/1;"><span>Photo produit principale</span></div>
           {%- endif -%}
+          <button type="button" class="gallery-arrow prev" id="zmatPrev-{{ sid }}" aria-label="Image précédente">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button type="button" class="gallery-arrow next" id="zmatNext-{{ sid }}" aria-label="Image suivante">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
         </div>
         <div class="gallery-thumbs" id="zmatThumbs-{{ sid }}">
-          {%- assign thumb_labels = 'Vue 1,Vue 2,En situation,Détail valve,Plié / compact' | split: ',' -%}
-          {%- for i in (1..5) -%}
-            {%- assign key = 'g' | append: i -%}
-            {%- assign img = s[key] -%}
-            {%- assign lbl = thumb_labels[forloop.index0] -%}
-            <div class="thumb{% if forloop.first %} active{% endif %}" data-label="{{ lbl }}"{% if img != blank %} data-img="{{ img | image_url: width: 1100 }}"{% endif %}>
-              {%- if img != blank -%}
+          {%- if use_product_imgs -%}
+            {%- for img in mp.images -%}
+              {%- assign lbl = img.alt | default: thumb_labels[forloop.index0] | default: 'Vue' -%}
+              <div class="thumb{% if forloop.first %} active{% endif %}" data-label="{{ lbl | escape }}" data-img="{{ img | image_url: width: 1100 }}">
                 <img class="img-cover" src="{{ img | image_url: width: 220 }}" alt="{{ img.alt | escape }}" width="220" height="220">
-              {%- else -%}
-                <div class="placeholder"><span>{{ lbl }}</span></div>
-              {%- endif -%}
-            </div>
-          {%- endfor -%}
+              </div>
+            {%- endfor -%}
+          {%- else -%}
+            {%- for i in (1..5) -%}
+              {%- assign key = 'g' | append: i -%}
+              {%- assign img = s[key] -%}
+              {%- assign lbl = thumb_labels[forloop.index0] -%}
+              <div class="thumb{% if forloop.first %} active{% endif %}" data-label="{{ lbl }}"{% if img != blank %} data-img="{{ img | image_url: width: 1100 }}"{% endif %}>
+                {%- if img != blank -%}
+                  <img class="img-cover" src="{{ img | image_url: width: 220 }}" alt="{{ img.alt | escape }}" width="220" height="220">
+                {%- else -%}
+                  <div class="placeholder"><span>{{ lbl }}</span></div>
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
         </div>
       </div>
 
@@ -212,19 +241,42 @@
   var root = document.getElementById('zmat-buybox-{{ sid }}');
   if(!root){ return; }
 
-  /* Galerie : clic vignette -> image principale */
+  /* Galerie : carrousel (flèches + vignettes synchronisées) */
   var mainImg = document.getElementById('zmatMainImg-{{ sid }}');
   var mainPh  = document.getElementById('zmatMainPh-{{ sid }}');
-  root.querySelectorAll('#zmatThumbs-{{ sid }} .thumb').forEach(function(t){
-    t.addEventListener('click', function(){
-      root.querySelectorAll('#zmatThumbs-{{ sid }} .thumb').forEach(function(x){ x.classList.remove('active'); });
-      t.classList.add('active');
-      var url = t.getAttribute('data-img');
-      var label = t.getAttribute('data-label') || 'Photo produit';
-      if(mainImg && url){ mainImg.src = url; }
-      else if(mainPh){ var sp = mainPh.querySelector('span'); if(sp){ sp.textContent = label; } }
-    });
-  });
+  var thumbsWrap = document.getElementById('zmatThumbs-{{ sid }}');
+  var thumbs = thumbsWrap ? Array.prototype.slice.call(thumbsWrap.querySelectorAll('.thumb')) : [];
+  var prevBtn = document.getElementById('zmatPrev-{{ sid }}');
+  var nextBtn = document.getElementById('zmatNext-{{ sid }}');
+  var current = 0;
+
+  function showImg(i){
+    if(!thumbs.length){ return; }
+    if(i < 0){ i = thumbs.length - 1; }
+    if(i >= thumbs.length){ i = 0; }
+    current = i;
+    var t = thumbs[i];
+    thumbs.forEach(function(x){ x.classList.remove('active'); });
+    t.classList.add('active');
+    var url = t.getAttribute('data-img');
+    var label = t.getAttribute('data-label') || 'Photo produit';
+    if(mainImg && url){ mainImg.src = url; }
+    else if(mainPh){ var sp = mainPh.querySelector('span'); if(sp){ sp.textContent = label; } }
+    /* garde la vignette active visible dans la bande (scroll interne seulement) */
+    if(thumbsWrap){
+      var target = t.offsetLeft - (thumbsWrap.clientWidth / 2) + (t.clientWidth / 2);
+      thumbsWrap.scrollTo({ left: target, behavior:'smooth' });
+    }
+  }
+
+  thumbs.forEach(function(t, i){ t.addEventListener('click', function(){ showImg(i); }); });
+  if(prevBtn){ prevBtn.addEventListener('click', function(){ showImg(current - 1); }); }
+  if(nextBtn){ nextBtn.addEventListener('click', function(){ showImg(current + 1); }); }
+  /* masque les flèches s'il n'y a qu'une seule image */
+  if(thumbs.length <= 1){
+    if(prevBtn){ prevBtn.style.display = 'none'; }
+    if(nextBtn){ nextBtn.style.display = 'none'; }
+  }
 
   /* Sélecteur de bundles */
   root.querySelectorAll('[data-bundle]').forEach(function(card){
@@ -281,7 +333,7 @@
   "tag": "section",
   "settings": [
     { "type": "product", "id": "product", "label": "Produit rattaché", "info": "Sur une page produit, le produit de la page est utilisé automatiquement. Sert de secours pour les autres pages." },
-    { "type": "header", "content": "Galerie (laisser vide = damier gris)" },
+    { "type": "header", "content": "Galerie", "info": "Par défaut, les photos du produit Shopify rattaché sont utilisées automatiquement. Les images ci-dessous ne servent que de secours si le produit n'a aucune photo." },
     { "type": "image_picker", "id": "g1", "label": "Image 1 (principale)" },
     { "type": "image_picker", "id": "g2", "label": "Image 2" },
     { "type": "image_picker", "id": "g3", "label": "Image 3" },

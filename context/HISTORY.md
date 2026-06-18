@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-06-18 (mise à jour 3)
+
+### Galerie page produit matelas branchée sur les vraies photos + carrousel à flèches
+- La galerie lisait des emplacements d'images manuels (placeholders) sans lien avec le produit. Recâblée pour lire directement les photos du produit Shopify rattaché (mp.images), avec repli sur les image_picker puis le damier gris.
+- Produit matelas confirmé : 10 photos déjà enregistrées, donc le carrousel se remplit tout seul.
+- Carrousel refait façon Norrfjällen : flèches gauche/droite superposées sur la grande image (navigation en boucle), bande de vignettes défilante qui recentre la vignette active, barre de scroll masquée (navigation aux flèches uniquement).
+- Bugs corrigés en direct : débordement horizontal de la page (min-width:0 sur les colonnes de la grille, l'image HD forçait sa colonne hors écran) et image remise carrée et compacte (max 440 px, centrée).
+- 2 points relevés non réglés : prix produit (69,99/144,99/274,99 €) ne correspond pas aux prix affichés sur la page (69,95/139,90/265,80 €) ; inventaire à 0 sur les 9 variantes (à passer en stock non suivi avant le test).
+
+---
+
 ## 2026-06-18 (mise à jour 2)
 
 ### Page oreiller complète + header global unifié sur tout le site + annonce par produit

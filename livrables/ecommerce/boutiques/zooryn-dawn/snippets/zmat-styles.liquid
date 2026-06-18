@@ -85,8 +85,8 @@
 .zmat .btn-cart:hover{ background:var(--vert-accent); }
 .zmat .btn-cart:active{ transform:scale(.99); }
 
-.zmat .pay-icons{ display:flex; align-items:center; gap:8px; justify-content:center; flex-wrap:wrap; margin:16px 0; }
-.zmat .pay-icons .pay{ background:#fff; border:1px solid rgba(21,66,48,.12); border-radius:6px; height:26px; min-width:40px; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:800; color:#555; letter-spacing:.02em; padding:0 7px; }
+.zmat .pay-icons{ display:flex; align-items:center; gap:7px; justify-content:center; flex-wrap:wrap; margin:16px 0; }
+.zmat .pay-icons .pay-ico{ width:42px; height:auto; border-radius:5px; box-shadow:0 0 0 1px rgba(21,66,48,.07); }
 .zmat .guarantee-line{ text-align:center; font-size:14px; font-weight:700; }
 .zmat .guarantee-line small{ display:block; font-weight:500; color:var(--vert-accent); margin-top:4px; }
 
@@ -151,14 +151,20 @@
 .zmat .feature.alt{ background:var(--creme-carte); }
 .zmat .feature-head{ text-align:center; max-width:760px; margin:0 auto 38px; }
 .zmat .feature-head h2{ font-size:36px; font-weight:800; letter-spacing:-.02em; line-height:1.12; }
-.zmat .intro-cols{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-bottom:42px; }
-.zmat .intro-cols h3{ font-size:17px; font-weight:600; line-height:1.5; color:var(--vert); }
-.zmat .feature-img-wide{ aspect-ratio:16/9; }
-.zmat .feature-img-wide .img-cover{ aspect-ratio:16/9; }
+.zmat .intro-split{ display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:center; }
+.zmat .intro-text h2{ font-size:34px; font-weight:800; letter-spacing:-.02em; line-height:1.14; margin-bottom:28px; }
+.zmat .intro-points{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:22px; }
+.zmat .intro-points li{ display:flex; gap:14px; align-items:flex-start; }
+.zmat .intro-points .ico-check{ flex:0 0 auto; width:26px; height:26px; color:var(--vert); margin-top:1px; }
+.zmat .intro-points .ico-check svg{ width:100%; height:100%; display:block; }
+.zmat .intro-points p{ font-size:17px; font-weight:500; line-height:1.5; color:var(--vert); margin:0; }
+.zmat .intro-media{ aspect-ratio:1/1; }
+.zmat .intro-media .img-cover{ aspect-ratio:1/1; border-radius:18px; }
+.zmat .intro-media .placeholder{ border-radius:18px; }
 .zmat .split{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
 .zmat .split.reverse .split-media{ order:2; }
-.zmat .split-media{ aspect-ratio:4/3; }
-.zmat .split-media .img-cover{ aspect-ratio:4/3; }
+.zmat .split-media{ aspect-ratio:1/1; }
+.zmat .split-media .img-cover{ aspect-ratio:1/1; }
 .zmat .split-text h2{ font-size:32px; font-weight:800; letter-spacing:-.02em; margin-bottom:18px; line-height:1.15; }
 .zmat .split-text p{ font-size:17px; font-weight:500; color:#33483e; margin-bottom:16px; }
 .zmat .split-text strong{ color:var(--vert); font-weight:800; }
@@ -236,13 +242,15 @@
 /* ===== Responsive ===== */
 @media (max-width:900px){
   .zmat .product-grid{ grid-template-columns:1fr; gap:30px; }
-  .zmat .intro-cols{ grid-template-columns:1fr; gap:18px; }
+  .zmat .intro-split{ grid-template-columns:1fr; gap:30px; }
+  .zmat .intro-media{ order:-1; }
   .zmat .split{ grid-template-columns:1fr; gap:26px; }
   .zmat .split.reverse .split-media{ order:0; }
 }
 @media (max-width:620px){
   .zmat .product-title{ font-size:27px; }
   .zmat .feature-head h2{ font-size:28px; }
+  .zmat .intro-text h2{ font-size:27px; }
   .zmat .split-text h2{ font-size:26px; }
   .zmat .faq h2{ font-size:28px; }
   .zmat .feature{ padding:50px 0; }
@@ -266,5 +274,11 @@
   }
   if(document.readyState !== 'loading'){ initReveal(); }
   else { document.addEventListener('DOMContentLoaded', initReveal); }
+  /* Éditeur de thème : quand Shopify recharge une seule section, on réaffiche
+     immédiatement ses blocs .reveal (l'observer initial ne les revoit pas). */
+  document.addEventListener('shopify:section:load', function(e){
+    var root = e.target || document;
+    root.querySelectorAll('.zmat .reveal').forEach(function(el){ el.classList.add('in'); });
+  });
 })();
 </script>

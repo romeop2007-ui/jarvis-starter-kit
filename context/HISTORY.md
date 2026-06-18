@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-06-18 (mise à jour 5)
+
+### Finitions UI page matelas + police Manrope unifiée sur tout le site
+- Page matelas : badges de paiement texte remplacés par les logos officiels colorés (`payment_type_svg_tag`), comme l'oreiller.
+- Bloc intro restructuré façon concurrent (Norrfjällen) : titre + 3 points cochés à gauche, image carrée 1254×1254 à droite (fini la grosse image paysage 16/9).
+- Bug "page blanche à l'insertion d'image" corrigé : l'animation `.reveal` restait bloquée en opacity:0 quand le Personnalisateur recharge une seule section ; ajout d'un écouteur `shopify:section:load` qui réaffiche les blocs. Correctif global à toutes les sections `.zmat`.
+- Les 5 blocs image+texte sous l'intro (Compact, Ergonomique, Extensible, Imperméable, S'adapte) passés de 4/3 à carré 1254×1254.
+- Police Manrope (celle du header) unifiée sur tout le site Dawn via override de `--font-body-family` / `--font-heading-family` dans `theme.liquid`. Pages produit matelas/oreiller intactes (CSS isolé, déjà en Manrope).
+
+---
+
 ## 2026-06-18 (mise à jour 4)
 
 ### Champs d'insertion d'image ajoutés sur la buy box matelas (pastilles couleur + oreiller)

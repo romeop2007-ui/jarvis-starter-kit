@@ -13,9 +13,9 @@
       <div class="split{% if s.reverse %} reverse{% endif %} reveal">
         <div class="split-media">
           {%- if s.image != blank -%}
-            <img class="img-cover" src="{{ s.image | image_url: width: 1000 }}" alt="{{ s.image.alt | escape }}" loading="lazy" width="1000" height="750">
+            <img class="img-cover" src="{{ s.image | image_url: width: 1254 }}" alt="{{ s.image.alt | escape }}" loading="lazy" width="1254" height="1254">
           {%- else -%}
-            <div class="placeholder" style="aspect-ratio:4/3;"><span>{{ s.placeholder_label | default: 'Image du bénéfice' }}</span></div>
+            <div class="placeholder" style="aspect-ratio:1/1;"><span>{{ s.placeholder_label | default: 'Image du bénéfice' }}</span></div>
           {%- endif -%}
         </div>
         <div class="split-text">

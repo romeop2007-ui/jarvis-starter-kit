@@ -10,6 +10,19 @@
 {%- assign cta_label = s.cta_label | default: 'Ajouter au panier' -%}
 {%- assign sid = section.id -%}
 
+{%- comment -%} Mappe chaque pack sur sa variante (par valeur d'option). {%- endcomment -%}
+{%- assign v_solo = '' -%}
+{%- assign v_pack2 = '' -%}
+{%- assign v_pack4 = '' -%}
+{%- if mp != blank -%}
+  {%- for v in mp.variants -%}
+    {%- if v.option1 == 'Pack Solo' -%}{%- assign v_solo = v -%}{%- endif -%}
+    {%- if v.option1 == 'Pack 2' -%}{%- assign v_pack2 = v -%}{%- endif -%}
+    {%- if v.option1 == 'Pack 4' -%}{%- assign v_pack4 = v -%}{%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+{%- assign addon_p = all_products['oreiller-gonflable-zooryn'] -%}
+
 <div class="zmat" id="zmat-buybox-{{ sid }}">
   <section class="product">
     <div class="wrap product-grid">
@@ -69,7 +82,7 @@
         <div class="bundle-list" id="zmatBundles-{{ sid }}">
 
           <!-- Pack 1 -->
-          <div class="bundle-card" data-bundle>
+          <div class="bundle-card" data-bundle data-variant-id="{{ v_solo.id }}">
             <div class="bundle-card-main">
               <span class="bundle-radio"></span>
               <div class="bundle-body">
@@ -78,6 +91,13 @@
                   {%- if s.b1_save != blank -%}<span class="bundle-save-badge">{{ s.b1_save }}</span>{%- endif -%}
                 </div>
                 {%- if s.b1_sub != blank -%}<p class="bundle-sub">{{ s.b1_sub }}</p>{%- endif -%}
+                <div class="bundle-colors">
+                  <p class="bundle-colors-label">Couleur</p>
+                  <div class="color-row">
+                    <div class="placeholder color-swatch"><span></span></div>
+                    <div class="color-field"><select class="color-select"><option>Gris</option><option>Vert</option><option>Bleu</option></select></div>
+                  </div>
+                </div>
               </div>
               <div class="bundle-price">
                 <span class="now">{{ s.b1_now | default: '69,95 €' }}</span>
@@ -87,7 +107,7 @@
           </div>
 
           <!-- Pack 2 (mis en avant) -->
-          <div class="bundle-card selected has-ribbon" data-bundle>
+          <div class="bundle-card selected has-ribbon" data-bundle data-variant-id="{{ v_pack2.id }}">
             {%- if s.b2_ribbon != blank -%}<span class="bundle-ribbon">{{ s.b2_ribbon }}</span>{%- endif -%}
             <div class="bundle-card-main">
               <span class="bundle-radio"></span>
@@ -101,11 +121,11 @@
                   <p class="bundle-colors-label">Couleur</p>
                   <div class="color-row">
                     <div class="placeholder color-swatch"><span></span></div>
-                    <div class="color-field"><select class="color-select"><option>Gris</option><option>Vert</option><option>Sable</option></select></div>
+                    <div class="color-field"><select class="color-select"><option>Gris</option><option>Vert</option><option>Bleu</option></select></div>
                   </div>
                   <div class="color-row">
                     <div class="placeholder color-swatch"><span></span></div>
-                    <div class="color-field"><select class="color-select"><option>Gris</option><option>Vert</option><option>Sable</option></select></div>
+                    <div class="color-field"><select class="color-select"><option>Gris</option><option>Vert</option><option>Bleu</option></select></div>
                   </div>
                 </div>
               </div>
@@ -122,7 +142,7 @@
           </div>
 
           <!-- Pack 3 -->
-          <div class="bundle-card" data-bundle>
+          <div class="bundle-card" data-bundle data-variant-id="{{ v_pack4.id }}">
             <div class="bundle-card-main">
               <span class="bundle-radio"></span>
               <div class="bundle-body">
@@ -131,6 +151,15 @@
                 </div>
                 {%- if s.b3_save != blank -%}<div class="bundle-title-row" style="margin-top:6px;"><span class="bundle-save-badge">{{ s.b3_save }}</span></div>{%- endif -%}
                 {%- if s.b3_sub != blank -%}<p class="bundle-sub">{{ s.b3_sub }}</p>{%- endif -%}
+                <div class="bundle-colors">
+                  <p class="bundle-colors-label">Couleur</p>
+                  {%- for i in (1..4) -%}
+                  <div class="color-row">
+                    <div class="placeholder color-swatch"><span></span></div>
+                    <div class="color-field"><select class="color-select"><option>Gris</option><option>Vert</option><option>Bleu</option></select></div>
+                  </div>
+                  {%- endfor -%}
+                </div>
               </div>
               <div class="bundle-price">
                 <span class="now">{{ s.b3_now | default: '265,90 €' }}</span>
@@ -149,7 +178,7 @@
 
         <!-- Add-on -->
         {%- if s.addon_title != blank -%}
-          <div class="bundle-addon" id="zmatAddon-{{ sid }}">
+          <div class="bundle-addon" id="zmatAddon-{{ sid }}" data-addon-id="{{ addon_p.variants.first.id }}">
             <span class="addon-check"></span>
             <div class="placeholder addon-thumb"><span></span></div>
             <div class="addon-body">
@@ -163,15 +192,7 @@
           </div>
         {%- endif -%}
 
-        {%- if mp != blank -%}
-          <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data" id="zmatForm">
-            <input type="hidden" name="id" value="{{ mp.selected_or_first_available_variant.id }}">
-            <input type="hidden" name="quantity" value="1">
-            <button type="submit" class="btn-cart" id="zmatHeroCta">{{ cta_label }}</button>
-          </form>
-        {%- else -%}
-          <button type="button" class="btn-cart" id="zmatHeroCta" onclick="window.location.href='{{ routes.cart_url }}'">{{ cta_label }}</button>
-        {%- endif -%}
+        <button type="button" class="btn-cart" id="zmatHeroCta" onclick="window.zmatAddToCart && window.zmatAddToCart()">{{ cta_label }}</button>
 
         <div class="pay-icons">
           <div class="pay">MC</div><div class="pay">VISA</div><div class="pay">Apple Pay</div><div class="pay">G Pay</div><div class="pay">Klarna</div>
@@ -216,6 +237,41 @@
   /* Add-on */
   var addon = document.getElementById('zmatAddon-{{ sid }}');
   if(addon){ addon.addEventListener('click', function(){ addon.classList.toggle('selected'); }); }
+
+  /* Ajout au panier : pack sélectionné + couleurs (propriétés de ligne) + add-on */
+  function buildItems(){
+    var card = root.querySelector('[data-bundle].selected') || root.querySelector('[data-bundle]');
+    if(!card){ return []; }
+    var vid = card.getAttribute('data-variant-id');
+    if(!vid){ return []; }
+    var props = {};
+    var sels = card.querySelectorAll('.color-select');
+    if(sels.length === 1){
+      props['Couleur'] = sels[0].value;
+    } else {
+      sels.forEach(function(sel, i){ props['Couleur ' + (i + 1)] = sel.value; });
+    }
+    var items = [{ id: Number(vid), quantity: 1, properties: props }];
+    if(addon && addon.classList.contains('selected')){
+      var aid = addon.getAttribute('data-addon-id');
+      if(aid){ items.push({ id: Number(aid), quantity: 1 }); }
+    }
+    return items;
+  }
+
+  var btn = document.getElementById('zmatHeroCta');
+  window.zmatAddToCart = function(){
+    var items = buildItems();
+    if(!items.length){ window.location.href = '{{ routes.cart_url }}'; return; }
+    if(btn){ btn.disabled = true; }
+    fetch('{{ routes.cart_add_url }}.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: items })
+    }).then(function(r){ return r.json(); })
+      .then(function(){ window.location.href = '{{ routes.cart_url }}'; })
+      .catch(function(){ if(btn){ btn.disabled = false; } window.location.href = '{{ routes.cart_url }}'; });
+  };
 })();
 </script>
 
@@ -260,16 +316,16 @@
     { "type": "text", "id": "b2_old", "label": "Pack 2 — prix barré", "default": "279,80 €" },
     { "type": "text", "id": "b2_gift", "label": "Pack 2 — cadeau", "default": "+ 2 oreillers gratuits (d'une valeur de 104,90 €)" },
     { "type": "text", "id": "b3_name", "label": "Pack 3 — nom", "default": "Achetez-en 4, recevez 4 oreillers." },
-    { "type": "text", "id": "b3_save", "label": "Pack 3 — badge", "default": "Économisez 293,90 €" },
+    { "type": "text", "id": "b3_save", "label": "Pack 3 — badge", "default": "Économisez 293,80 €" },
     { "type": "text", "id": "b3_sub", "label": "Pack 3 — sous-texte", "default": "Économisez 53%" },
-    { "type": "text", "id": "b3_now", "label": "Pack 3 — prix", "default": "265,90 €" },
-    { "type": "text", "id": "b3_old", "label": "Pack 3 — prix barré", "default": "559,80 €" },
+    { "type": "text", "id": "b3_now", "label": "Pack 3 — prix", "default": "265,80 €" },
+    { "type": "text", "id": "b3_old", "label": "Pack 3 — prix barré", "default": "559,60 €" },
     { "type": "text", "id": "b3_gift", "label": "Pack 3 — cadeau", "default": "+ 4 oreillers gratuits (d'une valeur de 209,90 €)" },
     { "type": "text", "id": "b3_gift_old", "label": "Pack 3 — valeur barrée cadeau", "default": "174,90 €" },
     { "type": "header", "content": "Option supplémentaire (add-on)" },
     { "type": "text", "id": "addon_title", "label": "Add-on — titre", "default": "+ 1 oreiller supplémentaire ?" },
-    { "type": "text", "id": "addon_save", "label": "Add-on — économie", "default": "Économisez 13,95 €" },
-    { "type": "text", "id": "addon_now", "label": "Add-on — prix", "default": "29,95 €" },
+    { "type": "text", "id": "addon_save", "label": "Add-on — économie", "default": "Économisez 13,00 €" },
+    { "type": "text", "id": "addon_now", "label": "Add-on — prix", "default": "30,90 €" },
     { "type": "text", "id": "addon_old", "label": "Add-on — prix barré", "default": "43,90 €" },
     { "type": "header", "content": "Bouton & garantie" },
     { "type": "text", "id": "cta_label", "label": "Texte du bouton", "default": "Ajouter au panier" },

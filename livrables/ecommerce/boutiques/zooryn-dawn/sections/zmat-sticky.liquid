@@ -28,12 +28,11 @@
   var sticky = document.getElementById('zmatSticky-{{ sid }}');
   if(!sticky){ return; }
   var heroBtn  = document.getElementById('zmatHeroCta');
-  var heroForm = document.getElementById('zmatForm');
   var stickyBtn = document.getElementById('zmatStickyBtn-{{ sid }}');
 
   if(stickyBtn){
     stickyBtn.addEventListener('click', function(){
-      if(heroForm){ heroForm.submit(); }
+      if(window.zmatAddToCart){ window.zmatAddToCart(); }
       else { window.location.href = '{{ routes.cart_url }}'; }
     });
   }

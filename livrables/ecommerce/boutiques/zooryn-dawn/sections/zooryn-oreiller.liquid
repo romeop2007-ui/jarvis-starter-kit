@@ -1,0 +1,814 @@
+{%- comment -%}
+  ============================================================
+  ZOORYN — Page produit Oreiller (corps seul).
+  Le header global (zooryn-header) et le footer Dawn sont fournis
+  par le layout theme.liquid : cette section ne contient QUE le
+  corps de la page produit. Tout le CSS est scopé sous .zore pour
+  ne pas entrer en collision avec Dawn.
+  Bouton d'achat câblé sur le produit du template (ou réglage repli).
+  ============================================================
+{%- endcomment -%}
+
+{%- assign mp = product | default: section.settings.product -%}
+{%- assign cta_label = section.settings.cta_label | default: 'Ajouter au panier' -%}
+{%- assign titre = section.settings.titre | default: 'Zooryn — Oreiller de voyage gonflable ultracompact' -%}
+{%- assign prix = section.settings.prix | default: '39.99€' -%}
+{%- assign prix_barre = section.settings.prix_barre | default: '44.99€' -%}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ===== TOKENS + base (scopé .zore) ===== */
+  .zore{
+    --creme:#EBE7DB;
+    --creme-chaud:#E2DDCC;
+    --vert:#154230;
+    --vert-fonce:#103325;
+    --clair:#F3EFE4;
+    --vert-accent:#2F6B4F;
+    --radius:14px;
+    --radius-lg:22px;
+    --shadow:0 10px 30px rgba(16,51,37,.10);
+    --shadow-sm:0 4px 14px rgba(16,51,37,.08);
+    --maxw:1180px;
+    --font:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-family:var(--font);
+    background:var(--creme);
+    color:var(--vert);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .zore *{box-sizing:border-box;margin:0;padding:0;}
+  .zore img{max-width:100%;display:block;}
+  .zore a{color:inherit;text-decoration:none;}
+  .zore button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  .zore .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+
+  /* placeholder visuel (remplacer par vos visuels) */
+  .zore .placeholder{
+    background:repeating-linear-gradient(45deg,#d7d2c2,#d7d2c2 12px,#cfc9b7 12px,#cfc9b7 24px);
+    color:var(--vert);
+    display:flex;align-items:center;justify-content:center;text-align:center;
+    font-size:13px;font-weight:600;letter-spacing:.02em;
+    padding:14px;border-radius:var(--radius);
+    border:1px dashed #b3ac96;
+  }
+  .zore .placeholder span{background:rgba(235,231,219,.85);padding:6px 12px;border-radius:8px;}
+
+  /* ===== HERO / PRODUIT ===== */
+  .zore .product{padding:30px 0 18px;}
+  .zore .product-grid{display:grid;gap:34px;grid-template-columns:1fr;}
+  @media(min-width:900px){
+    .zore .product-grid{grid-template-columns:1.05fr .95fr;gap:48px;align-items:start;}
+  }
+
+  /* galerie */
+  .zore .gallery-main{
+    position:relative;aspect-ratio:1/1;border-radius:var(--radius-lg);
+    overflow:hidden;background:var(--creme-chaud);box-shadow:var(--shadow-sm);
+  }
+  .zore .gallery-main .placeholder{height:100%;border-radius:0;border:none;font-size:15px;}
+  .zore .gallery-badge{
+    position:absolute;top:16px;left:16px;z-index:2;
+    background:var(--vert);color:var(--clair);
+    font-size:12px;font-weight:700;letter-spacing:.03em;
+    padding:7px 13px;border-radius:999px;
+  }
+  .zore .thumbs{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px;
+  }
+  @media(min-width:560px){.zore .thumbs{grid-template-columns:repeat(8,1fr);}}
+  .zore .thumb{
+    aspect-ratio:1/1;border-radius:10px;overflow:hidden;cursor:pointer;
+    border:2px solid transparent;background:var(--creme-chaud);transition:border-color .2s;
+  }
+  .zore .thumb.active{border-color:var(--vert);}
+  .zore .thumb .placeholder{height:100%;border-radius:0;border:none;font-size:9px;padding:4px;}
+  .zore .thumb .placeholder span{padding:2px 5px;font-size:9px;}
+
+  /* infos produit */
+  .zore .stars{color:#e0a526;letter-spacing:2px;font-size:16px;}
+  .zore .product-title{
+    font-size:30px;font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:14px;
+  }
+  @media(min-width:900px){.zore .product-title{font-size:34px;}}
+  .zore .price-row{display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap;}
+  .zore .price-now{font-size:26px;font-weight:800;}
+  .zore .price-old{font-size:18px;color:#8a8472;text-decoration:line-through;}
+  .zore .price-save{
+    background:#c64a3b;color:#fff;font-size:13px;font-weight:700;
+    padding:4px 11px;border-radius:999px;
+  }
+  .zore .benefits{list-style:none;display:flex;flex-direction:column;gap:12px;margin:18px 0 22px;}
+  .zore .benefits li{display:flex;gap:11px;font-size:15px;line-height:1.45;}
+  .zore .benefits li svg{flex:none;width:21px;height:21px;color:var(--vert-accent);margin-top:1px;}
+  .zore .stock-note{
+    display:flex;align-items:center;gap:9px;font-size:14px;font-weight:600;
+    color:#c64a3b;margin-bottom:16px;
+  }
+  .zore .stock-dot{width:9px;height:9px;border-radius:50%;background:#c64a3b;animation:zorepulse 1.4s infinite;}
+  @keyframes zorepulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+
+  .zore .btn-add{
+    display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    background:var(--vert);color:var(--creme);
+    font-size:17px;font-weight:700;letter-spacing:.01em;
+    padding:18px;border-radius:var(--radius);
+    box-shadow:var(--shadow);transition:transform .15s,background .2s;
+  }
+  .zore .btn-add:hover{background:var(--vert-accent);transform:translateY(-1px);}
+  .zore .btn-add:active{transform:translateY(0);}
+
+  .zore .pay-row{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin:16px 0;}
+  .zore .pay-row-icons{gap:7px;}
+  .zore .pay-ico{width:42px;height:auto;border-radius:5px;box-shadow:0 0 0 1px rgba(21,66,48,.07);}
+  .zore .trust-row{
+    display:flex;flex-direction:column;gap:9px;margin-top:8px;
+    border-top:1px solid rgba(21,66,48,.12);padding-top:16px;
+  }
+  .zore .trust-item{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;}
+  .zore .trust-item svg{width:22px;height:22px;color:var(--vert-accent);flex:none;}
+
+  /* ===== MARQUEE ===== */
+  .zore .marquee{
+    background:var(--vert-fonce);color:var(--clair);overflow:hidden;
+    padding:14px 0;margin-top:18px;
+  }
+  .zore .marquee-track{
+    display:flex;gap:0;white-space:nowrap;width:max-content;
+    animation:zorescrollx 22s linear infinite;
+  }
+  .zore .marquee-item{
+    display:inline-flex;align-items:center;gap:30px;
+    font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    padding:0 30px;
+  }
+  .zore .marquee-item::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--vert-accent);}
+  @keyframes zorescrollx{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* ===== FEATURE 1 ===== */
+  .zore .feature-intro{padding:64px 0 40px;text-align:center;}
+  .zore .feature-intro h2{
+    font-size:30px;font-weight:800;letter-spacing:-.02em;margin-bottom:38px;max-width:720px;
+    margin-left:auto;margin-right:auto;line-height:1.2;
+  }
+  @media(min-width:900px){.zore .feature-intro h2{font-size:40px;}}
+  .zore .feature-cols{display:grid;gap:26px;grid-template-columns:1fr;text-align:left;}
+  @media(min-width:760px){.zore .feature-cols{grid-template-columns:repeat(3,1fr);}}
+  .zore .feature-col{
+    background:var(--creme-chaud);border-radius:var(--radius-lg);padding:26px;
+    box-shadow:var(--shadow-sm);
+  }
+  .zore .feature-col .num{
+    width:38px;height:38px;border-radius:50%;background:var(--vert);color:var(--clair);
+    display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:16px;
+  }
+  .zore .feature-col p{font-size:16px;font-weight:500;line-height:1.5;}
+  .zore .feature-intro-img{
+    margin-top:40px;aspect-ratio:16/10;border-radius:var(--radius-lg);overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .zore .feature-intro-img .placeholder{height:100%;border-radius:0;border:none;font-size:15px;}
+
+  /* ===== FEATURE ROWS (alternées) ===== */
+  .zore .feature-row{padding:56px 0;}
+  .zore .feature-row .inner{display:grid;gap:36px;grid-template-columns:1fr;align-items:center;}
+  @media(min-width:900px){
+    .zore .feature-row .inner{grid-template-columns:1fr 1fr;gap:56px;}
+    .zore .feature-row.reverse .media{order:2;}
+  }
+  .zore .feature-row .media{aspect-ratio:4/3;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);}
+  .zore .feature-row .media .placeholder{height:100%;border-radius:0;border:none;font-size:15px;}
+  .zore .feature-row h2{font-size:28px;font-weight:800;letter-spacing:-.02em;margin-bottom:18px;line-height:1.2;}
+  @media(min-width:900px){.zore .feature-row h2{font-size:34px;}}
+  .zore .feature-row p{font-size:16px;margin-bottom:14px;line-height:1.6;}
+  .zore .feature-row p:last-child{margin-bottom:0;}
+  .zore .feature-row.dark{background:var(--vert-fonce);color:var(--clair);}
+  .zore .feature-row.dark .media{box-shadow:0 14px 36px rgba(0,0,0,.32);}
+
+  /* ===== FAQ ===== */
+  .zore .faq{padding:64px 0;}
+  .zore .faq h2{font-size:30px;font-weight:800;text-align:center;margin-bottom:34px;letter-spacing:-.02em;}
+  @media(min-width:900px){.zore .faq h2{font-size:38px;}}
+  .zore .faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:12px;}
+  .zore .faq-item{
+    background:var(--creme-chaud);border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow-sm);
+  }
+  .zore .faq-item summary{
+    list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:18px 22px;font-size:16px;font-weight:700;cursor:pointer;
+  }
+  .zore .faq-item summary::-webkit-details-marker{display:none;}
+  .zore .faq-item .plus{
+    flex:none;width:24px;height:24px;position:relative;transition:transform .25s;
+  }
+  .zore .faq-item .plus::before,.zore .faq-item .plus::after{
+    content:"";position:absolute;background:var(--vert);border-radius:2px;
+  }
+  .zore .faq-item .plus::before{top:11px;left:3px;right:3px;height:2px;}
+  .zore .faq-item .plus::after{left:11px;top:3px;bottom:3px;width:2px;transition:opacity .25s;}
+  .zore .faq-item[open] .plus{transform:rotate(180deg);}
+  .zore .faq-item[open] .plus::after{opacity:0;}
+  .zore .faq-answer{padding:0 22px 20px;font-size:15px;line-height:1.6;}
+  .zore .faq-answer p{margin-bottom:10px;}
+  .zore .faq-answer p:last-child{margin-bottom:0;}
+
+  /* ===== AVIS ===== */
+  .zore .reviews{padding:18px 0 64px;}
+  .zore .reviews-head{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    flex-wrap:wrap;margin-bottom:18px;
+  }
+  .zore .reviews-head .score{display:flex;align-items:center;gap:14px;}
+  .zore .reviews-head .stars{font-size:26px;color:#e0a526;letter-spacing:2px;}
+  .zore .reviews-head .count{display:flex;align-items:center;gap:7px;font-size:20px;font-weight:800;}
+  .zore .reviews-head .count svg{width:18px;height:18px;}
+  .zore .reviews-filter{
+    width:44px;height:44px;border-radius:10px;border:1px solid rgba(21,66,48,.2);
+    display:flex;align-items:center;justify-content:center;background:var(--creme-chaud);
+  }
+  .zore .reviews-filter svg{width:20px;height:20px;color:var(--vert);}
+  .zore .reviews-tabs{display:flex;gap:10px;margin-bottom:22px;}
+  .zore .reviews-tab{
+    font-size:14px;font-weight:700;padding:9px 16px;border-radius:999px;color:var(--vert);
+  }
+  .zore .reviews-tab.active{background:var(--creme-chaud);}
+  .zore .reviews-grid{column-gap:18px;column-count:1;}
+  @media(min-width:560px){.zore .reviews-grid{column-count:2;}}
+  @media(min-width:900px){.zore .reviews-grid{column-count:3;}}
+  @media(min-width:1100px){.zore .reviews-grid{column-count:4;}}
+  .zore .review-card{
+    break-inside:avoid;margin-bottom:18px;background:var(--creme-chaud);
+    border-radius:var(--radius);padding:20px;box-shadow:var(--shadow-sm);
+  }
+  .zore .review-author{display:flex;align-items:center;gap:7px;font-weight:800;font-size:15px;margin-bottom:9px;}
+  .zore .review-author .verified{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;color:var(--vert-accent);}
+  .zore .review-author .verified svg{width:15px;height:15px;}
+  .zore .review-card .stars{color:#e0a526;letter-spacing:2px;font-size:15px;}
+  .zore .review-title{font-weight:700;font-size:15px;margin:8px 0 4px;}
+  .zore .review-meta{font-size:12px;color:#8a8472;margin-bottom:14px;}
+  .zore .review-bought{
+    display:flex;gap:12px;border-top:1px solid rgba(21,66,48,.12);padding-top:14px;
+  }
+  .zore .review-bought .thumb-img{
+    width:52px;height:52px;border-radius:8px;flex:none;background:var(--creme);
+    border:1px dashed #b3ac96;display:flex;align-items:center;justify-content:center;
+    font-size:8px;text-align:center;color:var(--vert);padding:3px;
+  }
+  .zore .review-bought .bought-info{font-size:12px;}
+  .zore .review-bought .bought-label{font-weight:700;margin-bottom:2px;}
+  .zore .review-bought .bought-name{margin-bottom:5px;}
+  .zore .review-bought .bought-quote{font-style:italic;text-decoration:underline;text-underline-offset:2px;}
+  .zore .reviews-more{display:flex;justify-content:center;margin-top:14px;}
+  .zore .reviews-more button{
+    background:var(--vert);color:var(--creme);font-weight:700;font-size:15px;
+    padding:14px 30px;border-radius:var(--radius);
+  }
+
+  /* ===== BANDEAU MARQUE / OFFRES ===== */
+  .zore .brand-block{background:var(--creme-chaud);padding:54px 0;}
+  .zore .brand-block .inner{max-width:880px;margin:0 auto;text-align:center;}
+  .zore .brand-block .brand-logo{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-bottom:22px;}
+  .zore .brand-offers{
+    display:grid;gap:16px;grid-template-columns:1fr;text-align:left;
+    max-width:680px;margin:0 auto;
+  }
+  @media(min-width:680px){.zore .brand-offers{grid-template-columns:1fr 1fr;}}
+  .zore .brand-offers li{display:flex;gap:11px;font-size:15px;font-weight:600;align-items:flex-start;}
+  .zore .brand-offers li svg{width:20px;height:20px;color:var(--vert-accent);flex:none;margin-top:2px;}
+
+  /* ===== STICKY CTA (mobile) ===== */
+  .zore .sticky-cta{
+    position:fixed;left:0;right:0;bottom:0;z-index:50;
+    background:var(--creme);border-top:1px solid rgba(21,66,48,.15);
+    box-shadow:0 -6px 20px rgba(16,51,37,.12);
+    display:flex;align-items:center;gap:14px;padding:11px 16px;
+    transform:translateY(120%);transition:transform .3s ease;
+  }
+  .zore .sticky-cta.show{transform:translateY(0);}
+  .zore .sticky-cta .info{flex:1;min-width:0;}
+  .zore .sticky-cta .st-title{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .zore .sticky-cta .st-price{font-size:14px;font-weight:800;}
+  .zore .sticky-cta .st-price s{font-weight:500;color:#8a8472;font-size:12px;margin-left:6px;}
+  .zore .sticky-cta .btn-add{width:auto;padding:13px 22px;font-size:15px;flex:none;}
+  @media(min-width:980px){.zore .sticky-cta{display:none !important;}}
+
+  /* anim au scroll */
+  .zore .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+  .zore .reveal.in{opacity:1;transform:none;}
+</style>
+
+<div class="zore">
+
+<!-- SECTION : hero / produit -->
+<section class="product">
+  <div class="wrap product-grid">
+
+    <!-- galerie produit -->
+    <div class="gallery">
+      <div class="gallery-main">
+        <span class="gallery-badge">-12%</span>
+        <div class="placeholder" id="mainImage"><span>Photo produit principale — oreiller gonflable</span></div>
+      </div>
+      <div class="thumbs" id="thumbs">
+        <button class="thumb active" data-label="Photo produit principale"><div class="placeholder"><span>Vue 1</span></div></button>
+        <button class="thumb" data-label="Produit plié / compact (taille canette)"><div class="placeholder"><span>Vue 2</span></div></button>
+        <button class="thumb" data-label="En situation — tente / camping"><div class="placeholder"><span>Vue 3</span></div></button>
+        <button class="thumb" data-label="Détail valve double anti-fuite"><div class="placeholder"><span>Vue 4</span></div></button>
+        <button class="thumb" data-label="Personne allongée, tête sur l'oreiller"><div class="placeholder"><span>Vue 5</span></div></button>
+        <button class="thumb" data-label="Dimensions / épaisseur 10 cm"><div class="placeholder"><span>Vue 6</span></div></button>
+        <button class="thumb" data-label="Rangé dans la poche / sac à dos"><div class="placeholder"><span>Vue 7</span></div></button>
+        <button class="thumb" data-label="Couleurs / coloris disponibles"><div class="placeholder"><span>Vue 8</span></div></button>
+      </div>
+    </div>
+
+    <!-- infos produit -->
+    <div class="product-info">
+      <h1 class="product-title">{{ titre }}</h1>
+
+      <div class="price-row">
+        <span class="price-now">{{ prix }}</span>
+        <span class="price-old">{{ prix_barre }}</span>
+        <span class="price-save">ÉCONOMISEZ 12%</span>
+      </div>
+
+      <ul class="benefits">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>
+          Se gonfle en quelques souffles et se range à la taille d'une canette une fois dégonflé.
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>
+          Assez léger et compact pour tenir dans une poche ou se glisser dans n'importe quel sac à dos.
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>
+          Surface douce et soutien stable pour la nuque : dormez bien, même en pleine nature, et réveillez-vous sans torticolis.
+        </li>
+      </ul>
+
+      <div class="stock-note"><span class="stock-dot"></span> Ce produit est en stock limité</div>
+
+      {%- if mp != blank -%}
+        <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data" id="zoreForm">
+          <input type="hidden" name="id" value="{{ mp.selected_or_first_available_variant.id }}">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" class="btn-add" id="addToCart">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 7h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+            {{ cta_label }}
+          </button>
+        </form>
+      {%- else -%}
+        <button type="button" class="btn-add" id="addToCart" onclick="window.location.href='{{ routes.cart_url }}'">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 7h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          {{ cta_label }}
+        </button>
+      {%- endif -%}
+
+      <!-- moyens de paiement (icônes officiels colorés) -->
+      <div class="pay-row pay-row-icons">
+        {%- if shop.enabled_payment_types.size > 0 -%}
+          {%- for type in shop.enabled_payment_types -%}
+            {{ type | payment_type_svg_tag: class: 'pay-ico' }}
+          {%- endfor -%}
+        {%- else -%}
+          {%- assign pay_fallback = 'visa,master,american_express,paypal,apple_pay,klarna,shopify_pay' | split: ',' -%}
+          {%- for type in pay_fallback -%}
+            {{ type | payment_type_svg_tag: class: 'pay-ico' }}
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+
+      <div class="trust-row">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg>
+          Garantie 365 jours !
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+          Marque de confiance — fiable et simple.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION : bandeau défilant (marquee) -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item">Essayez sans risque</span>
+    <span class="marquee-item">Garantie 365 jours</span>
+    <span class="marquee-item">Modèle 2026 amélioré</span>
+    <span class="marquee-item">Essayez sans risque</span>
+    <span class="marquee-item">Garantie 365 jours</span>
+    <span class="marquee-item">Modèle 2026 amélioré</span>
+    <span class="marquee-item">Essayez sans risque</span>
+    <span class="marquee-item">Garantie 365 jours</span>
+    <span class="marquee-item">Modèle 2026 amélioré</span>
+    <span class="marquee-item">Essayez sans risque</span>
+    <span class="marquee-item">Garantie 365 jours</span>
+    <span class="marquee-item">Modèle 2026 amélioré</span>
+  </div>
+</div>
+
+<!-- SECTION : feature intro (3 atouts) -->
+<section class="feature-intro">
+  <div class="wrap">
+    <h2 class="reveal">Partez où vous voulez et dormez confortablement</h2>
+    <div class="feature-cols">
+      <div class="feature-col reveal">
+        <div class="num">1</div>
+        <p>Design compact et léger qui se replie à la taille d'une canette et tient facilement dans la poche ou le sac à dos.</p>
+      </div>
+      <div class="feature-col reveal">
+        <div class="num">2</div>
+        <p>Parfait pour la randonnée, le camping, le bivouac et les voyages où vous voulez voyager léger sans compromettre le confort.</p>
+      </div>
+      <div class="feature-col reveal">
+        <div class="num">3</div>
+        <p>Malgré sa petite taille, l'oreiller offre une sensation douce et confortable qui vous aide à mieux dormir, même en plein air.</p>
+      </div>
+    </div>
+    <div class="feature-intro-img reveal">
+      <div class="placeholder"><span>Démonstration en situation — produit utilisé en camping / nature (format paysage)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION : feature confort -->
+<section class="feature-row">
+  <div class="wrap inner">
+    <div class="media reveal">
+      <div class="placeholder"><span>Gros plan — oreiller gonflé, surface souple (format 4:3)</span></div>
+    </div>
+    <div class="text reveal">
+      <h2>Un confort moelleux, sans la sensation rigide</h2>
+      <p><strong>Quelques souffles suffisent</strong> à remplir l'oreiller d'air.</p>
+      <p>Il devient rapidement <strong>doux et confortable</strong> sans être dur, tendu ou trop gonflé comme beaucoup d'autres oreillers gonflables.</p>
+      <p>Vous le voulez plus moelleux ? Ajustez simplement la quantité d'air via la valve jusqu'à ce qu'il soit parfait pour vous.</p>
+      <p>Facile à <strong>adapter selon votre façon de dormir</strong>, et encore plus agréable une fois allongé.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION : feature soutien nuque (variante sombre) -->
+<section class="feature-row dark reverse">
+  <div class="wrap inner">
+    <div class="media reveal">
+      <div class="placeholder"><span>Personne allongée, nuque soutenue — confort de nuit (format 4:3)</span></div>
+    </div>
+    <div class="text reveal">
+      <h2>Un soutien pour la nuque qui est vraiment confortable</h2>
+      <p>Après une longue journée en pleine nature, vous voulez pouvoir vous allonger correctement, pas essayer de dormir sur une veste pliée.</p>
+      <p>Cet oreiller possède une <strong>surface douce</strong> et un <strong>soutien stable</strong> qui procurent une sensation plus naturelle et confortable lorsque vous vous reposez.</p>
+      <p>Il épouse bien la forme de la tête et <strong>reste en place</strong> sans s'affaisser pendant la nuit.</p>
+      <p>Vous vous réveillez plus reposé, sans <strong>nuque raide</strong> ni besoin de constamment réajuster votre oreiller improvisé au milieu de la nuit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION : FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <h2 class="reveal">Questions fréquentes</h2>
+    <div class="faq-list">
+
+      <details class="faq-item reveal">
+        <summary>Est-ce que ça s'adapte à tous les tapis de sol ?<span class="plus"></span></summary>
+        <div class="faq-answer">
+          <p>Oui. La sangle élastique est conçue pour s'adapter à la plupart des tapis standards.</p>
+          <p>Que vous utilisiez un tapis étroit ou plus large, elle s'ajuste pour rester stable et maintenir l'oreiller en place pendant la nuit.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Que se passe-t-il s'il se casse ou s'abîme ?<span class="plus"></span></summary>
+        <div class="faq-answer">
+          <p>L'oreiller est fabriqué dans des matériaux résistants et de haute qualité, et supporte un usage quotidien en extérieur. Si un accident survient malgré tout, vous bénéficiez d'une <strong>garantie 365 jours</strong> — s'il se casse durant la première année, nous vous en envoyons un nouveau sans frais. Nous sommes pleinement derrière nos produits, vous pouvez donc acheter en toute confiance.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Perd-il de l'air pendant la nuit ?<span class="plus"></span></summary>
+        <div class="faq-answer">
+          <p>Non ! La <strong>double valve anti-fuite</strong> garde l'air toute la nuit. Une fois bien gonflé le soir, il est aussi ferme au matin.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Plantez-vous des arbres quand j'achète ?<span class="plus"></span></summary>
+        <div class="faq-answer">
+          <p>C'est exact ! Une partie de nos bénéfices est reversée à la plantation d'arbres.</p>
+          <p>La raison est simple — chez Zooryn nous aimons la nature et voulons contribuer à prendre soin de la planète.</p>
+          <p>En achetant chez nous, vous participez à construire un meilleur avenir &lt;3</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Que se passe-t-il s'il se casse ?<span class="plus"></span></summary>
+        <div class="faq-answer">
+          <p>Vous bénéficiez d'une <strong>garantie 365 jours</strong> à partir de la date d'achat !</p>
+          <p>Si quelque chose se casse, nous vous envoyons un tout nouvel oreiller chez vous.</p>
+          <p>Voilà à quel point nous sommes sûrs de notre qualité.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Combien de temps ai-je pour me décider ?<span class="plus"></span></summary>
+        <div class="faq-answer">
+          <p>Vous avez toujours <strong>14 jours de retour</strong> chez nous ! Prenez votre temps et réfléchissez tranquillement.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>La livraison est-elle traçable et assurée ?<span class="plus"></span></summary>
+        <div class="faq-answer">
+          <p>Vous suivez votre commande tout au long du trajet, de chez nous jusqu'à votre porte ;)</p>
+          <p>La livraison est de plus toujours assurée lorsque nous expédions votre commande.</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Qu'en est-il de la qualité ?<span class="plus"></span></summary>
+        <div class="faq-answer">
+          <p>Chez Zooryn, nous savons à quel point il existe de produits médiocres sur le marché…</p>
+          <p>C'est pourquoi la qualité est une priorité absolue pour nous. Vous devez pouvoir faire entièrement confiance à votre équipement — sans payer une fortune.</p>
+          <p>P.S. N'oubliez pas notre <strong>garantie 365 jours</strong> ;)</p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal">
+        <summary>Puis-je l'essayer d'abord ?<span class="plus"></span></summary>
+        <div class="faq-answer">
+          <p>Bien sûr ! Commandez-le et testez-le pendant 14 jours pour voir s'il est à la hauteur de vos attentes.</p>
+          <p>Pensez simplement à ouvrir l'emballage avec précaution — le produit et l'emballage doivent être en état d'origine si vous souhaitez le retourner !</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION : avis clients -->
+<section class="reviews" id="avis">
+  <div class="wrap">
+
+    <div class="reviews-head reveal">
+      <div class="score">
+        <span class="stars">★★★★★</span>
+        <span class="count">
+          21 Avis
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
+        </span>
+      </div>
+      <button class="reviews-filter" aria-label="Filtrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h10M18 7h2M4 12h2M10 12h10M4 17h7M15 17h5"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="13" cy="17" r="2"/></svg>
+      </button>
+    </div>
+
+    <div class="reviews-tabs reveal">
+      <button class="reviews-tab active">Avis produit</button>
+      <button class="reviews-tab">Avis boutique</button>
+    </div>
+
+    <div class="reviews-grid">
+
+      <article class="review-card reveal">
+        <div class="review-author">Hélène V. <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.9 7.2 17l.9-5.4L4.2 7.7l5.4-.8z" stroke="none"/></svg>Vérifié</span></div>
+        <div class="stars">★★★★★</div>
+        <div class="review-title">Super</div>
+        <div class="review-meta">Traduit automatiquement</div>
+        <div class="review-bought">
+          <div class="thumb-img">Photo produit</div>
+          <div class="bought-info">
+            <div class="bought-label">Article acheté</div>
+            <div class="bought-name">Oreiller gonflable Zooryn</div>
+            <div class="bought-quote">« Super »</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-author">Brian B. <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.9 7.2 17l.9-5.4L4.2 7.7l5.4-.8z" stroke="none"/></svg>Vérifié</span></div>
+        <div class="stars">★★★★★</div>
+        <div class="review-title">Entreprise sérieuse, service client rapide.</div>
+        <div class="review-meta">Traduit automatiquement</div>
+        <div class="review-bought">
+          <div class="thumb-img">Photo produit</div>
+          <div class="bought-info">
+            <div class="bought-label">Article acheté</div>
+            <div class="bought-name">Oreiller gonflable Zooryn</div>
+            <div class="bought-quote">« Très bonne qualité et livraison fluide… »</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-author">Madeleine L. <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.9 7.2 17l.9-5.4L4.2 7.7l5.4-.8z" stroke="none"/></svg>Vérifié</span></div>
+        <div class="stars">★★★★★</div>
+        <div class="review-title">Parfait</div>
+        <div class="review-meta">Traduit automatiquement</div>
+        <div class="review-bought">
+          <div class="thumb-img">Photo produit</div>
+          <div class="bought-info">
+            <div class="bought-label">Article acheté</div>
+            <div class="bought-name">Oreiller gonflable Zooryn</div>
+            <div class="bought-quote">« Livraison parfaite. Très bien emballé… »</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-author">Maria A. <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.9 7.2 17l.9-5.4L4.2 7.7l5.4-.8z" stroke="none"/></svg>Vérifié</span></div>
+        <div class="stars">★★★★★</div>
+        <div class="review-title">Le seul qu'il vous faut</div>
+        <div class="review-meta">Traduit automatiquement</div>
+        <div class="review-bought">
+          <div class="thumb-img">Photo produit</div>
+          <div class="bought-info">
+            <div class="bought-label">Article acheté</div>
+            <div class="bought-name">Oreiller gonflable Zooryn</div>
+            <div class="bought-quote">« Souple et simple. Aucun souci… »</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-author">Laura L. <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.9 7.2 17l.9-5.4L4.2 7.7l5.4-.8z" stroke="none"/></svg>Vérifié</span></div>
+        <div class="stars">★★★★★</div>
+        <div class="review-title">Achat tout en douceur</div>
+        <div class="review-meta">Traduit automatiquement</div>
+        <div class="review-bought">
+          <div class="thumb-img">Photo produit</div>
+          <div class="bought-info">
+            <div class="bought-label">Article acheté</div>
+            <div class="bought-name">Oreiller gonflable Zooryn</div>
+            <div class="bought-quote">« Confortable et compact, je recommande… »</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-author">Ellinor P. <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.9 7.2 17l.9-5.4L4.2 7.7l5.4-.8z" stroke="none"/></svg>Vérifié</span></div>
+        <div class="stars">★★★★★</div>
+        <div class="review-title">Rien à redire</div>
+        <div class="review-meta">Traduit automatiquement</div>
+        <div class="review-bought">
+          <div class="thumb-img">Photo produit</div>
+          <div class="bought-info">
+            <div class="bought-label">Article acheté</div>
+            <div class="bought-name">Oreiller gonflable Zooryn</div>
+            <div class="bought-quote">« Exactement comme décrit… »</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-author">Ann-Charlotte A. <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.9 7.2 17l.9-5.4L4.2 7.7l5.4-.8z" stroke="none"/></svg>Vérifié</span></div>
+        <div class="stars">★★★★★</div>
+        <div class="review-title">Très bien !!</div>
+        <div class="review-meta">Traduit automatiquement</div>
+        <div class="review-bought">
+          <div class="thumb-img">Photo produit</div>
+          <div class="bought-info">
+            <div class="bought-label">Article acheté</div>
+            <div class="bought-name">Oreiller gonflable Zooryn</div>
+            <div class="bought-quote">« Léger et vraiment confortable… »</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card reveal">
+        <div class="review-author">Thomas M. <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.9 7.2 17l.9-5.4L4.2 7.7l5.4-.8z" stroke="none"/></svg>Vérifié</span></div>
+        <div class="stars">★★★★★</div>
+        <div class="review-title">Au top</div>
+        <div class="review-meta">Traduit automatiquement</div>
+        <div class="review-bought">
+          <div class="thumb-img">Photo produit</div>
+          <div class="bought-info">
+            <div class="bought-label">Article acheté</div>
+            <div class="bought-name">Oreiller gonflable Zooryn</div>
+            <div class="bought-quote">« Parfait pour la randonnée… »</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="reviews-more reveal">
+      <button>Voir plus d'avis</button>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION : bandeau marque / offres -->
+<section class="brand-block">
+  <div class="wrap inner">
+    <div class="brand-logo">Zooryn</div>
+    <ul class="brand-offers">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>365 jours de retour, achat sans risque en toute sérénité</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Livraisons rapides et sécurisées</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Un service client qui répond sous 12 heures</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Des achats sécurisés auprès d'une marque de confiance</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION : sticky CTA (mobile) -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="info">
+    <div class="st-title">{{ titre }}</div>
+    <div class="st-price">{{ prix }} <s>{{ prix_barre }}</s></div>
+  </div>
+  <button class="btn-add" id="addToCartSticky">{{ cta_label }}</button>
+</div>
+
+</div>
+
+<script>
+(function(){
+  var root = document.querySelector('.zore');
+  if(!root){ return; }
+
+  /* galerie */
+  var thumbs = root.querySelectorAll('.thumb');
+  var mainImage = root.querySelector('#mainImage');
+  thumbs.forEach(function(t){
+    t.addEventListener('click', function(){
+      thumbs.forEach(function(x){ x.classList.remove('active'); });
+      t.classList.add('active');
+      if(mainImage){ mainImage.querySelector('span').textContent = t.dataset.label; }
+    });
+  });
+
+  /* ajout au panier (sticky -> formulaire réel) */
+  var heroForm = root.querySelector('#zoreForm');
+  var stickyBtn = root.querySelector('#addToCartSticky');
+  if(stickyBtn){
+    stickyBtn.addEventListener('click', function(){
+      if(heroForm){ heroForm.submit(); }
+      else { window.location.href = '{{ routes.cart_url }}'; }
+    });
+  }
+
+  /* sticky CTA visible après le hero */
+  var sticky = root.querySelector('#stickyCta');
+  var product = root.querySelector('.product');
+  if(sticky && product){
+    window.addEventListener('scroll', function(){
+      var past = product.getBoundingClientRect().bottom < 0;
+      sticky.classList.toggle('show', past);
+    });
+  }
+
+  /* animations au scroll */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  root.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Zooryn — Page oreiller",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Produit rattaché (pour le bouton Ajouter au panier)",
+      "info": "Sur un template produit, le produit de la page fait foi. Ce réglage sert de repli."
+    },
+    {
+      "type": "text",
+      "id": "titre",
+      "label": "Titre du produit",
+      "default": "Zooryn — Oreiller de voyage gonflable ultracompact"
+    },
+    {
+      "type": "text",
+      "id": "prix",
+      "label": "Prix affiché",
+      "default": "39.99€"
+    },
+    {
+      "type": "text",
+      "id": "prix_barre",
+      "label": "Prix barré",
+      "default": "44.99€"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Texte du bouton",
+      "default": "Ajouter au panier"
+    }
+  ],
+  "presets": [
+    { "name": "Zooryn — Page oreiller" }
+  ]
+}
+{% endschema %}

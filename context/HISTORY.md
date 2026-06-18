@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-06-18 (mise à jour 2)
+
+### Page oreiller complète + header global unifié sur tout le site + annonce par produit
+- Page produit **Oreiller gonflable Zooryn** créée via le workflow Claude Design → Liquid et déployée en live (galerie, hero, marquee, 3 atouts, 2 blocs confort/soutien nuque, FAQ, avis, bandeau marque, sticky CTA). Bouton d'achat câblé sur la variante de l'oreiller (30,90 €), rattachée au template `product.oreiller`.
+- Itérations buy box : description réécrite pour l'oreiller, ligne d'avis retirée, **icônes de paiement officiels colorés** (`payment_type_svg_tag`), logo centré (débordement corrigé, dimensionné par la hauteur), barre d'annonce passée en police **Assistant** (la police de la boutique).
+- **Header global unifié `zooryn-header`** (style page oreiller : logo centré, nav Contactez-nous / Acheter / Suivre ma commande vers ParcelPanel, icônes compte + panier) qui **remplace le header Dawn sur tout le site** via `header-group.json`. CSS scopé `.zhead` pour zéro collision avec Dawn.
+- **Système d'annonce par produit** : metafield produit `custom.annonce`. Rempli → message **fixe** sur la page produit ; vide → 3 messages qui **défilent** (accueil et autres pages). Oreiller et matelas réglés sur « L'été est là — jusqu'à -53% + livraison offerte ».
+- **Footer de l'accueil (Dawn) appliqué sur toutes les pages** : la page oreiller a été rebranchée sur le layout Dawn (corps seul, CSS entièrement scopé `.zore`, header/annonce/footer baked retirés), elle hérite donc du header global + footer accueil.
+- Décisions actées par Roméo : header identique partout (nav de l'oreiller), footer accueil partout, annonce personnalisable et fixe par page produit.
+- Leçon technique : le cache de rendu **anonyme** Shopify peut traîner 10 min et plus après un changement de template/layout (une requête de session connectée le contourne).
+
+---
+
 ## 2026-06-18
 
 ### Page produit matelas : panier entièrement câblé (variantes pack + couleurs mix + add-on)

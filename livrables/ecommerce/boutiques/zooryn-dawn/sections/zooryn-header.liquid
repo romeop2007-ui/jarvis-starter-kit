@@ -1,0 +1,239 @@
+{%- comment -%}
+  ============================================================
+  ZOORYN — Header global (annonce + en-tête style "page oreiller").
+  Remplace l'announcement-bar + header Dawn dans le header-group,
+  donc s'affiche sur TOUTES les pages.
+  CSS scopé sous .zhead pour ne pas entrer en conflit avec Dawn.
+
+  Barre d'annonce :
+   - Page produit avec metafield custom.annonce rempli -> ce message (fixe).
+   - Sinon (accueil, etc.) -> messages par défaut (blocs) qui défilent.
+  ============================================================
+{%- endcomment -%}
+
+{%- assign header_logo = section.settings.logo | default: settings.logo -%}
+{%- assign prod_msg = '' -%}
+{%- if product != blank and product.metafields.custom.annonce != blank -%}
+  {%- assign prod_msg = product.metafields.custom.annonce -%}
+{%- endif -%}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  .zhead{
+    --zh-creme:#EBE7DB;
+    --zh-vert:#154230;
+    --zh-vert-fonce:#103325;
+    --zh-clair:#F3EFE4;
+    --zh-vert-accent:#2F6B4F;
+    --zh-maxw:1180px;
+    --zh-font:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --zh-font-annonce:'Assistant',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-family:var(--zh-font);
+  }
+  .zhead *{box-sizing:border-box;}
+  .zhead a{color:inherit;text-decoration:none;}
+  .zhead button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+  .zhead img{display:block;max-width:100%;}
+  .zh-wrap{max-width:var(--zh-maxw);margin:0 auto;padding:0 20px;}
+
+  /* ---- Barre d'annonce ---- */
+  .zh-topbar{
+    background:var(--zh-vert-fonce);color:var(--zh-clair);
+    font-family:var(--zh-font-annonce);
+    font-size:13px;font-weight:600;letter-spacing:.04em;
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    padding:9px 16px;text-align:center;min-height:38px;
+  }
+  .zh-promo-single{text-transform:uppercase;}
+  .zh-rotator{position:relative;flex:1;max-width:760px;height:18px;overflow:hidden;}
+  .zh-slide{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    opacity:0;transition:opacity .4s ease;text-transform:uppercase;
+  }
+  .zh-slide.active{opacity:1;}
+  .zh-arrow{
+    flex:none;width:24px;height:24px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;line-height:1;color:var(--zh-clair);opacity:.7;transition:opacity .15s;
+  }
+  .zh-arrow:hover{opacity:1;}
+
+  /* ---- Header ---- */
+  .zh-header{
+    background:var(--zh-creme);position:sticky;top:0;z-index:60;
+    border-bottom:1px solid rgba(21,66,48,.12);
+  }
+  .zh-inner{display:flex;align-items:center;justify-content:space-between;height:80px;position:relative;}
+  .zh-left,.zh-right{display:flex;align-items:center;gap:22px;}
+  .zh-nav{display:none;gap:24px;font-size:14px;font-weight:600;}
+  .zh-nav a:hover{color:var(--zh-vert-accent);}
+  .zh-logo{display:inline-flex;align-items:center;font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--zh-vert);}
+  .zh-logo-img{width:auto;max-width:240px;}
+  .zh-icon{display:flex;align-items:center;}
+  .zh-icon svg{width:22px;height:22px;stroke:var(--zh-vert);fill:none;stroke-width:1.8;}
+  .zh-cart-count{
+    background:var(--zh-vert);color:var(--zh-clair);font-size:11px;font-weight:700;
+    min-width:18px;height:18px;border-radius:9px;display:inline-flex;
+    align-items:center;justify-content:center;padding:0 5px;margin-left:6px;
+  }
+  .zh-cart{display:flex;align-items:center;}
+  .zh-burger{display:flex;}
+  @media(min-width:990px){
+    .zh-nav{display:flex;}
+    .zh-burger{display:none;}
+    .zh-inner{height:96px;}
+    .zh-logo-center{position:absolute;left:50%;transform:translateX(-50%);}
+  }
+
+  /* ---- Menu mobile (déroulant simple) ---- */
+  .zh-mobile{display:none;background:var(--zh-creme);border-bottom:1px solid rgba(21,66,48,.12);}
+  .zh-mobile.open{display:block;}
+  .zh-mobile a{display:block;padding:14px 20px;font-size:15px;font-weight:600;border-top:1px solid rgba(21,66,48,.08);}
+  @media(min-width:990px){.zh-mobile{display:none !important;}}
+</style>
+
+<div class="zhead">
+
+  <!-- Barre d'annonce -->
+  <div class="zh-topbar">
+    {%- if prod_msg != blank -%}
+      <div class="zh-promo-single">{{ prod_msg }}</div>
+    {%- elsif section.blocks.size > 0 -%}
+      {%- if section.blocks.size > 1 -%}<button class="zh-arrow zh-prev" aria-label="Précédent">&lsaquo;</button>{%- endif -%}
+      <div class="zh-rotator" data-rotate="{{ section.settings.rotate_speed | default: 5 }}">
+        {%- for block in section.blocks -%}
+          <div class="zh-slide{% if forloop.first %} active{% endif %}" {{ block.shopify_attributes }}>
+            {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}">{{ block.settings.text }}</a>{%- else -%}{{ block.settings.text }}{%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+      {%- if section.blocks.size > 1 -%}<button class="zh-arrow zh-next" aria-label="Suivant">&rsaquo;</button>{%- endif -%}
+    {%- endif -%}
+  </div>
+
+  <!-- En-tête -->
+  <header class="zh-header">
+    <div class="zh-wrap zh-inner">
+      <div class="zh-left">
+        <button class="zh-burger zh-icon" id="zhBurger" aria-label="Menu">
+          <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <nav class="zh-nav">
+          <a href="{{ pages.contact.url | default: '/pages/contact' }}">Contactez-nous</a>
+          <a href="{{ routes.all_products_collection_url }}">Acheter</a>
+          <a href="/apps/parcelpanel">Suivre ma commande</a>
+        </nav>
+      </div>
+
+      <a href="{{ routes.root_url }}" class="zh-logo zh-logo-center">
+        {%- if header_logo != blank -%}
+          <img class="zh-logo-img" src="{{ header_logo | image_url: width: 400 }}" alt="{{ shop.name }}" style="height:{{ section.settings.logo_height | default: 64 }}px;">
+        {%- else -%}
+          Zooryn
+        {%- endif -%}
+      </a>
+
+      <div class="zh-right">
+        <a href="{{ routes.account_url }}" class="zh-icon" aria-label="Compte">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </a>
+        <a href="{{ routes.cart_url }}" class="zh-icon zh-cart" aria-label="Panier">
+          <svg viewBox="0 0 24 24"><path d="M6 7h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="zh-cart-count">{{ cart.item_count }}</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Menu mobile -->
+    <div class="zh-mobile" id="zhMobile">
+      <a href="{{ pages.contact.url | default: '/pages/contact' }}">Contactez-nous</a>
+      <a href="{{ routes.all_products_collection_url }}">Acheter</a>
+      <a href="/apps/parcelpanel">Suivre ma commande</a>
+    </div>
+  </header>
+
+</div>
+
+<script>
+(function(){
+  var root = document.currentScript.previousElementSibling;
+  while(root && !root.classList.contains('zhead')){ root = root.previousElementSibling; }
+  if(!root){ return; }
+
+  /* Menu mobile */
+  var burger = root.querySelector('#zhBurger');
+  var mobile = root.querySelector('#zhMobile');
+  if(burger && mobile){ burger.addEventListener('click', function(){ mobile.classList.toggle('open'); }); }
+
+  /* Rotation de l'annonce */
+  var rotator = root.querySelector('.zh-rotator');
+  if(rotator){
+    var slides = rotator.querySelectorAll('.zh-slide');
+    if(slides.length > 1){
+      var i = 0;
+      var speed = (parseInt(rotator.dataset.rotate, 10) || 5) * 1000;
+      function show(n){ slides[i].classList.remove('active'); i = (n + slides.length) % slides.length; slides[i].classList.add('active'); }
+      var timer = setInterval(function(){ show(i + 1); }, speed);
+      var prev = root.querySelector('.zh-prev'); var next = root.querySelector('.zh-next');
+      if(prev){ prev.addEventListener('click', function(){ show(i - 1); }); }
+      if(next){ next.addEventListener('click', function(){ show(i + 1); }); }
+    }
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Zooryn — Header global",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo (centre)",
+      "info": "Vide = logo de la boutique par défaut."
+    },
+    {
+      "type": "range",
+      "id": "logo_height",
+      "min": 40,
+      "max": 110,
+      "step": 2,
+      "unit": "px",
+      "label": "Taille du logo (hauteur)",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "rotate_speed",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Vitesse de défilement de l'annonce",
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message d'annonce",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texte",
+          "default": "Livraison offerte partout en France"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Lien (optionnel)"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

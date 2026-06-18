@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-18
+
+### Page produit matelas : panier entièrement câblé (variantes pack + couleurs mix + add-on)
+- Reprise du bundle exact du concurrent (capture) : prix kr→€ vérifiés chiffre par chiffre, Pack 4 et add-on oreiller corrigés (265,80 € / 559,60 € ; oreiller 30,90 € au lieu de 29,95).
+- Décision d'archi (Roméo) : pack = variante à prix fixe, couleurs en MIX (propriétés de ligne, 1/2/4 sélecteurs selon le pack, comme le concurrent), add-on oreiller branché.
+- Produit matelas restructuré via MCP : option Pack (Solo/Pack 2/Pack 4), prix + prix barrés, stock non suivi. Couleur "Sable" remplacée par "Bleu".
+- Produit "Oreiller gonflable Zooryn" créé (30,90 €), publié sur le canal Boutique en ligne, achetable (fiche à remplir par Roméo).
+- Buy box + barre collante recâblées : un seul ajout AJAX (/cart/add.js) qui envoie le bon pack, les couleurs choisies en propriétés de ligne, et l'oreiller si coché. Testé en réel : Pack 2 = 139,90 €, oreiller = 30,90 €, montants exacts.
+- Reste avant test produit : vraies photos (galerie + par couleur) et remplir la fiche oreiller.
+
+---
+
 ## 2026-06-17 (mise à jour 4)
 
 ### Logo de marque Zooryn créé et décliné en vert émeraude

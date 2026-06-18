@@ -1,22 +1,39 @@
-{%- comment -%} ZOORYN — Matelas : bloc bénéfice "intro" (titre + 3 colonnes + image large). {%- endcomment -%}
+{%- comment -%} ZOORYN — Matelas : bloc bénéfice "intro" (texte + 3 points cochés à gauche, image carrée à droite, façon concurrent). {%- endcomment -%}
 {%- assign s = section.settings -%}
 <div class="zmat">
   <section class="feature{% if s.alt_bg %} alt{% endif %}">
     <div class="wrap">
-      {%- if s.heading != blank -%}
-        <div class="feature-head reveal"><h2>{{ s.heading }}</h2></div>
-      {%- endif -%}
-      <div class="intro-cols reveal">
-        {%- if s.col1 != blank -%}<h3>{{ s.col1 }}</h3>{%- endif -%}
-        {%- if s.col2 != blank -%}<h3>{{ s.col2 }}</h3>{%- endif -%}
-        {%- if s.col3 != blank -%}<h3>{{ s.col3 }}</h3>{%- endif -%}
-      </div>
-      <div class="feature-img-wide reveal">
-        {%- if s.image != blank -%}
-          <img class="img-cover" src="{{ s.image | image_url: width: 1400 }}" alt="{{ s.image.alt | escape }}" loading="lazy" width="1400" height="788">
-        {%- else -%}
-          <div class="placeholder" style="aspect-ratio:16/9;"><span>{{ s.placeholder_label | default: 'Démonstration en situation' }}</span></div>
-        {%- endif -%}
+      <div class="intro-split reveal">
+        <div class="intro-text">
+          {%- if s.heading != blank -%}<h2>{{ s.heading }}</h2>{%- endif -%}
+          <ul class="intro-points">
+            {%- if s.col1 != blank -%}
+              <li>
+                <span class="ico-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.3l3.2 3.2L17 8.7" stroke="#F0EBDD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <p>{{ s.col1 }}</p>
+              </li>
+            {%- endif -%}
+            {%- if s.col2 != blank -%}
+              <li>
+                <span class="ico-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.3l3.2 3.2L17 8.7" stroke="#F0EBDD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <p>{{ s.col2 }}</p>
+              </li>
+            {%- endif -%}
+            {%- if s.col3 != blank -%}
+              <li>
+                <span class="ico-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.3l3.2 3.2L17 8.7" stroke="#F0EBDD" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <p>{{ s.col3 }}</p>
+              </li>
+            {%- endif -%}
+          </ul>
+        </div>
+        <div class="intro-media">
+          {%- if s.image != blank -%}
+            <img class="img-cover" src="{{ s.image | image_url: width: 1254 }}" alt="{{ s.image.alt | escape }}" loading="lazy" width="1254" height="1254">
+          {%- else -%}
+            <div class="placeholder" style="aspect-ratio:1/1;"><span>{{ s.placeholder_label | default: 'Démonstration en situation' }}</span></div>
+          {%- endif -%}
+        </div>
       </div>
     </div>
   </section>
@@ -28,11 +45,11 @@
   "settings": [
     { "type": "checkbox", "id": "alt_bg", "label": "Fond crème foncé", "default": false },
     { "type": "text", "id": "heading", "label": "Titre", "default": "Déroulez, gonflez, profitez !" },
-    { "type": "textarea", "id": "col1", "label": "Colonne 1", "default": "Laissez le stress de la ville derrière vous et savourez le calme de la nature, en famille." },
-    { "type": "textarea", "id": "col2", "label": "Colonne 2", "default": "Grâce à la pompe intégrée efficace, le lit est prêt en un instant – parfait quand les enfants ont besoin de bouger." },
-    { "type": "textarea", "id": "col3", "label": "Colonne 3", "default": "Au matin, vous enroulez le matelas en un tour de main : plus de temps pour un petit-déjeuner cosy au coin du feu." },
-    { "type": "image_picker", "id": "image", "label": "Image large" },
-    { "type": "text", "id": "placeholder_label", "label": "Texte du damier (si pas d'image)", "default": "Démonstration en situation — famille en camping, matelas déroulé" }
+    { "type": "textarea", "id": "col1", "label": "Point 1", "default": "Laissez le stress de la ville derrière vous et savourez le calme de la nature, en famille." },
+    { "type": "textarea", "id": "col2", "label": "Point 2", "default": "Grâce à la pompe intégrée efficace, le lit est prêt en un instant – parfait quand les enfants ont besoin de bouger." },
+    { "type": "textarea", "id": "col3", "label": "Point 3", "default": "Au matin, vous enroulez le matelas en un tour de main : plus de temps pour un petit-déjeuner cosy au coin du feu." },
+    { "type": "image_picker", "id": "image", "label": "Image carrée (1254×1254)" },
+    { "type": "text", "id": "placeholder_label", "label": "Texte du damier (si pas d'image)", "default": "Démonstration en situation — matelas déroulé en pleine nature" }
   ],
   "presets": [ { "name": "Matelas — Bloc intro" } ]
 }

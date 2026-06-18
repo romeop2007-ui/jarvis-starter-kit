@@ -224,7 +224,16 @@
         <button type="button" class="btn-cart" id="zmatHeroCta" onclick="window.zmatAddToCart && window.zmatAddToCart()">{{ cta_label }}</button>
 
         <div class="pay-icons">
-          <div class="pay">MC</div><div class="pay">VISA</div><div class="pay">Apple Pay</div><div class="pay">G Pay</div><div class="pay">Klarna</div>
+          {%- if shop.enabled_payment_types.size > 0 -%}
+            {%- for type in shop.enabled_payment_types -%}
+              {{ type | payment_type_svg_tag: class: 'pay-ico' }}
+            {%- endfor -%}
+          {%- else -%}
+            {%- assign pay_fallback = 'visa,master,american_express,paypal,apple_pay,klarna,shopify_pay' | split: ',' -%}
+            {%- for type in pay_fallback -%}
+              {{ type | payment_type_svg_tag: class: 'pay-ico' }}
+            {%- endfor -%}
+          {%- endif -%}
         </div>
 
         {%- if s.guarantee_main != blank -%}

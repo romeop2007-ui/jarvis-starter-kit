@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-06-19
+
+### Lancement de l'agent "Usine à créas Zooryn" (skill crea-pub) + pivot vers gpt-image
+- Décision de Roméo : construire de A à Z un agent (skill `crea-pub`) qui transforme une pub gagnante d'un concurrent en créa adaptée Zooryn en français, prête à poster. L'agent détecte automatiquement le type : vidéo (.mp4) ou image statique (.jpg/.png).
+- **Volet VIDÉO (validé) :** pipeline qui mesure la durée (ffprobe), transcrit la pub d'origine (API ElevenLabs Scribe), génère une voix off FR à la marque calée sur la durée (API ElevenLabs TTS), retire les sous-titres via Vmake (browser-use, à roder), et livre un dossier prêt à monter. CapCut reste manuel (l'agent prépare, Roméo monte). Clé `ELEVEN_LABS_API_KEY` active et testée (TTS + transcription OK ; permission voices_read activée par Roméo). Script de voix off via un prompt fixe fourni par Roméo (rôle créateur Zooryn + nom produit + contrainte de durée + transcription de la créa).
+- **Volet IMAGE, tentative locale gratuite puis ABANDON :** installé Python + IOPaint (modèle LaMa) + EasyOCR + @napi-rs/canvas + sharp. Pipeline "effacer le texte/logo d'origine (LaMa) + reposer le texte FR + coller le logo Zooryn". L'effacement fonctionne, mais à la résolution des sources (previews ~336px) le rendu est mou et le ciblage des logos peu fiable. Rendu jugé "nul" par Roméo. Abandonné.
+- **PIVOT acté : édition par prompt via l'API OpenAI gpt-image (le moteur de ChatGPT).** Roméo a obtenu à la main, en 2 prompts ChatGPT, un rendu très supérieur (logo Zooryn intégré en perspective sur le matelas et le sac, texte FR net, HD). Décision : reproduire SA méthode en automatique via l'API gpt-image en lui passant SES prompts exacts. Connecteur `edit_openai.mjs` construit, clé `OPENAI_API_KEY` ajoutée au .env par Roméo. Rappel honnête tracé : l'API est payante à l'usage, distincte de l'abonnement ChatGPT.
+- **Convention de rangement :** sources dans `livrables/ecommerce/creas/ressources créas avant modifs`, créas finales dans `ressources créas après modifs` (suffixe `_FR`). 6 créas Norrfjällen (concurrent matelas) à adapter, fournies.
+- **Feedback fort de Roméo :** être force de proposition, balayer large l'écosystème d'outils et proposer les meilleures solutions, quitte à installer/brancher du nouveau. Ne pas se limiter à mes acquis ni m'arrêter à "ce que je sais déjà faire".
+- **Annexe :** projet "contrôler Claude via téléphone" abandonné (Roméo a trouvé une autre méthode via un skill) ; section TELEGRAM ajoutée au .env mais inutilisée.
+- **Prochaine session :** Roméo fournit ses 2 prompts ChatGPT exacts ; je teste `edit_openai.mjs` sur la créa 1, on compare au rendu ChatGPT, puis on industrialise les 6.
+
+---
+
 ## 2026-06-18 (mise à jour 5)
 
 ### Finitions UI page matelas + police Manrope unifiée sur tout le site

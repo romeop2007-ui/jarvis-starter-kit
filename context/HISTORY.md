@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-19 (mise à jour 2)
+
+### Usine à créas — volet image VALIDÉ + nettoyage workspace
+- Volet image de crea-pub validé via l'API gpt-image-1 (`edit_openai.mjs`) : la créa source ET le logo Zooryn sont passés ensemble en référence, le modèle intègre le logo et adapte le texte. 6 créas matelas Norrfjällen adaptées en FR (dossier `T3`), code ÉTÉ10, prix convertis SEK→€, marque Zooryn partout.
+- Format source conservé au pixel près (recadrage auto + position de recadrage) : gpt-image RECOMPOSE l'image, donc on génère au ratio le plus proche puis on recadre côté texte. Objectif acté : Roméo ne vérifie jamais derrière Claude.
+- Règles de prompt actées : ne changer que la langue (adapter, jamais traduire littéralement un faux argument d'origine type "entreprise suédoise" → "marque française") et le logo ; garder la même police que l'original ; remonter les codes promo à part (Roméo crée ÉTÉ10 = 10% sur Shopify).
+- Suivi de coût ajouté (ledger `_couts_openai.json`) : ~0,18-0,26 $/image, total session créas 3,28 $. L'API ne donne pas le solde, seulement la dépense par run.
+- Nettoyage workspace : `.env` purgé (token GitHub parasite hérité d'un template YouTube + clés inutiles supprimés, ne restent que OPENAI et ELEVEN_LABS) ; skills triés de 45 à 21 (suppression de 24 skills hors-métier B2C/Meta/Shopify + résidu `_tmp_canva`).
+- À faire côté Roméo : créer le code `ÉTÉ10 = 10%` sur Shopify.
+
+---
+
 ## 2026-06-19
 
 ### Lancement de l'agent "Usine à créas Zooryn" (skill crea-pub) + pivot vers gpt-image

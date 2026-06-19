@@ -1,0 +1,145 @@
+{
+  "totalUsd": 3.28139,
+  "runs": [
+    {
+      "at": "2026-06-19T14:20:12.260Z",
+      "label": "../../../livrables/ecommerce/creas/ressources créas après modifs/1308041690656378_image_0_FR.png",
+      "usd": 0.258765,
+      "tokens": {
+        "textIn": 541,
+        "imageIn": 646,
+        "out": 6240
+      }
+    },
+    {
+      "at": "2026-06-19T14:38:33.497Z",
+      "label": "../../../livrables/ecommerce/creas/ressources créas après modifs/1939187996781303_image_0_FR.png",
+      "usd": 0.25855,
+      "tokens": {
+        "textIn": 498,
+        "imageIn": 646,
+        "out": 6240
+      }
+    },
+    {
+      "at": "2026-06-19T14:39:28.103Z",
+      "label": "../../../livrables/ecommerce/creas/ressources créas après modifs/2067437757173597_image_0_FR.png",
+      "usd": 0.255135,
+      "tokens": {
+        "textIn": 461,
+        "imageIn": 323,
+        "out": 6240
+      }
+    },
+    {
+      "at": "2026-06-19T14:40:37.379Z",
+      "label": "../../../livrables/ecommerce/creas/ressources créas après modifs/2113342599231865_image_0_FR.png",
+      "usd": 0.255145,
+      "tokens": {
+        "textIn": 463,
+        "imageIn": 323,
+        "out": 6240
+      }
+    },
+    {
+      "at": "2026-06-19T14:41:40.870Z",
+      "label": "../../../livrables/ecommerce/creas/ressources créas après modifs/986016270724574_image_0_FR.png",
+      "usd": 0.25824,
+      "tokens": {
+        "textIn": 436,
+        "imageIn": 646,
+        "out": 6240
+      }
+    },
+    {
+      "at": "2026-06-19T14:42:55.207Z",
+      "label": "../../../livrables/ecommerce/creas/ressources créas après modifs/986016270724574_image_1_FR.png",
+      "usd": 0.25824,
+      "tokens": {
+        "textIn": 436,
+        "imageIn": 646,
+        "out": 6240
+      }
+    },
+    {
+      "at": "2026-06-19T14:44:54.706Z",
+      "label": "../../../livrables/ecommerce/creas/ressources créas après modifs/986016270724574_image_1_FR.png",
+      "usd": 0.17504,
+      "tokens": {
+        "textIn": 436,
+        "imageIn": 646,
+        "out": 4160
+      }
+    },
+    {
+      "at": "2026-06-19T15:02:10.440Z",
+      "label": "../../../livrables/ecommerce/creas/ressources créas après modifs/1308041690656378_image_0_FR.png",
+      "usd": 0.258765,
+      "tokens": {
+        "textIn": 541,
+        "imageIn": 646,
+        "out": 6240
+      }
+    },
+    {
+      "at": "2026-06-19T15:03:10.236Z",
+      "label": "../../../livrables/ecommerce/creas/ressources créas après modifs/1939187996781303_image_0_FR.png",
+      "usd": 0.25879,
+      "tokens": {
+        "textIn": 546,
+        "imageIn": 646,
+        "out": 6240
+      }
+    },
+    {
+      "at": "2026-06-19T15:06:03.139Z",
+      "label": "../../../livrables/ecommerce/creas/ressources créas après modifs/1308041690656378_image_0_FR.png",
+      "usd": 0.175565,
+      "tokens": {
+        "textIn": 541,
+        "imageIn": 646,
+        "out": 4160
+      }
+    },
+    {
+      "at": "2026-06-19T15:08:00.401Z",
+      "label": "../../../livrables/ecommerce/creas/ressources créas après modifs/T3/1308041690656378_image_0_FR.png",
+      "usd": 0.175565,
+      "tokens": {
+        "textIn": 541,
+        "imageIn": 646,
+        "out": 4160
+      }
+    },
+    {
+      "at": "2026-06-19T15:08:47.033Z",
+      "label": "../../../livrables/ecommerce/creas/ressources créas après modifs/T3/1939187996781303_image_0_FR.png",
+      "usd": 0.17559,
+      "tokens": {
+        "textIn": 546,
+        "imageIn": 646,
+        "out": 4160
+      }
+    },
+    {
+      "at": "2026-06-19T15:12:26.491Z",
+      "label": "../../../livrables/ecommerce/creas/ressources créas après modifs/T3/1308041690656378_image_0_FR.png",
+      "usd": 0.259015,
+      "tokens": {
+        "textIn": 591,
+        "imageIn": 646,
+        "out": 6240
+      }
+    },
+    {
+      "at": "2026-06-19T15:13:32.975Z",
+      "label": "../../../livrables/ecommerce/creas/ressources créas après modifs/T3/1939187996781303_image_0_FR.png",
+      "usd": 0.258985,
+      "tokens": {
+        "textIn": 585,
+        "imageIn": 646,
+        "out": 6240
+      }
+    }
+  ]
+}

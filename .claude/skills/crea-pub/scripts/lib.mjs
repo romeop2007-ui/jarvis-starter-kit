@@ -11,6 +11,13 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 export const WORKSPACE_ROOT = resolve(__dirname, "..", "..", "..", "..");
 export const OUTPUT_ROOT = join(WORKSPACE_ROOT, "livrables", "ecommerce", "creas");
 
+// Racine des LIVRABLES FINAUX (convention Romeo) : on range par LOT (= nom du dossier
+// source dans "ressources creas avant modifs", ex "T4") puis par pub (AD1, AD2, ...).
+// Chaque dossier ADn ne contient QUE le livrable utile a CapCut : la voix off (pubs video
+// avec narration) OU les accroches FR (pubs muettes/musicales et pubs image). Le visuel
+// (video-sans-soustitres.mp4 ou creas finale) vient s'y ajouter ensuite.
+export const FINAL_ROOT = join(OUTPUT_ROOT, "ressources créas après modifs");
+
 export const ELEVEN_BASE = "https://api.elevenlabs.io/v1";
 
 // Lit une cle dans le fichier .env du workspace (format KEY=value, lignes # ignorees).
@@ -54,8 +61,18 @@ export function slugify(s) {
 }
 
 // Dossier de sortie d'une pub : <produit>__<nom-pub>, cree s'il n'existe pas.
+// (Ancienne convention, conservee pour compat / dossiers de travail temporaires.)
 export function adFolder(produit, nomPub) {
   const dir = join(OUTPUT_ROOT, `${slugify(produit)}__${slugify(nomPub)}`);
+  mkdirSync(dir, { recursive: true });
+  return dir;
+}
+
+// Dossier LIVRABLE FINAL d'une pub : "ressources créas après modifs/<LOT>/<ADn>/".
+// lot = nom du lot source (ex "T4"), ad = numero ou libelle de la pub (ex "AD1").
+// C'est ici qu'on depose la voix off / les accroches, puis le visuel plus tard.
+export function finalAdFolder(lot, ad) {
+  const dir = join(FINAL_ROOT, String(lot).trim(), String(ad).trim().toUpperCase());
   mkdirSync(dir, { recursive: true });
   return dir;
 }

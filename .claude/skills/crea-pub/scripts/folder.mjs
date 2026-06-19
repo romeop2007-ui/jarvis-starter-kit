@@ -1,15 +1,34 @@
-// Cree (si besoin) le dossier de sortie d'une pub et imprime son chemin absolu.
-// Usage : node scripts/folder.mjs "<produit>" "<nom-pub>"
-// Utilise par le chemin IMAGE (et utile pour preparer un dossier a la main).
+// Cree (si besoin) le dossier d'une pub et imprime son chemin absolu.
+// Deux modes :
+//   LIVRABLE FINAL (convention Romeo, a privilegier) :
+//     node scripts/folder.mjs --lot T4 --ad AD1
+//     -> "ressources créas après modifs/T4/AD1/"
+//   Ancien mode (dossier de travail <produit>__<nom-pub>) :
+//     node scripts/folder.mjs "<produit>" "<nom-pub>"
 
-import { adFolder } from "./lib.mjs";
+import { adFolder, finalAdFolder } from "./lib.mjs";
 
 if (process.argv[1]?.endsWith("folder.mjs")) {
-  const produit = process.argv[2];
-  const nomPub = process.argv[3];
-  if (!produit || !nomPub) {
-    console.error('Usage : node scripts/folder.mjs "<produit>" "<nom-pub>"');
-    process.exit(1);
+  const args = process.argv.slice(2);
+  const get = (flag) => {
+    const i = args.indexOf(flag);
+    return i !== -1 ? args[i + 1] : undefined;
+  };
+  const lot = get("--lot");
+  const ad = get("--ad");
+
+  if (lot && ad) {
+    console.log(finalAdFolder(lot, ad));
+  } else {
+    const produit = args[0];
+    const nomPub = args[1];
+    if (!produit || !nomPub) {
+      console.error(
+        'Usage : node scripts/folder.mjs --lot T4 --ad AD1   (livrable final)\n' +
+          '    ou : node scripts/folder.mjs "<produit>" "<nom-pub>"   (dossier de travail)'
+      );
+      process.exit(1);
+    }
+    console.log(adFolder(produit, nomPub));
   }
-  console.log(adFolder(produit, nomPub));
 }

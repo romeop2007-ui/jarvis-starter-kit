@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-06-19 (mise à jour 3)
+
+### Usine à créas — 1er lot vidéo (T4 guirlande Mira) + convention de sortie + Vmake automatisé (blocage upload)
+- **T4 = guirlande solaire Mira** (concurrent Belysningshuset), 5 vidéos passées dans le skill `crea-pub` (chemin vidéo). Détection fine : **2 vidéos à voix off** (finnois 30,4 s, suédois 24,2 s) + **3 musicales sans voix** (accroches incrustées), dont AD3/AD4 **jumelles** (mêmes plans, sous-titres DA vs SE).
+- **Livrables produits :** voix off **Sarah** (`EXAVITQu4vr4xnSDxMaL`, mémorisée comme voix vidéo par défaut) calées au plus près de la durée (AD1 30,28 s, AD2 24,42 s) ; **accroches FR** zone par zone pour AD3/4/5. Produit nommé « Zooryn - Guirlande lumineuse solaire ». Logo concurrent **gravé** sur le produit (« OGERY ») repéré, non retirable par Vmake, à masquer au montage.
+- **Nouvelle convention de sortie (imposée par Roméo, codée dans le skill) :** livrables dans `ressources créas après modifs/<LOT>/<ADn>/`, un sous-dossier par pub, ne contenant que `voix-off.mp3` (pub narrée) ou `accroches-fr.md` (pub muette/image) ; le visuel s'ajoute dans le même dossier ensuite. `lib.mjs` (`finalAdFolder`), `folder.mjs` (mode `--lot/--ad`) et `SKILL.md` mis à jour pour automatiser ça. T4/AD1…AD5 rangés, dossiers intermédiaires nettoyés.
+- **Vmake automatisé :** `browser-use` installé (vrai Python 3.12 trouvé hors PATH, à appeler par chemin complet + `PYTHONUTF8=1`), pilotage d'une **fenêtre Chrome debug dédiée** (port 9222, profil `~/.browser-use/chrome-debug`), connecté au compte **RoméoPIAT / Vmake plus** (1420 crédits, valide 02/06/2027). Le retrait **Smart fonctionne** (rendu propre, sous-titres effacés). **Blocage : l'upload du fichier** — l'uploader Ant Design refuse l'injection programmatique (« File type not supported »), le flux batch échoue (« Upload failed »), et le clic navigateur (CDP) n'ouvre pas le dialogue Windows. Profile-use bloqué (install `curl|sh` refusée par le garde-fou).
+- **Prochaine étape actée :** méthode **« vrai clic souris Windows + dialogue Ouvrir natif »** (non encore testée) pour sélectionner les fichiers comme un humain, sans rien demander à Roméo. Côté ElevenLabs/accroches, tout est déjà prêt → Roméo peut faire les visuels en parallèle.
+
+---
+
 ## 2026-06-19 (mise à jour 2)
 
 ### Usine à créas — volet image VALIDÉ + nettoyage workspace

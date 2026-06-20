@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-20
+
+### Usine à créas — Vmake automatisé (clic souris natif Windows) + lot T4 vidéo bouclé
+- **Blocage upload Vmake levé.** Le `browser-use upload` (uploader Ant Design) ET le clic CDP n'ouvraient pas le dialogue de fichier Windows. Solution validée : **vrai clic souris Windows natif** sur le bouton Upload (ouvre le dialogue "Ouvrir" natif) puis remplissage par presse-papiers (Ctrl+V + Entrée, robuste aux accents du chemin). 3 scripts PowerShell créés dans `scripts/` : `native-focus.ps1` (Chrome au 1er plan), `native-click.ps1 -X -Y` (clic souris physique aux px écran), `native-openfile.ps1 -Path` (EnumWindows sur la fenêtre visible #32770).
+- **Conversion bbox navigateur → écran calibrée** (poste Roméo 1920×1080, scaling 100%, zoom Chrome 125% → dpr 1.24) : `PX = cssX×1.24`, `PY = cssY×1.24 + 107`. Bouton "Upload video" stable à (577,849) sur `vmake.ai/video-watermark-remover`.
+- **Lot T4 (guirlande Mira) terminé : 5/5 vidéos détourées des sous-titres** et rangées dans AD1-AD5 avec leur audio/accroches, prêtes à monter dans CapCut. Mapping source→AD vérifié par durée ET par nom de fichier téléchargé (garde-fou : Vmake nomme le fichier d'après la source).
+- **Appris :** Vmake **auto-lance le mode Smart à l'upload** (pas d'Apply à cliquer) ; télécharger le bouton du résultat courant (juste avant "You're already on a Vmake Paid Plan", souvent scrollé hors champ → `scroll up` d'abord), **jamais** un Download de la liste d'historique (sinon on récupère un ancien résultat). 5 crédits Vmake consommés.
+- **Points honnêtes :** léger flou résiduel possible à l'emplacement du texte retiré sur les pubs à accroches incrustées (couvrable au montage) ; AD3/AD4 jumelles distinguées par leur ID source.
+- **Doc skill réécrite** (`references/vmake-steps.md`) avec la méthode native, réutilisable telle quelle au prochain lot. Mémoire `reference_usine_creas_crea_pub.md` + index mis à jour.
+
+---
+
 ## 2026-06-19 (mise à jour 3)
 
 ### Usine à créas — 1er lot vidéo (T4 guirlande Mira) + convention de sortie + Vmake automatisé (blocage upload)

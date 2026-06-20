@@ -222,6 +222,7 @@
 - ChatGPT
 - OpenAI API (gpt-image-1) — édition des créas image via le skill crea-pub (payante à l'usage, clé dans .env)
 - Google Sheets / Google Docs
+- Google Calendar (connecteur MCP) — agenda perso + business, piloté par le skill `agenda` (Claude détecte une date, propose, crée après validation ; lecture via `/morning`)
 - Shopify (à activer)
 - Prompt Cowboy
 - Gmail

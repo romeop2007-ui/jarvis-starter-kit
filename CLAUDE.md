@@ -143,6 +143,10 @@ Skill d'enrichissement progressif du contexte. Deux modes :
 
 6 catégories en rotation : famille, santé, social, business qualitatif, vision, vie quotidienne. Pas d'études (focus actif). Journal des questions tenu dans `context/journal-questions.md` pour éviter la répétition.
 
+### agenda
+
+Skill qui enregistre dans le Google Calendar de Roméo (via le MCP Google Calendar) les dates à retenir : anniversaires, fêtes à cadeau, re-checks business, rendez-vous, engagements. Activée quand Roméo dit "ajoute à mon agenda", "note dans mon calendrier", "mets ça dans le calendrier", "rappelle-moi le…", ou quand l'automatisme de détection des dates (voir section Automatismes) repère une date à proposer. Règle de base : on propose, Roméo valide, on crée. Rappel "cadeau" 1 mois avant pour les occasions à cadeau. Lecture quotidienne via `/morning`.
+
 ---
 
 ## Getting Started
@@ -171,6 +175,21 @@ Comportements que Claude doit appliquer automatiquement, sans que Roméo ait à 
 **Exception** : la commande `/prime` n'est pas répertoriée dans cette page (Roméo la connaît déjà, c'est sa commande de démarrage).
 
 Cette règle s'applique sans qu'il soit nécessaire que Roméo le redemande. Elle a été actée le 26/05/2026.
+
+### Détection et enregistrement des dates (agenda Google Calendar)
+
+**Dès que Claude repère, en cours de session, une date à retenir** (anniversaire, fête, échéance, re-check business, rendez-vous, engagement pris), il doit **proposer** de l'ajouter au Google Calendar de Roméo via la skill `agenda`. Format de la proposition :
+
+> "Je note *[quoi]* dans ton agenda le *[date]* (rappel *[quand]*) ?"
+
+Règles :
+1. **Jamais d'écriture sans validation explicite de Roméo.** On propose, il valide, on crée. (Acté le 20/06/2026.)
+2. Sur OK → création de l'événement via le MCP Google Calendar (calendrier principal `romeop2007@gmail.com`), selon les réglages de la skill `agenda` (catégorie, récurrence, rappels, couleur).
+3. **Occasions à cadeau** (anniversaires, fête des mères/pères, Noël) : rappel **1 mois avant** avec mention "penser au cadeau".
+4. **Business** : Claude propose la date et le rappel, on cale le rappel au cas par cas.
+5. Pour la relecture quotidienne, Roméo utilise `/morning` (déjà câblé pour lister l'agenda du jour).
+
+Cette règle s'applique sans que Roméo ait à la redemander.
 
 ### Synchronisation boutique Shopify (travail à deux sans s'écraser)
 

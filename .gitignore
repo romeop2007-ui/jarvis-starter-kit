@@ -39,3 +39,9 @@ livrables/etudes/projets/SAE/SAE.mp4
 
 # Créas finalisées (livrables régénérables, lourds)
 livrables/ecommerce/creas/ressources créas après modifs/
+
+# Usine à créas — fichiers de travail et runtime (régénérables)
+.claude/skills/crea-pub/_travail/
+.claude/skills/crea-pub/_extract.mjs
+livrables/ecommerce/creas/_watcher/.running.lock
+livrables/ecommerce/creas/A-COLLER-*.txt

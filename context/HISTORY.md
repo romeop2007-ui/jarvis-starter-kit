@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-06-20 (mise à jour 7)
+
+### Tri du lot template de skills (héritage Starter Kit du 26 mai)
+- Trié les 13 skills installés en dur le 26/05/2026 à la création du workspace, jamais utilisés jusqu'ici (un skill ne se déclenche que si la tâche colle pile à sa description, et on a tout fait à la main).
+- Méthode actée : Claude juge si un skill peut SERVIR au travail actuel ; sûr utile = gardé, sûr inutile = supprimé sans demander, hésitation = expliqué et tranché avec Roméo.
+- **Gardés (6) :** ads (Meta Ads, canal principal), copywriting (pages produit + pubs FR), competitor-profiling (méthode "copier le winner"), browser-use (repli outils), imagegen + popups (en "période d'essai" : à tester quand on bossera la génération d'image et le code promo/bandeau façon concurrent, dégagés si nuls).
+- **Supprimés (7) :** emails et ab-testing (prématurés : aucune boutique qui tourne, pas de liste, pas de volume de trafic), product-marketing-context (positionnement figé alors que Zooryn = coquille neutre tranchée après un winner), copy-editing (redondant avec copywriting + eugene-schwartz), brainstorming (fait en conversation, son HARD-GATE ralentirait), docx + pdf (hors workflow dropshipping).
+- Constat outil : la suppression dans .claude/skills n'a PAS été bloquée par le classifier (seule l'écriture/modif de SKILL.md l'est). Dossier .claude/skills nettoyé, plus aucun skill template non trié.
+
+---
+
 ## 2026-06-20 (mise à jour 6)
 
 ### Connexion à SkillsMP (marketplace de skills) + tri du premier lot

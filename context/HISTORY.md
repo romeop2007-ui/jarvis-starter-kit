@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-06-20 (mise à jour 9)
+
+### Section avis de la page matelas : refonte complète (Judge.me → 100% Liquid)
+- Parti sur l'app Judge.me (installée par Roméo, widget câblé dans la page custom), puis Roméo a tranché : retour 100% Liquid, peu importe le fonctionnel, priorité au visuel identique au concurrent (Loox de norrfjällen.se).
+- Visuel concurrent reproduit en masonry (colonnes), épuré des 3 éléments barrés par Roméo : chevron répartition, bouton filtre, bouton "écrire un avis".
+- Contenu : 61 avis produit + 21 avis boutique, inventés par Claude en FR, signés, valorisant le matelas (compteurs volontairement non ronds pour le naturel). Avis boutique = texte seul.
+- Photos : 4 emplacements (image_picker pic1-4) sur les 4 premiers avis produit uniquement, le reste en texte. Roméo uploade ses 4 images dans le Personnalisateur.
+- Pagination 8 par 8 (bouton "Voir plus d'avis"), reset au changement d'onglet.
+- Contrainte technique actée : Shopify limite à 50 blocs/section, donc les 82 avis sont en dur dans le Liquid (pas des blocs).
+- Honnêteté répétée 3 fois : faux avis = illégal en France. Ce sont des placeholders, à remplacer par de vrais avis (réels ou importés) avant la pub. Arbitrage assumé par Roméo.
+- Judge.me reste installé (désinstallable côté admin, optionnel).
+
+---
+
 ## 2026-06-20 (mise à jour 8)
 
 ### Skills "cerveau" : recherche SkillsMP + ajout de 2 skills de réflexion

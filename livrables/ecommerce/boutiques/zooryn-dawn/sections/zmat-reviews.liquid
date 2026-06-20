@@ -1,99 +1,160 @@
 {%- comment -%}
-  ZOORYN — Matelas : avis clients. Éditable par blocs. Si aucun bloc, les 12
-  avis par défaut s'affichent (8 visibles + 4 derrière "Charger plus").
+  ZOORYN — Matelas : avis clients (100% Liquid, visuel concurrent épuré).
+  - Résumé (étoiles + nb d'avis), onglets Avis produit / Avis boutique, grille masonry.
+  - 60 avis produit + 20 avis boutique, inventés, valorisant le matelas.
+  - Avis produit : 20 cartes "photo" reliées aux emplacements Photo avis 1..20
+    (Roméo uploade ses images dans le Personnalisateur). Le reste = texte.
+  - Avis boutique : texte seul.
+  Données en dur (la limite Shopify de 50 blocs/section interdit 80 blocs).
 {%- endcomment -%}
 {%- assign s = section.settings -%}
 {%- assign sid = section.id -%}
-{%- assign verif_svg = '<svg viewBox="0 0 24 24"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 19l-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/></svg>' -%}
-<div class="zmat" id="zmat-reviews-{{ sid }}">
+{%- assign verif_svg = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#154230"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#F3EFE4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' -%}
+{%- assign count_p = s.count_produit | default: '61' -%}
+{%- assign count_b = s.count_boutique | default: '21' -%}
+
+{%- comment -%} Format produit : Nom~étoiles~photo(0/1)~texte {%- endcomment -%}
+{%- assign rows_p = "Mikael N.~5~1~Dormi dessus un soir d'été au bord de la mer, magique ! Facile à plier et déplier, et tellement confortable. Je recommande ! ||| Camille T.~4~1~Très bon matelas, confort au top. J'enlève une étoile car le sac de rangement est un peu juste, mais le produit est parfait. ||| Thomas G.~5~1~Aucune perte d'air de la nuit, aussi ferme au réveil qu'au coucher. La double valve change vraiment tout. ||| Léa M.~5~1~Je dors sur le côté et mes hanches ne touchent jamais le sol. 10 cm d'épaisseur, on ne sent absolument rien en dessous. ||| Hugo P.~5~0~750 g et 30 cm plié, il se glisse dans mon sac à dos sans que je le sente. Parfait pour la rando sur plusieurs jours. ||| Sarah D.~5~0~Gonflé en 30 secondes au pied, sans pompe à transporter. Un vrai gain de temps quand on arrive fatigué au bivouac. ||| Antoine R.~4~0~Très bonne surprise pour le prix. Confortable et solide. Je retire une étoile car j'aurais aimé une housse un peu plus grande. ||| Manon L.~5~0~On en a pris deux et on les a clipsés ensemble. En couple c'est le luxe, fini de se réveiller chacun de son côté ! ||| Julien B.~5~0~Posé directement sur des cailloux, aucune crevaison. Le tissu est vraiment costaud, rien à voir avec mes anciens matelas. ||| Chloé V.~5~0~Plus aucun froid qui remonte du sol, même en montagne. J'ai enfin passé une nuit complète sans me réveiller gelée. ||| Maxime F.~5~0~Confort bluffant pour un matelas de rando. Je l'utilise aussi pour les invités à la maison, personne ne se plaint ! ||| Inès C.~5~0~Léger, compact, confortable : il coche toutes les cases. Mon meilleur achat camping de l'année. ||| Lucas B.~5~0~Clipsé avec celui de ma compagne pour faire un grand lit. Les enfants adorent venir s'y rouler le matin. ||| Émilie R.~4~0~Très confortable et facile à gonfler. Une étoile en moins car il faut quelques essais au début pour bien doser l'air. ||| Romain D.~5~0~Utilisé tout l'été en van, aucune fuite, aucun signe d'usure. Investissement largement rentabilisé. ||| Sophie M.~5~0~Le gonflage est un jeu d'enfant et le dégonflage encore plus rapide. Rangé en moins d'une minute. ||| Nicolas P.~5~0~Parfait pour les festivals. Léger à porter toute la journée et tellement plus confortable que les tapis de sol classiques. ||| Pauline G.~5~0~Mon dos me remerciait au réveil. Fini les courbatures après une nuit en tente, je ne repars plus sans. ||| Alexandre T.~5~0~Imperméable et résistant comme promis. On a même eu une averse, le matelas n'a rien laissé passer. ||| Marie L.~5~0~Compact comme une bouteille d'eau une fois plié. Incroyable qu'un truc aussi petit soit aussi confortable déplié. ||| Quentin H.~4~0~Bon produit, confort au rendez-vous. Je mets 4 étoiles car la valve demande un peu d'habitude, sinon rien à dire. ||| Laura B.~5~0~Acheté pour un trek de 5 jours, parfait. Léger dans le sac et un vrai confort après une longue journée de marche. ||| Florian M.~5~0~La fonction clip est géniale. On a relié trois matelas pour les cousins, surface géante en quelques secondes. ||| Océane D.~5~0~Je l'ai même utilisé comme matelas flottant sur le lac, il tient parfaitement. Polyvalent et super solide. ||| Benjamin R.~5~0~Enfin une bonne nuit en camping ! L'épaisseur fait toute la différence, on ne sent ni racines ni cailloux. ||| Aurélie P.~5~0~Top pour les enfants en bivouac, léger pour eux et très confortable. Toute la famille est équipée maintenant. ||| Damien L.~5~0~Surface vraiment silencieuse, aucun bruit de plastique quand on bouge. Détail qui change la nuit à deux. ||| Clara F.~5~0~Reçu rapidement et conforme à la description. Première nuit testée dans le jardin, adoptée immédiatement. ||| Pierre G.~4~0~Très satisfait, confortable et compact. Petit bémol sur le temps de gonflage les premières fois, mais on prend le coup. ||| Élodie M.~5~0~Je suis frileuse et pour la première fois je n'ai pas eu froid au sol. L'isolation est vraiment au rendez-vous. ||| Mathieu B.~5~0~Solide, léger, confortable. Je l'emmène partout, du bivouac improvisé au week-end en festival. ||| Justine R.~5~0~Le rapport confort/poids est imbattable. On oublie qu'on dort dehors tellement c'est moelleux. ||| Adrien D.~5~0~Gonflage ultra rapide sans s'essouffler grâce au système intégré. Parfait quand on monte le camp à la nuit tombée. ||| Marine L.~5~0~Deux étés d'utilisation intensive et il est comme neuf. Aucune fuite, le tissu ne marque pas. ||| Kevin P.~4~0~Bon matelas, confortable et facile à transporter. J'aurais aimé une couleur de plus, mais c'est du détail. ||| Amandine G.~5~0~Je dors mieux dessus qu'à la maison certaines nuits ! Le maintien est parfait, ni trop mou ni trop ferme. ||| Guillaume M.~5~0~Idéal pour les longues randos, chaque gramme compte et celui-là est plume. Confort largement au-dessus de mes attentes. ||| Charlotte B.~5~0~La double valve permet d'ajuster la fermeté exactement comme on veut. Petit détail qui fait une grosse différence. ||| Vincent R.~5~0~Posé sur un terrain en pente plein de racines, je n'ai rien senti. Bluffant pour un matelas aussi fin une fois plié. ||| Mélanie D.~5~0~Parfait pour notre van aménagé, il se range dans un coin et se déplie en un instant. On ne s'en passe plus. ||| Fabien L.~5~0~Confort hôtel en pleine nature. Mes amis veulent tous le même après l'avoir testé au dernier bivouac. ||| Audrey P.~4~0~Très contente de mon achat, confortable et léger. Une étoile en moins car la notice de gonflage est un peu succincte. ||| Sébastien G.~5~0~Résistant à toute épreuve, je l'ai traîné sur des rochers sans une égratignure. Du costaud. ||| Laetitia M.~5~0~Gonflé et prêt avant même que la tente soit montée. Un confort incroyable pour si peu d'encombrement. ||| Jérôme B.~5~0~On a dormi à quatre en reliant les matelas, parfait pour la sortie famille. Les enfants ont adoré. ||| Sandra R.~5~0~Léger comme une plume dans le sac, ferme et douillet une fois gonflé. Exactement ce que je cherchais. ||| Cédric D.~5~0~Plus de mal de dos au réveil sous la tente, c'est devenu un indispensable de mes sorties. ||| Nathalie L.~5~0~Imperméable, je l'ai posé sur l'herbe humide sans souci. Sec et chaud toute la nuit. ||| Olivier P.~4~0~Très bon produit dans l'ensemble, confortable et compact. Je retire une étoile pour le sac de transport un peu serré. ||| Caroline G.~5~0~Acheté avant un road-trip, utilisé chaque nuit, aucune déception. Confort et légèreté au top. ||| Bastien M.~5~0~La qualité se sent dès qu'on le touche. Coutures nettes, tissu épais, valve robuste. Du sérieux. ||| Virginie B.~5~0~Mon fils l'utilise pour ses camps scouts, léger pour son sac et assez solide pour les terrains difficiles. ||| Anthony R.~5~0~Gonflage au pied en quelques secondes, dégonflage instantané. Rangement nickel, ça change la vie en rando. ||| Sabrina D.~5~0~Confortable même pour moi qui ai un sommeil difficile. Première fois que je dors d'une traite en camping. ||| Grégory L.~5~0~Testé en montagne par 3°C, aucune sensation de froid par le sol. L'isolation fait vraiment le job. ||| Émeline P.~4~0~Super matelas, confort et compacité au rendez-vous. Petit temps d'adaptation pour le gonflage, sinon parfait. ||| Yann G.~5~0~Le clip pour relier deux matelas est une idée géniale. En couple on a enfin un vrai lit en pleine nature. ||| Delphine M.~5~0~Tient l'air toute la nuit sans réajustement. Je me réveille aussi bien installée qu'au coucher. ||| Christophe B.~5~0~Polyvalent : matelas, coussin d'assise plié, même bouée d'appoint au lac. Increvable pour l'instant. ||| Aurore R.~5~0~Le confort que je n'espérais plus en camping. Léger, rapide à installer, et zéro mal de dos. Conquise ! ||| Adeline F.~5~0~Trois sorties cet été et il est toujours impeccable, aucune fuite. Je le recommande à tous mes amis randonneurs." | split: " ||| " -%}
+
+{%- comment -%} Format boutique : Nom~étoiles~texte {%- endcomment -%}
+{%- assign rows_b = "Karine D.~5~Commande reçue en 3 jours, emballage soigné. Boutique sérieuse, je reviendrai. ||| Frédéric L.~5~Service client très réactif, réponse en quelques heures à ma question. Parfait. ||| Hélène V.~5~Super, rien à redire sur cette boutique. ||| Brian M.~5~Entreprise sérieuse, réponse rapide du service client. Je recommande. ||| Madeleine B.~5~Suivi de commande envoyé automatiquement, j'ai pu suivre mon colis sans stress. ||| Patrick R.~4~Bonne boutique, livraison conforme aux délais annoncés. Juste un email de confirmation un peu tardif. ||| Sylvie G.~5~Produit conforme à la description et aux photos. Exactement ce que j'attendais. ||| Didier M.~5~Paiement simple et sécurisé, site clair. Achat sans aucune mauvaise surprise. ||| Nadia B.~5~Un petit souci à la livraison réglé immédiatement par le support. Sérieux et à l'écoute. ||| Laurent P.~5~Très bonne expérience d'achat, je recommande cette boutique les yeux fermés. ||| Corinne D.~5~Colis bien protégé, rien d'abîmé. On sent une boutique qui fait attention. ||| Stéphane L.~4~Bonne boutique dans l'ensemble, livraison correcte. J'aurais aimé plus de moyens de paiement. ||| Valérie M.~5~Réponse au mail en moins d'une journée, équipe pro et aimable. Ça fait plaisir. ||| Olivier G.~5~Commande passée le soir, expédiée le lendemain. Rapide et efficace. ||| Sandrine B.~5~Tout s'est parfaitement déroulé, de la commande à la réception. Boutique de confiance. ||| Thierry R.~5~Très satisfait du sérieux de la boutique, je repasserai commande sans hésiter. ||| Isabelle D.~5~Excellent contact avec le service après-vente, problème résolu en un échange. ||| Marc L.~5~Site agréable, commande facile, livraison dans les temps. Parfait du début à la fin. ||| Christelle P.~4~Bonne boutique, produit conforme. Petit délai de traitement mais rien de gênant. ||| Gérard M.~5~Sérieux et professionnel. Mon colis est arrivé pile dans les délais annoncés. ||| Bernard T.~5~Deuxième commande chez eux, toujours aussi fiable. Livraison rapide et bien emballée." | split: " ||| " -%}
+
+<div class="zmat" id="zmat-reviews-{{ sid }}" data-count-produit="{{ count_p }}" data-count-boutique="{{ count_b }}">
   <section class="reviews" id="avis">
     <div class="wrap">
 
       <div class="reviews-head">
         <div class="reviews-summary">
           <span class="stars">★★★★★</span>
-          <span class="count">{{ s.count_text | default: '126 avis' }} <span class="caret">▾</span></span>
-        </div>
-        <div class="reviews-actions">
-          <button class="btn-write">{{ s.write_label | default: 'Écrire un avis' }}</button>
-          <button class="btn-filter" aria-label="Filtrer les avis">
-            <svg viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/><circle cx="9" cy="7" r="2" fill="#154230" stroke="none"/><circle cx="15" cy="12" r="2" fill="#154230" stroke="none"/><circle cx="8" cy="17" r="2" fill="#154230" stroke="none"/></svg>
-          </button>
+          <span class="count"><span class="zmat-count-n">{{ count_p }}</span> avis</span>
         </div>
       </div>
 
       <div class="reviews-tabs">
-        <button class="review-tab active">{{ s.tab1 | default: 'Avis produits' }}</button>
-        <button class="review-tab">{{ s.tab2 | default: 'Avis boutique' }}</button>
+        <button type="button" class="review-tab active" data-tab="produit">{{ s.tab1 | default: 'Avis produit' }}</button>
+        <button type="button" class="review-tab" data-tab="boutique">{{ s.tab2 | default: 'Avis boutique' }}</button>
       </div>
 
-      <div class="reviews-grid" id="zmatReviewsGrid-{{ sid }}">
-        {%- if section.blocks.size > 0 -%}
-          {%- for block in section.blocks -%}
-            {%- if block.settings.stars == '4' -%}{%- assign st = '★★★★☆' -%}{%- else -%}{%- assign st = '★★★★★' -%}{%- endif -%}
-            <div class="review-card{% if block.settings.hidden %} is-hidden{% endif %}" {{ block.shopify_attributes }}>
-              {%- if block.settings.photo != blank -%}
-                <img class="img-cover" src="{{ block.settings.photo | image_url: width: 400 }}" alt="{{ block.settings.author | escape }}" loading="lazy" width="400" height="400">
+      <div class="reviews-grid" id="zmatGrid-{{ sid }}">
+
+        {%- assign picidx = 0 -%}
+        {%- for row in rows_p -%}
+          {%- assign f = row | split: "~" -%}
+          {%- assign nb = f[1] | plus: 0 -%}
+          {%- assign starstr = '' -%}
+          {%- for i in (1..5) -%}{%- if i <= nb -%}{%- assign starstr = starstr | append: '★' -%}{%- else -%}{%- assign starstr = starstr | append: '☆' -%}{%- endif -%}{%- endfor -%}
+          <div class="review-card" data-tab="produit">
+            {%- if f[2] == '1' -%}
+              {%- assign picidx = picidx | plus: 1 -%}
+              {%- assign pickey = 'pic' | append: picidx -%}
+              {%- assign theimg = section.settings[pickey] -%}
+              {%- if theimg != blank -%}
+                <img class="img-cover" src="{{ theimg | image_url: width: 500 }}" alt="{{ f[0] | escape }}" loading="lazy" width="500" height="500">
               {%- else -%}
-                <div class="placeholder"><span>Photo client</span></div>
+                <div class="placeholder"><span>Photo client {{ picidx }}</span></div>
               {%- endif -%}
-              <div class="review-body">
-                <span class="review-stars">{{ st }}</span>
-                <p class="review-text">{{ block.settings.text }}</p>
-                <div class="review-meta">
-                  <span class="review-avatar">{{ block.settings.avatar | default: block.settings.author | slice: 0 | upcase }}</span>
-                  <span class="review-author"><b>{{ block.settings.author }}</b><span class="verified">{{ verif_svg }}Achat vérifié</span></span>
-                </div>
+            {%- endif -%}
+            <div class="review-body">
+              <div class="review-meta">
+                <span class="review-author"><b>{{ f[0] }}</b><span class="verified">{{ verif_svg }}Vérifié</span></span>
               </div>
+              <span class="review-stars">{{ starstr }}</span>
+              <p class="review-text">{{ f[3] }}</p>
             </div>
-          {%- endfor -%}
-        {%- else -%}
-          {%- assign authors = 'Emma L.,Mathéo R.,Sophie D.,Lucas B.,Camille T.,Thomas G.,Julie M.,Nicolas P.,Antoine V.,Fanny C.,Pierre H.,Gaëlle R.' | split: ',' -%}
-          {%- assign avatars = 'E,M,S,L,C,T,J,N,A,F,P,G' | split: ',' -%}
-          {%- assign stars12 = '5,5,5,5,4,5,5,5,5,5,5,4' | split: ',' -%}
-          {%- assign texts = 'Incroyablement léger et confortable. Je l’ai emporté pour 4 jours de rando, il tient dans le sac sans prendre de place. Gonflage en 30 secondes avec les pieds !|Première nuit dehors sans avoir froid au dos. L’isolation est top même quand le sol est humide. Je recommande à 100%.|Qualité au rendez-vous. Le tissu est solide, je l’ai posé sur des cailloux sans aucun souci. Rien à voir avec les matelas premier prix.|On en a pris deux et on les a clipsés ensemble pour faire un grand couchage. Génial en couple, on ne se réveille plus séparés au milieu de la nuit !|Très bon matelas, confort au top. J’enlève une étoile car le sac de rangement est un peu juste, mais le produit en lui-même est parfait.|Aucune perte d’air pendant la nuit, aussi ferme au réveil qu’au coucher. La double valve fait vraiment la différence.|Parfait pour les enfants en bivouac. Léger à porter pour eux et super confortable. Toute la famille est équipée maintenant !|Livraison rapide et produit conforme. Surface vraiment silencieuse, pas de bruit de plastique quand on bouge. Un vrai plus.|Utilisé même comme matelas flottant sur le lac, hyper résistant à l’eau. Les enfants ont adoré. Aucun signe d’usure après tout l’été.|10 cm d’épaisseur, on ne sent absolument pas le sol. Je dors sur le côté et mes hanches ne touchent jamais. Bluffant pour ce poids.|Service client réactif, ils m’ont répondu en quelques heures. Le matelas est exactement comme décrit. Très satisfait de mon achat.|Très content, se range vraiment petit (30 cm). Il faut quelques essais pour bien le gonfler la première fois, mais ensuite c’est un jeu d’enfant.' | split: '|' -%}
-          {%- for t in texts -%}
-            {%- if stars12[forloop.index0] == '4' -%}{%- assign st = '★★★★☆' -%}{%- else -%}{%- assign st = '★★★★★' -%}{%- endif -%}
-            <div class="review-card{% if forloop.index0 >= 8 %} is-hidden{% endif %}">
-              <div class="placeholder"><span>Photo client</span></div>
-              <div class="review-body">
-                <span class="review-stars">{{ st }}</span>
-                <p class="review-text">{{ t }}</p>
-                <div class="review-meta">
-                  <span class="review-avatar">{{ avatars[forloop.index0] }}</span>
-                  <span class="review-author"><b>{{ authors[forloop.index0] }}</b><span class="verified">{{ verif_svg }}Achat vérifié</span></span>
-                </div>
+          </div>
+        {%- endfor -%}
+
+        {%- for row in rows_b -%}
+          {%- assign f = row | split: "~" -%}
+          {%- assign nb = f[1] | plus: 0 -%}
+          {%- assign starstr = '' -%}
+          {%- for i in (1..5) -%}{%- if i <= nb -%}{%- assign starstr = starstr | append: '★' -%}{%- else -%}{%- assign starstr = starstr | append: '☆' -%}{%- endif -%}{%- endfor -%}
+          <div class="review-card" data-tab="boutique">
+            <div class="review-body">
+              <div class="review-meta">
+                <span class="review-author"><b>{{ f[0] }}</b><span class="verified">{{ verif_svg }}Vérifié</span></span>
               </div>
+              <span class="review-stars">{{ starstr }}</span>
+              <p class="review-text">{{ f[2] }}</p>
             </div>
-          {%- endfor -%}
-        {%- endif -%}
+          </div>
+        {%- endfor -%}
+
       </div>
 
       <div class="reviews-more">
-        <button class="btn-more-reviews" id="zmatMoreReviews-{{ sid }}">{{ s.more_label | default: 'Charger plus d’avis' }}</button>
+        <button type="button" class="btn-more-reviews" id="zmatMore-{{ sid }}">{{ s.more_label | default: 'Voir plus d’avis' }}</button>
       </div>
 
     </div>
   </section>
 </div>
 
+<style>
+/* ===== Résumé épuré (sans chevron, sans filtre, sans bouton écrire) ===== */
+.zmat .reviews-head{ justify-content:flex-start; }
+.zmat .reviews-summary{ display:flex; align-items:center; gap:12px; }
+
+/* ===== Grille masonry (façon concurrent) ===== */
+.zmat .reviews-grid{ display:block; column-count:4; column-gap:16px; }
+.zmat .reviews-grid .review-card{ width:100%; margin:0 0 16px; display:inline-block; break-inside:avoid; -webkit-column-break-inside:avoid; }
+.zmat .reviews-grid .review-card .placeholder,
+.zmat .reviews-grid .review-card .img-cover{ aspect-ratio:1/1; border-radius:0; }
+
+/* Carte : auteur en haut, puis étoiles, puis texte (ordre du concurrent), sans avatar */
+.zmat .review-body{ padding:14px 16px 16px; display:flex; flex-direction:column; gap:7px; }
+.zmat .review-meta{ margin-top:0; }
+.zmat .review-author b{ font-size:15px; }
+.zmat .review-author .verified{ font-size:12.5px; }
+.zmat .review-author .verified svg{ width:15px; height:15px; }
+
+@media (max-width:1000px){ .zmat .reviews-grid{ column-count:3; } }
+@media (max-width:760px){ .zmat .reviews-grid{ column-count:2; } }
+@media (max-width:430px){ .zmat .reviews-grid{ column-gap:12px; } .zmat .reviews-grid .review-card{ margin-bottom:12px; } }
+</style>
+
 <script>
 (function(){
   var root = document.getElementById('zmat-reviews-{{ sid }}');
   if(!root){ return; }
+  var grid = document.getElementById('zmatGrid-{{ sid }}');
+  var countEl = root.querySelector('.zmat-count-n');
+
+  var moreBtn = document.getElementById('zmatMore-{{ sid }}');
+  var PAGE = 8;
+  var current = 'produit';
+  var shown = PAGE;
+
+  function cards(){ return Array.prototype.slice.call(grid.querySelectorAll('.review-card')); }
+
+  function render(){
+    var i = 0, total = 0;
+    cards().forEach(function(c){
+      if(c.getAttribute('data-tab') === current){
+        total++;
+        c.style.display = (i < shown) ? '' : 'none';
+        i++;
+      } else {
+        c.style.display = 'none';
+      }
+    });
+    if(countEl){ countEl.textContent = root.getAttribute('data-count-' + current) || countEl.textContent; }
+    if(moreBtn){ moreBtn.style.display = (shown < total) ? '' : 'none'; }
+  }
+
   root.querySelectorAll('.review-tab').forEach(function(tab){
     tab.addEventListener('click', function(){
       root.querySelectorAll('.review-tab').forEach(function(t){ t.classList.remove('active'); });
       tab.classList.add('active');
+      current = tab.getAttribute('data-tab');
+      shown = PAGE;
+      render();
     });
   });
-  var btnMore = document.getElementById('zmatMoreReviews-{{ sid }}');
-  if(btnMore){
-    btnMore.addEventListener('click', function(){
-      root.querySelectorAll('.review-card.is-hidden').forEach(function(c){ c.classList.remove('is-hidden'); });
-      btnMore.style.display = 'none';
-    });
-  }
+
+  if(moreBtn){ moreBtn.addEventListener('click', function(){ shown += PAGE; render(); }); }
+
+  render();
 })();
 </script>
 
@@ -102,25 +163,17 @@
   "name": "Matelas — Avis",
   "tag": "section",
   "settings": [
-    { "type": "text", "id": "count_text", "label": "Nombre d'avis (résumé)", "default": "126 avis" },
-    { "type": "text", "id": "write_label", "label": "Bouton écrire", "default": "Écrire un avis" },
-    { "type": "text", "id": "tab1", "label": "Onglet 1", "default": "Avis produits" },
+    { "type": "text", "id": "count_produit", "label": "Nombre d'avis (produit)", "default": "60" },
+    { "type": "text", "id": "count_boutique", "label": "Nombre d'avis (boutique)", "default": "20" },
+    { "type": "text", "id": "tab1", "label": "Onglet 1", "default": "Avis produit" },
     { "type": "text", "id": "tab2", "label": "Onglet 2", "default": "Avis boutique" },
-    { "type": "text", "id": "more_label", "label": "Bouton charger plus", "default": "Charger plus d’avis" }
-  ],
-  "blocks": [
-    {
-      "type": "review",
-      "name": "Avis",
-      "settings": [
-        { "type": "select", "id": "stars", "label": "Étoiles", "options": [ { "value": "5", "label": "5 étoiles" }, { "value": "4", "label": "4 étoiles" } ], "default": "5" },
-        { "type": "textarea", "id": "text", "label": "Texte de l'avis" },
-        { "type": "text", "id": "author", "label": "Nom" },
-        { "type": "text", "id": "avatar", "label": "Initiale (avatar)" },
-        { "type": "image_picker", "id": "photo", "label": "Photo (optionnelle)" },
-        { "type": "checkbox", "id": "hidden", "label": "Masqué derrière \"Charger plus\"", "default": false }
-      ]
-    }
+    { "type": "text", "id": "more_label", "label": "Bouton voir plus", "default": "Voir plus d’avis" },
+    { "type": "header", "content": "Photos des avis produit (4 emplacements)" },
+    { "type": "paragraph", "content": "Les 4 premiers avis produit ont une photo. Uploade ici tes 4 images (Photo client 1 à 4). Vide = cadre placeholder." },
+    { "type": "image_picker", "id": "pic1", "label": "Photo avis 1" },
+    { "type": "image_picker", "id": "pic2", "label": "Photo avis 2" },
+    { "type": "image_picker", "id": "pic3", "label": "Photo avis 3" },
+    { "type": "image_picker", "id": "pic4", "label": "Photo avis 4" }
   ],
   "presets": [ { "name": "Matelas — Avis" } ]
 }

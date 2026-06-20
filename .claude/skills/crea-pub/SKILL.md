@@ -51,9 +51,11 @@ Dans un lot mixte, router chaque pub selon son type.
 
 ## Pre-requis techniques (verifier une fois)
 
-- `ELEVENLABS_API_KEY` presente dans le `.env` du workspace (sinon le dire et s'arreter).
-- Dependances installees : `cd .claude/skills/crea-pub && npm install` (ffmpeg-static, ffprobe-static).
-- Pour Vmake : Chrome de Romeo connecte a son compte (voir `references/vmake-steps.md`).
+- `ELEVEN_LABS_API_KEY` presente dans le `.env` (voix off, sinon le dire et s'arreter).
+- `VMAKE_API_KEY` + `VMAKE_API_SECRET` dans le `.env` (retrait sous-titres via API Vmake).
+- Dependances : `cd .claude/skills/crea-pub && npm install` (Node) ; `python -m pip install requests alibabacloud_oss_v2` (SDK Vmake).
+- Vmake = API officielle (SDK `vendor/vmake-sdk/`), voir `references/vmake-steps.md`. ⚠️ Claude NE PEUT PAS executer le SDK : il prepare la commande, Romeo l'execute.
+
 
 ## Choix de la voix (1re fois, puis memorise)
 
@@ -86,14 +88,24 @@ accroches texte incrustees). Verifier la transcription : si elle ne contient que
 2. **Transcription** : `node scripts/transcribe.mjs "<video.mp4>" "<dossier_travail>"`
    -> recupere le texte source (langue d'origine) + ecrit `transcription-source.txt`.
    Si la transcription = musique seule -> bascule sur le traitement "accroches" (voir encadre).
-3. **Sous-titres retires (Vmake)** : suivre `references/vmake-steps.md` (browser-use).
-   Resultat -> `<LOT>/<ADn>/video-sans-soustitres.mp4`. Si Vmake casse : fallback (cf. ref).
-4. **Script FR** : rediger le script avec le PROMPT FIXE ci-dessous, l'ecrire dans
-   `<dossier_travail>/script-fr.txt`. Calibrer la longueur : viser environ `D x 2,4` mots
-   (debit voix off FR), sans depasser la duree. NB : la voix Sarah debite vite, prevoir
-   genereux et laisser le TTS ajuster la vitesse (plancher 0,9).
-5. **Voix off** : `node scripts/tts.mjs --voice <voice_id> --target <D> --out "<LOT>/<ADn>" --text-file "<dossier_travail>/script-fr.txt"`
-   -> ecrit `voix-off.mp3` cale au plus proche de D, **directement dans le dossier livrable**.
+3. **Texte FR dans le ADn** : ecrire le script rendu en francais (PROMPT FIXE ci-dessous)
+   DIRECTEMENT dans le dossier livrable du ADn : `script-fr.txt` (pub a voix off) ou
+   `accroches-fr.md` (pub muette/musicale). Calibrer : viser environ `D x 2,4` mots sans
+   depasser la duree, et prevoir GENEREUX (Sarah debite vite, plancher vitesse 0,9 ; un
+   script trop court sort une voix plus courte que la video).
+4. **Detourage + voix off (commande unique, lancee par Romeo)** : donner a Romeo
+   `creas-lot.ps1 -Lot <LOT>`. Pour chaque video du lot, elle retire les sous-titres via
+   l'API Vmake ET, si un `script-fr.txt` est present dans le ADn, synthetise `voix-off.mp3`
+   cale sur la duree de la source ; tout est range dans `<LOT>/ADn/`
+   (`video-sans-soustitres.mp4` + `voix-off.mp3`). Details/fallback : `references/vmake-steps.md`.
+   (Une seule video hors lot : `vmake-api.ps1 run-task --task videoscreenclear --input X`.)
+5. **Controle STRICT de la duree voix off (tolerance 1 s)** : apres la commande, comparer la
+   duree de `voix-off.mp3` a la duree de la video source. La voix off doit durer le MEME temps
+   que la video, a +/- 1 seconde pres. Exemple (lot TEST, video 24,2 s) : 16 s = MORT, il faut
+   tomber entre 23 et 25 s. Si l'ecart depasse 1 s : REECRIRE `script-fr.txt` (l'ALLONGER si la
+   voix est trop courte, le raccourcir si trop longue) puis RELANCER `creas-lot.ps1 -Lot <LOT>`,
+   et repeter jusqu'a etre dans les +/- 1 s. Le vrai levier = la LONGUEUR du script (la vitesse
+   TTS seule ne suffit pas, elle est bornee a 0,9-1,15).
 6. **Fiche infos** (optionnelle, dans le dossier de travail) : durees, voice_id, langue source,
    statut Vmake.
 
@@ -170,7 +182,7 @@ en manuel sur telle pub). Romeo verifie, importe dans CapCut, monte, poste sur M
 
 ## Limites (rappeler si pertinent)
 
-- Vmake = fragile (fallback manuel prevu).
+- Vmake = API officielle (async, fiable). Claude prepare la commande, Romeo l'execute (auto-execution interdite). Fallback manuel si l'API casse.
 - Voix = la plus proche du catalogue, pas un clone.
 - Duree = tres proche, pas exacte a la frame.
 - CapCut = 100 % manuel (l'agent prepare, Romeo monte).

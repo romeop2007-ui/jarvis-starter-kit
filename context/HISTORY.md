@@ -7,6 +7,29 @@
 
 ---
 
+## 2026-06-20 (mise à jour 3)
+
+### Usine à créas : fusion détourage + voix off en une commande par lot
+- **`creas-lot.ps1 -Lot X`** construit : enchaîne en UNE commande le détourage Vmake API **et** la synthèse voix off ElevenLabs, pour tout un lot, avec rangement dans `après modifs/<LOT>/ADn/` (`video-sans-soustitres.mp4` + `voix-off.mp3`).
+- **Convention de travail actée :** en session, Claude dépose dans chaque `ADn` soit `script-fr.txt` (pub à voix off → l'orchestrateur synthétise la voix off calée sur la durée de la source) soit `accroches-fr.md` (pub muette → pas de voix off). Claude PEUT écrire dans `livrables/` (hors `.claude/skills`).
+- **Validé end-to-end** sur un lot TEST (1 vidéo) : `video-sans-soustitres.mp4` + `voix-off.mp3` générés OK, lot TEST nettoyé ensuite.
+- **Règle de durée voix off (actée) :** la voix off doit durer le même temps que la vidéo à **±1 s** (cible 24,2 s → 23-25 s OK ; 16 s = mort). Si hors tolérance, réécrire `script-fr.txt` (plus long / plus court) et relancer ; viser large (Sarah débite vite).
+- **Statut skill :** `SKILL.md` + `vmake-steps.md` désormais **100% à jour** (API + commande fusionnée `creas-lot.ps1` + règle de durée voix off ±1 s, collés par Roméo le 20/06). Mémoire technique `reference_usine_creas_crea_pub.md` à jour.
+
+---
+
+## 2026-06-20 (mise à jour 2)
+
+### Usine à créas vidéo : bascule du clic natif Vmake vers l'API officielle
+- **API Vmake validée et adoptée.** Roméo a trouvé la clé API + la clé d'accès secrète (ajoutées au `.env` : `VMAKE_API_KEY` + `VMAKE_API_SECRET`, auth SDK-HMAC-SHA256). SDK Python officiel téléchargé dans `vendor/vmake-sdk/`, lu avec Roméo et jugé propre (ne contacte que `vmake.ai` + Alibaba OSS, pas d'accès disque). Tâche confirmée : **`videoscreenclear`** (`/v1/videoscreenclear_async`) = retrait sous-titres/watermark vidéo. Testé en réel (list-tasks + run-task sur une vidéo T4, résultat parfait).
+- **Ça résout le blocage de départ :** l'API est **asynchrone**, le serveur Vmake fait le calcul → **PC libre dès la soumission**. L'ancien clic souris natif monopolisait l'écran ~1h et empêchait de bosser la boutique en parallèle. Clic natif désormais OBSOLÈTE (gardé en repli dans `vmake-steps.md`).
+- **Scripts créés** (par Roméo, contenu fourni par Claude via here-string, car Claude est bloqué pour écrire dans `.claude/skills`) : `vmake-api.ps1` (passe-plat : charge les clés du `.env`, appelle le SDK) et `creas-detourage.ps1 -Lot X` (orchestrateur : détoure toutes les vidéos d'un lot, range dans `après modifs/<LOT>/ADn/video-sans-soustitres.mp4`, ouvre le dossier). Détourage groupé T4 OK.
+- **🔒 Contrainte permanente actée :** Claude ne peut PAS s'auto-exécuter (lancer le SDK) ni s'auto-modifier (écrire dans `.claude/skills`), **même quand Roméo l'autorise verbalement** (le classifier de sécurité refuse, protection voulue, non contournable par une phrase). Modèle de travail = **chemin A** : Claude prépare (détection + voix off/accroches FR créatives + commande prête), **Roméo exécute la commande, Roméo vérifie**. `/crea-pub` réveille l'agent mais ne déclenche pas l'exécution.
+- **Crédits Vmake :** `list-tasks` = 0 crédit ; après le détourage T4, le solde (1440) n'avait pas bougé, raison inconnue (quota séparé ? facturation différée ?), à surveiller sur gros lot, non bloquant.
+- **Reste à faire (couche suivante) :** script de synthèse voix off ElevenLabs à fusionner avec le détourage pour **1 seule commande par lot** (le texte voix off reste écrit par Claude en session = créatif) ; rafraîchir les docs du skill (`SKILL.md`, `vmake-steps.md`) que Roméo devra mettre à jour. Mémoire technique `reference_usine_creas_crea_pub.md` mise à jour en parallèle.
+
+---
+
 ## 2026-06-20
 
 ### Usine à créas — Vmake automatisé (clic souris natif Windows) + lot T4 vidéo bouclé

@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-20 (mise à jour 6)
+
+### Connexion à SkillsMP (marketplace de skills) + tri du premier lot
+- **SkillsMP branché** via son API REST (clé dans `.env` : `SKILLSMP_API_KEY`). Recherche de skills directement par requête HTTP (`GET /api/v1/skills/search?q=...&sortBy=stars`), 500 requêtes/jour en authentifié. Roméo a posé la clé lui-même au bon endroit.
+- **Critère de fiabilité = étoiles GitHub** (l'API n'expose PAS le nombre d'utilisations/téléchargements). Piège identifié et gravé : les étoiles affichées sont celles du **dépôt entier**, pas du skill précis (ex : un skill dans un gros repo célèbre hérite de 195k étoiles sans rien prouver). Donc étoiles = signal, jamais preuve ; on lit le contenu.
+- **Tension actée :** plus un skill est pile dropshipping/ads, plus il vient d'un auteur inconnu à 0 étoile (= profil arnaque/vol de données que Roméo craint). Les gros scores viennent d'orgs connues (OpenAI, Google, Shopify, LangChain) mais sont génériques.
+- **Checklist d'audit sécu établie** (à réutiliser) : exfiltration (lecture `.env`/clés/ssh + envoi réseau), code obscurci (base64/eval/atob), exécution dangereuse (`curl|bash`, installs douteuses, postinstall, contournement permissions), deps typosquattées, injection de prompt. + un prompt prêt à coller dans ChatGPT pour faire auditer un skill avant install. Règle d'or : un skill de copywriting/recherche n'a aucune raison de toucher réseau/clés/système.
+- **Premier lot trié :** Roméo a dézippé 12 skills candidats (préalablement vérifiés par lui sur ChatGPT). Lus de A à Z. **Gardés (4)** : `eugene-schwartz-breakthrough-advertising` (framework copywriting/ads, la pépite), `shopify-developer` (référence Liquid/thèmes complète, offline), `shopify-use-shopify-cli` (officiel, workflow pull/push quotidien), `shopify-admin` (officiel, GraphQL Admin). **Supprimés (8)** : product-research (= UX research, pas chasse produit), dropshipping-product-research (générique + appât nexscope.ai, inférieur à la méthode V3), social-media + social-media-manager (pas ses canaux, il est en paid), data-analysis (dépend d'un MCP absent, fait nativement), shopify-expert + shopify-dev (doublons de shopify-developer). Tous les `.zip` nettoyés.
+- **`OPT_OUT_INSTRUMENTATION=true` ajouté au `.env`** : coupe la télémétrie des skills officiels Shopify (admin/use-shopify-cli) qui envoyaient requête de recherche + code généré à `shopify.dev`. Légitime mais des données quittaient la machine ; désactivé par principe de prudence.
+
+---
+
 ## 2026-06-20 (mise à jour 5)
 
 ### Système agenda Google Calendar : skill `agenda` + automatisme de détection des dates

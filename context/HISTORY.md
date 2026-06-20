@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-06-20 (mise à jour 5)
+
+### Système agenda Google Calendar : skill `agenda` + automatisme de détection des dates
+- **Nouveau skill `agenda`** (le moteur) : crée des événements propres dans le Google Calendar via le MCP, avec anti-doublon, anniversaires récurrents (RRULE), rappels et couleurs (vert = perso, bleu = business). Calendrier inscriptible unique = `romeop2007@gmail.com` (Europe/Paris) ; le MCP ne permet pas de créer un nouveau calendrier.
+- **Automatisme ajouté dans CLAUDE.md** : dès que Claude repère une date à retenir en session (anniversaire, fête, échéance, re-check business, RDV, engagement), il **propose** de l'ajouter, et n'écrit qu'après validation de Roméo. Architecture en 2 morceaux : automatisme = le déclencheur, skill = le moteur (un skill ne scanne pas passivement les messages). La lecture quotidienne se fait déjà via `/morning` (étape 3 câblée).
+- **Contrainte confirmée** : Claude ne peut pas écrire dans `.claude/skills` (classifier) → skill rédigé par Claude, **collé par Roméo** (modèle crea-pub). Installé avec succès (`.claude/skills/agenda/SKILL.md`).
+- **Agenda amorcé (12 événements créés et vérifiés) :** 8 récurrents perso (anniversaires Pénélope 3/03, Oscar 29/12, Roméo 1/10, Papa François 2/02, Maman Véronique 9/11 ; fête des mères, fête des pères, Noël) avec rappel cadeau ~1 mois avant + souhaiter la veille ; 4 business (re-check hakon.se 21/06, Thermoseat/craftaison 23/06, fin Sprint #1 27/06, /semaine récurrent chaque dimanche 17h-18h).
+- **Détails techniques appris :** Google plafonne les rappels popup à **4 semaines (40320 min)** → notre "1 mois avant" ; l'API exige un **timestamp complet `T00:00:00`** même pour un événement all-day.
+
+---
+
 ## 2026-06-20 (mise à jour 4)
 
 ### Deuxième cerveau autonome : watcher événementiel qui déclenche crea-pub tout seul

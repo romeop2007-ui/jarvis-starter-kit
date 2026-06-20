@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-20 (mise à jour 8)
+
+### Skills "cerveau" : recherche SkillsMP + ajout de 2 skills de réflexion
+- Distinction actée par Roméo : la session précédente m'a donné des "mains" (crea-pub, exécution) ; cette fois des "cerveau" (cadres de raisonnement qui rendent mon analyse meilleure, comme eugene-schwartz).
+- **Constat SkillsMP : aucun label "certifié/vérifié" dans l'API**, seulement les `stars` (du dépôt entier, pas du skill). Les gros scores viennent de repos de dev génériques ; les skills pile dropshipping/persuasion viennent d'auteurs modestes. Substitut acté : **Claude audite lui-même le contenu réel du skill sur GitHub** (WebFetch du `SKILL.md` brut) → plus besoin du tri ChatGPT par Roméo.
+- 3 candidats déposés par Roméo, audités de A à Z (tous **propres** : zéro accès `.env`/clés, zéro appel réseau, zéro script/eval/base64, zéro injection de prompt ; chaque zip = un `SKILL.md` seul, pas de payload).
+- **GARDÉS (2) :** `strategy-red-team` (phuryn, challenger de décisions : extraire les hypothèses porteuses, steelman puis attaque, classer par impact × probabilité × coût du test, sortir critère de kill + test le moins cher) ; `16-marketing-psychology-global` (minhnv0807, Cialdini appliqué : matrice cold/warm/hot, templates d'accroches Meta/TikTok/Google, règle "1-2 principes max").
+- **SUPPRIMÉ (1) :** `persuasion-principles` (guia-matthieu) — doublon Cialdini exact du `16-`, mêmes déclencheurs (auraient chargé tous les deux = bruit). Choix tranché par Roméo sur recommandation de Claude.
+- **Trio réflexion désormais :** eugene-schwartz (conscience/sophistication du marché) + 16-marketing-psychology (leviers d'influence Cialdini) + strategy-red-team (stress-test des décisions).
+
+---
+
 ## 2026-06-20 (mise à jour 7)
 
 ### Tri du lot template de skills (héritage Starter Kit du 26 mai)

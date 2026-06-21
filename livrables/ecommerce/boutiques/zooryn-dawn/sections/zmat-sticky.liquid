@@ -14,8 +14,9 @@
           <div class="placeholder sticky-thumb"><span></span></div>
         {%- endif -%}
         <div class="sticky-meta">
-          <b>{{ s.title | default: 'Matelas gonflable ultraléger PRO' }}</b>
-          <span>{{ s.prix | default: '69,95 €' }}{%- if s.prix_barre != blank -%} <s>{{ s.prix_barre }}</s>{%- endif -%}</span>
+          <b>{{ s.title | default: 'Achetez-en 2, recevez 2 oreillers.' }}</b>
+          <span>{{ s.prix | default: '144,99 €' }}{%- if s.prix_barre != blank -%} <s>{{ s.prix_barre }}</s>{%- endif -%}</span>
+          {%- if s.urgency != blank -%}<small class="sticky-urgency">{{ s.urgency }}</small>{%- endif -%}
         </div>
       </div>
       <button type="button" class="btn-cart" id="zmatStickyBtn-{{ sid }}">{{ s.cta_label | default: 'Ajouter au panier' }}</button>
@@ -52,9 +53,10 @@
   "tag": "section",
   "settings": [
     { "type": "image_picker", "id": "image", "label": "Vignette" },
-    { "type": "text", "id": "title", "label": "Titre", "default": "Matelas gonflable ultraléger PRO" },
-    { "type": "text", "id": "prix", "label": "Prix", "default": "69,95 €" },
-    { "type": "text", "id": "prix_barre", "label": "Prix barré", "default": "139,90 €" },
+    { "type": "text", "id": "title", "label": "Titre", "default": "Achetez-en 2, recevez 2 oreillers." },
+    { "type": "text", "id": "prix", "label": "Prix", "default": "144,99 €" },
+    { "type": "text", "id": "prix_barre", "label": "Prix barré", "default": "279,80 €" },
+    { "type": "text", "id": "urgency", "label": "Texte d'urgence", "default": "Offre expire bientôt" },
     { "type": "text", "id": "cta_label", "label": "Texte du bouton", "default": "Ajouter au panier" }
   ],
   "presets": [ { "name": "Matelas — Barre collante" } ]

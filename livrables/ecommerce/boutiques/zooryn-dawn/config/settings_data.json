@@ -143,11 +143,14 @@
       "zooryn-oreiller": {
         "type": "zooryn-oreiller",
         "settings": {
-          "product": "",
+          "product": "oreiller-gonflable-zooryn",
           "titre": "Zooryn  Oreiller gonflable ultraléger et compact PRO",
           "prix": "39.99€",
           "prix_barre": "44.99€",
-          "cta_label": "Ajouter au panier"
+          "cta_label": "Ajouter au panier",
+          "img_situation": "shopify://shop_images/9c531f0b-1734-4460-85c5-4a460122d1c0_da6649d6-2c57-4834-9494-db4b51e5d317.png",
+          "img_gros_plan": "shopify://shop_images/a3fbcce8-3ae2-48b6-9991-65c2b9c5aef7_d2143118-1a9f-43bf-8878-062a3c9f823b.png",
+          "img_nuque": "shopify://shop_images/27e548e9-28e6-4ad9-9439-b9e8385b1ede_b78a8013-0d10-42f1-b30d-81de1c982d8b.png"
         }
       },
       "zooryn-popup": {
@@ -155,8 +158,6 @@
         "settings": {
           "enable": true,
           "delay": 2,
-          "show_reopen_button": true,
-          "reopen_text": "VOIR L'OFFRE",
           "logo": "shopify://shop_images/zooryn-logo-vert.png",
           "eyebrow": "Tu as débloqué",
           "discount_label": "10% de réduction",

@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-06-21 (mise à jour 2)
+
+### Plan d'extension de l'agent autonome créas : +montage CapCut +campagnes Meta Ads
+- **Nettoyage** : dossier doublon mal encodé `ressources crÃ©as avant modifs` (vide, créé par erreur le 20/06 lors de la création du vrai dossier) supprimé après vérification.
+- **Nouveau chantier lancé par Roméo** : faire passer l'agent autonome créas de 2 à 4 compétences. Déjà acquis : retrait sous-titres incrustés (API Vmake) + voix off FR (API ElevenLabs), enchaînés dans `creas-lot.ps1`. Visés : (3) montage final automatique dans CapCut (assemblage vidéo + voix off + sous-titres + export), (4) création de campagnes Meta Ads de bout en bout, toujours laissées en statut inactif/pause pour validation manuelle avant publication. Motivation : si fiabilisé, viser le lancement de 5 produits pendant les vacances au lieu de 1-2.
+- **Clarification importante sur l'agent existant** : le watcher headless tourne via la commande CLI `claude -p ... --permission-mode bypassPermissions`, donc sur l'abonnement **Claude Code Pro** de Roméo (sa session locale), pas via une API séparée facturée au token. Pas de risque de facturation cachée qui s'accumule.
+- **Plan approuvé**, écrit dans `C:\Users\franv\.claude\plans\c-est-tout-donc-c-est-cosmic-sloth.md` :
+  - **Étape 3 (CapCut)** : approche retenue = génération directe du fichier de projet CapCut (`draft_content.json`) par code, façon librairies communautaires type pyJianYingDraft (zéro pilotage souris/clavier). Prototypé d'abord hors skill (`livrables/ecommerce/creas/_capcut-proto/`), validé à l'œil par Roméo à chaque étape, formalisé dans `.claude/skills/crea-pub/` seulement après validation complète. Jamais branché sur le watcher avant maîtrise manuelle.
+  - **Étape 4 (Meta Ads)** : recherche initiale ne trouvait aucun MCP Meta/Facebook Ads configuré (la mention du 06/06 dans cet historique était un raccourci de langage erroné). Roméo a alors connecté en direct un **vrai MCP Facebook Ads** (`mcp__claude_ai_Facebook_Ads_MCP__*`, outils `ads_create_campaign`/`ads_create_ad_set`/`ads_create_ad`/`ads_create_creative`/`ads_activate_entity`...). Garde-fou absolu acté : création systématique en statut **PAUSED**, **jamais** d'appel à `ads_activate_entity` ni de passage à `ACTIVE`, que ce soit en session interactive ou (a fortiori) dans l'agent headless. Cette étape ne sera jamais déclenchée automatiquement par le watcher, toujours une demande active de Roméo.
+  - **Principe directeur** : ne jamais modifier en place `creas-lot.ps1` / `watch.ps1` / `watcher-consigne.md` (l'existant qui marche). Toute nouvelle compétence vit dans des fichiers séparés, ajoutés en plus, jamais à la place.
+- **Prochaine étape concrète (à faire ensemble à la prochaine session)** : connecter Claude à CapCut. Il faut que Roméo apporte (1) les 2 vidéos déjà montées à la main comme référence de comparaison, (2) un accès à un projet CapCut existant sur son poste pour inspecter le vrai format `draft_content.json` avant tout prototypage.
+
+---
+
 ## 2026-06-21
 
 ### Page matelas : popup bienvenue, refonte panier, collection et avis cliquables

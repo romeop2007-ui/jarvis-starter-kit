@@ -317,6 +317,7 @@
     {%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%}
     {%- endif -%}
+    <script src="{{ 'zooryn-gift-sync.js' | asset_url }}" defer="defer"></script>
 
     {% sections 'header-group' %}
 

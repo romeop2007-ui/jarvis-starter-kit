@@ -97,6 +97,10 @@
                 if item.variant.quantity_rule.increment > 1 or item.variant.quantity_rule.min > 1 or item.variant.quantity_rule.max != null
                   assign has_qty_rules = true
                 endif
+                assign zcart_is_gift = false
+                if item.properties['Cadeau']
+                  assign zcart_is_gift = true
+                endif
               -%}
               <div
                 id="CartDrawer-Item-{{ zcart_idx }}"
@@ -124,7 +128,7 @@
                     <cart-remove-button
                       id="CartDrawer-Remove-{{ zcart_idx }}"
                       data-index="{{ zcart_idx }}"
-                      class="zcart__row-remove"
+                      class="zcart__row-remove{% if item.properties['Cadeau'] %} hidden{% endif %}"
                     >
                       <button
                         type="button"
@@ -156,7 +160,7 @@
                               class="quantity__button"
                               name="minus"
                               type="button"
-                              {% if item.instructions and item.instructions.can_update_quantity == false %}
+                              {% if zcart_is_gift or item.instructions and item.instructions.can_update_quantity == false %}
                                 disabled
                               {% endif %}
                             >
@@ -185,7 +189,7 @@
                               aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
                               id="Drawer-quantity-{{ zcart_idx }}"
                               data-index="{{ zcart_idx }}"
-                              {% if item.instructions and item.instructions.can_update_quantity == false %}
+                              {% if zcart_is_gift or item.instructions and item.instructions.can_update_quantity == false %}
                                 disabled
                               {% endif %}
                             >
@@ -193,7 +197,7 @@
                               class="quantity__button"
                               name="plus"
                               type="button"
-                              {% if item.instructions and item.instructions.can_update_quantity == false %}
+                              {% if zcart_is_gift or item.instructions and item.instructions.can_update_quantity == false %}
                                 disabled
                               {% endif %}
                             >

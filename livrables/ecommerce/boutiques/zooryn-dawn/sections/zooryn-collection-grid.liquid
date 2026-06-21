@@ -11,11 +11,15 @@
   style="--zcoll-cols: {{ section.settings.columns_desktop }}; --zcoll-cols-mobile: {{ section.settings.columns_mobile }};"
 >
   {%- paginate collection.products by section.settings.products_per_page -%}
+    {%- assign zcoll_has_products = false -%}
     {%- for product in collection.products -%}
+      {%- if product.tags contains 'cadeau-cache' -%}{%- continue -%}{%- endif -%}
+      {%- assign zcoll_has_products = true -%}
       {% render 'zooryn-product-card', product: product %}
-    {%- else -%}
-      <p>{{ 'sections.collection_template.empty' | t }}</p>
     {%- endfor -%}
+    {%- unless zcoll_has_products -%}
+      <p>{{ 'sections.collection_template.empty' | t }}</p>
+    {%- endunless -%}
   {%- endpaginate -%}
 </div>
 

@@ -1,12 +1,71 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "buybox": {
       "type": "zmat-buybox",
-      "settings": {}
+      "settings": {
+        "product": "",
+        "rating_text": "(4,8) 126 avis",
+        "title": "Zooryn Matelas gonflable ultraléger et compact PRO",
+        "prix": "69,99 €",
+        "prix_barre": "144.99 €",
+        "badge_save": "Économisez 50%",
+        "benefit_1": "Gonflez-le avec vos pieds – aucune pompe nécessaire",
+        "benefit_2": "Ne pèse que 750 g – se compresse jusqu'à presque rien",
+        "benefit_3": "10 cm d'épaisseur pour un vrai confort de couchage",
+        "benefit_4": "Isole du froid et de l'humidité du sol",
+        "benefit_5": "Surface silencieuse – aucun froissement au milieu de la nuit",
+        "benefit_6": "",
+        "stock_label": "Ce produit",
+        "stock_text": "est en stock limité",
+        "img_gris": "shopify://shop_images/ba9dde24-b32b-4b55-a13c-ddceb5fabcf8.png",
+        "img_vert": "shopify://shop_images/58752456-3d25-40b9-adb7-6920e2bb11bf.png",
+        "img_bleu": "shopify://shop_images/695ed471-261f-4eae-bdd6-e71980aa29a9.png",
+        "img_oreiller": "shopify://shop_images/37734175-6172-4049-b973-3bc30228f6ae.png",
+        "bundle_head": "Offre d'été !",
+        "b1_name": "Pack Solo",
+        "b1_save": "Économisez 80 €",
+        "b1_sub": "Économisez plus de 50%",
+        "b1_now": "69,99 €",
+        "b1_old": "144.99 €",
+        "b2_ribbon": "Offre à durée limitée",
+        "b2_name": "Achetez-en 2, recevez 2 oreillers.",
+        "b2_save": "Économisez 135 €",
+        "b2_sub": "Économisez plus de 40%",
+        "b2_now": "144.99 €",
+        "b2_old": "279,80 €",
+        "b2_gift": "+ 2 oreillers gratuits (d'une valeur de 104,90 €)",
+        "b3_name": "Achetez-en 4, recevez 4 oreillers.",
+        "b3_save": "Économisez 285€",
+        "b3_sub": "Économisez plus de 50%",
+        "b3_now": "274.99€",
+        "b3_old": "559,60 €",
+        "b3_gift": "+ 4 oreillers gratuits (d'une valeur de 209,90 €)",
+        "b3_gift_old": "174,90 €",
+        "addon_title": "+ 1 oreiller supplémentaire ?",
+        "addon_save": "Économisez 13,00 €",
+        "addon_now": "29.99 €",
+        "addon_old": "42,99 €",
+        "cta_label": "Ajouter au panier",
+        "guarantee_main": "Garantie 365 jours !",
+        "guarantee_small": "Marque de confiance – Fiable et simple."
+      }
     },
     "marquee": {
       "type": "zmat-marquee",
-      "settings": {}
+      "settings": {
+        "phrase1": "Essayez sans risque",
+        "phrase2": "Garantie 365 jours",
+        "phrase3": "Modèle 2025 amélioré"
+      }
     },
     "intro": {
       "type": "zmat-benefit-intro",
@@ -16,6 +75,7 @@
         "col1": "Laissez le stress de la ville derrière vous et savourez le calme de la nature, en famille.",
         "col2": "Grâce à la pompe intégrée efficace, le lit est prêt en un instant – parfait quand les enfants ont besoin de bouger.",
         "col3": "Au matin, vous enroulez le matelas en un tour de main : plus de temps pour un petit-déjeuner cosy au coin du feu.",
+        "image": "shopify://shop_images/67e0a1d6-6599-4606-932e-2ad091f35ec9.png",
         "placeholder_label": "Démonstration en situation — famille en camping, matelas déroulé"
       }
     },
@@ -24,10 +84,15 @@
       "settings": {
         "reverse": false,
         "alt_bg": true,
+        "image": "shopify://shop_images/ca6e0c8c-63b8-4505-b25c-ca78174b89b9_d85294cb-67a2-4212-a481-61ff0c7d6864.png",
         "placeholder_label": "Matelas plié dans un sac à dos — format compact",
         "centered_heading": "",
         "heading": "Compact, léger comme une plume et toujours avec vous",
-        "body": "<p>Avec une taille de pliage de seulement 30 cm et un poids de 750 g, ce matelas est parfait pour voyager – <strong>il se glisse dans tous les sacs à dos et offre un confort maximal</strong> où que vous soyez !</p>"
+        "body": "<p>Avec une taille de pliage de seulement 30 cm et un poids de 750 g, ce matelas est parfait pour voyager – <strong>il se glisse dans tous les sacs à dos et offre un confort maximal</strong> où que vous soyez !</p>",
+        "sub1_h": "",
+        "sub1_b": "",
+        "sub2_h": "",
+        "sub2_b": ""
       }
     },
     "split_ergo": {
@@ -35,6 +100,7 @@
       "settings": {
         "reverse": true,
         "alt_bg": false,
+        "image": "shopify://shop_images/1f0e5179-ec75-4d9c-bf92-eb8712a44be3_44abdf47-38f3-4755-8c0f-5af25b93c8b6.png",
         "placeholder_label": "Personne allongée confortablement sur le matelas",
         "centered_heading": "Ergonomique et ultra-confortable",
         "heading": "",
@@ -50,10 +116,15 @@
       "settings": {
         "reverse": false,
         "alt_bg": true,
+        "image": "shopify://shop_images/Clips-ezgif.com-optimize.webp",
         "placeholder_label": "Plusieurs matelas clipsés ensemble — grande surface",
         "centered_heading": "",
         "heading": "Extensible à l'infini",
-        "body": "<p>Grâce à la fonction clip innovante, vous pouvez <strong>relier plusieurs matelas</strong> de façon transparente et créer une immense surface de couchage en quelques secondes !</p>"
+        "body": "<p>Grâce à la fonction clip innovante, vous pouvez <strong>relier plusieurs matelas</strong> de façon transparente et créer une immense surface de couchage en quelques secondes !</p>",
+        "sub1_h": "",
+        "sub1_b": "",
+        "sub2_h": "",
+        "sub2_b": ""
       }
     },
     "split_etanche": {
@@ -61,10 +132,15 @@
       "settings": {
         "reverse": true,
         "alt_bg": false,
+        "image": "shopify://shop_images/unzerstorbar-ezgif.com-optimize_0e3c6d91-bb09-48fd-90e8-8b9ace56e183.webp",
         "placeholder_label": "Matelas sous la pluie / sur l'eau — démonstration résistance",
         "centered_heading": "",
         "heading": "100% imperméable et résistant",
-        "body": "<p>Extrêmement résistant à la déchirure, à la pression et à l'eau – ce matelas affronte toutes les aventures, reste inarrêtable même sous la pluie ou en terrain difficile, et peut même servir de matelas flottant sur l'eau !</p>"
+        "body": "<p>Extrêmement résistant à la déchirure, à la pression et à l'eau – ce matelas affronte toutes les aventures, reste inarrêtable même sous la pluie ou en terrain difficile, et peut même servir de matelas flottant sur l'eau !</p>",
+        "sub1_h": "",
+        "sub1_b": "",
+        "sub2_h": "",
+        "sub2_b": ""
       }
     },
     "split_adapte": {
@@ -72,23 +148,53 @@
       "settings": {
         "reverse": false,
         "alt_bg": true,
+        "image": "shopify://shop_images/Positionen-1-ezgif.com-optimize.webp",
         "placeholder_label": "4 positions : à plat, plié, coussin d'assise, dossier",
         "centered_heading": "",
         "heading": "S'adapte à chaque situation",
-        "body": "<p>Qu'il soit à plat, plié, en coussin d'assise ou enroulé en dossier – ce matelas s'adapte à toutes les situations et offre un confort maximal !</p>"
+        "body": "<p>Qu'il soit à plat, plié, en coussin d'assise ou enroulé en dossier – ce matelas s'adapte à toutes les situations et offre un confort maximal !</p>",
+        "sub1_h": "",
+        "sub1_b": "",
+        "sub2_h": "",
+        "sub2_b": ""
       }
     },
     "faq": {
       "type": "zmat-faq",
-      "settings": {}
+      "settings": {
+        "heading": "Questions fréquentes"
+      }
     },
     "reviews": {
       "type": "zmat-reviews",
-      "settings": {}
+      "settings": {
+        "count_produit": "133",
+        "count_boutique": "24",
+        "tab1": "Avis produits",
+        "tab2": "Avis boutique",
+        "more_label": "Charger plus d’avis",
+        "pic1": "shopify://shop_images/XjPLztLWggA_9a6a2119-730a-4420-94d6-5684fb603012.jpg",
+        "pic2": "shopify://shop_images/wYjcelJTn_9264625c-b319-4734-b5ef-e810cc1f360e.jpg",
+        "pic3": "shopify://shop_images/gRkMm9ly9F_mid.jpg",
+        "pic4": "shopify://shop_images/97e8a94f-cba0-4bd6-948d-d173a489cbca.png"
+      }
     },
     "sticky": {
       "type": "zmat-sticky",
-      "settings": {}
+      "settings": {
+        "image": "shopify://shop_images/58752456-3d25-40b9-adb7-6920e2bb11bf.png",
+        "title": "Achetez-en 2, recevez 2 oreillers gratuits.",
+        "prix": "144,99 €",
+        "prix_barre": "279,80 €",
+        "urgency": "Offre expire bientôt",
+        "cta_label": "Ajouter au panier"
+      }
+    },
+    "178198684469d5dab1": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
@@ -102,6 +208,7 @@
     "split_adapte",
     "faq",
     "reviews",
-    "sticky"
+    "sticky",
+    "178198684469d5dab1"
   ]
 }

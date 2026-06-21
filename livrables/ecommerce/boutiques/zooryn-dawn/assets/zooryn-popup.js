@@ -40,7 +40,7 @@
       setTimeout(function () {
         if (stepForm) stepForm.hidden = true;
         if (stepSuccess) stepSuccess.hidden = false;
-      }, 5000);
+      }, 1200);
     });
   }
 

@@ -12,6 +12,13 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  {%- if section.id == 'histoire' -%}
+    #shopify-section-{{ section.id }} .image-with-text__media img {
+      transform: scale(1.55);
+      transform-origin: center center;
+    }
+  {%- endif -%}
 {%- endstyle -%}
 
 {%- liquid

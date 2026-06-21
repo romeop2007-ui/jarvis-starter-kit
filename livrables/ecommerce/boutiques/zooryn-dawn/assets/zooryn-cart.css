@@ -1,0 +1,284 @@
+.zcart__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.zcart__heading {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 800;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.zcart__count {
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: #5b6b70;
+}
+
+.zcart__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.zcart__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.zcart__row {
+  display: flex;
+  gap: 14px;
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.zcart__row-media {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f2f1ec;
+  position: relative;
+}
+
+.zcart__row-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.zcart__row-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.zcart__row-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.zcart__row-title {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #1c2b33;
+  text-decoration: none;
+}
+
+.zcart__row-remove .cart-remove-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  color: #5b6b70;
+}
+
+.zcart__row-remove svg {
+  width: 16px;
+  height: 16px;
+}
+
+.zcart__row-options {
+  font-size: 1.2rem;
+  color: #5b6b70;
+  margin-top: 2px;
+}
+
+.zcart__row-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.zcart__stepper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d6dadb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.zcart__stepper .quantity__button {
+  border: none;
+  background: #f7f6f1;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.zcart__stepper .quantity__button svg {
+  width: 11px;
+  height: 11px;
+}
+
+.zcart__stepper .quantity__input {
+  width: 34px;
+  border: none;
+  text-align: center;
+  font-size: 1.3rem;
+  padding: 0;
+  -moz-appearance: textfield;
+}
+
+.zcart__stepper .quantity__input::-webkit-inner-spin-button,
+.zcart__stepper .quantity__input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.zcart__row-price {
+  text-align: right;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #154230;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+
+.zcart__price-old {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #9aa3a6;
+  text-decoration: line-through;
+}
+
+.zcart__row-savings {
+  margin: 6px 0 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1c2b33;
+}
+
+.zcart__crosssell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+}
+
+.zcart__crosssell-media {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #f2f1ec;
+}
+
+.zcart__crosssell-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.zcart__crosssell-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.zcart__crosssell-title {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #1c2b33;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.zcart__crosssell-price {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #154230;
+}
+
+.zcart__crosssell-add {
+  flex-shrink: 0;
+  background: #154230;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.zcart__crosssell-add:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.zcart__totals {
+  margin-bottom: 14px;
+}
+
+.zcart__totals-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  padding: 4px 0;
+}
+
+.zcart__totals-row--savings {
+  color: #154230;
+  font-weight: 700;
+}
+
+.zcart__totals-row--subtotal {
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: #1c2b33;
+}
+
+.zcart__checkout {
+  background: #154230 !important;
+  border-radius: 10px !important;
+}
+
+.zcart__guarantee {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 12px 0 0;
+  font-size: 1.15rem;
+  color: #5b6b70;
+}
+
+.zcart__guarantee svg {
+  flex-shrink: 0;
+  color: #154230;
+}
+
+@media screen and (max-width: 749px) {
+  .zcart__row-title {
+    font-size: 1.3rem;
+  }
+}

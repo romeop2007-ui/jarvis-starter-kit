@@ -56,10 +56,12 @@
     border:1px dashed #b3ac96;
   }
   .zore .placeholder span{background:rgba(235,231,219,.85);padding:6px 12px;border-radius:8px;}
+  .zore .img-cover{width:100%;height:100%;object-fit:cover;display:block;}
 
   /* ===== HERO / PRODUIT ===== */
   .zore .product{padding:30px 0 18px;}
   .zore .product-grid{display:grid;gap:34px;grid-template-columns:1fr;}
+  .zore .product-grid > *{min-width:0;}
   @media(min-width:900px){
     .zore .product-grid{grid-template-columns:1.05fr .95fr;gap:48px;align-items:start;}
   }
@@ -76,17 +78,29 @@
     font-size:12px;font-weight:700;letter-spacing:.03em;
     padding:7px 13px;border-radius:999px;
   }
-  .zore .thumbs{
-    display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px;
+  .zore .gallery-arrow{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:2;
+    width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+    border:none;border-radius:50%;background:rgba(255,255,255,.92);color:var(--vert);
+    cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.18);transition:background .15s,transform .1s;
   }
-  @media(min-width:560px){.zore .thumbs{grid-template-columns:repeat(8,1fr);}}
+  .zore .gallery-arrow:hover{background:#fff;}
+  .zore .gallery-arrow:active{transform:translateY(-50%) scale(.94);}
+  .zore .gallery-arrow.prev{left:12px;}
+  .zore .gallery-arrow.next{right:12px;}
+  .zore .thumbs{
+    display:flex;gap:10px;overflow-x:auto;scroll-behavior:smooth;margin-top:12px;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;
+  }
+  .zore .thumbs::-webkit-scrollbar{display:none;}
   .zore .thumb{
-    aspect-ratio:1/1;border-radius:10px;overflow:hidden;cursor:pointer;
+    flex:0 0 auto;width:78px;aspect-ratio:1/1;border-radius:10px;overflow:hidden;cursor:pointer;
     border:2px solid transparent;background:var(--creme-chaud);transition:border-color .2s;
   }
   .zore .thumb.active{border-color:var(--vert);}
   .zore .thumb .placeholder{height:100%;border-radius:0;border:none;font-size:9px;padding:4px;}
   .zore .thumb .placeholder span{padding:2px 5px;font-size:9px;}
+  .zore .thumb .img-cover{aspect-ratio:1/1;border-radius:8px;}
 
   /* infos produit */
   .zore .stars{color:#e0a526;letter-spacing:2px;font-size:16px;}
@@ -167,7 +181,7 @@
   }
   .zore .feature-col p{font-size:16px;font-weight:500;line-height:1.5;}
   .zore .feature-intro-img{
-    margin-top:40px;aspect-ratio:16/10;border-radius:var(--radius-lg);overflow:hidden;
+    margin:40px auto 0;max-width:640px;aspect-ratio:1/1;border-radius:var(--radius-lg);overflow:hidden;
     box-shadow:var(--shadow);
   }
   .zore .feature-intro-img .placeholder{height:100%;border-radius:0;border:none;font-size:15px;}
@@ -175,11 +189,12 @@
   /* ===== FEATURE ROWS (alternées) ===== */
   .zore .feature-row{padding:56px 0;}
   .zore .feature-row .inner{display:grid;gap:36px;grid-template-columns:1fr;align-items:center;}
+  .zore .feature-row .inner > *{min-width:0;}
   @media(min-width:900px){
     .zore .feature-row .inner{grid-template-columns:1fr 1fr;gap:56px;}
     .zore .feature-row.reverse .media{order:2;}
   }
-  .zore .feature-row .media{aspect-ratio:4/3;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);}
+  .zore .feature-row .media{aspect-ratio:1/1;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);}
   .zore .feature-row .media .placeholder{height:100%;border-radius:0;border:none;font-size:15px;}
   .zore .feature-row h2{font-size:28px;font-weight:800;letter-spacing:-.02em;margin-bottom:18px;line-height:1.2;}
   @media(min-width:900px){.zore .feature-row h2{font-size:34px;}}
@@ -187,6 +202,9 @@
   .zore .feature-row p:last-child{margin-bottom:0;}
   .zore .feature-row.dark{background:var(--vert-fonce);color:var(--clair);}
   .zore .feature-row.dark .media{box-shadow:0 14px 36px rgba(0,0,0,.32);}
+  .zore .feature-row.dark h2,
+  .zore .feature-row.dark p,
+  .zore .feature-row.dark strong{color:var(--clair) !important;}
 
   /* ===== FAQ ===== */
   .zore .faq{padding:64px 0;}
@@ -226,11 +244,6 @@
   .zore .reviews-head .stars{font-size:26px;color:#e0a526;letter-spacing:2px;}
   .zore .reviews-head .count{display:flex;align-items:center;gap:7px;font-size:20px;font-weight:800;}
   .zore .reviews-head .count svg{width:18px;height:18px;}
-  .zore .reviews-filter{
-    width:44px;height:44px;border-radius:10px;border:1px solid rgba(21,66,48,.2);
-    display:flex;align-items:center;justify-content:center;background:var(--creme-chaud);
-  }
-  .zore .reviews-filter svg{width:20px;height:20px;color:var(--vert);}
   .zore .reviews-tabs{display:flex;gap:10px;margin-bottom:22px;}
   .zore .reviews-tab{
     font-size:14px;font-weight:700;padding:9px 16px;border-radius:999px;color:var(--vert);
@@ -248,53 +261,12 @@
   .zore .review-author .verified{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;color:var(--vert-accent);}
   .zore .review-author .verified svg{width:15px;height:15px;}
   .zore .review-card .stars{color:#e0a526;letter-spacing:2px;font-size:15px;}
-  .zore .review-title{font-weight:700;font-size:15px;margin:8px 0 4px;}
-  .zore .review-meta{font-size:12px;color:#8a8472;margin-bottom:14px;}
-  .zore .review-bought{
-    display:flex;gap:12px;border-top:1px solid rgba(21,66,48,.12);padding-top:14px;
-  }
-  .zore .review-bought .thumb-img{
-    width:52px;height:52px;border-radius:8px;flex:none;background:var(--creme);
-    border:1px dashed #b3ac96;display:flex;align-items:center;justify-content:center;
-    font-size:8px;text-align:center;color:var(--vert);padding:3px;
-  }
-  .zore .review-bought .bought-info{font-size:12px;}
-  .zore .review-bought .bought-label{font-weight:700;margin-bottom:2px;}
-  .zore .review-bought .bought-name{margin-bottom:5px;}
-  .zore .review-bought .bought-quote{font-style:italic;text-decoration:underline;text-underline-offset:2px;}
+  .zore .review-text{font-size:14.5px;font-weight:500;color:#33483e;line-height:1.55;margin-top:8px;}
   .zore .reviews-more{display:flex;justify-content:center;margin-top:14px;}
   .zore .reviews-more button{
     background:var(--vert);color:var(--creme);font-weight:700;font-size:15px;
     padding:14px 30px;border-radius:var(--radius);
   }
-
-  /* ===== BANDEAU MARQUE / OFFRES ===== */
-  .zore .brand-block{background:var(--creme-chaud);padding:54px 0;}
-  .zore .brand-block .inner{max-width:880px;margin:0 auto;text-align:center;}
-  .zore .brand-block .brand-logo{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-bottom:22px;}
-  .zore .brand-offers{
-    display:grid;gap:16px;grid-template-columns:1fr;text-align:left;
-    max-width:680px;margin:0 auto;
-  }
-  @media(min-width:680px){.zore .brand-offers{grid-template-columns:1fr 1fr;}}
-  .zore .brand-offers li{display:flex;gap:11px;font-size:15px;font-weight:600;align-items:flex-start;}
-  .zore .brand-offers li svg{width:20px;height:20px;color:var(--vert-accent);flex:none;margin-top:2px;}
-
-  /* ===== STICKY CTA (mobile) ===== */
-  .zore .sticky-cta{
-    position:fixed;left:0;right:0;bottom:0;z-index:50;
-    background:var(--creme);border-top:1px solid rgba(21,66,48,.15);
-    box-shadow:0 -6px 20px rgba(16,51,37,.12);
-    display:flex;align-items:center;gap:14px;padding:11px 16px;
-    transform:translateY(120%);transition:transform .3s ease;
-  }
-  .zore .sticky-cta.show{transform:translateY(0);}
-  .zore .sticky-cta .info{flex:1;min-width:0;}
-  .zore .sticky-cta .st-title{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .zore .sticky-cta .st-price{font-size:14px;font-weight:800;}
-  .zore .sticky-cta .st-price s{font-weight:500;color:#8a8472;font-size:12px;margin-left:6px;}
-  .zore .sticky-cta .btn-add{width:auto;padding:13px 22px;font-size:15px;flex:none;}
-  @media(min-width:980px){.zore .sticky-cta{display:none !important;}}
 
   /* anim au scroll */
   .zore .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
@@ -308,20 +280,39 @@
   <div class="wrap product-grid">
 
     <!-- galerie produit -->
+    {%- assign gallery_imgs = mp.images | default: empty -%}
     <div class="gallery">
       <div class="gallery-main">
         <span class="gallery-badge">-12%</span>
-        <div class="placeholder" id="mainImage"><span>Photo produit principale — oreiller gonflable</span></div>
+        {%- if gallery_imgs.size > 0 -%}
+          <img class="img-cover" id="zoreMainImg" src="{{ gallery_imgs.first | image_url: width: 1100 }}" alt="{{ gallery_imgs.first.alt | escape }}" width="1100" height="1100" style="border-radius:0;">
+        {%- else -%}
+          <div class="placeholder" id="zoreMainPh"><span>Photo produit principale — oreiller gonflable</span></div>
+        {%- endif -%}
+        <button type="button" class="gallery-arrow prev" id="zorePrev" aria-label="Image précédente">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button type="button" class="gallery-arrow next" id="zoreNext" aria-label="Image suivante">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </div>
-      <div class="thumbs" id="thumbs">
-        <button class="thumb active" data-label="Photo produit principale"><div class="placeholder"><span>Vue 1</span></div></button>
-        <button class="thumb" data-label="Produit plié / compact (taille canette)"><div class="placeholder"><span>Vue 2</span></div></button>
-        <button class="thumb" data-label="En situation — tente / camping"><div class="placeholder"><span>Vue 3</span></div></button>
-        <button class="thumb" data-label="Détail valve double anti-fuite"><div class="placeholder"><span>Vue 4</span></div></button>
-        <button class="thumb" data-label="Personne allongée, tête sur l'oreiller"><div class="placeholder"><span>Vue 5</span></div></button>
-        <button class="thumb" data-label="Dimensions / épaisseur 10 cm"><div class="placeholder"><span>Vue 6</span></div></button>
-        <button class="thumb" data-label="Rangé dans la poche / sac à dos"><div class="placeholder"><span>Vue 7</span></div></button>
-        <button class="thumb" data-label="Couleurs / coloris disponibles"><div class="placeholder"><span>Vue 8</span></div></button>
+      <div class="thumbs" id="zoreThumbs">
+        {%- if gallery_imgs.size > 0 -%}
+          {%- for img in gallery_imgs -%}
+            <div class="thumb{% if forloop.first %} active{% endif %}" data-img="{{ img | image_url: width: 1100 }}">
+              <img class="img-cover" src="{{ img | image_url: width: 200 }}" alt="{{ img.alt | escape }}" width="200" height="200">
+            </div>
+          {%- endfor -%}
+        {%- else -%}
+          <div class="thumb active" data-label="Photo produit principale"><div class="placeholder"><span>Vue 1</span></div></div>
+          <div class="thumb" data-label="Produit plié / compact (taille canette)"><div class="placeholder"><span>Vue 2</span></div></div>
+          <div class="thumb" data-label="En situation — tente / camping"><div class="placeholder"><span>Vue 3</span></div></div>
+          <div class="thumb" data-label="Détail valve double anti-fuite"><div class="placeholder"><span>Vue 4</span></div></div>
+          <div class="thumb" data-label="Personne allongée, tête sur l'oreiller"><div class="placeholder"><span>Vue 5</span></div></div>
+          <div class="thumb" data-label="Dimensions / épaisseur 10 cm"><div class="placeholder"><span>Vue 6</span></div></div>
+          <div class="thumb" data-label="Rangé dans la poche / sac à dos"><div class="placeholder"><span>Vue 7</span></div></div>
+          <div class="thumb" data-label="Couleurs / coloris disponibles"><div class="placeholder"><span>Vue 8</span></div></div>
+        {%- endif -%}
       </div>
     </div>
 
@@ -433,7 +424,11 @@
       </div>
     </div>
     <div class="feature-intro-img reveal">
-      <div class="placeholder"><span>Démonstration en situation — produit utilisé en camping / nature (format paysage)</span></div>
+      {%- if section.settings.img_situation != blank -%}
+        <img class="img-cover" style="border-radius:0;" src="{{ section.settings.img_situation | image_url: width: 1254 }}" alt="" loading="lazy" width="1254" height="1254">
+      {%- else -%}
+        <div class="placeholder"><span>Démonstration en situation — produit utilisé en camping / nature (1254×1254)</span></div>
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -442,7 +437,11 @@
 <section class="feature-row">
   <div class="wrap inner">
     <div class="media reveal">
-      <div class="placeholder"><span>Gros plan — oreiller gonflé, surface souple (format 4:3)</span></div>
+      {%- if section.settings.img_gros_plan != blank -%}
+        <img class="img-cover" style="border-radius:0;" src="{{ section.settings.img_gros_plan | image_url: width: 1254 }}" alt="" loading="lazy" width="1254" height="1254">
+      {%- else -%}
+        <div class="placeholder"><span>Gros plan — oreiller gonflé, surface souple (1254×1254)</span></div>
+      {%- endif -%}
     </div>
     <div class="text reveal">
       <h2>Un confort moelleux, sans la sensation rigide</h2>
@@ -458,7 +457,11 @@
 <section class="feature-row dark reverse">
   <div class="wrap inner">
     <div class="media reveal">
-      <div class="placeholder"><span>Personne allongée, nuque soutenue — confort de nuit (format 4:3)</span></div>
+      {%- if section.settings.img_nuque != blank -%}
+        <img class="img-cover" style="border-radius:0;" src="{{ section.settings.img_nuque | image_url: width: 1254 }}" alt="" loading="lazy" width="1254" height="1254">
+      {%- else -%}
+        <div class="placeholder"><span>Personne allongée, nuque soutenue — confort de nuit (1254×1254)</span></div>
+      {%- endif -%}
     </div>
     <div class="text reveal">
       <h2>Un soutien pour la nuque qui est vraiment confortable</h2>
@@ -553,178 +556,57 @@
 </section>
 
 <!-- SECTION : avis clients -->
+{%- assign rows_p = "Camille R.~5~Je voyage beaucoup en train et avant je m'endormais la tête qui dodeline. Avec cet oreiller, plus aucun souci, vraiment confortable. ||| Hugo M.~5~Se gonfle en 4-5 souffles et se range dans la pochette en quelques secondes. Parfait pour le sac à dos. ||| Marine D.~4~Très bon oreiller, doux et bien soutenant. J'enlève une étoile car le premier gonflage demande un peu plus d'air que prévu. ||| Antoine L.~5~Utilisé en van pendant 3 semaines, aucune fuite d'air, toujours aussi ferme le matin. ||| Léa B.~5~La double valve change vraiment tout, plus besoin de réajuster en pleine nuit. ||| Thomas G.~5~Tient dans la poche de mon manteau, je ne pars plus jamais sans pour les longs trajets en avion. ||| Sarah P.~5~Le soutien de nuque est top, je me réveille sans torticolis même après une nuit sous tente. ||| Julien R.~4~Bon produit, confortable et léger. Petit bémol sur la housse un peu juste pour le replier vite. ||| Inès C.~5~Acheté pour un trek de 5 jours, ultra léger dans le sac, je ne le sentais même pas. ||| Maxime F.~5~Surface douce, rien à voir avec les oreillers gonflables rigides que j'ai eus avant. ||| Chloé V.~5~Parfait pour les festivals, je dors enfin bien sous la tente. ||| Lucas B.~5~Idéal en avion, je le gonfle juste avant de m'installer et je dors tout le vol. ||| Émilie R.~5~Très bonne surprise, compact comme une canette une fois dégonflé. ||| Romain D.~4~Confortable et pratique, juste un peu long à bien doser l'air au début. ||| Sophie M.~5~Increvable, utilisé tout l'été en camping sans une seule fuite. ||| Nicolas P.~5~Le rapport confort/poids est imbattable pour la rando. ||| Pauline G.~5~Je dormais sur ma veste pliée avant, quelle différence depuis que j'ai cet oreiller. ||| Alexandre T.~5~Résiste bien, je l'ai même utilisé comme coussin de voiture sans souci. ||| Marie L.~5~Tient bien la forme toute la nuit, aucun affaissement. ||| Quentin H.~4~Bon oreiller, confortable. Quatre étoiles car j'aurais aimé une couleur supplémentaire. ||| Laura B.~5~Emporté en randonnée de plusieurs jours, léger et toujours aussi confortable chaque soir. ||| Florian M.~5~Parfait pour les enfants en camping, facile à gonfler même pour eux. ||| Océane D.~5~Utilisé aussi en pique-nique comme coussin d'assise, super polyvalent. ||| Benjamin R.~5~Plus de douleurs au cou après une nuit en bivouac, vraiment efficace. ||| Aurélie P.~5~Toute la famille en a un maintenant, on ne voyage plus sans. ||| Damien L.~5~Aucun bruit de plastique pendant la nuit, détail qui change tout à deux. ||| Clara F.~5~Reçu rapidement, conforme à la description, testé dès le premier soir. ||| Pierre G.~4~Très satisfait, compact et confortable. Petit temps d'adaptation pour le gonflage." | split: " ||| " -%}
+{%- assign rows_b = "Karine D.~5~Commande reçue en 3 jours, emballage soigné. Boutique sérieuse, je reviendrai. ||| Frédéric L.~5~Service client très réactif, réponse en quelques heures à ma question. Parfait. ||| Hélène V.~5~Super, rien à redire sur cette boutique. ||| Brian M.~5~Entreprise sérieuse, réponse rapide du service client. Je recommande. ||| Madeleine B.~5~Suivi de commande envoyé automatiquement, j'ai pu suivre mon colis sans stress. ||| Patrick R.~4~Bonne boutique, livraison conforme aux délais annoncés. Juste un email de confirmation un peu tardif. ||| Sylvie G.~5~Produit conforme à la description et aux photos. Exactement ce que j'attendais. ||| Didier M.~5~Paiement simple et sécurisé, site clair. Achat sans aucune mauvaise surprise. ||| Nadia B.~5~Un petit souci à la livraison réglé immédiatement par le support. Sérieux et à l'écoute. ||| Laurent P.~5~Très bonne expérience d'achat, je recommande cette boutique les yeux fermés. ||| Corinne D.~5~Colis bien protégé, rien d'abîmé. On sent une boutique qui fait attention. ||| Stéphane L.~4~Bonne boutique dans l'ensemble, livraison correcte. J'aurais aimé plus de moyens de paiement. ||| Valérie M.~5~Réponse au mail en moins d'une journée, équipe pro et aimable. Ça fait plaisir. ||| Olivier G.~5~Commande passée le soir, expédiée le lendemain. Rapide et efficace. ||| Sandrine B.~5~Tout s'est parfaitement déroulé, de la commande à la réception. Boutique de confiance. ||| Thierry R.~5~Très satisfait du sérieux de la boutique, je repasserai commande sans hésiter. ||| Isabelle D.~5~Excellent contact avec le service après-vente, problème résolu en un échange. ||| Marc L.~5~Site agréable, commande facile, livraison dans les temps. Parfait du début à la fin. ||| Christelle P.~4~Bonne boutique, produit conforme. Petit délai de traitement mais rien de gênant. ||| Gérard M.~5~Sérieux et professionnel. Mon colis est arrivé pile dans les délais annoncés. ||| Bernard T.~5~Deuxième commande chez eux, toujours aussi fiable. Livraison rapide et bien emballée." | split: " ||| " -%}
+{%- assign verif_svg = '<svg viewBox="0 0 24 24" width="14" height="14"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.3l3.2 3.2L17 8.7" stroke="#F3EFE4" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>' -%}
 <section class="reviews" id="avis">
   <div class="wrap">
 
     <div class="reviews-head reveal">
       <div class="score">
         <span class="stars">★★★★★</span>
-        <span class="count">
-          21 Avis
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
-        </span>
+        <span class="count"><span class="zore-count-n">{{ rows_p.size }}</span> avis</span>
       </div>
-      <button class="reviews-filter" aria-label="Filtrer">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h10M18 7h2M4 12h2M10 12h10M4 17h7M15 17h5"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="13" cy="17" r="2"/></svg>
-      </button>
     </div>
 
-    <div class="reviews-tabs reveal">
-      <button class="reviews-tab active">Avis produit</button>
-      <button class="reviews-tab">Avis boutique</button>
+    <div class="reviews-tabs reveal" id="zoreTabs">
+      <button type="button" class="reviews-tab active" data-tab="produit">Avis produit</button>
+      <button type="button" class="reviews-tab" data-tab="boutique">Avis boutique</button>
     </div>
 
-    <div class="reviews-grid">
+    <div class="reviews-grid" id="zoreReviewsGrid">
 
-      <article class="review-card reveal">
-        <div class="review-author">Hélène V. <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.9 7.2 17l.9-5.4L4.2 7.7l5.4-.8z" stroke="none"/></svg>Vérifié</span></div>
-        <div class="stars">★★★★★</div>
-        <div class="review-title">Super</div>
-        <div class="review-meta">Traduit automatiquement</div>
-        <div class="review-bought">
-          <div class="thumb-img">Photo produit</div>
-          <div class="bought-info">
-            <div class="bought-label">Article acheté</div>
-            <div class="bought-name">Oreiller gonflable Zooryn</div>
-            <div class="bought-quote">« Super »</div>
-          </div>
-        </div>
-      </article>
+      {%- for row in rows_p -%}
+        {%- assign f = row | split: "~" -%}
+        {%- assign nb = f[1] | plus: 0 -%}
+        {%- assign starstr = '' -%}
+        {%- for i in (1..5) -%}{%- if i <= nb -%}{%- assign starstr = starstr | append: '★' -%}{%- else -%}{%- assign starstr = starstr | append: '☆' -%}{%- endif -%}{%- endfor -%}
+        <article class="review-card reveal" data-tab="produit">
+          <div class="review-author">{{ f[0] }} <span class="verified">{{ verif_svg }}Vérifié</span></div>
+          <div class="stars">{{ starstr }}</div>
+          <p class="review-text">{{ f[2] }}</p>
+        </article>
+      {%- endfor -%}
 
-      <article class="review-card reveal">
-        <div class="review-author">Brian B. <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.9 7.2 17l.9-5.4L4.2 7.7l5.4-.8z" stroke="none"/></svg>Vérifié</span></div>
-        <div class="stars">★★★★★</div>
-        <div class="review-title">Entreprise sérieuse, service client rapide.</div>
-        <div class="review-meta">Traduit automatiquement</div>
-        <div class="review-bought">
-          <div class="thumb-img">Photo produit</div>
-          <div class="bought-info">
-            <div class="bought-label">Article acheté</div>
-            <div class="bought-name">Oreiller gonflable Zooryn</div>
-            <div class="bought-quote">« Très bonne qualité et livraison fluide… »</div>
-          </div>
-        </div>
-      </article>
-
-      <article class="review-card reveal">
-        <div class="review-author">Madeleine L. <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.9 7.2 17l.9-5.4L4.2 7.7l5.4-.8z" stroke="none"/></svg>Vérifié</span></div>
-        <div class="stars">★★★★★</div>
-        <div class="review-title">Parfait</div>
-        <div class="review-meta">Traduit automatiquement</div>
-        <div class="review-bought">
-          <div class="thumb-img">Photo produit</div>
-          <div class="bought-info">
-            <div class="bought-label">Article acheté</div>
-            <div class="bought-name">Oreiller gonflable Zooryn</div>
-            <div class="bought-quote">« Livraison parfaite. Très bien emballé… »</div>
-          </div>
-        </div>
-      </article>
-
-      <article class="review-card reveal">
-        <div class="review-author">Maria A. <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.9 7.2 17l.9-5.4L4.2 7.7l5.4-.8z" stroke="none"/></svg>Vérifié</span></div>
-        <div class="stars">★★★★★</div>
-        <div class="review-title">Le seul qu'il vous faut</div>
-        <div class="review-meta">Traduit automatiquement</div>
-        <div class="review-bought">
-          <div class="thumb-img">Photo produit</div>
-          <div class="bought-info">
-            <div class="bought-label">Article acheté</div>
-            <div class="bought-name">Oreiller gonflable Zooryn</div>
-            <div class="bought-quote">« Souple et simple. Aucun souci… »</div>
-          </div>
-        </div>
-      </article>
-
-      <article class="review-card reveal">
-        <div class="review-author">Laura L. <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.9 7.2 17l.9-5.4L4.2 7.7l5.4-.8z" stroke="none"/></svg>Vérifié</span></div>
-        <div class="stars">★★★★★</div>
-        <div class="review-title">Achat tout en douceur</div>
-        <div class="review-meta">Traduit automatiquement</div>
-        <div class="review-bought">
-          <div class="thumb-img">Photo produit</div>
-          <div class="bought-info">
-            <div class="bought-label">Article acheté</div>
-            <div class="bought-name">Oreiller gonflable Zooryn</div>
-            <div class="bought-quote">« Confortable et compact, je recommande… »</div>
-          </div>
-        </div>
-      </article>
-
-      <article class="review-card reveal">
-        <div class="review-author">Ellinor P. <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.9 7.2 17l.9-5.4L4.2 7.7l5.4-.8z" stroke="none"/></svg>Vérifié</span></div>
-        <div class="stars">★★★★★</div>
-        <div class="review-title">Rien à redire</div>
-        <div class="review-meta">Traduit automatiquement</div>
-        <div class="review-bought">
-          <div class="thumb-img">Photo produit</div>
-          <div class="bought-info">
-            <div class="bought-label">Article acheté</div>
-            <div class="bought-name">Oreiller gonflable Zooryn</div>
-            <div class="bought-quote">« Exactement comme décrit… »</div>
-          </div>
-        </div>
-      </article>
-
-      <article class="review-card reveal">
-        <div class="review-author">Ann-Charlotte A. <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.9 7.2 17l.9-5.4L4.2 7.7l5.4-.8z" stroke="none"/></svg>Vérifié</span></div>
-        <div class="stars">★★★★★</div>
-        <div class="review-title">Très bien !!</div>
-        <div class="review-meta">Traduit automatiquement</div>
-        <div class="review-bought">
-          <div class="thumb-img">Photo produit</div>
-          <div class="bought-info">
-            <div class="bought-label">Article acheté</div>
-            <div class="bought-name">Oreiller gonflable Zooryn</div>
-            <div class="bought-quote">« Léger et vraiment confortable… »</div>
-          </div>
-        </div>
-      </article>
-
-      <article class="review-card reveal">
-        <div class="review-author">Thomas M. <span class="verified"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.9 7.2 17l.9-5.4L4.2 7.7l5.4-.8z" stroke="none"/></svg>Vérifié</span></div>
-        <div class="stars">★★★★★</div>
-        <div class="review-title">Au top</div>
-        <div class="review-meta">Traduit automatiquement</div>
-        <div class="review-bought">
-          <div class="thumb-img">Photo produit</div>
-          <div class="bought-info">
-            <div class="bought-label">Article acheté</div>
-            <div class="bought-name">Oreiller gonflable Zooryn</div>
-            <div class="bought-quote">« Parfait pour la randonnée… »</div>
-          </div>
-        </div>
-      </article>
+      {%- for row in rows_b -%}
+        {%- assign f = row | split: "~" -%}
+        {%- assign nb = f[1] | plus: 0 -%}
+        {%- assign starstr = '' -%}
+        {%- for i in (1..5) -%}{%- if i <= nb -%}{%- assign starstr = starstr | append: '★' -%}{%- else -%}{%- assign starstr = starstr | append: '☆' -%}{%- endif -%}{%- endfor -%}
+        <article class="review-card reveal" data-tab="boutique" style="display:none;">
+          <div class="review-author">{{ f[0] }} <span class="verified">{{ verif_svg }}Vérifié</span></div>
+          <div class="stars">{{ starstr }}</div>
+          <p class="review-text">{{ f[2] }}</p>
+        </article>
+      {%- endfor -%}
 
     </div>
 
     <div class="reviews-more reveal">
-      <button>Voir plus d'avis</button>
+      <button type="button" id="zoreMoreReviews">Voir plus d'avis</button>
     </div>
   </div>
 </section>
-
-<!-- SECTION : bandeau marque / offres -->
-<section class="brand-block">
-  <div class="wrap inner">
-    <div class="brand-logo">Zooryn</div>
-    <ul class="brand-offers">
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>365 jours de retour, achat sans risque en toute sérénité</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Livraisons rapides et sécurisées</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Un service client qui répond sous 12 heures</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 13l4 4L19 7"/></svg>Des achats sécurisés auprès d'une marque de confiance</li>
-    </ul>
-  </div>
-</section>
-
-<!-- SECTION : sticky CTA (mobile) -->
-<div class="sticky-cta" id="stickyCta">
-  <div class="info">
-    <div class="st-title">{{ titre }}</div>
-    <div class="st-price">{{ prix }} <s>{{ prix_barre }}</s></div>
-  </div>
-  <button class="btn-add" id="addToCartSticky">{{ cta_label }}</button>
-</div>
 
 </div>
 
@@ -733,36 +615,79 @@
   var root = document.querySelector('.zore');
   if(!root){ return; }
 
-  /* galerie */
-  var thumbs = root.querySelectorAll('.thumb');
-  var mainImage = root.querySelector('#mainImage');
-  thumbs.forEach(function(t){
-    t.addEventListener('click', function(){
-      thumbs.forEach(function(x){ x.classList.remove('active'); });
-      t.classList.add('active');
-      if(mainImage){ mainImage.querySelector('span').textContent = t.dataset.label; }
+  /* galerie : carrousel (flèches + vignettes synchronisées), comme la page matelas */
+  var mainImg = root.querySelector('#zoreMainImg');
+  var mainPh = root.querySelector('#zoreMainPh');
+  var thumbsWrap = root.querySelector('#zoreThumbs');
+  var thumbs = thumbsWrap ? Array.prototype.slice.call(thumbsWrap.querySelectorAll('.thumb')) : [];
+  var prevBtn = root.querySelector('#zorePrev');
+  var nextBtn = root.querySelector('#zoreNext');
+  var current = 0;
+
+  function showImg(i){
+    if(!thumbs.length){ return; }
+    if(i < 0){ i = thumbs.length - 1; }
+    if(i >= thumbs.length){ i = 0; }
+    current = i;
+    var t = thumbs[i];
+    thumbs.forEach(function(x){ x.classList.remove('active'); });
+    t.classList.add('active');
+    var url = t.getAttribute('data-img');
+    var label = t.getAttribute('data-label') || 'Photo produit';
+    if(mainImg && url){ mainImg.src = url; }
+    else if(mainPh){ var sp = mainPh.querySelector('span'); if(sp){ sp.textContent = label; } }
+    if(thumbsWrap){
+      var target = t.offsetLeft - (thumbsWrap.clientWidth / 2) + (t.clientWidth / 2);
+      thumbsWrap.scrollTo({ left: target, behavior: 'smooth' });
+    }
+  }
+
+  thumbs.forEach(function(t, i){ t.addEventListener('click', function(){ showImg(i); }); });
+  if(prevBtn){ prevBtn.addEventListener('click', function(){ showImg(current - 1); }); }
+  if(nextBtn){ nextBtn.addEventListener('click', function(){ showImg(current + 1); }); }
+  if(thumbs.length <= 1){
+    if(prevBtn){ prevBtn.style.display = 'none'; }
+    if(nextBtn){ nextBtn.style.display = 'none'; }
+  }
+
+  /* avis : onglets produit/boutique + pagination 8 par 8 */
+  var reviewsGrid = root.querySelector('#zoreReviewsGrid');
+  var moreBtn = root.querySelector('#zoreMoreReviews');
+  var countEl = root.querySelector('.zore-count-n');
+  var PAGE = 8;
+  var currentTab = 'produit';
+  var shown = PAGE;
+
+  function reviewCards(){ return reviewsGrid ? Array.prototype.slice.call(reviewsGrid.querySelectorAll('.review-card')) : []; }
+
+  function renderReviews(){
+    var i = 0, total = 0;
+    reviewCards().forEach(function(c){
+      if(c.getAttribute('data-tab') === currentTab){
+        total++;
+        c.style.display = (i < shown) ? '' : 'none';
+        i++;
+      } else {
+        c.style.display = 'none';
+      }
+    });
+    if(countEl){ countEl.textContent = total; }
+    if(moreBtn){ moreBtn.style.display = (shown < total) ? '' : 'none'; }
+  }
+
+  root.querySelectorAll('.reviews-tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      root.querySelectorAll('.reviews-tab').forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      currentTab = tab.getAttribute('data-tab');
+      shown = PAGE;
+      renderReviews();
     });
   });
 
-  /* ajout au panier (sticky -> formulaire réel) */
-  var heroForm = root.querySelector('#zoreForm');
-  var stickyBtn = root.querySelector('#addToCartSticky');
-  if(stickyBtn){
-    stickyBtn.addEventListener('click', function(){
-      if(heroForm){ heroForm.submit(); }
-      else { window.location.href = '{{ routes.cart_url }}'; }
-    });
-  }
+  if(moreBtn){ moreBtn.addEventListener('click', function(){ shown += PAGE; renderReviews(); }); }
 
-  /* sticky CTA visible après le hero */
-  var sticky = root.querySelector('#stickyCta');
-  var product = root.querySelector('.product');
-  if(sticky && product){
-    window.addEventListener('scroll', function(){
-      var past = product.getBoundingClientRect().bottom < 0;
-      sticky.classList.toggle('show', past);
-    });
-  }
+  renderReviews();
 
   /* animations au scroll */
   var io = new IntersectionObserver(function(entries){
@@ -805,7 +730,11 @@
       "id": "cta_label",
       "label": "Texte du bouton",
       "default": "Ajouter au panier"
-    }
+    },
+    { "type": "header", "content": "Images blocs bénéfices (1254×1254)" },
+    { "type": "image_picker", "id": "img_situation", "label": "Démonstration en situation" },
+    { "type": "image_picker", "id": "img_gros_plan", "label": "Gros plan — oreiller gonflé" },
+    { "type": "image_picker", "id": "img_nuque", "label": "Personne allongée, nuque soutenue" }
   ],
   "presets": [
     { "name": "Zooryn — Page oreiller" }

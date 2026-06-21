@@ -22,8 +22,10 @@
   {%- endfor -%}
 {%- endif -%}
 {%- assign addon_p = all_products['oreiller-gonflable-zooryn'] -%}
+{%- assign gift_p = all_products['oreiller-gonflable-zooryn-copie'] -%}
+{%- assign gift_variant_id = gift_p.variants.first.id -%}
 
-<div class="zmat" id="zmat-buybox-{{ sid }}" data-img-gris="{{ s.img_gris | image_url: width: 120 }}" data-img-vert="{{ s.img_vert | image_url: width: 120 }}" data-img-bleu="{{ s.img_bleu | image_url: width: 120 }}">
+<div class="zmat" id="zmat-buybox-{{ sid }}" data-img-gris="{{ s.img_gris | image_url: width: 120 }}" data-img-vert="{{ s.img_vert | image_url: width: 120 }}" data-img-bleu="{{ s.img_bleu | image_url: width: 120 }}" data-gift-variant="{{ gift_variant_id }}">
   <section class="product">
     <div class="wrap product-grid">
 
@@ -111,7 +113,7 @@
         <div class="bundle-list" id="zmatBundles-{{ sid }}">
 
           <!-- Pack 1 -->
-          <div class="bundle-card" data-bundle data-variant-id="{{ v_solo.id }}">
+          <div class="bundle-card" data-bundle data-variant-id="{{ v_solo.id }}" data-gift-qty="0">
             <div class="bundle-card-main">
               <span class="bundle-radio"></span>
               <div class="bundle-body">
@@ -136,7 +138,7 @@
           </div>
 
           <!-- Pack 2 (mis en avant) -->
-          <div class="bundle-card selected has-ribbon" data-bundle data-variant-id="{{ v_pack2.id }}">
+          <div class="bundle-card selected has-ribbon" data-bundle data-variant-id="{{ v_pack2.id }}" data-gift-qty="2">
             {%- if s.b2_ribbon != blank -%}<span class="bundle-ribbon">{{ s.b2_ribbon }}</span>{%- endif -%}
             <div class="bundle-card-main">
               <span class="bundle-radio"></span>
@@ -171,7 +173,7 @@
           </div>
 
           <!-- Pack 3 -->
-          <div class="bundle-card" data-bundle data-variant-id="{{ v_pack4.id }}">
+          <div class="bundle-card" data-bundle data-variant-id="{{ v_pack4.id }}" data-gift-qty="4">
             <div class="bundle-card-main">
               <span class="bundle-radio"></span>
               <div class="bundle-body">
@@ -336,6 +338,11 @@
     if(addon && addon.classList.contains('selected')){
       var aid = addon.getAttribute('data-addon-id');
       if(aid){ items.push({ id: Number(aid), quantity: 1 }); }
+    }
+    var giftQty = Number(card.getAttribute('data-gift-qty') || 0);
+    var giftId = root.getAttribute('data-gift-variant');
+    if(giftQty > 0 && giftId){
+      items.push({ id: Number(giftId), quantity: giftQty, properties: { 'Cadeau': 'Offert avec votre pack' } });
     }
     return items;
   }

@@ -1,0 +1,68 @@
+{% comment %}
+  Carte produit collection façon BioRoot Labs : image + checklist d'avantages en overlay,
+  badge promo, prix barré, bouton "Ajouter au panier" plein, AJAX via <product-form>
+  (même composant déjà utilisé par Dawn pour le quick-add, donc panier/tiroir fonctionnels).
+  Usage : {% render 'zooryn-product-card', product: product %}
+{% endcomment %}
+{%- liquid
+  assign zcard_variant = product.selected_or_first_available_variant
+  assign zcard_avantages = product.metafields.custom.avantages_carte.value
+-%}
+<div class="zcard">
+  <a href="{{ product.url }}" class="zcard__media-link">
+    <div class="zcard__media">
+      {%- if product.featured_media -%}
+        <img
+          src="{{ product.featured_media | image_url: width: 700 }}"
+          alt="{{ product.featured_media.alt | escape }}"
+          loading="lazy"
+          width="350"
+          height="{{ 350 | divided_by: product.featured_media.aspect_ratio }}"
+        >
+      {%- endif -%}
+    </div>
+  </a>
+
+  <div class="zcard__info">
+    {%- if zcard_avantages != blank -%}
+      <ul class="zcard__avantages">
+        {%- for line in zcard_avantages -%}
+          <li>
+            {{- 'icon-checkmark.svg' | inline_asset_content -}}
+            <span>{{ line }}</span>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    <a href="{{ product.url }}" class="zcard__title">{{ product.title | escape }}</a>
+
+    <div class="zcard__price">
+      <span class="zcard__price-now">{{ product.price | money }}</span>
+      {%- if product.compare_at_price > product.price -%}
+        <span class="zcard__price-compare">{{ product.compare_at_price | money }}</span>
+      {%- endif -%}
+    </div>
+
+    <product-form>
+      {%- form 'product', product, class: 'zcard__form' -%}
+        <input type="hidden" name="id" value="{{ zcard_variant.id }}">
+        <button
+          type="submit"
+          name="add"
+          class="zcard__btn"
+          {% if zcard_variant.available == false %}disabled{% endif %}
+        >
+          <span>
+            {%- if zcard_variant.available -%}
+              {{ 'products.product.add_to_cart' | t }}
+            {%- else -%}
+              {{ 'products.product.sold_out' | t }}
+            {%- endif -%}
+          </span>
+          {%- render 'loading-spinner' -%}
+        </button>
+      {%- endform -%}
+    </product-form>
+  </div>
+</div>

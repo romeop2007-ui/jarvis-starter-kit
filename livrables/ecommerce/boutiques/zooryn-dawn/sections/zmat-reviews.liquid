@@ -49,7 +49,7 @@
               {%- assign pickey = 'pic' | append: picidx -%}
               {%- assign theimg = section.settings[pickey] -%}
               {%- if theimg != blank -%}
-                <img class="img-cover" src="{{ theimg | image_url: width: 500 }}" alt="{{ f[0] | escape }}" loading="lazy" width="500" height="500">
+                <img class="img-cover" src="{{ theimg | image_url: width: 500 }}" data-full="{{ theimg | image_url: width: 1200 }}" alt="{{ f[0] | escape }}" loading="lazy" width="500" height="500">
               {%- else -%}
                 <div class="placeholder"><span>Photo client {{ picidx }}</span></div>
               {%- endif -%}
@@ -88,6 +88,25 @@
 
     </div>
   </section>
+
+  <div class="review-modal" id="zmatReviewModal-{{ sid }}" hidden>
+    <div class="review-modal__overlay"></div>
+    <div class="review-modal__panel" role="dialog" aria-modal="true" aria-label="Avis client">
+      <button type="button" class="review-modal__close" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="review-modal__media" hidden>
+        <img class="review-modal__img" src="" alt="">
+      </div>
+      <div class="review-modal__body">
+        <div class="review-meta">
+          <span class="review-author"><b class="review-modal__author"></b><span class="verified">{{ verif_svg }}Vérifié</span></span>
+        </div>
+        <span class="review-stars review-modal__stars"></span>
+        <p class="review-text review-modal__text"></p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <style>
@@ -99,7 +118,7 @@
 .zmat .reviews-grid{ display:block; column-count:4; column-gap:16px; }
 .zmat .reviews-grid .review-card{ width:100%; margin:0 0 16px; display:inline-block; break-inside:avoid; -webkit-column-break-inside:avoid; }
 .zmat .reviews-grid .review-card .placeholder,
-.zmat .reviews-grid .review-card .img-cover{ aspect-ratio:1/1; border-radius:0; }
+.zmat .reviews-grid .review-card .img-cover{ aspect-ratio:4/5; border-radius:0; }
 
 /* Carte : auteur en haut, puis étoiles, puis texte (ordre du concurrent), sans avatar */
 .zmat .review-body{ padding:14px 16px 16px; display:flex; flex-direction:column; gap:7px; }
@@ -111,6 +130,18 @@
 @media (max-width:1000px){ .zmat .reviews-grid{ column-count:3; } }
 @media (max-width:760px){ .zmat .reviews-grid{ column-count:2; } }
 @media (max-width:430px){ .zmat .reviews-grid{ column-gap:12px; } .zmat .reviews-grid .review-card{ margin-bottom:12px; } }
+
+/* ===== Carte cliquable + modale avis (façon concurrent) ===== */
+.zmat .review-card{ cursor:pointer; }
+.zmat .review-modal{ position:fixed; inset:0; z-index:9970; }
+.zmat .review-modal[hidden]{ display:none; }
+.zmat .review-modal__overlay{ position:absolute; inset:0; background:rgba(10,20,16,.55); }
+.zmat .review-modal__panel{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:min(92vw,460px); max-height:88vh; overflow:auto; background:var(--creme-carte,#F3EFE4); border-radius:16px; box-shadow:0 30px 60px rgba(0,0,0,.3); }
+.zmat .review-modal__close{ position:absolute; top:12px; right:12px; z-index:2; width:34px; height:34px; border-radius:50%; background:#fff; border:1.5px solid #154230; color:#154230; display:flex; align-items:center; justify-content:center; cursor:pointer; padding:0; }
+.zmat .review-modal__media{ width:100%; aspect-ratio:4/5; background:#e9e6db; }
+.zmat .review-modal__media img{ width:100%; height:100%; object-fit:cover; display:block; }
+.zmat .review-modal__body{ padding:18px 20px 22px; display:flex; flex-direction:column; gap:8px; }
+.zmat .review-modal__text{ margin:0; }
 </style>
 
 <script>
@@ -155,6 +186,47 @@
   if(moreBtn){ moreBtn.addEventListener('click', function(){ shown += PAGE; render(); }); }
 
   render();
+
+  // ===== Modale avis (clic sur une carte = avis produit ou boutique) =====
+  var modal = document.getElementById('zmatReviewModal-{{ sid }}');
+  if(modal){
+    var mMedia = modal.querySelector('.review-modal__media');
+    var mImg = modal.querySelector('.review-modal__img');
+    var mAuthor = modal.querySelector('.review-modal__author');
+    var mStars = modal.querySelector('.review-modal__stars');
+    var mText = modal.querySelector('.review-modal__text');
+
+    function openModal(card){
+      var img = card.querySelector('.img-cover');
+      var author = card.querySelector('.review-author b');
+      var stars = card.querySelector('.review-stars');
+      var text = card.querySelector('.review-text');
+
+      if(img){
+        mImg.src = img.getAttribute('data-full') || img.src;
+        mImg.alt = img.alt || '';
+        mMedia.hidden = false;
+      } else {
+        mImg.src = '';
+        mMedia.hidden = true;
+      }
+      mAuthor.textContent = author ? author.textContent : '';
+      mStars.textContent = stars ? stars.textContent : '';
+      mText.textContent = text ? text.textContent : '';
+
+      modal.hidden = false;
+    }
+
+    function closeModal(){ modal.hidden = true; }
+
+    grid.querySelectorAll('.review-card').forEach(function(card){
+      card.addEventListener('click', function(){ openModal(card); });
+    });
+
+    modal.querySelector('.review-modal__overlay').addEventListener('click', closeModal);
+    modal.querySelector('.review-modal__close').addEventListener('click', closeModal);
+    document.addEventListener('keyup', function(e){ if(e.key === 'Escape') closeModal(); });
+  }
 })();
 </script>
 

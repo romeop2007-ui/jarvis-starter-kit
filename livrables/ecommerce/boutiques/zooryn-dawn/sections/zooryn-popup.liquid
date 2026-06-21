@@ -1,0 +1,239 @@
+{%- comment -%}
+  Popup de bienvenue site-wide, façon norrfjallen.se : modale 2 colonnes (formulaire + image),
+  bouton flottant de réouverture, barre d'urgence en bas à gauche.
+  Inclus directement dans layout/theme.liquid via {% section 'zooryn-popup' %} (static section,
+  visible sur toutes les pages, réglable dans le Personnalisateur).
+{%- endcomment -%}
+
+{%- if section.settings.enable -%}
+  <div
+    id="zpop-root"
+    class="zpop"
+    data-delay="{{ section.settings.delay | times: 1000 }}"
+    data-code="{{ section.settings.discount_code }}"
+  >
+    <div id="zpop-overlay" class="zpop__overlay" hidden></div>
+
+    <div
+      id="zpop-modal"
+      class="zpop__modal{% if section.settings.image == blank %} zpop__modal--no-image{% endif %}"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="zpop-title"
+      hidden
+    >
+      <button type="button" id="zpop-close" class="zpop__close" aria-label="Fermer">
+        {{- 'icon-close.svg' | inline_asset_content -}}
+      </button>
+
+      <div class="zpop__col zpop__col--form">
+        <div class="zpop__form-inner">
+          {%- if section.settings.logo != blank -%}
+            <img
+              class="zpop__logo"
+              src="{{ section.settings.logo | image_url: width: 240 }}"
+              alt="{{ shop.name }}"
+              loading="lazy"
+              width="120"
+            >
+          {%- else -%}
+            <div class="zpop__logo-text">{{ shop.name }}</div>
+          {%- endif -%}
+
+          <div id="zpop-step-form" class="zpop__step">
+            <p class="zpop__eyebrow">{{ section.settings.eyebrow }}</p>
+            <h2 id="zpop-title" class="zpop__title">{{ section.settings.discount_label }}</h2>
+            <p class="zpop__subtitle">{{ section.settings.subheading }}</p>
+
+            <div id="zpop-form" class="zpop__form">
+              <button type="button" id="zpop-submit" class="zpop__btn-primary">
+                <span class="zpop__btn-text">{{ section.settings.button_text }}</span>
+                <span class="zpop__btn-spinner" hidden></span>
+              </button>
+            </div>
+
+            <button type="button" id="zpop-decline" class="zpop__decline">{{ section.settings.decline_text }}</button>
+          </div>
+
+          <div id="zpop-step-success" class="zpop__step" hidden>
+            <p class="zpop__eyebrow">{{ section.settings.success_eyebrow }}</p>
+            <h2 class="zpop__title">{{ section.settings.success_title }}</h2>
+            <p class="zpop__subtitle">{{ section.settings.success_text }}</p>
+            <div class="zpop__code-box">
+              <span id="zpop-code-text">{{ section.settings.discount_code }}</span>
+              <button type="button" id="zpop-copy" class="zpop__copy">{{ section.settings.copy_text }}</button>
+            </div>
+            <a href="{{ product.url | default: section.settings.cta_url }}" class="zpop__btn-primary zpop__btn-primary--link">{{ section.settings.cta_text }}</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="zpop__col zpop__col--image"{% if section.settings.image == blank %} hidden{% endif %}>
+        {%- if section.settings.image != blank -%}
+          <img
+            class="zpop__image"
+            src="{{ section.settings.image | image_url: width: 1200 }}"
+            alt=""
+            loading="lazy"
+            width="600"
+            height="800"
+          >
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if section.settings.show_urgency_bar -%}
+      <div id="zpop-urgency" class="zpop__urgency" hidden>
+        {%- if section.settings.urgency_icon != blank -%}
+          <img src="{{ section.settings.urgency_icon | image_url: width: 60 }}" alt="" loading="lazy" width="30" height="30">
+        {%- endif -%}
+        <span>{{ section.settings.urgency_text }}</span>
+      </div>
+    {%- endif -%}
+  </div>
+
+  {{ 'zooryn-popup.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'zooryn-popup.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Popup bienvenue",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "Activer le popup",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Déclenchement"
+    },
+    {
+      "type": "range",
+      "id": "delay",
+      "label": "Délai avant affichage (secondes)",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Contenu — étape 1 (formulaire)"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo (optionnel, sinon nom de la boutique)"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Petit texte au-dessus du titre",
+      "default": "Tu as débloqué"
+    },
+    {
+      "type": "text",
+      "id": "discount_label",
+      "label": "Titre (le %)",
+      "default": "10% de réduction"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sous-titre",
+      "default": "sur ta première commande"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Texte du bouton principal",
+      "default": "Oui, je veux ma réduction !"
+    },
+    {
+      "type": "text",
+      "id": "decline_text",
+      "label": "Texte du lien de refus",
+      "default": "Non merci, je ne veux pas de réduction."
+    },
+    {
+      "type": "header",
+      "content": "Contenu — étape 2 (code obtenu)"
+    },
+    {
+      "type": "text",
+      "id": "discount_code",
+      "label": "Code promo affiché",
+      "default": "ÉTÉ10"
+    },
+    {
+      "type": "text",
+      "id": "success_eyebrow",
+      "label": "Petit texte au-dessus (étape 2)",
+      "default": "C'est fait !"
+    },
+    {
+      "type": "text",
+      "id": "success_title",
+      "label": "Titre (étape 2)",
+      "default": "Voici ton code"
+    },
+    {
+      "type": "text",
+      "id": "success_text",
+      "label": "Sous-titre (étape 2)",
+      "default": "Utilise ce code au moment de payer pour profiter de -10%."
+    },
+    {
+      "type": "text",
+      "id": "copy_text",
+      "label": "Texte du bouton copier",
+      "default": "Copier"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Texte du bouton final",
+      "default": "Voir le matelas"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Lien de secours du bouton final",
+      "default": "/collections/all"
+    },
+    {
+      "type": "header",
+      "content": "Image (colonne droite)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Barre d'urgence (bas de l'écran)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_urgency_bar",
+      "label": "Afficher la barre d'urgence",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "urgency_icon",
+      "label": "Icône"
+    },
+    {
+      "type": "text",
+      "id": "urgency_text",
+      "label": "Texte",
+      "default": "Offre de l'été : -10% avec le code ÉTÉ10"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,57 @@
+{% comment %}
+  Bloc cross-sell dans le tiroir panier : propose l'autre produit Zooryn s'il n'est pas déjà
+  dans le panier. Ajout fonctionnel en AJAX (fetch /cart/add.js) puis rafraîchit le panier via
+  le même pub/sub que cart.js (PUB_SUB_EVENTS.cartUpdate), donc qty/totaux se mettent à jour
+  sans recharger la page.
+
+  Pour ajouter un 3e produit plus tard : ajouter son handle à la liste `zcross_handles` et la
+  logique choisira automatiquement le premier qui n'est pas encore dans le panier.
+{% endcomment %}
+{%- liquid
+  assign zcross_handles = 'matelas-pneumatique-compact-ultraleger-zooryn-pro,oreiller-gonflable-zooryn' | split: ','
+  assign zcross_cart_handles = ''
+  for item in cart.items
+    assign zcross_cart_handles = zcross_cart_handles | append: item.product.handle | append: ','
+  endfor
+
+  assign zcross_product = blank
+  for handle in zcross_handles
+    assign zcross_needle = handle | append: ','
+    unless zcross_cart_handles contains zcross_needle
+      assign zcross_candidate = all_products[handle]
+      if zcross_candidate != blank and zcross_candidate.available
+        assign zcross_product = zcross_candidate
+        break
+      endif
+    endunless
+  endfor
+-%}
+
+{%- if zcross_product != blank -%}
+  {%- assign zcross_variant = zcross_product.selected_or_first_available_variant -%}
+  <div class="zcart__crosssell">
+    <a href="{{ zcross_product.url }}" class="zcart__crosssell-media">
+      {%- if zcross_product.featured_media -%}
+        <img
+          src="{{ zcross_product.featured_media | image_url: width: 160 }}"
+          alt="{{ zcross_product.featured_media.alt | escape }}"
+          loading="lazy"
+          width="60"
+          height="{{ 60 | divided_by: zcross_product.featured_media.aspect_ratio }}"
+        >
+      {%- endif -%}
+    </a>
+    <div class="zcart__crosssell-info">
+      <a href="{{ zcross_product.url }}" class="zcart__crosssell-title">{{ zcross_product.title | escape }}</a>
+      <span class="zcart__crosssell-price">{{ zcross_product.price | money }}</span>
+    </div>
+    <button
+      type="button"
+      class="zcart__crosssell-add"
+      data-zcross-add
+      data-variant-id="{{ zcross_variant.id }}"
+    >
+      Ajouter
+    </button>
+  </div>
+{%- endif -%}

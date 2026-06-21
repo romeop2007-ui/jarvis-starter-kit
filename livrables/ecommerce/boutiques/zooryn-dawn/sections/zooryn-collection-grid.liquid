@@ -1,0 +1,64 @@
+{% comment %}
+  Grille de collection façon BioRoot Labs : carte avec checklist d'avantages en overlay sur
+  l'image, badge promo, prix barré, bouton "Ajouter au panier" plein qui fonctionne en AJAX.
+  Remplace main-collection-product-grid dans templates/collection.json.
+{% endcomment %}
+{{ 'zooryn-collection.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+<div
+  class="zcoll-grid"
+  style="--zcoll-cols: {{ section.settings.columns_desktop }}; --zcoll-cols-mobile: {{ section.settings.columns_mobile }};"
+>
+  {%- paginate collection.products by section.settings.products_per_page -%}
+    {%- for product in collection.products -%}
+      {% render 'zooryn-product-card', product: product %}
+    {%- else -%}
+      <p>{{ 'sections.collection_template.empty' | t }}</p>
+    {%- endfor -%}
+  {%- endpaginate -%}
+</div>
+
+{%- paginate collection.products by section.settings.products_per_page -%}
+  {%- if paginate.pages > 1 -%}
+    {%- render 'pagination', paginate: paginate -%}
+  {%- endif -%}
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "Grille collection Zooryn",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Produits par page",
+      "min": 4,
+      "max": 36,
+      "step": 4,
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "columns_desktop",
+      "label": "Colonnes (ordinateur)",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Colonnes (mobile)",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "2"
+    }
+  ]
+}
+{% endschema %}

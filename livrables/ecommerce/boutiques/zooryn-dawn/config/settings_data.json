@@ -149,24 +149,36 @@
           "prix_barre": "44.99€",
           "cta_label": "Ajouter au panier"
         }
+      },
+      "zooryn-popup": {
+        "type": "zooryn-popup",
+        "settings": {
+          "enable": true,
+          "delay": 2,
+          "show_reopen_button": true,
+          "reopen_text": "VOIR L'OFFRE",
+          "logo": "shopify://shop_images/zooryn-logo-vert.png",
+          "eyebrow": "Tu as débloqué",
+          "discount_label": "10% de réduction",
+          "subheading": "sur Zooryn Matelas gonflable ultraléger et compact PRO",
+          "button_text": "Oui, je veux ma réduction !",
+          "decline_text": "Non merci, je ne veux pas de réduction.",
+          "discount_code": "ÉTÉ10",
+          "success_eyebrow": "C'est fait !",
+          "success_title": "Voici ton code",
+          "success_text": "Utilise ce code au moment de payer pour profiter de -10%.",
+          "copy_text": "Copier",
+          "cta_text": "Voir le matelas",
+          "cta_url": "shopify://collections/all",
+          "show_urgency_bar": false,
+          "urgency_text": "Offre de l'été : -10% avec le code ÉTÉ10"
+        }
       }
     },
     "content_for_index": [],
     "blocks": {
-      "13047258039897440615": {
-        "type": "shopify://apps/judge-me-reviews/blocks/cart_drawer_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-        "disabled": false,
-        "settings": {
-          "widget_type": "review-widget"
-        }
-      },
       "17198465164502963513": {
         "type": "shopify://apps/parcelwill-parcel-panel/blocks/app.embed/fc785c3f-90e0-4c98-a20c-7cde9ba5e4b5",
-        "disabled": false,
-        "settings": {}
-      },
-      "14060646107696862457": {
-        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
         "settings": {}
       }

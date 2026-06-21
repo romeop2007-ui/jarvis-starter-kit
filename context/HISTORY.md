@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-06-21
+
+### Page matelas : popup bienvenue, refonte panier, collection et avis cliquables
+- Popup bienvenue sur la page matelas (apparition 2s après arrivée, 1x/session) : clic direct sur "Oui, je veux ma réduction !" (sans email à saisir), 5s de faux chargement, code ÉTÉ10/ETE10 affiché et copiable, bouton final renvoie vers la page matelas. Code ETE10 créé et scopé uniquement au produit matelas (10%, ETE10 et ÉTÉ10 fonctionnent au checkout, Shopify les confond à l'unicité).
+- Page collection (/collections/all) refaite façon concurrent BioRoot Labs : carte produit avec liste d'avantages (metafield `custom.avantages_carte`, éditable par produit), prix barré, bouton "Ajouter au panier" fonctionnel (AJAX, tiroir panier). 1 colonne sur mobile, 3 sur desktop, boutons alignés entre cartes.
+- Tiroir panier (mobile + desktop) entièrement restylé façon BioRoot Labs : header "Mon panier • X articles", ligne produit avec économie affichée, stepper quantité, croix de suppression, bloc cross-sell fonctionnel (propose l'autre produit Zooryn), footer Économies/Sous-total + garantie 30 jours. Toute la logique AJAX native Shopify (quantité, suppression, checkout) conservée intacte.
+- Photos d'avis (page matelas) passées au format portrait (4:5 au lieu de 1:1) et rendues cliquables : popup avec photo en grand + texte complet, pour tous les avis (produit et boutique).
+- Comptes clients : vérifié que l'icône compte du header fonctionne et redirige bien vers la connexion Shopify, et que l'achat en invité (sans connexion) est bien actif. Personnalisation visuelle des pages de comptes clients (account.shopify.com) hors de portée : réservée aux boutiques Shopify Plus, Zooryn est en plan Basic.
+
+---
+
 ## 2026-06-20 (mise à jour 9)
 
 ### Section avis de la page matelas : refonte complète (Judge.me → 100% Liquid)

@@ -3,13 +3,13 @@ import { join } from "node:path";
 import { randomUUID } from "node:crypto";
 
 const BASE_PROJECT = "C:/Users/franv/AppData/Local/CapCut/User Data/Projects/com.lveditor.draft/0604";
-const NEW_PROJECT_NAME = "ZOORYN-T4-AD1-TEST";
+const NEW_PROJECT_NAME = "ZOORYN-T4-AD1";
 const NEW_PROJECT_DIR = `C:/Users/franv/AppData/Local/CapCut/User Data/Projects/com.lveditor.draft/${NEW_PROJECT_NAME}`;
 
 const VIDEO_PATH = "C:/Users/franv/Desktop/jarvis-starter-kit/livrables/ecommerce/creas/ressources créas après modifs/T4/AD1/video-sans-soustitres.mp4";
 const AUDIO_PATH = "C:/Users/franv/Desktop/jarvis-starter-kit/livrables/ecommerce/creas/ressources créas après modifs/T4/AD1/voix-off.mp3";
 const VIDEO_DUR_SEC = 30.33;
-const AUDIO_DUR_SEC = 30.28;
+const AUDIO_DUR_SEC = 29.52;
 const VIDEO_W = 720, VIDEO_H = 1280;
 
 const uuid = () => randomUUID().toUpperCase();
@@ -48,9 +48,9 @@ audioTrack.segments = [audioSeg];
 const stt = JSON.parse(readFileSync("stt-raw.json", "utf8"));
 const items = stt.words || [];
 
-// correction phonetique connue : la marque "Zooryn" est mal transcrite "Zorrine"
+// correction phonetique connue : la marque "Zooryn" est mal transcrite ("Zorrine", "Zooreen", ...)
 for (const it of items) {
-  if (it.text && /zorrine/i.test(it.text)) it.text = it.text.replace(/zorrine/i, "Zooryn");
+  if (it.text && /zo+r+[iey]+n*e?/i.test(it.text)) it.text = it.text.replace(/zo+r+[iey]+n*e?/i, "Zooryn");
 }
 
 // regroupement en legendes courtes (4-5 mots / ~2.2s / coupe a la ponctuation)

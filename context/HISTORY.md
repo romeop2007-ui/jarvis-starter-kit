@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-06-22 (mise à jour 5)
+
+### CapCut AD1 finalisé (bug nom produit concurrent corrigé) + déblocage écriture .claude/skills
+- Pipeline AD1 (guirlande Mira) bouclé : voix off Céline (correction d'un mauvais choix de genre en cours de route), durée calée à ±1s, sous-titres recalés, brouillon CapCut `ZOORYN-T4-AD1` généré et inscrit au registre `root_meta_info.json` (écriture réautorisée explicitement par Roméo le 23/06, renverse la règle du 22/06).
+- **Bug réel trouvé et corrigé : le prompt fixe de génération de script ne disait jamais explicitement de remplacer le nom du PRODUIT concurrent.** Le script généré pour AD1 gardait "Mira" (nom du produit du concurrent Belysningshuset) au lieu du produit Zooryn. `SKILL.md` de `crea-pub` corrigé (prompt fixe vidéo + image) pour forcer ce remplacement + étape de relecture obligatoire avant de déposer le script.
+- **Croyance technique invalidée : "Claude ne peut pas écrire dans `.claude/skills`" était fausse/obsolète.** Héritée d'un blocage observé le 19-20/06, jamais retestée depuis. Testée en direct le 23/06 sur `SKILL.md` (2 édits) à la demande de Roméo : passe sans aucun blocage. **Nouvelle règle actée : Claude édite désormais lui-même les `SKILL.md`, plus de détour par un fichier "à coller".**
+- Nouveau chemin de sortie pour les vidéos finales montées dans CapCut : `livrables/ecommerce/creas/créas terminées/<LOT>/` (distinct du dossier de travail `ressources créas après modifs/`). Export CapCut lui-même reste manuel (pas d'API/CLI d'export, pas d'outil de capture d'écran côté Claude).
+- Prochaine étape : faire AD2 du même lot T4 pour confirmer la méthode sur un 2e cas.
+
+---
+
 ## 2026-06-22 (mise à jour 4)
 
 ### CapCut automatisé par génération de fichier (draft_content.json) + bug voix off corrigé (accent anglais)

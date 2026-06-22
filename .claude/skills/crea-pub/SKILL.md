@@ -94,6 +94,21 @@ accroches texte incrustees). Verifier la transcription : si elle ne contient que
 (relever les accroches incrustees et les adapter en FR, cf. Chemin IMAGE), livrable
 `accroches-fr.md`. Ne generer une voix off QUE si la pub d'origine en a une.
 
+⚠️ **Piege reel rencontre le 23/06 (lot T4/AD3) : une pub classee "musicale" avait en fait une
+vraie voix off, jamais detectee.** La transcription de l'epoque (19/06) avait conclu "musique
+seule" alors que l'audio contenait bel et bien un narrateur (meme script que AD2). La STT
+ElevenLabs peut HALLUCINER une annotation generique de musique dans une langue au hasard quand
+elle echoue a transcrire (ex "(轻快的片尾音乐)", "(트로트 음악)") — un texte entre
+parentheses qui ressemble a une legende de musique n'est PAS une preuve fiable d'absence de
+voix, surtout sur un fond musical fort. **Si un doute existe (ou si Romeo signale a l'oreille
+qu'il y a une voix dans une pub deja livree en "musicale")** : retranscrire le
+`video-sans-soustitres.mp4` final (pas seulement la source brute) et, si du texte parle reel
+apparait, **re-traiter cette pub comme un type "voice"** : ecrire `script-fr.txt` (PROMPT FIXE
+ci-dessous, voix choisie selon le genre), generer `voix-off.mp3` (`tts.mjs`, cible = duree du
+`video-sans-soustitres.mp4`), puis regenerer le brouillon CapCut (etape 7, le script
+auto-detecte "voice" des que `voix-off.mp3` existe). Mettre l'ancien `accroches-fr.md` de cote
+(renommer `accroches-fr.OBSOLETE-*.md`) plutot que le supprimer, pour garder une trace.
+
 1. **Duree** : `node scripts/duration.mjs "<video.mp4>"` -> note D en secondes.
 2. **Transcription** : `node scripts/transcribe.mjs "<video.mp4>" "<dossier_travail>"`
    -> recupere le texte source (langue d'origine) + ecrit `transcription-source.txt`.
@@ -142,6 +157,96 @@ le nom de produit du concurrent (uniquement Zooryn + le nom de TON produit).
 produit concurrent (celui present dans la transcription source) n'a ete conserve par erreur.
 Bug reel rencontre le 22/06 sur la guirlande Mira (Belysningshuset) : le script genere disait
 "la guirlande Mira de Zooryn" — "Mira" est le nom du produit CONCURRENT, jamais a garder.
+
+## Etape 7 — Generer le brouillon CapCut par code (zero clic souris)
+
+Une fois le dossier ADn complet (video-sans-soustitres.mp4 + voix-off.mp3 OU accroches-fr.md),
+generer directement le projet CapCut avec :
+
+```
+node .claude/skills/crea-pub/scripts/capcut-draft.mjs --lot <LOT> --ad <ADn> --register
+```
+
+Le script auto-detecte le type (voix-off.mp3 present -> "voice", accroches-fr.md present ->
+"musical") et traite les deux tres differemment :
+
+- **Type "voice"** (pub a voix off, ex AD1/AD2) : transcrit `voix-off.mp3` via STT ElevenLabs
+  (timestamps mot par mot), regroupe en legendes courtes (4-5 mots / ~2,2 s / coupe a la
+  ponctuation), coupe le son d'origine de la video (`volume: 0`) et pose la voix off comme
+  seule piste audio. Legendes en bas (`y: -0.56`), style blanc/contour noir Prompt-Medium.
+- **Type "musical"** (pub musicale/muette, ex AD3/AD4/AD5) : AUCUNE transcription/STT.
+  Parse directement le tableau de `accroches-fr.md` (colonnes Ordre/~temps/origine/FR/
+  Position/Hierarchie) pour placer chaque accroche FR au bon moment. **Le son d'origine
+  (musique) est CONSERVE** (`volume: 1`, pas de piste audio separee) : il n'y a pas de voix
+  off a remplacer. Position/taille mappees depuis les colonnes du tableau : "Haut" -> haut
+  d'ecran, "Centre" -> milieu, "Sous le titre" -> juste en dessous ; "Gros titre" -> plus
+  grand, "Titre moyen" -> taille moyenne, "Sous-titre" -> petit. Le suffixe "(2 lignes)" dans
+  la colonne Position force un retour a la ligne au milieu du texte. **Reglages
+  approximatifs** : Romeo verifie/ajuste la position a l'oeil dans CapCut si besoin.
+
+Projet de base clone : `0604` (template 9:16, 1 piste video + 1 piste texte + 1 piste audio)
+dans `C:/Users/franv/AppData/Local/CapCut/User Data/Projects/com.lveditor.draft/`. Le nouveau
+projet est nomme `ZOORYN-<LOT>-<ADn>` (ex `ZOORYN-T4-AD2`).
+
+**`--register` inscrit le projet dans `root_meta_info.json`** (sinon CapCut peut afficher
+"chemin inhabituel" a l'ouverture). Autorise par Romeo le 23/06 (renverse l'ancienne regle du
+22/06 qui interdisait d'y toucher).
+
+⚠️ **Piege majeur rencontre le 23/06, a ne JAMAIS reproduire : CapCut stocke TOUS les chemins
+en "/" dans `draft_content.json`, meme sur Windows.** `path.join()`/`path.resolve()` de Node y
+mettent des "\\" sur Windows. Consequence si on ecrit un chemin avec des "\\" dans le JSON
+(`materials.videos[0].path`, `materials.audios[0].path`, `draft_fold_path` du registre) : **le
+projet apparait dans la liste CapCut (les metadonnees en cache suffisent a l'affichage), mais
+cliquer pour l'ouvrir ne fait RIEN** (le materiau ne se charge pas, pas de message d'erreur).
+Symptome reel rencontre par Romeo sur AD2-AD5. Regle : utiliser `path.join()` librement pour
+les vrais appels `fs` (lire/copier des fichiers), mais TOUJOURS repasser par un helper
+`toPosix()` (remplace `\\` par `/`) avant d'ecrire une valeur de chemin dans le JSON du
+brouillon ou dans une entree du registre.
+
+Ce script est du Node pur + un appel a l'API ElevenLabs (STT), comme la transcription de
+l'etape 2 : Claude peut l'executer lui-meme normalement. CapCut lui-meme (ouverture, montage,
+export) reste 100% manuel cote Romeo.
+
+⚠️ **Deuxieme piege majeur rencontre le 23/06 : le projet OUVRE mais l'export plante CapCut
+(l'appli se ferme et ne se rouvre jamais).** Symptome visible avant export : vignette
+rouge/marron avec "..." dans la liste CapCut (au lieu d'une vraie image de la video), taille
+du projet identique et louche sur plusieurs brouillons differents (signe de donnees pas a
+jour). Cause : chaque materiau (`materials.videos[0]`, `materials.audios[0]`) porte un champ
+`local_material_id` — la cle du **cache media interne de CapCut** (proxy/decodage/miniature),
+distincte de l'`id` du materiau dans le projet. En clonant le template `0604` sans la changer,
+le NOUVEAU fichier herite de la cle de cache de l'ANCIEN fichier (Sculpted/voix Owen, duree et
+resolution differentes) → CapCut essaie de reutiliser un cache qui ne correspond pas → echec
+silencieux a l'affichage, plantage a l'export (qui doit vraiment decoder/encoder le fichier).
+**Le script regenere systematiquement un nouveau `local_material_id` (minuscule, format UUID
+natif CapCut) pour la video ET l'audio**, et remet `material_name` au vrai nom de fichier ainsi
+que `draft_timeline_materials_size_` (taille reelle des fichiers) dans `draft_meta_info.json` —
+sinon meme symptome. Si un futur brouillon refait le meme plantage : verifier en premier que
+CES TROIS CHAMPS sont bien neufs et pas des restes du template clone.
+
+⚠️ **Troisieme piege, le plus profond, rencontre le 23/06 (celui qui causait reellement le
+plantage) : CapCut garde un CACHE MIROIR complet du projet dans `Timelines/<id_du_template>/`**
+(sa propre copie de `draft_content.json`, un "mini_draft" de secours avec tous les ids de pistes/
+segments, un `project.json`...). Ce dossier porte le nom de l'ID DU TEMPLATE clone (`0604`),
+jamais renomme ni resynchronise avec le nouveau projet -> CapCut affiche bien la fiche projet
+(lecture du `draft_content.json` racine), mais l'edition et l'export passent par ce cache
+perime et incoherent -> plantage silencieux de l'appli (se ferme, ne se rouvre pas), sans aucun
+message. Egalement perimes pour la meme raison : `template.tmp`, `template-2.tmp`,
+`timeline_layout.json`, `draft_content.json.bak` (tous reference l'ancien id ou contiennent une
+copie figee de l'ancien contenu). **Le script SUPPRIME desormais ces caches dans chaque nouveau
+projet genere** (plus simple et plus fiable que de les resynchroniser un par un) : CapCut les
+reconstruit proprement depuis le vrai `draft_content.json` au premier chargement. Si un futur
+brouillon replante a l'edition/export : verifier en premier qu'aucun de ces caches stales n'est
+revenu (ex si on change de PROJET DE BASE ou si CapCut en recree d'autres avec de nouveaux noms).
+
+### Controle apres generation (toujours)
+
+Comparer la duree de `video-sans-soustitres.mp4` a la duree de `voix-off.mp3` (pour le type
+voice) : ecart > 1 s = STOP, regenerer le script-fr.txt avant de monter (cf. regle de duree
+ci-dessus). **Piege reel rencontre le 23/06 (lot T4/AD2)** : la voix off avait ete generee le
+19/06 pour la duree de la video SOURCE (avant Vmake), mais le fichier `video-sans-soustitres.mp4`
+issu de Vmake (20/06) etait 2 s plus court — le detourage Vmake peut legerement changer la duree
+exportee. Toujours mesurer les deux fichiers FINAUX juste avant de generer le brouillon CapCut,
+jamais se fier a une duree notee plus tot dans le process.
 
 ## Sortie d'un dossier pub (pret a monter)
 
@@ -210,4 +315,8 @@ en manuel sur telle pub). Romeo verifie, importe dans CapCut, monte, poste sur M
 - Vmake = API officielle (async, fiable). Claude prepare la commande, Romeo l'execute (auto-execution interdite). Fallback manuel si l'API casse.
 - Voix = la plus proche du catalogue, pas un clone.
 - Duree = tres proche, pas exacte a la frame.
-- CapCut = 100 % manuel (l'agent prepare, Romeo monte).
+- CapCut : le **brouillon** (assemblage video + audio + sous-titres/accroches) est genere par
+  code (`scripts/capcut-draft.mjs`, etape 7), zero clic souris. **L'ouverture, la verification
+  visuelle, les retouches fines et l'export restent 100% manuels cote Romeo** (pas d'API
+  d'export CapCut). Pour les pubs musicales, le placement des accroches (position/taille) est
+  approximatif (regles de mapping simples) : a verifier/ajuster a l'oeil avant export.

@@ -127,10 +127,21 @@ Utiliser exactement cette consigne pour produire le script FR :
 > Traduis ce script en francais, ne depasse pas <D> secondes (en fonction du temps de la video
 > crea, et adapte si besoin sans changer le sens du script) :
 > <TRANSCRIPTION DE LA CREA CONCURRENT>
+>
+> IMPORTANT : la transcription source mentionne le PRODUIT du concurrent sous son propre nom
+> (ex "Mira", "Aurora", un nom de modele invente par le concurrent). Remplace CHAQUE mention de
+> ce nom de produit concurrent par le nom de TON produit ("<NOM PRODUIT SHOPIFY>", ou sa forme
+> orale naturelle et courte, ex "la guirlande Zooryn" plutot que de repeter tout le nom Shopify).
+> Ne garde JAMAIS le nom de produit d'origine du concurrent, meme s'il sonne bien ou est court.
 
 Le script FR doit : garder le sens et la structure de la pub d'origine, sonner naturel a l'oral
-(c'est une voix off, pas un texte ecrit), et tenir dans la duree. Pas de mention d'une autre
-marque que Zooryn.
+(c'est une voix off, pas un texte ecrit), tenir dans la duree, et ne mentionner NI la marque NI
+le nom de produit du concurrent (uniquement Zooryn + le nom de TON produit).
+
+⚠️ Avant de deposer `script-fr.txt` dans le ADn : RELIRE le script et verifier qu'aucun nom de
+produit concurrent (celui present dans la transcription source) n'a ete conserve par erreur.
+Bug reel rencontre le 22/06 sur la guirlande Mira (Belysningshuset) : le script genere disait
+"la guirlande Mira de Zooryn" — "Mira" est le nom du produit CONCURRENT, jamais a garder.
 
 ## Sortie d'un dossier pub (pret a monter)
 
@@ -172,6 +183,10 @@ le texte dans Canva. NE PAS regenerer l'image (le visuel produit doit rester int
 > Voici les textes d'une pub statique d'un concurrent, zone par zone. Traduis-les en francais
 > et adapte-les a la marque sans changer le sens ni le message, en gardant la meme hierarchie
 > et une longueur proche de l'original : <LISTE DES TEXTES PAR ZONE>
+>
+> IMPORTANT : si une zone mentionne le PRODUIT du concurrent sous son propre nom (ex "Mira"),
+> remplace-le par le nom de TON produit ("<NOM PRODUIT SHOPIFY>" ou sa forme orale/courte
+> naturelle). Ne garde JAMAIS le nom de produit d'origine du concurrent.
 
 ### Sortie d'un dossier pub IMAGE / muette (pret a poser)
 

@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 const ROOT_DIR = "C:/Users/franv/AppData/Local/CapCut/User Data/Projects/com.lveditor.draft";
 const rootMetaPath = `${ROOT_DIR}/root_meta_info.json`;
-const NEW_NAME = "ZOORYN-T4-AD1-TEST";
+const NEW_NAME = "ZOORYN-T4-AD1";
 const NEW_DIR = `${ROOT_DIR}/${NEW_NAME}`;
 
 const root = JSON.parse(readFileSync(rootMetaPath, "utf8"));

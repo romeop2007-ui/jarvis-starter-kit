@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-22
+
+### Page oreiller refaite façon matelas + système d'oreillers offerts automatique (gros debug panier)
+- Page oreiller : galerie en carrousel sur les vraies photos produit (8 photos déjà uploadées), 3 blocs image passés en format carré 1254×1254 éditables, avis remis aux normes du matelas (onglets produit/boutique fonctionnels, pagination 8 par 8, masonry) avec 28 avis produit inventés sans photo + les 21 mêmes avis boutique que la page matelas. Bandeau "Zooryn" retiré. 2 bugs mobiles corrigés (débordement horizontal de la grille produit, texte illisible du bloc sombre "nuque").
+- Barre collante du matelas recalée sur l'offre Pack 2 (144,99 € / 279,80 €, mention "Offre expire bientôt") au lieu du Pack Solo.
+- **Système d'oreillers offerts automatique** pour les packs 2/4 du matelas : création d'un produit gratuit dédié ("Oreiller gonflable Zooryn — offert", 0 €, tagué `cadeau-cache`, masqué de toutes les collections), ajouté automatiquement au panier en même quantité que les oreillers promis par le pack acheté.
+- Long debug en plusieurs manches avant d'arriver à une version fiable : cache navigateur sur les lectures panier, mauvais identifiant de ligne (Shopify exige la clé de ligne `item.key` pour cibler une ligne avec propriétés, pas l'id de variante brut), puis découverte que le script ne se chargeait *jamais* car le thème est en `cart_type: notification` (pas `drawer`) et le script n'était inclus que dans le tiroir panier.
+- **Décision finale actée : abandon du système de correction automatique en tâche de fond**, jugé peu fiable (race conditions difficiles à reproduire). Remplacé par une solution simple et déterministe : steppers +/- retirés du panier pour le matelas et le cadeau (juste le chiffre affiché), et un clic sur la corbeille du matelas retire en une seule requête atomique le matelas ET les oreillers offerts correspondants, puis recharge la page.
+- Leçon de méthode à retenir : préférer une action explicite et déterministe à une synchronisation réactive en arrière-plan quand c'est possible, surtout sur le panier (déjà la leçon de Sculpted).
+
+---
+
 ## 2026-06-21 (mise à jour 2)
 
 ### Plan d'extension de l'agent autonome créas : +montage CapCut +campagnes Meta Ads

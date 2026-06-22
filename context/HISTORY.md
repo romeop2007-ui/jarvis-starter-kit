@@ -7,6 +7,35 @@
 
 ---
 
+## 2026-06-24
+
+### Précision destination Espagne (Huesca, pas Saragosse) + recherche logement + skill `recherche-logement-huesca`
+- **Correction de lieu actée :** Roméo ne part pas à Saragosse ville mais au **Campus de Huesca** de l'Université de Saragosse, **Facultad de Empresa y Gestión Pública**, **Plaza de la Constitución s/n, 22001 Huesca**. Confirmé via un document officiel (tampon de la Vice-doyenne aux relations internationales) envoyé par Roméo.
+- **Recherche de logement lancée** : colocation 2 personnes (hommes, +18 ans), budget 500€/personne max (1000€/mois total), max 15 min à pied de la fac. Adresse de référence initiale donnée par Roméo : Ronda Misericordia 5 (bâtiment administratif du campus) ; écart vérifié de seulement 126 m avec la vraie adresse de la fac (Plaza de la Constitución), donc tous les calculs restent valides.
+- **5 candidats trouvés et documentés** sur idealista/fotocasa/enalquiler/gallegomartinez/milanuncios/yaencontre, avec pour chacun : adresse + lien source, agence/annonceur réel derrière le portail, avis (Trustpilot en priorité, sinon ProvenExpert/RealAdvisor), mobilier/équipements détaillés, distance à pied estimée par géocodage (API Nominatim OSM + haversine + facteur de routage piéton).
+- **Page Notion créée** : "Logement Huesca — Appartements pour Saragosse (Campus Huesca)" avec les 5 fiches + tableau de synthèse.
+- **Skill `recherche-logement-huesca` créé** (`.claude/skills/recherche-logement-huesca/`) pour formaliser ce workflow réutilisable : SKILL.md concis avec déclencheurs explicites, `scripts/geocode_distance.py` (calcul distance/temps de marche), `references/sites-deja-couverts.md` (liste anti-doublon à tenir à jour), `references/format-notion.md` (gabarit de sortie). Suit la même méthode que les skills `crea-pub`/`agenda` (concis, détails déportés).
+
+---
+
+## 2026-06-23
+
+### Agent CapCut généralisé : AD2 (voix off) + AD3/AD4/AD5 (musicales) générés par code, script réutilisable formalisé dans le skill
+- **Script `capcut-draft.mjs` créé dans `.claude/skills/crea-pub/scripts/`** (généralisation du prototype AD1 du 22/06, jusque-là codé en dur pour une seule pub). Usage : `node scripts/capcut-draft.mjs --lot T4 --ad AD2 --register`. Auto-détecte le type de pub et traite les deux différemment :
+  - **Type "voice"** (voix off, AD1/AD2) : transcrit la voix off via STT ElevenLabs, regroupe en légendes courtes, coupe le son d'origine, pose la voix off comme piste audio.
+  - **Type "musical"** (musicale/muette, AD3/AD4/AD5) : AUCUNE transcription. Parse directement le tableau de `accroches-fr.md` (temps/texte FR/position/hiérarchie) pour reposer chaque accroche au bon moment, **en conservant le son d'origine (musique)** — pas de voix off à remplacer. Position/taille mappées depuis les colonnes du tableau (approximatif, à ajuster à l'œil dans CapCut).
+- **3 bugs réels trouvés et corrigés pendant la généralisation :**
+  1. **Bug de dérive de durée Vmake (lot T4/AD2)** : la voix off d'AD2 avait été générée le 19/06 pour la durée de la vidéo SOURCE (24,42 s), mais le fichier `video-sans-soustitres.mp4` issu du détourage Vmake (20/06) faisait en réalité 22,39 s — écart de 2 s, hors tolérance ±1s. Le détourage Vmake peut donc légèrement raccourcir la vidéo exportée. **Nouvelle règle actée : toujours mesurer la durée des fichiers FINAUX juste avant de générer le brouillon CapCut**, jamais se fier à une durée notée plus tôt dans le pipeline. Voix off AD2 régénérée (Céline, ciblée sur 22,39 s, écart final 0,81 s).
+  2. **Bug de regex phonétique "Zooryn"** : la correction de la mauvaise transcription STT de la marque (`/zo+r+[iey]+n*e?/i`) ratait des variantes avec un "h" parasite (ex "Zohrin", entendu sur AD2). Regex élargie (`/\bzo+h?r+[iey]+n?e?\b/gi`).
+  3. **Bug "Mira" répété sur AD3/AD4/AD5** : les `accroches-fr.md` de ces 3 pubs (écrits le 19/06, avant la règle du 22/06) gardaient encore "Mira" (nom du produit concurrent) dans le texte FR ET disaient explicitement "Mira est gardé tel quel" — exactement le bug corrigé sur AD1 le 22/06, pas encore répercuté ici. Corrigé : "Mira" remplacé par "Zooryn" / "la guirlande Zooryn" (forme orale courte, le produit Shopify est "Zooryn - Guirlande lumineuse solaire").
+- **Bug technique de registre CapCut trouvé et corrigé** : la première version du script utilisait `path.join()` de Node pour construire le chemin du nouveau projet, ce qui insère des `\` sur Windows alors que `root_meta_info.json` stocke des chemins en `/` — la comparaison anti-doublon ne reconnaissait pas l'entrée existante et créait un doublon (même projet inscrit 2 fois avec un chemin différent). Corrigé par concatenation directe en `/`. Le doublon créé pendant le test a été nettoyé (le filtre de la version corrigée l'a absorbé).
+- **4 brouillons CapCut créés et inscrits dans `root_meta_info.json`** (autorisation du 23/06, cf. entrée précédente) : `ZOORYN-T4-AD2`, `ZOORYN-T4-AD3`, `ZOORYN-T4-AD4`, `ZOORYN-T4-AD5`. Vérifiés par lecture directe du `draft_content.json` généré (timings, positions, son conservé pour les musicales) avant de les considérer prêts. Total lot T4 : 5/5 pubs ont désormais un brouillon CapCut prêt à ouvrir et finaliser à la main (vérif visuelle, retouches, export).
+- **`SKILL.md` de `crea-pub` mis à jour** : nouvelle étape 7 (génération du brouillon CapCut par code, détaillant les 2 types et leurs traitements), note sur le piège de durée post-Vmake, limites mises à jour (le brouillon est généré, l'export reste manuel).
+- Reste un artefact de test non nettoyé dans le registre CapCut : `ZOORYN-T4-AD1-TEST` (créé le 22/06 pendant le prototypage), à supprimer par Romeo s'il le souhaite.
+- Prochaine étape : Romeo ouvre les 5 brouillons dans CapCut, vérifie/ajuste à l'œil (notamment le placement des accroches sur les musicales), exporte, puis enchaîne sur le lancement du matelas + la création de campagne Meta Ads (statut PAUSED).
+
+---
+
 ## 2026-06-22 (mise à jour 5)
 
 ### CapCut AD1 finalisé (bug nom produit concurrent corrigé) + déblocage écriture .claude/skills

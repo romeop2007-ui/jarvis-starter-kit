@@ -7,6 +7,15 @@
 
 ---
 
+## 2026-06-23 (mise à jour 3)
+
+### Évaluation de l'outil Graphify (knowledge graph pour Claude Code)
+- Roméo a soumis une vidéo YouTube présentant Graphify (open source, anciennement mal orthographié "Grphity"), un outil qui construit un graphe de connaissances du code pour réduire la consommation de tokens de Claude Code (jusqu'à 49-70x annoncé sur les gros projets 500+ fichiers).
+- Analyse pour/contre rendue : setup léger et gratuit pour le code seul, mais le gain réel ne se matérialise que sur de gros codebases. La boutique Shopify (zooryn-dawn) et les scripts de l'agent créas sont probablement bien en dessous de ce seuil aujourd'hui.
+- **Décision : pas adopté pour l'instant.** À reconsidérer si un jour un vrai projet logiciel de grande taille est construit (ex : l'agent créas qui scale en dehors de Claude Code).
+
+---
+
 ## 2026-06-24 (mise à jour 2)
 
 ### Pipeline CapCut confirmé fonctionnel (bug de fond trouvé) + AD3 reclassifiée + repo GitHub créé + routine cloud Huesca

@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-06-22 (mise à jour 2)
+
+### Clé API Anthropic récupérée, posée en réserve (pas utilisée)
+- Roméo a créé une clé API sur platform.claude.com et l'a posée dans `.env` (`ANTHROPIC_API_KEY`), testée et validée.
+- Discussion sur ce que ça permettrait : construire des agents indépendants de Claude Code (facturés à l'usage), potentiellement déployables et monétisables un jour (idée évoquée : vendre un agent à d'autres utilisateurs).
+- **Décision actée : on garde la clé en réserve, on ne construit rien dessus pour l'instant.** Priorité = focus boutique Zooryn, pas de nouveau chantier d'infra. L'agent créas autonome existant continue de tourner sur l'abonnement Claude Code Pro de Roméo (pas de changement).
+- Honnêteté donnée sur l'agent créas actuel : fonctionnel et testé en réel, mais pas "propre" au sens produit (mono-machine, dépend de l'abonnement perso, pas blindé aux imprévus). Si un jour Roméo veut un agent vendable, ce sera un projet neuf (serveur cloud, multi-utilisateurs, facturation), pas une évolution du watcher actuel.
+- Schéma HTML généré (`schema-agent.html`) qui résume mes accès (MCP, skills, outils) et la relation avec l'agent créas autonome (deux instances séparées, communication uniquement par fichiers).
+
+---
+
 ## 2026-06-22
 
 ### Page oreiller refaite façon matelas + système d'oreillers offerts automatique (gros debug panier)

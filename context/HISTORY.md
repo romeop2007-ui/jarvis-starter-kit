@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-22 (mise à jour 4)
+
+### CapCut automatisé par génération de fichier (draft_content.json) + bug voix off corrigé (accent anglais)
+- **Preuve de faisabilité CapCut sans clic souris** : pas d'API officielle CapCut, mais le format de projet `draft_content.json` se lit/écrit directement (libs communautaires type pyCapCut/pyJianYingDraft, capcut-cli). Vérifié en clair sur le poste de Roméo malgré CapCut 8.7.0 (le chiffrement v6+ documenté concerne surtout JianYing, pas CapCut international).
+- **Test réussi de bout en bout sur le lot T4/AD1** (guirlande Mira) : projet CapCut généré par code à partir du modèle de structure `0604` (projet de référence de Roméo) — vidéo Vmake avec son coupé (`volume:0`), voix off ElevenLabs en piste audio séparée, 22 sous-titres générés depuis la transcription mot-par-mot (ElevenLabs Scribe), stylés blanc + contour noir + police Prompt-Medium pour reproduire le style natif repéré sur la vidéo source (capture de frames via ffmpeg-static).
+- **Blocage rencontré et résolu** : CapCut refusait d'ouvrir le projet généré ("chemin inhabituel"), car non inscrit dans `root_meta_info.json` (le registre global de tous les projets CapCut). Corrigé avec l'accord explicite de Roméo, après sauvegarde du registre (`root_meta_info.BACKUP-avant-test.json`) : ajout d'une entrée pour le projet test, projet désormais ouvrable. Pour l'automatisation future, Roméo a tranché : **ne plus jamais réécrire ce registre partagé** (risque de corruption sur tous ses projets à chaque exécution), miser plutôt sur le fait que CapCut détecte seul les dossiers de brouillon déposés sur le disque.
+- **Bug réel trouvé dans l'agent créas existant : la voix off d'AD1 utilisait "Owen", une voix anglophone du catalogue ElevenLabs du compte (qui ne contenait QUE des voix anglaises), donnant un rendu robotique avec accent anglais en français.** Corrigé : ajout de deux voix françaises natives (« accent standard ») à la bibliothèque ElevenLabs du compte via la bibliothèque partagée — **Céline** (`3fxbs2pB9bs8S6Z1N38A`, féminine, validée à l'écoute par Roméo) et **Sami** (`CHgMYjn76aYQJxan8fTm`, masculin, à valider à l'usage). Nouvelle règle actée dans `SKILL.md` (texte préparé par Claude, collé par Roméo, écriture directe bloquée dans `.claude/skills/`) : on ne cherche plus à imiter l'accent/la voix du concurrent, seul le genre du narrateur d'origine détermine le choix (femme → Céline, homme → Sami par défaut).
+- **Prochaine étape actée** : faire AD2 du même lot T4 pour confirmer la méthode sur un 2e cas, puis configurer la logique de tri (quel type de pub déclenche quel traitement : passage direct sans CapCut pour les pubs musicales sans voix off, passage par génération de brouillon CapCut pour les pubs avec voix off).
+- Fichiers de travail créés hors `.claude/skills` (autorisé) : `livrables/ecommerce/creas/_capcut-proto/` (scripts de génération de brouillon, transcription, regroupement de légendes, test de voix).
+
+---
+
 ## 2026-06-22 (mise à jour 3)
 
 ### Matelas confirmé prêt à tester, mais lancement reporté volontairement (séquencement)

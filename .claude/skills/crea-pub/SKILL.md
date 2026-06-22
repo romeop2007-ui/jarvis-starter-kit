@@ -57,20 +57,30 @@ Dans un lot mixte, router chaque pub selon son type.
 - Vmake = API officielle (SDK `vendor/vmake-sdk/`), voir `references/vmake-steps.md`. ⚠️ Claude NE PEUT PAS executer le SDK : il prepare la commande, Romeo l'execute.
 
 
-## Choix de la voix (1re fois, puis memorise)
+## Choix de la voix (regle fixe, 22/06 : fin de l'imitation du concurrent)
 
-Objectif de Romeo : la voix off doit ressembler le plus possible a la voix de la crea d'origine.
-On ne CLONE PAS la voix reelle du concurrent (interdit par ElevenLabs). On choisit la voix du
-catalogue la plus proche.
+Objectif de Romeo : une voix off NATURELLE en FRANCAIS, jamais robotique, jamais avec un accent. On ne cherche PLUS a imiter la voix/l'accent de la pub d'origine (bug identifie le 22/06 :
+une voix anglophone "Owen" donnait un rendu robotique avec accent anglais en francais). On ne
+CLONE PAS la voix reelle du concurrent (interdit par ElevenLabs, et inutile desormais).
 
-- Lister les voix : `node scripts/voices.mjs` (filtre possible : `node scripts/voices.mjs french`).
-  **Si erreur "missing permission voices_read"** : la cle de Romeo n'autorise pas le listing.
-  Dans ce cas, Romeo choisit la voix directement dans son dashboard ElevenLabs et donne le
-  `voice_id` (ou le nom). La generation (TTS) marche sans cette permission.
-- La 1re fois sur un type de pub : proposer 2-3 voix candidates (genre, age, energie, accent
-  proches de la crea), laisser Romeo trancher.
-- Memoriser le `voice_id` choisi par defaut (le noter dans la fiche infos de la pub et le
-  reproposer ensuite). Romeo peut le changer a tout moment.
+**Regle simple : seul le genre de la voix d'origine compte.**
+- Narrateur/trice FEMME dans la pub source -> voix par defaut **Celine FR** (`voice_id`
+  `3fxbs2pB9bs8S6Z1N38A`, "Celine - Warm & Immersive", francais standard, chaleureuse).
+- Narrateur/trice HOMME dans la pub source -> voix par defaut **Sami FR** (`voice_id`
+  `CHgMYjn76aYQJxan8fTm`, "Sami - Studio-Quality French", francais standard, naturel).
+- Ces deux voix sont deja ajoutees a la bibliotheque ElevenLabs du compte (ajoutees le 22/06).
+  Toujours utiliser `model_id: eleven_multilingual_v2` (verifie compatible francais "standard").
+
+- Si Romeo veut varier : chercher d'autres voix FR natives via la bibliotheque partagee
+  (`GET /v1/shared-voices?language=fr`, filtrer `accent: standard` pour eviter les accents
+  regionaux/etrangers sauf demande explicite), jamais une voix dont la langue de base n'est pas
+  le francais (meme les voix "multilingues" anglaises gardent un accent residuel en francais).
+- Lister les voix deja dans le compte : `node scripts/voices.mjs` (filtre possible :
+  `node scripts/voices.mjs french`). **Si erreur "missing permission voices_read"** : la cle de
+  Romeo n'autorise pas le listing ; dans ce cas Romeo choisit directement dans son dashboard
+  ElevenLabs et donne le `voice_id`. La generation (TTS) marche sans cette permission.
+- Memoriser le `voice_id` choisi (genre + defaut ci-dessus, sauf changement explicite de Romeo)
+  dans la fiche infos de la pub.
 
 ## Chemin VIDEO (pub .mp4)
 

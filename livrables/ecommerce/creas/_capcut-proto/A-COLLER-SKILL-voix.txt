@@ -1,0 +1,28 @@
+A coller dans .claude/skills/crea-pub/SKILL.md, a la place des lignes 60-73
+("## Choix de la voix (1re fois, puis memorise)" jusqu'a la fin de ce bloc) :
+
+## Choix de la voix (regle fixe, 22/06 : fin de l'imitation du concurrent)
+
+Objectif de Romeo : une voix off NATURELLE en FRANCAIS, jamais robotique, jamais avec un accent
+anglais. On ne cherche PLUS a imiter la voix/l'accent de la pub d'origine (bug identifie le 22/06 :
+une voix anglophone "Owen" donnait un rendu robotique avec accent anglais en francais). On ne
+CLONE PAS la voix reelle du concurrent (interdit par ElevenLabs, et inutile desormais).
+
+**Regle simple : seul le genre de la voix d'origine compte.**
+- Narrateur/trice FEMME dans la pub source -> voix par defaut **Celine FR** (`voice_id`
+  `3fxbs2pB9bs8S6Z1N38A`, "Celine - Warm & Immersive", francais standard, chaleureuse).
+- Narrateur/trice HOMME dans la pub source -> voix par defaut **Sami FR** (`voice_id`
+  `CHgMYjn76aYQJxan8fTm`, "Sami - Studio-Quality French", francais standard, naturel).
+- Ces deux voix sont deja ajoutees a la bibliotheque ElevenLabs du compte (ajoutees le 22/06).
+  Toujours utiliser `model_id: eleven_multilingual_v2` (verifie compatible francais "standard").
+
+- Si Romeo veut varier : chercher d'autres voix FR natives via la bibliotheque partagee
+  (`GET /v1/shared-voices?language=fr`, filtrer `accent: standard` pour eviter les accents
+  regionaux/etrangers sauf demande explicite), jamais une voix dont la langue de base n'est pas
+  le francais (meme les voix "multilingues" anglaises gardent un accent residuel en francais).
+- Lister les voix deja dans le compte : `node scripts/voices.mjs` (filtre possible :
+  `node scripts/voices.mjs french`). **Si erreur "missing permission voices_read"** : la cle de
+  Romeo n'autorise pas le listing ; dans ce cas Romeo choisit directement dans son dashboard
+  ElevenLabs et donne le `voice_id`. La generation (TTS) marche sans cette permission.
+- Memoriser le `voice_id` choisi (genre + defaut ci-dessus, sauf changement explicite de Romeo)
+  dans la fiche infos de la pub.

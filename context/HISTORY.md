@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-06-23 (mise à jour 4)
+
+### Suppression du watcher autonome créas ("deuxième cerveau")
+- Roméo avait construit l'agent autonome ("deuxième cerveau") pour tester le concept, mais juge à l'usage que ça ne sert à rien : il préfère déclencher lui-même le skill `crea-pub` à la main, une fois qu'un lot est entièrement prêt.
+- Supprimés : `livrables/ecommerce/creas/_watcher/` (watch.ps1, install-startup.ps1, install-task.ps1, status.ps1, watcher.log), `watcher-nouveaux.mjs`, `watcher-consigne.md`, `.watcher-traites.txt`, et le lanceur `Zooryn-CreaWatcher.vbs` du dossier Démarrage Windows. Vérifié au préalable qu'aucun processus watcher ne tournait en arrière-plan.
+- **Le skill `crea-pub` (`.claude/skills/crea-pub/SKILL.md`) n'a pas été touché** : il restait déjà correctement séparé du watcher (principe directeur du 21/06 jamais enfreint).
+- Nouveau mode de fonctionnement acté : un seul cerveau (Claude en session interactive), Roméo donne la commande (lot + produit), Claude exécute tout de A à Z dans la session. Plus aucun agent headless, plus de démarrage automatique au login.
+- Discussion annexe (non tranchée, pas d'action) : Roméo a demandé si le `SKILL.md` de crea-pub serait plus performant en étant écrit de façon générique plutôt que personnalisée (dates, "Roméo a tranché", anecdotes de bugs). Réponse donnée : le gain réel viendrait surtout d'extraire les anecdotes narratives datées vers des fichiers `references/` (bruit token à chaque rechargement), pas de la personnalisation elle-même. Pas urgent, skill fonctionnel tel quel.
+
+---
+
 ## 2026-06-23 (mise à jour 3)
 
 ### Évaluation de l'outil Graphify (knowledge graph pour Claude Code)

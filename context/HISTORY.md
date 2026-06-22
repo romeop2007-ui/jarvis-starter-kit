@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-22 (mise à jour 3)
+
+### Matelas confirmé prêt à tester, mais lancement reporté volontairement (séquencement)
+- Vérification technique en direct sur Shopify (pas sur mémoire) : 10 photos uploadées, prix variantes alignés (Solo 69,99 € / Pack 2 144,99 € / Pack 4 274,99 €), `inventoryPolicy: CONTINUE` + stock non suivi → achetable malgré inventaire à 0. Plus aucun bloqueur technique.
+- **Décision de Roméo : ne pas lancer ce soir.** Il préfère d'abord finir l'agent autonome créas (extension CapCut + Meta Ads, chantier du 21/06) de A à Z, plutôt que de lancer le matelas puis devoir faire la démarche CapCut/Meta Ads manuellement à côté. Logique : chaque outil construit avant le 1er produit accélère tous les suivants.
+- Prochaine session prévue par Roméo : reprendre la continuité de l'agent créas (connexion CapCut, format `draft_content.json`), pas le lancement produit.
+- Hakon.se re-checké le 21/06 : encourageant, pas mort, mais pas encore re-verrouillé. Pas de nouvelle date de re-check actée pour l'instant (Roméo n'a pas validé de date).
+- **Red-team (`strategy-red-team`) appliqué sur la décision de séquencement** (à la demande de Roméo, pour tester concrètement l'usage du skill) : a relevé que la dépendance "agent fini avant lancement" n'est pas technique (le montage/la campagne se font à la main, comme pour Sculpted/protège-tibias), que le vrai goulot d'étranglement actuel est peut-être la conversion (0 vente sur 2 tests précédents) plutôt que le débit de production, et a posé une deadline de garde-fou (25/06, avant la fin du Sprint #1 le 27/06) pour éviter d'entrer en juillet sans rien testé ni l'agent fini. **Roméo a tranché en connaissance de cause et clos la réflexion :** objectif = finir l'agent aujourd'hui (22/06), lancer le matelas pendant que l'agent tourne/se valide, puis enchaîner guirlande Mira puis sac sling, les 3 produits déjà verrouillés testés sous ~1 semaine (recherche produit et coquille boutique déjà faites, ne reste que page produit + créas par produit).
+- Audit honnête des skills installés à la demande de Roméo (suite à une vidéo sur l'orchestration des skills) : `crea-pub` et `agenda` (skills maison) conformes aux bonnes pratiques officielles (SKILL.md concis, détails déportés en `scripts/`/`references/`, description avec déclencheurs explicites). Tous les skills installés restent sous la barre des 500 lignes recommandée. Repéré en revanche un usage réel inégal : les skills "cerveau" (eugene-schwartz, 16-marketing-psychology-global, strategy-red-team) ne sont pas consciemment mobilisés sur les sessions de copywriting récentes (avis, popup, page matelas) alors qu'ils ont été installés pour ça. `browser-use` candidat à la suppression (entièrement remplacé par l'API Vmake depuis le 20/06, "gardé au cas où" jamais matérialisé). **Précision actée :** `eugene-schwartz` et `16-marketing-psychology-global` sont strictement marketing (n'ont rien à apporter hors écriture de copy/pub) ; `strategy-red-team` est généraliste, utilisable sur toute décision business (pas seulement marketing), comme le prouve son usage sur la décision de séquencement ci-dessous.
+
+---
+
 ## 2026-06-22 (mise à jour 2)
 
 ### Clé API Anthropic récupérée, posée en réserve (pas utilisée)

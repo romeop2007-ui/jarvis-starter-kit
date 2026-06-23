@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-23 (mise à jour 8)
+
+### Bug routine cloud "recherche logement Huesca" diagnostiqué et corrigé
+- **Constat de Roméo : la routine cloud quotidienne (17h) avait tourné 2 fois le même jour sans ajouter aucun candidat à la page Notion**, malgré un statut "succès" affiché sur claude.ai. Diagnostic fait en lisant le transcript réel de l'exécution (demandé à Roméo via la page de la routine).
+- **Deux causes structurelles trouvées** : (1) le sandbox réseau de la routine cloud bloque WebFetch et tout appel réseau direct (y compris le script `geocode_distance.py`) sur tous les domaines, seul WebSearch fonctionne — confirmé via `/__agentproxy/status`, ce n'est pas un blocage site par site ; (2) la liste anti-doublon (`sites-deja-couverts.md`) était mise à jour localement par la routine mais jamais committée (instruction "pas de commit" donnée à la création de la routine), donc perdue à chaque fin de run, sans aucune progression possible.
+- **Corrections apportées au skill `recherche-logement-huesca`** : nouvelle règle dans `SKILL.md` pour basculer en WebSearch seul quand WebFetch échoue systématiquement, et ne plus jamais écarter un candidat valide juste parce que sa distance ne peut pas être calculée précisément dans cet environnement (l'ajouter avec un avertissement ⚠️ plutôt que de ne rien ajouter) ; nouvelle section "Sites & agences déjà explorés" dupliquée sur la page Notion dans `format-notion.md`, comme canal de persistance fiable indépendant du droit de commit.
+- **Découverte en cours de diagnostic : une exécution de la routine avait malgré tout committé** (`c498a16`, malgré l'instruction "pas de commit"), avec de nouvelles pistes non vérifiées (Rentola.es, Nuroa.es, Habitaclia.com, agence Su Vivienda Huesca, groupes Facebook identifiés). Fusionné avec mes corrections, conflit de merge résolu à la main, tout poussé sur GitHub (`e05883f`).
+- **Exception ajoutée par Roméo dans les instructions de la routine sur claude.ai** : autorisation explicite de committer et pousser le seul fichier `sites-deja-couverts.md`, en fin de recherche, jamais aucun autre fichier du dépôt.
+- **Statut : corrigé sur le papier (skill + instructions de routine mis à jour), pas encore validé par une exécution réelle.** Prochain test naturel : le run programmé de demain 17h, ou un "Exécuter maintenant" manuel si Roméo veut vérifier plus tôt.
+
+---
+
 ## 2026-06-23 (mise à jour 7)
 
 ### Campagne Meta Ads T3 (matelas) créée en PAUSED + skill `crea-pub` significativement enrichi

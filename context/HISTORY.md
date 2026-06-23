@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-06-23 (mise à jour 7)
+
+### Campagne Meta Ads T3 (matelas) créée en PAUSED + skill `crea-pub` significativement enrichi
+- **Campagne Meta Ads "Campagne T3" créée de bout en bout, tout en statut PAUSED** : 1 campagne (Conversions, 50€/jour CBO), 1 adset "Adset T3 - France" (Advantage+ Audience large, pixel sur l'événement Purchase, France), 6 pubs (AD1-AD6) sur les 6 visuels matelas du lot T3. Texte adapté de la meilleure pub scaling Norrfjällen identifiée via TrendTrack (reach 340k, 12 jours de scaling), avec correction factuelle (garantie réelle 30 jours au lieu des 365 annoncés par le concurrent).
+- **2 blocages techniques réels rencontrés et résolus** : (1) aucun outil disponible pour uploader un fichier local vers une URL publique (ni Shopify ni Meta) — contourné en demandant à Roméo de déposer les visuels dans Shopify Admin > Contenu > Fichiers, puis résolution de la vraie URL CDN via une requête GraphQL Shopify (les liens admin donnés par Roméo n'étaient pas les bonnes URLs) ; (2) le nouveau compte pub Meta EUR (`1952596875395674`, remplaçant l'ancien GBP `907981678960981` passé en PENDING_CLOSURE) n'avait pas accès au pixel existant — Roméo l'a partagé manuellement dans Meta Business Settings (Sources de données > Pixels > Éléments connectés).
+- **Problème de fond signalé et tranché par Roméo : 4 des 6 visuels T3 (générés via gpt-image) contiennent des allégations fausses recopiées du concurrent** — "garantie 365 jours" gravée dans les pixels (vraie garantie Zooryn = 30 jours) et une mise en scène d'artisan français fictif ("Julien" dans un atelier) alors que Zooryn fait du dropshipping. Claude a signalé clairement le risque (légal/honnêteté). **Roméo a choisi de garder les visuels tels quels, en connaissance de cause.**
+- **Skill `crea-pub` enrichi en profondeur suite à cette session**, à la demande explicite de Roméo de capturer les leçons pour les prochains lots :
+  - **Checklist de démarrage** ajoutée tout en haut du `SKILL.md` : toutes les infos à demander à Roméo en une seule fois (génération des créas + lancement Meta Ads), plus de questions éparpillées en cours de pipeline.
+  - **Vérification factuelle obligatoire** : nouveau fichier `references/verites-zooryn.md` (source de vérité : garantie 30 jours, marque française mais pas fabrication française, codes promo actifs) à comparer à toute allégation traduite d'un concurrent, avant de figer un texte ou de générer une image. Règle ajoutée : toujours interroger Shopify EN DIRECT pour les prix (jamais une conversion de change approximative ni un prix mémorisé d'une session précédente).
+  - **Méthode de lancement Meta Ads généralisée par `<LOT>`** : 10 étapes documentées, en insistant qu'aucune ne se recopie à l'identique d'un lot à l'autre (nombre de pubs, concurrent de référence, produit, budget tous propres à chaque lot).
+  - **Section "Chemin IMAGE" entièrement réécrite** : la méthode documentée (lire l'image, écrire un plan de texte `accroches-fr.md`, Romeo pose dans Canva) était périmée depuis le 19/06 sans avoir été corrigée. Remplacée par la vraie méthode en 2 phases : Phase 1 verrouille tout le texte en discussion pure (traduction, prix réel Shopify, francisation des prénoms de personnages, vérification factuelle) avant tout appel image ; Phase 2 génère l'image via gpt-image (`edit_openai.mjs`) avec le texte déjà figé, logo intégré seulement si visible dans la scène source (pas systématique), puis relecture de l'image générée pour comparer au texte verrouillé.
+
+---
+
 ## 2026-06-23 (mise à jour 6)
 
 ### Skill `recherche-logement-huesca` enrichi : checklist complète + règle de volume

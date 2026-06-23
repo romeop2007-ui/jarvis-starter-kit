@@ -9,6 +9,55 @@ allowed-tools: Bash, Read, Write, Edit, Glob
 Transforme une pub concurrent (.mp4) en un dossier pret a monter pour Romeo. Voir le plan
 complet : `C:\Users\franv\.claude\plans\ok-on-passe-en-wild-cascade.md`.
 
+## CHECKLIST DE DEMARRAGE — a poser a Romeo EN UNE FOIS, avant toute action
+
+Objectif (demande de Romeo le 23/06) : ne plus lui redemander une info au milieu du pipeline,
+etape par etape. **Au lancement d'un nouveau `<LOT>`, poser TOUTES ces questions d'un coup**
+(sauter celles deja repondues dans le message de depart de Romeo). Une fois les reponses en
+main, derouler tout le pipeline (creas + lancement Meta Ads si demande) sans repause, sauf
+blocage technique reel ou nouvelle info manquante imprevue.
+
+### A demander pour generer les creas (Chemin VIDEO ou IMAGE)
+
+1. **Le(s) fichier(s) concurrent(s)** (.mp4/.jpg/.png) du lot, ou le dossier source deja depose
+   dans `ressources créas avant modifs/<LOT>/`.
+2. **Le nom EXACT du produit Shopify** correspondant (ex "Zooryn - Guirlande lumineuse
+   solaire") — sert a remplacer le nom du produit concurrent partout (script, accroches).
+3. **Le nom du lot** (`T3`, `T4`...) s'il n'est pas deja visible dans le nom du dossier.
+4. **Si plusieurs pubs dans le lot ont des genres de narrateur ambigus** (impossible a deduire
+   a l'oreille/a l'oeil) : demander le genre voulu pour la voix off (sinon regle par defaut :
+   femme -> Celine, homme -> Sami, cf. section voix).
+5. **Budget global du lot** si Romeo veut une limite de cout (ElevenLabs, Vmake, gpt-image) —
+   sinon on avance sans plafond explicite.
+
+### A demander si Romeo veut ENSUITE lancer la campagne Meta Ads pour ce lot
+
+6. **L'URL exacte de la page produit Shopify** (le lien de destination de la pub).
+7. **Le budget journalier souhaite** pour la campagne (ex 50€/jour) et si c'est en CBO
+   (recommande) ou ABO (a la demande explicite seulement).
+8. **Le pays cible** si ce n'est pas la France par defaut (le marche a change le 13/06,
+   confirmer si un lot vise un autre pays).
+9. **Quels visuels/videos exactement utiliser** s'ils sont repartis entre `créas terminées/`
+   et `ressources créas après modifs/` (ne jamais deviner un nombre de pubs, demander
+   confirmation du lot final retenu).
+10. **Quel compte publicitaire Meta utiliser** si plusieurs existent (un compte peut etre
+    recree/ferme entre deux lots, cf. piege du 23/06) — verifier avec `ads_get_ad_accounts`
+    et demander confirmation si ambigu.
+11. **Le nom du concurrent de reference pour CE produit** si Romeo en a un en tete (sinon
+    chercher soi-meme via TrendTrack le meilleur scaling sur ce produit).
+12. **L'ID du compte Instagram** si Romeo l'a sous la main (l'API ne le fournit pas encore) —
+    sinon prevenir que la pub ne delivrera que sur Facebook.
+
+### Actions qui resteront TOUJOURS manuelles (a annoncer a Romeo, pas a lui faire decouvrir)
+
+- Executer les commandes Vmake/gpt-image (auto-execution interdite a Claude).
+- Ouvrir/verifier/exporter dans CapCut (pas d'API d'export).
+- Deposer les visuels finaux dans Shopify Admin > Contenu > Fichiers pour obtenir une URL
+  publique (aucun outil d'upload de fichier local disponible cote Claude).
+- Partager un pixel Meta avec un nouveau compte publicitaire (Meta Business Settings).
+- Activer la campagne/adset/pubs dans le Gestionnaire de publicites (Claude ne passe jamais
+  rien en ACTIVE).
+
 ## Entrees attendues (a demander a Romeo si manquantes)
 
 Pour CHAQUE pub :
@@ -133,6 +182,26 @@ auto-detecte "voice" des que `voix-off.mp3` existe). Mettre l'ancien `accroches-
    TTS seule ne suffit pas, elle est bornee a 0,9-1,15).
 6. **Fiche infos** (optionnelle, dans le dossier de travail) : durees, voice_id, langue source,
    statut Vmake.
+
+## Verification factuelle (etape obligatoire, ajoutee le 23/06)
+
+Une pub concurrent peut affirmer n'importe quoi sur SA marque (garantie, fabrication,
+livraison...). On adapte le TON et la STRUCTURE du concurrent, jamais ses FAITS sans verifier.
+**Avant de livrer un `script-fr.txt` ou un `accroches-fr.md` (chemin VIDEO ou IMAGE), comparer
+chaque allegation factuelle (garantie, origine/fabrication, livraison, codes promo) a
+`references/verites-zooryn.md`.** Si une allegation du concurrent ne colle pas a la realite
+Zooryn (ex "garantie 365 jours" alors que la vraie garantie est 30 jours, ou une mise en scene
+de fabrication artisanale francaise alors que Zooryn fait du dropshipping), corriger avec le
+vrai fait, jamais recopier tel quel. Si un fait Zooryn manque dans le fichier, demander a Romeo
+plutot que d'inventer.
+
+**Limite connue : ce controle ne s'applique qu'au TEXTE (script voix off, accroches).** Pour le
+chemin IMAGE, le texte concurrent est lu puis remplace par du texte FR avant d'etre pose dans
+Canva : la verification factuelle s'applique a ce texte de remplacement. Si Romeo fournit deja
+un visuel ou un texte fini contenant une fausse allegation (cas reel du 23/06, lot T3 : 3 visuels
+gpt-image avec "garantie 365 jours" en dur dans les pixels, 2 visuels avec une mise en scene de
+fabrication artisanale francaise inventee), le signaler clairement avant tout lancement de
+campagne, mais Romeo reste decisionnaire : il peut choisir de les utiliser tels quels.
 
 ## PROMPT FIXE de generation du script (impose par Romeo)
 
@@ -261,54 +330,176 @@ ressources créas après modifs/<LOT>/<ADn>/
 
 Romeo importe ensuite visuel + audio (ou accroches) dans CapCut pour le rendu final.
 
-## Chemin IMAGE (pub statique .jpg/.png)
+## Chemin IMAGE (pub statique .jpg/.png) — methode gpt-image (validee 19/06, revisee 23/06)
 
-Objectif : garder le visuel exact du concurrent, remplacer uniquement le texte par du FR adapte
-a la marque. Aucune API externe : c'est de la vision (lecture image) + redaction. Romeo posera
-le texte dans Canva. NE PAS regenerer l'image (le visuel produit doit rester intact).
+Objectif : garder le visuel exact du concurrent, remplacer le texte par du FR adapte a la
+marque, et livrer une **image finie**, pas un plan de placement. ⚠️ La methode "lire + ecrire
+`accroches-fr.md` + Romeo pose dans Canva" est PERIMEE, ne plus l'utiliser : depuis le 19/06 on
+utilise l'API **gpt-image-1** (`scripts/edit_openai.mjs`) qui prend l'image source (+ le logo
+Zooryn SI besoin) et un prompt, et renvoie directement l'image editee.
+
+**Principe cle (le pixel ne se corrige pas apres coup) : verrouiller TOUT le texte en discussion
+texte normale, valide et factuellement correct, AVANT le moindre appel a gpt-image.** Ne jamais
+laisser gpt-image traduire/adapter/calculer un prix a la volee dans le meme appel qui dessine
+l'image : c'est le moment ou les erreurs (devise mal convertie, prix faux, mention "365 jours"
+recopiee du concurrent, marque mal orthographiee) se glissent dans les pixels sans qu'on puisse
+les relire avant export. Toujours separer les deux phases :
+
+### Phase 1 — Verrouiller le texte (pur texte, zero image generee)
 
 1. **Creer le dossier livrable** : `node scripts/folder.mjs --lot <LOT> --ad <ADn>`.
-2. **Lire l'image / les frames** avec l'outil Read (vision) pour voir le visuel ET tout le texte
-   incruste. Pour une video musicale, extraire plusieurs frames dans le temps (ffmpeg `-ss`)
-   pour capter TOUTES les accroches qui defilent, pas juste une.
-3. **Relever chaque zone de texte** : accroche/titre, sous-titres, bullets/benefices, prix,
-   badges, bouton/CTA, mentions. Pour chacune : texte d'origine + position (haut/centre/bas,
-   gauche/droite) + hierarchie (gros titre, corps, petit) + (video) le moment ~en secondes.
-4. **Traduire/adapter en FR a la marque** avec le PROMPT FIXE adapte (ci-dessous), sans changer
-   le sens ni le message, en gardant la meme structure et la meme longueur approximative
-   (pour que ca rentre dans la meme place).
-5. **Ecrire `accroches-fr.md`** dans le dossier livrable : un tableau zone par zone (ordre,
-   moment, texte d'origine -> texte FR -> position -> hierarchie), pret a poser dans CapCut/Canva.
-   Signaler les mots plus longs en FR (placement a surveiller) et tout logo concurrent grave sur
-   le produit (non retirable par Vmake, a masquer/couper au montage).
+2. **Lire l'image / les frames** avec l'outil Read (vision) pour voir le visuel ET transcrire
+   TOUT le texte incruste mot pour mot (langue d'origine). Pour une video musicale, extraire
+   plusieurs frames dans le temps (ffmpeg `-ss`) pour capter toutes les accroches qui defilent.
+3. **Relever chaque zone** : texte d'origine, position, hierarchie, ET tout element a localiser
+   au-dela du texte produit — prenom d'un personnage dans la scene (contact d'une conversation,
+   signature d'une carte/note manuscrite, etc.), drapeau/pays affiche, devise.
+4. **Traduire et adapter zone par zone**, avec le PROMPT FIXE ci-dessous :
+   - Remplacer le nom du produit/marque concurrent par celui de Zooryn (jamais le garder).
+   - **Tout prenom de personnage visible dans la scene -> un prenom francais** (contact d'une
+     conversation, signataire d'une note manuscrite...), jamais garder le prenom d'origine.
+   - **Prix/devise : interroger Shopify EN DIRECT** (MCP Shopify, `search_products`/
+     `get-product`) pour CE produit, a CHAQUE lot. Ne jamais estimer par conversion de change,
+     et ne jamais reprendre un prix vu dans une session precedente ou dans cet historique : les
+     prix Shopify changent (promos, ajustements), seule une lecture live fait foi. Piege reel :
+     une conversion approximative donnait 65€, le vrai prix Shopify etait 69,99€.
+   - **Verification factuelle obligatoire** (`references/verites-zooryn.md`) sur CHAQUE
+     allegation (garantie, origine/fabrication, livraison...) — AVANT de figer le texte, pas
+     apres. Piege reel : une regeneration faite a la main par Romeo a traduit/localise le texte
+     correctement mais a garde "Garantie 365 jours" et une mise en scene d'artisan francais
+     fictif ("Julien") sans le voir, alors que la garantie reelle est 30 jours et que Zooryn ne
+     fabrique pas en France — la verification factuelle est un reflexe a part, distinct de la
+     traduction/localisation, meme un humain qui fait l'adaptation peut l'oublier.
+5. **Faire valider chaque texte final par Romeo si un doute existe** (prix, allegation,
+   formulation) avant de passer a la Phase 2 — une fois dans l'image, ce n'est plus modifiable
+   sans tout regenerer.
 
-### PROMPT FIXE pour le texte image (adapte du prompt video de Romeo)
+### Phase 2 — Generer l'image (gpt-image, texte deja figé et validé)
+
+6. **Decider si le logo Zooryn doit etre integre, CAS PAR CAS** (ne pas l'imposer par defaut) :
+   - **OUI** si le logo du concurrent est visible sur le produit/packaging/scene dans l'image
+     source (ex packshot du matelas avec le logo concurrent grave dessus).
+   - **NON** si l'image ne montre aucun logo produit (ex un screenshot de conversation iMessage
+     qui mentionne juste le nom de la marque dans le texte) — passer le logo en reference ne
+     sert a rien et risque de le faire apparaitre artificiellement.
+7. **Ecrire le prompt gpt-image avec le texte EXACT deja valide en Phase 1** (pas une consigne
+   de traduction, une consigne de REPRODUCTION) : "reproduis ce visuel a l'identique, remplace
+   chaque zone de texte par exactement ce texte : <texte FR final figé>, garde la meme police/
+   mise en page", + si pertinent "remplace le logo par <logo Zooryn fourni en piece jointe>", +
+   si pertinent "le prenom doit etre <prenom francais choisi>".
+8. **Lancer** `node scripts/edit_openai.mjs --image <source> --out <dest> --prompt-file <p.txt>
+   [--size auto] [--quality high]` (Claude peut executer ce script lui-meme, c'est un appel API,
+   pas un pilotage d'interface). Le format de sortie gpt-image est recadre automatiquement au
+   format de la source par le script (cf. `closestSize`).
+9. **Relire l'image generee** (outil Read, vision) et comparer chaque zone au texte verrouille en
+   Phase 1 : si un mot/prix/nom differe, regenerer plutot que livrer tel quel.
+10. **Deposer l'image finale** directement dans le dossier livrable du `ADn`. Rien d'autre a
+    faire dans Canva, l'image est prete a poster.
+
+### PROMPT FIXE pour le texte image — Phase 1, traduction/adaptation (avant tout appel image)
 
 > Tu es le createur de la marque "Zooryn". Le nom de ton produit est "<NOM PRODUIT SHOPIFY>".
 > Voici les textes d'une pub statique d'un concurrent, zone par zone. Traduis-les en francais
 > et adapte-les a la marque sans changer le sens ni le message, en gardant la meme hierarchie
 > et une longueur proche de l'original : <LISTE DES TEXTES PAR ZONE>
 >
-> IMPORTANT : si une zone mentionne le PRODUIT du concurrent sous son propre nom (ex "Mira"),
-> remplace-le par le nom de TON produit ("<NOM PRODUIT SHOPIFY>" ou sa forme orale/courte
-> naturelle). Ne garde JAMAIS le nom de produit d'origine du concurrent.
+> IMPORTANT : si une zone mentionne le PRODUIT ou la MARQUE du concurrent sous son propre nom,
+> remplace-le par "<NOM PRODUIT SHOPIFY>" / "Zooryn". Si une zone montre un prenom de personnage
+> (contact, signature), remplace-le par un prenom francais. Si une zone affiche un prix, utilise
+> le VRAI prix Shopify du produit, jamais une conversion de change approximative. Compare chaque
+> allegation factuelle (garantie, origine/fabrication, livraison) a `references/verites-zooryn.md`
+> avant de valider le texte final.
 
-### Sortie d'un dossier pub IMAGE / muette (pret a poser)
+### Sortie d'un dossier pub IMAGE / muette (pret a poster)
 
 ```
 ressources créas après modifs/<LOT>/<ADn>/
-  accroches-fr.md   <- les textes FR zone par zone, a poser dans Canva/CapCut
-  (le visuel finalise viendra ici plus tard)
+  <visuel-final>.png   <- l'image finie (texte FR + logo si besoin), generee par gpt-image
 ```
 
-Romeo : pose chaque texte FR du tableau sur le visuel d'origine (Canva pour une image, CapCut
-pour une video muette), exporte.
+Romeo n'a plus de pose de texte a faire dans Canva : l'image livree est deja prete a poster.
 
 ## Bilan final (toujours)
 
 Apres avoir traite toutes les pubs, annoncer a Romeo combien sont pretes, sous la forme :
 "X pubs pretes a monter dans CapCut" + la liste des dossiers + tout ce qui a bloque (ex Vmake
 en manuel sur telle pub). Romeo verifie, importe dans CapCut, monte, poste sur Meta.
+
+## Lancement de la campagne Meta Ads (apres les creas, sur demande de Romeo)
+
+Etape suivante possible une fois un `<LOT>` (T3, T4, T5...) pret : creer la campagne Meta Ads
+correspondante via le MCP Facebook Ads. **Cette etape n'est JAMAIS automatique au sens "meme
+recette a chaque fois"** : chaque lot a son propre produit, son propre nombre de visuels, son
+propre type de creas (image ou video), et sa propre pub concurrent de reference. Le but n'est
+pas de rejouer T3 a l'identique, c'est de reproduire la METHODE en l'adaptant a `<LOT>` chaque
+fois. Ne jamais copier un nom de campagne, un texte ou un nombre de pubs d'un lot precedent.
+
+### Constantes du compte (ne changent pas d'un lot a l'autre)
+
+- **Compte pub Meta** : `1952596875395674` (Zooryn, EUR, actif). Verifier avec
+  `ads_get_ad_accounts` que c'est toujours le bon avant de l'utiliser (un compte peut etre
+  recree/ferme, comme l'ancien GBP `907981678960981` passe en PENDING_CLOSURE le 23/06).
+- **Page Facebook** : `1199198896606468` (Zooryn). Trouvable via `ads_get_pages_for_business`
+  avec le `business_id` `1696599654709305` si jamais ca change.
+- **Pixel** : `2803216990037221`. ⚠️ Le pixel doit etre PARTAGE manuellement (par Romeo, dans
+  Meta Business Settings > Sources de donnees > Pixels > Elements connectes > Connecter les
+  elements) avec tout NOUVEAU compte pub avant de creer les pubs, sinon erreur
+  "Account does not have access to pixel" a la creation de l'ad (rencontre le 23/06 avec le
+  nouveau compte EUR). Le demander a Romeo en amont si un nouveau compte est utilise.
+- **Compte Instagram** : pas recuperable via l'API pour l'instant (`ads_get_ig_accounts`
+  renvoie une erreur de deploiement). Sans lui, les pubs ne delivrent pas sur Instagram. Le
+  signaler a chaque lancement, demander l'ID a Romeo si dispo.
+
+### Etapes a REFAIRE et ADAPTER pour chaque `<LOT>`
+
+1. **Trouver les visuels/videos prets pour CE lot precisement**, dans LES DEUX dossiers (un
+   visuel peut etre fini dans l'un, en travail dans l'autre) :
+   `livrables/ecommerce/creas/créas terminées/<LOT>/` ET
+   `livrables/ecommerce/creas/ressources créas après modifs/<LOT>/`. **Demander confirmation a
+   Romeo sur le compte final et lequel utiliser** si le compte differe entre les deux dossiers
+   (cas reel le 23/06 sur T3 : 2 dans l'un, 6 dans l'autre, total a clarifier avec Romeo plutot
+   que de deviner). Le nombre de pubs = le nombre de visuels que Romeo valide pour ce lot, JAMAIS
+   un nombre fixe repris d'un lot precedent.
+2. **Recuperer l'URL produit Shopify exacte de CE lot** (`search_products` ou demander a
+   Romeo). Ne jamais reutiliser l'URL d'un autre produit.
+3. **Chercher la meilleure pub concurrent du moment pour CE produit** via TrendTrack
+   (`brief_competitor` puis `scan_ad` sur le meilleur candidat scaling) : reach, jours de
+   diffusion, body/hook/CTA complet. Le concurrent de reference change a chaque lot (Norrfjallen
+   pour le matelas T3, un autre pour T4/T5...) — ne pas reutiliser le meme concurrent par defaut,
+   verifier que c'est bien le concurrent du produit du lot en cours.
+4. **Traduire et adapter le texte en FR**, et appliquer la verification factuelle obligatoire
+   (`references/verites-zooryn.md`, cf. section plus haut) : corriger toute allegation du
+   concurrent qui ne correspond pas a la realite Zooryn pour CE produit.
+5. **Obtenir une URL publique HTTPS pour chaque visuel** (necessaire pour `ads_create_creative`,
+   aucun outil d'upload direct de fichier local disponible cote Claude) :
+   - Demander a Romeo de deposer les fichiers du `<LOT>` dans Shopify Admin > Contenu > Fichiers
+     (`https://admin.shopify.com/store/cqqah9-t1/content/files`, bouton "Importer des fichiers").
+   - Romeo donne les liens admin (`.../content/files/<id>`) — **ce ne sont PAS les URLs
+     publiques**. Resoudre la vraie URL CDN avec une requete GraphQL Shopify :
+     `nodes(ids: ["gid://shopify/MediaImage/<id>", ...]) { ... on MediaImage { image { url } } }`.
+   - Pour une video, le champ source change (`sources` au lieu de `image.url` sur un type
+     `Video`/`GenericFile`) — verifier le schema avec `graphql_schema` si le type differe.
+6. **Creer la campagne** (`ads_create_campaign`) : nom **"Campagne `<LOT>`"** (jamais "Campagne
+   T3" recopie), objectif a confirmer avec Romeo (OUTCOME_SALES par defaut si conversions),
+   `campaign_daily_budget` = budget donne par Romeo pour CE lot (peut differer de 50€), CBO par
+   defaut sauf demande explicite d'ABO.
+7. **Creer l'adset** (`ads_create_ad_set`) : nom **"Adset `<LOT>` - <pays>"**, pays a confirmer
+   (France par defaut depuis le pivot du 13/06, mais demander si un lot vise un autre marche),
+   `promoted_object` avec le pixel ci-dessus, `targeting` large (Advantage+ Audience, pas
+   d'interets inventes — cf. note ci-dessous), `dsa_beneficiary`/`dsa_payor` = "Zooryn" pour tout
+   pays UE.
+8. **Creer une creative par visuel** (`ads_create_creative`) avec l'URL CDN, le texte/titre/
+   description/CTA adaptes a l'etape 4, nommees **"Zooryn `<LOT>` - AD`n`"**.
+9. **Creer une pub par creative** (`ads_create_ad`), nommees **"`<LOT>` - AD`n`"**.
+10. **Tout reste en PAUSED, toujours.** Ne jamais appeler `ads_activate_entity` ni passer un
+    statut a ACTIVE, meme avec l'accord oral de Romeo (regle absolue du 21/06). Romeo active
+    lui-meme dans le Gestionnaire de publicites apres verification visuelle.
+
+### Pourquoi pas de ciblage par interet (a rappeler si Romeo demande)
+
+Advantage+ Audience (active par defaut) + ciblage large par pays = methode recommandee par Meta
+aujourd'hui, surtout sur un petit budget journalier : le pixel apprend mieux sur un bassin large
+que sur des interets devines a la main. Ne jamais inventer un ID d'interet.
 
 ## Limites (rappeler si pertinent)
 

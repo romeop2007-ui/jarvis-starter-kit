@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-06-23 (mise à jour 6)
+
+### Skill `recherche-logement-huesca` enrichi : checklist complète + règle de volume
+- Ajout de 6 nouvelles catégories d'infos à collecter par logement (en plus des 4 existantes : adresse/source, avis, mobilier, distance à pied) : équipements (machine à laver, chauffage, eau chaude, isolation), charges et dépenses (électricité, mode de paiement compteur/propriétaire, taxe poubelles, parties communes), caractéristiques (superficie, type de location, nombre de colocataires), conditions de location (réservation juin+caution, paiement dès septembre, durée de bail, bail court accepté), confort saisonnier (été/hiver), équipement personnel (linge de lit fourni ou pas).
+- Règle ajoutée : si une info n'est pas précisée dans l'annonce, marquer ⚠️ plutôt que d'inventer.
+- Gabarit Notion (`references/format-notion.md`) restructuré pour refléter ces nouvelles sections sur chaque fiche logement.
+- Règle de volume ajoutée : minimum 5 nouveaux logements par recherche (élargir à un site de plus si besoin), mais aucun plafond — si un seul site sort 7 candidats valides, les 7 sont présentés, jamais coupé pour coller à un chiffre rond.
+- Application : ces règles s'appliquent aux prochaines recherches, remplissage progressif au fur et à mesure (pas de reprise rétroactive des 5 candidats déjà sur Notion).
+
+---
+
 ## 2026-06-23 (mise à jour 5)
 
 ### Nettoyage complet Gmail - 291 mails triés (6 dernières semaines)

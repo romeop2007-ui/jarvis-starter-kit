@@ -14,8 +14,14 @@ Trouver de nouveaux candidats logement à Huesca pour Roméo et son colocataire,
 - Budget : 500 €/personne max (1000 €/mois total pour le logement)
 - Max 15 min à pied de **Plaza de la Constitución s/n, 22001 Huesca** (Facultad de Empresa y Gestión Pública, vraie fac de Roméo — confirmé sur tampon officiel le 24/06/2026 ; à ≈126 m de l'ancienne référence Ronda Misericordia 5, donc tous les calculs déjà faits restent valides)
 
+## Note environnement (routine cloud planifiée)
+Si l'exécution se fait en routine cloud headless (pas une session interactive), le sandbox réseau bloque WebFetch et tout appel réseau direct (y compris `geocode_distance.py`, qui utilise urllib) sur TOUS les domaines, même non-immobiliers (403/host_not_allowed). Seul WebSearch fonctionne dans ce contexte.
+- Ne pas perdre de temps à retenter WebFetch/le script s'ils échouent une fois sur un domaine neutre (ex. nominatim.openstreetmap.org) : c'est une restriction d'environnement, pas un blocage spécifique au site, donc inutile de réessayer ailleurs.
+- Estimer la distance à pied uniquement via WebSearch dans ce cas (ex. rechercher "<adresse>, Huesca distancia a pie Plaza de la Constitución" ou des points de repère connus du centre de Huesca), marquer clairement l'estimation **⚠️ distance estimée via recherche, à reconfirmer**.
+- **Ne jamais écarter un candidat par ailleurs valide uniquement parce que la distance ne peut pas être calculée précisément dans cet environnement.** L'ajouter à Notion avec l'estimation et l'avertissement plutôt que de ne rien ajouter — Roméo confirmera lui-même (Google Maps) à sa prochaine session.
+
 ## Étape 1 — Lire la liste anti-doublon
-Lire `references/sites-deja-couverts.md`. Ne jamais relancer une recherche sur un site listé en "déjà couverts". Choisir des sites dans "pistes à explorer" ou en trouver de nouveaux.
+Lire `references/sites-deja-couverts.md` **et** la section "Sites & agences déjà explorés" de la page Notion (voir `references/format-notion.md`) — la version Notion peut être plus à jour si une routine cloud sans droit de commit a tourné depuis la dernière mise à jour du fichier local. Ne jamais relancer une recherche sur un site listé en "déjà couverts" dans l'une ou l'autre source. Choisir des sites dans "pistes à explorer" ou en trouver de nouveaux.
 
 ## Étape 2 — Chercher
 Pour chaque nouveau site : WebSearch puis WebFetch sur les pages de listing. Si l'annonce est sur un portail agrégateur, identifier l'agence/particulier réel derrière (souvent en bas de fiche, section "anunciante"/contact).
@@ -45,6 +51,7 @@ Suivre exactement `references/format-notion.md` : `notion-fetch` sur la page exi
 
 ## Étape 5 — Mettre à jour la liste anti-doublon
 Éditer `references/sites-deja-couverts.md` : déplacer les sites utilisés vers "déjà couverts", ajouter les nouvelles agences notées.
+**Si exécuté en routine cloud et que les instructions de la routine interdisent tout commit git** : cette modification locale sera perdue à la fin du run (le sandbox cloud est jeté). Dans ce cas, écrire la mise à jour anti-doublon **directement sur la page Notion** (section dédiée, voir `references/format-notion.md`) en plus du fichier local, puisque c'est le seul canal qui persiste réellement entre deux exécutions de la routine. Le signaler explicitement dans le résumé final à Roméo.
 
 ## Étape 6 — Résumer à Roméo
 En fin de tâche, lister en quelques lignes les nouveaux logements trouvés (numéro, lieu, prix, distance) et le lien Notion. Pas de validation intermédiaire requise pendant la recherche.

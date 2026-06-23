@@ -63,6 +63,10 @@ Après ajout des nouveaux logements, relire le tableau markdown existant en fin 
 | # | Lieu | Prix/mois | €/pers. | Distance à pied univ. | Avis agence |
 ```
 
+## Section anti-doublon (persistance hors dépôt git)
+
+En fin de page, maintenir une section `## Sites & agences déjà explorés` qui reprend le contenu de `references/sites-deja-couverts.md`. Cette section sur Notion est le **canal de persistance fiable** : si la recherche est exécutée en routine cloud sans droit de commit git, la mise à jour du fichier local sera perdue à la fin du run, alors que l'écriture Notion persiste réellement. Toujours mettre à jour cette section Notion en même temps que le fichier local (même si le fichier local ne peut pas être committé), et au début de chaque recherche, lire cette section Notion en complément du fichier local pour avoir l'état le plus à jour.
+
 ## Méthode d'écriture
 
 Utiliser `notion-fetch` sur l'URL de la page pour récupérer son contenu actuel, puis `notion-update-page` (mode append/insertion en fin de contenu, pas de réécriture totale) pour ajouter les nouvelles sections + mettre à jour le tableau. Ne jamais écraser les sections 1-5 existantes.

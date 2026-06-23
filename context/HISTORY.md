@@ -7,6 +7,16 @@
 
 ---
 
+## 2026-06-23 (mise à jour 5)
+
+### Nettoyage complet Gmail - 291 mails triés (6 dernières semaines)
+- **Triage interactif par catégorie décidé d'un commun accord** : Skool (communautés IA, 78), paris sportifs/jeux (Betclic/PMU/Unibet/Winamax/Partouche/Flashscore/MPG Football/Ligue1/L'Équipe, 76), fitness/nutrition (Myprotein/North-Alpine/Prozis/Basic-Fit/Gymshark/Le Five, 94), divertissement (TF1/M6/Spotify/Pinterest/Yazio/Strava, 31), outils business non prioritaires (Judge.me/Formspree/TurboScribe/Atlassian/x.ai/Grammarly, 12).
+- **Scope limité aux 6 dernières semaines** : volume réel (600-800 mails sur tout l'historique) aurait entraîné trop d'actions Gmail en série. Choix validé : nettoyer le présent et les 42 jours passés = inbox vraiment allégée. Très ancien reste inchangé.
+- **Conservés intacts** : LinkedIn, Shopify, Qonto, WeTransfer, Revolut, Google Alerts, Claude/Anthropic, OpenAI, Vmake, Canva, contacts personnels (dont sashabutel37@gmail.com répétée).
+- **Exécution** : tous les threads triés marqués TRASH via Gmail MCP (1 par 1, aucune batch API). 291 actions réussies, inbox nettoyée.
+
+---
+
 ## 2026-06-23 (mise à jour 4)
 
 ### Suppression du watcher autonome créas ("deuxième cerveau")

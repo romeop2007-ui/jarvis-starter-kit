@@ -21,15 +21,31 @@ Cette liste est mise à jour par Claude après chaque session de recherche. Avan
 
 23/06/2026 (création initiale, 5 premiers logements trouvés)
 
+**23/06/2026 (2e passage, même jour) — INCIDENT RÉSEAU : aucun nouveau logement ajouté à Notion.**
+La session a tourné avec WebFetch et le script `geocode_distance.py` bloqués par la politique réseau (403 systématique côté proxy, y compris sur des sites neutres comme Wikipedia et sur l'API de géocodage Nominatim — confirmé via `/__agentproxy/status`, ce n'est pas un blocage site par site). Seul WebSearch fonctionnait. Conséquence : impossible de vérifier précisément adresse exacte / prix exact / annonceur réel / distance à pied pour les pistes ci-dessous → aucune n'a été poussée dans Notion plutôt que de forcer des fiches non fiables. **À reprendre en priorité dès que WebFetch fonctionne à nouveau**, avant d'explorer d'autres sites.
+
+### Pistes entamées via WebSearch seulement, non vérifiées (WebFetch bloqué ce jour-là)
+
+- **Rentola.es** (particuliers) — Paseo Gregoria Ciprés, 22003 Huesca : 90 m², 2 chambres, 420 €/mois annoncé. Annonceur particulier. Adresse exacte de l'immeuble et distance à pied à confirmer.
+- **Nuroa.es** — appartement meublé 74 m², 2 chambres, 550 €/mois, construit 2005, chauffage individuel gaz, ascenseur, cave, terrasse fermée, à ~100 m de la gare de bus (secteur Plaza Navarra / Parque Miguel Servet). Adresse précise non divulguée par l'annonce (visible seulement après contact) — page catégorie : https://www.nuroa.es/alquiler/huesca-piso-terraza
+- **Habitaclia.com** — plusieurs appartements meublés sur Coso Bajo, à côté des Porches de Galicia (hyper-centre, immeuble réhabilité, ascenseur) ; prix non trouvés via WebSearch. Aussi : un meublé 4 chambres près du Parque Miguel Servet (immeuble avec ascenseur), prix non trouvé.
+- **Su Vivienda Huesca** (nouvelle agence identifiée, Calle Fatás 6, 22002 Huesca, tél. 974 353 641 / 648 581 170, site https://suviviendahuesca.com/, profil ProvenExpert existant) — site bloque WebFetch direct ; avis "mitigés selon les cas" d'après synthèse Google, note exacte ProvenExpert non récupérée. Annonces logement (hors locaux commerciaux) non encore identifiées précisément.
+- **"De Piso en Piso" / PisosHuesca** (Facebook : https://www.facebook.com/PisosHuesca/) — page spécialisée logement étudiant à Huesca repérée, contenu non exploré en détail.
+- Indomio.es, pisos.com, tucasa.com, alquilarhabitacion.es, flatio.com, spotahome.com, housingtarget.com — sondés en surface via WebSearch, bloquent WebFetch direct (403), rien de assez précis trouvé pour une fiche.
+
 ## Pistes de nouveaux sites à explorer (non encore tentés)
 
-- Facebook Marketplace / groupes Huesca (recherche manuelle, pas d'API)
-- Petites agences locales non encore identifiées (chercher "inmobiliaria Huesca" sur Google Maps/avis) : Fincas Alto Aragón, Aragón Fincas
-- pisos.com, habitaclia.com, rentola.es, badi.com : sondés via WebSearch uniquement le 23/06 (WebFetch bloqué en environnement routine cloud, 403). À retenter en session interactive (WebFetch fonctionne normalement hors routine) avant de les classer définitivement "déjà couverts".
+- badi.es (colocation, utile si on élargit à des chambres individuelles — pas encore creusé en détail)
+- Facebook Marketplace / groupes Huesca identifiés mais pas explorés en détail (accès manuel requis, pas d'API) :
+  - "COMPARTIR PISO EN HUESCA / ALQUILER Y VENTA" — facebook.com/groups/1110399279051272
+  - "Alquiler Huesca" — facebook.com/groups/1597576086921260
+  - "Pisos en Venta y Alquiler, Zaragoza y Huesca" — facebook.com/groups/1179868945760409
+- Petites agences locales non encore identifiées (chercher "inmobiliaria Huesca" sur Google Maps/avis) : Fincas Alto Aragón, Aragón Fincas, Su Vivienda Huesca (Calle Fatás 6, tél. 974 353 641, avis Google "mitigés selon les cas")
+- pisos.com, habitaclia.com, rentola.es, badi.com, indomio.es, tucasa.com, alquilarhabitacion.es, flatio.com, housingtarget.com : sondés en surface via WebSearch uniquement le 23/06 (WebFetch bloqué en environnement routine cloud, 403 systématique confirmé via `/__agentproxy/status` — pas un blocage spécifique au site). À retenter en session interactive (WebFetch fonctionne normalement hors routine) avant de les classer définitivement "déjà couverts".
 
 ## Sites sondés en environnement restreint (WebFetch bloqué) — 23/06/2026
 
-- pisos.com, habitaclia.com, rentola.es : WebFetch 403 dans le sandbox de la routine cloud, sondés via WebSearch seulement.
+- pisos.com, habitaclia.com, rentola.es, indomio.es, tucasa.com, alquilarhabitacion.es, flatio.com, housingtarget.com : WebFetch 403 dans le sandbox de la routine cloud, sondés via WebSearch seulement.
 - spotahome.com : aucune annonce à Huesca ville (seulement Jaca, hors zone) — celui-ci est vraiment vide, pas besoin de retenter.
 - badi.com : sondé pour la colocation, résultat non concluant via WebSearch seul.
 
@@ -37,4 +53,4 @@ Cette liste est mise à jour par Claude après chaque session de recherche. Avan
 
 - **Calle Valentín Gardeta, n° 30, 2ºA (Huesca)** — agence **Fincas Montearagón** (nouvelle agence, Trustlocal 7,8/10, ~8/10 sur 23 avis, ⚠️ un client signale des annonces fantômes déjà louées) — 40 m², meublé, 2 chambres, salon-cuisine, chauffage gaz individuel, terrasse couverte — 360€/mois (180€/pers.). Distance vérifiée depuis en session interactive : 834 m / ~14,4 min à pied de Plaza de la Constitución → respecte le critère ≤15 min.
 
-**Règle :** après chaque recherche, ajouter les sites utilisés à la section "déjà couverts" ci-dessus et retirer les agences nouvellement notées de la liste "pistes à explorer". Tenir aussi à jour la section équivalente sur la page Notion (voir `references/format-notion.md`), seul canal qui persiste réellement entre deux exécutions d'une routine cloud sans droit de commit.
+**Règle :** après chaque recherche, ajouter les sites utilisés à la section "déjà couverts" ci-dessus et retirer les agences nouvellement notées de la liste "pistes à explorer". Ne déplacer un site listé ci-dessus dans "déjà couverts" qu'une fois qu'il a été *réellement* exploré avec WebFetch (annonces individuelles consultées), pas seulement via des snippets WebSearch. Tenir aussi à jour la section équivalente sur la page Notion (voir `references/format-notion.md`), canal de persistance fiable même si une exécution de routine n'a pas le droit de commit ce jour-là.

@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-06-24 (mise à jour 3)
+
+### Matelas LANCÉ EN TEST (1er produit de la niche outdoor) + 2 bugs de publication Meta corrigés + skill `crea-pub` durci
+- **Le matelas est en test live : campagne Meta T3 activée par Roméo le 24/06.** C'est le 3e produit testé après les échecs Sculpted et protège-tibias, mais le **1er de la nouvelle stratégie** (niche outdoor/voyage + copier-le-winner + marché France). Roméo gère le kill lui-même ("je vais le couper automatiquement moi-même"), dernière analyse prévue ce soir.
+- **Stats à la mi-journée du 24/06** (connecteur Facebook Ads activé par Roméo) : ~31,81 € dépensés, 898 impressions, 786 de portée, 33 clics (CTR **3,67 %**, bon signal créa/angle), 27 clics sur lien, CPC 0,96 €, CPM 35,42 €, **0 achat**. Lecture donnée : trop tôt pour juger la conversion (27 clics, en dessous du seuil) ; le CTR > 2 % indique que le haut du tunnel accroche.
+- **2 erreurs de publication Meta diagnostiquées et corrigées en direct sur l'adset "Adset T3 - France"** (`52566080169478`, compte EUR `1952596875395674`) :
+  1. **Ciblage géographique déprécié.** Le type de localisation par défaut ("personnes qui habitent, se rendent ou se sont récemment rendues" = `home` + `recent` + `travel_in`) contient une option supprimée par Meta qui **bloque la publication**. Corrigé en posant `location_types: ["home"]` (résidents de France uniquement, pertinent pour de l'e-commerce). **Piège supplémentaire découvert :** comme Roméo utilisait une **audience enregistrée** nommée "Zooryn", le type de localisation vit DANS cette audience, pas dans l'adset → un `ads_update_entity` côté API ne la corrige pas, le fix final s'est fait **à la main** dans le Gestionnaire (Modifier l'audience > Lieux > "Personnes qui vivent à cet endroit").
+  2. **Images portrait incompatibles avec le placement vidéo in-stream.** Les visuels matelas sont en portrait/carré ; l'in-stream exige du paysage et **bloque la publication**. Corrigé en passant l'adset en **placements manuels sans in-stream** (feeds + stories + reels Facebook & Instagram), Advantage+ Audience conservée.
+- **Skill `crea-pub` durci (étape 7 du `SKILL.md`)** pour ne plus reproduire ces 2 erreurs à la création des prochains lots : `location_types: ["home"]` explicite + note sur le piège des audiences enregistrées, et placements manuels portrait-friendly sans in-stream vidéo.
+- L'adset n'a jamais été activé par Claude (règle absolue PAUSED) : Claude a corrigé le ciblage/placements, **Roméo a publié et activé lui-même**.
+
+---
+
 ## 2026-06-23 (mise à jour 8)
 
 ### Bug routine cloud "recherche logement Huesca" diagnostiqué et corrigé

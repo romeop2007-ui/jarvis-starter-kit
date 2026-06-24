@@ -487,7 +487,36 @@ fois. Ne jamais copier un nom de campagne, un texte ou un nombre de pubs d'un lo
    (France par defaut depuis le pivot du 13/06, mais demander si un lot vise un autre marche),
    `promoted_object` avec le pixel ci-dessus, `targeting` large (Advantage+ Audience, pas
    d'interets inventes — cf. note ci-dessous), `dsa_beneficiary`/`dsa_payor` = "Zooryn" pour tout
-   pays UE.
+   pays UE. **Deux pieges de publication a eviter des la creation (vecus sur T3, 24/06) :**
+   - **Type de localisation explicite.** Toujours poser `geo_locations.location_types: ["home"]`
+     (= "personnes qui vivent a cet endroit"), jamais laisser le defaut. Le defaut de l'API
+     ("personnes qui habitent OU se sont recemment rendues" = `home` + `recent`) contient une
+     option **depreciee par Meta** qui **bloque la publication**. Message exact rencontre le
+     24/06 sur T3 a la publication : "Votre audience contient une option de ciblage geographique
+     qui a ete supprimee (les personnes qui habitent ou se sont recemment rendues dans un lieu
+     donne)". Pour de l'e-commerce on veut de toute facon les residents, pas les touristes.
+     - **Corriger un adset DEJA cree avec le mauvais ciblage** (cas reel 24/06, T3 — la campagne
+       existait deja, il a fallu reparer, pas recreer) : `ads_update_entity` sur l'`ad_set`,
+       champ `targeting` =
+       `{"geo_locations":{"countries":["FR"],"location_types":["home"]},"targeting_automation":{"advantage_audience":1}}`.
+       ⚠️ TOUJOURS reinclure `targeting_automation.advantage_audience: 1` : un update du champ
+       `targeting` REMPLACE tout le bloc d'un coup, donc sans ce flag on perd l'audience
+       Advantage+ silencieusement. Verifier ensuite avec `ads_get_errors` sur l'adset qu'il ne
+       reste plus aucune erreur bloquante (`{}` = OK). Note : `targeting` n'est PAS lisible via
+       `ads_get_ad_entities` (champ non supporte), donc on ne peut pas relire l'ancien ciblage
+       avant de l'ecraser — d'ou l'importance de reconstruire le bloc complet a la main.
+     ⚠️ Si Romeo utilise une **audience enregistree** (audience nommee, ex "Zooryn") au lieu du
+     ciblage inline, ce type de localisation vit DANS l'audience enregistree, pas dans l'adset :
+     un `ads_update_entity` sur l'adset ne la corrige pas. Dans ce cas, le seul fix est manuel
+     dans le Gestionnaire (Modifier l'audience > Lieux > "Personnes qui vivent a cet endroit").
+   - **Placements compatibles avec le format des visuels.** Les visuels Zooryn sont en
+     **portrait/carre** ; or le placement **video in-stream exige du paysage** et **bloque la
+     publication** avec une image portrait ("Les images utilisees pour les publicites in-stream
+     ne peuvent pas etre au format portrait"). Donc ne pas laisser les placements automatiques :
+     poser des **placements manuels sans in-stream video**, adaptes au portrait :
+     `publisher_platforms: ["facebook","instagram"]`,
+     `facebook_positions: ["feed","profile_feed","marketplace","video_feeds","story","facebook_reels"]`,
+     `instagram_positions: ["stream","profile_feed","explore","explore_home","story","reels"]`.
 8. **Creer une creative par visuel** (`ads_create_creative`) avec l'URL CDN, le texte/titre/
    description/CTA adaptes a l'etape 4, nommees **"Zooryn `<LOT>` - AD`n`"**.
 9. **Creer une pub par creative** (`ads_create_ad`), nommees **"`<LOT>` - AD`n`"**.

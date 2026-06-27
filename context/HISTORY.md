@@ -7,6 +7,14 @@
 
 ---
 
+## 2026-06-27
+
+### Skill `boutique` créé (Claude Design → Liquid formalisé) + automatisme Notion abandonné
+- Nouveau skill `.claude/skills/boutique/` : transforme un bundle Claude Design (`.dc.html`) en page produit Liquid sur le thème live, déclenché par le message d'import `claude.ai/design`. Reprend et formalise la méthode déjà actée le 17/06 (header/footer conservés, carrousel branché sur les vraies photos produit, bundle d'offres traduit en variantes Shopify au cas par cas, prix du HTML qui prime, images toujours en 1254×1254, avis/FAQ en Liquid pur avec prénoms systématiquement francisés, vérification fonctionnelle avant de clore, déploiement direct sur le live).
+- Automatisme "répertoire Notion des commandes" (acté le 26/05/2026) abandonné sur demande explicite de Roméo : Claude ne met plus à jour la page Notion "Boîte à outils Jarvis" automatiquement à chaque nouvelle commande/skill.
+
+---
+
 ## 2026-06-26
 
 ### Agent n8n "Usine à créas publicitaires" construit de A à Z (tentative vendable, hors Claude Code)

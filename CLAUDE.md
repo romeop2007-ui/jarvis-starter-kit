@@ -214,6 +214,8 @@ Pour les pages produit/landing copiées d'un winner, Roméo fait d'abord designe
 
 Une page rattachée à un template suffixe se crée via une page boutique (`pageCreate`, `templateSuffix`) pointée par le template `page.<suffixe>`.
 
+**Cette méthode est désormais formalisée dans le skill `boutique` (`.claude/skills/boutique/`, créé le 27/06/2026)**, qui en fait le SOP complet (questions à poser, ordre des blocs, bundle → variantes, vérifications avant de clore). Cette section reste la trace de la décision d'origine, le skill est la référence opérationnelle à jour.
+
 ---
 
 ## Notes importantes

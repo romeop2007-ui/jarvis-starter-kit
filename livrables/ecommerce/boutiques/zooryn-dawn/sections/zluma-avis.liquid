@@ -1,13 +1,14 @@
 {%- comment -%}
-  ZOORYN — Guirlande Luma : avis clients (liste complète, masonry,
-  pagination 8 par 8). Le design source montre un bouton "Écrire un avis"
-  et 2 icônes (caméra/liste) : conservés à l'identique (décoratifs).
-  5 avis repris du design, prénoms francisés. Note d'honnêteté : avis
-  placeholder à remplacer par de vrais avis avant la mise en ligne réelle.
+  ZOORYN — Guirlande Luma : avis clients (liste à 1 colonne, sans bouton
+  "Écrire un avis" ni icônes filtre/tri, conforme à la page concurrent
+  réelle). 36 avis inventés (les 5 du design d'origine + 31 ajoutés),
+  prénoms francisés, pagination numérotée 5/page (8 pages, comme le
+  concurrent). Note d'honnêteté : avis placeholder à remplacer par de
+  vrais avis avant la mise en ligne réelle.
 {%- endcomment -%}
 {%- assign s = section.settings -%}
 {%- assign sid = section.id -%}
-{%- assign rows = "Anonyme~4~06/04/2026~Semble bien fonctionner pour l'instant. Curieux de voir comment ça tient en hiver à l'extérieur.~ ||| Marie S.~5~11/04/2026~Vivement recommandé~Je recommande à tous ceux qui ont une terrasse, un balcon ou qui font du camping. Simple, intelligent et élégant. ||| Mickaël F.~5~10/04/2026~Une soirée d'été dans une boîte~J'ai ouvert le colis un vendredi soir. Je l'ai accrochée. J'étais dehors jusqu'à minuit. C'est tout ce qu'il faut savoir. ||| Hélène B.~5~09/04/2026~J'en ai commandé deux d'un coup~J'en ai d'abord commandé une pour tester. Tellement satisfaite que j'en ai commandé deux de plus la même semaine. Une pour la terrasse, une pour le camping. ||| Christophe S.~4~09/04/2026~Le backup USB, c'est malin~Le truc malin c'est qu'elle charge aussi en USB. Les jours vraiment couverts, je la charge vite et elle s'allume automatiquement quand il fait nuit." | split: " ||| " -%}
+{%- assign rows = "Anonyme~4~06/04/2026~Semble bien fonctionner pour l'instant. Curieux de voir comment ça tient en hiver à l'extérieur.~ ||| Marie S.~5~11/04/2026~Vivement recommandé~Je recommande à tous ceux qui ont une terrasse, un balcon ou qui font du camping. Simple, intelligent et élégant. ||| Mickaël F.~5~10/04/2026~Une soirée d'été dans une boîte~J'ai ouvert le colis un vendredi soir. Je l'ai accrochée. J'étais dehors jusqu'à minuit. C'est tout ce qu'il faut savoir. ||| Hélène B.~5~09/04/2026~J'en ai commandé deux d'un coup~J'en ai d'abord commandé une pour tester. Tellement satisfaite que j'en ai commandé deux de plus la même semaine. Une pour la terrasse, une pour le camping. ||| Christophe S.~4~09/04/2026~Le backup USB, c'est malin~Le truc malin c'est qu'elle charge aussi en USB. Les jours vraiment couverts, je la charge vite et elle s'allume automatiquement quand il fait nuit. ||| Léa K.~5~05/04/2026~Installée sur la terrasse en 5 minutes, elle s'allume toute seule à la tombée de la nuit. Magique. ||| Thomas V.~5~04/04/2026~Lumière douce et chaude, parfaite pour les soirées d'été. On l'a clipsée autour du carré potager. ||| Nadia F.~4~03/04/2026~Très jolie guirlande, bonne tenue de charge. Une étoile en moins car le câble est un peu court pour ma terrasse. ||| Romain T.~5~02/04/2026~Tenue toute la nuit sans faiblir, même après une journée nuageuse. Bonne surprise pour un produit solaire. ||| Camille D.~5~01/04/2026~Parfaite pour le camping, légère et facile à accrocher à la tente. On l'utilise à chaque sortie. ||| Julien K.~5~31/03/2026~Rendu très qualitatif, le verre donne un côté chic. Beaucoup de compliments de mes voisins. ||| Sophie R.~4~30/03/2026~Bon produit dans l'ensemble. Le capteur solaire pourrait être un peu plus sensible par temps couvert. ||| Maxime B.~5~29/03/2026~Installée au-dessus du barbecue, ambiance parfaite tous les soirs. Charge complète en une journée de soleil. ||| Élise N.~5~28/03/2026~Très contente, jolie lumière dorée. Facile à fixer avec les crochets fournis. ||| Antoine M.~5~27/03/2026~On l'a accrochée au van, parfaite pour les soirées en bivouac. Tient bien la pluie aussi. ||| Claire V.~5~26/03/2026~Cadeau pour ma mère qui en est ravie. Très simple d'installation, lumière chaleureuse. ||| Damien S.~4~25/03/2026~Bon rapport qualité-prix. J'aurais aimé un fil un peu plus long pour faire le tour de mon balcon. ||| Laura P.~5~24/03/2026~Utilisée toutes les nuits depuis 3 semaines sans aucun souci de charge. Très satisfaite. ||| Florian G.~5~23/03/2026~La luminosité est top, ni trop forte ni trop faible. Parfait pour lire un livre sur la terrasse. ||| Manon C.~5~22/03/2026~Installée autour de la pergola, vraiment joli effet le soir. Allumage automatique très pratique. ||| Quentin L.~5~21/03/2026~Solide et bien fini. On l'a laissée sous la pluie plusieurs fois sans problème. ||| Pauline F.~4~20/03/2026~Bonne guirlande, lumière agréable. Petite déception sur la durée d'allumage en hiver mais logique avec le soleil. ||| Hugo D.~5~19/03/2026~Parfaite pour le camping-car, accrochée à l'auvent elle illumine toute la soirée. ||| Inès B.~5~18/03/2026~Très belle qualité de lumière, on dirait des vraies guirlandes guinguette. Coup de cœur. ||| Vincent A.~5~17/03/2026~Facile à installer, autonomie largement suffisante pour nos soirées d'été. ||| Charlotte M.~5~16/03/2026~On l'utilise pour éclairer l'allée du jardin, ça change vraiment l'ambiance le soir. ||| Yanis K.~4~15/03/2026~Très bon produit, juste un peu sensible aux branchages qui peuvent gêner le capteur solaire selon l'emplacement. ||| Émilie T.~5~14/03/2026~Achetée pour un mariage en extérieur, tout le monde a adoré le rendu lumineux. ||| Baptiste R.~5~13/03/2026~Allumage automatique impeccable, jamais eu à y toucher depuis l'installation. ||| Alicia N.~5~12/03/2026~Belle lumière chaude, parfaite pour habiller la terrasse sans avoir besoin d'électricité. ||| Mathis V.~5~11/03/2026~Utilisée en festival, accrochée à la tente, vraiment pratique et jolie. ||| Sarah L.~4~10/03/2026~Très satisfaite globalement, j'aurais aimé une option pour régler l'intensité lumineuse. ||| Nicolas F.~5~09/03/2026~Tenue impeccable malgré plusieurs orages cet été. Très robuste pour un produit extérieur. ||| Margaux D.~5~08/03/2026~Le rendu est magnifique la nuit, on dirait des lucioles. Mes enfants adorent. ||| Théo P.~5~07/03/2026~Installation simple, autonomie largement suffisante même les jours nuageux. ||| Camille S.~5~06/03/2026~Parfaite pour notre jardin partagé, plusieurs voisins m'ont demandé où je l'avais achetée." | split: " ||| " -%}
 
 <div class="zluma" id="zluma-avis-{{ sid }}">
   <section class="reviews">
@@ -25,15 +26,6 @@
             </div>
           </div>
         </div>
-        <div class="reviews-actions">
-          <button type="button" class="btn-write">Écrire un avis</button>
-          <button type="button" class="btn-icon" aria-label="Filtrer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#154230" stroke-width="2"><polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46"></polygon></svg>
-          </button>
-          <button type="button" class="btn-icon" aria-label="Trier">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#154230" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="15" y2="12"></line><line x1="3" y1="18" x2="9" y2="18"></line></svg>
-          </button>
-        </div>
       </div>
 
       <div class="reviews-sep"></div>
@@ -48,7 +40,8 @@
             <span class="stars">{{ starstr }}</span>
             <div class="meta">
               <div class="avatar">{{ f[0] | slice: 0 }}</div>
-              <div class="who"><b>{{ f[0] }}</b><span class="verif">(Vérifié)</span></div>
+              <div class="who"><b>{{ f[0] }}</b>{%- if forloop.first -%}<span class="verif">(Vérifié)</span>{%- endif -%}</div>
+              <span class="date">{{ f[2] }}</span>
             </div>
             {%- if f.size == 5 -%}
               <h4>{{ f[3] }}</h4>
@@ -60,9 +53,7 @@
         {%- endfor -%}
       </div>
 
-      <div class="reviews-more">
-        <button type="button" class="btn-more" id="zlumaMore-{{ sid }}">{{ s.more_label | default: 'Voir plus d’avis' }}</button>
-      </div>
+      <nav class="reviews-pagination" id="zlumaPager-{{ sid }}" aria-label="Pages d'avis"></nav>
 
     </div>
   </section>
@@ -71,17 +62,50 @@
 <script>
 (function(){
   var grid = document.getElementById('zlumaGrid-{{ sid }}');
-  var moreBtn = document.getElementById('zlumaMore-{{ sid }}');
-  if(!grid || !moreBtn){ return; }
-  var PAGE = 8;
-  var shown = PAGE;
+  var pager = document.getElementById('zlumaPager-{{ sid }}');
+  if(!grid || !pager){ return; }
+  var PAGE = 5;
+  var current = 1;
+
   function cards(){ return Array.prototype.slice.call(grid.querySelectorAll('.review-card')); }
+
+  function pageList(total, cur){
+    if(total <= 6){
+      var all = [];
+      for(var i = 1; i <= total; i++){ all.push(i); }
+      return all;
+    }
+    if(cur <= 4){ return [1,2,3,4,'...',total]; }
+    if(cur >= total - 3){ return [1,'...',total-3,total-2,total-1,total]; }
+    return [1,'...',cur-1,cur,cur+1,'...',total];
+  }
+
+  function renderPager(total){
+    var pages = pageList(total, current);
+    var html = '<button type="button" class="page-arrow" data-page="' + (current-1) + '" ' + (current === 1 ? 'disabled' : '') + ' aria-label="Page précédente">&lsaquo;</button>';
+    pages.forEach(function(p){
+      if(p === '...'){ html += '<span class="page-dots">...</span>'; }
+      else { html += '<button type="button" class="page-num' + (p === current ? ' active' : '') + '" data-page="' + p + '">' + p + '</button>'; }
+    });
+    html += '<button type="button" class="page-arrow" data-page="' + (current+1) + '" ' + (current === total ? 'disabled' : '') + ' aria-label="Page suivante">&rsaquo;</button>';
+    pager.innerHTML = html;
+    pager.querySelectorAll('button[data-page]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var p = parseInt(btn.getAttribute('data-page'), 10);
+        if(p >= 1 && p <= total){ current = p; render(); }
+      });
+    });
+  }
+
   function render(){
     var list = cards();
-    list.forEach(function(c, i){ c.style.display = (i < shown) ? '' : 'none'; });
-    moreBtn.style.display = (shown < list.length) ? '' : 'none';
+    var total = Math.ceil(list.length / PAGE);
+    var start = (current - 1) * PAGE;
+    var end = start + PAGE;
+    list.forEach(function(c, i){ c.style.display = (i >= start && i < end) ? '' : 'none'; });
+    renderPager(total);
   }
-  moreBtn.addEventListener('click', function(){ shown += PAGE; render(); });
+
   render();
 })();
 </script>

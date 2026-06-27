@@ -6,10 +6,6 @@
         "product": ""
       }
     },
-    "quoteslider": {
-      "type": "zluma-quote-slider",
-      "settings": {}
-    },
     "story1": {
       "type": "zluma-story",
       "settings": {
@@ -59,7 +55,6 @@
   },
   "order": [
     "buybox",
-    "quoteslider",
     "story1",
     "story2",
     "story3",

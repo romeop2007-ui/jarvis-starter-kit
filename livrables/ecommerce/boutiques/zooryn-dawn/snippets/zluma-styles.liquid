@@ -61,11 +61,13 @@
 .zluma .thumb .img-cover{ border-radius:5px; aspect-ratio:1/1; }
 .zluma .thumb .placeholder{ border-radius:5px; font-size:9px; padding:4px; }
 
-.zluma .reviews-inline{ display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.zluma .reviews-inline{ display:flex; align-items:center; gap:8px; margin-top:12px; }
+.zluma .star-rating-solid{ color:#FBBF24; font-size:18px; letter-spacing:2px; line-height:1; }
+.zluma .reviews-inline span:last-child{ font-size:13px; opacity:.6; }
+/* Étoiles à demi-remplissage (utilisées par le résumé de la section avis) */
 .zluma .star-rating{ position:relative; display:inline-block; font-size:14px; letter-spacing:1px; line-height:1; height:14px; }
-.zluma .star-rating .bg{ color:#d9d9d9; white-space:nowrap; }
-.zluma .star-rating .fg{ position:absolute; top:0; left:0; overflow:hidden; white-space:nowrap; color:var(--or); }
-.zluma .reviews-inline span:last-child{ font-size:13px; opacity:.65; border-bottom:1px solid rgba(21,66,48,.28); padding-bottom:1px; }
+.zluma .star-rating .bg{ color:#e2dcc9; white-space:nowrap; }
+.zluma .star-rating .fg{ position:absolute; top:0; left:0; overflow:hidden; white-space:nowrap; color:#FBBF24; }
 .zluma .product-title{ font-size:30px; font-weight:700; line-height:1.22; letter-spacing:-.3px; }
 .zluma .product-tagline{ margin-top:16px; font-size:16px; opacity:.78; line-height:1.62; }
 .zluma .benefits-list{ list-style:none; margin-top:18px; max-width:540px; }
@@ -95,19 +97,35 @@
 .zluma .bundle-divider::before, .zluma .bundle-divider::after{ content:""; flex:1; height:1px; background:rgba(21,66,48,.22); }
 .zluma .bundle-divider span{ font-size:13px; font-weight:600; color:var(--vert); white-space:nowrap; }
 .zluma .bundle-list{ display:flex; flex-direction:column; gap:10px; }
-.zluma .bundle-opt{ position:relative; display:flex; align-items:center; gap:12px; width:100%; padding:14px 16px; border-radius:5px; border:1px solid #d9d9d9; background:#fff; cursor:pointer; transition:border-color .15s; text-align:left; }
-.zluma .bundle-opt.selected{ border:1.5px solid #000; }
-.zluma .bundle-opt-radio{ width:20px; height:20px; border-radius:50%; border:1.5px solid #b8b8b8; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
-.zluma .bundle-opt.selected .bundle-opt-radio{ border-color:#000; }
-.zluma .bundle-opt.selected .bundle-opt-radio::after{ content:""; width:10px; height:10px; border-radius:50%; background:#000; }
+.zluma .bundle-opt{ position:relative; display:flex; align-items:center; gap:12px; width:100%; padding:14px 16px; border-radius:5px; border:1px solid rgba(21,66,48,.18); background:var(--texte-clair); cursor:pointer; transition:border-color .15s; text-align:left; }
+.zluma .bundle-opt.selected{ border:1.5px solid var(--vert); background:#fff; }
+.zluma .bundle-opt-radio{ width:20px; height:20px; border-radius:50%; border:1.5px solid rgba(21,66,48,.35); flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+.zluma .bundle-opt.selected .bundle-opt-radio{ border-color:var(--vert); }
+.zluma .bundle-opt.selected .bundle-opt-radio::after{ content:""; width:10px; height:10px; border-radius:50%; background:var(--vert); }
 .zluma .bundle-opt-body{ flex:1; min-width:0; }
-.zluma .bundle-opt-name{ font-size:15px; font-weight:700; color:#000; }
-.zluma .bundle-opt-sub{ font-size:13px; color:#555; margin-top:2px; }
+.zluma .bundle-opt-name{ font-size:15px; font-weight:700; color:var(--vert); }
+.zluma .bundle-opt-sub{ font-size:13px; color:var(--vert); opacity:.65; margin-top:2px; }
 .zluma .bundle-opt-price{ text-align:right; flex-shrink:0; }
-.zluma .bundle-opt-price .now{ font-size:16px; font-weight:700; display:block; color:#000; }
-.zluma .bundle-opt-price .old{ font-size:13px; opacity:.55; text-decoration:line-through; display:block; margin-top:1px; color:#555; }
+.zluma .bundle-opt-price .now{ font-size:16px; font-weight:700; display:block; color:var(--vert); }
+.zluma .bundle-opt-price .old{ font-size:13px; opacity:.55; text-decoration:line-through; display:block; margin-top:1px; color:var(--vert); }
 .zluma .bundle-opt-check{ display:none; }
-.zluma .bundle-opt-badge{ position:absolute; top:-10px; right:14px; background:#000; color:#fff; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; white-space:nowrap; }
+.zluma .bundle-opt-badge{ position:absolute; top:-10px; right:14px; background:var(--vert); color:var(--texte-clair); font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; white-space:nowrap; }
+
+/* ===== Carrousel de citations (intégré dans la buy box, au-dessus des accordéons) ===== */
+.zluma .qs-inline{ margin-top:24px; padding-top:24px; border-top:1px solid rgba(21,66,48,.11); }
+.zluma .qs-inline .qs-slide{ display:none; }
+.zluma .qs-inline .qs-slide.active{ display:block; }
+.zluma .qs-inline .qs-quote{ font-size:15px; line-height:1.55; }
+.zluma .qs-inline .qs-quote strong{ font-weight:700; }
+.zluma .qs-inline .qs-sep{ height:1px; background:rgba(21,66,48,.14); margin:14px 0; }
+.zluma .qs-inline .qs-author{ font-size:13px; opacity:.6; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.zluma .qs-inline .qs-author .stars{ color:#FBBF24; font-size:13px; opacity:1; letter-spacing:1px; }
+.zluma .qs-inline .qs-nav{ display:flex; align-items:center; justify-content:center; gap:18px; margin-top:16px; }
+.zluma .qs-inline .qs-arrow{ font-size:18px; opacity:.5; line-height:1; padding:4px; }
+.zluma .qs-inline .qs-arrow:hover{ opacity:1; }
+.zluma .qs-inline .qs-dots{ display:flex; gap:7px; align-items:center; }
+.zluma .qs-inline .qs-dot{ width:7px; height:7px; border-radius:50%; background:rgba(21,66,48,.25); padding:0; }
+.zluma .qs-inline .qs-dot.active{ background:var(--vert); width:9px; height:9px; }
 
 /* ===== Accordéons produit ===== */
 .zluma .acc-wrap{ margin-top:28px; border-top:1px solid rgba(21,66,48,.11); }
@@ -152,24 +170,26 @@
 .zluma .reviews-summary .score{ font-size:38px; font-weight:700; line-height:1; }
 .zluma .reviews-summary .star-rating{ font-size:17px; height:17px; }
 .zluma .reviews-summary .count{ font-size:13px; opacity:.5; margin-top:3px; }
-.zluma .reviews-actions{ display:flex; align-items:center; gap:8px; }
-.zluma .btn-write{ padding:10px 18px; background:var(--vert); color:var(--texte-clair); border-radius:7px; font-size:13px; font-weight:600; }
-.zluma .btn-icon{ width:38px; height:38px; border:1.5px solid rgba(21,66,48,.2); border-radius:7px; display:flex; align-items:center; justify-content:center; }
-.zluma .btn-icon svg{ width:14px; height:14px; }
 .zluma .reviews-sep{ height:1px; background:rgba(21,66,48,.12); margin:28px 0; }
-.zluma .reviews-grid{ display:block; column-count:2; column-gap:18px; }
-.zluma .review-card{ width:100%; margin:0 0 18px; display:inline-block; break-inside:avoid; background:var(--crm-carte); border-radius:12px; padding:22px 20px; cursor:default; }
-.zluma .review-card .stars{ color:var(--or); font-size:14px; letter-spacing:1px; margin-bottom:12px; display:block; }
-.zluma .review-card .meta{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.zluma .reviews-grid{ display:block; max-width:760px; margin:0 auto; }
+.zluma .review-card{ width:100%; padding:22px 0; border-bottom:1px solid rgba(21,66,48,.12); cursor:default; }
+.zluma .review-card:first-child{ padding-top:0; }
+.zluma .review-card .stars{ color:var(--or); font-size:14px; letter-spacing:1px; margin-bottom:10px; display:block; }
+.zluma .review-card .meta{ display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
 .zluma .review-card .avatar{ width:36px; height:36px; border-radius:50%; background:var(--vert-clair); color:var(--texte-clair); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; flex-shrink:0; }
 .zluma .review-card .who{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
 .zluma .review-card .who b{ font-size:14px; font-weight:600; }
 .zluma .review-card .verif{ font-size:11px; color:var(--vert-clair); border:1px solid rgba(47,107,79,.5); border-radius:20px; padding:2px 8px; }
+.zluma .review-card .date{ font-size:12px; opacity:.45; margin-left:auto; }
 .zluma .review-card h4{ font-size:15px; font-weight:700; margin-bottom:8px; }
 .zluma .review-card p{ font-size:14px; opacity:.72; line-height:1.72; }
-.zluma .reviews-more{ display:flex; justify-content:center; margin-top:32px; }
-.zluma .btn-more{ padding:12px 28px; background:var(--vert); color:var(--texte-clair); border-radius:8px; font-size:14px; font-weight:600; }
-@media (max-width:760px){ .zluma .reviews-grid{ column-count:1; } }
+.zluma .reviews-pagination{ display:flex; align-items:center; justify-content:center; gap:6px; margin-top:32px; }
+.zluma .reviews-pagination .page-num,
+.zluma .reviews-pagination .page-arrow{ min-width:32px; height:32px; padding:0 6px; border-radius:7px; font-size:14px; font-weight:600; color:var(--vert); background:transparent; display:flex; align-items:center; justify-content:center; }
+.zluma .reviews-pagination .page-arrow{ font-size:18px; color:rgba(21,66,48,.5); }
+.zluma .reviews-pagination .page-arrow:disabled{ opacity:.3; cursor:default; }
+.zluma .reviews-pagination .page-num.active{ background:var(--vert); color:var(--texte-clair); }
+.zluma .reviews-pagination .page-dots{ min-width:20px; text-align:center; font-size:14px; opacity:.4; }
 
 /* ===== FAQ ===== */
 .zluma .faq{ padding:80px 0; }
@@ -188,8 +208,9 @@
 .zluma-sticky-cta .sticky-inner{ max-width:680px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:0 20px; }
 .zluma-sticky-cta .sticky-title{ font-size:14px; font-weight:600; }
 .zluma-sticky-cta .sticky-price{ display:flex; align-items:center; gap:8px; margin-top:3px; }
-.zluma-sticky-cta .sticky-price .now{ font-family:'Playfair Display',Georgia,serif; font-size:18px; font-weight:700; }
+.zluma-sticky-cta .sticky-price .now{ font-size:18px; font-weight:700; }
 .zluma-sticky-cta .sticky-price .old{ font-size:13px; opacity:.32; text-decoration:line-through; }
+.zluma-sticky-cta .sticky-price .save{ font-size:11px; font-weight:700; color:var(--texte-clair); background:var(--vert); padding:3px 10px; border-radius:20px; white-space:nowrap; display:none; }
 .zluma-sticky-cta .btn-cart{ width:auto; margin-top:0; padding:12px 28px; font-size:14px; white-space:nowrap; }
 
 /* ===== Animations au scroll ===== */
@@ -207,7 +228,6 @@
   .zluma .story-text h2{ font-size:28px; }
   .zluma .clients h2, .zluma .faq h2{ font-size:27px; }
   .zluma .clients-grid{ grid-template-columns:1fr; }
-  .zluma .reviews-grid{ column-count:1; }
 }
 </style>
 

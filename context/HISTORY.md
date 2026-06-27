@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-06-27 (mise à jour 3)
+
+### Page produit Luma : passe de polissage UI (avis, bundle, citations, étoiles, barre collante)
+- Section avis refondue façon concurrent : suppression du bouton "Écrire un avis" + icônes filtre/tri, passage de la grille masonry 2 colonnes à une liste 1 colonne avec séparateurs et date affichée.
+- 31 avis ajoutés (36 au total, cohérent avec le compteur), bouton "Voir plus" remplacé par une vraie pagination numérotée (5 avis/page, 8 pages, flèches + …). Badge "(Vérifié)" retiré sauf sur le premier avis.
+- Buy box : bouton "Acheter maintenant" supprimé (ne reste que "Ajouter au panier"), bloc des 3 offres recoloré dans la charte crème/vert (au lieu du noir/blanc/gris copié du concurrent).
+- Barre collante : bug d'affichage du prix au chargement corrigé (le script tournait avant que la barre existe dans le DOM), badge "Économisez X %" ajouté (calcul auto), police Playfair retirée (Poppins du site), format prix en "49,99€" (€ après le chiffre) appliqué aussi au bloc des offres.
+- En-tête produit : étoiles + "36 avis" déplacés SOUS le titre (façon concurrent), étoiles agrandies en jaune-or vif.
+- Étoiles de l'en-tête : remplacement de la technique à deux couches superposées (grises + dorées rognées) par une seule rangée d'étoiles dorées pleines, pour supprimer le double motif visuel.
+- Carrousel de citations clients remonté À L'INTÉRIEUR de la buy box, au-dessus des accordéons (comme le concurrent), aligné à gauche dans la colonne. Section autonome `zluma-quote-slider` supprimée du template et du thème.
+
+---
+
 ## 2026-06-27 (mise à jour 2)
 
 ### Skill `boutique` : premier import bouclé (guirlande Luma) + durcissement suite à plusieurs erreurs réelles

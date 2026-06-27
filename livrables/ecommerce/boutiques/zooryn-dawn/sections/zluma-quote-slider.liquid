@@ -1,0 +1,84 @@
+{%- comment -%}
+  ZOORYN — Guirlande Luma : petit carrousel de citations clients (1 à la
+  fois, flèches + points), repris du widget JudgeMe "featured carousel" /
+  testimonials du concurrent (citation + auteur, ville + étoiles).
+  Positionné juste après la buy box, comme sur la page concurrent.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+{%- assign sid = section.id -%}
+{%- assign rows = "Les 10 mètres s'étendent parfaitement sur toute la longueur de notre terrasse. C'est magique le soir.~Camille R.~Lyon ||| La terrasse est complètement transformée.~Sarah-Léna W.~Nantes ||| Enfin une lampe solaire qui a du style ! Complètement différente des modèles bon marché qu'on trouve dans le commerce.~Manon~Annecy ||| Je l'emporte à chaque camping maintenant, elle se charge au soleil et se range en quelques secondes.~J.K.~Bordeaux ||| Accrochée entre les arbres, personne ne voulait rentrer. Ça dit tout.~Anne-Lise~Toulouse ||| La tente ressemble à une chambre d'hôtel une fois éclairée. On ne campe plus sans elle.~T.H.~Marseille" | split: " ||| " -%}
+
+<div class="zluma" id="zluma-qs-{{ sid }}">
+  <section class="quote-slider">
+    <div class="wrap">
+      <div class="qs-track" id="zlumaQsTrack-{{ sid }}">
+        {%- for row in rows -%}
+          {%- assign f = row | split: "~" -%}
+          <div class="qs-slide{% if forloop.first %} active{% endif %}">
+            <p class="qs-quote">« <strong>{{ f[0] }}</strong> »</p>
+            <div class="qs-sep"></div>
+            <p class="qs-author"><em>{{ f[1] }}, {{ f[2] }}</em> <span class="stars">★★★★★</span></p>
+          </div>
+        {%- endfor -%}
+      </div>
+      <div class="qs-nav">
+        <button type="button" class="qs-arrow prev" id="zlumaQsPrev-{{ sid }}" aria-label="Avis précédent">‹</button>
+        <div class="qs-dots" id="zlumaQsDots-{{ sid }}">
+          {%- for row in rows -%}
+            <button type="button" class="qs-dot{% if forloop.first %} active{% endif %}" aria-label="Avis {{ forloop.index }}"></button>
+          {%- endfor -%}
+        </div>
+        <button type="button" class="qs-arrow next" id="zlumaQsNext-{{ sid }}" aria-label="Avis suivant">›</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+.zluma .quote-slider{ padding:36px 0; }
+.zluma .quote-slider .wrap{ max-width:520px; }
+.zluma .qs-slide{ display:none; text-align:center; }
+.zluma .qs-slide.active{ display:block; }
+.zluma .qs-quote{ font-size:15px; line-height:1.55; }
+.zluma .qs-quote strong{ font-weight:700; }
+.zluma .qs-sep{ height:1px; background:rgba(21,66,48,.14); margin:14px auto; width:100%; }
+.zluma .qs-author{ font-size:13px; opacity:.6; display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; }
+.zluma .qs-author .stars{ color:var(--or); font-size:13px; opacity:1; }
+.zluma .qs-nav{ display:flex; align-items:center; justify-content:center; gap:18px; margin-top:18px; }
+.zluma .qs-arrow{ font-size:18px; opacity:.5; line-height:1; padding:4px; }
+.zluma .qs-arrow:hover{ opacity:1; }
+.zluma .qs-dots{ display:flex; gap:7px; align-items:center; }
+.zluma .qs-dot{ width:7px; height:7px; border-radius:50%; background:rgba(21,66,48,.25); padding:0; }
+.zluma .qs-dot.active{ background:var(--vert); width:9px; height:9px; }
+</style>
+
+<script>
+(function(){
+  var track = document.getElementById('zlumaQsTrack-{{ sid }}');
+  var dotsWrap = document.getElementById('zlumaQsDots-{{ sid }}');
+  if(!track || !dotsWrap){ return; }
+  var slides = Array.prototype.slice.call(track.querySelectorAll('.qs-slide'));
+  var dots = Array.prototype.slice.call(dotsWrap.querySelectorAll('.qs-dot'));
+  var prevBtn = document.getElementById('zlumaQsPrev-{{ sid }}');
+  var nextBtn = document.getElementById('zlumaQsNext-{{ sid }}');
+  var current = 0;
+  function show(i){
+    if(i < 0){ i = slides.length - 1; }
+    if(i >= slides.length){ i = 0; }
+    current = i;
+    slides.forEach(function(s, idx){ s.classList.toggle('active', idx === i); });
+    dots.forEach(function(d, idx){ d.classList.toggle('active', idx === i); });
+  }
+  dots.forEach(function(d, i){ d.addEventListener('click', function(){ show(i); }); });
+  if(prevBtn){ prevBtn.addEventListener('click', function(){ show(current - 1); }); }
+  if(nextBtn){ nextBtn.addEventListener('click', function(){ show(current + 1); }); }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Luma — Citations",
+  "tag": "section",
+  "presets": [ { "name": "Luma — Citations" } ]
+}
+{% endschema %}

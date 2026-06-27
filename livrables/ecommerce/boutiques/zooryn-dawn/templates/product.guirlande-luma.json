@@ -1,0 +1,71 @@
+{
+  "sections": {
+    "buybox": {
+      "type": "zluma-buybox",
+      "settings": {
+        "product": ""
+      }
+    },
+    "quoteslider": {
+      "type": "zluma-quote-slider",
+      "settings": {}
+    },
+    "story1": {
+      "type": "zluma-story",
+      "settings": {
+        "bg": "vert",
+        "reverse": false,
+        "placeholder_label": "Photo lifestyle – terrasse illuminée en soirée, ambiance chaleureuse",
+        "heading": "Le sentiment de ne plus vouloir rentrer.",
+        "body": "<p>Ce moment magique où la soirée est douce, la lumière tamisée et personne ne veut bouger de table. <strong>Luma prolonge les soirées.</strong> Elle se charge au soleil pendant la journée – et crée exactement l'atmosphère qui fait durer le dîner.</p>"
+      }
+    },
+    "story2": {
+      "type": "zluma-story",
+      "settings": {
+        "bg": "clair",
+        "reverse": true,
+        "placeholder_label": "Photo lifestyle – panneau solaire en plein soleil, terrasse en arrière-plan",
+        "heading": "Le soleil charge. Vous profitez.",
+        "body": "<p>Installez Luma une fois – et elle s'occupe du reste automatiquement. <strong>Le panneau solaire se charge pendant la journée.</strong></p><p>Aucun câble. Aucune prise. Rien à gérer.</p><p><strong>10 mètres</strong> pour toute la terrasse ou le balcon. <strong>Construction étanche</strong> par tous les temps. <strong>Enroulement sans enchevêtrement</strong> en 30 secondes.</p>"
+      }
+    },
+    "story3": {
+      "type": "zluma-story",
+      "settings": {
+        "bg": "vert-fonce",
+        "reverse": false,
+        "placeholder_label": "Photo lifestyle – guirlande sur balcon d'appartement, vue en soirée",
+        "heading": "Fonctionne partout. N'exige rien.",
+        "body": "<p>Grand jardin ou petit balcon – <strong>Luma s'adapte.</strong></p><p>Pas de câbles à tirer. Pas de prise à chercher. Pas d'installation. Accrochez-la le long du garde-corps, de la clôture ou de la pergola et <strong>laissez le soleil faire le reste.</strong></p><p>Parfaite pour l'appartement comme pour la grande maison. <strong>10 mètres, ça va plus loin que vous ne le pensez.</strong></p>"
+      }
+    },
+    "clients": {
+      "type": "zluma-clients",
+      "settings": {}
+    },
+    "faq": {
+      "type": "zluma-faq",
+      "settings": {}
+    },
+    "avis": {
+      "type": "zluma-avis",
+      "settings": {}
+    },
+    "sticky": {
+      "type": "zluma-sticky",
+      "settings": {}
+    }
+  },
+  "order": [
+    "buybox",
+    "quoteslider",
+    "story1",
+    "story2",
+    "story3",
+    "clients",
+    "faq",
+    "avis",
+    "sticky"
+  ]
+}

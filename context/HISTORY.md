@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-06-27 (mise à jour 2)
+
+### Skill `boutique` : premier import bouclé (guirlande Luma) + durcissement suite à plusieurs erreurs réelles
+- **Premier import du skill `boutique` mené de bout en bout** : bundle Claude Design de la guirlande solaire récupéré via l'outil `DesignSync` (pas via `.gz`/`WebFetch`, qui échoue en 403 sur claude.ai). Page produit Liquid construite (template `product.guirlande-luma.json`, header/footer Dawn conservés, classe racine `.zluma`), carrousel branché sur les vraies photos produit, bundle 3 paliers câblé sur 3 vraies variantes Shopify (option "Quantité"), avis/FAQ en Liquid pur avec prénoms francisés. Produit Shopify débloqué (était une coquille vide à 0€) : option + 3 variantes créées (29,99€/39,99€, 49,99€/89,80€, 64,99€/119,99€), `templateSuffix` assigné. Page live : `https://zooryn.com/products/zooryn-guirlande-lumineuse-solaire`.
+- **4 erreurs réelles trouvées et corrigées en cours de route, désormais gravées dans le `SKILL.md` :**
+  1. **Le mockup Claude Design n'est pas la vérité terrain.** Il avait inventé une police (Playfair Display + DM Sans) et un widget de bundle stylisé maison, alors que la vraie page concurrent (Belysningshuset) tourne en **Poppins** avec le vrai widget de l'app **"Kaching Bundles"** (radio simple, badge noir "Le plus populaire !", séparateur "Début de l'été 2026"). Corrigé en allant inspecter directement le HTML/CSS source du concurrent (`curl` + grep des `font-family`, des classes d'apps installées et de leurs `<script type="application/json">` de config, qui contiennent souvent les vraies données en clair).
+  2. **Un bloc entier oublié** : un carrousel de citations clients (1 avis à la fois, flèches + points) existe juste sous les icônes de paiement sur la vraie page concurrent, absent du mockup Claude Design. Repéré seulement quand Roméo a montré des captures de la vraie page. Nouvelle section `zluma-quote-slider` créée pour le couvrir.
+  3. **Format image 1254×1254 pas respecté partout** (galerie posée en 1100px, blocs "story" en 1400×1100, photos clients en 600×450 au format 4:3) alors que le skill l'imposait déjà en étape 6. Corrigé sur toute la page, étape 6 du skill renforcée pour viser explicitement TOUS les appels `image_url`, pas seulement "les images à insérer".
+  4. **Piège Liquid découvert : le `"default"` du `{% schema %}` prime toujours sur le filtre `| default:` côté Liquid.** Changer uniquement le texte dans le filtre sans changer le `"default"` du schéma laisse l'ancien texte affiché après un push (ressemble à un bug de cache serveur, n'en est pas un). Gravé dans le skill avec la méthode de vérification (relire le fichier réellement stocké sur le thème via l'API Admin `theme(id:...) { files(...) }`, scope `read_themes`).
+- **Renommage du produit en cours de session : Mira → Luma** (nouveau nom plus parlant choisi par Roméo). Renommage complet effectué : 8 fichiers (`zmira-*` → `zluma-*`), classes CSS/ids/fonctions JS, noms de section dans les schémas, textes en dur (accordéons), variantes Shopify (`productOptionUpdate`), `templateSuffix`, et nettoyage des 9 anciens fichiers orphelins sur le thème live (la mutation GraphQL `themeFilesDelete` est bloquée côté Admin API sans exemption Shopify ; la méthode qui marche est un `theme push --only "<fichier>"` sans que le fichier existe en local). **Checklist de renommage produit ajoutée au skill** pour ne pas repasser à côté d'un de ces points la prochaine fois.
+- Toutes les mutations Shopify (création de variantes, renommage, suppression de fichiers thème) ont été soumises à confirmation explicite de Roméo avant exécution (le classifier de sécurité bloque ces actions de production sans validation précise, même sous une demande globale déjà donnée).
+
+---
+
 ## 2026-06-27
 
 ### Skill `boutique` créé (Claude Design → Liquid formalisé) + automatisme Notion abandonné

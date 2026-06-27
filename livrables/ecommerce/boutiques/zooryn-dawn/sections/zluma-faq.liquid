@@ -1,0 +1,71 @@
+{%- comment -%}
+  ZOORYN — Guirlande Luma : FAQ (accordéon). Éditable par blocs ; si aucun
+  bloc n'est ajouté, les 7 questions par défaut du design s'affichent.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+{%- assign sid = section.id -%}
+<div class="zluma" id="zluma-faq-{{ sid }}">
+  <section class="faq">
+    <div class="faq-inner">
+      <h2>{{ s.heading | default: 'Questions fréquentes' }}</h2>
+      <div class="faq-list">
+        {%- if section.blocks.size > 0 -%}
+          {%- for block in section.blocks -%}
+            <div class="faq-item" {{ block.shopify_attributes }}>
+              <button type="button" class="faq-q"><span>{{ block.settings.q }}</span><span class="arrow">+</span></button>
+              <div class="faq-a"><div class="faq-a-inner">{{ block.settings.a }}</div></div>
+            </div>
+          {%- endfor -%}
+        {%- else -%}
+          <div class="faq-item"><button type="button" class="faq-q"><span>S'allume-t-elle automatiquement ?</span><span class="arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Non. Luma s'allume manuellement quand vous souhaitez l'utiliser. Nous avons choisi de nous concentrer sur une utilisation simple et stable, afin que vous n'ayez pas de fonctions susceptibles de causer des problèmes inutiles ou un comportement imprévisible.</div></div></div>
+          <div class="faq-item"><button type="button" class="faq-q"><span>Quelle est la longueur de la guirlande ?</span><span class="arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">10 mètres – suffisant pour la plupart des terrasses, espaces extérieurs et balcons.</div></div></div>
+          <div class="faq-item"><button type="button" class="faq-q"><span>Que se passe-t-il si la journée est nuageuse ?</span><span class="arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Le panneau solaire charge aussi par temps couvert, mais plus lentement. En cas de journée très grise, vous pouvez charger via le câble USB-C inclus pour garantir une batterie pleine avant le soir.</div></div></div>
+          <div class="faq-item"><button type="button" class="faq-q"><span>Est-elle étanche ?</span><span class="arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Oui. Luma est conçue pour une utilisation en extérieur avec une classification IP44 et résiste à la pluie et à l'humidité sans problème. Accrochez-la et laissez-la tout l'été.</div></div></div>
+          <div class="faq-item"><button type="button" class="faq-q"><span>Combien de temps éclaire-t-elle sur une seule charge ?</span><span class="arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Jusqu'à 12 à 20 heures selon la luminosité – plus que suffisant pour une longue soirée d'été.</div></div></div>
+          <div class="faq-item"><button type="button" class="faq-q"><span>Convient-elle à un balcon ?</span><span class="arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Absolument. 10 mètres couvrent la plupart des balcons et elle n'a besoin d'aucune prise – parfaite pour ceux qui n'ont pas de prise extérieure.</div></div></div>
+          <div class="faq-item"><button type="button" class="faq-q"><span>Puis-je la laisser dehors tout l'été ?</span><span class="arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Oui. Luma est construite pour une utilisation en extérieur et résiste aux intempéries estivales – soleil, pluie et tout ce qui s'y trouve entre les deux. Installez-la une fois et laissez-la en place.</div></div></div>
+        {%- endif -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('zluma-faq-{{ sid }}');
+  if(!root){ return; }
+  root.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click', function(){
+      var item = q.closest('.faq-item');
+      var ans = item.querySelector('.faq-a');
+      var arrow = q.querySelector('.arrow');
+      if(item.classList.contains('open')){
+        item.classList.remove('open'); ans.style.maxHeight = null; arrow.textContent = '+';
+      } else {
+        item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; arrow.textContent = '−';
+      }
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Luma — FAQ",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Questions fréquentes" }
+  ],
+  "blocks": [
+    {
+      "type": "qa",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "q", "label": "Question" },
+        { "type": "richtext", "id": "a", "label": "Réponse" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "Luma — FAQ" } ]
+}
+{% endschema %}

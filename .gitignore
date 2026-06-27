@@ -33,6 +33,7 @@ tmp/
 temp/
 *.tmp
 tmp-test/
+tmp-design/
 
 # Médias lourds (dépassent la limite GitHub 100 Mo)
 livrables/etudes/projets/SAE/SAE.mp4

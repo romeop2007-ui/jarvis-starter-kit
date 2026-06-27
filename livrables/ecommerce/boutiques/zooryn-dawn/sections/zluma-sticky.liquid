@@ -1,0 +1,55 @@
+{%- comment -%}
+  ZOORYN — Guirlande Luma : barre d'achat collante. Le prix affiché est
+  synchronisé en JS sur le palier de bundle sélectionné dans la buy box
+  (voir zluma-buybox.liquid, fonction syncSticky).
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+{%- assign sid = section.id -%}
+<div class="zluma">
+  <div class="zluma-sticky-cta" id="zlumaSticky-{{ sid }}">
+    <div class="sticky-inner">
+      <div>
+        <p class="sticky-title" id="zlumaStickyTitle">{{ s.title | default: 'Luma – Guirlande Lumineuse Solaire' }}</p>
+        <div class="sticky-price">
+          <span class="now" id="zlumaStickyPrice"></span>
+          <span class="old" id="zlumaStickyOld"></span>
+        </div>
+      </div>
+      <button type="button" class="btn-cart" id="zlumaStickyBtn-{{ sid }}">{{ s.cta_label | default: 'Ajouter au panier' }}</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var sticky = document.getElementById('zlumaSticky-{{ sid }}');
+  if(!sticky){ return; }
+  var btn = document.getElementById('zlumaStickyBtn-{{ sid }}');
+  if(btn){
+    btn.addEventListener('click', function(){
+      if(window.zlumaAddToCart){ window.zlumaAddToCart(true); }
+      else { window.location.href = '{{ routes.cart_url }}'; }
+    });
+  }
+  var hero = document.querySelector('[id^="zluma-buybox-"]');
+  if(hero){
+    window.addEventListener('scroll', function(){
+      var rect = hero.getBoundingClientRect();
+      if(rect.bottom < 0){ sticky.classList.add('show'); }
+      else { sticky.classList.remove('show'); }
+    });
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Luma — Barre collante",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Titre", "default": "Luma – Guirlande Lumineuse Solaire" },
+    { "type": "text", "id": "cta_label", "label": "Texte du bouton", "default": "Ajouter au panier" }
+  ],
+  "presets": [ { "name": "Luma — Barre collante" } ]
+}
+{% endschema %}

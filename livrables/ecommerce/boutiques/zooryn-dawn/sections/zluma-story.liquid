@@ -1,0 +1,46 @@
+{%- comment -%}
+  ZOORYN — Guirlande Luma : bloc "story" réutilisable (image + texte plein
+  écran). 3 instances dans le template, fond clair/vert/vert foncé au choix.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+{%- assign bg = s.bg | default: 'clair' -%}
+{%- assign bg_color = '#EBE7DB' -%}
+{%- assign txt_color = '#154230' -%}
+{%- if bg == 'vert' -%}{%- assign bg_color = '#154230' -%}{%- assign txt_color = '#F3EFE4' -%}{%- endif -%}
+{%- if bg == 'vert-fonce' -%}{%- assign bg_color = '#103325' -%}{%- assign txt_color = '#F3EFE4' -%}{%- endif -%}
+
+<div class="zluma" style="background:{{ bg_color }}; color:{{ txt_color }};">
+  <div class="story{% if s.reverse %} reverse{% endif %} reveal">
+    <div class="story-text">
+      <h2>{{ s.heading | default: 'Titre du bénéfice' }}</h2>
+      {%- if s.body != blank -%}{{ s.body }}{%- endif -%}
+    </div>
+    <div class="story-media">
+      {%- if s.image != blank -%}
+        <img class="img-cover" src="{{ s.image | image_url: width: 1254, height: 1254 }}" alt="{{ s.image.alt | escape }}" loading="lazy" width="1254" height="1254">
+      {%- else -%}
+        <div class="placeholder" style="aspect-ratio:1/1;"><span>{{ s.placeholder_label | default: 'Photo lifestyle' }}</span></div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Luma — Story image+texte",
+  "tag": "section",
+  "settings": [
+    { "type": "select", "id": "bg", "label": "Fond", "default": "clair", "options": [
+      { "value": "clair", "label": "Crème clair" },
+      { "value": "vert", "label": "Vert Zooryn" },
+      { "value": "vert-fonce", "label": "Vert foncé" }
+    ]},
+    { "type": "checkbox", "id": "reverse", "label": "Image à gauche (texte à droite)", "default": false },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "placeholder_label", "label": "Texte du damier (si pas d'image)", "default": "Photo lifestyle" },
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Titre du bénéfice" },
+    { "type": "richtext", "id": "body", "label": "Texte", "default": "<p>Décrivez ici le bénéfice du produit.</p>" }
+  ],
+  "presets": [ { "name": "Luma — Story image+texte" } ]
+}
+{% endschema %}

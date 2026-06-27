@@ -1,0 +1,280 @@
+{%- comment -%}
+  ZOORYN — Guirlande Luma : Buy box (galerie + infos + bundle + accordéons).
+  Le bundle est câblé sur les 3 vraies variantes Shopify (option "Quantité" :
+  1 Luma / 2 Luma / 3 Luma) du produit de la page (ou du produit rattaché).
+{%- endcomment -%}
+{%- render 'zluma-styles' -%}
+
+{%- assign mp = product | default: section.settings.product -%}
+{%- assign s = section.settings -%}
+{%- assign sid = section.id -%}
+{%- assign cta_label = s.cta_label | default: 'Ajouter au panier' -%}
+{%- assign rating_score = s.rating_score | default: '4,6' -%}
+{%- assign rating_pct = rating_score | replace: ',', '.' | times: 1.0 | divided_by: 5.0 | times: 100 -%}
+
+{%- assign v1 = '' -%}
+{%- assign v2 = '' -%}
+{%- assign v3 = '' -%}
+{%- if mp != blank -%}
+  {%- for v in mp.variants -%}
+    {%- if v.title == '1 Luma' -%}{%- assign v1 = v -%}{%- endif -%}
+    {%- if v.title == '2 Luma' -%}{%- assign v2 = v -%}{%- endif -%}
+    {%- if v.title == '3 Luma' -%}{%- assign v3 = v -%}{%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+<div class="zluma" id="zluma-buybox-{{ sid }}">
+  <section class="product">
+    <div class="wrap product-grid">
+
+      <!-- Galerie -->
+      {%- assign imgs = mp.images -%}
+      <div class="gallery">
+        <div class="gallery-main">
+          {%- if imgs.size > 0 -%}
+            <img class="img-cover" id="zlumaMainImg-{{ sid }}" src="{{ imgs.first | image_url: width: 1254, height: 1254 }}" alt="{{ imgs.first.alt | escape }}" width="1254" height="1254">
+          {%- else -%}
+            <div class="placeholder" id="zlumaMainPh-{{ sid }}" style="aspect-ratio:1/1;"><span>Photo produit principale</span></div>
+          {%- endif -%}
+          {%- if imgs.size > 1 -%}
+            <button type="button" class="gallery-arrow prev" id="zlumaPrev-{{ sid }}" aria-label="Image précédente">‹</button>
+            <button type="button" class="gallery-arrow next" id="zlumaNext-{{ sid }}" aria-label="Image suivante">›</button>
+            <div class="gallery-counter" id="zlumaCounter-{{ sid }}">1 / {{ imgs.size }}</div>
+          {%- endif -%}
+        </div>
+        {%- if imgs.size > 1 -%}
+          <div class="gallery-thumbs" id="zlumaThumbs-{{ sid }}">
+            {%- for img in imgs -%}
+              <button type="button" class="thumb{% if forloop.first %} active{% endif %}" data-img="{{ img | image_url: width: 1254, height: 1254 }}">
+                <img class="img-cover" src="{{ img | image_url: width: 220, height: 220 }}" alt="{{ img.alt | escape }}" width="220" height="220">
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <!-- Infos & achat -->
+      <div class="product-info">
+        <div class="reviews-inline">
+          <span class="star-rating"><span class="bg">★★★★★</span><span class="fg" style="width:{{ rating_pct }}%;">★★★★★</span></span>
+          <span>{{ s.rating_text | default: '36 avis' }}</span>
+        </div>
+
+        <h1 class="product-title">{{ s.title | default: mp.title | default: 'Luma – Guirlande Lumineuse Solaire' }}</h1>
+        <p class="product-tagline">{{ s.tagline | default: "Prolongez les soirées d'été. Alimentée par le soleil." }}</p>
+
+        <ul class="benefits-list">
+          {%- for i in (1..5) -%}
+            {%- assign bkey = 'benefit_' | append: i -%}
+            {%- if s[bkey] != blank -%}<li>{{ s[bkey] }}</li>{%- endif -%}
+          {%- endfor -%}
+        </ul>
+
+        <div class="stock-note"><span class="dot"></span>{{ s.stock_text | default: 'Stock faible' }}</div>
+
+        <!-- Bundle (3 vraies variantes) -->
+        <div class="bundle-block" id="zlumaBundle-{{ sid }}" data-sticky-target="zlumaSticky">
+          <div class="bundle-divider"><span>{{ s.bundle_label | default: 'Début de l’été 2026' }}</span></div>
+          <div class="bundle-list">
+
+            <button type="button" class="bundle-opt" data-variant-id="{{ v1.id }}" data-price="{{ v1.price | money_without_currency }}" data-compare="{{ v1.compare_at_price | money_without_currency }}">
+              <span class="bundle-opt-radio"></span>
+              <div class="bundle-opt-body">
+                <div class="bundle-opt-name">1 Luma</div>
+                <div class="bundle-opt-sub">{{ s.b1_sub | default: "Parfait pour tester l'ambiance" }}</div>
+              </div>
+              <div class="bundle-opt-price">
+                <span class="now">{{ v1.price | money }}</span>
+                {%- if v1.compare_at_price > v1.price -%}<span class="old">{{ v1.compare_at_price | money }}</span>{%- endif -%}
+              </div>
+            </button>
+
+            <button type="button" class="bundle-opt selected" data-variant-id="{{ v2.id }}" data-price="{{ v2.price | money_without_currency }}" data-compare="{{ v2.compare_at_price | money_without_currency }}">
+              <span class="bundle-opt-badge">{{ s.b2_ribbon | default: 'Le plus populaire !' }}</span>
+              <span class="bundle-opt-radio"></span>
+              <div class="bundle-opt-body">
+                <div class="bundle-opt-name">2 Luma</div>
+                <div class="bundle-opt-sub">{{ s.b2_sub | default: 'Terrasse chaleureuse et équilibrée' }}</div>
+              </div>
+              <div class="bundle-opt-price">
+                <span class="now">{{ v2.price | money }}</span>
+                {%- if v2.compare_at_price > v2.price -%}<span class="old">{{ v2.compare_at_price | money }}</span>{%- endif -%}
+              </div>
+            </button>
+
+            <button type="button" class="bundle-opt" data-variant-id="{{ v3.id }}" data-price="{{ v3.price | money_without_currency }}" data-compare="{{ v3.compare_at_price | money_without_currency }}">
+              <span class="bundle-opt-radio"></span>
+              <div class="bundle-opt-body">
+                <div class="bundle-opt-name">3 Luma</div>
+                <div class="bundle-opt-sub">{{ s.b3_sub | default: 'Transformez toute la terrasse ou le balcon' }}</div>
+              </div>
+              <div class="bundle-opt-price">
+                <span class="now">{{ v3.price | money }}</span>
+                {%- if v3.compare_at_price > v3.price -%}<span class="old">{{ v3.compare_at_price | money }}</span>{%- endif -%}
+              </div>
+            </button>
+
+          </div>
+        </div>
+
+        <button type="button" class="btn-cart" id="zlumaHeroCta-{{ sid }}">{{ cta_label }}</button>
+        <button type="button" class="btn-secondary" id="zlumaBuyNow-{{ sid }}">{{ s.buy_now_label | default: 'Acheter maintenant' }}</button>
+
+        <div class="pay-icons">
+          <p>Paiement 100&nbsp;% sécurisé</p>
+          <div class="icons-row">
+            {%- if shop.enabled_payment_types.size > 0 -%}
+              {%- for type in shop.enabled_payment_types -%}{{ type | payment_type_svg_tag: class: 'pay-ico' }}{%- endfor -%}
+            {%- else -%}
+              {%- assign pay_fallback = 'visa,master,american_express,paypal,apple_pay,shopify_pay' | split: ',' -%}
+              {%- for type in pay_fallback -%}{{ type | payment_type_svg_tag: class: 'pay-ico' }}{%- endfor -%}
+            {%- endif -%}
+          </div>
+        </div>
+
+        <div class="acc-wrap">
+          <div class="acc-item">
+            <button type="button" class="acc-q" data-acc="about"><span>{{ s.acc1_title | default: 'À propos de Luma' }}</span><span class="arrow">+</span></button>
+            <div class="acc-a"><div class="acc-a-inner">{{ s.acc1_text | default: "<p>Luma est conçue pour ceux qui veulent des soirées extérieures chaleureuses <strong>sans s'embêter avec des câbles ou des prises.</strong></p><p>Le panneau solaire se charge pendant la journée – automatiquement. Au coucher du soleil, <strong>Luma s'allume d'elle-même.</strong></p><p>Les <strong>10 mètres</strong> couvrent toute la terrasse, le long d'une clôture, autour d'une pergola ou le long d'un garde-corps de balcon. Le mécanisme d'enroulement vous permet de la ranger en <strong>30 secondes</strong> sans enchevêtrement.</p><p>Une journée nuageuse&nbsp;? Le <strong>port USB-C</strong> vous garantit une batterie pleine avant le soir. Et avec une <strong>construction étanche,</strong> peu importe s'il pleut – Luma tient bon.</p>" }}</div></div>
+          </div>
+          <div class="acc-item">
+            <button type="button" class="acc-q" data-acc="guarantee"><span>{{ s.acc2_title | default: 'Notre Garantie' }}</span><span class="arrow">+</span></button>
+            <div class="acc-a"><div class="acc-a-inner">{{ s.acc2_text | default: "<p>Nous sommes convaincus que vous allez adorer Luma. Mais si elle ne répond pas à vos attentes, vous avez <strong>30 jours pour la retourner.</strong></p><p><strong>Aucune procédure compliquée. Aucune question.</strong> Envoyez-nous un e-mail et nous nous en occupons – remboursement <strong>sous 3 à 5 jours ouvrés.</strong></p>" }}</div></div>
+          </div>
+          <div class="acc-item">
+            <button type="button" class="acc-q" data-acc="shipping"><span>{{ s.acc3_title | default: 'Livraison' }}</span><span class="arrow">+</span></button>
+            <div class="acc-a"><div class="acc-a-inner">{{ s.acc3_text | default: "<p><strong>Livraison gratuite.</strong></p><p>Votre commande est emballée et expédiée sous <strong>1 à 3 jours ouvrés.</strong> Délai de livraison normalement de <strong>5 à 9 jours ouvrés.</strong> Vous recevrez un <strong>numéro de suivi par e-mail</strong> dès que le colis est en route.</p><p>Des questions&nbsp;? Contactez-nous à <strong>contact@zooryn.co</strong>.</p>" }}</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('zluma-buybox-{{ sid }}');
+  if(!root){ return; }
+
+  /* Galerie */
+  var mainImg = document.getElementById('zlumaMainImg-{{ sid }}');
+  var thumbsWrap = document.getElementById('zlumaThumbs-{{ sid }}');
+  var thumbs = thumbsWrap ? Array.prototype.slice.call(thumbsWrap.querySelectorAll('.thumb')) : [];
+  var prevBtn = document.getElementById('zlumaPrev-{{ sid }}');
+  var nextBtn = document.getElementById('zlumaNext-{{ sid }}');
+  var counter = document.getElementById('zlumaCounter-{{ sid }}');
+  var current = 0;
+
+  function showImg(i){
+    if(!thumbs.length){ return; }
+    if(i < 0){ i = thumbs.length - 1; }
+    if(i >= thumbs.length){ i = 0; }
+    current = i;
+    thumbs.forEach(function(t){ t.classList.remove('active'); });
+    thumbs[i].classList.add('active');
+    var url = thumbs[i].getAttribute('data-img');
+    if(mainImg && url){ mainImg.src = url; }
+    if(counter){ counter.textContent = (i + 1) + ' / ' + thumbs.length; }
+  }
+  thumbs.forEach(function(t, i){ t.addEventListener('click', function(){ showImg(i); }); });
+  if(prevBtn){ prevBtn.addEventListener('click', function(){ showImg(current - 1); }); }
+  if(nextBtn){ nextBtn.addEventListener('click', function(){ showImg(current + 1); }); }
+
+  /* Accordéons */
+  root.querySelectorAll('.acc-q').forEach(function(q){
+    q.addEventListener('click', function(){
+      var item = q.closest('.acc-item');
+      var ans = item.querySelector('.acc-a');
+      var arrow = q.querySelector('.arrow');
+      if(item.classList.contains('open')){
+        item.classList.remove('open'); ans.style.maxHeight = null; arrow.textContent = '+';
+      } else {
+        item.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; arrow.textContent = '−';
+      }
+    });
+  });
+
+  /* Bundle */
+  var bundleWrap = document.getElementById('zlumaBundle-{{ sid }}');
+  function selectedOpt(){ return bundleWrap.querySelector('.bundle-opt.selected') || bundleWrap.querySelector('.bundle-opt'); }
+  function syncSticky(){
+    var opt = selectedOpt();
+    if(!opt){ return; }
+    var priceEl = document.getElementById('zlumaStickyPrice');
+    var oldEl = document.getElementById('zlumaStickyOld');
+    var titleEl = document.getElementById('zlumaStickyTitle');
+    if(priceEl){ priceEl.textContent = opt.querySelector('.now').textContent; }
+    var oldSpan = opt.querySelector('.old');
+    if(oldEl){ oldEl.textContent = oldSpan ? oldSpan.textContent : ''; oldEl.style.display = oldSpan ? '' : 'none'; }
+    if(titleEl){ titleEl.textContent = '{{ s.title | default: mp.title | default: "Luma – Guirlande Lumineuse Solaire" | escape }}'; }
+  }
+  bundleWrap.querySelectorAll('.bundle-opt').forEach(function(opt){
+    opt.addEventListener('click', function(){
+      bundleWrap.querySelectorAll('.bundle-opt').forEach(function(o){ o.classList.remove('selected'); });
+      opt.classList.add('selected');
+      syncSticky();
+    });
+  });
+  syncSticky();
+
+  /* Ajout au panier */
+  function addToCart(redirectToCart){
+    var opt = selectedOpt();
+    var vid = opt ? opt.getAttribute('data-variant-id') : '';
+    if(!vid){ window.location.href = '{{ routes.cart_url }}'; return; }
+    var btn = document.getElementById('zlumaHeroCta-{{ sid }}');
+    if(btn){ btn.disabled = true; }
+    fetch('{{ routes.cart_add_url }}.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: [{ id: Number(vid), quantity: 1 }] })
+    }).then(function(r){ return r.json(); })
+      .then(function(){ window.location.href = redirectToCart ? '{{ routes.cart_url }}' : '{{ routes.cart_url }}'; })
+      .catch(function(){ if(btn){ btn.disabled = false; } });
+  }
+  window.zlumaAddToCart = addToCart;
+  var heroCta = document.getElementById('zlumaHeroCta-{{ sid }}');
+  if(heroCta){ heroCta.addEventListener('click', function(){ addToCart(true); }); }
+  var buyNow = document.getElementById('zlumaBuyNow-{{ sid }}');
+  if(buyNow){ buyNow.addEventListener('click', function(){ addToCart(true); }); }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Luma — Buy box",
+  "tag": "section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Produit rattaché", "info": "Sur une page produit, le produit de la page est utilisé automatiquement." },
+    { "type": "header", "content": "En-tête produit" },
+    { "type": "text", "id": "rating_score", "label": "Note moyenne (sur 5)", "default": "4,6" },
+    { "type": "text", "id": "rating_text", "label": "Texte note/avis", "default": "36 avis" },
+    { "type": "text", "id": "title", "label": "Titre (vide = titre du produit)" },
+    { "type": "text", "id": "tagline", "label": "Accroche", "default": "Prolongez les soirées d'été. Alimentée par le soleil." },
+    { "type": "text", "id": "benefit_1", "label": "Bénéfice 1", "default": "Chargée par le soleil – parfaite pour une utilisation en extérieur" },
+    { "type": "text", "id": "benefit_2", "label": "Bénéfice 2", "default": "10 mètres – pour toute la terrasse ou le balcon" },
+    { "type": "text", "id": "benefit_3", "label": "Bénéfice 3", "default": "Étanche – résiste à la pluie et aux soirées d'été" },
+    { "type": "text", "id": "benefit_4", "label": "Bénéfice 4", "default": "Backup USB-C – chargez par câble quand le soleil ne suffit pas" },
+    { "type": "text", "id": "benefit_5", "label": "Bénéfice 5", "default": "Sans enchevêtrement – se déroule et se roule en 30 secondes" },
+    { "type": "text", "id": "stock_text", "label": "Texte de stock", "default": "Stock faible" },
+    { "type": "header", "content": "Bundle" },
+    { "type": "text", "id": "bundle_label", "label": "Texte du séparateur", "default": "Début de l'été 2026" },
+    { "type": "text", "id": "b1_sub", "label": "Palier 1 — sous-texte", "default": "Parfait pour tester l'ambiance" },
+    { "type": "text", "id": "b2_ribbon", "label": "Palier 2 — badge", "default": "Le plus populaire !" },
+    { "type": "text", "id": "b2_sub", "label": "Palier 2 — sous-texte", "default": "Terrasse chaleureuse et équilibrée" },
+    { "type": "text", "id": "b3_sub", "label": "Palier 3 — sous-texte", "default": "Transformez toute la terrasse ou le balcon" },
+    { "type": "header", "content": "Boutons" },
+    { "type": "text", "id": "cta_label", "label": "Texte bouton panier", "default": "Ajouter au panier" },
+    { "type": "text", "id": "buy_now_label", "label": "Texte bouton achat direct", "default": "Acheter maintenant" },
+    { "type": "header", "content": "Accordéons" },
+    { "type": "text", "id": "acc1_title", "label": "Accordéon 1 — titre", "default": "À propos de Luma" },
+    { "type": "richtext", "id": "acc1_text", "label": "Accordéon 1 — texte" },
+    { "type": "text", "id": "acc2_title", "label": "Accordéon 2 — titre", "default": "Notre Garantie" },
+    { "type": "richtext", "id": "acc2_text", "label": "Accordéon 2 — texte" },
+    { "type": "text", "id": "acc3_title", "label": "Accordéon 3 — titre", "default": "Livraison" },
+    { "type": "richtext", "id": "acc3_text", "label": "Accordéon 3 — texte" }
+  ],
+  "presets": [ { "name": "Luma — Buy box" } ]
+}
+{% endschema %}

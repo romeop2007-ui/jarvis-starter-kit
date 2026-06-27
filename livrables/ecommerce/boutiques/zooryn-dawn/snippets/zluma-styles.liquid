@@ -1,0 +1,233 @@
+{%- comment -%}
+  ZOORYN — Guirlande Luma : styles + animations partagés par toutes les
+  sections ".zluma". Rendu une seule fois (depuis la buy box). Header/footer/
+  annonce = ceux du thème Dawn, donc retirés d'ici.
+{%- endcomment -%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+.zluma{
+  --crm: #EBE7DB;
+  --crm-carte: #E2DDCC;
+  --vert: #154230;
+  --vert-fonce: #103325;
+  --vert-clair: #2F6B4F;
+  --texte-clair: #F3EFE4;
+  --or: #C8860A;
+  --radius: 12px;
+  --maxw: 1180px;
+}
+.zluma *{ box-sizing:border-box; margin:0; padding:0; }
+.zluma{
+  font-family:'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  background:var(--crm);
+  color:var(--vert);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.zluma h1, .zluma h2, .zluma h3{ font-family:'Poppins', sans-serif; font-weight:700; }
+.zluma img{ max-width:100%; display:block; }
+.zluma a{ color:inherit; text-decoration:none; }
+.zluma button{ font-family:inherit; cursor:pointer; border:none; background:none; }
+.zluma .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 20px; }
+
+/* ===== Placeholder visuel ===== */
+.zluma .placeholder{
+  position:relative; width:100%;
+  background:repeating-linear-gradient(45deg, #d6d2c5 0 12px, #cfcabb 12px 24px);
+  color:#5f5b50; display:flex; align-items:center; justify-content:center;
+  text-align:center; font-size:13px; font-weight:600; letter-spacing:.02em;
+  padding:18px; border-radius:var(--radius);
+}
+.zluma .placeholder span{ background:rgba(255,255,255,.78); padding:8px 14px; border-radius:8px; max-width:80%; }
+.zluma .img-cover{ width:100%; height:100%; object-fit:cover; border-radius:var(--radius); }
+
+/* ===== Hero produit ===== */
+.zluma .product{ padding:34px 0 50px; }
+.zluma .product-grid{ display:grid; grid-template-columns:1.15fr 1fr; gap:46px; align-items:start; }
+.zluma .product-grid > *{ min-width:0; }
+.zluma .gallery-main{ position:relative; width:100%; aspect-ratio:1/1; margin-bottom:10px; }
+.zluma .gallery-main .img-cover{ height:100%; aspect-ratio:1/1; }
+.zluma .gallery-main .placeholder{ height:100%; }
+.zluma .gallery-arrow{ position:absolute; top:50%; transform:translateY(-50%); z-index:2; width:40px; height:40px; display:flex; align-items:center; justify-content:center; border-radius:50%; background:rgba(235,231,219,.92); color:var(--vert); cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.16); font-size:20px; }
+.zluma .gallery-arrow.prev{ left:12px; }
+.zluma .gallery-arrow.next{ right:12px; }
+.zluma .gallery-counter{ position:absolute; bottom:14px; right:14px; background:rgba(235,231,219,.88); border-radius:20px; padding:4px 12px; font-size:12px; font-weight:500; }
+.zluma .gallery-thumbs{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+.zluma .thumb{ aspect-ratio:1/1; cursor:pointer; border-radius:6px; overflow:hidden; border:2px solid transparent; opacity:.55; transition:border-color .15s, opacity .15s; }
+.zluma .thumb.active{ border-color:var(--vert); opacity:1; }
+.zluma .thumb .img-cover{ border-radius:5px; aspect-ratio:1/1; }
+.zluma .thumb .placeholder{ border-radius:5px; font-size:9px; padding:4px; }
+
+.zluma .reviews-inline{ display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.zluma .star-rating{ position:relative; display:inline-block; font-size:14px; letter-spacing:1px; line-height:1; height:14px; }
+.zluma .star-rating .bg{ color:#d9d9d9; white-space:nowrap; }
+.zluma .star-rating .fg{ position:absolute; top:0; left:0; overflow:hidden; white-space:nowrap; color:var(--or); }
+.zluma .reviews-inline span:last-child{ font-size:13px; opacity:.65; border-bottom:1px solid rgba(21,66,48,.28); padding-bottom:1px; }
+.zluma .product-title{ font-size:30px; font-weight:700; line-height:1.22; letter-spacing:-.3px; }
+.zluma .product-tagline{ margin-top:16px; font-size:16px; opacity:.78; line-height:1.62; }
+.zluma .benefits-list{ list-style:none; margin-top:18px; max-width:540px; }
+.zluma .benefits-list li{ display:flex; align-items:flex-start; gap:10px; padding:10px 0; border-bottom:1px solid #f0f0f0; font-size:14px; line-height:1.4; }
+.zluma .benefits-list li:first-child{ border-top:1px solid #f0f0f0; }
+.zluma .benefits-list li::before{ content:""; flex-shrink:0; width:18px; height:18px; margin-top:1px; border-radius:50%; background:var(--vert);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='2,6 5,9 10,3'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:center; background-size:10px 10px; }
+.zluma .stock-note{ display:inline-flex; align-items:center; gap:8px; margin-top:22px; font-size:13px; font-weight:700; text-transform:uppercase; color:var(--or); }
+.zluma .stock-note .dot{ position:relative; width:10px; height:10px; border-radius:50%; background:var(--or); flex-shrink:0; }
+.zluma .stock-note .dot::after{ content:""; position:absolute; inset:-4px; border-radius:inherit; border:2px solid var(--or); opacity:.4; animation:zlumapulse 1.8s infinite ease-out; }
+@keyframes zlumapulse{ 0%{ transform:scale(.9); opacity:.4; } 100%{ transform:scale(1.3); opacity:0; } }
+
+.zluma .btn-cart{ display:block; width:100%; margin-top:20px; padding:16px 24px; border-radius:8px; font-size:15px; font-weight:600; letter-spacing:.3px; background:var(--vert); color:var(--texte-clair); transition:background .2s; }
+.zluma .btn-cart:hover{ background:var(--vert-clair); }
+.zluma .btn-cart[disabled]{ opacity:.6; cursor:default; }
+.zluma .btn-secondary{ width:100%; margin-top:10px; padding:15px 24px; border-radius:8px; font-size:15px; font-weight:500; color:var(--vert); border:1.5px solid rgba(21,66,48,.45); background:transparent; }
+
+.zluma .pay-icons{ margin-top:20px; padding:16px 0 4px; border-top:1px solid rgba(21,66,48,.1); }
+.zluma .pay-icons p{ font-size:10px; font-weight:600; opacity:.38; text-align:center; text-transform:uppercase; letter-spacing:1.4px; margin-bottom:12px; }
+.zluma .pay-icons .icons-row{ display:flex; align-items:center; justify-content:center; gap:7px; flex-wrap:wrap; }
+.zluma .pay-icons .pay-ico{ width:42px; height:auto; border-radius:5px; box-shadow:0 0 0 1px rgba(21,66,48,.12); background:#fff; }
+
+/* ===== Sélecteur de bundle (façon Kaching Bundles du concurrent) ===== */
+.zluma .bundle-block{ margin-top:28px; }
+.zluma .bundle-divider{ display:flex; align-items:center; gap:14px; margin-bottom:18px; text-align:center; }
+.zluma .bundle-divider::before, .zluma .bundle-divider::after{ content:""; flex:1; height:1px; background:rgba(21,66,48,.22); }
+.zluma .bundle-divider span{ font-size:13px; font-weight:600; color:var(--vert); white-space:nowrap; }
+.zluma .bundle-list{ display:flex; flex-direction:column; gap:10px; }
+.zluma .bundle-opt{ position:relative; display:flex; align-items:center; gap:12px; width:100%; padding:14px 16px; border-radius:5px; border:1px solid #d9d9d9; background:#fff; cursor:pointer; transition:border-color .15s; text-align:left; }
+.zluma .bundle-opt.selected{ border:1.5px solid #000; }
+.zluma .bundle-opt-radio{ width:20px; height:20px; border-radius:50%; border:1.5px solid #b8b8b8; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+.zluma .bundle-opt.selected .bundle-opt-radio{ border-color:#000; }
+.zluma .bundle-opt.selected .bundle-opt-radio::after{ content:""; width:10px; height:10px; border-radius:50%; background:#000; }
+.zluma .bundle-opt-body{ flex:1; min-width:0; }
+.zluma .bundle-opt-name{ font-size:15px; font-weight:700; color:#000; }
+.zluma .bundle-opt-sub{ font-size:13px; color:#555; margin-top:2px; }
+.zluma .bundle-opt-price{ text-align:right; flex-shrink:0; }
+.zluma .bundle-opt-price .now{ font-size:16px; font-weight:700; display:block; color:#000; }
+.zluma .bundle-opt-price .old{ font-size:13px; opacity:.55; text-decoration:line-through; display:block; margin-top:1px; color:#555; }
+.zluma .bundle-opt-check{ display:none; }
+.zluma .bundle-opt-badge{ position:absolute; top:-10px; right:14px; background:#000; color:#fff; font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px; white-space:nowrap; }
+
+/* ===== Accordéons produit ===== */
+.zluma .acc-wrap{ margin-top:28px; border-top:1px solid rgba(21,66,48,.11); }
+.zluma .acc-item{ border-bottom:1px solid rgba(21,66,48,.11); }
+.zluma .acc-q{ display:flex; justify-content:space-between; align-items:center; width:100%; padding:18px 0; font-size:15px; font-weight:600; gap:12px; }
+.zluma .acc-q .arrow{ font-size:20px; color:var(--vert-clair); font-weight:300; flex-shrink:0; }
+.zluma .acc-a{ max-height:0; overflow:hidden; transition:max-height .35s ease; }
+.zluma .acc-a-inner{ padding:0 0 20px; font-size:14px; opacity:.8; line-height:1.8; }
+.zluma .acc-a-inner p + p{ margin-top:10px; }
+.zluma .acc-a-inner strong{ color:var(--vert); }
+
+/* ===== Story (image + texte) ===== */
+.zluma .story{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; padding:60px 40px; max-width:var(--maxw); margin:0 auto; }
+.zluma .story.reverse{ direction:rtl; }
+.zluma .story.reverse > *{ direction:ltr; }
+.zluma .story-text{ display:flex; flex-direction:column; justify-content:center; }
+.zluma .story-text h2{ font-size:38px; font-weight:600; line-height:1.18; letter-spacing:-.5px; }
+.zluma .story-text p{ margin-top:22px; font-size:16px; opacity:.78; line-height:1.8; }
+.zluma .story-text p strong{ opacity:1; }
+.zluma .story-media{ aspect-ratio:1/1; }
+.zluma .story-media .img-cover{ aspect-ratio:1/1; border-radius:18px; }
+.zluma .story-media .placeholder{ border-radius:18px; }
+
+/* ===== Photos clients (grille) ===== */
+.zluma .clients{ padding:80px 0; }
+.zluma .clients h2{ font-size:34px; font-weight:600; text-align:center; letter-spacing:-.4px; margin-bottom:48px; }
+.zluma .clients-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.zluma .client-card{ background:var(--crm); border-radius:14px; box-shadow:0 2px 16px rgba(21,66,48,.07); overflow:hidden; }
+.zluma .client-card .media{ aspect-ratio:1/1; }
+.zluma .client-card .media .img-cover, .zluma .client-card .media .placeholder{ border-radius:0; }
+.zluma .client-card .body{ padding:24px 20px 22px; }
+.zluma .client-card .stars{ font-size:13px; margin-bottom:12px; display:block; }
+.zluma .client-card h3{ font-size:15px; font-weight:700; line-height:1.38; margin-bottom:8px; }
+.zluma .client-card p{ font-size:13px; opacity:.62; line-height:1.6; margin-bottom:14px; }
+.zluma .client-card .author{ font-size:13px; font-style:italic; opacity:.45; text-align:center; }
+
+/* ===== Avis clients (liste, masonry) ===== */
+.zluma .reviews{ padding:80px 0; }
+.zluma .reviews-head{ display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+.zluma .reviews-title{ font-size:30px; font-weight:700; letter-spacing:-.3px; }
+.zluma .reviews-summary{ display:flex; align-items:center; gap:14px; margin-top:16px; }
+.zluma .reviews-summary .score{ font-size:38px; font-weight:700; line-height:1; }
+.zluma .reviews-summary .star-rating{ font-size:17px; height:17px; }
+.zluma .reviews-summary .count{ font-size:13px; opacity:.5; margin-top:3px; }
+.zluma .reviews-actions{ display:flex; align-items:center; gap:8px; }
+.zluma .btn-write{ padding:10px 18px; background:var(--vert); color:var(--texte-clair); border-radius:7px; font-size:13px; font-weight:600; }
+.zluma .btn-icon{ width:38px; height:38px; border:1.5px solid rgba(21,66,48,.2); border-radius:7px; display:flex; align-items:center; justify-content:center; }
+.zluma .btn-icon svg{ width:14px; height:14px; }
+.zluma .reviews-sep{ height:1px; background:rgba(21,66,48,.12); margin:28px 0; }
+.zluma .reviews-grid{ display:block; column-count:2; column-gap:18px; }
+.zluma .review-card{ width:100%; margin:0 0 18px; display:inline-block; break-inside:avoid; background:var(--crm-carte); border-radius:12px; padding:22px 20px; cursor:default; }
+.zluma .review-card .stars{ color:var(--or); font-size:14px; letter-spacing:1px; margin-bottom:12px; display:block; }
+.zluma .review-card .meta{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.zluma .review-card .avatar{ width:36px; height:36px; border-radius:50%; background:var(--vert-clair); color:var(--texte-clair); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; flex-shrink:0; }
+.zluma .review-card .who{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.zluma .review-card .who b{ font-size:14px; font-weight:600; }
+.zluma .review-card .verif{ font-size:11px; color:var(--vert-clair); border:1px solid rgba(47,107,79,.5); border-radius:20px; padding:2px 8px; }
+.zluma .review-card h4{ font-size:15px; font-weight:700; margin-bottom:8px; }
+.zluma .review-card p{ font-size:14px; opacity:.72; line-height:1.72; }
+.zluma .reviews-more{ display:flex; justify-content:center; margin-top:32px; }
+.zluma .btn-more{ padding:12px 28px; background:var(--vert); color:var(--texte-clair); border-radius:8px; font-size:14px; font-weight:600; }
+@media (max-width:760px){ .zluma .reviews-grid{ column-count:1; } }
+
+/* ===== FAQ ===== */
+.zluma .faq{ padding:80px 0; }
+.zluma .faq-inner{ max-width:720px; margin:0 auto; padding:0 20px; }
+.zluma .faq h2{ font-size:34px; font-weight:600; text-align:center; letter-spacing:-.4px; margin-bottom:48px; }
+.zluma .faq-list{ border-top:1px solid rgba(21,66,48,.14); }
+.zluma .faq-item{ border-bottom:1px solid rgba(21,66,48,.14); }
+.zluma .faq-q{ display:flex; justify-content:space-between; align-items:center; width:100%; padding:20px 0; font-size:15px; font-weight:600; text-align:left; gap:16px; }
+.zluma .faq-q .arrow{ font-size:22px; color:var(--vert-clair); font-weight:300; flex-shrink:0; }
+.zluma .faq-a{ max-height:0; overflow:hidden; transition:max-height .35s ease; }
+.zluma .faq-a-inner{ padding:0 0 20px; font-size:14px; opacity:.75; line-height:1.8; }
+
+/* ===== Barre collante ===== */
+.zluma-sticky-cta{ position:fixed; left:0; right:0; bottom:0; z-index:300; background:var(--crm); border-top:1px solid rgba(21,66,48,.13); box-shadow:0 -4px 24px rgba(21,66,48,.07); padding:14px 0; transform:translateY(110%); transition:transform .3s ease; }
+.zluma-sticky-cta.show{ transform:translateY(0); }
+.zluma-sticky-cta .sticky-inner{ max-width:680px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:0 20px; }
+.zluma-sticky-cta .sticky-title{ font-size:14px; font-weight:600; }
+.zluma-sticky-cta .sticky-price{ display:flex; align-items:center; gap:8px; margin-top:3px; }
+.zluma-sticky-cta .sticky-price .now{ font-family:'Playfair Display',Georgia,serif; font-size:18px; font-weight:700; }
+.zluma-sticky-cta .sticky-price .old{ font-size:13px; opacity:.32; text-decoration:line-through; }
+.zluma-sticky-cta .btn-cart{ width:auto; margin-top:0; padding:12px 28px; font-size:14px; white-space:nowrap; }
+
+/* ===== Animations au scroll ===== */
+.zluma .reveal{ opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
+.zluma .reveal.in{ opacity:1; transform:none; }
+
+/* ===== Responsive ===== */
+@media (max-width:900px){
+  .zluma .product-grid{ grid-template-columns:1fr; gap:30px; }
+  .zluma .story, .zluma .story.reverse{ grid-template-columns:1fr; direction:ltr; gap:24px; padding:40px 20px; }
+  .zluma .clients-grid{ grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:620px){
+  .zluma .product-title{ font-size:25px; }
+  .zluma .story-text h2{ font-size:28px; }
+  .zluma .clients h2, .zluma .faq h2{ font-size:27px; }
+  .zluma .clients-grid{ grid-template-columns:1fr; }
+  .zluma .reviews-grid{ column-count:1; }
+}
+</style>
+
+<script>
+(function(){
+  function initReveal(){
+    if(!('IntersectionObserver' in window)){
+      document.querySelectorAll('.zluma .reveal').forEach(function(el){ el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold:0.12 });
+    document.querySelectorAll('.zluma .reveal').forEach(function(el){ io.observe(el); });
+  }
+  if(document.readyState !== 'loading'){ initReveal(); }
+  else { document.addEventListener('DOMContentLoaded', initReveal); }
+  document.addEventListener('shopify:section:load', function(e){
+    var root = e.target || document;
+    root.querySelectorAll('.zluma .reveal').forEach(function(el){ el.classList.add('in'); });
+  });
+})();
+</script>

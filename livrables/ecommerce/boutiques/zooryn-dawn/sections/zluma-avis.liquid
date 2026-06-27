@@ -1,0 +1,101 @@
+{%- comment -%}
+  ZOORYN — Guirlande Luma : avis clients (liste complète, masonry,
+  pagination 8 par 8). Le design source montre un bouton "Écrire un avis"
+  et 2 icônes (caméra/liste) : conservés à l'identique (décoratifs).
+  5 avis repris du design, prénoms francisés. Note d'honnêteté : avis
+  placeholder à remplacer par de vrais avis avant la mise en ligne réelle.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+{%- assign sid = section.id -%}
+{%- assign rows = "Anonyme~4~06/04/2026~Semble bien fonctionner pour l'instant. Curieux de voir comment ça tient en hiver à l'extérieur.~ ||| Marie S.~5~11/04/2026~Vivement recommandé~Je recommande à tous ceux qui ont une terrasse, un balcon ou qui font du camping. Simple, intelligent et élégant. ||| Mickaël F.~5~10/04/2026~Une soirée d'été dans une boîte~J'ai ouvert le colis un vendredi soir. Je l'ai accrochée. J'étais dehors jusqu'à minuit. C'est tout ce qu'il faut savoir. ||| Hélène B.~5~09/04/2026~J'en ai commandé deux d'un coup~J'en ai d'abord commandé une pour tester. Tellement satisfaite que j'en ai commandé deux de plus la même semaine. Une pour la terrasse, une pour le camping. ||| Christophe S.~4~09/04/2026~Le backup USB, c'est malin~Le truc malin c'est qu'elle charge aussi en USB. Les jours vraiment couverts, je la charge vite et elle s'allume automatiquement quand il fait nuit." | split: " ||| " -%}
+
+<div class="zluma" id="zluma-avis-{{ sid }}">
+  <section class="reviews">
+    <div class="wrap">
+
+      <div class="reviews-head">
+        <div>
+          <h2 class="reviews-title">{{ s.heading | default: 'Avis clients' }}</h2>
+          <div class="reviews-summary">
+            <span class="score">{{ s.score | default: '4,6' }}</span>
+            <div>
+              {%- assign score_pct = s.score | default: '4,6' | replace: ',', '.' | times: 1.0 | divided_by: 5.0 | times: 100 -%}
+              <div class="star-rating"><span class="bg">★★★★★</span><span class="fg" style="width:{{ score_pct }}%;">★★★★★</span></div>
+              <div class="count">{{ s.count | default: '36' }} avis</div>
+            </div>
+          </div>
+        </div>
+        <div class="reviews-actions">
+          <button type="button" class="btn-write">Écrire un avis</button>
+          <button type="button" class="btn-icon" aria-label="Filtrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#154230" stroke-width="2"><polygon points="22,3 2,3 10,12.46 10,19 14,21 14,12.46"></polygon></svg>
+          </button>
+          <button type="button" class="btn-icon" aria-label="Trier">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#154230" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="15" y2="12"></line><line x1="3" y1="18" x2="9" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="reviews-sep"></div>
+
+      <div class="reviews-grid" id="zlumaGrid-{{ sid }}">
+        {%- for row in rows -%}
+          {%- assign f = row | split: "~" -%}
+          {%- assign nb = f[1] | plus: 0 -%}
+          {%- assign starstr = '' -%}
+          {%- for i in (1..5) -%}{%- if i <= nb -%}{%- assign starstr = starstr | append: '★' -%}{%- else -%}{%- assign starstr = starstr | append: '☆' -%}{%- endif -%}{%- endfor -%}
+          <div class="review-card">
+            <span class="stars">{{ starstr }}</span>
+            <div class="meta">
+              <div class="avatar">{{ f[0] | slice: 0 }}</div>
+              <div class="who"><b>{{ f[0] }}</b><span class="verif">(Vérifié)</span></div>
+            </div>
+            {%- if f.size == 5 -%}
+              <h4>{{ f[3] }}</h4>
+              <p>{{ f[4] }}</p>
+            {%- else -%}
+              <p>{{ f[3] }}</p>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <div class="reviews-more">
+        <button type="button" class="btn-more" id="zlumaMore-{{ sid }}">{{ s.more_label | default: 'Voir plus d’avis' }}</button>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  var grid = document.getElementById('zlumaGrid-{{ sid }}');
+  var moreBtn = document.getElementById('zlumaMore-{{ sid }}');
+  if(!grid || !moreBtn){ return; }
+  var PAGE = 8;
+  var shown = PAGE;
+  function cards(){ return Array.prototype.slice.call(grid.querySelectorAll('.review-card')); }
+  function render(){
+    var list = cards();
+    list.forEach(function(c, i){ c.style.display = (i < shown) ? '' : 'none'; });
+    moreBtn.style.display = (shown < list.length) ? '' : 'none';
+  }
+  moreBtn.addEventListener('click', function(){ shown += PAGE; render(); });
+  render();
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Luma — Avis clients",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Titre", "default": "Avis clients" },
+    { "type": "text", "id": "score", "label": "Note moyenne", "default": "4,6" },
+    { "type": "text", "id": "count", "label": "Nombre d'avis", "default": "36" },
+    { "type": "text", "id": "more_label", "label": "Bouton voir plus", "default": "Voir plus d’avis" }
+  ],
+  "presets": [ { "name": "Luma — Avis clients" } ]
+}
+{% endschema %}

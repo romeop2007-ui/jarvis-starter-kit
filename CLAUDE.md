@@ -161,20 +161,9 @@ Skill qui enregistre dans le Google Calendar de Roméo (via le MCP Google Calend
 
 Comportements que Claude doit appliquer automatiquement, sans que Roméo ait à le demander.
 
-### Répertoire des commandes dans Notion
+### Répertoire des commandes dans Notion — ABANDONNÉ (acté le 27/06/2026)
 
-**Dès qu'une nouvelle commande slash est créée ensemble** (fichier ajouté dans `.claude/commands/`), Claude doit automatiquement, dans la foulée :
-
-1. Mettre à jour la page Notion **"Boîte à outils Jarvis"** (ID : `36cd3026-7a90-817b-8b4e-fb64a1fb77cf`, URL : https://www.notion.so/36cd30267a90817b8b4efb64a1fb77cf) via le MCP Notion (`notion-update-page` ou `notion-fetch` + édition)
-2. Y ajouter une entrée pour la nouvelle commande avec :
-   - Nom de la commande (ex : `/nouvelle-commande`)
-   - Description en quelques mots (à quoi elle sert, quand l'utiliser)
-   - Date de création
-3. Confirmer à Roméo que la page a été mise à jour
-
-**Exception** : la commande `/prime` n'est pas répertoriée dans cette page (Roméo la connaît déjà, c'est sa commande de démarrage).
-
-Cette règle s'applique sans qu'il soit nécessaire que Roméo le redemande. Elle a été actée le 26/05/2026.
+Cet automatisme (mise à jour systématique de la page Notion "Boîte à outils Jarvis" à chaque nouvelle commande/skill) avait été acté le 26/05/2026. **Roméo a explicitement demandé d'arrêter le 27/06/2026.** Claude ne met plus à jour cette page automatiquement. Si Roméo veut l'y ajouter lui-même ou demande une mise à jour ponctuelle, le faire seulement à la demande.
 
 ### Détection et enregistrement des dates (agenda Google Calendar)
 

@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-26
+
+### Agent n8n "Usine à créas publicitaires" construit de A à Z (tentative vendable, hors Claude Code)
+- Objectif de Roméo : automatiser/vendre le skill `crea-pub`, qui ne doit plus dépendre de Claude Code ni de son abonnement perso.
+- Première tentative via la console Claude (agent-quickstart) : abandonnée après diagnostic — cette console ne génère qu'un system prompt, aucun outil n'y est exécutable (l'agent généré "ne fait rien"). Confirmé par un test direct via l'API Messages (les mêmes outils déclarés fonctionnent correctement dès qu'ils sont réellement câblés).
+- Pivot vers n8n (connecté par Roméo en parallèle). Construit le workflow complet : Chat Trigger -> AI Agent (Claude Sonnet 4.6, mémoire 20 tours) -> 9 outils HTTP couvrant tout le pipeline crea-pub (transcription audio, synthèse voix off, retrait sous-titres vidéo, refonte d'image, prix produit en direct, création campagne/adset/creative/ad Meta, tout en PAUSED). Prompt système générique, dégagé de toute référence à Zooryn, pensé pour être revendu à d'autres utilisateurs.
+- Validé et créé directement dans l'instance n8n de Roméo via le MCP n8n (workflow "Usine à créas publicitaires", id 8P6F23ayuC04bkcq).
+- Reste à faire côté Roméo : créer et brancher 6 credentials (Anthropic, ElevenLabs, OpenAI, boutique, Meta : simples, types Header/Bearer/Query Auth identifiés un par un ; Vmake : bloquant, son authentification HMAC-SHA256 n'est pas gérable par les types d'auth génériques de n8n, nécessitera un nœud Code dédié pour signer les requêtes, pas encore construit).
+- Limite connue assumée : le montage vidéo final (CapCut) reste hors du périmètre de l'agent, toujours manuel côté utilisateur final.
+
+---
+
 ## 2026-06-24 (mise à jour 3)
 
 ### Matelas LANCÉ EN TEST (1er produit de la niche outdoor) + 2 bugs de publication Meta corrigés + skill `crea-pub` durci

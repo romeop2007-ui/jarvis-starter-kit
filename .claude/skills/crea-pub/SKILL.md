@@ -467,6 +467,13 @@ fois. Ne jamais copier un nom de campagne, un texte ou un nombre de pubs d'un lo
    diffusion, body/hook/CTA complet. Le concurrent de reference change a chaque lot (Norrfjallen
    pour le matelas T3, un autre pour T4/T5...) — ne pas reutiliser le meme concurrent par defaut,
    verifier que c'est bien le concurrent du produit du lot en cours.
+   - **Methode concrete validee le 28/06 (T4 guirlande)** : `search_ads` avec `query` = le produit,
+     `sort_by: "reach"` et `status: "all"` (+ `active_only: false`, sinon le defaut filtre les
+     inactives et peut sortir 0 resultat). ⚠️ Prendre l'ad au plus gros reach **qui est vraiment
+     LE meme produit**, pas le top reach brut : sur T4, la 1re par reach (« guirlande solaire effet
+     feu d'artifice », 84k) etait un AUTRE produit ; la bonne = Narvelio (FR, rank #1 actif), la
+     guirlande enroulable/magnetique de camping identique a la notre. On reprend SA description,
+     on la traduit/adapte en FR avec le vrai prix Shopify et les faits Zooryn.
 4. **Traduire et adapter le texte en FR**, et appliquer la verification factuelle obligatoire
    (`references/verites-zooryn.md`, cf. section plus haut) : corriger toute allegation du
    concurrent qui ne correspond pas a la realite Zooryn pour CE produit.
@@ -479,6 +486,14 @@ fois. Ne jamais copier un nom de campagne, un texte ou un nombre de pubs d'un lo
      `nodes(ids: ["gid://shopify/MediaImage/<id>", ...]) { ... on MediaImage { image { url } } }`.
    - Pour une video, le champ source change (`sources` au lieu de `image.url` sur un type
      `Video`/`GenericFile`) — verifier le schema avec `graphql_schema` si le type differe.
+   - ⚠️ **Lot VIDEO : une creative video Meta exige un `video_id` DEJA uploade sur le compte pub**
+     (`ads_create_creative` n'accepte pas d'`image_url`/URL pour la video elle-meme), et **aucun
+     outil ne permet d'uploader un fichier local vers Meta** (`ads_get_ad_videos` listait vide sur
+     T4). Workaround valide par Romeo le 28/06 : **creer quand meme la pub en creative IMAGE** avec
+     une `image_url` publique placeholder (une photo produit Shopify, recuperee via l'og:image de
+     la page produit), tout le texte/titre/CTA deja en place. Romeo uploade ensuite ses videos dans
+     le Gestionnaire et **remplace le placeholder par chaque video sur la pub correspondante** (le
+     copy est pret d'avance, il n'a que le media a changer). Le `.webp` Shopify passe en `image_url`.
 6. **Creer la campagne** (`ads_create_campaign`) : nom **"Campagne `<LOT>`"** (jamais "Campagne
    T3" recopie), objectif a confirmer avec Romeo (OUTCOME_SALES par defaut si conversions),
    `campaign_daily_budget` = budget donne par Romeo pour CE lot (peut differer de 50€), CBO par
@@ -517,8 +532,20 @@ fois. Ne jamais copier un nom de campagne, un texte ou un nombre de pubs d'un lo
      `publisher_platforms: ["facebook","instagram"]`,
      `facebook_positions: ["feed","profile_feed","marketplace","video_feeds","story","facebook_reels"]`,
      `instagram_positions: ["stream","profile_feed","explore","explore_home","story","reels"]`.
+   - ⚠️ **Date de debut programmee : poser `start_time` DES LA CREATION de l'adset** (ISO 8601 avec
+     fuseau, ex `"2026-06-29T00:00:00+02:00"` pour minuit heure de Paris en ete). **Il est
+     IMPOSSIBLE de l'editer apres coup** sur un adset deja demarre : `ads_update_entity` renvoie
+     « Start Time Can't Be Edited: ...if the Ad Set has already started » (un adset cree sans
+     `start_time` = demarre immediatement). Si Romeo demande une date apres coup, **recreer l'adset**
+     avec `start_time` puis recreer ses pubs dessous (vecu le 28/06 sur T4). ⚠️ Supprimer/remplacer
+     un adset **supprime aussi toutes ses pubs** : il faut les recreer.
 8. **Creer une creative par visuel** (`ads_create_creative`) avec l'URL CDN, le texte/titre/
    description/CTA adaptes a l'etape 4, nommees **"Zooryn `<LOT>` - AD`n`"**.
+   - ⚠️ **Le texte d'une creative n'est PAS modifiable en place** : pour changer le copy, recreer
+     une nouvelle creative et repointer la pub (`ads_update_entity` champ `creative`, ou recreer la
+     pub). Meta **DEDUPLIQUE les creatives identiques** : deux appels avec exactement le meme spec
+     renvoient le MEME `creative_id` (vu le 28/06) — c'est normal, un seul `creative_id` peut servir
+     plusieurs pubs.
 9. **Creer une pub par creative** (`ads_create_ad`), nommees **"`<LOT>` - AD`n`"**.
 10. **Tout reste en PAUSED, toujours.** Ne jamais appeler `ads_activate_entity` ni passer un
     statut a ACTIVE, meme avec l'accord oral de Romeo (regle absolue du 21/06). Romeo active

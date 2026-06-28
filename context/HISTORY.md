@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-06-28 (mise à jour 2)
+
+### Voix off T4 mises à jour (Mira/Zooryn → Luma) + campagne Meta Ads T4 créée en PAUSED
+- **Produit T4 renommé Luma** : les créas ne collaient plus. Voix off AD1/AD2/AD3 régénérées (même voix Céline, sans repasser par Vmake), seul le nom du produit changé dans le script (« la guirlande Zooryn » → « la guirlande Luma »), durées recalées sur les vidéos (±1 s), brouillons CapCut régénérés. AD4/AD5 (musicales, sans voix off) non touchées comme demandé. AD1 n'avait plus de `script-fr.txt` sauvegardé : reconstruit depuis sa voix off existante avant correction.
+- **Campagne Meta « Campagne T4 » créée de bout en bout, tout en PAUSED** : objectif Ventes, CBO 50€/jour, adset France résidents (`home`), Advantage+ Audience, placements manuels sans in-stream vidéo, pixel Purchase, DSA Zooryn. **Début programmé au 29/06/2026 00h00 (Europe/Paris).** 5 pubs T4-AD1→AD5. IDs : campagne `52572596527478`, adset final `52572617792078`.
+- **Texte de pub repris du winner TrendTrack** : ad la plus populaire sur ce produit exact = Narvelio (FR, rank #1 actif), adaptée à Luma avec le vrai prix Shopify live (29,99€ barré 39,99€), livraison offerte (demandée par Roméo) et garantie réelle 30 jours. Le plus gros reach brut « guirlande solaire » (Njurez, 84k) écarté car autre produit (effet feu d'artifice).
+- **3 obstacles réels rencontrés et contournés, gravés dans le skill `crea-pub`** : (1) une creative vidéo Meta exige un `video_id` déjà uploadé, aucun outil d'upload local → workaround validé par Roméo = créer la pub en creative IMAGE avec une `image_url` placeholder (photo produit Shopify), puis Roméo uploade les vidéos et remplace le placeholder par chaque vidéo dans le Gestionnaire (le texte est prêt d'avance) ; (2) le `start_time` n'est pas éditable sur un adset déjà démarré → le poser dès la création, sinon recréer l'adset (ce qui supprime aussi ses pubs) ; (3) le texte d'une creative n'est pas modifiable en place → recréer la creative et repointer la pub (Meta déduplique les creatives identiques).
+- Roméo a supprimé l'adset par erreur en cours de route, recréé sans audience configurée (il met la sienne lui-même). Reste à sa main : uploader les 5 vidéos, swap des placeholders, sélection du compte Instagram, activation.
+
+---
+
 ## 2026-06-28
 
 ### Page produit Luma : refonte responsive mobile (5 reprises) + durcissement du skill boutique

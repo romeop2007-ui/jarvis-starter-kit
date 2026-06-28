@@ -32,7 +32,11 @@
           </div>
         {%- endfor -%}
       </div>
-      <div class="clients-counter" id="zlumaClientsCounter-{{ section.id }}">1 / {{ rows.size }}</div>
+      <div class="clients-nav" id="zlumaClientsNav-{{ section.id }}">
+        <button type="button" class="clients-arrow" data-dir="-1" aria-label="Avis précédent">&lsaquo;</button>
+        <span class="clients-counter" id="zlumaClientsCounter-{{ section.id }}">1 / {{ rows.size }}</span>
+        <button type="button" class="clients-arrow" data-dir="1" aria-label="Avis suivant">&rsaquo;</button>
+      </div>
       </div>
     </div>
   </section>
@@ -42,6 +46,7 @@
 (function(){
   var grid = document.getElementById('zlumaClients-{{ section.id }}');
   var counter = document.getElementById('zlumaClientsCounter-{{ section.id }}');
+  var nav = document.getElementById('zlumaClientsNav-{{ section.id }}');
   if(!grid || !counter){ return; }
   var cards = grid.querySelectorAll('.client-card');
   var total = cards.length;
@@ -50,17 +55,37 @@
     if(cards.length > 1){ return cards[1].offsetLeft - cards[0].offsetLeft; }
     return cards.length ? cards[0].offsetWidth : grid.clientWidth;
   }
+  function currentIdx(){
+    var idx = Math.round(grid.scrollLeft / step());
+    if(idx < 0){ idx = 0; }
+    if(idx > total - 1){ idx = total - 1; }
+    return idx;
+  }
+  function updateArrows(){
+    if(!nav){ return; }
+    var idx = currentIdx();
+    var arrows = nav.querySelectorAll('.clients-arrow');
+    arrows[0].disabled = (idx <= 0);
+    arrows[1].disabled = (idx >= total - 1);
+  }
   grid.addEventListener('scroll', function(){
     if(ticking){ return; }
     ticking = true;
     window.requestAnimationFrame(function(){
-      var idx = Math.round(grid.scrollLeft / step()) + 1;
-      if(idx < 1){ idx = 1; }
-      if(idx > total){ idx = total; }
-      counter.textContent = idx + ' / ' + total;
+      counter.textContent = (currentIdx() + 1) + ' / ' + total;
+      updateArrows();
       ticking = false;
     });
   });
+  if(nav){
+    nav.querySelectorAll('.clients-arrow').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var dir = parseInt(btn.getAttribute('data-dir'), 10);
+        grid.scrollBy({ left: dir * step(), behavior: 'smooth' });
+      });
+    });
+  }
+  updateArrows();
 })();
 </script>
 

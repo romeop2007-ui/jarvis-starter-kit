@@ -48,6 +48,8 @@
 .zluma .product{ padding:34px 0 50px; }
 .zluma .product-grid{ display:grid; grid-template-columns:1.15fr 1fr; gap:46px; align-items:start; }
 .zluma .product-grid > *{ min-width:0; }
+.zluma .gallery-swipe-wrap{ display:none; }
+.zluma .gallery-swipe{ display:none; }
 .zluma .gallery-main{ position:relative; width:100%; aspect-ratio:1/1; margin-bottom:10px; }
 .zluma .gallery-main .img-cover{ height:100%; aspect-ratio:1/1; }
 .zluma .gallery-main .placeholder{ height:100%; }
@@ -55,8 +57,11 @@
 .zluma .gallery-arrow.prev{ left:12px; }
 .zluma .gallery-arrow.next{ right:12px; }
 .zluma .gallery-counter{ position:absolute; bottom:14px; right:14px; background:rgba(235,231,219,.88); border-radius:20px; padding:4px 12px; font-size:12px; font-weight:500; }
-.zluma .gallery-thumbs{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
-.zluma .thumb{ aspect-ratio:1/1; cursor:pointer; border-radius:6px; overflow:hidden; border:2px solid transparent; opacity:.55; transition:border-color .15s, opacity .15s; }
+.zluma .gallery-thumbs-wrap{ position:relative; display:flex; align-items:center; gap:6px; }
+.zluma .gallery-thumbs{ display:flex; gap:8px; overflow-x:auto; scroll-behavior:smooth; scrollbar-width:none; -ms-overflow-style:none; flex:1; }
+.zluma .gallery-thumbs::-webkit-scrollbar{ display:none; }
+.zluma .thumbs-arrow{ flex:0 0 auto; width:34px; height:34px; display:flex; align-items:center; justify-content:center; border-radius:50%; background:rgba(235,231,219,.92); color:var(--vert); cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.16); font-size:20px; border:none; }
+.zluma .thumb{ flex:0 0 calc((100% - 4 * 8px) / 5); aspect-ratio:1/1; cursor:pointer; border-radius:6px; overflow:hidden; border:2px solid transparent; opacity:.55; transition:border-color .15s, opacity .15s; }
 .zluma .thumb.active{ border-color:var(--vert); opacity:1; }
 .zluma .thumb .img-cover{ border-radius:5px; aspect-ratio:1/1; }
 .zluma .thumb .placeholder{ border-radius:5px; font-size:9px; padding:4px; }
@@ -130,7 +135,7 @@
 /* ===== Accordéons produit ===== */
 .zluma .acc-wrap{ margin-top:28px; border-top:1px solid rgba(21,66,48,.11); }
 .zluma .acc-item{ border-bottom:1px solid rgba(21,66,48,.11); }
-.zluma .acc-q{ display:flex; justify-content:space-between; align-items:center; width:100%; padding:18px 0; font-size:15px; font-weight:600; gap:12px; }
+.zluma .acc-q{ display:flex; justify-content:space-between; align-items:center; width:100%; padding:18px 0; font-size:15px; font-weight:600; gap:12px; color:inherit; }
 .zluma .acc-q .arrow{ font-size:20px; color:var(--vert-clair); font-weight:300; flex-shrink:0; }
 .zluma .acc-a{ max-height:0; overflow:hidden; transition:max-height .35s ease; }
 .zluma .acc-a-inner{ padding:0 0 20px; font-size:14px; opacity:.8; line-height:1.8; }
@@ -153,6 +158,7 @@
 .zluma .clients{ padding:80px 0; }
 .zluma .clients h2{ font-size:34px; font-weight:600; text-align:center; letter-spacing:-.4px; margin-bottom:48px; }
 .zluma .clients-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.zluma .clients-counter{ display:none; }
 .zluma .client-card{ background:var(--crm); border-radius:14px; box-shadow:0 2px 16px rgba(21,66,48,.07); overflow:hidden; }
 .zluma .client-card .media{ aspect-ratio:1/1; }
 .zluma .client-card .media .img-cover, .zluma .client-card .media .placeholder{ border-radius:0; }
@@ -197,7 +203,7 @@
 .zluma .faq h2{ font-size:34px; font-weight:600; text-align:center; letter-spacing:-.4px; margin-bottom:48px; }
 .zluma .faq-list{ border-top:1px solid rgba(21,66,48,.14); }
 .zluma .faq-item{ border-bottom:1px solid rgba(21,66,48,.14); }
-.zluma .faq-q{ display:flex; justify-content:space-between; align-items:center; width:100%; padding:20px 0; font-size:15px; font-weight:600; text-align:left; gap:16px; }
+.zluma .faq-q{ display:flex; justify-content:space-between; align-items:center; width:100%; padding:20px 0; font-size:15px; font-weight:600; text-align:left; gap:16px; color:inherit; }
 .zluma .faq-q .arrow{ font-size:22px; color:var(--vert-clair); font-weight:300; flex-shrink:0; }
 .zluma .faq-a{ max-height:0; overflow:hidden; transition:max-height .35s ease; }
 .zluma .faq-a-inner{ padding:0 0 20px; font-size:14px; opacity:.75; line-height:1.8; }
@@ -220,14 +226,26 @@
 /* ===== Responsive ===== */
 @media (max-width:900px){
   .zluma .product-grid{ grid-template-columns:1fr; gap:30px; }
+  .zluma .gallery-main, .zluma .gallery-thumbs-wrap{ display:none; }
+  .zluma .gallery-swipe-wrap{ display:block; position:relative; }
+  .zluma .gallery-swipe{ display:flex; gap:8px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; }
+  .zluma .gallery-swipe::-webkit-scrollbar{ display:none; }
+  .zluma .gallery-swipe-img{ flex:0 0 100%; width:100%; aspect-ratio:1/1; scroll-snap-align:center; border-radius:8px; }
+  .zluma .gallery-swipe-counter{ position:absolute; bottom:12px; right:12px; background:rgba(0,0,0,.6); color:#fff; border-radius:20px; padding:4px 12px; font-size:13px; font-weight:500; pointer-events:none; }
   .zluma .story, .zluma .story.reverse{ grid-template-columns:1fr; direction:ltr; gap:24px; padding:40px 20px; }
+  .zluma .story .story-media{ order:-1; }
+  .zluma .story .story-text{ order:0; }
   .zluma .clients-grid{ grid-template-columns:repeat(2,1fr); }
 }
 @media (max-width:620px){
   .zluma .product-title{ font-size:25px; }
   .zluma .story-text h2{ font-size:28px; }
   .zluma .clients h2, .zluma .faq h2{ font-size:27px; }
-  .zluma .clients-grid{ grid-template-columns:1fr; }
+  .zluma .clients-grid-wrap{ position:relative; }
+  .zluma .clients-grid{ display:flex; grid-template-columns:none; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none; -ms-overflow-style:none; -webkit-overflow-scrolling:touch; padding:4px 0 8px; }
+  .zluma .clients-grid::-webkit-scrollbar{ display:none; }
+  .zluma .client-card{ flex:0 0 84%; scroll-snap-align:center; }
+  .zluma .clients-counter{ display:block; text-align:center; margin-top:16px; font-size:14px; font-weight:600; opacity:.7; }
 }
 </style>
 

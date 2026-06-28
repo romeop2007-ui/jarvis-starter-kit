@@ -161,6 +161,19 @@ Ne jamais annoncer "terminé" sans avoir vérifié, dans l'ordre :
 Si un point échoue, corriger avant de répondre à Roméo. Ne dire "c'est terminé" que quand les
 4 points sont vérifiés.
 
+## Étape 8.5 — Passe mobile obligatoire (le concurrent a un comportement mobile DISTINCT)
+
+Vécu sur Luma (28/06) : la page rendait bien sur desktop mais Roméo a dû faire reprendre **cinq fois** des détails mobile l'un après l'autre. Le mockup Claude Design ne décrit que le desktop ; la vraie page concurrent a des comportements mobile spécifiques qu'il faut aller observer **sur un vrai rendu mobile du concurrent** (DevTools format téléphone, ou screenshots demandés à Roméo). Toujours faire cette passe AVANT de clore, pas après reproche.
+
+Points à vérifier/reproduire systématiquement sur le format téléphone (≤ ~900px), **sans toucher au desktop** (toutes ces règles vivent dans des `@media` mobiles, jamais en base) :
+
+1. **Galerie produit = swipe à la main, pas de vignettes.** Sur mobile, le concurrent ne montre PAS la grille de vignettes + flèches du desktop : juste une bande d'images plein écran qu'on fait défiler au doigt (`overflow-x:auto; scroll-snap-type:x mandatory`, chaque image `flex:0 0 100%; scroll-snap-align:center`). Masquer l'image principale desktop + la bande de vignettes en `@media`, afficher à la place une bande swipe dédiée (tous les `product.images` en dur dedans).
+2. **Compteur "X / N" sur la galerie mobile.** Petit badge en surimpression (bas-droite) qui s'incrémente au scroll (`Math.round(scrollLeft / clientWidth) + 1`). Les visiteurs doivent comprendre qu'il y a N images.
+3. **Pas de flèches ni compteur sur l'image principale DESKTOP.** Roméo n'en veut pas : image principale propre, navigation desktop uniquement par les vignettes en dessous, et ces vignettes en **carrousel horizontal défilable** (flèches ‹ › qui font `scrollBy`), pas en grille figée en bloc.
+4. **Blocs "story" : image AVANT texte sur mobile.** En une colonne, l'ordre DOM (texte puis image) donne texte-en-haut, ce que Roméo ne veut pas. Forcer `order:-1` sur `.story-media` en `@media`, sur TOUS les blocs story.
+5. **Sections d'avis/cartes : swipe horizontal + RELIEF sur mobile.** Le concurrent fait défiler ses avis au doigt avec un compteur "X / 6". Crucial : la carte active ne doit PAS faire 100% de large (sinon c'est plat, on ne devine pas qu'il y en a d'autres) — la mettre à ~84% pour laisser **dépasser le bord de la carte suivante** (`flex:0 0 84%; scroll-snap-align:center`). Compteur calé sur le pas réel entre cartes (`cards[1].offsetLeft - cards[0].offsetLeft`), pas sur `clientWidth`, sinon il dérive quand la carte n'est pas pleine largeur.
+6. **Couleur des `<button>` textuels (FAQ, accordéons) : toujours `color:inherit`.** Voir la liste d'erreurs ci-dessous — un bouton sans `color` s'affiche en BLEU sur iOS Safari alors qu'il est correct sur desktop.
+
 ## Étape 9 — Déploiement (règles du CLAUDE.md, ne pas les redécouvrir)
 
 1. **Toujours `pull` avant de toucher au thème** :
@@ -174,6 +187,17 @@ Si un point échoue, corriger avant de répondre à Roméo. Ne dire "c'est termi
 
 ## Erreurs déjà commises sur ce skill (à ne pas refaire)
 
+- **Un `<button>` textuel sans `color` explicite s'affiche en BLEU sur iOS Safari** (rendu par
+  défaut du `color: buttontext` système d'Apple), alors qu'il rend correctement sur navigateur
+  desktop. Vécu sur Luma (28/06) : les questions de FAQ et les titres d'accordéon (`.faq-q`,
+  `.acc-q`, qui sont des `<button>`) apparaissaient en bleu sur iPhone uniquement. **Réflexe :
+  tout bouton qui doit prendre la couleur de texte de la section doit avoir `color:inherit`**
+  (ne pas se fier au rendu desktop, qui masque le problème).
+- **Le rendu mobile se vérifie séparément du desktop, AVANT de clore.** La page Luma a dû être
+  reprise cinq fois sur des détails mobile (galerie swipe, compteur, ordre image/texte des story,
+  relief des cartes d'avis, boutons bleus) parce que la première passe ne regardait que le
+  desktop. Voir l'Étape 8.5 : faire la passe mobile complète en s'appuyant sur le vrai rendu
+  mobile du concurrent, pas seulement sur le mockup Claude Design (qui est desktop-only).
 - **Le `default:` Liquid n'est PAS le défaut réel d'un setting de section.** Tant qu'aucune
   valeur n'est enregistrée dans `settings_data.json`, Shopify utilise le `"default"` du
   **schéma** (`{ "type": "text", "id": "x", "default": "..." }`), jamais le filtre

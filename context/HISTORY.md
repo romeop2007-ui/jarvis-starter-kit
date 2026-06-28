@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-28
+
+### Page produit Luma : refonte responsive mobile (5 reprises) + durcissement du skill boutique
+- Galerie produit revue : suppression des flèches et du compteur "1 / 9" sur l'image principale desktop ; vignettes desktop passées en carrousel horizontal défilable (flèches ‹ ›) au lieu d'une grille figée.
+- Galerie MOBILE refaite façon concurrent (Belysningshuset) : bande d'images plein écran qu'on swipe au doigt (scroll-snap), sans vignettes ni flèches, avec compteur "X / 9" en surimpression qui s'incrémente au scroll. Desktop intact.
+- Blocs "story" sur mobile : image affichée AVANT le texte (order CSS), sur les 3 blocs. Desktop intact.
+- Section avis clients sur mobile : passée en carrousel swipable horizontal avec compteur "X / 6", cartes à 84% de large pour laisser dépasser la suivante et créer du relief (sinon plat, on ne devine pas qu'il y a plusieurs avis). Desktop (grille 3 colonnes) intact.
+- Bug couleur corrigé : les questions de FAQ et titres d'accordéon (des `<button>`) s'affichaient en BLEU sur iPhone (rendu par défaut iOS Safari) alors que correct sur PC. Fix : `color:inherit` sur les boutons textuels.
+- Skill `boutique` durci : nouvelle Étape 8.5 "Passe mobile obligatoire" (le concurrent a un comportement mobile distinct du mockup Claude Design, qui est desktop-only) + 2 erreurs ajoutées à la liste (boutons bleus iOS, vérification mobile séparée avant de clore).
+
+---
+
 ## 2026-06-27 (mise à jour 3)
 
 ### Page produit Luma : passe de polissage UI (avis, bundle, citations, étoiles, barre collante)

@@ -30,25 +30,34 @@
       <!-- Galerie -->
       {%- assign imgs = mp.images -%}
       <div class="gallery">
+        {%- if imgs.size > 0 -%}
+          <div class="gallery-swipe-wrap">
+            <div class="gallery-swipe" id="zlumaSwipe-{{ sid }}">
+              {%- for img in imgs -%}
+                <img class="img-cover gallery-swipe-img" src="{{ img | image_url: width: 1254, height: 1254 }}" alt="{{ img.alt | escape }}" width="1254" height="1254" loading="lazy">
+              {%- endfor -%}
+            </div>
+            <div class="gallery-swipe-counter" id="zlumaSwipeCounter-{{ sid }}">1 / {{ imgs.size }}</div>
+          </div>
+        {%- endif -%}
         <div class="gallery-main">
           {%- if imgs.size > 0 -%}
             <img class="img-cover" id="zlumaMainImg-{{ sid }}" src="{{ imgs.first | image_url: width: 1254, height: 1254 }}" alt="{{ imgs.first.alt | escape }}" width="1254" height="1254">
           {%- else -%}
             <div class="placeholder" id="zlumaMainPh-{{ sid }}" style="aspect-ratio:1/1;"><span>Photo produit principale</span></div>
           {%- endif -%}
-          {%- if imgs.size > 1 -%}
-            <button type="button" class="gallery-arrow prev" id="zlumaPrev-{{ sid }}" aria-label="Image précédente">‹</button>
-            <button type="button" class="gallery-arrow next" id="zlumaNext-{{ sid }}" aria-label="Image suivante">›</button>
-            <div class="gallery-counter" id="zlumaCounter-{{ sid }}">1 / {{ imgs.size }}</div>
-          {%- endif -%}
         </div>
         {%- if imgs.size > 1 -%}
-          <div class="gallery-thumbs" id="zlumaThumbs-{{ sid }}">
-            {%- for img in imgs -%}
-              <button type="button" class="thumb{% if forloop.first %} active{% endif %}" data-img="{{ img | image_url: width: 1254, height: 1254 }}">
-                <img class="img-cover" src="{{ img | image_url: width: 220, height: 220 }}" alt="{{ img.alt | escape }}" width="220" height="220">
-              </button>
-            {%- endfor -%}
+          <div class="gallery-thumbs-wrap">
+            <button type="button" class="thumbs-arrow prev" id="zlumaThumbsPrev-{{ sid }}" aria-label="Vignettes précédentes">‹</button>
+            <div class="gallery-thumbs" id="zlumaThumbs-{{ sid }}">
+              {%- for img in imgs -%}
+                <button type="button" class="thumb{% if forloop.first %} active{% endif %}" data-img="{{ img | image_url: width: 1254, height: 1254 }}">
+                  <img class="img-cover" src="{{ img | image_url: width: 220, height: 220 }}" alt="{{ img.alt | escape }}" width="220" height="220">
+                </button>
+              {%- endfor -%}
+            </div>
+            <button type="button" class="thumbs-arrow next" id="zlumaThumbsNext-{{ sid }}" aria-label="Vignettes suivantes">›</button>
           </div>
         {%- endif -%}
       </div>
@@ -204,6 +213,37 @@
   thumbs.forEach(function(t, i){ t.addEventListener('click', function(){ showImg(i); }); });
   if(prevBtn){ prevBtn.addEventListener('click', function(){ showImg(current - 1); }); }
   if(nextBtn){ nextBtn.addEventListener('click', function(){ showImg(current + 1); }); }
+
+  /* Carrousel de vignettes (défilement de la bande) */
+  var thumbsPrev = document.getElementById('zlumaThumbsPrev-{{ sid }}');
+  var thumbsNext = document.getElementById('zlumaThumbsNext-{{ sid }}');
+  function scrollThumbs(dir){
+    if(!thumbsWrap){ return; }
+    var step = thumbsWrap.clientWidth * 0.8;
+    thumbsWrap.scrollBy({ left: dir * step, behavior: 'smooth' });
+  }
+  if(thumbsPrev){ thumbsPrev.addEventListener('click', function(){ scrollThumbs(-1); }); }
+  if(thumbsNext){ thumbsNext.addEventListener('click', function(){ scrollThumbs(1); }); }
+
+  /* Compteur galerie mobile (swipe) */
+  var swipe = document.getElementById('zlumaSwipe-{{ sid }}');
+  var swipeCounter = document.getElementById('zlumaSwipeCounter-{{ sid }}');
+  if(swipe && swipeCounter){
+    var swipeImgs = swipe.querySelectorAll('.gallery-swipe-img');
+    var total = swipeImgs.length;
+    var ticking = false;
+    swipe.addEventListener('scroll', function(){
+      if(ticking){ return; }
+      ticking = true;
+      window.requestAnimationFrame(function(){
+        var idx = Math.round(swipe.scrollLeft / swipe.clientWidth) + 1;
+        if(idx < 1){ idx = 1; }
+        if(idx > total){ idx = total; }
+        swipeCounter.textContent = idx + ' / ' + total;
+        ticking = false;
+      });
+    });
+  }
 
   /* Accordéons */
   root.querySelectorAll('.acc-q').forEach(function(q){

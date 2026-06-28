@@ -9,7 +9,8 @@
   <section class="clients">
     <div class="wrap">
       <h2>{{ s.heading | default: 'Photos clients – Luma' }}</h2>
-      <div class="clients-grid">
+      <div class="clients-grid-wrap">
+      <div class="clients-grid" id="zlumaClients-{{ section.id }}">
         {%- for row in rows -%}
           {%- assign f = row | split: "~" -%}
           {%- assign pickey = 'pic' | append: forloop.index -%}
@@ -31,9 +32,37 @@
           </div>
         {%- endfor -%}
       </div>
+      <div class="clients-counter" id="zlumaClientsCounter-{{ section.id }}">1 / {{ rows.size }}</div>
+      </div>
     </div>
   </section>
 </div>
+
+<script>
+(function(){
+  var grid = document.getElementById('zlumaClients-{{ section.id }}');
+  var counter = document.getElementById('zlumaClientsCounter-{{ section.id }}');
+  if(!grid || !counter){ return; }
+  var cards = grid.querySelectorAll('.client-card');
+  var total = cards.length;
+  var ticking = false;
+  function step(){
+    if(cards.length > 1){ return cards[1].offsetLeft - cards[0].offsetLeft; }
+    return cards.length ? cards[0].offsetWidth : grid.clientWidth;
+  }
+  grid.addEventListener('scroll', function(){
+    if(ticking){ return; }
+    ticking = true;
+    window.requestAnimationFrame(function(){
+      var idx = Math.round(grid.scrollLeft / step()) + 1;
+      if(idx < 1){ idx = 1; }
+      if(idx > total){ idx = total; }
+      counter.textContent = idx + ' / ' + total;
+      ticking = false;
+    });
+  });
+})();
+</script>
 
 {% schema %}
 {

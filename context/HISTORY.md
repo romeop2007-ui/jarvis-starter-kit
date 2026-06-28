@@ -7,6 +7,16 @@
 
 ---
 
+## 2026-06-28 (mise à jour 3)
+
+### Page Luma (flèches avis mobile + carte collection remplie) + livraison 100% gratuite nettoyée
+- **Carrousel d'avis clients Luma sur mobile** : ajout de flèches ‹ › de part et d'autre du compteur "X / 6" pour défiler les avis un par un (scroll animé, compteur synchronisé, flèches grisées aux extrémités). Le swipe au doigt reste actif en parallèle. Desktop intact (tout est en `@media` mobile). Fichiers : `sections/zluma-clients.liquid` + `snippets/zluma-styles.liquid`.
+- **Carte de la page collection (Luma)** : la carte Luma n'affichait aucune liste de bénéfices (vide à gauche) alors que matelas et oreiller en ont une. Cause : le metafield `custom.avantages_carte` (type `list.single_line_text_field`, lu par `snippets/zooryn-product-card.liquid`) n'était pas rempli sur le produit Luma. Rempli avec 5 puces courtes (Chargée par le soleil / 10 mètres de longueur / Étanche, résiste à la pluie / Backup USB-C inclus / Se déroule en 30 secondes), style aligné sur le matelas pour une hauteur de carte cohérente. Donnée Shopify, pas de code poussé.
+- **Étoiles de l'en-tête produit** : test d'un remplissage partiel (≈4,5 étoiles, technique `.bg`/`.fg` en largeur %) demandé par Roméo, déployé, puis **annulé à sa demande** dans la foulée. Retour aux 5 étoiles pleines (`.star-rating-solid`), état identique à avant.
+- **Livraison configurée 100% gratuite et nettoyée (France, EUR).** Audit des profils de livraison via l'Admin API : la livraison était déjà de fait gratuite (les tarifs "Standard 9,99 €" étaient des tarifs progressifs gratuits dès 9,99 € d'achat, jamais facturés vu que le produit le moins cher est à 29,99 €), mais avec des doublons et un 9,99 € visible. Nettoyage des 2 profils (`deliveryProfileUpdate`) : suppression de la méthode "Standard" du profil général, remplacement de la méthode "Standard" du profil "Livraison gratuite" par une "Livraison gratuite" à 0 €. Résultat : chaque profil n'a plus qu'une seule option "Livraison gratuite — 0 €", le client voit une ligne unique au checkout.
+
+---
+
 ## 2026-06-28 (mise à jour 2)
 
 ### Voix off T4 mises à jour (Mira/Zooryn → Luma) + campagne Meta Ads T4 créée en PAUSED

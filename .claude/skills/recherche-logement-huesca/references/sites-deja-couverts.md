@@ -10,12 +10,22 @@ Cette liste est mise à jour par Claude après chaque session de recherche. Avan
 - gallegomartinez.com (agence Gállego Martínez)
 - milanuncios.com (bloque WebFetch par captcha — ne pas retenter)
 - yaencontre.com
+- rentola.es (sondé en profondeur le 28/06/2026 via WebSearch — particulier Paseo Gregoria Ciprés corroboré et poussé en Notion bien n°7 ; WebFetch toujours bloqué dans cet environnement, à retenter en session interactive avant de classer définitivement "couvert")
+- nuroa.es (idem 28/06 — secteur Plaza Navarra/Parque Miguel Servet poussé en Notion bien n°8 ; ⚠️ prix incohérent entre deux recherches WebSearch, 550€ vs 580€ pour la même fiche — à reconfirmer)
+- habitaclia.com (sondé à nouveau le 28/06 — annonces Coso Bajo repérées mais toujours sans prix exploitable via WebSearch ; à retenter avec WebFetch en session interactive)
+- indomio.es (sondé le 28/06 — nouvelle piste Calle Doña Sancha 33 poussée en Notion bien n°9, mais distance à risque de dépasser le critère 15 min — à vérifier en priorité)
+- tucasa.com (sondé le 28/06 — une piste 99 m² sans prix trouvé, pas assez fiable pour fiche, écarté)
+- flatio.com (confirmé vide pour Huesca le 28/06 — 0 annonce, comme spotahome.com — inutile de retenter)
+- wallapop.com (nouveau site sondé le 28/06 — aucun prix ferme trouvé, inconcluant)
+- roomlala.es (nouveau site sondé le 28/06 — plateforme de colocation par chambre, ne correspond pas au format "appartement entier 2 chambres" recherché ; utile seulement si on élargit aux chambres individuelles)
+- uniplaces.com (sondé le 28/06 — vide/inconcluant pour Huesca)
 
 ## Agences/annonceurs déjà identifiés et notés (avis déjà collectés)
 
 - Gállego Martínez Inmobiliaria (C/ Cavia, 8) — ProvenExpert 3,70/5 (299 avis), Directoriocom 4,7/5 (29 avis)
 - Fincas Osca (Calle Zaragoza, 9) — RealAdvisor 4,5/5 (161 avis)
 - Tecnocasa Estudio Palacio de los Reyes SL (Calle Ramón y Cajal, 28) — avis positifs épars, pas de profil Trustpilot
+- Fincas Montearagón (nouvelle, notée le 28/06/2026) — Trustlocal 7,8/10 (~8/10 sur 23 avis), ⚠️ un client signale des annonces fantômes déjà louées — bien Calle Valentín Gardeta 30 2ºA poussé en Notion bien n°6
 
 ## Date de dernière mise à jour de cette liste
 
@@ -51,6 +61,20 @@ La session a tourné avec WebFetch et le script `geocode_distance.py` bloqués p
 
 ## Piste trouvée le 23/06 (non ajoutée à Notion, distance non vérifiable à l'époque)
 
-- **Calle Valentín Gardeta, n° 30, 2ºA (Huesca)** — agence **Fincas Montearagón** (nouvelle agence, Trustlocal 7,8/10, ~8/10 sur 23 avis, ⚠️ un client signale des annonces fantômes déjà louées) — 40 m², meublé, 2 chambres, salon-cuisine, chauffage gaz individuel, terrasse couverte — 360€/mois (180€/pers.). Distance vérifiée depuis en session interactive : 834 m / ~14,4 min à pied de Plaza de la Constitución → respecte le critère ≤15 min.
+- **Calle Valentín Gardeta, n° 30, 2ºA (Huesca)** — agence **Fincas Montearagón** (nouvelle agence, Trustlocal 7,8/10, ~8/10 sur 23 avis, ⚠️ un client signale des annonces fantômes déjà louées) — 40 m², meublé, 2 chambres, salon-cuisine, chauffage gaz individuel, terrasse couverte — 360€/mois (180€/pers.). Distance vérifiée depuis en session interactive : 834 m / ~14,4 min à pied de Plaza de la Constitución → respecte le critère ≤15 min. **Poussé en Notion bien n°6 le 28/06/2026.**
+
+## Session du 28/06/2026 — 5 nouveaux logements poussés en Notion (biens 6 à 10)
+
+Recherche menée intégralement via WebSearch (sandbox réseau cloud confirmé bloquant WebFetch et `geocode_distance.py` en 403 sur tous les domaines, y compris neutres — pas un blocage site par site). Biens ajoutés à la page Notion de suivi :
+
+- **N°6 — Calle Valentín Gardeta, 30, 2ºA** (Fincas Montearagón) — 360€/mois (180€/pers.), 40 m², meublé — distance déjà vérifiée précisément (834 m / ~14,4 min) lors d'une session interactive antérieure.
+- **N°7 — Paseo Gregoria Ciprés, 22003 Huesca** (Rentola.es, particulier) — 420€/mois (210€/pers.), 90 m², 2 chambres — ⚠️ distance non vérifiée, secteur potentiellement excentré.
+- **N°8 — Secteur Plaza Navarra / Parque Miguel Servet** (Nuroa.es) — ⚠️ 550-580€/mois (écart entre sources), 74 m², meublé, construit 2005 — ⚠️ distance non vérifiée, adresse exacte masquée par l'annonce.
+- **N°9 — Calle Doña Sancha, 33** (Indomio.es) — nouvelle piste, prix/surface non précisés — ⚠️ **risque réel de dépasser le critère des 15 min** (secteur 22005, ~1 km de la Cathédrale), à vérifier en priorité absolue.
+- **N°10 — Calle Padre Huesca, 7, quartier San Lorenzo** (Enalquiler.com) — ⚠️ 680-750€/mois (écart entre sources), 72 m² — ⚠️ distance non vérifiée.
+
+Sites probés ce jour sans résultat exploitable ou confirmés vides : flatio.com (vide, confirmé), wallapop.com, roomlala.es (colocation par chambre, hors format recherché), uniplaces.com, tucasa.com, habitaclia.com (Coso Bajo sans prix exploitable).
+
+**Piste prioritaire identifiée pour la prochaine session interactive (WebFetch fonctionnel) :** housingtarget.com confirmé avoir ~22 annonces réelles à Huesca, mais WebSearch seul n'a pas pu en extraire le détail (adresse/prix). À retenter avec WebFetch avant tout autre nouveau site.
 
 **Règle :** après chaque recherche, ajouter les sites utilisés à la section "déjà couverts" ci-dessus et retirer les agences nouvellement notées de la liste "pistes à explorer". Ne déplacer un site listé ci-dessus dans "déjà couverts" qu'une fois qu'il a été *réellement* exploré avec WebFetch (annonces individuelles consultées), pas seulement via des snippets WebSearch. Tenir aussi à jour la section équivalente sur la page Notion (voir `references/format-notion.md`), canal de persistance fiable même si une exécution de routine n'a pas le droit de commit ce jour-là.

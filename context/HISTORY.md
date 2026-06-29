@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-06-29 (mise à jour 3)
+
+### Sourcing du produit Luma sur 1688 (recherche d'un vrai modèle solaire)
+- **Sourcing Luma lancé** : objectif de trouver sur 1688 le fournisseur de la guirlande Luma pour l'envoyer en sourcing.
+- **Découverte structurante** : la page produit Luma vend "chargée par le soleil" partout (nom du produit, bloc hero, 2 blocs story, 2 questions de FAQ, bénéfices buy box, carte collection). Roméo a d'abord envisagé de retirer l'argument solaire, puis **annulé (aucune modification faite sur le site)**. Décision tranchée : **sourcer un vrai produit solaire** pour que la page reste honnête, plutôt que mentir ou tout réécrire.
+- **1re fiche écartée** (Forest Shine, "Cross-Border ... Tape Measure", Type-C快充) : recharge USB-C uniquement, pas de panneau solaire → ne correspond pas à la promesse "solaire" de la page.
+- **Fiche retenue pour le sourcing** : "Solar-Powered Outdoor Camping Light with Tape Measure, Multifunctional" — coche 太阳能充电板 (panneau solaire bien visible), mécanisme enrouleur mètre-ruban, **66K+ ventes**, la moins chère du comparatif (3 captures), expédition Taizhou Zhejiang. Vérifié contre 2 autres captures (une USB-only écartée, une solaire mais à faible volume).
+- **Message fournisseur envoyé** (anglais, format "Hello, I would like to work with you" + lien + demande de prix pour 1, 2 et 3 pièces). Le prix donnera le COGS Luma à renseigner dans le Sheet budget (K27).
+- ⚠️ **Garde-fou noté** : si le fournisseur ne confirme pas le solaire, il faudra retirer "chargée par le soleil" de la page (pratique commerciale trompeuse, art. L121-2 Code conso).
+- **Méthode 1688 confirmée** : la recherche par image (côté Claude) est impossible et les pages 1688 sont illisibles par WebFetch (blocage robot, page vide) → workflow = Roméo cherche avec les mots-clés chinois fournis et envoie des captures, Claude analyse. Mot-clé décisif pour la version solaire : 太阳能.
+
+---
+
 ## 2026-06-29 (mise à jour 2)
 
 ### Système de suivi budget automatisé (skill `budget`) + 2 premières ventes Zooryn (Luma)

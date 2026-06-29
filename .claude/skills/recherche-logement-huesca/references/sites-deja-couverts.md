@@ -53,4 +53,15 @@ La session a tourné avec WebFetch et le script `geocode_distance.py` bloqués p
 
 - **Calle Valentín Gardeta, n° 30, 2ºA (Huesca)** — agence **Fincas Montearagón** (nouvelle agence, Trustlocal 7,8/10, ~8/10 sur 23 avis, ⚠️ un client signale des annonces fantômes déjà louées) — 40 m², meublé, 2 chambres, salon-cuisine, chauffage gaz individuel, terrasse couverte — 360€/mois (180€/pers.). Distance vérifiée depuis en session interactive : 834 m / ~14,4 min à pied de Plaza de la Constitución → respecte le critère ≤15 min.
 
+## 29/06/2026 (session interactive, après-midi) — WebFetch fonctionnel
+
+- **rentola.es** : enfin exploré avec WebFetch (fonctionne hors routine cloud). La quasi-totalité des annonces de location à Huesca y passe par **Fincas Montearagón**. Attention : les libellés de rue de la page liste sont trompeurs, la vraie adresse est dans l'URL de chaque fiche individuelle (ex. un "Travesía Nevería 360€" pointait en réalité sur Valentín Gardeta 30 = bien 6, doublon).
+- **2 nouveaux logements ajoutés à Notion (biens 13 et 14)** :
+  - 13 — Calle de Camila Gracia, 8 (380€, 65 m², 2 ch, ~4 min, meublé, gaz, charges comunidad incluses) — Fincas Montearagón
+  - 14 — Paseo Gregoria Ciprés / C/ Santo Grial, 4 (330€, 60 m², 2 ch, ~12 min, meublé+rénové, charges incluses, le moins cher) — Fincas Montearagón
+- **Distances des biens 7 à 12 vérifiées en dur** (script geocode, qui fonctionne hors routine) :
+  - 7 Paseo Gregoria Ciprés ~12 min ✓ ; 8 Plaza Navarra ~11 min ✓ ; 10 Padre Huesca ~11 min ✓ ; 11 Pedro Sopeña ~12 min ✓
+  - **9 Calle Doña Sancha : 27,6 min → HORS CRITÈRE, écarté.** **12 Calle Menéndez Pidal : 18,6 min → HORS CRITÈRE, écarté** (fiche Fincas Alcoraz en 404 de surcroît).
+- Pool Fincas Montearagón non encore détaillé sur Rentola (à creuser la prochaine fois si besoin de plus de candidats) : plusieurs 3-4 chambres Paseo Gregoria Ciprés (350-500€), Camila Gracia 3 ch 400€, López Allué 3 ch 600-690€.
+
 **Règle :** après chaque recherche, ajouter les sites utilisés à la section "déjà couverts" ci-dessus et retirer les agences nouvellement notées de la liste "pistes à explorer". Ne déplacer un site listé ci-dessus dans "déjà couverts" qu'une fois qu'il a été *réellement* exploré avec WebFetch (annonces individuelles consultées), pas seulement via des snippets WebSearch. Tenir aussi à jour la section équivalente sur la page Notion (voir `references/format-notion.md`), canal de persistance fiable même si une exécution de routine n'a pas le droit de commit ce jour-là.

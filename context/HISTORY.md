@@ -9,6 +9,14 @@
 
 ## 2026-06-29
 
+### Recherche logement Huesca : routine cloud diagnostiquée cassée, recherche reprise en session interactive (14 biens, liens directs)
+- Diagnostic confirmé sur la routine cloud quotidienne "Recherche logement Huesca" (créée le 24/06) : l'environnement headless bloque WebFetch en 403 sur tous les domaines, pas seulement les sites immobiliers, donc la routine ne peut jamais ouvrir une fiche d'annonce individuelle. Pas de réglage réseau disponible dans l'UI des routines pour le débloquer.
+- Décision : abandon du modèle "routine automatique" pour cette tâche, recherche reprise manuellement en session interactive (WebFetch fonctionne hors routine) à la demande de Roméo.
+- Reprise du travail déjà entamé par l'agent cloud sur la page Notion existante (12 biens) : vérification en dur des distances à pied des biens 7 à 12, ajout de 2 nouveaux logements (13, 14) trouvés sur rentola.es via l'agence Fincas Montearagón.
+- 2 candidats écartés pour distance hors critère (>15 min) : bien 9 (Calle Doña Sancha, 27,6 min) et bien 12 (Calle Menéndez Pidal, 18,6 min, fiche par ailleurs en 404).
+- Correction d'une erreur de catégorisation : le bien 7 était noté "annonceur particulier", en réalité l'agence Fincas Montearagón.
+- Suite à un retour explicite de Roméo, tous les liens de la page Notion ont été remplacés par des liens directs vers la fiche d'annonce précise (plus de lien générique vers la page d'accueil ou la catégorie d'un site). À appliquer systématiquement dès la première passe à l'avenir.
+
 ### Politiques légales de la boutique publiées + barre collante Luma corrigée + nouveau canal d'écriture Admin Shopify
 - Barre collante de la page Luma : disparaît désormais quand le footer entre dans l'écran (footer visible en entier), au lieu de le recouvrir. Script de `sections/zluma-sticky.liquid` modifié (détection du footer en plus du dépassement de la buy box), poussé sur le live.
 - Rédaction puis publication des 6 politiques manquantes (Coordonnées, Mentions légales, Politique d'expédition, Politique de retour et de remboursement, CGV, Conditions de service) à partir des vraies infos de Roméo, sans rien inventer. Garanties légales (conformité 2 ans art. L217-3 et s., vices cachés art. 1641 et s.), droit de rétractation 14 jours (art. L221-18 et s.) et hébergeur Shopify intégrés d'office (obligations légales). Politique de confidentialité laissée telle quelle (auto-générée par Shopify).

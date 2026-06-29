@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-29
+
+### Politiques légales de la boutique publiées + barre collante Luma corrigée + nouveau canal d'écriture Admin Shopify
+- Barre collante de la page Luma : disparaît désormais quand le footer entre dans l'écran (footer visible en entier), au lieu de le recouvrir. Script de `sections/zluma-sticky.liquid` modifié (détection du footer en plus du dépassement de la buy box), poussé sur le live.
+- Rédaction puis publication des 6 politiques manquantes (Coordonnées, Mentions légales, Politique d'expédition, Politique de retour et de remboursement, CGV, Conditions de service) à partir des vraies infos de Roméo, sans rien inventer. Garanties légales (conformité 2 ans art. L217-3 et s., vices cachés art. 1641 et s.), droit de rétractation 14 jours (art. L221-18 et s.) et hébergeur Shopify intégrés d'office (obligations légales). Politique de confidentialité laissée telle quelle (auto-générée par Shopify).
+- Faits Zooryn officialisés dans les politiques : livraison France métropolitaine, gratuite, 5-10 jours ouvrés avec suivi ; rétractation 14 j avec frais de retour à la charge de Zooryn ; garantie commerciale satisfait ou remboursé 30 jours ; paiement Shopify Payments. Identité : Roméo PIAT, entrepreneur individuel, 34 boulevard de la Liberté, 59400 Cambrai, SIRET 105 496 970 00010, franchise en base de TVA (art. 293 B CGI).
+- Médiateur de la consommation laissé en `[À COMPLÉTER]` (article 12 des CGV) : Roméo doit adhérer à un médiateur agréé (obligation légale B2C), puis transmettre les coordonnées.
+- Adresse confirmée par Roméo : 34 boulevard de la Liberté (et non "2.34", erreur de saisie initiale), corrigée dans Coordonnées et Mentions légales après coup.
+- **Nouveau canal d'écriture Admin Shopify débloqué.** Le MCP Shopify ne write pas sur le live et aucun token Admin n'est dans `.env`. Solution : `shopify store auth --store cqqah9-t1.myshopify.com --scopes read_legal_policies,write_legal_policies,read_products,write_products,read_files,write_files,read_shipping,write_shipping,read_themes,write_themes` (ré-auth navigateur faite par Roméo), puis `shopify store execute --allow-mutations` exécute des mutations Admin GraphQL. Les 6 `shopPolicyUpdate` ont été lancées via un script Node (`shopify` est un shim Windows → appel avec `shell: true`, variables passées par `--variable-file`). Ce canal lève la limite "writes MCP bloqués sur le live" pour les opérations Admin GraphQL.
+
+---
+
 ## 2026-06-28 (mise à jour 3)
 
 ### Page Luma (flèches avis mobile + carte collection remplie) + livraison 100% gratuite nettoyée

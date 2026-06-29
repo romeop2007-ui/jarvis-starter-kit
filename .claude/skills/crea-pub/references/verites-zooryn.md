@@ -20,6 +20,9 @@ ou de le recopier du concurrent.
 - **Garantie réelle : 30 jours** (satisfait ou remboursé), pas 365 jours. Si une pub concurrent
   dit "365 jours" ou "garantie à vie", adapter à "30 jours" — ne jamais recopier le chiffre
   d'origine tel quel sur une promesse client.
+- **Retours (officialisé dans les politiques le 29/06/2026)** : droit de rétractation légal
+  14 jours, **frais de retour à la charge de Zooryn** ; EN PLUS garantie commerciale "satisfait
+  ou remboursé" 30 jours. Vrai à dire : "retours gratuits", "satisfait ou remboursé 30 jours".
 
 ## Prix
 
@@ -35,9 +38,9 @@ ou de le recopier du concurrent.
 
 ## Livraison
 
-- ⚠️ Pas de règle écrite confirmée sur la livraison offerte (seuil, pays, délai). Les bandeaux
-  actuels disent "livraison offerte" sur les pages matelas/oreiller — à confirmer avec Romeo
-  avant de généraliser cette mention à un nouveau produit/pub.
+- **Confirmé le 29/06/2026 (officialisé dans la politique d'expédition)** : livraison
+  **100% gratuite**, **France métropolitaine**, délai **5-10 jours ouvrés**, **numéro de suivi**
+  fourni par email. "Livraison offerte / gratuite" est donc vrai et généralisable à toute pub FR.
 
 ## Origine produit
 

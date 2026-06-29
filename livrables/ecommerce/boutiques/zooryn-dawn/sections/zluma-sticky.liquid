@@ -33,10 +33,19 @@
     });
   }
   var hero = document.querySelector('[id^="zluma-buybox-"]');
+  var footer = document.querySelector('.footer') || document.querySelector('footer');
   if(hero){
     window.addEventListener('scroll', function(){
       var rect = hero.getBoundingClientRect();
-      if(rect.bottom < 0){ sticky.classList.add('show'); }
+      var pastHero = rect.bottom < 0;
+      // Masquer la barre dès que le footer entre dans l'écran, pour le laisser
+      // entièrement visible (sinon la barre fixe recouvre son bas).
+      var footerVisible = false;
+      if(footer){
+        var fRect = footer.getBoundingClientRect();
+        footerVisible = fRect.top < window.innerHeight;
+      }
+      if(pastHero && !footerVisible){ sticky.classList.add('show'); }
       else { sticky.classList.remove('show'); }
     });
   }

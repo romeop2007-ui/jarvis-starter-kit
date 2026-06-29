@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-29 (mise à jour 2)
+
+### Système de suivi budget automatisé (skill `budget`) + 2 premières ventes Zooryn (Luma)
+- **Premières vraies ventes de Zooryn : 2 ventes Luma le 29/06** (commandes #1002 et #1003, 29,99 € chacune, payées), après 0 vente sur Sculpted, protège-tibias et matelas. Jalon : les choses sérieuses démarrent, c'est du concret. La 3e commande visible (#1001, 59,98 GBP) est l'ancienne commande test remboursée, ignorée.
+- **Skill `budget` créé** (`.claude/skills/budget/`) : met à jour le Google Sheet "Investissement E-commerce" à la demande de Roméo (modèle crea-pub, déclenché par lui, aucun automate autonome). Va chercher les ventes via le connecteur Shopify MCP (`list-orders` sur Zooryn), le spend via le MCP Facebook Ads (`ads_get_ad_entities`, compte EUR), et écrit dans le Sheet via un compte de service Google.
+- **Arbitrage d'architecture tranché avec Roméo** : écarté n8n (consomme trop de contexte de session, et il veut tourner sur son abonnement pas à l'usage d'API) ET les routines cloud Claude (le bac à sable réseau bloque tout appel direct, donc l'écriture du Sheet casserait comme le bug Huesca ; en plus le connecteur Google Drive est en lecture seule). Retenu : skill local déclenché par message, sur l'abonnement.
+- **Brique technique** : clé Google (compte de service `budget-bot@claude-gws-setup-497511...`) créée dans Google Cloud, déplacée dans le workspace (`.google-service-account.json`, gitignorée), Sheet partagé en Éditeur avec ce compte. Moteur `scripts/budget.mjs` (modes read / values / write / copyformat, via la lib `googleapis`). Le connecteur Drive et la CLI `shopify store execute` sont en lecture seule (CLI sans scope `read_orders`), d'où le compte de service pour écrire et le MCP Shopify pour lire les commandes.
+- **Bloc T4 Luma créé dans le Sheet** avec les vraies données : prix 29,99/49,99/64,99 € (variantes "1/2/3 Luma" lues sur Shopify), 2 ventes palier 1, CA 59,98 €, charges pub 42,45 € (Meta T4), résultat **+17,53 €** (premier testing dans le vert, hors COGS). Mise en forme copiée à l'identique du bloc T3 (`copyformat`).
+- **Structure compta** : Roméo a inséré une ligne "Charges 1 produit" (ligne 27 = prix fournisseur unitaire par testing, à renseigner quand le fournisseur répond) ; la case "Produit - charges" est passée de B28 à **B29** (formule intacte, +K25 pour T4), et la charge fournisseur (ligne 22) est câblée en formule auto = prix unitaire × nombre d'unités vendues. B29 : -2 510,74 € → **-2 493,21 €**.
+
+---
+
 ## 2026-06-29
 
 ### Recherche logement Huesca : routine cloud diagnostiquée cassée, recherche reprise en session interactive (14 biens, liens directs)

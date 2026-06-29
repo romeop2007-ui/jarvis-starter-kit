@@ -7,6 +7,10 @@
 *.key
 *recovery_codes*
 *recovery-codes*
+# Clé du compte de service Google (skill budget)
+.google-service-account.json
+*service-account*.json
+*google-key*.json
 
 # Dépendances
 node_modules/

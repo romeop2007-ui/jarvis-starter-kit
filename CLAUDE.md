@@ -147,6 +147,10 @@ Skill d'enrichissement progressif du contexte. Deux modes :
 
 Skill qui enregistre dans le Google Calendar de Roméo (via le MCP Google Calendar) les dates à retenir : anniversaires, fêtes à cadeau, re-checks business, rendez-vous, engagements. Activée quand Roméo dit "ajoute à mon agenda", "note dans mon calendrier", "mets ça dans le calendrier", "rappelle-moi le…", ou quand l'automatisme de détection des dates (voir section Automatismes) repère une date à proposer. Règle de base : on propose, Roméo valide, on crée. Rappel "cadeau" 1 mois avant pour les occasions à cadeau. Lecture quotidienne via `/morning`.
 
+### budget
+
+Skill qui met à jour le Google Sheet "Investissement E-commerce" (suivi du budget e-commerce) à la demande de Roméo. Activé quand il dit "mets à jour mon budget", "actualise ma compta", "remplis mon tableau d'investissement". Va chercher les ventes (connecteur Shopify MCP) et les dépenses pub (MCP Facebook Ads), puis écrit les cases d'entrée du tableau via un compte de service Google ; les formules (CA, totaux, case finale) se recalculent seules. Modèle crea-pub : Roméo déclenche, le skill exécute dans la session, aucun automate autonome.
+
 ---
 
 ## Getting Started

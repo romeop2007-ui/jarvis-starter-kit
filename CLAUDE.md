@@ -151,6 +151,10 @@ Skill qui enregistre dans le Google Calendar de Roméo (via le MCP Google Calend
 
 Skill qui met à jour le Google Sheet "Investissement E-commerce" (suivi du budget e-commerce) à la demande de Roméo. Activé quand il dit "mets à jour mon budget", "actualise ma compta", "remplis mon tableau d'investissement". Va chercher les ventes (connecteur Shopify MCP) et les dépenses pub (MCP Facebook Ads), puis écrit les cases d'entrée du tableau via un compte de service Google ; les formules (CA, totaux, case finale) se recalculent seules. Modèle crea-pub : Roméo déclenche, le skill exécute dans la session, aucun automate autonome.
 
+### bilan-ads
+
+Skill d'analyse de la campagne Meta du moment. Activé via `/bilan-ads`, ou quand Roméo dit "fais-moi le bilan de mes pubs", "analyse ma campagne Meta", "où on en est sur les ads", "on continue ou on kill le produit ?". Récupère les chiffres via le MCP Facebook Ads (lecture seule), demande le COGS à Roméo, calcule le ROAS break-even et le ROAS cible de la formation, sort un tableau comparatif "ce que tu as vs ce que tu devrais avoir" (en distinguant ce qui vient de la formation de ce qui est une orientation marché), puis recommande kill ou continue avec un budget, directement dans le chat. Ne touche jamais aux campagnes (décision et exécution = Roméo). Barème dans `references/baremes.md`.
+
 ---
 
 ## Getting Started

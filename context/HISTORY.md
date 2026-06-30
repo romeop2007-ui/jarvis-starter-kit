@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-06-30
+
+### Skill `bilan-ads` créé + premier bilan réel de la campagne T4 (guirlande Luma)
+- **Nouveau skill `bilan-ads`** (`.claude/skills/bilan-ads/`, via /skill-creator) : fait à Roméo, directement dans le chat, le bilan de sa campagne Meta du moment (dépense + stats + verdict kill/continue selon sa formation), puis on discute. Lecture seule (MCP Facebook Ads uniquement, jamais d'action sur les campagnes : décision et exécution = Roméo). Déclencheurs : `/bilan-ads`, "fais-moi le bilan de mes pubs", "on continue ou on kill ?". Fichiers : `SKILL.md` + `references/baremes.md`.
+- **2 choix d'honnêteté actés** : (1) le **COGS est demandé à chaque bilan** (le prix de vente est lu/confirmé en direct, le COGS sert au calcul du ROAS break-even) ; (2) là où la formation ne donne PAS de seuil chiffré (CTR, CPC, CPM, taux de conversion), le skill met une fourchette **étiquetée "orientation marché"**, jamais déguisée en règle de la formation. Le verdict s'appuie sur le ROAS break-even (prix / marge) et le ROAS cible (≈ break-even +29 %, pour 20-25 % de marge nette), qui, eux, viennent de la formation.
+- **Premier run réel sur la T4 (guirlande Luma)** : cumul 23-30/06 = **76,07 € dépensés, 2 ventes, ROAS 0,79** (sous le break-even de 1,36 calculé avec prix 29,99 € et COGS 8 €), **perte ≈ −32 €**. Les 2 ventes datent toutes du 1er jour (28/06) ; journée du 30/06 = 31,90 € dépensés, **0 vente**. Funnel sain en haut (CTR 2,6 %) mais **CPM cher (44 €) → CPC 2 €**, qui pousse le CPA (38 €) bien au-dessus de la marge (22 €).
+- **Recoupement Shopify fait** : les 2 ventes Meta = **2 vraies commandes** (#1002 et #1003, 29,99 € chacune, payées, le 28/06). Donc le ROAS Meta n'est pas gonflé, le bilan tient.
+- **Décision : penche kill, tranchée ce soir budget plein** (respect de la règle "laisser le budget se dépenser entièrement avant de juger"). Si 0-1 vente d'ici ce soir → kill la T4, retrait de la guirlande, on enchaîne le **sac sling anti-vol RFID** (prochain produit verrouillé). Si rebond vers le break-even → une 3e journée à 50 €. **On relance `bilan-ads` ce soir pour trancher.**
+- Bug technique corrigé en cours de run : le champ `actions` (global) n'est pas accepté au niveau campagne par le MCP Facebook Ads, il faut cibler les sous-types (`actions:omni_purchase`, `actions:link_click`). Et le preset `maximum` peut s'arrêter la veille : pour le cumul à jour, passer un `time_range` explicite jusqu'au jour J.
+
+---
+
 ## 2026-06-29 (mise à jour 3)
 
 ### Sourcing du produit Luma sur 1688 (recherche d'un vrai modèle solaire)

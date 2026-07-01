@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-07-01
+
+### Kill T4 (guirlande Luma) confirmé + COGS réel révélé + fulfillment Aplusfulfill mis en place
+- **COGS réel Luma obtenu du fournisseur (Aplusfulfill, contact Yuri Yang)** : version solaire = **16,40 $/pièce rendu France** (livraison incluse), ~15,1 €. Break-even ROAS réel ≈ **2,0** (vs 1,36 estimé avec COGS 8 €). Confirme que Luma à 29,99 € n'est pas rentabilisable → **produit killé**, campagne T4 coupée.
+- **Vraie leçon = l'ORDRE des opérations, pas juste "le pricing".** Prix fixé à 29,99 € avant de connaître le COGS rendu → break-even intenable sans le savoir. COGS ~50 % du prix = trop faible pour du dropshipping (viser x3). **Correction process : obtenir le COGS rendu AVANT de fixer le prix et lancer.** À appliquer dès le sac sling.
+- **Fulfillment Aplusfulfill configuré (nouvel actif d'infra réutilisable)** : compte **AF005217**, boutique Shopify connectée à leur plateforme, solde crédité ~40 $ via **PayPal**. Bank transfer écarté (wire SWIFT JPMorgan HK/NY : frais internationaux + crédit du seul montant net reçu = absurde pour un petit rechargement ; à réserver aux gros top-up 500 $+).
+- **2 commandes #1002/#1003 en cours de livraison** (2 × 16,40 $, version solaire, envois séparés vers 2 adresses). La version solaire n'a **pas de port USB-C** alors que la page promettait "Backup USB-C inclus" (mismatch sans conséquence, produit killé, page sans trafic).
+- Bilan du cycle Luma : perte ~50 € COGS inclus, assumée comme coût de formation. **Premier tunnel dropshipping complet exécuté de A à Z** (recherche → boutique → créas → Meta → ventes → fournisseur → fulfillment → livraison). **Prochaine étape : sac sling anti-vol RFID, pricing calé sur COGS réel dès le départ.**
+
+---
+
 ## 2026-06-30
 
 ### Skill `bilan-ads` créé + premier bilan réel de la campagne T4 (guirlande Luma)

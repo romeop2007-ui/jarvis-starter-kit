@@ -1,0 +1,39 @@
+{
+  "sections": {
+    "buybox": {
+      "type": "zsac-buybox",
+      "settings": {
+        "product": "",
+        "gift_handle": "sac-bandouliere-de-voyage-offert"
+      }
+    },
+    "bandtop": {
+      "type": "zsac-band-top",
+      "settings": {}
+    },
+    "avis": {
+      "type": "zsac-avis",
+      "settings": {}
+    },
+    "faq": {
+      "type": "zsac-faq",
+      "settings": {}
+    },
+    "bandbottom": {
+      "type": "zsac-band-bottom",
+      "settings": {}
+    },
+    "sticky": {
+      "type": "zsac-sticky",
+      "settings": {}
+    }
+  },
+  "order": [
+    "buybox",
+    "bandtop",
+    "avis",
+    "faq",
+    "bandbottom",
+    "sticky"
+  ]
+}

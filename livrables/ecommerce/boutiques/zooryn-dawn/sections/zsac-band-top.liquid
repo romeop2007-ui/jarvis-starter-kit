@@ -1,0 +1,95 @@
+{%- comment -%}
+  ZOORYN — Sac : bandeau Trustpilot + 4 tuiles caractéristiques + galerie
+  "apprécié dans le monde entier" + bloc matériau durable. Images en 1254×1254.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+
+<!-- Trustpilot (sans mention externe) -->
+<div class="zsac trustpilot">
+  <div class="wrap">
+    <span class="gros">{{ s.tp_gros | default: 'Excellent' }}</span>
+    <div class="tp-etoiles"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+    <span class="tp-note">{{ s.tp_note | default: 'Note <strong>4,9</strong> / 5 basée sur <strong>1 752 avis</strong>' }}</span>
+  </div>
+</div>
+
+<!-- Caractéristiques : une image carrée pleine largeur -->
+<div class="zsac">
+  <h2 class="section-titre">{{ s.feat_titre | default: 'Caractéristiques' }}</h2>
+  <div class="feature-full">
+    {%- if s.feat_img != blank -%}
+      <img class="img-cover" src="{{ s.feat_img | image_url: width: 2000, height: 2000 }}" alt="{{ s.feat_titre | default: 'Caractéristiques' | escape }}" width="2000" height="2000" loading="lazy">
+    {%- else -%}
+      <div class="ph"><span>Image carrée pleine largeur</span></div>
+    {%- endif -%}
+  </div>
+</div>
+
+<!-- Apprécié dans le monde entier -->
+<div class="zsac">
+  <h2 class="section-titre">{{ s.monde_titre | default: 'Apprécié dans le monde entier' }}</h2>
+  <div class="wrap">
+    <div class="monde-grille">
+      {%- assign caps = 'ville,montagne,randonnée,plage,voyage,quotidien,détail sac,porté épaule' | split: ',' -%}
+      {%- for i in (1..8) -%}
+        {%- assign ikey = 'monde_img_' | append: i -%}
+        <div class="cell">
+          {%- if s[ikey] != blank -%}
+            <img class="img-cover" src="{{ s[ikey] | image_url: width: 1254, height: 1254 }}" alt="Photo client" width="1254" height="1254" loading="lazy">
+          {%- else -%}
+            <div class="ph"><span>Photo client — {{ caps[forloop.index0] }}</span></div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<!-- Deux images carrées (gauche / droite) -->
+<div class="zsac duo-squares">
+  <div class="duo-cell">
+    {%- if s.duo_img_left != blank -%}
+      <img class="img-cover" src="{{ s.duo_img_left | image_url: width: 1254, height: 1254 }}" alt="{{ s.duo_alt_left | escape }}" width="1254" height="1254" loading="lazy">
+    {%- else -%}
+      <div class="ph"><span>Image gauche (carrée)</span></div>
+    {%- endif -%}
+  </div>
+  <div class="duo-cell">
+    {%- if s.duo_img_right != blank -%}
+      <img class="img-cover" src="{{ s.duo_img_right | image_url: width: 1254, height: 1254 }}" alt="{{ s.duo_alt_right | escape }}" width="1254" height="1254" loading="lazy">
+    {%- else -%}
+      <div class="ph"><span>Image droite (carrée)</span></div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Sac — Bandeaux haut",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "Bandeau d'avis" },
+    { "type": "text", "id": "tp_gros", "label": "Mot principal", "default": "Excellent" },
+    { "type": "richtext", "id": "tp_note", "label": "Texte note" },
+    { "type": "header", "content": "Caractéristiques (image carrée)" },
+    { "type": "text", "id": "feat_titre", "label": "Titre", "default": "Caractéristiques" },
+    { "type": "image_picker", "id": "feat_img", "label": "Image carrée (pleine largeur)" },
+    { "type": "header", "content": "Apprécié dans le monde (8 photos)" },
+    { "type": "text", "id": "monde_titre", "label": "Titre", "default": "Apprécié dans le monde entier" },
+    { "type": "image_picker", "id": "monde_img_1", "label": "Photo 1" },
+    { "type": "image_picker", "id": "monde_img_2", "label": "Photo 2" },
+    { "type": "image_picker", "id": "monde_img_3", "label": "Photo 3" },
+    { "type": "image_picker", "id": "monde_img_4", "label": "Photo 4" },
+    { "type": "image_picker", "id": "monde_img_5", "label": "Photo 5" },
+    { "type": "image_picker", "id": "monde_img_6", "label": "Photo 6" },
+    { "type": "image_picker", "id": "monde_img_7", "label": "Photo 7" },
+    { "type": "image_picker", "id": "monde_img_8", "label": "Photo 8" },
+    { "type": "header", "content": "Deux images carrées (gauche / droite)" },
+    { "type": "image_picker", "id": "duo_img_left", "label": "Image gauche (carrée)" },
+    { "type": "text", "id": "duo_alt_left", "label": "Texte alternatif image gauche" },
+    { "type": "image_picker", "id": "duo_img_right", "label": "Image droite (carrée)" },
+    { "type": "text", "id": "duo_alt_right", "label": "Texte alternatif image droite" }
+  ],
+  "presets": [ { "name": "Sac — Bandeaux haut" } ]
+}
+{% endschema %}

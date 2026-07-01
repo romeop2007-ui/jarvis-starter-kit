@@ -1,0 +1,309 @@
+{%- comment -%}
+  ZOORYN — Sac bandoulière de voyage : styles partagés, scopés sous .zsac.
+  Rendu UNE seule fois (dans zsac-buybox, toujours en premier sur la page).
+  Header/footer/barre d'annonce viennent du thème, pas d'ici.
+{%- endcomment -%}
+<style>
+  .zsac{
+    --creme-clair:#EBE7DB;
+    --creme-carte:#E2DDCC;
+    --vert:#154230;
+    --vert-fonce:#103325;
+    --texte-clair:#F3EFE4;
+    --vert-accent:#2F6B4F;
+    --rayon:10px;
+    --max:1280px;
+    color:var(--vert);
+    font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .zsac *{box-sizing:border-box;margin:0;padding:0}
+  .zsac img{display:block;max-width:100%}
+  .zsac a{color:inherit;text-decoration:none}
+  .zsac button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  .zsac h1,.zsac h2,.zsac h3{line-height:1.15;font-weight:800}
+  .zsac .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  .zsac .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+  /* Placeholders visuels */
+  .zsac .ph{
+    background:repeating-linear-gradient(45deg,#d6d2c6,#d6d2c6 14px,#cfcabb 14px,#cfcabb 28px);
+    color:var(--vert);display:flex;align-items:center;justify-content:center;text-align:center;
+    font-size:12px;font-weight:600;letter-spacing:.02em;padding:14px;border-radius:var(--rayon);
+    border:1px dashed #b3ad9c;
+  }
+  .zsac .ph span{background:rgba(235,231,219,.82);padding:6px 10px;border-radius:6px;max-width:90%}
+  .zsac .img-cover{width:100%;height:100%;object-fit:cover}
+
+  /* ===================== PRODUIT (HERO) ===================== */
+  .zsac .product{padding:34px 0 50px;background:var(--creme-clair)}
+  .zsac .product-grid{display:grid;grid-template-columns:1fr 440px;gap:34px;align-items:start}
+
+  /* Galerie desktop : grille 2 colonnes de toutes les photos (façon Off-Grid) */
+  .zsac .gallery-col{min-width:0}
+  .zsac .gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .zsac .gallery-grid .cell{aspect-ratio:1/1;border-radius:var(--rayon);overflow:hidden;background:var(--creme-carte)}
+  .zsac .gallery-grid .cell .img-cover,.zsac .gallery-grid .cell .ph{width:100%;height:100%;border-radius:0}
+  /* Colonne achat : suit le scroll de la grille d'images */
+  .zsac .product-info{position:sticky;top:20px}
+  /* Galerie mobile : bande swipe (cachée en desktop) */
+  .zsac .gallery-swipe-wrap{display:none}
+
+  /* Infos produit */
+  .zsac .product-info{order:3}
+  .zsac .product-info h1{font-size:30px;letter-spacing:-.01em;margin-bottom:8px}
+  .zsac .lien-avis{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--vert);margin-bottom:14px}
+  .zsac .lien-avis .rating-num{color:var(--vert)}
+  .zsac .etoiles{color:#1f8a5b;letter-spacing:1px}
+  /* Étoiles fractionnées (ex. 4,7/5 avec demi-étoile) */
+  .zsac .stars-frac{position:relative;display:inline-block;line-height:1;white-space:nowrap;font-size:16px}
+  .zsac .stars-frac .bg{color:#c9c3b2;letter-spacing:2px}
+  .zsac .stars-frac .fg{color:var(--vert);letter-spacing:2px;position:absolute;top:0;left:0;overflow:hidden;white-space:nowrap}
+  .zsac .accroche{font-size:15.5px;font-weight:700;margin-bottom:18px}
+  .zsac .prix-bloc{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+  .zsac .prix{font-size:26px;font-weight:800}
+  .zsac .prix-barre{font-size:16px;color:var(--vert-accent);text-decoration:line-through;font-weight:600}
+  .zsac .badge-promo{background:var(--vert-accent);color:var(--texte-clair);font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px}
+  .zsac hr.sep{border:none;border-top:1px solid rgba(21,66,48,.15);margin:18px 0}
+
+  .zsac .stock-note{font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;margin:14px 0}
+  .zsac .stock-note::before{content:"";width:9px;height:9px;border-radius:50%;background:#1f8a5b}
+
+  /* Couleur/taille en menus déroulants (dans le palier sélectionné) */
+  .zsac .tier .tier-config-inline{display:none;margin-top:14px}
+  .zsac .tier.selected .tier-config-inline{display:block}
+  .zsac .cfg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .zsac .cfg label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--vert-accent);margin-bottom:5px}
+  .zsac .cfg select{width:100%;padding:11px 12px;border:1px solid rgba(21,66,48,.3);border-radius:8px;background:var(--creme-clair);font-family:inherit;font-size:13.5px;font-weight:600;color:var(--vert);cursor:pointer}
+  /* Palier 1+1 : deux lignes #1 / #2 */
+  .zsac .cfg-hint{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--vert-accent);margin:2px 0 8px}
+  .zsac .cfg-line{display:flex;align-items:center;gap:10px;margin-top:8px}
+  .zsac .cfg-num{font-weight:800;font-size:13px;width:22px;flex:0 0 auto}
+  .zsac .cfg-line .cfg{flex:1;min-width:0}
+
+  /* Offre / bundle (reproduction Off-Grid) */
+  .zsac .bundle{position:relative;border:1px solid rgba(21,66,48,.28);border-radius:var(--rayon);padding:22px 14px 14px;margin:20px 0 14px}
+  .zsac .bundle-legend{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--creme-clair);padding:0 12px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--vert)}
+  .zsac .tiers{display:flex;flex-direction:column;gap:12px}
+  .zsac .tier{border:1.5px solid rgba(21,66,48,.22);border-radius:8px;padding:14px 16px;background:var(--creme-clair);cursor:pointer;transition:border-color .15s,box-shadow .15s}
+  .zsac .tier.selected{border-color:var(--vert);box-shadow:inset 0 0 0 1px var(--vert)}
+  .zsac .tier-head{display:flex;align-items:center;gap:12px}
+  .zsac .tier-radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--vert);flex:0 0 auto;position:relative}
+  .zsac .tier.selected .tier-radio::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--vert)}
+  .zsac .tier-name{flex:1;font-weight:800;font-size:13.5px;text-transform:uppercase;letter-spacing:.02em}
+  .zsac .tier-price{text-align:right;flex:0 0 auto}
+  .zsac .tier-price .now{font-weight:800;font-size:15px}
+  .zsac .tier-price .old{display:block;font-size:12.5px;color:var(--vert-accent);text-decoration:line-through;font-weight:600}
+  .zsac .tier-slot:empty{display:none}
+  /* Add-on sangle rembourrée */
+  .zsac .addon{display:flex;align-items:center;gap:10px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(21,66,48,.15);font-size:12.5px;font-weight:600;cursor:pointer}
+  .zsac .addon input{width:16px;height:16px;flex:0 0 auto;accent-color:var(--vert)}
+  .zsac .addon-ico{width:30px;height:30px;border-radius:6px;background:var(--creme-carte);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .zsac .addon-txt{flex:1}
+  .zsac .addon-price{text-align:right;flex:0 0 auto}
+  .zsac .addon-price .now{font-weight:800}
+  .zsac .addon-price .old{display:block;color:var(--vert-accent);text-decoration:line-through;font-weight:600;font-size:11.5px}
+
+  .zsac .btn-cart{
+    width:100%;background:var(--vert);color:var(--creme-clair);font-size:16px;font-weight:700;
+    letter-spacing:.04em;text-transform:uppercase;padding:16px;border-radius:var(--rayon);transition:background .15s;
+  }
+  .zsac .btn-cart:hover{background:var(--vert-accent)}
+  .zsac .btn-cart[disabled]{opacity:.6;cursor:default}
+
+  .zsac .bandeau-garantie{
+    background:var(--creme-carte);border-radius:var(--rayon);display:flex;justify-content:space-around;gap:10px;
+    text-align:center;padding:14px;margin:16px 0;font-size:12.5px;font-weight:700;
+  }
+  .zsac .bandeau-garantie div{display:flex;flex-direction:column;align-items:center;gap:6px}
+  .zsac .ico{width:26px;height:26px;border-radius:50%;background:var(--vert);color:var(--texte-clair);display:flex;align-items:center;justify-content:center;font-size:13px}
+
+  .zsac .grille-atouts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+  .zsac .grille-atouts div{
+    background:var(--creme-carte);border-radius:var(--rayon);padding:14px 10px;text-align:center;
+    font-size:12.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:8px;
+  }
+  .zsac .grille-atouts .ico{width:30px;height:30px;font-size:14px}
+
+  .zsac .pay-icons{margin:16px 0}
+  .zsac .pay-icons p{font-size:12.5px;font-weight:600;text-align:center;margin-bottom:8px;color:var(--vert-accent)}
+  .zsac .pay-icons .icons-row{display:flex;gap:7px;justify-content:center;flex-wrap:wrap}
+  .zsac .pay-icons .pay-ico{height:24px;width:auto}
+
+  /* Carrousel de ventes additionnelles (upsell) */
+  .zsac .upsell{border:1px solid rgba(21,66,48,.2);border-radius:var(--rayon);margin:16px 0;padding:8px 0 4px}
+  .zsac .upsell-nav{display:flex;gap:8px;padding:0 12px 6px}
+  .zsac .upsell-arrow{width:32px;height:32px;border-radius:50%;background:var(--creme-carte);border:1px solid rgba(21,66,48,.2);font-size:15px;color:var(--vert);display:flex;align-items:center;justify-content:center}
+  .zsac .upsell-view{overflow:hidden}
+  .zsac .upsell-track{display:flex;transition:transform .25s ease}
+  .zsac .upsell-card{flex:0 0 100%;display:flex;align-items:center;gap:14px;padding:6px 14px 12px}
+  .zsac .upsell-card img,.zsac .upsell-card .ph{width:64px;height:64px;border-radius:8px;flex:0 0 auto;object-fit:cover;border:1px solid rgba(21,66,48,.12)}
+  .zsac .upsell-info{flex:1;min-width:0}
+  .zsac .upsell-name{font-weight:700;font-size:14px}
+  .zsac .upsell-price{font-size:13.5px;color:var(--vert-accent);font-weight:700;margin-top:2px}
+  .zsac .upsell-add{border:1px solid var(--vert);border-radius:8px;padding:9px 16px;font-weight:700;font-size:13px;background:var(--creme-clair);color:var(--vert);flex:0 0 auto;white-space:nowrap}
+  .zsac .upsell-add[disabled]{opacity:.45;cursor:default}
+
+  /* Accordéon fiche produit */
+  .zsac .accordeon{border-top:1px solid rgba(21,66,48,.15);margin-top:14px}
+  .zsac .acc-item{border-bottom:1px solid rgba(21,66,48,.15)}
+  .zsac .acc-tete{width:100%;display:flex;justify-content:space-between;align-items:center;
+    padding:15px 2px;font-size:14.5px;font-weight:700;text-align:left;text-transform:uppercase;letter-spacing:.02em;color:inherit}
+  .zsac .acc-tete .chev{transition:transform .2s;font-weight:700}
+  .zsac .acc-item.ouvert .chev{transform:rotate(45deg)}
+  .zsac .acc-corps{display:none;padding:0 2px 18px;font-size:14px;color:var(--vert)}
+  .zsac .acc-item.ouvert .acc-corps{display:block}
+  .zsac .acc-corps ul{margin:8px 0 8px 18px}
+  .zsac .acc-corps li{margin:3px 0}
+  .zsac .acc-corps p{margin:8px 0}
+  .zsac .acc-corps strong{display:inline-block;margin-top:8px}
+
+  /* ===================== TRUSTPILOT BAR ===================== */
+  .zsac.trustpilot{background:var(--creme-carte);padding:26px 0}
+  .zsac.trustpilot .wrap{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;text-align:center}
+  .zsac.trustpilot .gros{font-size:22px;font-weight:800}
+  .zsac .tp-etoiles{display:flex;gap:3px}
+  .zsac .tp-etoiles span{width:26px;height:26px;background:#1f8a5b;color:#fff;display:flex;align-items:center;justify-content:center;border-radius:4px;font-size:15px}
+  .zsac .tp-note{font-size:13.5px;font-weight:600}
+  .zsac .tp-logo{font-weight:800;letter-spacing:.02em}
+
+  /* ===================== TITRE DE SECTION ===================== */
+  .zsac .section-titre{text-align:center;font-size:14px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;padding:42px 0 24px}
+
+  /* FEATURES (4 tuiles) */
+  .zsac .features-grille{display:grid;grid-template-columns:repeat(2,1fr);gap:0}
+  .zsac .feature-tuile{position:relative;aspect-ratio:1/1;overflow:hidden}
+  .zsac .feature-tuile .img-cover,.zsac .feature-tuile .ph{width:100%;height:100%;border-radius:0;border:none}
+  .zsac .feature-tuile .ph{background:repeating-linear-gradient(45deg,#1a1a1a,#1a1a1a 16px,#232323 16px,#232323 32px);color:#fff}
+  .zsac .feature-label{
+    position:absolute;left:22px;bottom:22px;color:#fff;font-size:22px;font-weight:800;text-transform:uppercase;
+    letter-spacing:.04em;text-shadow:0 2px 12px rgba(0,0,0,.5);display:flex;align-items:center;gap:10px;z-index:2;
+  }
+  .zsac .feature-label .ico{background:rgba(255,255,255,.18)}
+  /* FEATURE : une image carrée pleine largeur */
+  .zsac .feature-full{width:100%;aspect-ratio:1/1;overflow:hidden}
+  .zsac .feature-full .img-cover,.zsac .feature-full .ph{width:100%;height:100%;border-radius:0}
+
+  /* APPRÉCIÉ MONDE */
+  .zsac .monde-grille{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .zsac .monde-grille .cell{aspect-ratio:1/1;border-radius:var(--rayon);overflow:hidden}
+  .zsac .monde-grille .ph{aspect-ratio:1/1}
+
+  /* DEUX IMAGES CARRÉES (gauche / droite) */
+  .zsac.duo-squares{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:48px}
+  .zsac.duo-squares .duo-cell{aspect-ratio:1/1;overflow:hidden;background:var(--creme-carte)}
+  .zsac.duo-squares .duo-cell .img-cover,.zsac.duo-squares .duo-cell .ph{width:100%;height:100%;border-radius:0}
+
+  /* AVIS CLIENTS (Loox) */
+  .zsac.avis{padding:54px 0;background:var(--creme-clair)}
+  .zsac .avis-entete{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid rgba(21,66,48,.15);padding-bottom:18px;margin-bottom:6px}
+  .zsac .avis-score{display:flex;align-items:center;gap:14px}
+  .zsac .avis-score .num{font-size:34px;font-weight:800}
+  .zsac .avis-score .etoiles{font-size:18px}
+  .zsac .avis-score small{font-size:12.5px;font-weight:600;color:var(--vert-accent)}
+  .zsac .avis-liste{display:flex;flex-direction:column}
+  .zsac .avis-carte{display:grid;grid-template-columns:1fr 92px;gap:18px;align-items:start;padding:22px 2px;border-bottom:1px solid rgba(21,66,48,.12)}
+  .zsac .avis-carte.hide{display:none}
+  .zsac .avis-corps .top{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .zsac .avis-corps .nom{font-weight:700;font-size:14px}
+  .zsac .verifie{font-size:11px;font-weight:700;color:var(--vert-accent);display:inline-flex;align-items:center;gap:4px}
+  .zsac .avis-corps .titre-avis{font-weight:700;font-size:14px;margin:4px 0}
+  .zsac .avis-corps p{font-size:13.5px}
+  .zsac .avis-photo .img-cover,.zsac .avis-photo .ph{width:92px;height:92px;border-radius:8px}
+  .zsac .avis-plus{text-align:center;margin-top:26px}
+  .zsac .avis-plus button{border:1px solid var(--vert);color:var(--vert);font-weight:700;padding:11px 26px;border-radius:var(--rayon)}
+
+  /* FAQ */
+  .zsac.faq{padding:40px 0 60px;background:var(--creme-clair)}
+  .zsac.faq h2{text-align:center;font-size:30px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:28px}
+  .zsac .faq-liste{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  .zsac .faq-item{background:var(--creme-carte);border-radius:var(--rayon);overflow:hidden}
+  .zsac .faq-tete{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 22px;font-size:15px;font-weight:700;text-align:left;color:inherit}
+  .zsac .faq-tete .chev{font-size:20px;transition:transform .2s;flex:0 0 auto}
+  .zsac .faq-item.ouvert .chev{transform:rotate(45deg)}
+  .zsac .faq-corps{display:none;padding:0 22px 20px;font-size:14px}
+  .zsac .faq-item.ouvert .faq-corps{display:block}
+  .zsac .faq-corps ul{margin:8px 0 8px 18px}
+  .zsac .faq-corps p{margin:8px 0}
+
+  /* RECOMMANDÉ */
+  .zsac.reco{padding:30px 0 56px;background:var(--creme-clair)}
+  .zsac.reco h2{font-size:26px;font-weight:800;margin-bottom:22px}
+  .zsac .reco-grille{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .zsac .reco-carte{background:var(--creme-carte);border-radius:var(--rayon);overflow:hidden;display:flex;flex-direction:column}
+  .zsac .reco-carte .visuel{position:relative}
+  .zsac .reco-carte .visuel .img-cover,.zsac .reco-carte .visuel .ph{aspect-ratio:1/1;border-radius:0;border:none}
+  .zsac .reco-carte .meta{padding:14px 16px 18px}
+  .zsac .reco-carte .meta .nom{font-weight:700;font-size:14px}
+  .zsac .reco-carte .meta .prix-r{font-weight:700;font-size:14px;margin-top:4px}
+
+  /* TRUST BAR (4 colonnes) */
+  .zsac.trust{background:var(--vert);color:var(--texte-clair);padding:46px 0}
+  .zsac .trust-grille{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+  .zsac .trust-col{text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
+  .zsac .trust-col .ico-grand{width:46px;height:46px;border-radius:50%;background:rgba(243,239,228,.14);display:flex;align-items:center;justify-content:center;font-size:20px}
+  .zsac .trust-col h3{font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+  .zsac .trust-col p{font-size:13px;opacity:.88}
+
+  /* NEWSLETTER */
+  .zsac.newsletter{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+  .zsac .newsletter-visuel .img-cover,.zsac .newsletter-visuel .ph{height:100%;min-height:300px;border-radius:0}
+  .zsac .newsletter-form-zone{background:var(--creme-carte);padding:54px 48px;display:flex;flex-direction:column;justify-content:center}
+  .zsac .newsletter-form-zone h2{font-size:27px;margin-bottom:10px}
+  .zsac .newsletter-form-zone p{font-size:14.5px;margin-bottom:18px}
+  .zsac .form-inline{display:flex;gap:10px;flex-wrap:wrap}
+  .zsac .form-inline input{flex:1;min-width:200px;padding:14px;border:1px solid var(--vert);border-radius:var(--rayon);background:var(--creme-clair);font-size:14px;color:var(--vert)}
+  .zsac .form-inline button{background:var(--vert);color:var(--creme-clair);font-weight:700;padding:14px 26px;border-radius:var(--rayon)}
+  .zsac .mention{font-size:11.5px;opacity:.75;margin-top:14px;max-width:560px}
+
+  /* STICKY CTA */
+  .zsac-sticky{
+    position:fixed;left:0;right:0;bottom:0;z-index:80;background:var(--creme-clair);
+    border-top:1px solid rgba(21,66,48,.2);box-shadow:0 -6px 24px rgba(16,51,37,.12);
+    transform:translateY(110%);transition:transform .25s ease;padding:12px 0;
+    font-family:"Manrope",system-ui,sans-serif;color:#154230;
+  }
+  .zsac-sticky.visible{transform:translateY(0)}
+  .zsac-sticky .wrap{max-width:1280px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .zsac-sticky .sc-info{display:flex;align-items:center;gap:14px}
+  .zsac-sticky .sc-vignette{width:46px;height:46px;border-radius:8px;flex:0 0 auto;object-fit:cover}
+  .zsac-sticky .sc-nom{font-weight:700;font-size:14px}
+  .zsac-sticky .sc-prix{font-weight:800;font-size:15px}
+  .zsac-sticky .sc-prix .old{font-weight:600;color:#2F6B4F;text-decoration:line-through;font-size:13px;margin-left:4px}
+  .zsac-sticky .btn-cart{width:auto;background:#154230;color:#EBE7DB;font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:13px 34px;border-radius:10px;border:none;cursor:pointer}
+
+  /* ===================== RESPONSIVE ===================== */
+  @media(max-width:980px){
+    .zsac .product-grid{grid-template-columns:1fr;gap:18px}
+    /* galerie : on cache la grille desktop, on montre la bande swipe */
+    .zsac .gallery-grid{display:none}
+    .zsac .product-info{position:static;order:3}
+    .zsac .gallery-col{order:1}
+    .zsac .gallery-swipe-wrap{display:block;order:1;position:relative}
+    .zsac .gallery-swipe{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-radius:var(--rayon)}
+    .zsac .gallery-swipe::-webkit-scrollbar{display:none}
+    .zsac .gallery-swipe-img{flex:0 0 100%;scroll-snap-align:center;aspect-ratio:1/1;object-fit:cover}
+    .zsac .gallery-swipe-counter{position:absolute;right:12px;bottom:12px;background:rgba(16,51,37,.78);color:#F3EFE4;font-size:12px;font-weight:700;padding:5px 10px;border-radius:20px}
+    .zsac .product-info{order:3}
+    .zsac.duo-squares,.zsac.newsletter{grid-template-columns:1fr}
+    .zsac .trust-grille{grid-template-columns:repeat(2,1fr);gap:26px}
+    .zsac .reco-grille{grid-template-columns:1fr;max-width:420px;margin:0 auto}
+  }
+  @media(max-width:680px){
+    .zsac .product-info h1{font-size:25px}
+    .zsac .features-grille{grid-template-columns:1fr}
+    .zsac .monde-grille{grid-template-columns:repeat(2,1fr)}
+    .zsac .trust-grille{grid-template-columns:1fr}
+    .zsac .grille-atouts{grid-template-columns:repeat(2,1fr)}
+    /* avis : carrousel swipe horizontal avec relief */
+    .zsac .avis-liste{flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:14px;scrollbar-width:none}
+    .zsac .avis-liste::-webkit-scrollbar{display:none}
+    .zsac .avis-carte{flex:0 0 84%;scroll-snap-align:center;grid-template-columns:1fr;border:1px solid rgba(21,66,48,.15);border-radius:var(--rayon);padding:18px;background:var(--creme-carte)}
+    .zsac .avis-carte.hide{display:none}
+    .zsac .avis-photo{display:none}
+    .zsac .avis-mobile-counter{display:block;text-align:center;font-size:12.5px;font-weight:700;color:var(--vert-accent);margin-top:14px}
+    .zsac-sticky .sc-nom{display:none}
+  }
+  .zsac .avis-mobile-counter{display:none}
+</style>

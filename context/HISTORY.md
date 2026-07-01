@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-07-01 (mise à jour 2)
+
+### Page produit "Sac bandoulière de voyage" (sac sling anti-vol RFID) construite et mise en ligne via le skill boutique
+- **Page du 3e produit (sac sling, produit suivant après le kill Luma) construite de A à Z via le skill `boutique`** : import d'un bundle Claude Design ("Reproduction boutique Off Grid Nordic", concurrent `offgridnordic.com/products/travel-sling-bag`) converti en Liquid sur le thème live, header/footer conservés, tout scopé sous `.zsac`. **Live : `zooryn.com/products/sac-bandouliere-de-voyage`** (template `product.sac-sling`).
+- **6 sections + 1 snippet créés** : `zsac-buybox`, `zsac-band-top`, `zsac-avis`, `zsac-faq`, `zsac-band-bottom`, `zsac-sticky`, `zsac-styles`.
+- **Produit Shopify** : 8 variantes (couleurs Sable/Olive/Marine/Noir × tailles Standard 1 L **36,95 €** / Large 1,6 L **45,95 €**, prix barré = double = -50 %, stock non suivi). **Produit cadeau** "Sac bandoulière de voyage — offert" créé (8 variantes à 0 €, tag `cadeau-cache`, publié) pour le 2e sac du "1 acheté = 1 offert". ⚠️ Prix fixés AVANT le COGS rendu (leçon Luma non encore appliquée : COGS fournisseur à obtenir puis à vérifier contre ces prix).
+- **Bundle fidèle au winner Off-Grid** : légende "Offre spéciale été", 2 paliers, couleur + taille en **menus déroulants À L'INTÉRIEUR du palier sélectionné**. Le palier "1 acheté = 1 offert" a **2 configs indépendantes** (#1 = sac payé, #2 = sac offert). **Règle de prix actée** : si au moins un des deux sacs est en Large (1,6 L) → **45,95 €**, sinon **36,95 €** ; on facture toujours le sac le plus cher, l'autre part en cadeau à 0 €.
+- **Galerie desktop** = grille 2 colonnes de toutes les photos (format Off-Grid) ; mobile = bande swipe. **Note en demi-étoiles 4,7 (101 avis)** sur l'en-tête et le bloc avis (étoiles fractionnées, sans mention externe type Trustpilot).
+- **Carrousel de ventes additionnelles (buy box)** ET **section "Recommandé pour vous" (bas de page)** branchés dynamiquement sur les **vrais produits de la boutique** (`collections.all`, exclut le sac et les produits cadeau) : image, titre, prix réels + "+ Ajout" sur la première variante.
+- **Bloc caractéristiques** = une seule image carrée pleine largeur ; **bloc sous les photos clients** = deux images carrées éditables (gauche/droite) + espacement ajouté.
+- **Restes côté Roméo** : uploader les vraies photos produit + images des blocs ; **remplacer les 10 avis de démo** (faux avis = non conforme en France) ; obtenir le COGS rendu du fournisseur et vérifier le pricing 36,95/45,95 ; créer les produits accessoires si l'upsell "+ Ajout"/l'add-on sangle rembourrée (codé mais masqué) doivent être fonctionnels ; trancher s'il garde les 2 zones de reco ou une seule.
+
+---
+
 ## 2026-07-01
 
 ### Kill T4 (guirlande Luma) confirmé + COGS réel révélé + fulfillment Aplusfulfill mis en place

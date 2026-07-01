@@ -1,0 +1,60 @@
+{%- comment -%}
+  ZOORYN — Sac : barre CTA collante. Prix synchronisé par zsac-buybox
+  (#zsacStickyPrice / #zsacStickyOld / #zsacStickyTitle). Le bouton réutilise
+  window.zsacAddToCart exposé par la buy box.
+{%- endcomment -%}
+{%- assign mp = product | default: section.settings.product -%}
+{%- assign img = mp.featured_image -%}
+
+<div class="zsac-sticky" id="zsacSticky">
+  <div class="wrap">
+    <div class="sc-info">
+      {%- if img -%}
+        <img class="sc-vignette" src="{{ img | image_url: width: 120, height: 120 }}" alt="{{ mp.title | escape }}" width="60" height="60">
+      {%- endif -%}
+      <div>
+        <div class="sc-nom" id="zsacStickyTitle">{{ mp.title | default: 'Sac Sling de Voyage 2.0' }}</div>
+        <div class="sc-prix"><span id="zsacStickyPrice">—</span><span class="old" id="zsacStickyOld"></span></div>
+      </div>
+    </div>
+    <button type="button" class="btn-cart" onclick="if(window.zsacAddToCart){window.zsacAddToCart();}">{{ section.settings.cta | default: 'Ajouter au panier' }}</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var bar = document.getElementById('zsacSticky');
+  if(!bar){ return; }
+  var buybox = document.querySelector('[id^="zsac-buybox-"]');
+  var footer = document.querySelector('footer') || document.querySelector('.footer') || document.querySelector('[class*="footer"]');
+  function onScroll(){
+    var show = false;
+    if(buybox){
+      var b = buybox.getBoundingClientRect();
+      /* on affiche quand le bas de la buy box est passé au-dessus de l'écran */
+      if(b.bottom < 80){ show = true; }
+    } else if(window.scrollY > 700){ show = true; }
+    /* on cache quand le footer entre dans l'écran pour le laisser respirer */
+    if(footer){
+      var f = footer.getBoundingClientRect();
+      if(f.top < window.innerHeight){ show = false; }
+    }
+    bar.classList.toggle('visible', show);
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Sac — Barre collante",
+  "tag": "section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Produit rattaché" },
+    { "type": "text", "id": "cta", "label": "Texte bouton", "default": "Ajouter au panier" }
+  ],
+  "presets": [ { "name": "Sac — Barre collante" } ]
+}
+{% endschema %}

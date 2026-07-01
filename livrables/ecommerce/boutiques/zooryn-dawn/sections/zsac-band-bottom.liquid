@@ -1,0 +1,116 @@
+{%- comment -%}
+  ZOORYN — Sac : Recommandé pour vous + barre de réassurance + newsletter.
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+
+<!-- Recommandé pour vous (produits réels de la boutique) -->
+{%- if s.reco_collection != blank -%}
+  {%- assign reco_list = s.reco_collection.products -%}
+{%- else -%}
+  {%- assign reco_list = collections.all.products -%}
+{%- endif -%}
+<div class="zsac reco">
+  <div class="wrap">
+    <h2>{{ s.reco_titre | default: 'Recommandé pour vous' }}</h2>
+    <div class="reco-grille">
+      {%- assign reco_shown = 0 -%}
+      {%- for p in reco_list -%}
+        {%- if p.id == product.id -%}{%- continue -%}{%- endif -%}
+        {%- if p.tags contains 'cadeau-cache' -%}{%- continue -%}{%- endif -%}
+        {%- assign p_title_dc = p.title | downcase -%}
+        {%- if p_title_dc contains 'offert' -%}{%- continue -%}{%- endif -%}
+        <a class="reco-carte" href="{{ p.url }}">
+          <div class="visuel">
+            {%- if p.featured_image -%}
+              <img class="img-cover" src="{{ p.featured_image | image_url: width: 1254, height: 1254 }}" alt="{{ p.title | escape }}" width="1254" height="1254" loading="lazy">
+            {%- else -%}
+              <div class="ph"><span>{{ p.title }}</span></div>
+            {%- endif -%}
+          </div>
+          <div class="meta">
+            <div class="nom">{{ p.title }}</div>
+            <div class="prix-r">{{ p.price | money }}</div>
+          </div>
+        </a>
+        {%- assign reco_shown = reco_shown | plus: 1 -%}
+        {%- if reco_shown >= 6 -%}{%- break -%}{%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<!-- Barre de réassurance (4 colonnes) -->
+<div class="zsac trust">
+  <div class="wrap trust-grille">
+    <div class="trust-col">
+      <span class="ico-grand">💳</span>
+      <h3>{{ s.tc1_t | default: 'Payez en plusieurs fois' }}</h3>
+      <p>{{ s.tc1_p | default: 'Réglez en une fois ou échelonnez votre paiement au moment du checkout.' }}</p>
+    </div>
+    <div class="trust-col">
+      <span class="ico-grand">📦</span>
+      <h3>{{ s.tc2_t | default: 'Livraison sécurisée' }}</h3>
+      <p>{{ s.tc2_p | default: 'Votre livraison est assurée. Si votre commande est endommagée ou bloquée pendant le transport, nous vous en renvoyons une gratuitement.' }}</p>
+    </div>
+    <div class="trust-col">
+      <span class="ico-grand">💬</span>
+      <h3>{{ s.tc3_t | default: 'Service client' }}</h3>
+      <p>{{ s.tc3_p | default: 'Notre support est là pour répondre à toutes vos questions à contact@zooryn.com.' }}</p>
+    </div>
+    <div class="trust-col">
+      <span class="ico-grand">✓</span>
+      <h3>{{ s.tc4_t | default: 'Garantie satisfaction 60 jours' }}</h3>
+      <p>{{ s.tc4_p | default: 'Testez-le pendant 60 jours et soyez remboursé si vous n’êtes pas 100 % satisfait.' }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- Newsletter -->
+<div class="zsac newsletter">
+  <div class="newsletter-visuel">
+    {%- if s.news_img != blank -%}
+      <img class="img-cover" src="{{ s.news_img | image_url: width: 1254, height: 1254 }}" alt="" width="1254" height="1254" loading="lazy">
+    {%- else -%}
+      <div class="ph"><span>Photo lifestyle — sac porté en extérieur</span></div>
+    {%- endif -%}
+  </div>
+  <div class="newsletter-form-zone">
+    <h2>{{ s.news_titre | default: 'Vous voulez 10 % de réduction sur votre prochain achat ?' }}</h2>
+    <p>{{ s.news_texte | default: 'Inscrivez-vous à notre newsletter dès maintenant et économisez encore plus.' }}</p>
+    {%- form 'customer' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <div class="form-inline">
+        <input type="email" name="contact[email]" placeholder="E-mail" aria-label="E-mail" required>
+        <button type="submit">S'inscrire</button>
+      </div>
+      {%- if form.posted_successfully? -%}<p class="mention">Merci, votre inscription est confirmée !</p>{%- endif -%}
+    {%- endform -%}
+    <p class="mention">Votre vie privée nous tient à cœur. En vous inscrivant, vous acceptez que nous traitions vos informations conformément à notre politique de confidentialité pour vous envoyer notre newsletter. Vous pouvez vous désinscrire à tout moment.</p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Sac — Bandeaux bas",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "Recommandé pour vous" },
+    { "type": "text", "id": "reco_titre", "label": "Titre", "default": "Recommandé pour vous" },
+    { "type": "collection", "id": "reco_collection", "label": "Collection à afficher", "info": "Vide = tous les produits de la boutique (hors ce produit et les cadeaux)." },
+    { "type": "header", "content": "Barre de réassurance" },
+    { "type": "text", "id": "tc1_t", "label": "Col 1 titre", "default": "Payez en plusieurs fois" },
+    { "type": "text", "id": "tc1_p", "label": "Col 1 texte", "default": "Réglez en une fois ou échelonnez votre paiement au moment du checkout." },
+    { "type": "text", "id": "tc2_t", "label": "Col 2 titre", "default": "Livraison sécurisée" },
+    { "type": "text", "id": "tc2_p", "label": "Col 2 texte", "default": "Votre livraison est assurée. Si votre commande est endommagée ou bloquée pendant le transport, nous vous en renvoyons une gratuitement." },
+    { "type": "text", "id": "tc3_t", "label": "Col 3 titre", "default": "Service client" },
+    { "type": "text", "id": "tc3_p", "label": "Col 3 texte", "default": "Notre support est là pour répondre à toutes vos questions à contact@zooryn.com." },
+    { "type": "text", "id": "tc4_t", "label": "Col 4 titre", "default": "Garantie satisfaction 60 jours" },
+    { "type": "text", "id": "tc4_p", "label": "Col 4 texte", "default": "Testez-le pendant 60 jours et soyez remboursé si vous n'êtes pas 100 % satisfait." },
+    { "type": "header", "content": "Newsletter" },
+    { "type": "image_picker", "id": "news_img", "label": "Image" },
+    { "type": "text", "id": "news_titre", "label": "Titre", "default": "Vous voulez 10 % de réduction sur votre prochain achat ?" },
+    { "type": "text", "id": "news_texte", "label": "Texte", "default": "Inscrivez-vous à notre newsletter dès maintenant et économisez encore plus." }
+  ],
+  "presets": [ { "name": "Sac — Bandeaux bas" } ]
+}
+{% endschema %}

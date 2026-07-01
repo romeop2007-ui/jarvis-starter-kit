@@ -1,0 +1,97 @@
+{%- comment -%} ZOORYN — Sac : FAQ (Liquid pur). {%- endcomment -%}
+{%- assign sid = section.id -%}
+
+<div class="zsac faq">
+  <div class="wrap">
+    <h2>FAQ</h2>
+    <div class="faq-liste">
+
+      <div class="faq-item">
+        <button type="button" class="faq-tete">Ce sac est-il assez grand pour tous mes accessoires du quotidien ? <span class="chev">+</span></button>
+        <div class="faq-corps">
+          <p>Oui ! Le sac à bandoulière est conçu pour contenir tous vos objets importants : téléphone, portefeuille, clés, passeport, et même de petits accessoires de voyage. Avec ses compartiments spacieux, il offre largement de place pour vos essentiels sans être encombrant.</p>
+          <strong>Standard</strong>
+          <ul><li>Hauteur 19 cm – Largeur 14 cm – Profondeur 4 cm</li><li>Sangle réglable : longueur max 130 cm</li><li>Volume 1 L</li></ul>
+          <strong>Large</strong>
+          <ul><li>Hauteur 22 cm – Largeur 15 cm – Profondeur 6 cm</li><li>Volume 1,6 L</li><li>Sangle réglable : longueur max 130 cm</li></ul>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-tete">Ce sac est-il confortable à porter toute la journée ? <span class="chev">+</span></button>
+        <div class="faq-corps">
+          <p>Absolument. La sangle réglable permet d'ajuster le maintien selon vos besoins. Le sac est léger et conçu pour répartir le poids uniformément et près du corps, afin de ne pas solliciter vos épaules ni votre dos, même après plusieurs heures d'utilisation.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-tete">Quelles sont les dimensions du sac ? <span class="chev">+</span></button>
+        <div class="faq-corps">
+          <p>Hauteur 19 cm – Largeur 14 cm – Profondeur 4 cm</p>
+          <p>Sangle réglable : longueur maximale 130 cm</p>
+          <p>Volume 1 L (Standard) / 1,6 L (Large)</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-tete">Le sac est-il sécurisé ? <span class="chev">+</span></button>
+        <div class="faq-corps">
+          <p>Le sac est équipé d'une sangle résistante à la coupure, d'un tissu bloquant les ondes RFID et d'un clip pour sécuriser les tirettes des fermetures.</p>
+          <p>Il est également conçu avec des fermetures et des compartiments renforcés. Suffisamment compact pour rester près du corps, il complique la tâche des voleurs tout en vous offrant un accès facile quand vous en avez besoin.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-tete">Ma tablette rentre-t-elle dedans ? <span class="chev">+</span></button>
+        <div class="faq-corps">
+          <p>Le Sac Sling de Voyage en taille Large accueille certaines des plus petites tablettes. Les deux tailles sont excellentes pour les grands téléphones.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-tete">Délais de livraison <span class="chev">+</span></button>
+        <div class="faq-corps">
+          <p>Livraison gratuite et suivie. Délais actuels :</p>
+          <ul>
+            <li>France métropolitaine : 3 à 7 jours ouvrés</li>
+            <li>Union Européenne : 5 à 13 jours ouvrés</li>
+          </ul>
+          <p>Vous disposez de 60 jours après réception pour demander un retour.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-tete">Retours et remboursements <span class="chev">+</span></button>
+        <div class="faq-corps">
+          <p>Si vous souhaitez retourner ou échanger votre produit, vous pouvez le faire dans les 60 jours suivant la réception de votre commande. Pour toute demande, contactez-nous à contact@zooryn.com.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-tete">Vous avez encore des questions ? <span class="chev">+</span></button>
+        <div class="faq-corps">
+          <p>Nous sommes toujours là pour vous aider ! Si vous avez besoin de plus d'informations, n'hésitez pas à nous contacter à contact@zooryn.com. Notre équipe se fera un plaisir de vous assister.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('#zsac-faq-{{ sid }} .faq-tete, .zsac.faq .faq-tete').forEach(function(t){
+    if(t.dataset.bound){ return; } t.dataset.bound = '1';
+    t.addEventListener('click', function(){ t.parentElement.classList.toggle('ouvert'); });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Sac — FAQ",
+  "tag": "section",
+  "settings": [],
+  "presets": [ { "name": "Sac — FAQ" } ]
+}
+{% endschema %}

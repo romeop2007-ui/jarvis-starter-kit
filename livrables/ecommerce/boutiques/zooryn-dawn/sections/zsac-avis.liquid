@@ -1,0 +1,93 @@
+{%- comment -%}
+  ZOORYN — Sac : avis clients (style Loox), 100 % Liquid, prénoms FR.
+  ⚠️ Avis de démonstration : à remplacer par de vrais avis avant la pub
+  (faux avis = non conforme en France).
+{%- endcomment -%}
+{%- assign s = section.settings -%}
+{%- assign sid = section.id -%}
+
+{%- comment -%} format : note~nom~titre~texte ||| ... {%- endcomment -%}
+{%- assign rows = "5~Camille D.~Parfait pour voyager léger~Exactement ce que je cherchais. Compact mais je peux y mettre mon téléphone, mon passeport et mes cartes. La sangle est super confortable. ||| 5~Thomas L.~Qualité au rendez-vous~Le tissu est vraiment résistant et la finition impeccable. Les fermetures anti-vol rassurent en ville. Je recommande à 100%. ||| 5~Sophie M.~Discret et pratique~Je le porte sous ma veste quand je voyage et personne ne le remarque. La protection RFID est un vrai plus pour mes cartes. ||| 4~Julien P.~Très bon sac au quotidien~Je l'utilise tous les jours pour aller au travail. Bien organisé, étanche sous la pluie. J'aurais aimé une poche en plus mais rien de grave. ||| 5~Léa R.~Idéal pour les city-trips~Léger, sécurisé, et il tient toutes mes affaires. Parfait pour mes week-ends en ville. La sangle se règle facilement. ||| 5~Maxime B.~Confortable même chargé~Le poids est bien réparti contre le corps, aucune douleur à l'épaule même après plusieurs heures. Très satisfait. ||| 5~Inès G.~Exactement comme décrit~Reçu en une semaine, conforme aux photos. La couleur sable est superbe et le tissu fait premium. ||| 5~Hugo M.~Top pour les festivals~Je l'ai pris pour l'été, il passe partout et je garde mes affaires en sécurité dans la foule. Adopté. ||| 4~Chloé V.~Bonne capacité~Plus spacieux que je pensais, la taille Large avale un petit parapluie et une gourde. Sangle confortable. ||| 5~Antoine R.~Rassurant en déplacement~Fini la peur des pickpockets dans le métro. Les zips se verrouillent, c'est malin. Je le recommande." | split: " ||| " -%}
+
+<div class="zsac avis" id="zsac-avis">
+  <div class="wrap">
+    <div class="avis-entete">
+      {%- assign score = s.score | default: '4,7' -%}
+      {%- assign score_pct = score | replace: ',', '.' | times: 1.0 | divided_by: 5.0 | times: 100 -%}
+      <div class="avis-score">
+        <span class="num">{{ score }}</span>
+        <div>
+          <span class="stars-frac" style="font-size:20px"><span class="bg">★★★★★</span><span class="fg" style="width:{{ score_pct }}%">★★★★★</span></span>
+          <small>{{ s.score_sub | default: 'Basé sur 101 avis vérifiés' }}</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="avis-liste" id="zsacAvisListe-{{ sid }}">
+      {%- for row in rows -%}
+        {%- assign f = row | split: "~" -%}
+        {%- assign note = f[0] | times: 1 -%}
+        <div class="avis-carte{% if forloop.index > 6 %} hide extra{% endif %}">
+          <div class="avis-corps">
+            <div class="top"><span class="nom">{{ f[1] }}</span><span class="verifie">✓ Achat vérifié</span></div>
+            <div class="etoiles">{% for i in (1..5) %}{% if i <= note %}★{% else %}☆{% endif %}{% endfor %}</div>
+            <div class="titre-avis">{{ f[2] }}</div>
+            <p>{{ f[3] }}</p>
+          </div>
+          <div class="avis-photo"><div class="ph"><span></span></div></div>
+        </div>
+      {%- endfor -%}
+    </div>
+    <div class="avis-mobile-counter" id="zsacAvisCounter-{{ sid }}"></div>
+    <div class="avis-plus"><button type="button" id="zsacAvisPlus-{{ sid }}">{{ s.more_label | default: "Voir plus d'avis" }}</button></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var liste = document.getElementById('zsacAvisListe-{{ sid }}');
+  var plus = document.getElementById('zsacAvisPlus-{{ sid }}');
+  if(plus && liste){
+    plus.addEventListener('click', function(){
+      liste.querySelectorAll('.avis-carte.extra').forEach(function(c){ c.classList.remove('hide'); });
+      plus.style.display = 'none';
+    });
+  }
+  /* compteur mobile sur le carrousel d'avis */
+  var counter = document.getElementById('zsacAvisCounter-{{ sid }}');
+  if(liste && counter){
+    function isMobile(){ return window.matchMedia('(max-width:680px)').matches; }
+    var cards = Array.prototype.slice.call(liste.querySelectorAll('.avis-carte'));
+    function visibleCards(){ return cards.filter(function(c){ return !c.classList.contains('hide'); }); }
+    function update(){
+      if(!isMobile()){ counter.textContent=''; return; }
+      var vc = visibleCards();
+      if(vc.length < 2){ counter.textContent=''; return; }
+      var step = vc.length > 1 ? (vc[1].offsetLeft - vc[0].offsetLeft) : liste.clientWidth;
+      var idx = step ? Math.round(liste.scrollLeft / step) + 1 : 1;
+      if(idx < 1){ idx = 1; } if(idx > vc.length){ idx = vc.length; }
+      counter.textContent = idx + ' / ' + vc.length;
+    }
+    var ticking = false;
+    liste.addEventListener('scroll', function(){
+      if(ticking){ return; } ticking = true;
+      window.requestAnimationFrame(function(){ update(); ticking = false; });
+    });
+    window.addEventListener('resize', update);
+    update();
+  }
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Sac — Avis",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "score", "label": "Note", "default": "4,7" },
+    { "type": "text", "id": "score_sub", "label": "Sous-texte", "default": "Basé sur 101 avis vérifiés" },
+    { "type": "text", "id": "more_label", "label": "Bouton voir plus", "default": "Voir plus d'avis" }
+  ],
+  "presets": [ { "name": "Sac — Avis" } ]
+}
+{% endschema %}

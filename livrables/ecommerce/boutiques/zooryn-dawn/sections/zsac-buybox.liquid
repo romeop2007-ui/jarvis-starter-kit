@@ -1,0 +1,491 @@
+{%- comment -%}
+  ZOORYN — Sac bandoulière de voyage : Buy box (reproduction Off-Grid).
+  Galerie desktop = grille 2 colonnes de toutes les photos ; mobile = bande swipe.
+  Bundle fidèle : légende "Offre spéciale été", 2 paliers encadrés.
+  - Palier "1 sac" : 1 choix Couleur + Taille.
+  - Palier "1 acheté = 1 offert" : DEUX choix indépendants (#1 = sac payé,
+    #2 = sac offert), chacun sa Couleur + Taille. Le #2 est ajouté via la variante
+    cadeau (0 €) correspondant à sa couleur+taille.
+{%- endcomment -%}
+{%- render 'zsac-styles' -%}
+
+{%- assign mp = product | default: section.settings.product -%}
+{%- assign s = section.settings -%}
+{%- assign sid = section.id -%}
+{%- assign cta_label = s.cta_label | default: 'Ajouter au panier' -%}
+
+{%- comment -%} Produit cadeau (0 €) pour le 2e sac offert {%- endcomment -%}
+{%- assign gift_handle = s.gift_handle | default: 'sac-bandouliere-de-voyage-offert' -%}
+{%- assign gift = all_products[gift_handle] -%}
+
+{%- assign opt_color = mp.options_with_values[0] -%}
+{%- assign opt_size = mp.options_with_values[1] -%}
+{%- assign imgs = mp.images -%}
+
+{%- capture color_options -%}{%- if opt_color -%}{%- for val in opt_color.values -%}<option value="{{ val | escape }}">{{ val }}</option>{%- endfor -%}{%- endif -%}{%- endcapture -%}
+{%- capture size_options -%}{%- if opt_size -%}{%- for val in opt_size.values -%}<option value="{{ val | escape }}">{{ val }}</option>{%- endfor -%}{%- endif -%}{%- endcapture -%}
+
+<div class="zsac" id="zsac-buybox-{{ sid }}">
+  <section class="product">
+    <div class="wrap product-grid">
+
+      <!-- Galerie -->
+      <div class="gallery-col">
+        <!-- Mobile : bande swipe -->
+        <div class="gallery-swipe-wrap">
+          <div class="gallery-swipe" id="zsacSwipe-{{ sid }}">
+            {%- if imgs.size > 0 -%}
+              {%- for img in imgs -%}
+                <img class="gallery-swipe-img" src="{{ img | image_url: width: 1254, height: 1254 }}" alt="{{ img.alt | escape }}" width="1254" height="1254" loading="lazy">
+              {%- endfor -%}
+            {%- else -%}
+              <div class="ph" style="aspect-ratio:1/1;flex:0 0 100%"><span>Photo produit</span></div>
+            {%- endif -%}
+          </div>
+          {%- if imgs.size > 0 -%}<div class="gallery-swipe-counter" id="zsacSwipeCounter-{{ sid }}">1 / {{ imgs.size }}</div>{%- endif -%}
+        </div>
+        <!-- Desktop : grille 2 colonnes de toutes les photos -->
+        <div class="gallery-grid">
+          {%- if imgs.size > 0 -%}
+            {%- for img in imgs -%}
+              <div class="cell"><img class="img-cover" src="{{ img | image_url: width: 1254, height: 1254 }}" alt="{{ img.alt | escape }}" width="1254" height="1254" loading="lazy"></div>
+            {%- endfor -%}
+          {%- else -%}
+            {%- for i in (1..4) -%}<div class="cell"><div class="ph"><span>Photo produit</span></div></div>{%- endfor -%}
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Infos & achat -->
+      <div class="product-info">
+        <h1>{{ s.title | default: mp.title | default: 'Sac Sling de Voyage 2.0' }}</h1>
+        {%- assign rating_score = s.rating_score | default: '4,7' -%}
+        {%- assign rating_pct = rating_score | replace: ',', '.' | times: 1.0 | divided_by: 5.0 | times: 100 -%}
+        <a href="#zsac-avis" class="lien-avis">
+          <span class="stars-frac"><span class="bg">★★★★★</span><span class="fg" style="width:{{ rating_pct }}%">★★★★★</span></span>
+          <span class="rating-num">{{ rating_score }} ({{ s.rating_count | default: '101' }} avis)</span>
+        </a>
+
+        <p class="accroche">{{ s.tagline | default: "Un sac sûr et discret pour ranger vos effets importants au quotidien, en voyage et dans toutes les situations où un rangement sécurisé est essentiel." }}</p>
+
+        <div class="prix-bloc">
+          <span class="prix" id="zsacPrice-{{ sid }}">—</span>
+          <span class="prix-barre" id="zsacOld-{{ sid }}"></span>
+          <span class="badge-promo" id="zsacBadge-{{ sid }}"></span>
+        </div>
+
+        <hr class="sep">
+
+        <div class="stock-note">{{ s.stock_text | default: 'Quantité limitée en stock, prête à être expédiée' }}</div>
+
+        {%- comment -%} Bundle fidèle (légende + 2 paliers, config couleur/taille dans chaque palier) {%- endcomment -%}
+        <div class="bundle">
+          <span class="bundle-legend">{{ s.bundle_legend | default: "Offre spéciale été" }}</span>
+          <div class="tiers" id="zsacTiers-{{ sid }}">
+
+            <div class="tier" data-tier="single" role="button" tabindex="0">
+              <div class="tier-head">
+                <span class="tier-radio"></span>
+                <span class="tier-name">{{ s.t1_name | default: '1 sac bandoulière' }}</span>
+                <span class="tier-price"><span class="now" data-role="t1-now">—</span></span>
+              </div>
+              <div class="tier-config-inline">
+                <div class="cfg-row">
+                  {%- if opt_color -%}<div class="cfg"><label>{{ opt_color.name }}</label><select class="js-color" data-slot="single">{{ color_options }}</select></div>{%- endif -%}
+                  {%- if opt_size -%}<div class="cfg"><label>{{ opt_size.name }}</label><select class="js-size" data-slot="single">{{ size_options }}</select></div>{%- endif -%}
+                </div>
+              </div>
+            </div>
+
+            <div class="tier selected" data-tier="bogo" role="button" tabindex="0">
+              <div class="tier-head">
+                <span class="tier-radio"></span>
+                <span class="tier-name">{{ s.t2_name | default: '1 acheté = 1 offert' }}</span>
+                <span class="tier-price"><span class="now" data-role="t2-now">—</span><span class="old" data-role="t2-old"></span></span>
+              </div>
+              <div class="tier-config-inline">
+                {%- if opt_color and opt_size -%}<div class="cfg-hint">{{ opt_color.name }}, {{ opt_size.name }}</div>{%- endif -%}
+                <div class="cfg-line">
+                  <span class="cfg-num">#1</span>
+                  {%- if opt_color -%}<div class="cfg"><select class="js-color" data-slot="b1">{{ color_options }}</select></div>{%- endif -%}
+                  {%- if opt_size -%}<div class="cfg"><select class="js-size" data-slot="b1">{{ size_options }}</select></div>{%- endif -%}
+                </div>
+                <div class="cfg-line">
+                  <span class="cfg-num">#2</span>
+                  {%- if opt_color -%}<div class="cfg"><select class="js-color" data-slot="b2">{{ color_options }}</select></div>{%- endif -%}
+                  {%- if opt_size -%}<div class="cfg"><select class="js-size" data-slot="b2">{{ size_options }}</select></div>{%- endif -%}
+                </div>
+              </div>
+              {%- if s.addon_variant_id != blank -%}
+                <label class="addon" id="zsacAddon-{{ sid }}">
+                  <input type="checkbox" id="zsacAddonChk-{{ sid }}" data-variant-id="{{ s.addon_variant_id }}">
+                  <span class="addon-ico">🎒</span>
+                  <span class="addon-txt">{{ s.addon_label | default: 'Ajoutez la sangle rembourrée et économisez 20 %' }}</span>
+                  <span class="addon-price"><span class="now">{{ s.addon_now | default: '8,76 €' }}</span><span class="old">{{ s.addon_old | default: '10,95 €' }}</span></span>
+                </label>
+              {%- endif -%}
+            </div>
+
+          </div>
+        </div>
+
+        <button type="button" class="btn-cart" id="zsacCta-{{ sid }}">{{ cta_label }}</button>
+
+        <!-- Paiement -->
+        <div class="pay-icons">
+          <p>Paiement 100&nbsp;% sécurisé</p>
+          <div class="icons-row">
+            {%- if shop.enabled_payment_types.size > 0 -%}
+              {%- for type in shop.enabled_payment_types -%}{{ type | payment_type_svg_tag: class: 'pay-ico' }}{%- endfor -%}
+            {%- else -%}
+              {%- assign pay_fallback = 'visa,master,american_express,paypal,apple_pay,shopify_pay' | split: ',' -%}
+              {%- for type in pay_fallback -%}{{ type | payment_type_svg_tag: class: 'pay-ico' }}{%- endfor -%}
+            {%- endif -%}
+          </div>
+        </div>
+
+        <!-- Ventes additionnelles (carrousel des produits de la boutique) -->
+        {%- if s.upsell_collection != blank -%}
+          {%- assign up_list = s.upsell_collection.products -%}
+        {%- else -%}
+          {%- assign up_list = collections.all.products -%}
+        {%- endif -%}
+        {%- capture upsell_cards -%}
+          {%- assign up_shown = 0 -%}
+          {%- for p in up_list -%}
+            {%- if p.id == mp.id -%}{%- continue -%}{%- endif -%}
+            {%- if p.tags contains 'cadeau-cache' -%}{%- continue -%}{%- endif -%}
+            {%- assign p_title_dc = p.title | downcase -%}
+            {%- if p_title_dc contains 'offert' -%}{%- continue -%}{%- endif -%}
+            {%- assign pv = p.selected_or_first_available_variant -%}
+            <div class="upsell-card">
+              {%- if p.featured_image -%}<img src="{{ p.featured_image | image_url: width: 200, height: 200 }}" alt="{{ p.title | escape }}" width="64" height="64" loading="lazy">{%- else -%}<div class="ph"><span></span></div>{%- endif -%}
+              <div class="upsell-info">
+                <a href="{{ p.url }}" class="upsell-name">{{ p.title }}</a>
+                <div class="upsell-price">{{ p.price | money }}</div>
+              </div>
+              {%- if pv -%}<button type="button" class="upsell-add" data-variant-id="{{ pv.id }}">+ Ajout</button>{%- else -%}<button type="button" class="upsell-add" disabled>+ Ajout</button>{%- endif -%}
+            </div>
+            {%- assign up_shown = up_shown | plus: 1 -%}
+            {%- if up_shown >= 8 -%}{%- break -%}{%- endif -%}
+          {%- endfor -%}
+        {%- endcapture -%}
+        {%- if upsell_cards contains 'upsell-card' -%}
+          <div class="upsell" id="zsacUpsell-{{ sid }}">
+            <div class="upsell-nav">
+              <button type="button" class="upsell-arrow prev" aria-label="Précédent">‹</button>
+              <button type="button" class="upsell-arrow next" aria-label="Suivant">›</button>
+            </div>
+            <div class="upsell-view">
+              <div class="upsell-track">{{ upsell_cards }}</div>
+            </div>
+          </div>
+        {%- endif -%}
+
+        <!-- Bandeau garantie -->
+        <div class="bandeau-garantie">
+          <div><span class="ico">✓</span>{{ s.g1 | default: 'GARANTIE 60 JOURS' }}</div>
+          <div><span class="ico">↺</span>{{ s.g2 | default: 'RETOURS FACILES' }}</div>
+        </div>
+
+        <!-- Atouts -->
+        <div class="grille-atouts">
+          <div><span class="ico">⌛</span>Confortable toute la journée</div>
+          <div><span class="ico">((•))</span>Protection RFID</div>
+          <div><span class="ico">🔒</span>Anti-vol</div>
+          <div><span class="ico">💧</span>Résistant à l'eau</div>
+          <div><span class="ico">◑</span>Dissimulable</div>
+          <div><span class="ico">↔</span>Sangle réglable</div>
+        </div>
+
+        <!-- Accordéon fiche produit -->
+        <div class="accordeon">
+          <div class="acc-item ouvert">
+            <button type="button" class="acc-tete">Le sac ultime pour le quotidien et le voyage <span class="chev">+</span></button>
+            <div class="acc-corps">
+              <p>Fini de fouiller pour retrouver vos essentiels ou de vous inquiéter pour votre sécurité quand vous êtes en déplacement. Notre Sac Sling de Voyage 2.0 est conçu en alliant fonction et style, parfait aussi bien pour les voyageurs que pour les aventuriers du quotidien.</p>
+              <p>Fabriqué dans un matériau premium résistant aux intempéries, il vous offre la tranquillité d'esprit grâce à des fonctionnalités telles que la protection RFID et des fermetures anti-vol qui gardent vos objets de valeur à l'abri des pickpockets et des mains curieuses.</p>
+              <strong>Caractéristiques</strong>
+              <ul>
+                <li>Plusieurs compartiments pour une organisation facile</li>
+                <li>Protection RFID pour les objets sensibles comme les passeports et cartes bancaires</li>
+                <li>Fermetures éclair anti-vol</li>
+                <li>Matériaux résistants aux intempéries et à l'eau</li>
+                <li>Compact mais suffisamment spacieux pour vos essentiels</li>
+                <li>Peut se porter discrètement sous une veste</li>
+              </ul>
+            </div>
+          </div>
+          <div class="acc-item">
+            <button type="button" class="acc-tete">Dimensions et capacité <span class="chev">+</span></button>
+            <div class="acc-corps">
+              <strong>Standard</strong>
+              <ul><li>Hauteur 19 cm – Largeur 13 cm – Profondeur 3 cm</li><li>Sangle réglable : longueur max 130 cm</li><li>Volume 1 L</li></ul>
+              <p>Accueille aussi les plus grands téléphones comme l'iPhone 15 Pro Max ou le Samsung Galaxy S24 Ultra.</p>
+              <strong>Large</strong>
+              <ul><li>Hauteur 21 cm – Largeur 15 cm – Profondeur 4 cm</li><li>Sangle réglable : longueur max 130 cm</li><li>Volume 1,6 L</li></ul>
+            </div>
+          </div>
+          <div class="acc-item">
+            <button type="button" class="acc-tete">Matériau <span class="chev">+</span></button>
+            <div class="acc-corps">
+              <p>Tissu nylon 500D.</p>
+              <p>Grandes fermetures éclair.</p>
+              <strong>Tissu bloquant les ondes RFID</strong>
+              <p>Nos sacs sont doublés d'un tissu avancé bloquant les ondes RFID pour protéger vos informations personnelles où que vous alliez. Léger mais efficace, il protège vos cartes bancaires, passeports et documents d'identité contre le vol numérique pour voyager et vous déplacer en toute sérénité.</p>
+            </div>
+          </div>
+          <div class="acc-item">
+            <button type="button" class="acc-tete">Livraison &amp; Retours <span class="chev">+</span></button>
+            <div class="acc-corps">
+              <p>Livraison gratuite sur toutes les commandes, délai de 3 à 12 jours, avec suivi.</p>
+              <p>Garantie 60 jours. Essayez-le pendant 60 jours. Il ne vous convient pas ? Vous pouvez le retourner, sans stress ni complications.</p>
+              <p>Dans le rare cas où votre commande serait perdue ou retardée pendant le transport, nous vous en renvoyons une ou vous remboursons.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('zsac-buybox-{{ sid }}');
+  if(!root){ return; }
+
+  var variants = [
+    {%- for v in mp.variants -%}
+    { id:{{ v.id }}, color:{{ v.option1 | json }}, size:{{ v.option2 | json }}, price:{{ v.price }}, compare:{{ v.compare_at_price | default: 0 }}, available:{{ v.available }} }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ];
+  var gifts = {
+    {%- if gift -%}
+    {%- for v in gift.variants -%}
+    {{ v.option1 | append: '|' | append: v.option2 | json }}: {{ v.id }}{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+    {%- endif -%}
+  };
+
+  var d = variants.length ? variants[0] : { color:null, size:null };
+  var state = {
+    tier: 'bogo',
+    single: { color:d.color, size:d.size },
+    b1:     { color:d.color, size:d.size },
+    b2:     { color:d.color, size:d.size }
+  };
+
+  function fmt(c){ return (c/100).toFixed(2).replace('.', ',') + ' €'; }
+  function find(color, size){
+    for(var i=0;i<variants.length;i++){
+      if(variants[i].color===color && variants[i].size===size){ return variants[i]; }
+    }
+    return variants[0] || { id:0, price:0, compare:0 };
+  }
+  function priceOf(cfg){ var v = find(cfg.color, cfg.size); return v ? v.price : 0; }
+
+  var priceEl = document.getElementById('zsacPrice-{{ sid }}');
+  var oldEl   = document.getElementById('zsacOld-{{ sid }}');
+  var badgeEl = document.getElementById('zsacBadge-{{ sid }}');
+
+  function setRole(role, txt){
+    var el = root.querySelector('[data-role="'+role+'"]');
+    if(el){ el.textContent = txt || ''; el.style.display = txt ? '' : 'none'; }
+  }
+
+  function render(){
+    /* Palier 1 : prix du sac unique */
+    setRole('t1-now', fmt(priceOf(state.single)));
+    /* Palier 1+1 : on paie le sac le plus cher des deux, l'autre est offert.
+       -> si au moins un des deux est Large (1,6 L), le prix payé passe à 45,95 €. */
+    var p1 = priceOf(state.b1), p2 = priceOf(state.b2);
+    var bogoPaid = Math.max(p1, p2);
+    var bogoValue = p1 + p2;
+    setRole('t2-now', fmt(bogoPaid));
+    setRole('t2-old', fmt(bogoValue));
+    /* Prix d'en-tête = selon le palier sélectionné */
+    var headPrice, headCompare;
+    if(state.tier === 'single'){
+      var vs = find(state.single.color, state.single.size);
+      headPrice = vs.price;
+      headCompare = vs.compare > vs.price ? vs.compare : vs.price*2;
+    } else {
+      headPrice = bogoPaid;
+      headCompare = bogoValue;
+    }
+    if(priceEl){ priceEl.textContent = fmt(headPrice); }
+    if(oldEl){ oldEl.textContent = headCompare > headPrice ? fmt(headCompare) : ''; oldEl.style.display = headCompare > headPrice ? '' : 'none'; }
+    if(badgeEl){
+      var pct = headCompare > headPrice ? Math.round((headCompare - headPrice)/headCompare*100) : 0;
+      badgeEl.textContent = pct>0 ? ('-'+pct+'%') : '';
+      badgeEl.style.display = pct>0 ? '' : 'none';
+    }
+    /* sync des menus */
+    root.querySelectorAll('.js-color').forEach(function(el){ el.value = state[el.getAttribute('data-slot')].color; });
+    root.querySelectorAll('.js-size').forEach(function(el){ el.value = state[el.getAttribute('data-slot')].size; });
+    syncSticky(headPrice, headCompare);
+  }
+
+  /* Menus couleur / taille (single, b1, b2) */
+  root.querySelectorAll('.js-color').forEach(function(el){
+    el.addEventListener('change', function(){ state[el.getAttribute('data-slot')].color = el.value; render(); });
+  });
+  root.querySelectorAll('.js-size').forEach(function(el){
+    el.addEventListener('change', function(){ state[el.getAttribute('data-slot')].size = el.value; render(); });
+  });
+
+  /* Paliers */
+  var tiersWrap = document.getElementById('zsacTiers-{{ sid }}');
+  var tiers = Array.prototype.slice.call(tiersWrap.querySelectorAll('.tier'));
+  tiers.forEach(function(t){
+    t.addEventListener('click', function(e){
+      if(e.target.tagName === 'SELECT' || e.target.tagName === 'OPTION'){ return; }
+      tiers.forEach(function(x){ x.classList.remove('selected'); });
+      t.classList.add('selected');
+      state.tier = t.getAttribute('data-tier');
+      render();
+    });
+  });
+  var initSel = tiersWrap.querySelector('.tier.selected');
+  if(initSel){ state.tier = initSel.getAttribute('data-tier'); }
+
+  /* Compteur galerie mobile (swipe) */
+  var swipe = document.getElementById('zsacSwipe-{{ sid }}');
+  var swipeCounter = document.getElementById('zsacSwipeCounter-{{ sid }}');
+  if(swipe && swipeCounter){
+    var simgs = swipe.querySelectorAll('.gallery-swipe-img');
+    var total = simgs.length, ticking = false;
+    swipe.addEventListener('scroll', function(){
+      if(ticking){ return; } ticking = true;
+      window.requestAnimationFrame(function(){
+        var idx = Math.round(swipe.scrollLeft / swipe.clientWidth) + 1;
+        if(idx<1){ idx=1; } if(idx>total){ idx=total; }
+        swipeCounter.textContent = idx + ' / ' + total;
+        ticking = false;
+      });
+    });
+  }
+
+  /* Accordéons */
+  root.querySelectorAll('.acc-tete').forEach(function(t){
+    t.addEventListener('click', function(){ t.parentElement.classList.toggle('ouvert'); });
+  });
+
+  /* Carrousel de ventes additionnelles */
+  var up = document.getElementById('zsacUpsell-{{ sid }}');
+  if(up){
+    var upTrack = up.querySelector('.upsell-track');
+    var upCards = upTrack ? upTrack.querySelectorAll('.upsell-card') : [];
+    var ui = 0;
+    function upShow(i){
+      if(!upCards.length){ return; }
+      if(i<0){ i = upCards.length-1; } if(i>=upCards.length){ i = 0; }
+      ui = i;
+      upTrack.style.transform = 'translateX(-' + (i*100) + '%)';
+    }
+    var upPrev = up.querySelector('.upsell-arrow.prev');
+    var upNext = up.querySelector('.upsell-arrow.next');
+    if(upPrev){ upPrev.addEventListener('click', function(){ upShow(ui-1); }); }
+    if(upNext){ upNext.addEventListener('click', function(){ upShow(ui+1); }); }
+    up.querySelectorAll('.upsell-add').forEach(function(b){
+      if(b.disabled){ return; }
+      b.addEventListener('click', function(){
+        var vid = Number(b.getAttribute('data-variant-id'));
+        if(!vid){ return; }
+        b.disabled = true;
+        fetch('{{ routes.cart_add_url }}.js', {
+          method:'POST', headers:{ 'Content-Type':'application/json' },
+          body: JSON.stringify({ items: [{ id: vid, quantity: 1 }] })
+        }).then(function(r){ return r.json(); })
+          .then(function(){ b.textContent = 'Ajouté ✓'; })
+          .catch(function(){ b.disabled = false; });
+      });
+    });
+  }
+
+  /* Sticky */
+  function syncSticky(priceCents, compareCents){
+    var sp = document.getElementById('zsacStickyPrice');
+    if(!sp){ return; }
+    var so = document.getElementById('zsacStickyOld');
+    var st = document.getElementById('zsacStickyTitle');
+    sp.textContent = fmt(priceCents);
+    if(so){ so.textContent = compareCents > priceCents ? fmt(compareCents) : ''; so.style.display = compareCents > priceCents ? '' : 'none'; }
+    if(st){ st.textContent = {{ s.title | default: mp.title | default: 'Sac Sling de Voyage 2.0' | json }}; }
+  }
+
+  /* Ajout au panier */
+  function addToCart(){
+    var items;
+    if(state.tier === 'single'){
+      var vs = find(state.single.color, state.single.size);
+      if(!vs || !vs.id){ window.location.href = '{{ routes.cart_url }}'; return; }
+      items = [{ id: vs.id, quantity: 1 }];
+    } else {
+      /* on paie le sac le plus cher (Large si présent), on offre l'autre */
+      var v1 = find(state.b1.color, state.b1.size);
+      var v2 = find(state.b2.color, state.b2.size);
+      var paidV, giftCfg;
+      if(v2.price > v1.price){ paidV = v2; giftCfg = state.b1; }
+      else { paidV = v1; giftCfg = state.b2; }
+      if(!paidV || !paidV.id){ window.location.href = '{{ routes.cart_url }}'; return; }
+      items = [{ id: paidV.id, quantity: 1 }];
+      var gid = gifts[giftCfg.color + '|' + giftCfg.size];
+      if(gid){ items.push({ id: gid, quantity: 1 }); }
+      var addonChk = document.getElementById('zsacAddonChk-{{ sid }}');
+      if(addonChk && addonChk.checked){
+        var av = Number(addonChk.getAttribute('data-variant-id'));
+        if(av){ items.push({ id: av, quantity: 1 }); }
+      }
+    }
+    var btn = document.getElementById('zsacCta-{{ sid }}');
+    if(btn){ btn.disabled = true; }
+    fetch('{{ routes.cart_add_url }}.js', {
+      method:'POST', headers:{ 'Content-Type':'application/json' },
+      body: JSON.stringify({ items: items })
+    }).then(function(r){ return r.json(); })
+      .then(function(){ window.location.href = '{{ routes.cart_url }}'; })
+      .catch(function(){ if(btn){ btn.disabled = false; } });
+  }
+  window.zsacAddToCart = addToCart;
+  var cta = document.getElementById('zsacCta-{{ sid }}');
+  if(cta){ cta.addEventListener('click', addToCart); }
+
+  render();
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Sac — Buy box",
+  "tag": "section",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Produit rattaché", "info": "Sur une page produit, le produit de la page est utilisé automatiquement." },
+    { "type": "text", "id": "gift_handle", "label": "Handle du produit cadeau (2e offert)", "default": "sac-bandouliere-de-voyage-offert" },
+    { "type": "header", "content": "En-tête produit" },
+    { "type": "text", "id": "title", "label": "Titre (vide = titre du produit)" },
+    { "type": "text", "id": "rating_score", "label": "Note (sur 5)", "default": "4,7" },
+    { "type": "text", "id": "rating_count", "label": "Nombre d'avis", "default": "101" },
+    { "type": "text", "id": "tagline", "label": "Accroche", "default": "Un sac sûr et discret pour ranger vos effets importants au quotidien, en voyage et dans toutes les situations où un rangement sécurisé est essentiel." },
+    { "type": "text", "id": "stock_text", "label": "Texte de stock", "default": "Quantité limitée en stock, prête à être expédiée" },
+    { "type": "header", "content": "Bundle" },
+    { "type": "text", "id": "bundle_legend", "label": "Légende de l'offre", "default": "Offre spéciale été" },
+    { "type": "text", "id": "t1_name", "label": "Palier 1 — nom", "default": "1 sac bandoulière" },
+    { "type": "text", "id": "t2_name", "label": "Palier 2 — nom", "default": "1 acheté = 1 offert" },
+    { "type": "header", "content": "Add-on sangle (vide = masqué)" },
+    { "type": "text", "id": "addon_variant_id", "label": "ID de variante de l'add-on", "info": "ID numérique de la variante à ajouter (ex. sangle rembourrée). Vide = pas d'add-on affiché." },
+    { "type": "text", "id": "addon_label", "label": "Texte de l'add-on", "default": "Ajoutez la sangle rembourrée et économisez 20 %" },
+    { "type": "text", "id": "addon_now", "label": "Prix add-on", "default": "8,76 €" },
+    { "type": "text", "id": "addon_old", "label": "Prix add-on barré", "default": "10,95 €" },
+    { "type": "header", "content": "Carrousel ventes additionnelles" },
+    { "type": "collection", "id": "upsell_collection", "label": "Collection à proposer", "info": "Vide = tous les produits de la boutique (hors ce produit et les cadeaux)." },
+    { "type": "header", "content": "Garantie" },
+    { "type": "text", "id": "g1", "label": "Garantie 1", "default": "GARANTIE 60 JOURS" },
+    { "type": "text", "id": "g2", "label": "Garantie 2", "default": "RETOURS FACILES" },
+    { "type": "header", "content": "Boutons" },
+    { "type": "text", "id": "cta_label", "label": "Texte bouton panier", "default": "Ajouter au panier" }
+  ],
+  "presets": [ { "name": "Sac — Buy box" } ]
+}
+{% endschema %}

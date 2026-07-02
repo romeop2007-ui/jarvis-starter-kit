@@ -164,17 +164,22 @@ function makeTextMaterial(template, { text, words, language = "fr-FR" }) {
   return mat;
 }
 
-async function buildVoiceType({ lot, ad, adDir, videoPath, audioPath }) {
+async function buildVoiceType({ lot, ad, adDir, videoPath, audioPath, captionAudioPath }) {
+  // audioPath = piste audio POSEE dans la timeline (peut etre voix-sur-musique.mp3 = voix FR +
+  // musique de fond d'origine, voix etrangere retiree). captionAudioPath = fichier utilise pour
+  // la STT des sous-titres : toujours la VOIX SEULE (voix-off.mp3), sinon la musique brouille la
+  // transcription. Si captionAudioPath absent, on retombe sur audioPath.
+  const sttPath = captionAudioPath && existsSync(captionAudioPath) ? captionAudioPath : audioPath;
   const videoDur = await getDuration(videoPath);
   const audioDur = await getDuration(audioPath);
 
-  console.log(`Type VOICE : video ${videoDur.toFixed(2)}s, voix off ${audioDur.toFixed(2)}s`);
-  if (Math.abs(videoDur - audioDur) > 1) {
-    console.warn(`Ecart > 1s entre video et voix off : verifier voix-off.mp3 avant de monter (regle SKILL.md).`);
+  console.log(`Type VOICE : video ${videoDur.toFixed(2)}s, piste audio ${audioDur.toFixed(2)}s (${basename(audioPath)}), sous-titres depuis ${basename(sttPath)}`);
+  if (Math.abs(videoDur - audioDur) > 1.5) {
+    console.warn(`Ecart > 1.5s entre video et piste audio : Vmake a pu raccourcir la video, la fin d'audio depassera (a rogner dans CapCut).`);
   }
 
-  console.log("STT de la voix off (ElevenLabs)...");
-  const buf = readFileSync(audioPath);
+  console.log("STT de la voix (ElevenLabs)...");
+  const buf = readFileSync(sttPath);
   const form = new FormData();
   form.append("model_id", "scribe_v1");
   form.append("file", new Blob([buf], { type: "audio/mpeg" }), "audio.mp3");
@@ -205,7 +210,7 @@ async function buildVoiceType({ lot, ad, adDir, videoPath, audioPath }) {
   audioMat.path = toPosix(audioPath);
   audioMat.local_material_id = lowerUuid();
   audioMat.duration = ms2us(audioDur);
-  audioMat.name = "voix-off.mp3";
+  audioMat.name = basename(audioPath);
   d.materials.audios = [audioMat];
   const audioTrack = d.tracks.find((t) => t.type === "audio");
   const audioSeg = audioTrack.segments[0];
@@ -216,6 +221,15 @@ async function buildVoiceType({ lot, ad, adDir, videoPath, audioPath }) {
   const textTemplate = d.materials.texts[0];
   const textTrack = d.tracks.find((t) => t.type === "text");
   const textSegTemplate = textTrack.segments[0];
+
+  // Si une bande de masquage a ete posee sur la trace du detourage (bande.json ecrit par la
+  // pose de la bande noire), on cale les sous-titres SUR cette bande (captionY), pour couvrir
+  // proprement la zone et faire un bandeau naturel. Sinon position par defaut du template (bas).
+  const bandePath = join(adDir, "bande.json");
+  let captionY = null;
+  if (existsSync(bandePath)) {
+    try { captionY = JSON.parse(readFileSync(bandePath, "utf8")).captionY; } catch {}
+  }
 
   const newTexts = [], newSegs = [];
   for (const g of groups) {
@@ -235,6 +249,7 @@ async function buildVoiceType({ lot, ad, adDir, videoPath, audioPath }) {
     seg.material_id = mat.id;
     seg.target_timerange = { start: ms2us(start), duration: ms2us(end - start) };
     seg.source_timerange = null;
+    if (captionY !== null && seg.clip && seg.clip.transform) seg.clip.transform.y = captionY;
     newSegs.push(seg);
   }
   d.materials.texts = newTexts;
@@ -334,16 +349,21 @@ async function main() {
   if (!existsSync(adDir)) throw new Error(`Dossier introuvable : ${adDir}`);
 
   const videoPath = join(adDir, "video-sans-soustitres.mp4");
-  const audioPath = join(adDir, "voix-off.mp3");
+  const voixOffPath = join(adDir, "voix-off.mp3");
+  const comboPath = join(adDir, "voix-sur-musique.mp3");
   const mdPath = join(adDir, "accroches-fr.md");
   if (!existsSync(videoPath)) throw new Error(`video-sans-soustitres.mp4 manquant dans ${adDir}`);
 
-  const type = typeArg || (existsSync(audioPath) ? "voice" : existsSync(mdPath) ? "musical" : null);
+  // Piste audio posee : si voix-sur-musique.mp3 existe (voix FR + musique de fond conservee),
+  // on la prefere a la voix seule -> le rendu garde la musique sans la voix etrangere.
+  const audioPath = existsSync(comboPath) ? comboPath : voixOffPath;
+
+  const type = typeArg || (existsSync(voixOffPath) ? "voice" : existsSync(mdPath) ? "musical" : null);
   if (!type) throw new Error("Type indetectable : ni voix-off.mp3 ni accroches-fr.md dans ce dossier.");
 
   const { d, totalCaptions } =
     type === "voice"
-      ? await buildVoiceType({ lot, ad, adDir, videoPath, audioPath })
+      ? await buildVoiceType({ lot, ad, adDir, videoPath, audioPath, captionAudioPath: voixOffPath })
       : await buildMusicalType({ lot, ad, adDir, videoPath, mdPath });
 
   d.id = uuid();

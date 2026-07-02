@@ -113,18 +113,22 @@
   .zsac .btn-cart[disabled]{opacity:.6;cursor:default}
 
   .zsac .bandeau-garantie{
-    background:var(--creme-carte);border-radius:var(--rayon);display:flex;justify-content:space-around;gap:10px;
-    text-align:center;padding:14px;margin:16px 0;font-size:12.5px;font-weight:700;
+    display:grid;grid-template-columns:1fr 1fr;overflow:hidden;
+    border:1px solid rgba(21,66,48,.18);border-radius:var(--rayon);margin:16px 0;
   }
-  .zsac .bandeau-garantie div{display:flex;flex-direction:column;align-items:center;gap:6px}
+  .zsac .bandeau-garantie div{
+    display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 10px;
+    font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--creme-carte);
+  }
+  .zsac .bandeau-garantie div:first-child{border-right:1px solid rgba(21,66,48,.18)}
   .zsac .ico{width:26px;height:26px;border-radius:50%;background:var(--vert);color:var(--texte-clair);display:flex;align-items:center;justify-content:center;font-size:13px}
 
-  .zsac .grille-atouts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+  .zsac .grille-atouts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0}
   .zsac .grille-atouts div{
-    background:var(--creme-carte);border-radius:var(--rayon);padding:14px 10px;text-align:center;
-    font-size:12.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:8px;
+    background:transparent;padding:10px 4px;text-align:center;
+    font-size:11.5px;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--vert);
   }
-  .zsac .grille-atouts .ico{width:30px;height:30px;font-size:14px}
+  .zsac .atout-svg{width:28px;height:28px;flex:0 0 auto;color:var(--vert)}
 
   .zsac .pay-icons{margin:16px 0}
   .zsac .pay-icons p{font-size:12.5px;font-weight:600;text-align:center;margin-bottom:8px;color:var(--vert-accent)}
@@ -305,14 +309,16 @@
     .zsac.duo-squares,.zsac.newsletter{grid-template-columns:1fr}
     .zsac .trust-grille{grid-template-columns:repeat(2,1fr);gap:26px}
     .zsac .reco-grille{grid-template-columns:1fr;max-width:420px;margin:0 auto}
+    /* Galerie monde : bande swipe horizontale (2 photos visibles, doigt gauche/droite) */
+    .zsac .monde-grille{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 -20px;gap:2px;padding:0}
+    .zsac .monde-grille::-webkit-scrollbar{display:none}
+    .zsac .monde-grille .cell{flex:0 0 50%;scroll-snap-align:start;border-radius:0}
   }
   @media(max-width:680px){
     .zsac .product-info h1{font-size:25px}
     .zsac .features-grille{grid-template-columns:1fr}
-    .zsac .monde-grille{grid-template-columns:repeat(2,1fr)}
     .zsac .trust-grille{grid-template-columns:1fr}
-    .zsac .grille-atouts{grid-template-columns:repeat(2,1fr)}
-    /* avis : liste empilée, photo visible à droite (cliquable → popup) */
+/* avis : liste empilée, photo visible à droite (cliquable → popup) */
     .zsac .avis-carte.photo{grid-template-columns:1fr 100px}
     .zsac .avis-photo .avis-thumb{width:100px}
     .zsac .avis-photo .ph{width:100px;height:100px}

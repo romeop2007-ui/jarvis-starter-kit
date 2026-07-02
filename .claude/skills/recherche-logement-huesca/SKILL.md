@@ -29,7 +29,9 @@ Pour chaque nouveau site : WebSearch puis WebFetch sur les pages de listing. Si 
 **Objectif de volume : minimum 5 nouveaux logements par recherche.** Si l'exploration d'un site ne suffit pas à atteindre 5, explorer un site supplémentaire (nouveau ou dans "pistes à explorer") avant de conclure. **Aucun plafond à l'inverse : si un seul site fait remonter plus de 5 candidats qui respectent les critères fixes (ex. 7), les présenter TOUS, ne jamais en écarter pour coller à un chiffre rond.** Le seuil de 5 est un minimum à atteindre, pas un maximum à respecter.
 
 ## Étape 3 — Pour chaque logement retenu, collecter
-1. Adresse + lien source + agence/annonceur réel
+> ⚠️ **RÈGLE ABSOLUE (prioritaire sur les critères) : chaque bien doit avoir un LIEN DIRECT vers sa fiche d'annonce** (cliquer ouvre la page du bien, pas l'accueil du site). À défaut, fournir adresse exacte + téléphone/email de l'annonceur pour le contacter. Sans lien direct ni contact exploitable → **supprimer le bien**. Un seul lien par bien, jamais un lien vers l'accueil du site. Voir `references/format-notion.md` (section "RÈGLE ABSOLUE").
+
+1. Adresse + **lien direct de la fiche** (pas l'accueil) + agence/annonceur réel + son téléphone/email
 2. Avis : WebSearch "<agence> Trustpilot", sinon ProvenExpert/RealAdvisor/avis Google. Toujours rapporter le négatif s'il existe.
 3. Mobilier/équipements détaillés depuis l'annonce (⚠️ si absent)
 4. Distance à pied :

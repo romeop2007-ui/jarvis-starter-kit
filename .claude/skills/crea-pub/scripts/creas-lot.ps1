@@ -47,7 +47,14 @@ foreach ($v in $videos) {
   }
   $voState = "-"; $dSrc = $null; $dVo = $null; $verdict = "-"
   $scriptFr = Join-Path $adDir "script-fr.txt"
-  if (Test-Path $scriptFr) {
+  $voPathExisting = Join-Path $adDir "voix-off.mp3"
+  if ((Test-Path $scriptFr) -and (Test-Path $voPathExisting)) {
+    # Voix off deja generee (ex calee a la main avec tts-fixed.mjs) : on ne regenere PAS
+    # pour ne pas ecraser un calage precis ni bruler de credits ElevenLabs.
+    $voState = "deja fait"; $dSrc = Get-Dur $v.FullName; $dVo = Get-Dur $voPathExisting
+    $ecart = [math]::Round($dVo - $dSrc, 1); $verdict = "conserve ($ecart s)"
+    Write-Host "[$ad] voix off deja presente, on conserve (ecart $ecart s)" -ForegroundColor DarkGray
+  } elseif (Test-Path $scriptFr) {
     try {
       $dSrc = Get-Dur $v.FullName
       Write-Host "[$ad] voix off (cible $([math]::Round($dSrc,1))s)..." -ForegroundColor Yellow

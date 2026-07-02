@@ -7,6 +7,16 @@
 
 ---
 
+## 2026-07-02 (mise à jour 2)
+
+### Page sac sling — polissage visuel (icônes SVG + galerie photos clients swipeable)
+- **Icônes buy box refaites façon Off-Grid** : suppression des emojis dans bulles verdes rondes (`.ico`), remplacés par des **SVG line icons en trait fin** (stroke, currentColor) directement sur fond crème, sans cercle de fond. Bandeau garantie (bouclier checkmark / flèche retour) et grille 6 atouts (balance, RFID barré, cadenas, goutte, oeil barré, flèches double). Fichiers modifiés : `zsac-buybox.liquid` (HTML) + `zsac-styles.liquid` (CSS).
+- **Bandeau garantie revu** : passage de `display:flex` avec grande carte crème à `display:grid 1fr 1fr` avec bordure légère et ligne séparatrice centrale, texte en majuscules. Plus épuré, moins de volume.
+- **Grille atouts** : fond des cartes supprimé (`background:transparent`), gap réduit, icônes SVG 28px en vert sans fond, 3 colonnes conservées même sur mobile (plus de passage en 2 colonnes à 680px).
+- **Section "Apprécié dans le monde entier" (8 photos clients) : bande swipe horizontale sur mobile.** Sur desktop : grille 4 colonnes inchangée. Sur mobile (≤980px) : `display:flex` + `overflow-x:auto` + `scroll-snap-type:x mandatory`, 2 photos visibles simultanément, swipe au doigt, pas de flèches, pas de compteur. Négatif margin `-20px` pour sortir du padding `.wrap` et aller bord à bord. CSS-only, aucun changement HTML.
+
+---
+
 ## 2026-07-02
 
 ### Page sac sling — améliorations UX/mobile + prix mis à jour (39€/49€)

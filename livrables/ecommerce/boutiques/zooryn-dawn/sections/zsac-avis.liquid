@@ -62,10 +62,18 @@
     <div class="avis-plus"><button type="button" id="zsacAvisPlus-{{ sid }}">{{ s.more_label | default: "Voir plus d'avis" }}</button></div>
   </div>
 
-  <!-- Lightbox (popup visuelle) -->
+  <!-- Popup avis (photo + détail de l'avis, façon Loox) -->
   <div class="zsl-modal" id="zslModal-{{ sid }}" aria-hidden="true">
-    <button type="button" class="zsl-close" aria-label="Fermer">&times;</button>
-    <img src="" alt="" class="zsl-img">
+    <div class="zsl-card">
+      <button type="button" class="zsl-close" aria-label="Fermer">&times;</button>
+      <img src="" alt="" class="zsl-img">
+      <div class="zsl-body">
+        <div class="zsl-top"><span class="zsl-nom"></span><span class="verifie">✓ Vérifié</span></div>
+        <div class="zsl-mid"><span class="etoiles zsl-stars"></span><span class="zsl-date"></span></div>
+        <p class="zsl-texte"></p>
+        <div class="avis-variante zsl-var" style="display:none"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -82,13 +90,35 @@
     });
   }
 
-  /* Lightbox */
+  /* Popup avis : photo + détail complet de l'avis cliqué */
   var modal = document.getElementById('zslModal-{{ sid }}');
   if(modal){
     var mImg = modal.querySelector('.zsl-img');
     var closeBtn = modal.querySelector('.zsl-close');
-    function open(src, alt){
-      mImg.src = src; mImg.alt = alt || '';
+    var mNom = modal.querySelector('.zsl-nom');
+    var mStars = modal.querySelector('.zsl-stars');
+    var mDate = modal.querySelector('.zsl-date');
+    var mTexte = modal.querySelector('.zsl-texte');
+    var mVar = modal.querySelector('.zsl-var');
+    function open(t){
+      var carte = t.closest('.avis-carte');
+      mImg.src = t.getAttribute('data-full') || t.src;
+      mImg.alt = t.getAttribute('alt') || '';
+      if(carte){
+        var nom = carte.querySelector('.nom');
+        var stars = carte.querySelector('.etoiles');
+        var date = carte.querySelector('.avis-date');
+        var texte = carte.querySelector('.avis-corps p');
+        var vart = carte.querySelector('.avis-variante');
+        if(mNom){ mNom.textContent = nom ? nom.textContent : ''; }
+        if(mStars){ mStars.textContent = stars ? stars.textContent : ''; }
+        if(mDate){ mDate.textContent = date ? date.textContent : ''; }
+        if(mTexte){ mTexte.textContent = texte ? texte.textContent : ''; }
+        if(mVar){
+          if(vart){ mVar.innerHTML = vart.innerHTML; mVar.style.display = ''; }
+          else { mVar.innerHTML = ''; mVar.style.display = 'none'; }
+        }
+      }
       modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
       document.body.style.overflow = 'hidden';
     }
@@ -96,9 +126,12 @@
       modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
       document.body.style.overflow = ''; mImg.src = '';
     }
+    /* Toute la carte d'un avis à photo est cliquable, pas seulement l'image */
     document.getElementById('zsac-avis').addEventListener('click', function(e){
-      var t = e.target.closest('.zsl-open');
-      if(t){ open(t.getAttribute('data-full') || t.src, t.getAttribute('alt')); }
+      var carte = e.target.closest('.avis-carte.photo');
+      if(!carte){ return; }
+      var t = carte.querySelector('.zsl-open');
+      if(t){ open(t); }
     });
     modal.addEventListener('click', function(e){ if(e.target === modal || e.target === closeBtn){ close(); } });
     document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('open')){ close(); } });

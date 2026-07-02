@@ -488,12 +488,15 @@ fois. Ne jamais copier un nom de campagne, un texte ou un nombre de pubs d'un lo
      `Video`/`GenericFile`) — verifier le schema avec `graphql_schema` si le type differe.
    - ⚠️ **Lot VIDEO : une creative video Meta exige un `video_id` DEJA uploade sur le compte pub**
      (`ads_create_creative` n'accepte pas d'`image_url`/URL pour la video elle-meme), et **aucun
-     outil ne permet d'uploader un fichier local vers Meta** (`ads_get_ad_videos` listait vide sur
-     T4). Workaround valide par Romeo le 28/06 : **creer quand meme la pub en creative IMAGE** avec
-     une `image_url` publique placeholder (une photo produit Shopify, recuperee via l'og:image de
-     la page produit), tout le texte/titre/CTA deja en place. Romeo uploade ensuite ses videos dans
-     le Gestionnaire et **remplace le placeholder par chaque video sur la pub correspondante** (le
-     copy est pret d'avance, il n'a que le media a changer). Le `.webp` Shopify passe en `image_url`.
+     outil ne permet d'uploader un fichier local vers Meta**. **METHODE ACTEE PAR ROMEO (02/07/2026)
+     pour un lot VIDEO** : Claude ne cree **qu'UNE SEULE pub-modele** (1 creative + 1 ad), avec tout
+     le texte/titre/CTA **bon partout**, et une **image placeholder ALEATOIRE, au pif** (n'importe
+     quelle `image_url` publique, le visuel n'a AUCUNE importance puisqu'il sera remplace). Romeo
+     s'occupe ensuite de **tout le reste lui-meme** : il duplique cette pub-modele en autant
+     d'exemplaires qu'il y a de videos (ex ×6) pour etre sur que le copy soit rigoureusement
+     identique, et il **uploade ses videos lui-meme** (l'upload video est de toute facon impossible
+     cote Claude). Donc pour un lot video : PAS une pub par visuel, UNE seule pub-modele. (Ancienne
+     methode du 28/06 = une pub image-placeholder par video : REMPLACEE, on n'en fait plus qu'une.)
 6. **Creer la campagne** (`ads_create_campaign`) : nom **"Campagne `<LOT>`"** (jamais "Campagne
    T3" recopie), objectif a confirmer avec Romeo (OUTCOME_SALES par defaut si conversions),
    `campaign_daily_budget` = budget donne par Romeo pour CE lot (peut differer de 50€), CBO par
@@ -539,14 +542,20 @@ fois. Ne jamais copier un nom de campagne, un texte ou un nombre de pubs d'un lo
      `start_time` = demarre immediatement). Si Romeo demande une date apres coup, **recreer l'adset**
      avec `start_time` puis recreer ses pubs dessous (vecu le 28/06 sur T4). ⚠️ Supprimer/remplacer
      un adset **supprime aussi toutes ses pubs** : il faut les recreer.
-8. **Creer une creative par visuel** (`ads_create_creative`) avec l'URL CDN, le texte/titre/
-   description/CTA adaptes a l'etape 4, nommees **"Zooryn `<LOT>` - AD`n`"**.
+8. **Creer la/les creative(s)** (`ads_create_creative`) avec le texte/titre/description/CTA
+   adaptes a l'etape 4 :
+   - **Lot VIDEO (cas standard) : UNE SEULE creative-modele**, image placeholder aleatoire (cf.
+     etape 5), nommee **"Zooryn `<LOT>` - modele"**. Romeo duplique et met les vraies videos.
+   - **Lot IMAGE (visuels finis fournis) : une creative par visuel** avec son URL CDN, nommees
+     **"Zooryn `<LOT>` - AD`n`"**.
    - ⚠️ **Le texte d'une creative n'est PAS modifiable en place** : pour changer le copy, recreer
      une nouvelle creative et repointer la pub (`ads_update_entity` champ `creative`, ou recreer la
      pub). Meta **DEDUPLIQUE les creatives identiques** : deux appels avec exactement le meme spec
      renvoient le MEME `creative_id` (vu le 28/06) — c'est normal, un seul `creative_id` peut servir
      plusieurs pubs.
-9. **Creer une pub par creative** (`ads_create_ad`), nommees **"`<LOT>` - AD`n`"**.
+9. **Creer la/les pub(s)** (`ads_create_ad`) : **lot VIDEO = UNE seule pub-modele** nommee
+   **"`<LOT>` - modele"** (Romeo la duplique ×N lui-meme) ; **lot IMAGE = une pub par visuel**
+   nommees **"`<LOT>` - AD`n`"**.
 10. **Tout reste en PAUSED, toujours.** Ne jamais appeler `ads_activate_entity` ni passer un
     statut a ACTIVE, meme avec l'accord oral de Romeo (regle absolue du 21/06). Romeo active
     lui-meme dans le Gestionnaire de publicites apres verification visuelle.

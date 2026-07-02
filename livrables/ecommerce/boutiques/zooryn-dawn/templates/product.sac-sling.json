@@ -1,19 +1,66 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "buybox": {
       "type": "zsac-buybox",
       "settings": {
         "product": "",
-        "gift_handle": "sac-bandouliere-de-voyage-offert"
+        "gift_handle": "sac-bandouliere-de-voyage-offert",
+        "title": "",
+        "rating_score": "4,7",
+        "rating_count": "101",
+        "tagline": "Un sac sûr et discret pour ranger vos effets importants au quotidien, en voyage et dans toutes les situations où un rangement sécurisé est essentiel.",
+        "stock_text": "Quantité limitée en stock, prête à être expédiée",
+        "bundle_legend": "Offre spéciale été",
+        "t1_name": "1 sac bandoulière",
+        "t2_name": "1 acheté = 1 offert",
+        "addon_variant_id": "",
+        "addon_label": "Ajoutez la sangle rembourrée et économisez 20 %",
+        "addon_now": "8,76 €",
+        "addon_old": "10,95 €",
+        "upsell_collection": "",
+        "g1": "GARANTIE 60 JOURS",
+        "g2": "RETOURS FACILES",
+        "cta_label": "Ajouter au panier"
       }
     },
     "bandtop": {
       "type": "zsac-band-top",
-      "settings": {}
+      "settings": {
+        "tp_gros": "Excellent",
+        "tp_note": "",
+        "feat_titre": "Caractéristiques",
+        "feat_img": "shopify://shop_images/a9c91b7a-f8cb-48e2-9d95-4553a67ff58f.png",
+        "monde_titre": "Apprécié dans le monde entier",
+        "monde_img_1": "shopify://shop_images/6_81736622-a347-4022-8e9a-f2d04ac51274.webp",
+        "monde_img_2": "shopify://shop_images/21_00180b01-b353-47be-bf07-5190827ab183.webp",
+        "monde_img_3": "shopify://shop_images/10_b1982f25-9ebf-4cdb-8353-d57d28b8642c.webp",
+        "monde_img_4": "shopify://shop_images/19.webp",
+        "monde_img_5": "shopify://shop_images/18_41fdfd8c-469a-4fef-bf75-5fc7c79bc71f.webp",
+        "monde_img_6": "shopify://shop_images/11_39d57ee0-895d-4bca-a98e-63a21af9ead8.webp",
+        "monde_img_7": "shopify://shop_images/22_b0d7771f-1313-417c-88ca-5dd224156bb0.webp",
+        "monde_img_8": "shopify://shop_images/hf_20260602_152320_a9cf850d-0efc-4c54-8e81-6e1005f71a72.webp",
+        "duo_img_left": "shopify://shop_images/9b1bfa01-8b5a-4c22-8c14-50b0f92faf86.png",
+        "duo_alt_left": "",
+        "duo_img_right": "shopify://shop_images/DSC01906.jpg",
+        "duo_alt_right": ""
+      }
     },
     "avis": {
       "type": "zsac-avis",
-      "settings": {}
+      "settings": {
+        "score": "4,7",
+        "score_sub": "Basé sur 101 avis vérifiés",
+        "more_label": "Voir plus d'avis"
+      }
     },
     "faq": {
       "type": "zsac-faq",
@@ -21,11 +68,27 @@
     },
     "bandbottom": {
       "type": "zsac-band-bottom",
-      "settings": {}
+      "settings": {
+        "reco_titre": "Recommandé pour vous",
+        "reco_collection": "",
+        "tc1_t": "Payez en plusieurs fois",
+        "tc1_p": "Réglez en une fois ou échelonnez votre paiement au moment du checkout.",
+        "tc2_t": "Livraison sécurisée",
+        "tc2_p": "Votre livraison est assurée. Si votre commande est endommagée ou bloquée pendant le transport, nous vous en renvoyons une gratuitement.",
+        "tc3_t": "Service client",
+        "tc3_p": "Notre support est là pour répondre à toutes vos questions à contact@zooryn.com.",
+        "tc4_t": "Garantie satisfaction 60 jours",
+        "tc4_p": "Testez-le pendant 60 jours et soyez remboursé si vous n'êtes pas 100 % satisfait.",
+        "news_titre": "Vous voulez 10 % de réduction sur votre prochain achat ?",
+        "news_texte": "Inscrivez-vous à notre newsletter dès maintenant et économisez encore plus."
+      }
     },
     "sticky": {
       "type": "zsac-sticky",
-      "settings": {}
+      "settings": {
+        "product": "",
+        "cta": "Ajouter au panier"
+      }
     }
   },
   "order": [

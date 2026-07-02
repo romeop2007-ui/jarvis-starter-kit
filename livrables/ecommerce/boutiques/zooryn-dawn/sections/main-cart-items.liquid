@@ -229,12 +229,23 @@
                       if item.product.handle == 'matelas-pneumatique-compact-ultraleger-zooryn-pro' or item.product.handle == 'oreiller-gonflable-zooryn-copie'
                         assign zcart_locked = true
                       endif
+
+                      comment
+                        Produits offerts (bundle "1 acheté = 1 offert" du sac sling) :
+                        quantité figée, pas de bouton supprimer. Le JS en bas de section
+                        aligne leur quantité sur celle du produit payant associé.
+                      endcomment
+                      assign zcart_gift = false
+                      if item.product.tags contains 'cadeau-cache'
+                        assign zcart_gift = true
+                        assign zcart_locked = true
+                      endif
                     -%}
                     <td class="cart-item__quantity{% if has_qty_rules or has_vol_pricing %} cart-item__quantity--info{% endif %}">
                       {%- if zcart_locked -%}
                         <div class="cart-item__quantity-wrapper zcart__locked-qty">
                           {{ item.quantity }}
-                          {%- unless item.properties['Cadeau'] -%}
+                          {%- unless item.properties['Cadeau'] or zcart_gift -%}
                             <button
                               type="button"
                               class="button button--tertiary zooryn-remove-pack"
@@ -487,6 +498,61 @@
     </form>
   </div>
 </cart-items>
+
+<script>
+  /* Garde-fou produits offerts (handles en "-offert") : leur quantité ne peut
+     jamais dépasser celle du produit payant associé. Si le payant est réduit
+     ou supprimé, le cadeau est ajusté/retiré automatiquement. */
+  (function () {
+    var fixing = false;
+    var timer = null;
+
+    function guard() {
+      if (fixing) return;
+      fetch('{{ routes.cart_url }}.js')
+        .then(function (r) { return r.json(); })
+        .then(function (cart) {
+          var paid = {};
+          cart.items.forEach(function (it) {
+            if (!/-offert$/.test(it.handle)) {
+              paid[it.handle] = (paid[it.handle] || 0) + it.quantity;
+            }
+          });
+          var updates = {};
+          var changed = false;
+          cart.items.forEach(function (it) {
+            if (!/-offert$/.test(it.handle)) return;
+            var paired = it.handle.replace(/-offert$/, '');
+            var allowed = paid[paired] || 0;
+            var keep = Math.min(it.quantity, allowed);
+            if (keep < it.quantity) {
+              updates[it.key] = keep;
+              changed = true;
+            }
+            paid[paired] = allowed - keep;
+          });
+          if (!changed) return;
+          fixing = true;
+          fetch('{{ routes.cart_update_url }}.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ updates: updates })
+          }).then(function () { window.location.reload(); })
+            .catch(function () { fixing = false; });
+        })
+        .catch(function () {});
+    }
+
+    var el = document.querySelector('cart-items');
+    if (el) {
+      new MutationObserver(function () {
+        clearTimeout(timer);
+        timer = setTimeout(guard, 400);
+      }).observe(el, { childList: true, subtree: true });
+    }
+    guard();
+  })();
+</script>
 
 {% schema %}
 {

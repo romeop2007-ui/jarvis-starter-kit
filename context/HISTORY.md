@@ -7,6 +7,41 @@
 
 ---
 
+## 2026-07-02 (mise à jour 4)
+
+### Page sac sling : polissage mobile complet + verrou panier cadeau + sac en tête de collection
+- 7 modifs visuelles sur la page sac (quasi tout mobile only) : icônes SVG RFID et retours refaites (PC+mobile), galerie "Apprécié dans le monde entier" zoomée à 66% (2e photo coupée = affordance de swipe), blocs gouttes d'eau / nylon 500D inversés sur mobile (order CSS), "Recommandé pour vous" en carrousel swipe (carte 76%, suivante visible), blocs de réassurance en carrousel 1 bloc/écran avec 4 points synchronisés au scroll.
+- Pop-up avis refait en 2 passes : carte blanche façon Off-Grid (photo ratio réel + nom + Vérifié + étoiles + date + texte + variante), toute la carte d'avis cliquable (pas seulement la photo), tout tient à l'écran sans scroll, voile gris neutre (plus de vert). Icône RFID refaite une 2e fois (version droite symétrique, la version inclinée ne plaisait pas).
+- Bandeau de réassurance passé du fond vert au fond crème (textes/icônes/points repassés en vert).
+- Verrou panier produits offerts : sur /cart, toute ligne taguée `cadeau-cache` est figée (ni +/− ni supprimer) via le mécanisme `zcart_locked` étendu ; garde-fou JS ajouté (`main-cart-items.liquid`) : la quantité de cadeaux (handle en `-offert`) ne peut jamais dépasser celle du produit payant associé, suppression du payant = retrait auto du cadeau (faille "sac gratuit seul au checkout" fermée). Testé en réel via un panier curl isolé (payant éditable, offert verrouillé).
+- Collection `/collections/all` remplacée par une vraie collection MANUELLE "Tous les produits" (handle `all`, créée via `shopify store execute`, publiée via MCP GraphQL car le token CLI n'a pas le scope publications) : ordre sac → Luma → matelas → oreiller, PC et mobile. ⚠️ Tout nouveau produit doit désormais y être ajouté À LA MAIN (Admin > Collections).
+- Carte collection du sac remplie (metafield `custom.avantages_carte` : Protection RFID, Fermetures anti-vol, Résistant à l'eau, 1 acheté = 1 offert, Sangle réglable).
+- Leçon outil : le CDN Shopify met 1 à 3 min à servir les nouveaux fichiers après un push (vérifier le contenu réel du thème via l'API avant de conclure à un push raté).
+
+---
+
+## 2026-07-02 (mise à jour 3)
+
+### Créas T5 (sac sling, 5 vidéos Off Grid) avec musique de fond conservée + masquage des traces Vmake + campagne Meta T5 programmée
+
+**Créas :**
+- Lot T5 = 5 vidéos concurrent Off Grid (2 suédoises, 3 anglaises, toutes voix masculine → voix **Sami**) + 1 image (AD6) sans texte, livrée telle quelle (rien à traduire, d'où "aucune image à modifier").
+- **Nouveauté voulue par Roméo : garder la MUSIQUE DE FOND d'origine sous la voix FR** (avant on coupait tout le son). Méthode : séparation de sources par **Demucs** (torch déjà installé) qui isole voix/musique ; on jette la voix étrangère, on garde `musique-fond.mp3`, et on livre aussi `voix-sur-musique.mp3` (voix FR + musique à 22 %) prêt à poser. Script `separate-music.py` (contourne torchaudio/torchcodec cassé sous Windows via scipy). Vérifié : la piste musique ne contient plus de parole.
+- Voix off calées à ±1 s. La boucle auto de `tts.mjs` oscillait (variance ElevenLabs, même script → 50 s puis 60 s), d'où `tts-fixed.mjs` (vitesse fixe déterministe) pour un calage précis en 2 passes.
+- **Vmake laisse TOUJOURS une bavure sombre** à l'emplacement des sous-titres retirés (très visible sur fond clair). Détectée au pixel (`detect-band-diff.mjs`, compare original vs détouré) puis **masquée par une bande noire nette pleine largeur** (ffmpeg drawbox), avec les sous-titres FR reposés dessus = bandeau naturel comme le concurrent en avait. Position stockée dans `bande.json` par AD.
+- `capcut-draft.mjs` adapté : piste audio = `voix-sur-musique.mp3` (musique conservée, vidéo muette) mais sous-titres générés depuis `voix-off.mp3` (voix propre) ; sous-titres calés sur la bande via `bande.json` (captionY). Les 3 corrections anti-plantage du 23/06 conservées.
+- `creas-lot.ps1` sécurisé : ne régénère plus la voix off si elle existe déjà (ne pas écraser un calage manuel).
+- 5 brouillons CapCut `ZOORYN-T5-AD1..AD5` générés. Versions brutes détourées gardées en `.raw.mp4` (réversible).
+
+**Skill (méthode gravée le 02/07) :** pour un LOT VIDÉO, Claude ne crée qu'**UNE pub-modèle** (1 creative + 1 ad) avec le texte bon partout et une **image placeholder aléatoire** ; Roméo la duplique en N et uploade ses vidéos lui-même (l'upload vidéo est impossible côté Claude).
+
+**Campagne Meta T5 (montée de bout en bout, TOUT EN PAUSE, programmée pour démarrer le 03/07/2026 00h00 Europe/Paris) :**
+- IDs : campagne `52575978609678` (Ventes, CBO 50 €/j), adset `52575978693678` (résidents FR, Advantage+, placements manuels sans in-stream, pixel Achat `2803216990037221`, DSA Zooryn, `start_time` 03/07 00h00), pub-modèle `52575978726278`, creative `2468764913535932`. Aucune erreur bloquante (`ads_get_errors` = `{}`).
+- Texte repris du **winner Off Grid** (ad #1 par reach 1,79 M, 36 j, rank #1) adapté FR via TrendTrack : hook chiffré conservé ("1 touriste sur 6 à Paris", "Rome +68 %"), **"60 jours" corrigé en "satisfait ou remboursé 30 jours"**, "1 acheté = 1 offert" + livraison offerte gardés. Produit `zooryn.com/products/sac-bandouliere-de-voyage`, prix live 39 €/49 €.
+- Restes côté Roméo : dupliquer la pub-modèle ×6 (5 vidéos + image AD6), uploader ses vidéos, **ajouter le compte Instagram sur l'adset** (l'API ne le fournit pas, sinon pas de diffusion Insta), activer (démarrage auto au 03/07 00h00).
+
+---
+
 ## 2026-07-02 (mise à jour 2)
 
 ### Page sac sling — polissage visuel (icônes SVG + galerie photos clients swipeable)

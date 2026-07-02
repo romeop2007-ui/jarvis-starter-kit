@@ -39,9 +39,9 @@
   </div>
 </div>
 
-<!-- Barre de réassurance (4 colonnes) -->
+<!-- Barre de réassurance (4 colonnes desktop, carrousel à points sur mobile) -->
 <div class="zsac trust">
-  <div class="wrap trust-grille">
+  <div class="wrap trust-grille" id="zsacTrust-{{ section.id }}">
     <div class="trust-col">
       <span class="ico-grand">💳</span>
       <h3>{{ s.tc1_t | default: 'Payez en plusieurs fois' }}</h3>
@@ -63,7 +63,32 @@
       <p>{{ s.tc4_p | default: 'Testez-le pendant 60 jours et soyez remboursé si vous n’êtes pas 100 % satisfait.' }}</p>
     </div>
   </div>
+  <div class="trust-dots" id="zsacTrustDots-{{ section.id }}">
+    <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+  </div>
 </div>
+
+<script>
+(function(){
+  var grille = document.getElementById('zsacTrust-{{ section.id }}');
+  var dotsWrap = document.getElementById('zsacTrustDots-{{ section.id }}');
+  if(!grille || !dotsWrap){ return; }
+  var dots = dotsWrap.querySelectorAll('.dot');
+  var ticking = false;
+  grille.addEventListener('scroll', function(){
+    if(ticking){ return; } ticking = true;
+    window.requestAnimationFrame(function(){
+      var col = grille.querySelector('.trust-col');
+      if(col){
+        var idx = Math.round(grille.scrollLeft / col.offsetWidth);
+        if(idx < 0){ idx = 0; } if(idx > dots.length-1){ idx = dots.length-1; }
+        dots.forEach(function(d,i){ d.classList.toggle('active', i === idx); });
+      }
+      ticking = false;
+    });
+  });
+})();
+</script>
 
 {% schema %}
 {

@@ -1,25 +1,30 @@
 {%- comment -%}
-  ZOORYN — Sac : avis clients (style Loox), 100 % Liquid, prénoms FR.
+  ZOORYN — Sac : avis clients (style Loox), 100 % Liquid, 101 avis.
+  Les 13 premiers avis ont une photo (champs image avis_img_1..13),
+  cliquable → ouvre une popup plein écran (lightbox visuelle).
+  Affichage progressif : "Voir plus d'avis" révèle par lots.
   ⚠️ Avis de démonstration : à remplacer par de vrais avis avant la pub
   (faux avis = non conforme en France).
 {%- endcomment -%}
 {%- assign s = section.settings -%}
 {%- assign sid = section.id -%}
 
-{%- comment -%} format : note~nom~titre~texte ||| ... {%- endcomment -%}
-{%- assign rows = "5~Camille D.~Parfait pour voyager léger~Exactement ce que je cherchais. Compact mais je peux y mettre mon téléphone, mon passeport et mes cartes. La sangle est super confortable. ||| 5~Thomas L.~Qualité au rendez-vous~Le tissu est vraiment résistant et la finition impeccable. Les fermetures anti-vol rassurent en ville. Je recommande à 100%. ||| 5~Sophie M.~Discret et pratique~Je le porte sous ma veste quand je voyage et personne ne le remarque. La protection RFID est un vrai plus pour mes cartes. ||| 4~Julien P.~Très bon sac au quotidien~Je l'utilise tous les jours pour aller au travail. Bien organisé, étanche sous la pluie. J'aurais aimé une poche en plus mais rien de grave. ||| 5~Léa R.~Idéal pour les city-trips~Léger, sécurisé, et il tient toutes mes affaires. Parfait pour mes week-ends en ville. La sangle se règle facilement. ||| 5~Maxime B.~Confortable même chargé~Le poids est bien réparti contre le corps, aucune douleur à l'épaule même après plusieurs heures. Très satisfait. ||| 5~Inès G.~Exactement comme décrit~Reçu en une semaine, conforme aux photos. La couleur sable est superbe et le tissu fait premium. ||| 5~Hugo M.~Top pour les festivals~Je l'ai pris pour l'été, il passe partout et je garde mes affaires en sécurité dans la foule. Adopté. ||| 4~Chloé V.~Bonne capacité~Plus spacieux que je pensais, la taille Large avale un petit parapluie et une gourde. Sangle confortable. ||| 5~Antoine R.~Rassurant en déplacement~Fini la peur des pickpockets dans le métro. Les zips se verrouillent, c'est malin. Je le recommande." | split: " ||| " -%}
+{%- comment -%} format : note~nom~date~texte~variante(optionnelle) ||| ... {%- endcomment -%}
+{%- assign rows = "5~Eva R.~25/06/2026~Taille parfaite et exactement comme sur les photos. Il sera top pour notre voyage à l'étranger cet automne !~Noir / Standard 1 L ||| 5~Andreas R.~21/05/2026~Je l'ai eu avec moi à Venise pendant une semaine entière, accroché à la hanche sans le moindre souci. Une dame m'a même demandé où je l'avais acheté.~ ||| 4~Lova M.~19/05/2026~Les finitions sont impressionnantes quand on l'a en main. Les fermetures sont solides et la matière fait robuste. J'enlève une étoile car la sangle a mis du temps à se régler.~ ||| 5~Saga W.~16/05/2026~La poche RFID est vraiment maligne, elle avale câbles de charge, écouteurs et portefeuille sans problème. Rien ne bouge ni ne cliquette.~ ||| 5~Felix D.~15/05/2026~La sangle est réglable et confortable toute la journée. Aucune marque de pression désagréable.~ ||| 4~Gabriella A.~14/05/2026~La couleur est exactement comme sur les photos, un beau gris foncé qui va avec tout. Très bonne qualité pour le prix.~ ||| 5~Hans N.~12/05/2026~Parfait dans l'avion, tout à portée de main et confortable même sur la durée. Je le prends à chaque voyage maintenant.~ ||| 5~Bengt K.~11/05/2026~Je l'ai montré à mes amis et tout le monde voulait savoir d'où il venait. Stylé et pratique à la fois.~ ||| 5~Anton P.~10/05/2026~Je l'ai pris en ski de fond et il est resté stable tout le tour. Assez petit pour ne pas gêner mais il tient l'essentiel.~ ||| 5~Camilla O.~08/05/2026~Bien mieux que ce que le prix laisse penser. Il paraît plus cher et plus solide que prévu. Vraiment impressionnée.~ ||| 5~Malin F.~05/05/2026~Je l'ai testé dans toutes les situations et il tient à chaque fois. La matière ne se déforme pas et il garde sa forme.~ ||| 5~Ludvig C.~04/05/2026~Vraiment content. Il est beau et fait exactement ce qu'on lui demande. Je le rachèterais sans hésiter.~ ||| 4~Viktor R.~03/05/2026~Acheté en cadeau et la personne l'a porté tout de suite. On m'a dit qu'il était plus beau que prévu. Bon achat.~ ||| 5~Léa M.~02/05/2026~Compact mais étonnamment spacieux. Téléphone, clés, carte et un petit powerbank rentrent facilement.~ ||| 5~Thomas B.~30/04/2026~Je le porte au quotidien pour aller au travail à vélo. Il reste bien en place, aucun rebond.~ ||| 5~Camille D.~29/04/2026~La protection anti-RFID m'a convaincue. On se sent tranquille dans les transports bondés.~ ||| 4~Julien P.~27/04/2026~Très bon sac. J'aurais aimé une poche intérieure de plus mais rien de bloquant.~ ||| 5~Sarah L.~26/04/2026~Idéal pour mes week-ends en ville. Léger et sécurisé, je ne pars plus sans.~ ||| 5~Maxime R.~24/04/2026~Le poids est bien réparti contre le corps, aucune douleur à l'épaule après plusieurs heures.~ ||| 5~Inès G.~22/04/2026~Reçu en une semaine, conforme aux photos. La matière fait premium.~ ||| 5~Hugo T.~21/04/2026~Pris pour un festival, il passe partout et mes affaires restent en sécurité dans la foule.~ ||| 4~Chloé V.~19/04/2026~Plus grand que je pensais, la taille Large avale un parapluie pliant et une gourde.~Sable / Large 1,6 L ||| 5~Antoine F.~18/04/2026~Fini le stress des pickpockets dans le métro. Les zips se verrouillent, c'est bien pensé.~ ||| 5~Manon C.~16/04/2026~Parfait pour voyager léger. Passeport, téléphone et cartes, tout tient et reste accessible.~ ||| 5~Lucas D.~15/04/2026~Qualité au rendez-vous, coutures nettes et tissu résistant. Rien à redire.~ ||| 5~Emma R.~13/04/2026~Discret sous une veste, personne ne le remarque. Très pratique en voyage.~ ||| 5~Nathan B.~12/04/2026~Je l'utilise en randonnée d'une journée, il ne bouge pas et garde le dos libre.~ ||| 4~Sophie M.~10/04/2026~Bonne capacité et confortable. La couleur est un peu plus foncée que sur l'écran.~Marine / Standard 1 L ||| 5~Paul H.~09/04/2026~Sérieux pour le prix. Il a l'air de tenir dans le temps.~ ||| 5~Alice T.~07/04/2026~Super pour la salle et les trajets. Tout à portée sans avoir à fouiller.~ ||| 5~Romain L.~06/04/2026~La sangle croisée est très stable même en courant pour attraper le train.~ ||| 5~Clara N.~04/04/2026~Petit mais bien organisé. J'adore les compartiments séparés.~ ||| 5~Adrien P.~03/04/2026~Emmené en city-trip à Lisbonne, parfait pour garder l'essentiel sur soi.~ ||| 4~Marine F.~01/04/2026~Très satisfaite. Une poche filet extérieure aurait été un plus.~ ||| 5~Quentin M.~30/03/2026~Matière déperlante, il a pris une averse sans que rien soit mouillé à l'intérieur.~ ||| 5~Laura B.~28/03/2026~Léger et confortable, je l'oublie presque une fois porté. Top au quotidien.~ ||| 5~Kevin S.~27/03/2026~Exactement ce que je cherchais pour voyager sans sac à dos encombrant.~ ||| 5~Océane D.~25/03/2026~Les fermetures glissent bien et le tissu est agréable au toucher. Belle finition.~ ||| 4~Damien R.~24/03/2026~Bon sac, sangle un peu longue pour moi au départ mais réglée sans souci.~ ||| 5~Pauline G.~22/03/2026~Parfait pour la poussette et les mains libres avec les enfants.~ ||| 5~Florian T.~21/03/2026~Solide et bien pensé, les poches anti-vol sont vraiment utiles en ville.~ ||| 5~Justine M.~19/03/2026~Reçu rapidement, très bonne surprise. Il fait bien plus cher que son prix.~ ||| 5~Benjamin C.~18/03/2026~Idéal pour le vélo, il reste plaqué au dos et ne gêne pas le pédalage.~ ||| 5~Camille R.~16/03/2026~Compact et élégant, il va avec toutes mes tenues. Je recommande.~ ||| 4~Anaïs L.~15/03/2026~Très pratique. J'aurais aimé un coloris un peu plus clair mais le noir est classe.~Noir / Standard 1 L ||| 5~Théo B.~13/03/2026~Emporté en avion en bagage cabine, tout à portée sous le siège. Parfait.~ ||| 5~Mélanie P.~12/03/2026~La qualité m'a bluffée, rien ne bouge et la sangle est douce.~ ||| 5~Guillaume F.~10/03/2026~Je m'en sers pour le boulot et le week-end, il fait tout. Très content.~ ||| 5~Elodie M.~09/03/2026~Petit format mais il avale plus que prévu. Génial pour voyager léger.~ ||| 5~Nicolas D.~07/03/2026~Confort au top, aucune marque sur l'épaule même chargé.~ ||| 4~Charlotte R.~06/03/2026~Bien reçu et conforme. Une étoile en moins car livraison un peu lente.~ ||| 5~Alexandre T.~04/03/2026~Robuste et pratique, les zips inversés rassurent dans les lieux bondés.~ ||| 5~Julie B.~03/03/2026~Parfait pour mes déplacements pro, discret et sérieux.~ ||| 5~Maxence L.~01/03/2026~Très bonne prise en main, matière solide. Rien ne cliquette dedans.~ ||| 5~Léna G.~28/02/2026~Craquant et utile, je l'utilise tous les jours depuis. Adopté.~ ||| 5~Baptiste M.~27/02/2026~Idéal en trottinette, il reste stable et je garde les mains libres.~ ||| 4~Manon D.~25/02/2026~Beau sac, bien fini. Le réglage de sangle demande un peu d'habitude.~ ||| 5~Victor P.~24/02/2026~Emmené en rando urbaine toute la journée, zéro gêne. Parfait.~ ||| 5~Sixtine R.~22/02/2026~La couleur sable est superbe, encore plus belle en vrai.~Sable / Standard 1 L ||| 5~Enzo F.~21/02/2026~Sérieux et confortable, exactement comme décrit. Livraison rapide.~ ||| 5~Amandine T.~19/02/2026~Parfait pour l'essentiel, il ne fait pas gadget. Vraie bonne qualité.~ ||| 5~Clément B.~18/02/2026~Je le recommande les yeux fermés, pratique et bien pensé.~ ||| 4~Marie L.~16/02/2026~Très satisfaite dans l'ensemble. J'aurais aimé un peu plus de rembourrage à la sangle.~ ||| 5~Dylan M.~15/02/2026~Top pour la ville, discret et sécurisé. Les fermetures se cachent bien.~ ||| 5~Noémie P.~13/02/2026~Compact et léger, idéal pour voyager sans s'encombrer. Parfait.~ ||| 5~Yanis D.~12/02/2026~Solide, bien organisé, il tient tout ce qu'il faut pour une journée.~ ||| 5~Louise R.~10/02/2026~Reçu vite, très bonne qualité. Il fait vraiment plus cher que son prix.~ ||| 5~Raphaël T.~09/02/2026~Parfait en déplacement, tout reste à portée et sécurisé. Rien à redire.~ ||| 4~Céline B.~07/02/2026~Bon produit, conforme. La sangle est un poil longue mais ça se règle.~ ||| 5~Mathis L.~06/02/2026~Emmené à la salle et au travail, il fait le job partout. Très content.~ ||| 5~Jeanne M.~04/02/2026~Discret et élégant, il passe avec tout. Je l'adore.~ ||| 5~Corentin P.~03/02/2026~Matière déperlante confirmée, une pluie fine n'a rien traversé.~ ||| 5~Elsa D.~01/02/2026~Parfait pour les mains libres en ville. Léger et sécurisé.~ ||| 5~Loïc R.~31/01/2026~Bien pensé, poches multiples et anti-vol. Exactement ce que je voulais.~ ||| 4~Aurélie T.~30/01/2026~Très bon sac au quotidien. Un compartiment de plus aurait été parfait.~ ||| 5~Simon B.~28/01/2026~Confortable même plein, le poids ne tire pas sur l'épaule. Top.~ ||| 5~Margaux L.~27/01/2026~Reçu en avance, conforme aux photos. La finition est nickel.~ ||| 5~Gaël M.~25/01/2026~Idéal pour le vélo et le train, il ne bouge pas d'un poil.~ ||| 5~Coline P.~24/01/2026~Petit format très malin, il tient l'essentiel sans être encombrant.~ ||| 5~Bastien D.~22/01/2026~Solide et discret, parfait pour garder ses affaires en sécurité.~ ||| 4~Fanny R.~21/01/2026~Jolie couleur et bonne qualité. Livraison correcte, sans plus.~Olive / Standard 1 L ||| 5~Valentin T.~19/01/2026~Exactement comme sur les photos, matière premium. Très satisfait.~ ||| 5~Morgane B.~18/01/2026~Parfait pour voyager, tout est à portée et rien ne dépasse. Adopté.~ ||| 5~Axel L.~16/01/2026~Confortable, stable, bien fini. Rien à redire pour ce prix.~ ||| 5~Solène M.~15/01/2026~Discret sous la veste, idéal en déplacement. Je recommande.~ ||| 5~Rayan P.~13/01/2026~Les zips anti-vol sont vraiment un plus dans les transports. Rassurant.~ ||| 4~Delphine D.~12/01/2026~Bon sac, pratique. J'aurais aimé une sangle légèrement plus large.~ ||| 5~Tristan R.~10/01/2026~Emmené en week-end, il a tenu tout l'essentiel sans forcer. Parfait.~ ||| 5~Maëlys T.~09/01/2026~Léger, élégant et solide. Exactement ce que je cherchais.~ ||| 5~Jordan B.~07/01/2026~Top qualité, coutures propres et matière résistante. Content de mon achat.~ ||| 5~Lucie L.~06/01/2026~Parfait pour la ville et les voyages, discret et sécurisé. Je valide.~ ||| 5~Kylian M.~04/01/2026~Stable même en courant, la sangle croisée fait bien son travail.~ ||| 4~Audrey P.~03/01/2026~Très bien dans l'ensemble, conforme. Un peu de patience pour régler la sangle.~ ||| 5~Fabien D.~01/01/2026~Excellent rapport qualité prix, il fait bien plus cher qu'il ne coûte.~ ||| 5~Sacha R.~30/12/2025~Compact et pratique, je l'utilise tous les jours. Vraiment satisfait.~ ||| 5~Ambre T.~28/12/2025~Reçu rapidement, très belle finition. Parfait pour mes trajets.~ ||| 5~Louka B.~27/12/2025~Idéal en déplacement, tout à portée et sécurisé. Rien ne bouge.~ ||| 4~Marion L.~25/12/2025~Bon sac, joli et pratique. Une poche extérieure en plus aurait été top.~ ||| 5~Diego M.~24/12/2025~Solide, confortable et discret. Exactement comme décrit.~ ||| 5~Charlène P.~22/12/2025~Parfait pour voyager léger, il avale plus que prévu. Je recommande.~ ||| 5~Evan D.~20/12/2025~Très content, qualité au rendez-vous et livraison rapide. Rien à redire.~" | split: " ||| " -%}
+
+{%- assign visible_init = 8 -%}
+{%- comment -%} Photos des 13 premiers avis, uploadées dans Shopify > Fichiers (1.jpg..13.jpg).
+   Ratio réel conservé (pas de recadrage carré). {%- endcomment -%}
+{%- assign cdn = "https://cdn.shopify.com/s/files/1/1007/2988/0921/files/" -%}
 
 <div class="zsac avis" id="zsac-avis">
   <div class="wrap">
     <div class="avis-entete">
-      {%- assign score = s.score | default: '4,7' -%}
+      {%- assign score = s.score | default: '4,8' -%}
       {%- assign score_pct = score | replace: ',', '.' | times: 1.0 | divided_by: 5.0 | times: 100 -%}
       <div class="avis-score">
-        <span class="num">{{ score }}</span>
-        <div>
-          <span class="stars-frac" style="font-size:20px"><span class="bg">★★★★★</span><span class="fg" style="width:{{ score_pct }}%">★★★★★</span></span>
-          <small>{{ s.score_sub | default: 'Basé sur 101 avis vérifiés' }}</small>
-        </div>
+        <span class="stars-frac" style="font-size:22px"><span class="bg">★★★★★</span><span class="fg" style="width:{{ score_pct }}%">★★★★★</span></span>
+        <span class="avis-count">{{ s.score_sub | default: '101 avis' }}</span>
       </div>
     </div>
 
@@ -27,19 +32,40 @@
       {%- for row in rows -%}
         {%- assign f = row | split: "~" -%}
         {%- assign note = f[0] | times: 1 -%}
-        <div class="avis-carte{% if forloop.index > 6 %} hide extra{% endif %}">
+        {%- assign idx = forloop.index -%}
+        {%- assign has_photo = false -%}
+        {%- if idx <= 13 -%}{%- assign has_photo = true -%}{%- endif -%}
+        {%- assign imgkey = 'avis_img_' | append: idx -%}
+        {%- assign rimg = section.settings[imgkey] -%}
+        <div class="avis-carte{% if has_photo %} photo{% endif %}{% if idx > visible_init %} hide extra{% endif %}">
           <div class="avis-corps">
-            <div class="top"><span class="nom">{{ f[1] }}</span><span class="verifie">✓ Achat vérifié</span></div>
+            <div class="top"><span class="nom">{{ f[1] }}</span><span class="verifie">✓ Vérifié</span></div>
+            <div class="avis-date">{{ f[2] }}</div>
             <div class="etoiles">{% for i in (1..5) %}{% if i <= note %}★{% else %}☆{% endif %}{% endfor %}</div>
-            <div class="titre-avis">{{ f[2] }}</div>
             <p>{{ f[3] }}</p>
+            {%- if f[4] and f[4] != blank -%}<div class="avis-variante"><span>Variante :</span> {{ f[4] | strip }}</div>{%- endif -%}
           </div>
-          <div class="avis-photo"><div class="ph"><span></span></div></div>
+          {%- if has_photo -%}
+            <div class="avis-photo">
+              {%- if rimg != blank -%}
+                <img class="avis-thumb zsl-open" src="{{ rimg | image_url: width: 320 }}" data-full="{{ rimg | image_url: width: 1400 }}" alt="Photo de {{ f[1] | escape }}" loading="lazy">
+              {%- else -%}
+                {%- assign rurl = cdn | append: idx | append: '.jpg' -%}
+                <img class="avis-thumb zsl-open" src="{{ rurl }}?width=320" data-full="{{ rurl }}?width=1400" alt="Photo de {{ f[1] | escape }}" loading="lazy">
+              {%- endif -%}
+            </div>
+          {%- endif -%}
         </div>
       {%- endfor -%}
     </div>
-    <div class="avis-mobile-counter" id="zsacAvisCounter-{{ sid }}"></div>
+
     <div class="avis-plus"><button type="button" id="zsacAvisPlus-{{ sid }}">{{ s.more_label | default: "Voir plus d'avis" }}</button></div>
+  </div>
+
+  <!-- Lightbox (popup visuelle) -->
+  <div class="zsl-modal" id="zslModal-{{ sid }}" aria-hidden="true">
+    <button type="button" class="zsl-close" aria-label="Fermer">&times;</button>
+    <img src="" alt="" class="zsl-img">
   </div>
 </div>
 
@@ -47,34 +73,35 @@
 (function(){
   var liste = document.getElementById('zsacAvisListe-{{ sid }}');
   var plus = document.getElementById('zsacAvisPlus-{{ sid }}');
+  var batch = 12;
   if(plus && liste){
     plus.addEventListener('click', function(){
-      liste.querySelectorAll('.avis-carte.extra').forEach(function(c){ c.classList.remove('hide'); });
-      plus.style.display = 'none';
+      var caches = liste.querySelectorAll('.avis-carte.extra.hide');
+      for(var i=0;i<caches.length && i<batch;i++){ caches[i].classList.remove('hide'); }
+      if(liste.querySelectorAll('.avis-carte.extra.hide').length === 0){ plus.style.display='none'; }
     });
   }
-  /* compteur mobile sur le carrousel d'avis */
-  var counter = document.getElementById('zsacAvisCounter-{{ sid }}');
-  if(liste && counter){
-    function isMobile(){ return window.matchMedia('(max-width:680px)').matches; }
-    var cards = Array.prototype.slice.call(liste.querySelectorAll('.avis-carte'));
-    function visibleCards(){ return cards.filter(function(c){ return !c.classList.contains('hide'); }); }
-    function update(){
-      if(!isMobile()){ counter.textContent=''; return; }
-      var vc = visibleCards();
-      if(vc.length < 2){ counter.textContent=''; return; }
-      var step = vc.length > 1 ? (vc[1].offsetLeft - vc[0].offsetLeft) : liste.clientWidth;
-      var idx = step ? Math.round(liste.scrollLeft / step) + 1 : 1;
-      if(idx < 1){ idx = 1; } if(idx > vc.length){ idx = vc.length; }
-      counter.textContent = idx + ' / ' + vc.length;
+
+  /* Lightbox */
+  var modal = document.getElementById('zslModal-{{ sid }}');
+  if(modal){
+    var mImg = modal.querySelector('.zsl-img');
+    var closeBtn = modal.querySelector('.zsl-close');
+    function open(src, alt){
+      mImg.src = src; mImg.alt = alt || '';
+      modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
     }
-    var ticking = false;
-    liste.addEventListener('scroll', function(){
-      if(ticking){ return; } ticking = true;
-      window.requestAnimationFrame(function(){ update(); ticking = false; });
+    function close(){
+      modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow = ''; mImg.src = '';
+    }
+    document.getElementById('zsac-avis').addEventListener('click', function(e){
+      var t = e.target.closest('.zsl-open');
+      if(t){ open(t.getAttribute('data-full') || t.src, t.getAttribute('alt')); }
     });
-    window.addEventListener('resize', update);
-    update();
+    modal.addEventListener('click', function(e){ if(e.target === modal || e.target === closeBtn){ close(); } });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('open')){ close(); } });
   }
 })();
 </script>
@@ -84,9 +111,23 @@
   "name": "Sac — Avis",
   "tag": "section",
   "settings": [
-    { "type": "text", "id": "score", "label": "Note", "default": "4,7" },
-    { "type": "text", "id": "score_sub", "label": "Sous-texte", "default": "Basé sur 101 avis vérifiés" },
-    { "type": "text", "id": "more_label", "label": "Bouton voir plus", "default": "Voir plus d'avis" }
+    { "type": "text", "id": "score", "label": "Note", "default": "4,8" },
+    { "type": "text", "id": "score_sub", "label": "Nombre d'avis (texte)", "default": "101 avis" },
+    { "type": "text", "id": "more_label", "label": "Bouton voir plus", "default": "Voir plus d'avis" },
+    { "type": "header", "content": "Photos des 13 premiers avis" },
+    { "type": "image_picker", "id": "avis_img_1", "label": "Photo avis 1 (Eva R.)" },
+    { "type": "image_picker", "id": "avis_img_2", "label": "Photo avis 2 (Andreas R.)" },
+    { "type": "image_picker", "id": "avis_img_3", "label": "Photo avis 3 (Lova M.)" },
+    { "type": "image_picker", "id": "avis_img_4", "label": "Photo avis 4 (Saga W.)" },
+    { "type": "image_picker", "id": "avis_img_5", "label": "Photo avis 5 (Felix D.)" },
+    { "type": "image_picker", "id": "avis_img_6", "label": "Photo avis 6 (Gabriella A.)" },
+    { "type": "image_picker", "id": "avis_img_7", "label": "Photo avis 7 (Hans N.)" },
+    { "type": "image_picker", "id": "avis_img_8", "label": "Photo avis 8 (Bengt K.)" },
+    { "type": "image_picker", "id": "avis_img_9", "label": "Photo avis 9 (Anton P.)" },
+    { "type": "image_picker", "id": "avis_img_10", "label": "Photo avis 10 (Camilla O.)" },
+    { "type": "image_picker", "id": "avis_img_11", "label": "Photo avis 11 (Malin F.)" },
+    { "type": "image_picker", "id": "avis_img_12", "label": "Photo avis 12 (Ludvig C.)" },
+    { "type": "image_picker", "id": "avis_img_13", "label": "Photo avis 13 (Viktor R.)" }
   ],
   "presets": [ { "name": "Sac — Avis" } ]
 }

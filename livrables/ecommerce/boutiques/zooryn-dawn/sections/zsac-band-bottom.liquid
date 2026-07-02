@@ -65,30 +65,6 @@
   </div>
 </div>
 
-<!-- Newsletter -->
-<div class="zsac newsletter">
-  <div class="newsletter-visuel">
-    {%- if s.news_img != blank -%}
-      <img class="img-cover" src="{{ s.news_img | image_url: width: 1254, height: 1254 }}" alt="" width="1254" height="1254" loading="lazy">
-    {%- else -%}
-      <div class="ph"><span>Photo lifestyle — sac porté en extérieur</span></div>
-    {%- endif -%}
-  </div>
-  <div class="newsletter-form-zone">
-    <h2>{{ s.news_titre | default: 'Vous voulez 10 % de réduction sur votre prochain achat ?' }}</h2>
-    <p>{{ s.news_texte | default: 'Inscrivez-vous à notre newsletter dès maintenant et économisez encore plus.' }}</p>
-    {%- form 'customer' -%}
-      <input type="hidden" name="contact[tags]" value="newsletter">
-      <div class="form-inline">
-        <input type="email" name="contact[email]" placeholder="E-mail" aria-label="E-mail" required>
-        <button type="submit">S'inscrire</button>
-      </div>
-      {%- if form.posted_successfully? -%}<p class="mention">Merci, votre inscription est confirmée !</p>{%- endif -%}
-    {%- endform -%}
-    <p class="mention">Votre vie privée nous tient à cœur. En vous inscrivant, vous acceptez que nous traitions vos informations conformément à notre politique de confidentialité pour vous envoyer notre newsletter. Vous pouvez vous désinscrire à tout moment.</p>
-  </div>
-</div>
-
 {% schema %}
 {
   "name": "Sac — Bandeaux bas",
@@ -105,11 +81,7 @@
     { "type": "text", "id": "tc3_t", "label": "Col 3 titre", "default": "Service client" },
     { "type": "text", "id": "tc3_p", "label": "Col 3 texte", "default": "Notre support est là pour répondre à toutes vos questions à contact@zooryn.com." },
     { "type": "text", "id": "tc4_t", "label": "Col 4 titre", "default": "Garantie satisfaction 60 jours" },
-    { "type": "text", "id": "tc4_p", "label": "Col 4 texte", "default": "Testez-le pendant 60 jours et soyez remboursé si vous n'êtes pas 100 % satisfait." },
-    { "type": "header", "content": "Newsletter" },
-    { "type": "image_picker", "id": "news_img", "label": "Image" },
-    { "type": "text", "id": "news_titre", "label": "Titre", "default": "Vous voulez 10 % de réduction sur votre prochain achat ?" },
-    { "type": "text", "id": "news_texte", "label": "Texte", "default": "Inscrivez-vous à notre newsletter dès maintenant et économisez encore plus." }
+    { "type": "text", "id": "tc4_p", "label": "Col 4 texte", "default": "Testez-le pendant 60 jours et soyez remboursé si vous n'êtes pas 100 % satisfait." }
   ],
   "presets": [ { "name": "Sac — Bandeaux bas" } ]
 }

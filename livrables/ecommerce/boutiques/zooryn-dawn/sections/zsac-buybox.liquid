@@ -298,7 +298,7 @@
     /* Palier 1 : prix du sac unique */
     setRole('t1-now', fmt(priceOf(state.single)));
     /* Palier 1+1 : on paie le sac le plus cher des deux, l'autre est offert.
-       -> si au moins un des deux est Large (1,6 L), le prix payé passe à 45,95 €. */
+       -> si au moins un des deux est Large (1,6 L), le prix payé passe à 49 €. */
     var p1 = priceOf(state.b1), p2 = priceOf(state.b2);
     var bogoPaid = Math.max(p1, p2);
     var bogoValue = p1 + p2;
@@ -453,6 +453,14 @@
   if(cta){ cta.addEventListener('click', addToCart); }
 
   render();
+  /* La carte sticky est plus bas dans le DOM : on resynchronise son prix une
+     fois toute la page chargée, sinon syncSticky part dans le vide au 1er render. */
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', render);
+  } else {
+    render();
+  }
+  window.addEventListener('load', render);
 })();
 </script>
 

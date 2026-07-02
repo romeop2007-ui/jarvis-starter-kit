@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-07-02
+
+### Page sac sling — améliorations UX/mobile + prix mis à jour (39€/49€)
+- **Prix mis à jour** : Standard 1L 36,95 € → **39 €** (barré 78 €), Large 1,6L 45,95 € → **49 €** (barré 98 €). Variantes Shopify mises à jour via GraphQL + affichage de la page synchronisé. ⚠️ COGS rendu fournisseur à obtenir pour valider la rentabilité.
+- **Section avis refaite** : 101 avis en Liquid pur, 13 premiers avec photo. Photos branchées en CDN direct (`cdn.shopify.com/s/files/.../1.jpg` à `13.jpg`, convention de nommage Roméo) sans aucune saisie manuelle supplémentaire ; 13 champs `image_picker` en schema comme fallback. Lightbox popup : clic sur photo → plein écran fond vert foncé, fermeture au clic / bouton ✕ / Escape. "Voir plus" révèle par lots de 12 (8 affichés initialement). Ratio des images respecté (width fixe + height auto, jamais de rognage carré, acté en mémoire).
+- **Newsletter supprimée** : bloc "Vous voulez 10% de réduction..." retiré de `sections/zsac-band-bottom.liquid` (HTML + schema).
+- **Sticky CTA transformé en carte flottante** bas-droite (max 420px, border-radius 14px, ombre verte) au lieu de la barre pleine largeur. Bug "—" à la place du prix corrigé (le `render()` s'exécutait avant que le DOM sticky existe). Nom complet affiché sans troncature.
+- **Fix débordement horizontal mobile** : `min-width:0` sur `.product-info` et `.upsell-view` dans `@media(max-width:980px)`. La buy box débordait à ~841px sur écran 390px (cause : `min-width:auto` CSS Grid + upsell track en flex non contraint). Mesuré via CDP avant/après : `info=841` → `info=350`, `body=390`.
+- **Fix carrousel galerie mobile** : `.gallery-swipe-img` passé de `aspect-ratio:1/1;object-fit:cover` à `height:340px;max-height:52vh;object-fit:contain`. Le produit s'affiche désormais en entier sur fond crème sans rogner ni occuper toute la hauteur d'écran.
+
+---
+
 ## 2026-07-01 (mise à jour 2)
 
 ### Page produit "Sac bandoulière de voyage" (sac sling anti-vol RFID) construite et mise en ligne via le skill boutique

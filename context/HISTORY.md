@@ -7,6 +7,16 @@
 
 ---
 
+## 2026-07-02 (mise à jour 6)
+
+### Budget T4 clos (chiffres finaux) + règle de réplique exacte gravée dans le skill budget
+- Bloc T4 (Luma) réajusté avec les chiffres finaux : la campagne Meta T4 a dépensé 81,81 € au total (le Sheet en avait 42,45 €, montant partiel écrit avant la fin de campagne). K23 mis à jour, ventes inchangées (2 × 29,99 €).
+- Roméo a renseigné lui-même K27 = 14,34 € (COGS unitaire Luma, conversion exacte des 16,40 $ Aplusfulfill au taux du jour) ; la formule K22 calcule 28,68 € de charges fournisseurs.
+- Bilan définitif du testing T4 : CA 59,98 €, charges 110,49 €, perte -50,51 € COGS inclus (cohérent avec l'estimation ~50 € au kill). B29 passe à -2 561,25 €.
+- Règle gravée dans le skill budget (demande explicite de Roméo) : tout nouveau bloc testing (T5+) = réplique EXACTE des blocs existants (modèle, couleurs, formules, structure), seuls changent les prix et les libellés des offres.
+
+---
+
 ## 2026-07-02 (mise à jour 5)
 
 ### Recherche logement Huesca : page Notion nettoyée + 2 règles majeures ajoutées au skill (lien direct, réputation Trustpilot)

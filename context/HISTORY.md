@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-07-02 (mise à jour 5)
+
+### Recherche logement Huesca : page Notion nettoyée + 2 règles majeures ajoutées au skill (lien direct, réputation Trustpilot)
+- **Règle "lien direct obligatoire" actée et appliquée.** Roméo a signalé que cliquer sur les liens de la page Notion ne menait pas à l'annonce précise mais à l'accueil du site (piège Notion du double lien : un lien de fiche invisible collé à un lien "NomDuSite" pointant vers la home). Nouvelle règle prioritaire sur les critères : chaque bien = **un seul lien direct vers sa fiche**, ou à défaut téléphone/adresse exploitable, sinon **on supprime le bien**. Gravée dans `SKILL.md`, `references/format-notion.md` et la mémoire.
+- **Page Notion entièrement nettoyée et vérifiée en ligne.** 8 biens supprimés (liens morts ou fiches introuvables : Nevería, López Allué, Casco Antiguo, Gregoria Ciprés particulier, Plaza Navarra, Doña Sancha, Padre Huesca, Menéndez Pidal). 6 conservés avec lien direct re-vérifié actif.
+- **Nouvelle source en or : bourse logement officielle de l'Université de Saragosse** (alojamiento.unizar.es) — annonces de particuliers avec **adresse exacte + téléphone direct**, zéro frais d'agence. 2 appartements (Plaza San Bernardo 4, Paseo Ramón y Cajal 21) + 1 chambre (San Orencio 1) ajoutés, tous à moins de 6-9 min à pied. À re-consulter (stock renouvelé mensuellement).
+- **Relance du skill sous les nouvelles règles :** +6 appartements Fincas Montearagón (liens directs Rentola, filtrés par distance ≤15 min) et **section chambres en colocation créée** (5 chambres : 1 via unizar + 4 via alquilarhabitacion.es, dont 3 dans le même appartement partagé Cabestany 22 = option "2 chambres à deux").
+- **Règle réputation Trustpilot ≥ 4/5 actée** (durcie en cours de session à la demande de Roméo). Un portail noté < 4 est écarté ; un portail sans profil Trustpilot est gardé (bénéfice du doute). Écartés : **idealista (1,3), rentola.es (1,7, piège abonnement 1€→39€), enalquiler.com (2,83)**. Principe : le portail n'est qu'un intermédiaire → les 11 biens concernés sont conservés mais **reroutés vers le téléphone direct de l'agence sérieuse derrière** (Fincas Montearagón 974 23 82 44 pour 10 biens, Tecnocasa Palacio de los Reyes 974 22 96 60 pour le bien 2). Résultat : plus aucun lien vers un site douteux, tout est contactable en direct.
+- **Bilan page Notion :** 14 appartements + 5 chambres, tous ≤15 min à pied, tous ≤500€/pers, tous joignables (lien direct de fiche ou téléphone direct).
+
+---
+
 ## 2026-07-02 (mise à jour 4)
 
 ### Page sac sling : polissage mobile complet + verrou panier cadeau + sac en tête de collection

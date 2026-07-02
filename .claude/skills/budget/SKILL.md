@@ -102,6 +102,9 @@ Le moteur ecrit en `USER_ENTERED` (un nombre reste un nombre, une chaine commenc
 ---
 
 ## Ajouter un nouveau testing (T4+)
+
+**Regle absolue (actee par Romeo le 02/07/2026) : tout nouveau bloc est une REPLIQUE EXACTE des blocs existants.** Meme modele, memes couleurs/mise en forme, memes calculs/formules, meme structure de lignes, tout pareil que ce qui est deja en place. Les SEULES choses qui changent d'un bloc a l'autre : les **prix** et les **offres du produit** (libelles des paliers : avec/sans offerts, noms des packs). Ne jamais improviser une variante de structure, de style ou de formule.
+
 Methode rodee sur T4 (Luma), a reproduire pour T5+ (colonnes M/N) :
 1. Creer le bloc en recopiant la structure d'un bloc existant (lignes 14-25 + ligne 27), avec les memes formules pour CA / Total charges / Total produit / Charges fournisseurs, adaptees a la colonne du nouveau bloc. Adapter les libelles des paliers au produit (avec/sans offerts).
 2. Etendre la formule de **B29** en ajoutant `+<colonne>25` (le Total produit du nouveau bloc). Ex pour T4 : `...+K25`.

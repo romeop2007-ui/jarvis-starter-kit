@@ -30,6 +30,8 @@ Pour chaque nouveau site : WebSearch puis WebFetch sur les pages de listing. Si 
 
 ## Étape 3 — Pour chaque logement retenu, collecter
 > ⚠️ **RÈGLE ABSOLUE (prioritaire sur les critères) : chaque bien doit avoir un LIEN DIRECT vers sa fiche d'annonce** (cliquer ouvre la page du bien, pas l'accueil du site). À défaut, fournir adresse exacte + téléphone/email de l'annonceur pour le contacter. Sans lien direct ni contact exploitable → **supprimer le bien**. Un seul lien par bien, jamais un lien vers l'accueil du site. Voir `references/format-notion.md` (section "RÈGLE ABSOLUE").
+>
+> ⚠️ **RÈGLE RÉPUTATION (02/07/2026) : écarter les plateformes d'annonces à note Trustpilot catastrophique** (arnaques/faux comptes/pièges à abonnement). Bannis : **idealista (1,3)** et **rentola.es (1,7, piège 1€→39€)**. Avant de s'appuyer sur un NOUVEAU portail, vérifier sa note Trustpilot (WebSearch "<site> Trustpilot opiniones") ; note très basse (≈<2,5/5) reflétant des arnaques = ne pas l'utiliser comme source. **Astuce clé : le portail n'est qu'un intermédiaire** — si un bien intéressant est sur un portail banni mais que le vrai annonceur est une agence sérieuse (ex. Fincas Montearagón, ☎ 974 23 82 44, fincasmontearagon.com), garder le bien en reroutant vers le contact DIRECT de l'agence. Toujours vérifier aussi la réputation de l'agence/annonceur (déjà fait en Étape 3.2).
 
 1. Adresse + **lien direct de la fiche** (pas l'accueil) + agence/annonceur réel + son téléphone/email
 2. Avis : WebSearch "<agence> Trustpilot", sinon ProvenExpert/RealAdvisor/avis Google. Toujours rapporter le négatif s'il existe.

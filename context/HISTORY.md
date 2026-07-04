@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-07-04 (mise à jour 3)
+
+### Kill du sac sling (T5) malgré rentabilité + nouveau modèle Meta (montage manuel) + budget T5 + cap formation
+- **Campagne T5 (sac sling) : galère de publication puis abandon du montage par API.** Erreur Meta #1504040 (« la mise à jour de la fenêtre d'attribution n'est plus prise en charge ») : l'attribution n'est modifiable ni après création ni « remise comme avant », et le formulaire du Gestionnaire injecte son défaut dans tout brouillon d'édition d'un adset créé par API → publication bloquée. Adset recréé proprement par API (attribution posée d'entrée), puis Roméo a tout supprimé et remonté la campagne À LA MAIN.
+- **🔴 NOUVEAU MODÈLE META acté (gravé dans le skill `crea-pub`) : Claude ne crée PLUS la campagne/adset/pubs par API.** Roméo monte tout à la main dans le Gestionnaire. Claude intervient à 2 moments : (1) sur « on fait la campagne » → recherche TrendTrack du winner + **kit copier-coller** (texte principal, titre, description, CTA, URL, réglages) ; (2) sur « vérifie la campagne » → **vérification lecture seule** complète (campagne/adset/pubs, mapping créative↔pub, chaque pub a sa vidéo, `ads_get_errors`) + verdict. Ancienne méthode API passée en [ARCHIVE] dans le skill.
+- **Bilan T5 (skill `bilan-ads`, ~21h de diffusion) : rentable mais KILLÉ.** 44,88 € dépensés, 2 ventes J1 (#1004, #1005, 39 € chacune, recoupées Shopify), ROAS 1,74 au-dessus du break-even 1,63, CPA 22,44 € sous la marge 24 €, CPM bas 17 €, tunnel sain. **+6,88 € réels la 1re journée** (première journée dans le vert de tous les tests).
+- **Décision stratégique de Roméo : kill quand même.** Motif = ticket trop petit (39 €, COGS offre 1+1 ≈ 15 €, ratio 2,6×). Pour un x3 il aurait fallu vendre l'offre 1+1 à 45-48 €, pour son seuil x3,5-4 à 52-60 €, prix qui casserait la conversion. « Gratter 7 €/jour » ne l'intéresse pas, il veut un produit qui scale. Kill assumé, décision data + stratégie, pas émotion.
+- **Nouveau critère de recherche produit : viser un ticket ~50-70 €** dès le départ (rentable ≠ bon). Poser « à quel prix pour un x3, est-ce vendable ? » avant de s'investir. Les 3 produits verrouillés (matelas, Luma, sac) sont désormais tous testés et killés ; pipeline vide.
+- **Budget (skill `budget`) : bloc T5 créé** (colonnes M/N, réplique exacte du modèle) : CA 78 €, charges 71,12 € (pub 44,88 € + COGS réel 26,24 € = offre complète #1004 à 15 € + sac solo #1005 à 11,24 €), résultat +6,88 €. B29 (total cumulé) passe à **−2 554,37 €**.
+- **Formation payante 1 095 € : démarre le 05/07 à 19h** (déjà au calendrier de Roméo). Premier investissement en formation. **Bilan des 3 dernières semaines prévu le 05/07.** Recherche produit en PAUSE d'ici là (ne pas relancer sans demande).
+- **Point d'associé (demandé par Roméo, « remets-moi les pieds sur terre ») :** fierté méritée (vraies ventes en ~2 mois sans formation, exécution au-dessus de la moyenne), logique de progression saine, mais « statistiquement je vais forcément réussir » nuancé : la rigueur augmente fortement les chances, ne les garantit pas. Vrai point de vigilance = cumul −2 554 € + 1 095 € de formation, ne pas basculer dans des tests à l'aveugle (sa discipline sur ce kill montre qu'il ne le fait pas). Mot d'ordre partagé : « no émotions jusqu'à la réussite ».
+
+---
+
 ## 2026-07-04 (mise à jour 2)
 
 ### Page sac sling — image produit mobile passée bord à bord

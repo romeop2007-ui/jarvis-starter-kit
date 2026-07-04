@@ -155,6 +155,10 @@ Skill qui met à jour le Google Sheet "Investissement E-commerce" (suivi du budg
 
 Skill d'analyse de la campagne Meta du moment. Activé via `/bilan-ads`, ou quand Roméo dit "fais-moi le bilan de mes pubs", "analyse ma campagne Meta", "où on en est sur les ads", "on continue ou on kill le produit ?". Récupère les chiffres via le MCP Facebook Ads (lecture seule), demande le COGS à Roméo, calcule le ROAS break-even et le ROAS cible de la formation, sort un tableau comparatif "ce que tu as vs ce que tu devrais avoir" (en distinguant ce qui vient de la formation de ce qui est une orientation marché), puis recommande kill ou continue avec un budget, directement dans le chat. Ne touche jamais aux campagnes (décision et exécution = Roméo). Barème dans `references/baremes.md`.
 
+### recherche-produit
+
+Skill de recherche produit dropshipping pour Zooryn via TrendTrack, qui formalise la méthode V3 de Roméo. Activé quand Roméo dit "recherche produit", "trouve-moi un produit", "cherche un winner", "lance une recherche produit", "on alimente le pipeline". Applique l'ordre strict "la data avant le produit" : filtre par catégorie de l'ombrelle outdoor/voyage, tri `reachDelta7d` (ce qui décolle cette semaine, jamais `reachDelta30d`), shop frais (<6 semaines, peu de produits, trafic <1700 vérifié à la main), traçabilité EU obligatoire, pente de reach, puis présente une short-list pour/contre sans survendre. C'est Roméo qui tranche, le skill ne kille jamais avant présentation. Sourcing = Roméo. Anti-doublon des rejetés et fiche outils TrendTrack dans `references/`.
+
 ---
 
 ## Getting Started

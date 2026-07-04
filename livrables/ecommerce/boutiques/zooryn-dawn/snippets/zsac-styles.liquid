@@ -314,10 +314,11 @@
     .zsac .product-info{position:static;order:3;min-width:0}
     .zsac .upsell-view{min-width:0}
     .zsac .gallery-col{order:1}
-    .zsac .gallery-swipe-wrap{display:block;order:1;position:relative}
-    .zsac .gallery-swipe{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-radius:var(--rayon)}
+    /* Galerie mobile bord à bord : on casse le padding 20px du .wrap, image pleine largeur */
+    .zsac .gallery-swipe-wrap{display:block;order:1;position:relative;margin:0 -20px}
+    .zsac .gallery-swipe{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-radius:0}
     .zsac .gallery-swipe::-webkit-scrollbar{display:none}
-    .zsac .gallery-swipe-img{flex:0 0 100%;scroll-snap-align:center;height:340px;max-height:52vh;object-fit:contain;background:var(--creme-clair)}
+    .zsac .gallery-swipe-img{flex:0 0 100%;scroll-snap-align:center;width:100%;aspect-ratio:1/1;height:auto;max-height:none;object-fit:contain;background:var(--creme-clair)}
     .zsac .gallery-swipe-counter{position:absolute;right:12px;bottom:12px;background:rgba(16,51,37,.78);color:#F3EFE4;font-size:12px;font-weight:700;padding:5px 10px;border-radius:20px}
     .zsac .product-info{order:3}
     .zsac.duo-squares,.zsac.newsletter{grid-template-columns:1fr}

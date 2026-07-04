@@ -32,6 +32,12 @@ blocage technique reel ou nouvelle info manquante imprevue.
 
 ### A demander si Romeo veut ENSUITE lancer la campagne Meta Ads pour ce lot
 
+⚠️ **Depuis le 03/07/2026, "lancer la campagne" = livrer le KIT COPIER-COLLER (texte principal,
+titre, description, CTA, URL, reglages), PAS creer via l'API** (cf. section "Campagne Meta Ads —
+NOUVEAU MODELE"). Les questions utiles pour le kit : 6 (URL produit), 7 (budget), 8 (pays),
+11 (concurrent de reference). Les questions 9, 10 et 12 ne servent que si Romeo demande
+explicitement une creation API (exceptionnel desormais).
+
 6. **L'URL exacte de la page produit Shopify** (le lien de destination de la pub).
 7. **Le budget journalier souhaite** pour la campagne (ex 50€/jour) et si c'est en CBO
    (recommande) ou ABO (a la demande explicite seulement).
@@ -55,6 +61,9 @@ blocage technique reel ou nouvelle info manquante imprevue.
 - Deposer les visuels finaux dans Shopify Admin > Contenu > Fichiers pour obtenir une URL
   publique (aucun outil d'upload de fichier local disponible cote Claude).
 - Partager un pixel Meta avec un nouveau compte publicitaire (Meta Business Settings).
+- **Monter TOUTE la campagne Meta dans le Gestionnaire** (campagne, adset, pubs, upload des
+  videos, duplication, publication) — depuis le 03/07/2026, Claude ne cree plus rien via
+  l'API, il fournit le kit copier-coller puis verifie en lecture seule sur demande.
 - Activer la campagne/adset/pubs dans le Gestionnaire de publicites (Claude ne passe jamais
   rien en ACTIVE).
 
@@ -425,7 +434,74 @@ Apres avoir traite toutes les pubs, annoncer a Romeo combien sont pretes, sous l
 "X pubs pretes a monter dans CapCut" + la liste des dossiers + tout ce qui a bloque (ex Vmake
 en manuel sur telle pub). Romeo verifie, importe dans CapCut, monte, poste sur Meta.
 
-## Lancement de la campagne Meta Ads (apres les creas, sur demande de Romeo)
+## Campagne Meta Ads — NOUVEAU MODELE (acte par Romeo le 03/07/2026)
+
+⚠️ **CLAUDE NE CREE PLUS la campagne/adset/pubs via l'API. C'est ROMEO qui fait TOUT a la
+main dans le Gestionnaire** (campagne, adset, duplication des pubs, upload des videos,
+publication, activation). Raison (vecu T5, nuit du 02-03/07) : le ping-pong API/Gestionnaire
+genere des brouillons toxiques — le formulaire du Gestionnaire injecte silencieusement son
+defaut de fenetre d'attribution dans tout brouillon d'edition d'un adset cree par API, et
+comme l'attribution n'est modifiable NI apres creation NI meme "remise comme avant" (erreur
+#1504040 "La mise a jour de la fenetre d'attribution n'est plus prise en charge"), la
+publication est bloquee sans issue (il faut recreer l'adset). Romeo a tranche : il pilote le
+Gestionnaire seul, Claude intervient a DEUX moments precis, decrits ci-dessous.
+
+### ROLE 1 — Quand Romeo dit "on fait la campagne" : livrer le KIT COPIER-COLLER
+
+Claude fait sa recherche TrendTrack sur l'ad la plus percee du concurrent que l'on copie
+(methode detaillee aux etapes 2-4 de la section archive ci-dessous : `search_ads` par `query`
+produit + `sort_by: "reach"` + `status: "all"`, verifier que c'est LE meme produit, recuperer
+le body/hook/CTA complet), applique la **verification factuelle obligatoire**
+(`references/verites-zooryn.md` : garantie 30 jours, vrai prix Shopify lu en direct, offres
+reelles type "1 achete = 1 offert", livraison offerte), puis livre a Romeo, en clair dans le
+chat, **chaque champ pret a copier-coller dans le Gestionnaire** :
+
+1. **Texte principal** (le body complet adapte FR, dans un bloc de code copiable)
+2. **Titre** (dans un bloc de code copiable)
+3. **Description** (facultative — si le concurrent n'en a pas, en proposer une courte type
+   "Livraison offerte · Satisfait ou rembourse 30 jours")
+4. **Call-to-action** (ex "Acheter" = SHOP_NOW)
+5. **URL de destination** (la page produit Shopify exacte du lot)
+6. **Rappel des reglages** pour la creation manuelle : campagne objectif Ventes + CBO au
+   budget du lot (50 €/j par defaut) ; adset conversion site web + pixel `2803216990037221`
+   evenement Achat + audience France "Personnes qui vivent a cet endroit" + Advantage+
+   (JAMAIS l'audience enregistree "Zooryn", elle traine un ciblage geo deprecie qui bloque) +
+   placements manuels SANS video in-stream (visuels portrait) + attribution laissee PAR DEFAUT
+   (ne pas y toucher) ; identite = page Zooryn + compte Instagram.
+
+C'est TOUT ce que Claude produit a ce stade. Pas de campagne, pas d'adset, pas de creative,
+pas de pub via l'API. Romeo construit tout a la main et duplique lui-meme sa premiere pub.
+
+### ROLE 2 — Quand Romeo dit "verifie la campagne" (ou "verifie si ma campagne est bonne") :
+verification LECTURE SEULE complete
+
+Une fois la campagne montee par Romeo, Claude verifie TOUT via le MCP Facebook Ads **sans
+rien toucher** (aucun update, aucune creation, aucune activation), et rend un verdict clair :
+
+1. **Campagne** : objectif, budget CBO, statut, date/heure de demarrage programmee.
+2. **Adset** : optimisation (conversions/Achat), attribution, statut, demarrage.
+3. **Chaque pub une par une** : retrouver sa creative (via `ads_get_creatives` +
+   `ads_get_creative_ads` pour le mapping pub↔creative — le champ creative n'est pas lisible
+   au niveau ad), et verifier : **chaque pub a SA propre video** (`video_id` distincts, pas de
+   doublon, pas de placeholder image restant), texte principal conforme au kit, titre conforme,
+   call-to-action conforme.
+4. **`ads_get_errors` sur campagne + adset + chaque pub** : `{}` partout = OK.
+5. **Restituer le verdict** : "ta campagne est bonne" ou la liste precise de ce qui cloche,
+   PLUS les observations non bloquantes (ex : heure de demarrage = rien ne depense avant telle
+   date ; nombre de pubs different du lot prevu). Toujours distinguer "probleme" de "note".
+6. **Limite a annoncer** : l'audience et les placements ne sont pas lisibles en detail via
+   l'API (`targeting` non supporte en lecture) — mais une publication passee sans erreur est
+   bon signe, c'est la que Meta bloque quand le ciblage a un souci.
+
+⚠️ Piege de lecture : les creatives listees par `ads_get_creatives` peuvent appartenir a des
+pubs SUPPRIMEES (vieux essais, titres bizarres type "{{product.name}}"). Toujours mapper
+creative → pub via `ads_get_creative_ads` et ne juger QUE les creatives branchees sur les
+pubs live de la campagne verifiee.
+
+## [ARCHIVE — ancienne methode API, remplacee le 03/07/2026] Lancement via MCP Facebook Ads
+
+Conservee comme reference technique (constantes du compte, pieges Meta, methode TrendTrack).
+**Ne plus creer de campagne/adset/pub via l'API sauf demande explicite et ponctuelle de Romeo.**
 
 Etape suivante possible une fois un `<LOT>` (T3, T4, T5...) pret : creer la campagne Meta Ads
 correspondante via le MCP Facebook Ads. **Cette etape n'est JAMAIS automatique au sens "meme

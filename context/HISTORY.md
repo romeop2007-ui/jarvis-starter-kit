@@ -7,6 +7,25 @@
 
 ---
 
+## 2026-07-04 (mise à jour 2)
+
+### Page sac sling — image produit mobile passée bord à bord
+- Galerie mobile de la page sac (`snippets/zsac-styles.liquid`) : l'image produit sort désormais du padding 20px du `.wrap` (margin négatif -20px) pour occuper toute la largeur de l'écran, coins arrondis retirés sur mobile.
+- Image passée en carré pleine largeur (aspect-ratio 1/1, object-fit:contain sur fond crème) : le sac reste affiché en entier sans rognage. Desktop (grille 2 colonnes) intact.
+- Déployé sur le thème live #201573302617 via push ciblé --only.
+
+---
+
+## 2026-07-04
+
+### Skill `recherche-produit` créé + 1re passe (0 retenu, puits sec) + correction du tri
+- Skill `.claude/skills/recherche-produit/` créé via /skill-creator : formalise la méthode V3 de recherche produit (data avant produit, pente de reach, filtre shop frais, concurrence FR alignée formation "traduire avant d'innover"). 3 fichiers : `SKILL.md` (le SOP), `references/outils-trendtrack.md` (ce qui marche/ne marche pas sur TrendTrack, IDs de catégories, pièges de lecture) et `references/liste-rejetes.md` (anti-doublon des rejetés/réserve/déjà-testés, à consulter avant toute présentation).
+- 1re recherche menée avec le skill : **4 candidats tous écartés, 0 retenu.** Stillwell (douche portable rechargeable, angle chevaux : data 100% GB non analysable par Roméo lui-même + angle équestre hors niche = à réécrire, pas à traduire), RideLab (selle vélo ergonomique : scale depuis mars = trop vieux pour copier, déjà vu par Roméo il y a ~2 semaines), c-monsta (sac étanche wet/dry : marque établie 139 pubs/3M reach/11k IG, pas un dropshipper frais), Hydiqo (2e douche portable : diffusion US/NZ = data non analysable). Constat "puits sec sous standards stricts" reconfirmé (cohérent avec le 16/06).
+- **Correction majeure du skill après la passe :** le tri `reachDelta30d` de la 1re requête remontait des accumulateurs anciens (RideLab, en scaling depuis mars, sorti en tête). Remplacé partout par **`reachDelta7d` + fenêtre shop créé <6 semaines** pour isoler ce qui décolle CETTE semaine (respect du "timing entre les deux"). Ajout d'une section "Quand le puits est sec" (attendre 1-2 semaines / élargir consciemment / ne jamais reproposer un rejeté) et de 2 pièges outils (max_products ≤6-8 vide le puits, tri sans catégorie noyé sous santé/maison).
+- Pas d'urgence pipeline : le sac sling (T5) démarre son test le 03/07, la recherche du produit suivant peut attendre la recharge du puits.
+
+---
+
 ## 2026-07-02 (mise à jour 6)
 
 ### Budget T4 clos (chiffres finaux) + règle de réplique exacte gravée dans le skill budget

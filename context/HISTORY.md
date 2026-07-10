@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-07-10
+
+### Chantier lancé : automatisation SAV mails clients (connecteur Gmail MCP)
+- Objectif Roméo : que Claude lise les demandes clients arrivant sur **contact@zooryn.com**, rédige une réponse pro en français signée "L'équipe Zooryn" et la laisse **en brouillon** (jamais d'envoi auto), et **supprime** les propositions business/spam (commissions, promesses de millions).
+- Découverte clé : les clients ne mailent pas contact@zooryn.com en direct, ils passent par le **formulaire de contact Shopify** → mail reçu *de* `mailer@shopify.com`, avec l'email + le nom + le message du client *dans le corps* (vérifié sur le mail de test). Pour répondre, il faut extraire l'adresse du client et lui adresser le brouillon directement, pas répondre au thread Shopify.
+- Contraintes techniques du connecteur Gmail : (1) il ne peut **QUE créer des brouillons**, aucun outil d'envoi → la règle "impérativement en brouillon" est garantie par construction ; (2) `create_draft` **n'a aucun champ "De :"**, et le connecteur est authentifié sur le **Gmail perso** (romeop2007@gmail.com) → par défaut les brouillons partent du perso ; (3) Claude **ne peut pas lire les brouillons** (erreur de permission sur les threads de brouillon) → seul Roméo peut vérifier le champ "De :".
+- Blocage central = envoyer **depuis contact@zooryn.com**. Solution tentée (gratuite) : alias Gmail "Envoyer des e-mails en tant que" via le SMTP Private Email (`mail.privateemail.com`, port 465 SSL, utilisateur = adresse complète, mot de passe de la boîte), défini comme adresse par défaut. Nécessite une **vraie boîte Private Email** (pas juste la redirection : l'écran Namecheap montré par Roméo est un simple transfert vers son Gmail, sans envoi possible). Roméo a lancé la config de l'alias.
+- Risque signalé franchement : le connecteur pourrait retamponner le perso malgré l'alias par défaut → dans ce cas, fallback **Google Workspace** sur zooryn.com (boîte Google native, ~6€/mois + changement des MX), qui garantit l'envoi pro. À trancher selon le résultat du test.
+- **État au moment du /update : test en cours**, en attente que Roméo vérifie le champ "De :" du brouillon de test (3 brouillons de test créés vers sa propre adresse).
+
+---
+
 ## 2026-07-04 (mise à jour 3)
 
 ### Kill du sac sling (T5) malgré rentabilité + nouveau modèle Meta (montage manuel) + budget T5 + cap formation

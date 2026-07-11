@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-07-11
+
+### Clôture Sprint 1 + chantier sécurité (ProtonPass/2FAS) + pipeline transcription vidéo formation
+- **Clôture rétroactive du Sprint #1** (jamais faite au moment prévu fin juin) via un rendez-vous mixte bilan + clôture. Objectif d'ACTION largement dépassé (boutique lancée avant la deadline, 5 produits testés au lieu d'1, infra complète montée). Objectif de RÉSULTAT non atteint : 5 kills, 0 winner scalable, cumul budget -2 554,37 € + 1 095 € de formation engagés. Constat partagé avec Roméo : la machine tourne bien, il manque le carburant (le produit).
+- **Formation payante 1 095 € (démarrée le 05/07) : en cours.** Roméo en phase de visionnage + application, sans objectif chiffré tant que le job centre aéré tourne (juillet = phase basse assumée, pas une dérive). Contenu stratégique à intégrer au fil de l'eau. Recherche produit reprise sérieusement prévue en août (Sprint #2).
+- **Nouveau chantier admin noté : création compte URSSAF pour déclarer**, à faire en juillet.
+- **Logement Huesca clôturé** côté recherche (reste la réinscription de Roméo lui-même). Médiateur de la consommation mis en pause consciente (non prioritaire).
+- **Nouvel outil créé : pipeline de transcription locale des vidéos de formation** (`scripts/transcribe.py`, faster-whisper 100% local + yt-dlp pour récupérer les vidéos Wistia intégrées dans les pages Kajabi via cookies de session exportés). Glossaire e-commerce pré-chargé (ROAS, adset, Shopify, COGS...) pour la reconnaissance du jargon métier. Patch nécessaire : forcer la copie de fichiers au lieu des symlinks HuggingFace (Windows sans mode développeur bloque sinon, `WinError 1314`). Premier test réussi sur une vidéo sécurité de la formation (~20 min), qualité de transcription bonne avec `large-v3-turbo`.
+- **Règle actée : une vidéo de formation = un sujet à clôturer avant d'en ouvrir une autre.** Jamais deux sujets sans rapport traités en parallèle, dans l'esprit du SOP de la formation (étape par étape).
+- **Gros chantier sécurité lancé et bien avancé**, suite au visionnage de la vidéo sécurité de la formation (le formateur s'est fait hacker 6 chiffres à cause d'un 2FA synchronisé cloud). Setup mis en place : **ProtonPass** (gestionnaire #1, comptes sensibles, gratuit) + **trousseau Apple** (gestionnaire #2, comptes légers) + **2FAS** (app 2FA locale sur iPhone, jamais cloud). **Comptes sécurisés dans la session (mot de passe unique généré + 2FA app) : Google/Gmail (+ codes de secours papier, SMS retiré), Apple/iCloud, Qonto (2FA déjà native), Facebook/Meta** (Business Suite et Gestionnaire de pubs partagent le même login, donc protégés du même coup). **Reste à faire : PayPal, Shopify + Shopify Payments, Namecheap**, puis le reste des comptes secondaires au fil de l'eau. Session interrompue ici à la demande de Roméo (fermeture pour économiser des tokens, reprise prévue immédiatement dans une nouvelle session).
+- **`.gitignore` durci** : ajout de `*cookie*.txt` et des vidéos de formation téléchargées (`livrables/ecommerce/formation/*.mp4`), pour éviter qu'un cookie de session Kajabi ou une vidéo sous copyright parte dans le repo.
+
+---
+
 ## 2026-07-10
 
 ### Chantier lancé : automatisation SAV mails clients (connecteur Gmail MCP)

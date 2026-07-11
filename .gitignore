@@ -12,6 +12,15 @@
 *service-account*.json
 *google-key*.json
 
+# Cookies de session exportés (jetons d'authentification — jamais versionner)
+*cookie*.txt
+livrables/ecommerce/formation/eb4d0efb-7ecb-4f8c-9fa1-34e156f4d0e4.txt
+
+# Vidéos + transcripts de formation (contenu payant sous droit d'auteur du formateur, régénérables)
+livrables/ecommerce/formation/*.mp4
+livrables/ecommerce/formation/*.txt
+livrables/ecommerce/formation/*.srt
+
 # Dépendances
 node_modules/
 __pycache__/

@@ -118,8 +118,8 @@
 
 ### Sources d'apprentissage
 - **YouTube :** Yassine Sdiri (formation 6h gratuite vue ce week-end, c'est comme ça que j'ai découvert ce workflow Claude Code)
-- Formations payées : aucune
-- Discord / Telegram / Skool : aucune communauté payante pour l'instant
+- **Formation payée : Zecom Academy (1095 €, démarrée le 05/07/2026, en cours).**
+- **Discord Zecom Academy (connecté le 11/07/2026)** : communauté de la formation, riche en SOP réel (staff Antoine "Logistique Ecom" + retours d'élèves). Accès via le skill `browser-use` (fenêtre de navigateur séparée, connexion Discord manuelle par Roméo, **session non persistante** : se reconnecter à chaque fermeture de fenêtre). **Mode de travail par défaut : Claude indique le salon (ex. `❓｜faq-ecom`, `📦｜agents`, `📚｜vos-docs-ia-plans-tips`) et le mot-clé à chercher, Roméo cherche lui-même** ; Claude ne navigue lui-même qu'en dernier recours, si Roméo n'a rien trouvé ou demande explicitement à déléguer. Lecture seule stricte, jamais de message posté dans le serveur.
 - Base de référence experte : `context/formation-dropshipping-synthese.md` (synthèse complète "0 à 1M de CA")
 
 ---

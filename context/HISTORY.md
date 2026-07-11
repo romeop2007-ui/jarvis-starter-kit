@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-07-11 (mise à jour 3)
+
+### Discord Zecom Academy connecté (lecture seule) + mode de recherche tranché
+- **Objectif de départ : automatiser la lecture du Discord de la formation** (communauté "Zecom Academy") pour retrouver les réponses déjà données par le staff/les élèves quand Roméo pose une question e-commerce. Bot officiel écarté : Roméo est simple membre, pas admin, impossible d'inviter un bot sans l'autorisation du créateur (et le bot serait visible dans la liste des membres). Self-bot (automatiser son propre compte) refusé : interdit par les CGU Discord, risque de bannissement du compte.
+- **Solution retenue : navigation via le skill `browser-use`**, dans une fenêtre de navigateur séparée où Roméo s'est connecté manuellement à son compte Discord. Lecture seule stricte (jamais de message posté), consigne explicite de Roméo.
+- **Contrainte testée et confirmée : la session Discord n'est PAS persistante.** Fermer puis rouvrir la fenêtre renvoie sur l'écran de connexion, il faut se reconnecter à chaque fois. Donc laisser la fenêtre ouverte tant qu'on travaille sur ce sujet.
+- **Test réel réussi** : question de Roméo sur le COGS élevé de la bandoulière (sac sling), en particulier si la ligne de shipping choisie par le fournisseur en était la cause. Réponses trouvées dans `❓｜faq-ecom` et `📦｜agents` : le shipping est calculé au poids/volume et selon la nature du produit (textile ~7-10€, électronique ~15€), ce qui explique le COGS de la guirlande Luma (électronique) et de la bandoulière (textile mais volumineuse). Pas de réponse trouvée sur "quelle ligne choisir en tant que débutant" (a priori géré par l'agent selon le volume de commandes, pas à choisir soi-même).
+- **Décision finale de Roméo (après avoir testé la recherche lui-même, jugée simple)** : mode de travail par défaut inversé. Claude n'ouvre plus le navigateur de sa propre initiative ; il indique à Roméo le salon (ex. `❓｜faq-ecom`, `📦｜agents`, `📚｜vos-docs-ia-plans-tips`) et le mot-clé à chercher, et Roméo cherche lui-même. Claude ne navigue lui-même qu'en dernier recours, si Roméo n'a rien trouvé ou demande explicitement à déléguer.
+- Réflexe gravé : dès qu'un blocage ou une question e-commerce/formation reste sans réponse claire, penser au Discord Zecom Academy comme source prioritaire (SOP réel de la formation, plus fiable qu'une réponse générique).
+
+---
+
 ## 2026-07-11 (mise à jour 2)
 
 ### Chantier sécurité clos : tous les comptes critiques migrés + Chrome nettoyé

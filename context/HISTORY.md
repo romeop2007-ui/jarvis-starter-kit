@@ -7,6 +7,16 @@
 
 ---
 
+## 2026-07-11 (mise à jour 2)
+
+### Chantier sécurité clos : tous les comptes critiques migrés + Chrome nettoyé
+- Comptes sécurisés (mot de passe unique ProtonPass + 2FA via 2FAS quand disponible) : PayPal, Shopify (couvre aussi Shopify Payments, pas de compte séparé), Namecheap, Aplusfulfill (fournisseur), TrendTrack, ElevenLabs (compte perso romeop2007, avec accès au workspace partagé "Dylwa's Workspace" — le workspace n'a pas de mot de passe propre, seul le compte perso compte).
+- Chrome : anciennes entrées de mots de passe supprimées pour tous les comptes migrés, "Proposer d'enregistrer les mots de passe et clés d'accès" + "Connexion automatique" désactivés.
+- Reste en secondaire, non urgent : Vmake, GitHub, compte de service Google Cloud (budget-bot). Médiateur de la consommation toujours en pause consciente.
+- Chantier sécurité déclaré clos pour la session (démarré le 11/07 suite à la vidéo formation sur le sujet).
+
+---
+
 ## 2026-07-11
 
 ### Clôture Sprint 1 + chantier sécurité (ProtonPass/2FAS) + pipeline transcription vidéo formation

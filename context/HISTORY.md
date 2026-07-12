@@ -7,6 +7,27 @@
 
 ---
 
+## 2026-07-12
+
+### Déclaration URSSAF mise en place + restructuration complète du Sheet budget
+- **Compte autoentrepreneur.urssaf.fr créé et opérationnel.** Périodicité mensuelle, pas de versement libératoire (CA de micro à reporter dans la déclaration de revenus des parents, Roméo étant rattaché fiscalement), ACRE actif (taux 6,2%), télépaiement SEPA configuré sur l'IBAN Qonto. Règle apprise : la toute première déclaration bénéficie d'un délai repoussé (deux échéances mai + juin regroupées, dues au 30/09), ensuite rythme mensuel standard (CA du mois M à déclarer avant fin du mois M+1, y compris à 0€ sous peine d'amende).
+- **2 déclarations faites** : mai (0€ CA, 0€ cotisation), juin (60€ CA arrondi par l'Urssaf, 4€ de cotisation, prélevé le 12/07/2026). Roméo a bien noté que l'Urssaf arrondit à l'euro le plus proche.
+- **Google Sheet "Investissement E-commerce" restructuré en profondeur**, à la demande de Roméo : suppression de toutes les Tables Google Sheets structurées (T1/T2/T3 et le tableau "Charges" du haut) pour uniformiser tout le Sheet en cellules simples avec couleurs posées à la main. Ajout de 2 titres de section ("ABONNEMENTS ET DÉPENSES" / "TESTING"), d'une ligne "Déclaration mensuelle (cotisations Urssaf)" qui vient en déduction de la case finale (désormais B34 au lieu de B29), lignes dégelées.
+- **2 incidents techniques rencontrés et corrigés dans la session** : `copyformat` puis `deleteTable` ont chacun effacé par erreur des données sur des plages issues d'anciennes Tables structurées (T1/T2/T3 une fois, le tableau "Charges" une autre fois). Repérés immédiatement au contrôle et restaurés à l'identique à partir de lectures faites juste avant chaque opération. Aucune perte réelle, mais leçon actée et documentée dans le skill (`.claude/skills/budget/SKILL.md`) pour ne plus reproduire l'erreur.
+- **Bilan T5 (sac sling) corrigé.** Découverte que le COGS dépend du palier acheté : une des 2 ventes était un vrai bundle "1 acheté + 1 offert" (2 exemplaires expédiés ensemble, COGS 16,62 €), l'autre un achat solo au même prix mais un seul exemplaire expédié (COGS 11,24 €, palier qui n'existait même pas dans le tableau). **Nouveau modèle "COGS par palier"** adopté pour T5 et rendu obligatoire pour tout futur testing (T6+) : chaque palier de prix a désormais sa propre ligne de coût produit au lieu d'un tarif unique par bloc. Résultat T5 révisé de +6,88 € à **+5,26 €**. Case finale globale : **−2 559,99 €**.
+
+---
+
+## 2026-07-11 (mise à jour 4)
+
+### Clôture de session + chantier prévu demain : déclaration URSSAF/micro-entreprise
+- Session fermée pour la journée (Coupe du monde), nouvelle session propre ouverte pour demain matin (12/07/2026).
+- **Objectif fixé pour la session de demain :** point complet sur comment déclarer en tant qu'auto-entrepreneur/micro-entreprise — quel compte URSSAF créer, quoi rentrer à quel endroit, quels autres comptes/organismes créer, étape par étape, pour éviter amende ou contrôle fiscal raté.
+- **Livrables attendus :** des tableurs Excel construits en session (pas en autonomie par Claude) pour suivre clairement CA vs charges (au-delà du seul budget testing) et estimer en % du CA ce qui sera à reverser (cotisations sociales micro, éventuellement CFE).
+- Engagement noté dans `context/CONTEXT.md` (Engagements actifs). Claude doit arriver préparé (réglementation micro-entreprise, seuils, cadence de déclaration URSSAF, comptes à ouvrir en plus de l'URSSAF).
+
+---
+
 ## 2026-07-11 (mise à jour 3)
 
 ### Discord Zecom Academy connecté (lecture seule) + mode de recherche tranché

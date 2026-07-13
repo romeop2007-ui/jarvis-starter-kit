@@ -13,13 +13,13 @@
 *google-key*.json
 
 # Cookies de session exportés (jetons d'authentification — jamais versionner)
+# Kajabi les exporte sous un nom UUID aléatoire, jamais "cookie" dans le nom : on ignore
+# tout le dossier formation (récursif) plutôt que de compter sur le nom de fichier.
 *cookie*.txt
-livrables/ecommerce/formation/eb4d0efb-7ecb-4f8c-9fa1-34e156f4d0e4.txt
 
-# Vidéos + transcripts de formation (contenu payant sous droit d'auteur du formateur, régénérables)
-livrables/ecommerce/formation/*.mp4
-livrables/ecommerce/formation/*.txt
-livrables/ecommerce/formation/*.srt
+# Vidéos + transcripts de formation (contenu payant sous droit d'auteur du formateur, régénérables,
+# + cookies de session à l'intérieur) : tout le dossier, y compris les sous-dossiers par leçon.
+livrables/ecommerce/formation/**
 
 # Dépendances
 node_modules/

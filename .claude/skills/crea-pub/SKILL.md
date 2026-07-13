@@ -1,6 +1,6 @@
 ---
 name: crea-pub
-description: Usine a creas publicitaires Zooryn. A partir d'une pub concurrent fournie par Romeo (VIDEO .mp4 ou IMAGE statique .jpg/.png), produit un dossier pret a finaliser. Detecte automatiquement le type. Video -> dossier pret a monter dans CapCut (video sans sous-titres via Vmake, script voix off FR adapte a la marque, voix off ElevenLabs calee sur la duree). Image -> texte FR adapte a la marque avec plan de placement, a poser dans Canva sur le visuel d'origine (conserve a l'identique). A declencher quand Romeo dit "fais-moi les creas", "transforme cette pub", "adapte cette crea", ou fournit un .mp4/.jpg/.png de concurrent a adapter.
+description: Usine a creas publicitaires Zooryn. A partir d'une pub concurrent (sourcee dans le tableau de recherche produit ou fournie par Romeo), produit un dossier pret a finaliser. Detecte automatiquement le type. Video -> script voix off FR adapte a la marque + voix off ElevenLabs calee sur la duree (le detourage Vmake est desormais 100% manuel cote Romeo). Image -> image finale FR generee via gpt-image. Sur demande, fournit aussi le texte de pub Meta (titre/corps/description/CTA/URL) pret a copier-coller, Romeo montant seul toute la campagne. A declencher quand Romeo dit "fais-moi les creas", "transforme cette pub", "adapte cette crea", "donne-moi le texte de la pub", ou fournit un .mp4/.jpg/.png de concurrent a adapter.
 allowed-tools: Bash, Read, Write, Edit, Glob
 ---
 
@@ -19,8 +19,14 @@ blocage technique reel ou nouvelle info manquante imprevue.
 
 ### A demander pour generer les creas (Chemin VIDEO ou IMAGE)
 
-1. **Le(s) fichier(s) concurrent(s)** (.mp4/.jpg/.png) du lot, ou le dossier source deja depose
-   dans `ressources créas avant modifs/<LOT>/`.
+1. **Le(s) fichier(s) concurrent(s)** (.mp4/.jpg/.png) du lot. **Depuis le 12/07/2026 : ne plus
+   demander a Romeo de fournir/chercher les pubs gagnantes.** Elles sont deja dans le tableau de
+   recherche produit (Google Sheet, cf. `.claude/skills/recherche-produit/scripts/tableau.mjs`,
+   colonnes AD1->AD15 de la ligne du produit) des lors que Romeo a valide ce produit et demande a
+   l'ajouter au tableau. Aller les recuperer directement depuis le Sheet (liens TrendTrack en
+   priorite, telechargeables) plutot que redemander a Romeo. Ne redemander un fichier que si le
+   produit n'a pas encore de ligne dans le tableau (cas rare, recherche pas encore faite via ce
+   circuit) ou si un lien du Sheet est mort.
 2. **Le nom EXACT du produit Shopify** correspondant (ex "Zooryn - Guirlande lumineuse
    solaire") — sert a remplacer le nom du produit concurrent partout (script, accroches).
 3. **Le nom du lot** (`T3`, `T4`...) s'il n'est pas deja visible dans le nom du dossier.
@@ -30,42 +36,28 @@ blocage technique reel ou nouvelle info manquante imprevue.
 5. **Budget global du lot** si Romeo veut une limite de cout (ElevenLabs, Vmake, gpt-image) —
    sinon on avance sans plafond explicite.
 
-### A demander si Romeo veut ENSUITE lancer la campagne Meta Ads pour ce lot
+### A demander si Romeo veut le TEXTE de la pub pour ce lot
 
-⚠️ **Depuis le 03/07/2026, "lancer la campagne" = livrer le KIT COPIER-COLLER (texte principal,
-titre, description, CTA, URL, reglages), PAS creer via l'API** (cf. section "Campagne Meta Ads —
-NOUVEAU MODELE"). Les questions utiles pour le kit : 6 (URL produit), 7 (budget), 8 (pays),
-11 (concurrent de reference). Les questions 9, 10 et 12 ne servent que si Romeo demande
-explicitement une creation API (exceptionnel desormais).
+⚠️ **Depuis le 12/07/2026, Claude ne fait plus QUE le texte de la pub** (titre, corps,
+description, CTA, URL) — plus de creation API, plus de verification post-creation (cf. section
+"Campagne Meta Ads"). Seules 2 infos utiles :
 
 6. **L'URL exacte de la page produit Shopify** (le lien de destination de la pub).
-7. **Le budget journalier souhaite** pour la campagne (ex 50€/jour) et si c'est en CBO
-   (recommande) ou ABO (a la demande explicite seulement).
-8. **Le pays cible** si ce n'est pas la France par defaut (le marche a change le 13/06,
-   confirmer si un lot vise un autre pays).
-9. **Quels visuels/videos exactement utiliser** s'ils sont repartis entre `créas terminées/`
-   et `ressources créas après modifs/` (ne jamais deviner un nombre de pubs, demander
-   confirmation du lot final retenu).
-10. **Quel compte publicitaire Meta utiliser** si plusieurs existent (un compte peut etre
-    recree/ferme entre deux lots, cf. piege du 23/06) — verifier avec `ads_get_ad_accounts`
-    et demander confirmation si ambigu.
 11. **Le nom du concurrent de reference pour CE produit** si Romeo en a un en tete (sinon
-    chercher soi-meme via TrendTrack le meilleur scaling sur ce produit).
-12. **L'ID du compte Instagram** si Romeo l'a sous la main (l'API ne le fournit pas encore) —
-    sinon prevenir que la pub ne delivrera que sur Facebook.
+    chercher soi-meme via TrendTrack, ou recuperer direct dans le tableau de recherche produit
+    si la ligne existe deja).
 
 ### Actions qui resteront TOUJOURS manuelles (a annoncer a Romeo, pas a lui faire decouvrir)
 
-- Executer les commandes Vmake/gpt-image (auto-execution interdite a Claude).
+- **Le detourage Vmake (retrait des sous-titres), 100% manuel cote Romeo depuis le 12/07/2026**
+  (Claude ne prepare plus la commande Vmake ni ne l'execute, cf. section Chemin VIDEO). Executer
+  gpt-image reste possible cote Claude (appel API direct, pas un pilotage d'interface).
 - Ouvrir/verifier/exporter dans CapCut (pas d'API d'export).
 - Deposer les visuels finaux dans Shopify Admin > Contenu > Fichiers pour obtenir une URL
   publique (aucun outil d'upload de fichier local disponible cote Claude).
-- Partager un pixel Meta avec un nouveau compte publicitaire (Meta Business Settings).
-- **Monter TOUTE la campagne Meta dans le Gestionnaire** (campagne, adset, pubs, upload des
-  videos, duplication, publication) — depuis le 03/07/2026, Claude ne cree plus rien via
-  l'API, il fournit le kit copier-coller puis verifie en lecture seule sur demande.
-- Activer la campagne/adset/pubs dans le Gestionnaire de publicites (Claude ne passe jamais
-  rien en ACTIVE).
+- **Monter TOUTE la campagne Meta dans le Gestionnaire, de A a Z, y compris la verification**
+  (campagne, adset, pubs, upload des videos, duplication, publication, activation) — depuis le
+  12/07/2026, Claude ne fournit QUE le texte de la pub sur demande, plus rien d'autre.
 
 ## Entrees attendues (a demander a Romeo si manquantes)
 
@@ -176,19 +168,24 @@ auto-detecte "voice" des que `voix-off.mp3` existe). Mettre l'ancien `accroches-
    `accroches-fr.md` (pub muette/musicale). Calibrer : viser environ `D x 2,4` mots sans
    depasser la duree, et prevoir GENEREUX (Sarah debite vite, plancher vitesse 0,9 ; un
    script trop court sort une voix plus courte que la video).
-4. **Detourage + voix off (commande unique, lancee par Romeo)** : donner a Romeo
-   `creas-lot.ps1 -Lot <LOT>`. Pour chaque video du lot, elle retire les sous-titres via
-   l'API Vmake ET, si un `script-fr.txt` est present dans le ADn, synthetise `voix-off.mp3`
-   cale sur la duree de la source ; tout est range dans `<LOT>/ADn/`
-   (`video-sans-soustitres.mp4` + `voix-off.mp3`). Details/fallback : `references/vmake-steps.md`.
-   (Une seule video hors lot : `vmake-api.ps1 run-task --task videoscreenclear --input X`.)
-5. **Controle STRICT de la duree voix off (tolerance 1 s)** : apres la commande, comparer la
-   duree de `voix-off.mp3` a la duree de la video source. La voix off doit durer le MEME temps
-   que la video, a +/- 1 seconde pres. Exemple (lot TEST, video 24,2 s) : 16 s = MORT, il faut
-   tomber entre 23 et 25 s. Si l'ecart depasse 1 s : REECRIRE `script-fr.txt` (l'ALLONGER si la
-   voix est trop courte, le raccourcir si trop longue) puis RELANCER `creas-lot.ps1 -Lot <LOT>`,
-   et repeter jusqu'a etre dans les +/- 1 s. Le vrai levier = la LONGUEUR du script (la vitesse
-   TTS seule ne suffit pas, elle est bornee a 0,9-1,15).
+4. **Detourage = 100% MANUEL cote Romeo depuis le 12/07/2026 (Vmake API abandonnee pour Claude).**
+   Romeo a teste l'automatisation via `creas-lot.ps1`/l'API Vmake et prefere desormais faire le
+   detourage lui-meme a la main : un detail rate par le pipeline automatique coutait plus de temps
+   a corriger qu'a faire directement. **Claude ne genere plus le detourage ni ne prepare la
+   commande Vmake.** Romeo place lui-meme le `video-sans-soustitres.mp4` final dans le dossier
+   `<LOT>/ADn/` prepare par Claude, une fois son detourage manuel termine.
+   **Voix off (Claude, inchange) : `node scripts/tts.mjs --voice <voice_id> --target <D> --out
+   <LOT>/ADn --text-file script-fr.txt`** genere `voix-off.mp3` cale sur la duree D de la video
+   SOURCE (avant detourage), directement dans le dossier `<LOT>/ADn/`. Cette partie reste 100%
+   cote Claude, methode et voix (Celine/Sami) inchangees.
+5. **Controle STRICT de la duree voix off (tolerance 1 s)** : comparer la duree de `voix-off.mp3`
+   a la duree de la video source (D notee a l'etape 1). La voix off doit durer le MEME temps que
+   la video, a +/- 1 seconde pres. Si l'ecart depasse 1 s : REECRIRE `script-fr.txt` (l'ALLONGER si
+   la voix est trop courte, le raccourcir si trop longue) puis RELANCER `tts.mjs`, et repeter
+   jusqu'a etre dans les +/- 1 s. Le vrai levier = la LONGUEUR du script (la vitesse TTS seule ne
+   suffit pas, elle est bornee a 0,9-1,15). Romeo verifie lui-meme, apres son detourage manuel, que
+   `voix-off.mp3` colle bien au `video-sans-soustitres.mp4` final (le detourage peut legerement
+   changer la duree) — Claude n'a plus ce fichier final sous la main pour le controler lui-meme.
 6. **Fiche infos** (optionnelle, dans le dossier de travail) : durees, voice_id, langue source,
    statut Vmake.
 
@@ -434,24 +431,21 @@ Apres avoir traite toutes les pubs, annoncer a Romeo combien sont pretes, sous l
 "X pubs pretes a monter dans CapCut" + la liste des dossiers + tout ce qui a bloque (ex Vmake
 en manuel sur telle pub). Romeo verifie, importe dans CapCut, monte, poste sur Meta.
 
-## Campagne Meta Ads — NOUVEAU MODELE (acte par Romeo le 03/07/2026)
+## Campagne Meta Ads — Claude ne fait QUE le texte (acte par Romeo le 12/07/2026)
 
-⚠️ **CLAUDE NE CREE PLUS la campagne/adset/pubs via l'API. C'est ROMEO qui fait TOUT a la
-main dans le Gestionnaire** (campagne, adset, duplication des pubs, upload des videos,
-publication, activation). Raison (vecu T5, nuit du 02-03/07) : le ping-pong API/Gestionnaire
-genere des brouillons toxiques — le formulaire du Gestionnaire injecte silencieusement son
-defaut de fenetre d'attribution dans tout brouillon d'edition d'un adset cree par API, et
-comme l'attribution n'est modifiable NI apres creation NI meme "remise comme avant" (erreur
-#1504040 "La mise a jour de la fenetre d'attribution n'est plus prise en charge"), la
-publication est bloquee sans issue (il faut recreer l'adset). Romeo a tranche : il pilote le
-Gestionnaire seul, Claude intervient a DEUX moments precis, decrits ci-dessous.
+⚠️ **Depuis le 12/07/2026, le volet Meta Ads de Claude est reduit a UNE seule chose : fournir
+le texte de la pub (titre, corps/description, CTA, URL) a la demande de Romeo.** Tout le reste
+— creation de campagne/adset/pub via l'API (deja abandonne le 03/07), ET la verification
+lecture seule qui existait depuis le 03/07 — est supprime. Raison : Romeo monte desormais toute
+sa campagne a la main en 10-15 minutes, sans bug, alors que le fait de passer par Claude
+introduisait des soucis (ex : l'audience "France" ne s'enregistrait jamais correctement quand
+c'etait Claude qui la posait). Romeo pilote 100% du Gestionnaire, du debut a l'activation.
 
-### ROLE 1 — Quand Romeo dit "on fait la campagne" : livrer le KIT COPIER-COLLER
+### Quand Romeo demande le texte d'une pub (ex "donne-moi le texte", "on fait la campagne")
 
-Claude fait sa recherche TrendTrack sur l'ad la plus percee du concurrent que l'on copie
-(methode detaillee aux etapes 2-4 de la section archive ci-dessous : `search_ads` par `query`
-produit + `sort_by: "reach"` + `status: "all"`, verifier que c'est LE meme produit, recuperer
-le body/hook/CTA complet), applique la **verification factuelle obligatoire**
+Claude fait sa recherche TrendTrack sur l'ad la plus percee du concurrent que l'on copie (ou la
+recupere directement dans le tableau de recherche produit si le produit y a deja une ligne,
+cf. section ci-dessus), applique la **verification factuelle obligatoire**
 (`references/verites-zooryn.md` : garantie 30 jours, vrai prix Shopify lu en direct, offres
 reelles type "1 achete = 1 offert", livraison offerte), puis livre a Romeo, en clair dans le
 chat, **chaque champ pret a copier-coller dans le Gestionnaire** :
@@ -462,46 +456,16 @@ chat, **chaque champ pret a copier-coller dans le Gestionnaire** :
    "Livraison offerte · Satisfait ou rembourse 30 jours")
 4. **Call-to-action** (ex "Acheter" = SHOP_NOW)
 5. **URL de destination** (la page produit Shopify exacte du lot)
-6. **Rappel des reglages** pour la creation manuelle : campagne objectif Ventes + CBO au
-   budget du lot (50 €/j par defaut) ; adset conversion site web + pixel `2803216990037221`
-   evenement Achat + audience France "Personnes qui vivent a cet endroit" + Advantage+
-   (JAMAIS l'audience enregistree "Zooryn", elle traine un ciblage geo deprecie qui bloque) +
-   placements manuels SANS video in-stream (visuels portrait) + attribution laissee PAR DEFAUT
-   (ne pas y toucher) ; identite = page Zooryn + compte Instagram.
 
-C'est TOUT ce que Claude produit a ce stade. Pas de campagne, pas d'adset, pas de creative,
-pas de pub via l'API. Romeo construit tout a la main et duplique lui-meme sa premiere pub.
+C'est TOUT ce que Claude produit. Pas de campagne, pas d'adset, pas de creative, pas de pub via
+l'API, pas de verification post-creation : Romeo construit et verifie tout lui-meme, de A a Z.
 
-### ROLE 2 — Quand Romeo dit "verifie la campagne" (ou "verifie si ma campagne est bonne") :
-verification LECTURE SEULE complete
+## [ARCHIVE — ancienne methode API + verification lecture seule, remplacee le 12/07/2026] Lancement via MCP Facebook Ads
 
-Une fois la campagne montee par Romeo, Claude verifie TOUT via le MCP Facebook Ads **sans
-rien toucher** (aucun update, aucune creation, aucune activation), et rend un verdict clair :
-
-1. **Campagne** : objectif, budget CBO, statut, date/heure de demarrage programmee.
-2. **Adset** : optimisation (conversions/Achat), attribution, statut, demarrage.
-3. **Chaque pub une par une** : retrouver sa creative (via `ads_get_creatives` +
-   `ads_get_creative_ads` pour le mapping pub↔creative — le champ creative n'est pas lisible
-   au niveau ad), et verifier : **chaque pub a SA propre video** (`video_id` distincts, pas de
-   doublon, pas de placeholder image restant), texte principal conforme au kit, titre conforme,
-   call-to-action conforme.
-4. **`ads_get_errors` sur campagne + adset + chaque pub** : `{}` partout = OK.
-5. **Restituer le verdict** : "ta campagne est bonne" ou la liste precise de ce qui cloche,
-   PLUS les observations non bloquantes (ex : heure de demarrage = rien ne depense avant telle
-   date ; nombre de pubs different du lot prevu). Toujours distinguer "probleme" de "note".
-6. **Limite a annoncer** : l'audience et les placements ne sont pas lisibles en detail via
-   l'API (`targeting` non supporte en lecture) — mais une publication passee sans erreur est
-   bon signe, c'est la que Meta bloque quand le ciblage a un souci.
-
-⚠️ Piege de lecture : les creatives listees par `ads_get_creatives` peuvent appartenir a des
-pubs SUPPRIMEES (vieux essais, titres bizarres type "{{product.name}}"). Toujours mapper
-creative → pub via `ads_get_creative_ads` et ne juger QUE les creatives branchees sur les
-pubs live de la campagne verifiee.
-
-## [ARCHIVE — ancienne methode API, remplacee le 03/07/2026] Lancement via MCP Facebook Ads
-
-Conservee comme reference technique (constantes du compte, pieges Meta, methode TrendTrack).
-**Ne plus creer de campagne/adset/pub via l'API sauf demande explicite et ponctuelle de Romeo.**
+Conservee comme reference technique (constantes du compte, pieges Meta, methode TrendTrack) au
+cas ou Romeo redemande explicitement une creation ou une verification via l'API un jour.
+**Ne plus creer NI verifier de campagne/adset/pub via l'API sauf demande explicite et
+ponctuelle de Romeo.**
 
 Etape suivante possible une fois un `<LOT>` (T3, T4, T5...) pret : creer la campagne Meta Ads
 correspondante via le MCP Facebook Ads. **Cette etape n'est JAMAIS automatique au sens "meme

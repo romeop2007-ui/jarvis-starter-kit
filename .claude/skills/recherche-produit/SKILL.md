@@ -28,7 +28,7 @@ Ordre strict, non négociable :
 
 ## Exclusions dures (priment sur tout)
 
-- **Produits à risque** : contact peau/corps/organisme, santé/médical, ingéré, topique (crème, sérum, patch, complément). SAV + risque réglementaire.
+- **Produits à risque (précisé 12/07/2026)** : ingéré/complément alimentaire = exclusion totale, sans exception. Pour le topique/peau, la distinction est **le problème adressé, pas le fait d'être appliqué sur la peau** : un produit décoratif/cosmétique sans promesse de résoudre un problème physique (rouge à lèvres, maquillage) est OK. Un produit qui prétend RÉSOUDRE un vrai problème physique/de santé via application cutanée (sérum anti-rides, sérum pousse des cheveux, autobronzant) = même niveau de risque qu'un complément alimentaire → exclusion dure, ne pas présenter (perte de temps sur un candidat déjà mort d'office).
 - **Saisonnier** : le produit doit tourner à l'année.
 - **Irréel / non copiable** : il faut un vrai shop, de vraies créas, un vrai tunnel à recopier.
 - **Réseaux de domaines** : mêmes créas/page FB déclinées en .de/.fr/.nl/.es = expansion géo d'un shop existant, pas une explosion produit → écarter.
@@ -42,8 +42,12 @@ Le port tue la marge sur le lourd/volumineux et les produits à batterie lithium
 
 ### Étape 1 — Sourcer les candidats (marché de copie ≠ FR)
 
-Méthode principale : **filtrer par CATÉGORIE, jamais par tri global** (le tri global noie l'outdoor sous la santé/beauté et le maison/jardin). Via `search_ads` (MCP TrendTrack) :
-- `category_ids` de l'ombrelle (liste des IDs dans `references/outils-trendtrack.md`)
+**Filtre catégorie ouvert depuis le 12/07/2026 : le pivot "niche maison" (cf. `context/CONTEXT.md`) rend la niche outdoor/voyage définitivement acquise (1re collection verrouillée, 4 produits déjà testés).** Elle ne fait plus l'objet de nouvelles recherches. L'objectif désormais est de trouver une **2e (puis 3e...) sous-niche candidate à devenir une collection à part entière** : ni trop pointue (un seul produit dedans, pas de matière pour une collection), ni trop large (un fourre-tout sans identité). Sourcer sur **n'importe quelle catégorie TrendTrack**, sauf exclusion dure ci-dessous.
+
+**Exclusions de niche pour cette recherche de 2e collection** (en plus des exclusions dures produit) : **santé/bien-être** et **niches 100% féminines** (ex. rendu impossible du fait des exclusions dures de toute façon, mais à écarter dès le sourcing pour ne pas perdre de temps).
+
+Méthode principale : **filtrer par CATÉGORIE, jamais par tri global** (le tri global noie tout sous la santé/beauté et le maison/jardin, qui dominent TrendTrack). Via `search_ads` (MCP TrendTrack) :
+- `category_ids` : large éventail hors santé/féminin (liste des IDs dans `references/outils-trendtrack.md`)
 - `min_active_ads` ≥ 40, `max_traffic` < 2000
 - **`sort_by reachDelta7d`** (⚠️ PAS `reachDelta30d`), `max_ads_per_brand` 1, marché ≠ FR
 - **`shop_created_after` = il y a ~5-6 SEMAINES max** (pas "< 3 mois" large)
@@ -66,9 +70,11 @@ Sorties volumineuses → sauver en fichier et parser avec `node -e` ou PowerShel
 - Ce qui compte : la data EU est-elle révélable (Reveal EU Spend) ? Oui → exploitable. "No EU Data" → inexploitable, on jette.
 - ⚠️ Le NOMBRE de pubs actives ne prouve rien (cas IROND : 44 pubs, 5k reach). C'est la pente du reach qui parle.
 
-### Étape 4 — Preuve ads = la pente
+### Étape 4 — Preuve ads = la pente + un plancher minimum (précisé 12/07/2026)
 
-2-3 créas dont le reach/dépense GRIMPE **là, maintenant** (`reachDelta7d` positif fort), actives et fraîches. Pas de seuil absolu. Croiser avec `daysRunning` et l'historique `advertising.history` du shop (`search_shops`) : la courbe de pubs actives doit **monter récemment** (ex : 4→9→25→43 sur les 6 dernières semaines), pas être un plateau installé depuis des mois. Un plateau ancien = trop tard.
+2-3 créas dont le reach/dépense GRIMPE **là, maintenant** (`reachDelta7d` positif fort), actives et fraîches. Croiser avec `daysRunning` et l'historique `advertising.history` du shop (`search_shops`) : la courbe de pubs actives doit **monter récemment** (ex : 4→9→25→43 sur les 6 dernières semaines), pas être un plateau installé depuis des mois. Un plateau ancien = trop tard.
+
+**Plancher dur (repris de la méthode du tableau de recherche produit, cf. [[project_tableau_recherche_produit]]) : au moins 3 créas sur TrendTrack, chacune avec ≥500k de reach ET/OU ≥70€/jour de daily spend.** Plus il y en a, mieux c'est, mais 3 est le minimum en dessous duquel le candidat n'est pas présenté. Ce plancher se cumule avec le critère de pente ci-dessus, il ne le remplace pas.
 
 ### Étape 5 — Concurrence FR (mesurer le degré, pas fuir)
 
@@ -97,6 +103,14 @@ Signal de puits sec = les mêmes shops reviennent (matelas/clones, déjà-testé
 - **Sourcing (Ali/CJ/1688, marge, livraison FR) = Roméo s'en charge.** Claude fait la recherche market/ads, pas le sourcing.
 - Rappeler la règle : **obtenir le COGS rendu du fournisseur AVANT de fixer le prix et de lancer** (leçon Luma).
 - Ajouter les candidats validés/écartés à `references/liste-rejetes.md` (section pipeline ou rejetés) pour l'anti-doublon des prochaines sessions.
+
+### Étape 7 — Tableau de recherche produit (Google Sheet, acté 12/07/2026)
+
+Le tableau (`.claude/skills/recherche-produit/scripts/tableau.mjs`, Sheet "Products", même compte de service que le skill `budget`) est un **stockage + priorisation des candidats déjà validés**, pas un espace de brainstorming. Règle stricte : **Claude n'y écrit QUE quand Roméo dit explicitement "ajoute-le au tableau"**, jamais avant, jamais de sa propre initiative. Les étapes 1→6 ci-dessus (présentation short-list, tri de Roméo) restent inchangées et se passent AVANT le tableau, en dehors de lui.
+
+Une fois l'ordre donné, remplir la ligne complète : nom, URL fiche produit (pas la home), pays (trafic majoritaire via TrendTrack, pas le siège social), niche, nombre d'ads (cap 15), Kalodata (lien si trouvé, sinon vide — Kalodata = outil d'analytics TikTok Shop, un lien = green flag de traction supplémentaire, pas un canal de vente Zooryn), COGS et prix (demandés à Roméo si absents, jamais mémorisés/approximés, prix converti en euros exact), puis pour chaque ad retenue (classées par vues décroissantes) : lien (priorité TrendTrack > Afterlib > Facebook Ads Library, le premier est pérenne les autres peuvent expirer), impressions/spend, date début, date fin ("now" si active).
+
+**Le tableau n'engage à rien tester.** C'est un réservoir : on vise 15-20 candidats validés, on les classe (Priorité : Urgent/Important/Normal/Faible) selon nb d'ads, pays non saturé, multiplicateur prix/COGS, volume de vues, Time to Market (mois où les ads du concurrent sont concentrées), présence Kalodata. Le rythme de testing réel reste inchangé (séquentiel, 50 €/jour, ~1-2 produits/semaine, cf. modèle A). Des candidats bien classés peuvent ne jamais être testés (un winner trouvé avant, une donnée qui se dégrade) — normal, pas un échec du tableau.
 
 ## Posture (règles de conduite)
 

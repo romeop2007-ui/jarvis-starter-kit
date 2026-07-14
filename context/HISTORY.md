@@ -14,6 +14,17 @@
 
 ---
 
+## 2026-07-13
+
+### Framework Meta Ads (ressource formation) intégré au skill bilan-ads
+- **Nouveau document de la formation assimilé : "Framework Meta Ads Testing Optimisation Scaling"** (PDF dans `livrables/ecommerce/formation/Ressource commu/`). Cohérence vérifiée avec la synthèse formation : même stratégie (ROAS BE/TARGET depuis le COGS, 50 €/j, scaling par paliers), mais bien plus précis. Intégré dans `.claude/skills/bilan-ads/references/baremes.md` (réécrit) + `SKILL.md` aligné + pointeur ajouté dans `context/formation-dropshipping-synthese.md`.
+- **Le framework REMPLACE l'ancienne règle simplifiée "journée non rentable = kill" (T1-T5)** : verdict par palier de spend cumulé. 24h/50 € : 1 vente OU CPC stable/en baisse = validé, cut seulement si 0 vente ET CPC +1 €. 48h/100 € : ROAS > BE validé, ROAS ≥ 1 + coût ATC < 20 % AOV validé, ROAS < 1 = cut. 4j/200 € : ROAS ≥ TARGET = scaling, zone TARGET −20 % = optimisation, en dessous = cut. Conséquence assumée : un test peut coûter 100-200 € avant verdict, plus 50 €.
+- **Seuils devenus "formation" (plus des orientations marché)** : CPC 0,70 € (diagnostic ads vs fiche produit), CVR 2 % et taux ATC 8 % (analytics Shopify), coût ATC < 20 % de l'AOV. Les seuils ROAS BE/TARGET/coût ATC se calculent UNE FOIS avant le test (COGS obligatoire avant lancement).
+- **Scaling** : décision sur vue 3 derniers jours + dernier jour isolé, 4 scénarios (scaler / ne pas toucher ×2 / déscaler) ; 2e retombée sous le range au budget minimum = coupe, retour en optimisation avec 3 nouvelles cartouches créas, sinon produit suivant.
+- **Précision de Roméo actée : 3-6 créas LANCÉES le jour du testing, 5-15 en STOCK** (prises chez le concurrent, gardées sous la main pour recharger les jours suivants si ça valide). Corrigé dans `baremes.md` et la synthèse formation.
+
+---
+
 ## 2026-07-12 (mise à jour 3)
 
 ### Filtres recherche-produit affinés + skill crea-pub réorganisé (Vmake manuel, Meta réduit au texte)

@@ -67,6 +67,49 @@ pas reposer les questions déjà répondues.
    - Comparer bloc par bloc le mockup au DOM réel de la page concurrent avant de considérer la
      conversion terminée, pas seulement avant de répondre à Roméo une première fois.
 
+## Étape 1.5 — Couleurs de marque : mapping depuis le concurrent (acté 14/07/2026)
+
+Palette Zooryn, **ordonnée par rang** (règle de Roméo : jamais un jeu figé de 4 couleurs à
+plaquer partout, un mapping rang par rang) :
+
+1. Brun noisette `#6E4E37` — marque, header, texte fort
+2. Beige clair `#EDE6D9` — fond de travail
+3. Terracotta sourd `#B5623F` — CTA, accents dynamiques
+4. Olive/moss `#736C62` — accent secondaire, texte discret
+
+1. **Extraire les vraies couleurs du concurrent** (jamais celles du mockup Claude Design,
+   qui les invente parfois) : `curl` la vraie URL, `grep -oE "#[0-9a-fA-F]{6}"` sur le
+   HTML/CSS et `grep -oE -- "--[a-zA-Z-]*color[a-zA-Z-]*:\s*#[0-9a-fA-F]{3,6}"` sur les
+   fichiers CSS du thème (souvent listés en `<link href=".../theme.css">`) pour choper les
+   variables nommées si le thème en a. Trier par fréquence d'occurrence pour distinguer une
+   vraie couleur de marque d'une couleur de badge/urgence isolée (ex. Cosy House : beaucoup de
+   rouge/jaune de promo, pas des couleurs de marque).
+2. **Classer les couleurs trouvées par rôle**, dans l'ordre où elles pèsent visuellement sur
+   la page (dominante/texte → fond → accent CTA → accent secondaire → ...).
+3. **Mapper rang pour rang avec la palette Zooryn ci-dessus, sans forcer.** Si le concurrent
+   n'utilise que 2 couleurs fortes, on n'en pose que 2 (rang 1 et 2 de la palette Zooryn) —
+   jamais les 4 par défaut. Si le concurrent en utilise plus que la palette n'en compte
+   actuellement (rare), en discuter avec Roméo pour étendre la palette d'un rang plutôt que de
+   réutiliser une couleur déjà prise ou d'improviser.
+4. **Le CTA (bouton Ajouter au panier/Payer) et les sélecteurs de bundle sont le point le plus
+   sensible du mapping, acté 14/07/2026 : ne jamais s'y fier à l'intuition.** Ce n'est pas
+   juste "quelle couleur Zooryn va sur ce bouton", c'est **reproduire le niveau de contraste/
+   vivacité que le concurrent a délibérément posé là pour attirer le clic** — c'est ça, pas la
+   teinte en tant que telle, qui pousse à l'achat.
+   - Regarder comment la couleur du CTA du concurrent ressort par rapport au reste de sa page
+     (fond autour, texte, saturation relative) — un CTA très vif sur fond neutre n'a pas le
+     même rôle qu'un CTA discret/monochrome.
+   - Vérifier que la couleur Zooryn assignée à ce rôle (normalement le terracotta `#B5623F`)
+     reproduit un niveau de contraste équivalent contre le fond Zooryn du bloc concerné. Si ce
+     n'est pas le cas (le concurrent avait un CTA beaucoup plus saturé/contrasté que ce que la
+     palette Zooryn peut donner à ce rang), le signaler à Roméo avant de conclure — ne pas
+     trancher seul sur un point aussi direct pour la conversion.
+   - Même vigilance sur les sélecteurs de bundle/offres (radio boutons de pack) : reproduire
+     comment le concurrent fait ressortir l'offre sélectionnée/recommandée, pas juste poser une
+     couleur Zooryn au hasard dessus.
+5. Le funnel/la structure reste une copie fidèle du concurrent (Étape 2 et suivantes) — seule
+   la couleur change, pas la mise en page ni les proportions.
+
 ## Étape 2 — Architecture Liquid (conserver le corps de la boutique)
 
 **Règle absolue : ne jamais reconstruire le header/footer.** On garde le header/footer

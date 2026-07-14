@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-07-14 (mise à jour 6)
+
+### Politiques légales corrigées + découverte du footer cassé (pages fantômes)
+- **Rangement `livrables/ecommerce/boutiques/`** : nouveau dossier `archives/` regroupant `sculpted-shopify/` (ancien thème, bibliothèque de pièces), `protege-tibias-contenu.md` (produit killé) et `shopify_recovery_codes.txt` (gitignoré). `livrables/README.md` mis à jour en conséquence.
+- **6 templates de politiques légales Zecom Academy** déposés dans `livrables/ecommerce/boutiques/Politiques/` (CGU, CGV, mentions légales, livraison/retours, remboursement, confidentialité). Comparés aux politiques déjà en ligne : celles-ci se sont avérées meilleures (droit français correct, pas de mélange Canada/Estonie/Klarna comme dans les templates), donc pas de réécriture complète, seulement 2 vrais trous comblés.
+- **Politique de confidentialité corrigée** : elle affichait l'email perso de Roméo (romeop2007@gmail.com) et son numéro de mobile perso au lieu de contact@zooryn.com. **Formulaire type de rétractation ajouté** (art. R221-1 du Code de la consommation) dans la Politique de remboursement, qui manquait. Fait via `shopify store execute --allow-mutations` en ligne de commande : le connecteur MCP Shopify de Claude n'a pas le scope `write_legal_policies`.
+- **🔴 Découverte majeure : le footer du site pointait vers des pages Shopify brouillon, pas vers les vraies politiques.** "Mentions légales" affichait littéralement "SIRET : [à compléter]", "Adresse : [à compléter]" ; "CGV" affichait "Conditions générales à compléter et faire relire avant lancement publicitaire." Ces pages brouillon étaient publiées et visibles par tout visiteur depuis le 16 juin, pendant que les vraies politiques corrigées le même jour n'étaient reliées nulle part sur le site. **Corrigé** : footer repointé vers les 6 vraies politiques (Mentions légales, CGV, + Confidentialité/Remboursement/Expédition/CGU ajoutées, absentes de toute navigation avant) ; 4 pages fantômes dépubliées (mentions légales et CGV brouillon FR, Privacy Policy et Refund Policy en anglais, restes de l'ère UK/Sculpted).
+- **Reste en attente** : 3 pages Shopify orphelines vides (Our Story, Track my order, Matelas gonflable ultraléger PRO) à trancher (garder ou supprimer). Médiateur de la consommation toujours `[À COMPLÉTER]` dans les CGV, mis de côté volontairement par Roméo (risque réel faible tant que le volume de ventes reste bas, cf. mémoire Pareto), à retraiter une fois les fondamentaux du business en place.
+- **Nouveau principe de travail acté par Roméo : priorisation Pareto 80/20.** Se concentrer sur les 20% d'actions à fort impact (produit, ventes, ads), mettre de côté les sujets secondaires (légal non urgent, finitions) tant que l'essentiel n'est pas maîtrisé. Mémoire `feedback_pareto_prioritisation` créée.
+
+---
+
 ## 2026-07-14 (mise à jour 5)
 
 ### Workflow "Claude rédige les messages agent" acté + correction horaire LIVE 2

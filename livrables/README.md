@@ -12,7 +12,11 @@ livrables/
 ├── ecommerce/                        Activité dropshipping (marque Zooryn)
 │   ├── boutiques/
 │   │   ├── zooryn-dawn/               Thème Shopify LIVE (déployé via CLI)
-│   │   └── sculpted-shopify/          Ancien thème custom, gardé comme bibliothèque de pièces
+│   │   ├── Politiques/                 PDF templates Zecom Academy (CGU, CGV, mentions légales...)
+│   │   └── archives/                   Éléments hors usage quotidien
+│   │       ├── sculpted-shopify/       Ancien thème custom, gardé comme bibliothèque de pièces
+│   │       ├── protege-tibias-contenu.md   Contenu du produit protège-tibias (killé)
+│   │       └── shopify_recovery_codes.txt  Codes de secours 2FA Shopify (gitignoré)
 │   ├── comptabilite/
 │   │   └── Déclaration/               Déclarations Urssaf mensuelles
 │   ├── creas/                         Fichiers de travail des créas publicitaires

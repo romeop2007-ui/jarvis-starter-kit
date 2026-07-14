@@ -7,6 +7,13 @@
 
 ---
 
+## 2026-07-14
+
+### 3 lives Zecom Academy "DROP 5" ajoutés au calendrier
+- Ajout de 3 événements Google Calendar pour les lives de la formation (LIVE 2 Shopify & Product Research le 19/07, LIVE 3 Meta Ads & Testing le 26/07, LIVE 4 Prise de décision & Scaling le 02/08), tous à 10h, rappel la veille à 20h (via le skill `agenda`).
+
+---
+
 ## 2026-07-12 (mise à jour 3)
 
 ### Filtres recherche-produit affinés + skill crea-pub réorganisé (Vmake manuel, Meta réduit au texte)

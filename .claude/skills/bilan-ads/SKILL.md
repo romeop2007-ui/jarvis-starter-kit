@@ -31,6 +31,10 @@ fondée sur la formation. Ensuite Roméo donne son avis et on tranche à deux.
 3. **Économie du produit** (pour le ROAS break-even) : **demander à Roméo le COGS** (coût produit =
    prix fournisseur + frais d'achat) **et confirmer le prix de vente actuel**. On les demande à
    chaque bilan, en une seule question, sauf s'il vient de les donner dans la session.
+   Règle du framework : les seuils (ROAS BE, TARGET, coût ATC max) se calculent **une fois avant le
+   test** et ne se recalculent pas en cours de route.
+4. **Le palier de spend atteint** (24h/50 €, 48h/100 €, 4j/200 €…) : c'est lui qui détermine quelle
+   grille de décision s'applique (`references/baremes.md` section 2). Se déduit du spend cumulé.
 
 ## Étapes
 
@@ -61,6 +65,8 @@ Lis `references/baremes.md` et calcule, à partir du prix de vente et du COGS do
 - **Marge brute** = prix − COGS (en € et en %).
 - **ROAS BE** = prix / (prix − COGS). Montre le calcul.
 - **ROAS TARGET** ≈ ROAS BE / (1 − 0,225) (marge nette 20-25 %).
+- **RANGE ROAS TARGET** = [TARGET −20 % ; TARGET] et le plancher **TARGET −20 % de perte**.
+- **Coût ATC max** = 20 % de l'AOV (demander/lire l'AOV, sinon l'approcher par le prix de vente).
 - **CPA cible** = doit rester < marge brute (sinon non rentable).
 - **Profit/perte de la journée** ≈ (achats × marge brute) − dépense pub.
 
@@ -69,30 +75,36 @@ Format imposé, rendu dans le chat (Markdown). Colonne "Cible" **étiquetée** f
 
 | Métrique | Ce que tu as | Cible | Source | Verdict |
 |----------|-------------|-------|--------|---------|
-| Dépense | … | budget 50 €/j | formation | … |
+| Dépense (palier) | … | 24h/50 € · 48h/100 € · 4j/200 € | **formation** | … |
 | Achats | … | — | — | … |
-| ROAS réalisé | … | ≥ ROAS BE (x,xx) | **formation** | ✅/❌ |
+| ROAS réalisé | … | selon palier (BE, TARGET…) | **formation** | ✅/🟠/❌ |
 | ROAS pour scaler | … | ≥ ROAS TARGET (x,xx) | **formation** | … |
 | CPA | … € | < marge brute (… €) | **formation** | … |
+| Coût ATC | … € | < 20 % de l'AOV (… €) | **formation** | … |
+| CPC (lien) | … € | < 0,70 € (diagnostic ads/fiche) | **formation** | … |
+| Taux ajout panier | … % | > 8 % (analytics Shopify) | **formation** | … |
+| Taux de conversion | … % | > 2 % (analytics Shopify) | **formation** | … |
 | CTR (lien) | … % | ~1,5-3 % | orientation marché | … |
-| CPC (lien) | … € | ~0,40-1,20 € | orientation marché | … |
 | CPM | … € | ~10-40 € | orientation marché | … |
-| Taux ajout panier | … % | ~5-10 % | orientation marché | … |
-| Taux de conversion | … % | ~1-3 % | orientation marché | … |
 
 ### Étape 5 — Lire où le tunnel casse
 Applique la grille de lecture de `references/baremes.md` (section 3) : impressions/CPM → CTR →
 ajout panier → achat → marge. Dis en une ou deux phrases où ça accroche et où ça bloque.
 
 ### Étape 6 — Recommander (kill ou continue + budget)
-Selon la formation (`references/baremes.md` section 1) :
-- **Journée rentable** (ROAS ≥ ROAS BE) → continuer : relancer 50 €. Si ROAS ≥ ROAS TARGET
-  (+20 % marge) → proposer le **scaling vertical** (palier suivant : 100 €, etc.).
-- **Journée non rentable** → kill : couper, retirer le produit, enchaîner un autre produit sous
-  3-4 jours. SAUF si le seul problème est la **marge** (CPA proche, funnel sain) → proposer
-  d'abord prix/bundle/AOV avant de killer.
-- **Signal faible** (peu de clics/achats, budget pas fini) → ne PAS killer sur du bruit : dire que
+Appliquer la grille du framework selon la phase (`references/baremes.md` sections 2 à 4) :
+- **En testing** : appliquer les scénarios du palier atteint (24h : vente ou CPC stable ; 48h :
+  ROAS vs BE + coût ATC vs 20 % AOV ; 4j : ROAS vs TARGET et TARGET −20 %). Le verdict est celui
+  du scénario : validé / cut / phase d'optimisation.
+- **En zone 🟠 (optimisation)** : dérouler le diagnostic ads vs fiche produit (section 3 : CPC 0,70 €,
+  puis CVR/taux ATC Shopify) et recommander QUOI optimiser, pas seulement kill/continue.
+- **En scaling** : appliquer les 4 scénarios sur la vue 3 jours + dernier jour (section 4) →
+  scaler / ne pas toucher / déscaler ; rappeler la règle de sortie (2e retombée en scénario 4 au
+  budget minimum = coupe, retour optimisation avec 3 nouvelles créas, sinon produit suivant).
+- **Signal faible** (peu de clics/achats, palier pas atteint) → ne PAS trancher sur du bruit : dire que
   c'est trop tôt, donner la lecture provisoire et la prochaine étape (laisser tourner / recouper).
+- Si le seul problème est la **marge** (CPA proche, funnel sain) → proposer d'abord prix/bundle/AOV
+  avant de killer.
 - Toujours rappeler le **caveat d'attribution Meta** si la décision est serrée (recouper Shopify).
 
 ### Étape 7 — Discuter

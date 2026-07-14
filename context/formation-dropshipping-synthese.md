@@ -165,12 +165,21 @@ Pour chaque produit qui a passé l'étape 2 :
 - Recalculer à chaque changement d'offre, check toutes les 2 semaines
 
 ### Méthode testing PETIT budget
+
+> 📌 **Framework officiel kill/continue/scale intégré le 13/07/2026** (ressource commu de la formation) :
+> les grilles de décision chiffrées par palier (24h/50 € · 48h/100 € · 4j/200 €), le diagnostic
+> optimisation (CPC 0,70 €, CVR 2 %, taux ATC 8 %, coût ATC < 20 % AOV) et le pilotage du budget en
+> scaling (vue 3 jours + dernier jour, 4 scénarios) sont détaillés dans
+> `.claude/skills/bilan-ads/references/baremes.md` (sections 2 à 4). PDF source :
+> `livrables/ecommerce/formation/Ressource commu/Framework Meta Ads Testing Optimisation Scaling/`.
+> Ce framework remplace la règle simplifiée "journée non rentable → kill" utilisée sur T1-T5.
+
 - **Campagne** : CBO (Meta gère la répartition)
 - **Budget** : 50 €/jour
 - **Adset** : 1 seul, broad (aucun ciblage)
 - **Event** : Achat (pas ATC)
 - **Lancement** : 00h le lendemain
-- **Créatives** : 5 mini à 15 par adset
+- **Créatives** : **3 à 6 lancées** le jour du testing ; **5 à 15 en stock** (prises chez le concurrent, gardées sous la main pour ajouter du contenu les jours suivants si le testing valide)
 - **Scaling vertical** dès +20% marge : paliers 100→200→300→400→500→700→1000→1500→+500/+1000
 - **Scaling horizontal** vers 1500 €/jour : ABO dédiée au testing créa, CBO gardée pour les créas validées. Une créa qui atteint 1000 € spend avec +20% marge en ABO → duplication dans la CBO
 - **Batchs testing ABO** : 3-6 créas cohérentes par adset (même créa hooks différents, même visuel headlines différentes, même format, itérations d'un angle)

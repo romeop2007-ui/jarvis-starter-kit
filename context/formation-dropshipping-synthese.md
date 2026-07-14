@@ -355,6 +355,29 @@ Autres types : home page (sites monoproduit), advertorial (style article de pres
 - **0 à 10 commandes/jour** : agent spécialisé débutants (contact via DM Insta/Twitter de l'auteur)
 - **+10 commandes/jour** : agent privé chinois (négo prix, stock tampon, branding, qualité)
 
+### Sourcing sur 1688 (au-delà d'AliExpress/Alibaba)
+- **1688 = plateforme réservée aux Chinois**, prix meilleurs (usine en direct ou 1-2 intermédiaires max, vs AliExpress/Alibaba très intermédiés). Envoyer un lien 1688 à l'agent montre qu'on connaît le marché → meilleure qualité de service de sa part.
+- **Méthode recherche par image (recommandée)** : extension Chrome **« Outils de sourcing, Aliprice Beta »** (chercher « 1688 extension Chrome »). Sur la page du concurrent, clic droit sur la meilleure image du produit → « Outils de sourcing, Aliprice Beta » → « Capturer pour rechercher par image ». Alternative (recherche par image directe sur 1688.com via l'icône appareil photo) : buggée côté 1688 au moment de cette vidéo.
+- Une fois le produit trouvé, copier l'URL **jusqu'au point d'interrogation** et l'envoyer à l'agent avec une capture d'écran + demande de quote pour le marché ciblé. Le MOQ affiché sur 1688 (souvent 1-2 pièces) n'est pas la contrainte réelle : l'agent négocie directement avec l'usine et peut descendre à l'unité.
+- Signal qualité à regarder : ancienneté du vendeur affichée (5-8 ans = bon signe).
+
+### Communiquer avec son agent (relation long terme, culture chinoise)
+- **Guanxi** = relation de confiance construite dans la durée (pas contractuelle comme en Occident). Investir dedans dès le début, même avec un agent débutant, rapporte à terme : meilleurs prix, MOQ plus bas, délais de shipping raccourcis, priorité sur d'autres clients en cas de tension.
+- **Règles de communication** : ne jamais blâmer l'agent directement en cas d'erreur (perdre la face = très mal vu en Chine) → demander la source du problème, suggérer une solution. Messages courts, en bullet points. Ne jamais supposer que l'agent a compris → vérifier explicitement (« sur tel point, tu as bien compris ? »).
+- **Ne pas négocier trop tôt** : sur les premières quotes, ne pas chercher à gratter des centimes (l'agent a besoin de voir un client sérieux qui va apporter du volume avant d'accepter de négocier). Négocier ~20 centimes de COGS n'a un impact réel qu'à partir d'un vrai volume quotidien (ex. 5 ventes/jour × 20 centimes = 1$/jour).
+
+### Contrôler les factures de l'agent avec un Claude Project (pertinent à partir d'un vrai volume)
+- Objectif : détecter les erreurs de facturation (quantité, marché de destination) qui deviennent ingérables à la main au-delà d'un certain volume (ex. 200-300 commandes/jour = 2000+ lignes de commandes par semaine).
+- Setup : (1) grille tarifaire Google Sheet (produit nommé identique à Shopify, pays de destination, quantité, prix produit + shipping + total) exportée en PDF et déposée dans un Claude Project dédié ; (2) prompt fourni par la formation collé dans les instructions du projet ; (3) 2 conversations dans le projet : une pour déposer les exports CSV Shopify quotidiens (aucun output attendu, juste le nombre de lignes chargées), une pour déposer les factures de l'agent (génère un rapport structuré : ligne conforme / écart détecté avec numéro de commande, motif probable).
+- Cas nécessitant une décision humaine : marché absent de la grille, quantité hors plage couverte → Claude signale explicitement et attend confirmation (mémorisée pour la prochaine fois si le cas se répète).
+- Points de vigilance : grille tarifaire toujours à jour avant chaque contrôle, CSV Shopify déposés avant la facture correspondante, devise unique (aligner la grille sur la devise de facturation de l'agent, indépendante de la devise de vente Shopify), cas des stocks prépayés à préciser explicitement à Claude (l'agent ne facture alors que le shipping, pas le produit).
+- **Pas encore pertinent au volume actuel de Zooryn** (0 commande active), à monter le jour où un produit scale vraiment.
+
+### Branding produit (carte de remerciement + packaging) : quand s'y mettre
+- **Ne pas brander trop tôt** : ça immobilise de la trésorerie (l'agent avance les frais) sans effet sur le CVR du site (le client ne voit le branding qu'à la réception du colis, après l'achat). Seuil conseillé par la formation : **attendre 30-40 commandes/jour** avant de commander du packaging brandé.
+- Démarrer petit : ~2 semaines de stock, première commande type ~500 pièces. Coût indicatif pour 500 pièces : carte de remerciement 20-30$, emballage général du colis + sticker logo 100-150$ (dégressif avec le volume).
+- Contenu de la carte : rester simple (logo, « merci pour votre commande », code de réduction ~15% à partager). S'inspirer d'une DNVB (marque digitale native) de sa niche plutôt que d'inventer à vide. Template fourni par la formation + modèles Canva.
+
 ---
 
 ## 9. Délégation

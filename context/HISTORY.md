@@ -7,6 +7,23 @@
 
 ---
 
+## 2026-07-14 (mise à jour 5)
+
+### Workflow "Claude rédige les messages agent" acté + correction horaire LIVE 2
+- **Nouveau workflow acté avec Roméo : Claude rédige désormais directement les messages destinés à l'agent de fulfillment/sourcing** (actuellement Yuri Yang / Aplusfulfill), prêts à copier-coller, sans que Roméo ait à le redemander à chaque fois. Applique l'étiquette de communication apprise dans la vidéo formation "8. Comment communiquer avec son agent" (notion de **Guanxi** : jamais blâmer directement l'agent en cas d'erreur, messages courts en bullet points, ne jamais supposer que l'agent a compris, ne pas négocier trop tôt dans la relation). Contrairement au reste de cette vidéo (contrôle factures, seuil branding), c'est actionnable dès maintenant vu la relation agent déjà active. Mémoire créée : `feedback_communication_agent_chinois.md`, liée à `reference_fulfillment_aplusfulfill.md`.
+- **Correction horaire du LIVE 2 DROP 5 (Shopify & Product Research, 19/07/2026) : 10h → 16h-17h**, sur demande de Roméo. Rappel gardé sur la règle "veille à 20h" (18/07 20h). Les LIVE 3 (26/07) et LIVE 4 (02/08) restent inchangés à 10h.
+
+---
+
+## 2026-07-14 (mise à jour 4)
+
+### 4 vidéos formation transcrites et assimilées (agents/sourcing) + synthèse enrichie
+- **4 vidéos de la formation Zecom Academy transcrites via le pipeline local** (`scripts/transcribe.py`, faster-whisper) : « 2.2 Contrôler ses factures avec l'IA (Claude) », « 6. Trouver son produit sur 1688 », « 7. Brander son produit (packaging, carte de remerciement) », « 8. Comment communiquer avec son agent ». Cookies Kajabi déjà déposés par Roméo dans chaque dossier de leçon, téléchargement yt-dlp + Wistia sans accroc.
+- **Section « 8. Agents / Sourcing » de `context/formation-dropshipping-synthese.md` enrichie de 4 sous-sections** : sourcing sur 1688 (extension Chrome « Aliprice Beta » pour la recherche par image, plus fiable que la recherche directe sur 1688.com actuellement buggée), communication avec l'agent (notion de **Guanxi**, ne jamais blâmer directement, messages courts, ne pas négocier trop tôt), contrôle des factures agent via un **Claude Project dédié** (grille tarifaire + CSV Shopify quotidien + facture agent → rapport d'écarts automatique, **pas encore pertinent au volume actuel de Zooryn**), seuil de branding produit (**attendre 30-40 commandes/jour**, ~500 pièces en 1re commande, 20-30$ cartes + 100-150$ packaging).
+- **Tri fait par Claude sur les 10 modules visibles dans la formation (partie Sourcing)** : ces 4 vidéos retenues comme process concrets et directement applicables (agent déjà actif = Aplusfulfill, ou lien direct avec l'automatisation IA côté Roméo) ; les autres modules (sourcing débutant/+50 ventes générique, nouvel an chinois) laissés à Roméo pour visionnage personnel, non transcrits.
+
+---
+
 ## 2026-07-14 (mise à jour 3)
 
 ### Vidéo formation "Trouver des nouveaux concurrents" transcrite + intégrée au skill recherche-produit

@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-07-14 (mise à jour 2)
+
+### Grand nettoyage du workspace jarvis-starter-kit
+- Suppression de 1,8 Go de créas obsolètes (T3-T5, déjà gitignorés) + 16 dossiers vides jamais utilisés (finances-perso, sav, analytics, fournisseurs, logistique, etc.) + vendor/vmake-sdk (automatisation abandonnée le 12/07) + schema-agent.html (ancienne vision d'automatisation créas).
+- 11 skills marketplace jamais utilisés supprimés (16-marketing-psychology-global, ads, analyst, business-setup, competitor-profiling, copywriting, imagegen, popups, research, strategy-red-team, task-manager).
+- Skill `recherche-actualites` restauré depuis l'historique Git : supprimé par erreur le 28/05/2026 lors d'un nettoyage groupé, alors que `/morning` en dépend toujours.
+- Dépôt `livrables/etudes/projets/portfolio` supprimé (dépôt Git imbriqué bancal, projet réel déjà hébergé séparément sur GitHub, Roméo n'en a plus besoin ici).
+- Historique Git entier réécrit (git-filter-repo) pour retirer les vieux fichiers lourds committés par erreur avant gitignore : .git passé de 203 Mo à 5,9 Mo, force-push effectué sur origin/main. Bundle de sauvegarde conservé temporairement hors du dossier.
+- `livrables/README.md` réécrit pour coller à la vraie structure actuelle (l'ancien décrivait une arborescence jamais créée : fournisseurs, publicité, freelance...).
+- CLAUDE.md section "Skills disponibles" complétée avec les skills manquants (boutique, crea-pub, recherche-logement-huesca, browser-use, skills techniques Shopify, eugene-schwartz, skill-creator).
+
+---
+
 ## 2026-07-14
 
 ### 3 lives Zecom Academy "DROP 5" ajoutés au calendrier

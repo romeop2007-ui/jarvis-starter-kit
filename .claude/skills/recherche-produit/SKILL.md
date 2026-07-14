@@ -56,6 +56,8 @@ Méthode principale : **filtrer par CATÉGORIE, jamais par tri global** (le tri 
 
 Moteurs d'appoint : `daily_radar` (produits/shops qui montent) et le filet nordique (`shop_creation_countries` SE/DK/NO/FI/DE/NL/AT + `max_products` bas). Les outils qui NE marchent PAS (find_similar_shops, keywords, find_winning_products, search_advertisers growth) sont documentés dans `references/outils-trendtrack.md` : ne pas perdre de crédits dessus.
 
+**Une fois un produit identifié (candidat en validation, ou déjà en test)**, pour trouver un maximum de SES concurrents (plus de data, plus de créas à adapter en optimisation/scaling) : voir `references/trouver-concurrents.md` (3 méthodes formation : TrendTrack mots-clés multilingues, TrendTrack par niche/catégorie, Kalodata par catégorie, + liste d'outils alternatifs).
+
 Sorties volumineuses → sauver en fichier et parser avec `node -e` ou PowerShell `ConvertFrom-Json` (pas de jq).
 
 ### Étape 2 — Filtre shop

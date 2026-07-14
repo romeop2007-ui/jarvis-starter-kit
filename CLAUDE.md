@@ -159,6 +159,34 @@ Skill d'analyse de la campagne Meta du moment. Activé via `/bilan-ads`, ou quan
 
 Skill de recherche produit dropshipping pour Zooryn via TrendTrack, qui formalise la méthode V3 de Roméo. Activé quand Roméo dit "recherche produit", "trouve-moi un produit", "cherche un winner", "lance une recherche produit", "on alimente le pipeline". Applique l'ordre strict "la data avant le produit" : filtre par catégorie de l'ombrelle outdoor/voyage, tri `reachDelta7d` (ce qui décolle cette semaine, jamais `reachDelta30d`), shop frais (<6 semaines, peu de produits, trafic <1700 vérifié à la main), traçabilité EU obligatoire, pente de reach, puis présente une short-list pour/contre sans survendre. C'est Roméo qui tranche, le skill ne kille jamais avant présentation. Sourcing = Roméo. Anti-doublon des rejetés et fiche outils TrendTrack dans `references/`.
 
+### boutique
+
+Convertit un design Claude Design (bundle `.dc.html` exporté depuis claude.ai/design) en page produit Liquid fonctionnelle sur la boutique Shopify Zooryn, en conservant le header/footer du thème live. Se déclenche quand Roméo envoie un message du type "Use the claude_design MCP ... Implement: nom.dc.html" avec un lien claude.ai/design/p/... Couvre carrousel d'images, bundle/offres en variantes Shopify, prix, avis/FAQ en Liquid pur, prénoms francisés, déploiement live.
+
+### crea-pub
+
+Usine à créas publicitaires Zooryn. À partir d'une pub concurrent (sourcée dans le tableau de recherche produit ou fournie par Roméo), produit un dossier prêt à finaliser. Vidéo → script voix off FR adapté à la marque + voix off ElevenLabs calée sur la durée (le détourage Vmake est désormais 100% manuel côté Roméo). Image → image finale FR générée via gpt-image (appel API direct, pas le skill imagegen). Sur demande, fournit aussi le texte de pub Meta (titre/corps/description/CTA/URL) prêt à copier-coller, Roméo montant seul toute la campagne. À déclencher quand Roméo dit "fais-moi les créas", "transforme cette pub", "adapte cette créa", "donne-moi le texte de la pub", ou fournit un .mp4/.jpg/.png de concurrent à adapter.
+
+### recherche-logement-huesca
+
+Recherche un appartement à Huesca (Espagne) pour Roméo en élargissant chaque fois à de nouveaux sites/agences, puis pousse les résultats sur la page Notion "Logement Huesca". Déclencheurs : "trouve des appartements pour Huesca", "recherche appartement Espagne/Huesca", "cherche-moi un logement à Huesca", "continue la recherche logement Saragosse".
+
+### browser-use
+
+Automatise la navigation web quand aucun connecteur/MCP ne couvre le besoin (ex. lecture du Discord Zecom Academy, en fenêtre séparée, session non persistante, lecture seule stricte). Claude n'ouvre le navigateur que si Roméo n'a rien trouvé lui-même ou demande explicitement de déléguer.
+
+### Skills techniques Shopify (référence, pas de déclencheur dédié)
+
+`shopify-admin`, `shopify-developer` et `shopify-use-shopify-cli` : documentation Shopify (Liquid, GraphQL Admin API, thèmes OS 2.0, Shopify CLI) consultée automatiquement dès que le travail touche au thème ou à l'admin de la boutique. Gardés lors du tri SkillsMP du 19/06/2026.
+
+### eugene-schwartz-breakthrough-advertising
+
+Applique le cadre des "5 niveaux de sophistication" et "5 stades de conscience du marché" d'Eugene Schwartz pour écrire les pages produit, pubs et emails Zooryn. Gardé lors du tri SkillsMP du 19/06/2026.
+
+### skill-creator
+
+Meta-skill pour créer ou mettre à jour un skill (utilisé pour construire `recherche-produit`, `bilan-ads`, `budget`, etc.).
+
 ---
 
 ## Getting Started

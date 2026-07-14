@@ -7,6 +7,15 @@
 
 ---
 
+## 2026-07-14 (mise à jour 3)
+
+### Vidéo formation "Trouver des nouveaux concurrents" transcrite + intégrée au skill recherche-produit
+- Vidéo Kajabi "3.1 Trouver des nouveaux concurrents" téléchargée (yt-dlp + cookie Kajabi déposé par Roméo) et transcrite localement (`scripts/transcribe.py`, large-v3-turbo). Fichiers dans `livrables/ecommerce/formation/3.1 Trouver des nouveaux concurrents/video/`.
+- **3 méthodes pour trouver un maximum de concurrents sur un produit déjà identifié** (utile en phase d'optimisation pour recharger des créas, ou en scaling pour des concurrents indirects) intégrées dans un nouveau fichier `references/trouver-concurrents.md` du skill `recherche-produit` : (1) TrendTrack recherche par mots-clés multilingues (liste géante générée via ChatGPT, format `motclé,motclé,`, filtre impressions ≥150-200k) ; (2) TrendTrack par niche/catégorie (Trending Shop > Category, tri Monthly Visit, extension Chrome pour lister le catalogue d'un shop) ; (3) Kalodata par catégorie via l'abonnement groupé Spybox (~30€/mois, non souscrit à ce jour), filtre CA ≥50k€/30j puis onglet Vidéo & Ads pour les pubs ≥7-8k€ de revenu. Liste d'outils alternatifs à Spybox notée (AdSparrow, PPAds, Minea, Winning Hunter...), aucun souscrit.
+- Pointeur ajouté dans `SKILL.md` (étape 1) : cette méthode est distincte de la recherche de NOUVELLE niche/produit (étape 1 existante), elle sert une fois un candidat déjà identifié.
+
+---
+
 ## 2026-07-14 (mise à jour 2)
 
 ### Grand nettoyage du workspace jarvis-starter-kit

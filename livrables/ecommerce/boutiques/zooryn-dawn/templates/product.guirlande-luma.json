@@ -1,0 +1,118 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "buybox": {
+      "type": "zluma-buybox",
+      "settings": {
+        "product": "",
+        "rating_score": "4,6",
+        "rating_text": "36 avis",
+        "title": "",
+        "tagline": "Prolongez les soirées d'été. Alimentée par le soleil.",
+        "benefit_1": "Chargée par le soleil – parfaite pour une utilisation en extérieur",
+        "benefit_2": "10 mètres – pour toute la terrasse ou le balcon",
+        "benefit_3": "Étanche – résiste à la pluie et aux soirées d'été",
+        "benefit_4": "Backup USB-C – chargez par câble quand le soleil ne suffit pas",
+        "benefit_5": "Sans enchevêtrement – se déroule et se roule en 30 secondes",
+        "stock_text": "Stock faible",
+        "bundle_label": "Début de l'été 2026",
+        "b1_sub": "Parfait pour tester l'ambiance",
+        "b2_ribbon": "Le plus populaire !",
+        "b2_sub": "Terrasse chaleureuse et équilibrée",
+        "b3_sub": "Transformez toute la terrasse ou le balcon",
+        "cta_label": "Ajouter au panier",
+        "acc1_title": "À propos de Luma",
+        "acc1_text": "",
+        "acc2_title": "Notre Garantie",
+        "acc2_text": "",
+        "acc3_title": "Livraison",
+        "acc3_text": ""
+      }
+    },
+    "story1": {
+      "type": "zluma-story",
+      "settings": {
+        "bg": "clair",
+        "reverse": false,
+        "image": "shopify://shop_images/hf_20260506_164616_3956c04c-7592-4228-9545-1950b5c7e414_1.png",
+        "placeholder_label": "Photo lifestyle – terrasse illuminée en soirée, ambiance chaleureuse",
+        "heading": "Le sentiment de ne plus vouloir rentrer.",
+        "body": "<p>Ce moment magique où la soirée est douce, la lumière tamisée et personne ne veut bouger de table. <strong>Luma prolonge les soirées.</strong> Elle se charge au soleil pendant la journée – et crée exactement l'atmosphère qui fait durer le dîner.</p>"
+      }
+    },
+    "story2": {
+      "type": "zluma-story",
+      "settings": {
+        "bg": "clair",
+        "reverse": true,
+        "image": "shopify://shop_images/hf_20260520_105214_79352ab5-29c7-4ba7-b15f-582a96e44cd7.webp",
+        "placeholder_label": "Photo lifestyle – panneau solaire en plein soleil, terrasse en arrière-plan",
+        "heading": "Le soleil charge. Vous profitez.",
+        "body": "<p>Installez Luma une fois – et elle s'occupe du reste automatiquement. <strong>Le panneau solaire se charge pendant la journée.</strong></p><p>Aucun câble. Aucune prise. Rien à gérer.</p><p><strong>10 mètres</strong> pour toute la terrasse ou le balcon. <strong>Construction étanche</strong> par tous les temps. <strong>Enroulement sans enchevêtrement</strong> en 30 secondes.</p>"
+      }
+    },
+    "story3": {
+      "type": "zluma-story",
+      "settings": {
+        "bg": "clair",
+        "reverse": false,
+        "image": "shopify://shop_images/hf_20260412_165107_9a6b49b7-eb05-488a-8071-a63ae778d1ae.webp",
+        "placeholder_label": "Photo lifestyle – guirlande sur balcon d'appartement, vue en soirée",
+        "heading": "Fonctionne partout. N'exige rien.",
+        "body": "<p>Grand jardin ou petit balcon – <strong>Luma s'adapte.</strong></p><p>Pas de câbles à tirer. Pas de prise à chercher. Pas d'installation. Accrochez-la le long du garde-corps, de la clôture ou de la pergola et <strong>laissez le soleil faire le reste.</strong></p><p>Parfaite pour l'appartement comme pour la grande maison. <strong>10 mètres, ça va plus loin que vous ne le pensez.</strong></p>"
+      }
+    },
+    "clients": {
+      "type": "zluma-clients",
+      "settings": {
+        "heading": "Photos clients – Luma",
+        "pic1": "shopify://shop_images/61dYiuwU61L.webp",
+        "pic2": "shopify://shop_images/61IELgpu_mL.webp",
+        "pic3": "shopify://shop_images/81kI3qqO85L.webp",
+        "pic4": "shopify://shop_images/713JvKu_VyL.webp",
+        "pic5": "shopify://shop_images/1.webp",
+        "pic6": "shopify://shop_images/2.webp"
+      }
+    },
+    "faq": {
+      "type": "zluma-faq",
+      "settings": {
+        "heading": "Questions fréquentes"
+      }
+    },
+    "avis": {
+      "type": "zluma-avis",
+      "settings": {
+        "heading": "Avis clients",
+        "score": "4,6",
+        "count": "36",
+        "more_label": "Voir plus d’avis"
+      }
+    },
+    "sticky": {
+      "type": "zluma-sticky",
+      "settings": {
+        "title": "Luma – Guirlande Lumineuse Solaire",
+        "cta_label": "Ajouter au panier"
+      }
+    }
+  },
+  "order": [
+    "buybox",
+    "story1",
+    "story2",
+    "story3",
+    "clients",
+    "faq",
+    "avis",
+    "sticky"
+  ]
+}

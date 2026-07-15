@@ -17,7 +17,7 @@
         "color_scheme": "scheme-4",
         "newsletter_enable": true,
         "newsletter_heading": "Recevez nos conseils et nos nouveautés",
-        "enable_follow_on_shop": true,
+        "enable_follow_on_shop": false,
         "show_social": false,
         "enable_country_selector": false,
         "enable_language_selector": false,

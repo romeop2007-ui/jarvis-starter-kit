@@ -5,12 +5,12 @@
 {%- endcomment -%}
 <style>
   .zsac{
-    --creme-clair:#EBE7DB;
-    --creme-carte:#E2DDCC;
-    --vert:#154230;
-    --vert-fonce:#103325;
-    --texte-clair:#F3EFE4;
-    --vert-accent:#2F6B4F;
+    --creme-clair:#EDE6D9;
+    --creme-carte:#E4DCCA;
+    --vert:#6E4E37;
+    --vert-fonce:#5A3F2C;
+    --texte-clair:#EDE6D9;
+    --vert-accent:#736C62;
     --rayon:10px;
     --max:1280px;
     color:var(--vert);
@@ -65,7 +65,7 @@
   .zsac .prix{font-size:26px;font-weight:800}
   .zsac .prix-barre{font-size:16px;color:var(--vert-accent);text-decoration:line-through;font-weight:600}
   .zsac .badge-promo{background:var(--vert-accent);color:var(--texte-clair);font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px}
-  .zsac hr.sep{border:none;border-top:1px solid rgba(21,66,48,.15);margin:18px 0}
+  .zsac hr.sep{border:none;border-top:1px solid rgba(110,78,55,.15);margin:18px 0}
 
   .zsac .stock-note{font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;margin:14px 0}
   .zsac .stock-note::before{content:"";width:9px;height:9px;border-radius:50%;background:#1f8a5b}
@@ -75,7 +75,7 @@
   .zsac .tier.selected .tier-config-inline{display:block}
   .zsac .cfg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .zsac .cfg label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--vert-accent);margin-bottom:5px}
-  .zsac .cfg select{width:100%;padding:11px 12px;border:1px solid rgba(21,66,48,.3);border-radius:8px;background:var(--creme-clair);font-family:inherit;font-size:13.5px;font-weight:600;color:var(--vert);cursor:pointer}
+  .zsac .cfg select{width:100%;padding:11px 12px;border:1px solid rgba(110,78,55,.3);border-radius:8px;background:var(--creme-clair);font-family:inherit;font-size:13.5px;font-weight:600;color:var(--vert);cursor:pointer}
   /* Palier 1+1 : deux lignes #1 / #2 */
   .zsac .cfg-hint{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--vert-accent);margin:2px 0 8px}
   .zsac .cfg-line{display:flex;align-items:center;gap:10px;margin-top:8px}
@@ -83,10 +83,10 @@
   .zsac .cfg-line .cfg{flex:1;min-width:0}
 
   /* Offre / bundle (reproduction Off-Grid) */
-  .zsac .bundle{position:relative;border:1px solid rgba(21,66,48,.28);border-radius:var(--rayon);padding:22px 14px 14px;margin:20px 0 14px}
+  .zsac .bundle{position:relative;border:1px solid rgba(110,78,55,.28);border-radius:var(--rayon);padding:22px 14px 14px;margin:20px 0 14px}
   .zsac .bundle-legend{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--creme-clair);padding:0 12px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--vert)}
   .zsac .tiers{display:flex;flex-direction:column;gap:12px}
-  .zsac .tier{border:1.5px solid rgba(21,66,48,.22);border-radius:8px;padding:14px 16px;background:var(--creme-clair);cursor:pointer;transition:border-color .15s,box-shadow .15s}
+  .zsac .tier{border:1.5px solid rgba(110,78,55,.22);border-radius:8px;padding:14px 16px;background:var(--creme-clair);cursor:pointer;transition:border-color .15s,box-shadow .15s}
   .zsac .tier.selected{border-color:var(--vert);box-shadow:inset 0 0 0 1px var(--vert)}
   .zsac .tier-head{display:flex;align-items:center;gap:12px}
   .zsac .tier-radio{width:20px;height:20px;border-radius:50%;border:2px solid var(--vert);flex:0 0 auto;position:relative}
@@ -97,7 +97,7 @@
   .zsac .tier-price .old{display:block;font-size:12.5px;color:var(--vert-accent);text-decoration:line-through;font-weight:600}
   .zsac .tier-slot:empty{display:none}
   /* Add-on sangle rembourrée */
-  .zsac .addon{display:flex;align-items:center;gap:10px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(21,66,48,.15);font-size:12.5px;font-weight:600;cursor:pointer}
+  .zsac .addon{display:flex;align-items:center;gap:10px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(110,78,55,.15);font-size:12.5px;font-weight:600;cursor:pointer}
   .zsac .addon input{width:16px;height:16px;flex:0 0 auto;accent-color:var(--vert)}
   .zsac .addon-ico{width:30px;height:30px;border-radius:6px;background:var(--creme-carte);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
   .zsac .addon-txt{flex:1}
@@ -106,21 +106,21 @@
   .zsac .addon-price .old{display:block;color:var(--vert-accent);text-decoration:line-through;font-weight:600;font-size:11.5px}
 
   .zsac .btn-cart{
-    width:100%;background:var(--vert);color:var(--creme-clair);font-size:16px;font-weight:700;
+    width:100%;background:#C1522A;color:#fff;font-size:16px;font-weight:700;
     letter-spacing:.04em;text-transform:uppercase;padding:16px;border-radius:var(--rayon);transition:background .15s;
   }
-  .zsac .btn-cart:hover{background:var(--vert-accent)}
+  .zsac .btn-cart:hover{background:#A8431F}
   .zsac .btn-cart[disabled]{opacity:.6;cursor:default}
 
   .zsac .bandeau-garantie{
     display:grid;grid-template-columns:1fr 1fr;overflow:hidden;
-    border:1px solid rgba(21,66,48,.18);border-radius:var(--rayon);margin:16px 0;
+    border:1px solid rgba(110,78,55,.18);border-radius:var(--rayon);margin:16px 0;
   }
   .zsac .bandeau-garantie div{
     display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 10px;
     font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--creme-carte);
   }
-  .zsac .bandeau-garantie div:first-child{border-right:1px solid rgba(21,66,48,.18)}
+  .zsac .bandeau-garantie div:first-child{border-right:1px solid rgba(110,78,55,.18)}
   .zsac .ico{width:26px;height:26px;border-radius:50%;background:var(--vert);color:var(--texte-clair);display:flex;align-items:center;justify-content:center;font-size:13px}
 
   .zsac .grille-atouts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0}
@@ -136,13 +136,13 @@
   .zsac .pay-icons .pay-ico{height:24px;width:auto}
 
   /* Carrousel de ventes additionnelles (upsell) */
-  .zsac .upsell{border:1px solid rgba(21,66,48,.2);border-radius:var(--rayon);margin:16px 0;padding:8px 0 4px}
+  .zsac .upsell{border:1px solid rgba(110,78,55,.2);border-radius:var(--rayon);margin:16px 0;padding:8px 0 4px}
   .zsac .upsell-nav{display:flex;gap:8px;padding:0 12px 6px}
-  .zsac .upsell-arrow{width:32px;height:32px;border-radius:50%;background:var(--creme-carte);border:1px solid rgba(21,66,48,.2);font-size:15px;color:var(--vert);display:flex;align-items:center;justify-content:center}
+  .zsac .upsell-arrow{width:32px;height:32px;border-radius:50%;background:var(--creme-carte);border:1px solid rgba(110,78,55,.2);font-size:15px;color:var(--vert);display:flex;align-items:center;justify-content:center}
   .zsac .upsell-view{overflow:hidden}
   .zsac .upsell-track{display:flex;transition:transform .25s ease}
   .zsac .upsell-card{flex:0 0 100%;display:flex;align-items:center;gap:14px;padding:6px 14px 12px}
-  .zsac .upsell-card img,.zsac .upsell-card .ph{width:64px;height:64px;border-radius:8px;flex:0 0 auto;object-fit:cover;border:1px solid rgba(21,66,48,.12)}
+  .zsac .upsell-card img,.zsac .upsell-card .ph{width:64px;height:64px;border-radius:8px;flex:0 0 auto;object-fit:cover;border:1px solid rgba(110,78,55,.12)}
   .zsac .upsell-info{flex:1;min-width:0}
   .zsac .upsell-name{font-weight:700;font-size:14px}
   .zsac .upsell-price{font-size:13.5px;color:var(--vert-accent);font-weight:700;margin-top:2px}
@@ -150,8 +150,8 @@
   .zsac .upsell-add[disabled]{opacity:.45;cursor:default}
 
   /* Accordéon fiche produit */
-  .zsac .accordeon{border-top:1px solid rgba(21,66,48,.15);margin-top:14px}
-  .zsac .acc-item{border-bottom:1px solid rgba(21,66,48,.15)}
+  .zsac .accordeon{border-top:1px solid rgba(110,78,55,.15);margin-top:14px}
+  .zsac .acc-item{border-bottom:1px solid rgba(110,78,55,.15)}
   .zsac .acc-tete{width:100%;display:flex;justify-content:space-between;align-items:center;
     padding:15px 2px;font-size:14.5px;font-weight:700;text-align:left;text-transform:uppercase;letter-spacing:.02em;color:inherit}
   .zsac .acc-tete .chev{transition:transform .2s;font-weight:700}
@@ -201,11 +201,11 @@
 
   /* AVIS CLIENTS (Loox) */
   .zsac.avis{padding:54px 0;background:var(--creme-clair)}
-  .zsac .avis-entete{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border-bottom:1px solid rgba(21,66,48,.15);padding-bottom:18px;margin-bottom:6px}
+  .zsac .avis-entete{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border-bottom:1px solid rgba(110,78,55,.15);padding-bottom:18px;margin-bottom:6px}
   .zsac .avis-score{display:flex;align-items:center;gap:12px}
   .zsac .avis-score .avis-count{font-size:15px;font-weight:700;color:var(--vert)}
   .zsac .avis-liste{display:flex;flex-direction:column}
-  .zsac .avis-carte{display:grid;grid-template-columns:1fr;gap:18px;align-items:start;padding:22px 2px;border-bottom:1px solid rgba(21,66,48,.12)}
+  .zsac .avis-carte{display:grid;grid-template-columns:1fr;gap:18px;align-items:start;padding:22px 2px;border-bottom:1px solid rgba(110,78,55,.12)}
   .zsac .avis-carte.photo{grid-template-columns:1fr 132px}
   .zsac .avis-carte.hide{display:none}
   .zsac .avis-corps .top{display:flex;align-items:center;gap:10px;margin-bottom:2px}
@@ -229,18 +229,18 @@
   .zsl-modal.open{display:flex}
   .zsl-modal .zsl-card{position:relative;background:#fff;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;max-width:min(94vw,460px);max-height:92vh;box-shadow:0 20px 60px rgba(0,0,0,.5)}
   .zsl-modal .zsl-img{width:100%;height:auto;max-height:48vh;object-fit:contain;background:#fff;display:block;flex:0 1 auto}
-  .zsl-modal .zsl-body{padding:16px 18px 22px;color:var(--vert, #154230);font-family:"Manrope",system-ui,sans-serif}
+  .zsl-modal .zsl-body{padding:16px 18px 22px;color:var(--vert, #6E4E37);font-family:"Manrope",system-ui,sans-serif}
   .zsl-modal .zsl-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
   .zsl-modal .zsl-nom{font-weight:700;font-size:15px}
-  .zsl-modal .zsl-body .verifie{font-size:12px;font-weight:700;color:#2F6B4F}
+  .zsl-modal .zsl-body .verifie{font-size:12px;font-weight:700;color:#736C62}
   .zsl-modal .zsl-mid{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
   .zsl-modal .zsl-stars{font-size:16px;color:#1f8a5b;letter-spacing:1px}
-  .zsl-modal .zsl-date{font-size:12.5px;color:#2F6B4F;opacity:.85}
+  .zsl-modal .zsl-date{font-size:12.5px;color:#736C62;opacity:.85}
   .zsl-modal .zsl-texte{font-size:14px;line-height:1.55;margin:0}
-  .zsl-modal .zsl-var{font-size:12.5px;color:#2F6B4F;margin-top:10px}
+  .zsl-modal .zsl-var{font-size:12.5px;color:#736C62;margin-top:10px}
   .zsl-modal .zsl-var span{font-weight:700}
-  .zsl-modal .zsl-close{position:absolute;top:10px;left:10px;z-index:2;width:38px;height:38px;border-radius:9px;background:rgba(16,51,37,.55);color:#fff;font-size:24px;line-height:1;display:flex;align-items:center;justify-content:center}
-  .zsl-modal .zsl-close:hover{background:rgba(16,51,37,.75)}
+  .zsl-modal .zsl-close{position:absolute;top:10px;left:10px;z-index:2;width:38px;height:38px;border-radius:9px;background:rgba(90,63,44,.55);color:#fff;font-size:24px;line-height:1;display:flex;align-items:center;justify-content:center}
+  .zsl-modal .zsl-close:hover{background:rgba(90,63,44,.75)}
 
   /* FAQ */
   .zsac.faq{padding:40px 0 60px;background:var(--creme-clair)}
@@ -270,7 +270,7 @@
   .zsac.trust{background:var(--creme-clair);color:var(--vert);padding:46px 0}
   .zsac .trust-grille{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
   .zsac .trust-col{text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
-  .zsac .trust-col .ico-grand{width:46px;height:46px;border-radius:50%;background:rgba(21,66,48,.08);display:flex;align-items:center;justify-content:center;font-size:20px}
+  .zsac .trust-col .ico-grand{width:46px;height:46px;border-radius:50%;background:rgba(110,78,55,.08);display:flex;align-items:center;justify-content:center;font-size:20px}
   .zsac .trust-col h3{font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
   .zsac .trust-col p{font-size:13px;opacity:.88}
   /* Points du carrousel de réassurance : mobile uniquement */
@@ -290,19 +290,19 @@
   /* STICKY CTA — petite carte flottante en bas à droite */
   .zsac-sticky{
     position:fixed;right:20px;bottom:20px;left:auto;z-index:80;background:#fff;
-    border:1px solid rgba(21,66,48,.16);border-radius:14px;box-shadow:0 14px 36px rgba(16,51,37,.2);
+    border:1px solid rgba(110,78,55,.16);border-radius:14px;box-shadow:0 14px 36px rgba(90,63,44,.2);
     transform:translateY(160%);opacity:0;transition:transform .28s ease,opacity .28s ease;padding:12px 14px;
-    max-width:min(94vw,420px);font-family:"Manrope",system-ui,sans-serif;color:#154230;
+    max-width:min(94vw,420px);font-family:"Manrope",system-ui,sans-serif;color:#6E4E37;
   }
   .zsac-sticky.visible{transform:translateY(0);opacity:1}
   .zsac-sticky .wrap{max-width:none;margin:0;padding:0;display:flex;align-items:center;gap:14px}
   .zsac-sticky .sc-info{display:flex;align-items:center;gap:12px;min-width:0;flex:1}
   .zsac-sticky .sc-info > div{min-width:0}
-  .zsac-sticky .sc-vignette{width:52px;height:52px;border-radius:8px;flex:0 0 auto;object-fit:cover;border:1px solid rgba(21,66,48,.1)}
+  .zsac-sticky .sc-vignette{width:52px;height:52px;border-radius:8px;flex:0 0 auto;object-fit:cover;border:1px solid rgba(110,78,55,.1)}
   .zsac-sticky .sc-nom{font-weight:700;font-size:13.5px;line-height:1.25;white-space:normal}
   .zsac-sticky .sc-prix{font-weight:800;font-size:18px;margin-top:3px}
-  .zsac-sticky .sc-prix .old{font-weight:600;color:#2F6B4F;text-decoration:line-through;font-size:12.5px;margin-left:4px}
-  .zsac-sticky .btn-cart{width:auto;background:#154230;color:#EBE7DB;font-size:13px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:12px 20px;border-radius:10px;border:none;cursor:pointer;white-space:nowrap;flex:0 0 auto}
+  .zsac-sticky .sc-prix .old{font-weight:600;color:#736C62;text-decoration:line-through;font-size:12.5px;margin-left:4px}
+  .zsac-sticky .btn-cart{width:auto;background:#C1522A;color:#FFFFFF;font-size:13px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:12px 20px;border-radius:10px;border:none;cursor:pointer;white-space:nowrap;flex:0 0 auto}
 
   /* ===================== RESPONSIVE ===================== */
   @media(max-width:980px){
@@ -319,7 +319,7 @@
     .zsac .gallery-swipe{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-radius:0}
     .zsac .gallery-swipe::-webkit-scrollbar{display:none}
     .zsac .gallery-swipe-img{flex:0 0 100%;scroll-snap-align:center;width:100%;aspect-ratio:1/1;height:auto;max-height:none;object-fit:contain;background:var(--creme-clair)}
-    .zsac .gallery-swipe-counter{position:absolute;right:12px;bottom:12px;background:rgba(16,51,37,.78);color:#F3EFE4;font-size:12px;font-weight:700;padding:5px 10px;border-radius:20px}
+    .zsac .gallery-swipe-counter{position:absolute;right:12px;bottom:12px;background:rgba(90,63,44,.78);color:#EDE6D9;font-size:12px;font-weight:700;padding:5px 10px;border-radius:20px}
     .zsac .product-info{order:3}
     .zsac.duo-squares,.zsac.newsletter{grid-template-columns:1fr}
     /* Duo : la photo gouttes d'eau (droite) passe AVANT le bloc texte nylon (gauche) */
@@ -329,7 +329,7 @@
     .zsac .trust-grille::-webkit-scrollbar{display:none}
     .zsac .trust-col{flex:0 0 100%;scroll-snap-align:center;padding:0 10px}
     .zsac .trust-dots{display:flex;justify-content:center;gap:8px;margin-top:24px}
-    .zsac .trust-dots .dot{width:8px;height:8px;border-radius:50%;background:rgba(21,66,48,.22);transition:background .15s}
+    .zsac .trust-dots .dot{width:8px;height:8px;border-radius:50%;background:rgba(110,78,55,.22);transition:background .15s}
     .zsac .trust-dots .dot.active{background:var(--vert)}
     /* Recommandé : carrousel horizontal, carte suivante visible en bord d'écran */
     .zsac .reco-grille{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:14px;max-width:none;margin:0}

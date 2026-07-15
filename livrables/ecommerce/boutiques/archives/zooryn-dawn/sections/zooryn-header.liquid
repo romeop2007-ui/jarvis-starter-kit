@@ -23,11 +23,11 @@
 
 <style>
   .zhead{
-    --zh-creme:#EBE7DB;
-    --zh-vert:#154230;
-    --zh-vert-fonce:#103325;
-    --zh-clair:#F3EFE4;
-    --zh-vert-accent:#2F6B4F;
+    --zh-creme:#EDE6D9;
+    --zh-vert:#6E4E37;
+    --zh-vert-fonce:#5A3F2C;
+    --zh-clair:#EDE6D9;
+    --zh-vert-accent:#736C62;
     --zh-maxw:1180px;
     --zh-font:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     --zh-font-annonce:'Assistant',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
@@ -64,7 +64,7 @@
   /* ---- Header ---- */
   .zh-header{
     background:var(--zh-creme);position:sticky;top:0;z-index:60;
-    border-bottom:1px solid rgba(21,66,48,.12);
+    border-bottom:1px solid rgba(110,78,55,.12);
   }
   .zh-inner{display:flex;align-items:center;justify-content:space-between;height:80px;position:relative;}
   .zh-left,.zh-right{display:flex;align-items:center;gap:22px;}
@@ -89,9 +89,9 @@
   }
 
   /* ---- Menu mobile (déroulant simple) ---- */
-  .zh-mobile{display:none;background:var(--zh-creme);border-bottom:1px solid rgba(21,66,48,.12);}
+  .zh-mobile{display:none;background:var(--zh-creme);border-bottom:1px solid rgba(110,78,55,.12);}
   .zh-mobile.open{display:block;}
-  .zh-mobile a{display:block;padding:14px 20px;font-size:15px;font-weight:600;border-top:1px solid rgba(21,66,48,.08);}
+  .zh-mobile a{display:block;padding:14px 20px;font-size:15px;font-weight:600;border-top:1px solid rgba(110,78,55,.08);}
   @media(min-width:990px){.zh-mobile{display:none !important;}}
 </style>
 
@@ -124,6 +124,7 @@
         <nav class="zh-nav">
           <a href="{{ pages.contact.url | default: '/pages/contact' }}">Contactez-nous</a>
           <a href="{{ routes.all_products_collection_url }}">Acheter</a>
+          <a href="/collections/voyage">Voyage</a>
           <a href="/apps/parcelpanel">Suivre ma commande</a>
         </nav>
       </div>
@@ -151,6 +152,7 @@
     <div class="zh-mobile" id="zhMobile">
       <a href="{{ pages.contact.url | default: '/pages/contact' }}">Contactez-nous</a>
       <a href="{{ routes.all_products_collection_url }}">Acheter</a>
+      <a href="/collections/voyage">Voyage</a>
       <a href="/apps/parcelpanel">Suivre ma commande</a>
     </div>
   </header>

@@ -15,14 +15,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Conçu pour ceux qui partent",
+            "heading": "Conçu pour votre quotidien",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Du matériel outdoor malin, léger et fiable, pour vivre chaque sortie pleinement, du bivouac au bout du monde.",
+            "text": "Des produits malins et fiables pour la maison, choisis avec soin pour rendre chaque journée plus simple et plus confortable.",
             "text_style": "body"
           }
         },
@@ -71,14 +71,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Une marque née du plein air",
+            "heading": "Une marque pensée pour la vie de tous les jours",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Zooryn part d'une idée simple : le bon matériel ne devrait jamais vous freiner. Trop lourd, trop cher, trop compliqué... on a voulu l'inverse. Des produits outdoor pensés pour durer, faciles à emporter, qui vous suivent du week-end en forêt au grand voyage. Moins d'équipement, plus d'aventure.</p>",
+            "text": "<p>Zooryn part d'une idée simple : les bons produits devraient vous simplifier la vie, pas la compliquer. Trop cher, trop fragile, trop gadget... on a voulu l'inverse. Des produits du quotidien pensés pour durer, faciles à vivre, qui trouvent leur place chez vous comme dans vos déplacements. Moins de superflu, plus de confort.</p>",
             "text_style": "body"
           }
         }
@@ -386,7 +386,7 @@
           "settings": {
             "heading": "Comment sont choisis les produits Zooryn ?",
             "icon": "check_mark",
-            "row_content": "<p>Chaque produit de la boutique est sélectionné selon des critères précis : légèreté, compacité, robustesse et utilité réelle sur le terrain. On ne référence pas tout et n'importe quoi. Avant d'être proposé, chaque article est analysé en détail, testé sur les retours utilisateurs et comparé aux meilleures alternatives du marché. Notre niche, c'est l'outdoor et le voyage : des produits qui vous suivent en randonnée, en voyage, en camping, sans vous encombrer. Si un produit ne tient pas ses promesses sur la durée, on le retire.</p>",
+            "row_content": "<p>Chaque produit de la boutique est sélectionné selon des critères précis : qualité, praticité, robustesse et utilité réelle au quotidien. On ne référence pas tout et n'importe quoi. Avant d'être proposé, chaque article est analysé en détail, testé sur les retours utilisateurs et comparé aux meilleures alternatives du marché. Notre univers, c'est la maison au sens large : des produits qui simplifient votre quotidien, chez vous comme en déplacement. Si un produit ne tient pas ses promesses sur la durée, on le retire.</p>",
             "page": ""
           }
         },
@@ -464,14 +464,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Prêt pour la prochaine aventure ?",
+            "heading": "Prêt à vous simplifier le quotidien ?",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Parcourez la sélection Zooryn et trouvez l'équipement qui partira avec vous.</p>"
+            "text": "<p>Parcourez la sélection Zooryn et trouvez ce qui rendra votre quotidien plus agréable.</p>"
           }
         },
         "button": {

@@ -9,7 +9,7 @@
 {%- endcomment -%}
 {%- assign s = section.settings -%}
 {%- assign sid = section.id -%}
-{%- assign verif_svg = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#154230"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#F3EFE4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' -%}
+{%- assign verif_svg = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#6E4E37"/><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#EDE6D9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>' -%}
 {%- assign count_p = s.count_produit | default: '61' -%}
 {%- assign count_b = s.count_boutique | default: '21' -%}
 
@@ -135,9 +135,9 @@
 .zmat .review-modal{ position:fixed; inset:0; z-index:9970; }
 .zmat .review-modal[hidden]{ display:none; }
 .zmat .review-modal__overlay{ position:absolute; inset:0; background:rgba(10,20,16,.55); }
-.zmat .review-modal__panel{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:min(92vw,460px); max-height:88vh; overflow:auto; background:var(--creme-carte,#F3EFE4); border-radius:16px; box-shadow:0 30px 60px rgba(0,0,0,.3); }
-.zmat .review-modal__close{ position:absolute; top:12px; right:12px; z-index:2; width:34px; height:34px; border-radius:50%; background:#fff; border:1.5px solid #154230; color:#154230; display:flex; align-items:center; justify-content:center; cursor:pointer; padding:0; }
-.zmat .review-modal__media{ width:100%; aspect-ratio:4/5; background:#e9e6db; }
+.zmat .review-modal__panel{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:min(92vw,460px); max-height:88vh; overflow:auto; background:var(--creme-carte,#EDE6D9); border-radius:16px; box-shadow:0 30px 60px rgba(0,0,0,.3); }
+.zmat .review-modal__close{ position:absolute; top:12px; right:12px; z-index:2; width:34px; height:34px; border-radius:50%; background:#fff; border:1.5px solid #6E4E37; color:#6E4E37; display:flex; align-items:center; justify-content:center; cursor:pointer; padding:0; }
+.zmat .review-modal__media{ width:100%; aspect-ratio:4/5; background:#EDE6D9; }
 .zmat .review-modal__media img{ width:100%; height:100%; object-fit:cover; display:block; }
 .zmat .review-modal__body{ padding:18px 20px 22px; display:flex; flex-direction:column; gap:8px; }
 .zmat .review-modal__text{ margin:0; }

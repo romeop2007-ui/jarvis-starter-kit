@@ -7,6 +7,33 @@
 
 ---
 
+## 2026-07-15
+
+### `/semaine` — bilan, refonte des objectifs (30/08) + décisions stratégiques
+- **Bilan de la semaine :** phase basse assumée (job centre aéré en cours, physiquement dur pour le dos). Avancées : formation Zecom regardée à **25% sans bâcler** (assimilation propre, pas de speed run), boutique retintée aux nouvelles couleurs + niche maison. Roméo n'avait rien planifié (il ne savait pas qu'il travaillerait), donc pas d'objectif raté. Énergie/motivation au top ("au prime"), vient bosser même avec la flemme (venu ce jour malgré l'envie basse).
+- **Nouveau driver de motivation personnel identifié :** un accompagnement santé/énergie/performance à une somme à 4 chiffres, que Roméo veut s'offrir avec les revenus e-commerce. Boucle assumée : l'e-commerce finance l'accompagnement, l'accompagnement booste son énergie/confiance, ce qui le rend meilleur en e-commerce. Les deux se tirent vers le haut.
+- **🎯 Grand objectif de sprint fixé au dimanche 30 août 2026 :** un produit qui atteint le palier de scaling à J4 (ROAS ≥ cible du framework), OU 1 000 € de CA cumulé. Méthode = pipeline de 3-4 produits préparé au fil de juillet, puis salve **séquentielle** début août (un produit à la fois, kill à J1 si 0 vente + CPC qui grimpe, sinon on reste dessus). Doctrine "un seul produit en test à la fois" reconfirmée après clarification (pas 4 en parallèle).
+- **Objectif initial "1 000 € de CA en 3 mois" (23/05) :** non atteint (~140 € cumulé, 5 kills, 0 winner), CONSERVÉ et reporté au 30/08. Objectifs d'action initiaux largement dépassés.
+- **❌ Objectif long terme "diversification IA" SUPPRIMÉ :** focus total dropshipping, ne pas s'éparpiller avant de maîtriser l'essentiel. Réversible plus tard.
+- **❌ Automatisation SAV mails ABANDONNÉE :** Roméo repartira sur **Klaviyo** via le SOP de la formation, proprement, le moment venu. Chantier Gmail/brouillons archivé.
+- **Objectifs de la semaine (14-20/07) :** formation en priorité (viser 35-40% grâce au week-end), tableau de recherche produit en bonus opportuniste. Priorisation formation d'abord assumée (principe "la data avant l'intuition", et étapes à venir = création de comptes/apps pour l'email marketing).
+- **Chantier assimilation formation lancé :** Roméo m'envoie au fil de l'eau les vidéos du Module 5 (recherche produit) pour transcription/assimilation locale (`scripts/transcribe.py`), sans lui coûter de temps de travail actif. 6 vidéos Priorité 1 sélectionnées : 1.1 (critères produit cash-flow), 1.5 (méthode TrendTrack), 1.7 (sites à ne pas recopier), 1.9.1 (reconnaître sites chinois), 1.9.2 (reconnaître sites noship), 4.3 (exemple niche Maison). Rappel : la 3.1 est déjà transcrite (14/07).
+
+---
+
+## 2026-07-14 (mise à jour 9)
+
+### Retint boutique EXÉCUTÉ (session Fable 5) : nouvelles couleurs live + home niche maison + collection Voyage
+- Exécution complète du mega-prompt préparé en mise à jour 8, dans la session dédiée au modèle Fable 5. **14 fichiers du thème live #201573302617 modifiés et poussés** (pull `settings_data.json` fait avant, push ciblé `--only`) : settings_data.json, index.json, zooryn-header/engagements/avis-clients/zmat-benefit-intro/zmat-reviews/zluma-story (sections), zmat/zluma/zsac-styles (snippets), zooryn-popup/cart/collection (CSS).
+- **Mapping couleurs par rôle** : vert `#154230` → brun `#6E4E37` (textes forts, header, marque), crèmes `#EBE7DB`/`#F3EFE4` → beige `#EDE6D9` (fonds), vert accent `#2F6B4F` → olive `#736C62`, **CTA d'achat (btn-cart, sticky, checkout panier, quick-add, popup promo) → terracotta `#C1522A` texte blanc**. 4 nuances dérivées documentées, la palette 4 couleurs ne couvrant pas les états hover/hiérarchies : brun foncé `#5A3F2C` (hovers, footer), ombre `#4A3525`, beige carte `#E4DCCA`, hover CTA `#A8431F`. Toutes les déclinaisons `rgba()` converties aussi (110,78,55 etc.). Couleurs fonctionnelles conservées sur décision Roméo (étoiles dorées, rouge urgence, vert stock/étoiles Trustpilot du zsac).
+- **Choix documenté** : le bouton du hero et du bandeau final (scheme-3, fond brun) reste beige clair, PAS terracotta, pour préserver le niveau de contraste d'origine et réserver le terracotta au clic d'achat.
+- **Textes home adaptés maison générique** (décisions Roméo en début de session : vocabulaire générique sans nommer les sous-niches, blocs produits intacts) : hero "Conçu pour votre quotidien", histoire "Une marque pensée pour la vie de tous les jours", FAQ q10 ("Notre univers, c'est la maison au sens large"), CTA final "Prêt à vous simplifier le quotidien ?". Les 20 avis clients de la home conservés tels quels (ils parlent des produits voyage réellement vendus) ; seul le mot "bivouac" d'un avis reste comme vocabulaire voyage, assumé.
+- **Collection Voyage créée et en ligne** (`/collections/voyage`, manuelle, 3 produits : matelas, Luma, sac sling ; le produit caché "sac offert" exclu), avec description dédiée. **Publiée sur Boutique en ligne via mutation GraphQL** : l'outil MCP create-collection ne publie PAS malgré sa doc (404 constaté), même correctif que pour la collection `all`. **Lien "Voyage" ajouté au menu principal** (décision Roméo : header seulement) — découverte : le menu est codé en dur dans `zooryn-header.liquid` (desktop + mobile), pas un menu de navigation Shopify.
+- **Vérifications passées** : zéro ancienne couleur (grep sur les 14 fichiers + rendu live de la home et des 3 pages produit), CTA terracotta rendus, mécanisme d'achat `cart/add.js` intact, collection accessible avec ses 3 produits, contenu de `settings_data.json` vérifié côté API Admin (checksums Liquid identiques au local).
+- **Non traité (hors périmètre)** : logo toujours vert (`zooryn-logo-vert.png`, Roméo le change lui-même), image du hero (photo outdoor) et symbole vert de la section histoire (visuels = Roméo), sections héritées `zooryn-matelas`/`zooryn-oreiller` (anciennes landing pages, toujours aux couleurs vertes, non reliées à la home).
+
+---
+
 ## 2026-07-14 (mise à jour 8)
 
 ### Retint boutique aux nouvelles couleurs + niche maison lancé via mega-prompt (session Fable 5)

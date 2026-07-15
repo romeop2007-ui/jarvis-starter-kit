@@ -4,10 +4,10 @@
 {%- endcomment -%}
 {%- assign s = section.settings -%}
 {%- assign bg = s.bg | default: 'clair' -%}
-{%- assign bg_color = '#EBE7DB' -%}
-{%- assign txt_color = '#154230' -%}
-{%- if bg == 'vert' -%}{%- assign bg_color = '#154230' -%}{%- assign txt_color = '#F3EFE4' -%}{%- endif -%}
-{%- if bg == 'vert-fonce' -%}{%- assign bg_color = '#103325' -%}{%- assign txt_color = '#F3EFE4' -%}{%- endif -%}
+{%- assign bg_color = '#EDE6D9' -%}
+{%- assign txt_color = '#6E4E37' -%}
+{%- if bg == 'vert' -%}{%- assign bg_color = '#6E4E37' -%}{%- assign txt_color = '#EDE6D9' -%}{%- endif -%}
+{%- if bg == 'vert-fonce' -%}{%- assign bg_color = '#5A3F2C' -%}{%- assign txt_color = '#EDE6D9' -%}{%- endif -%}
 
 <div class="zluma" style="background:{{ bg_color }}; color:{{ txt_color }};">
   <div class="story{% if s.reverse %} reverse{% endif %} reveal">

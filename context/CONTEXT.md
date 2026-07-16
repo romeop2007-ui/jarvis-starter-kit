@@ -121,7 +121,7 @@
 
 ### Sources d'apprentissage
 - **YouTube :** Yassine Sdiri (formation 6h gratuite vue ce week-end, c'est comme ça que j'ai découvert ce workflow Claude Code)
-- **Formation payée : Zecom Academy (1095 €, démarrée le 05/07/2026, en cours).**
+- **Formation payée : Zecom Academy (1095 €, démarrée le 05/07/2026, en cours).** **Module 5 (recherche produit) assimilé et intégré le 16/07/2026** : 7 leçons transcrites en local (1.1 critères cash-flow, 1.5 méthode TrendTrack, 1.7/1.9.1/1.9.2 sites à ne pas recopier / chinois / no-ship, 4.1 et 4.3 exemples) puis intégrées aux références (synthèse formation + nouvelle fiche `sites-a-ne-pas-recopier.md` + skill `recherche-produit`). Doctrine : méthode V3 en défaut, SOP officiel 1.5 en filet de secours. Vidéos `.mp4` conservées pour remobilisation en recherche produit.
 - **Discord Zecom Academy (connecté le 11/07/2026)** : communauté de la formation, riche en SOP réel (staff Antoine "Logistique Ecom" + retours d'élèves). Accès via le skill `browser-use` (fenêtre de navigateur séparée, connexion Discord manuelle par Roméo, **session non persistante** : se reconnecter à chaque fermeture de fenêtre). **Mode de travail par défaut : Claude indique le salon (ex. `❓｜faq-ecom`, `📦｜agents`, `📚｜vos-docs-ia-plans-tips`) et le mot-clé à chercher, Roméo cherche lui-même** ; Claude ne navigue lui-même qu'en dernier recours, si Roméo n'a rien trouvé ou demande explicitement à déléguer. Lecture seule stricte, jamais de message posté dans le serveur.
 - Base de référence experte : `context/formation-dropshipping-synthese.md` (synthèse complète "0 à 1M de CA")
 

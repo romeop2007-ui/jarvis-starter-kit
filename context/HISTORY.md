@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-07-16
+
+### Assimilation Module 5 (recherche produit) : 7 leçons transcrites + intégrées proprement
+- **7 leçons de la formation Zecom téléchargées** (yt-dlp + cookies Kajabi) et **transcrites en local** (`scripts/transcribe.py`, large-v3-turbo) : 1.1 critères cash-flow, 1.5 méthode TrendTrack, 1.7 sites à ne pas recopier, 1.9.1 sites chinois, 1.9.2 no-ship, 4.1 exemple Broad, 4.3 exemple Niche Maison. Dossiers créés dans `livrables/ecommerce/formation/Module 5 - La recherche produit/` sur le modèle existant (cookies.txt + sous-dossier `video/`). Une coupure (PC éteint) a interrompu la transcription de la 4.3, relancée et bouclée sans reprendre le reste (script idempotent).
+- **Intégration dans 3 fichiers, sans casser l'existant** (règle explicite de Roméo : ne pas dégrader les fixes V3 actuels de recherche produit) :
+  1. `context/formation-dropshipping-synthese.md` : critères d'un produit à cashflow passés de **2 à 4** (ajout en amont de la **marge, multiplicateur x3,5 mini prix/COGS**, et de la **qualité produit** ; time-to-market et contenu conservés/précisés). Nouvelle section **"SOP officiel détaillé (1.5)"** : deep-dive daily spend sur la bibliothèque Meta pour les produits récents, **recherche saisonnière N-1/N-2** (brique qui manquait totalement), posture "robot/machine", note "No EU Data" (issue de 4.1).
+  2. **`.claude/skills/recherche-produit/references/sites-a-ne-pas-recopier.md` créé** (contenu 100% neuf, jamais détaillé avant) : DMCA / ban Shopify Section 7 / gros sites (1.7), reconnaître les sites chinois (1.9.1), reconnaître les no-ship et re-bill (1.9.2), avec le juge de paix = le pricing (cassé vs cohérent) + accumulation de signaux.
+  3. `.claude/skills/recherche-produit/SKILL.md` : ajouts chirurgicaux seulement (pointeur copiabilité en étape 3 Traçabilité, sous-section "Filet de secours officiel + tactiques formation" = deep-dive Meta + saisonnier N-1/N-2 + tactiques 4.3 : copier la page produit pas la LP, répliquer le ratio vidéo/statique, plafond AOV ~100, Sheet secondaire de shops à surveiller, ne pas one-one bêtement un tableau tiers). **Le tri V3 (`reachDelta7d` + seuil + filtres) n'a pas été touché.**
+- **Doctrine actée (16/07/2026)** : la méthode **V3 reste la méthode de travail par défaut** ; le **SOP officiel 1.5 est le filet de secours documenté**, à activer seulement si la V3 tourne à vide. En dernier recours, on pourra faire évoluer la V3 vers l'officiel, mais pas tant que la V3 fonctionne.
+- **Les 7 vidéos `.mp4` (~7 Go, gitignorées, dossiers `video/`) sont CONSERVÉES** pour être remobilisées au moment des recherches produit (décision Roméo).
+
+---
+
 ## 2026-07-15
 
 ### `/semaine` — bilan, refonte des objectifs (30/08) + décisions stratégiques

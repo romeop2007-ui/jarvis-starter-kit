@@ -71,6 +71,7 @@ Sorties volumineuses → sauver en fichier et parser avec `node -e` ou PowerShel
 - L'origine géo du shop (US, HK…) n'est PAS un motif d'exclusion.
 - Ce qui compte : la data EU est-elle révélable (Reveal EU Spend) ? Oui → exploitable. "No EU Data" → inexploitable, on jette.
 - ⚠️ Le NOMBRE de pubs actives ne prouve rien (cas IROND : 44 pubs, 5k reach). C'est la pente du reach qui parle.
+- **Vérifier que le shop est COPIABLE** (leçons 1.7 / 1.9.1 / 1.9.2, cf. `references/sites-a-ne-pas-recopier.md`) : écarter les sites **chinois à prix cassés**, les **no-ship / re-bill** (prix incohérent = marge impossible à répliquer, on cramerait le test) et les **grosses marques anciennes** (risque DMCA / ban Shopify Section 7). Juge de paix = le pricing (cassé vs cohérent) + accumulation de signaux (thème Shrine/Kalles, société CN/HK, mention propriété intellectuelle en footer, émojis/rouge partout). 90-95% des shops de drop récents se copient sans souci ; la question ne se pose que pour les 5-10% de gros sites.
 
 ### Étape 4 — Preuve ads = la pente + un plancher minimum (précisé 12/07/2026)
 
@@ -99,6 +100,21 @@ La niche outdoor/voyage EU-analysable ne fournit qu'une **poignée de winners fr
 - Ne JAMAIS ressortir un déjà-vu/rejeté pour "remplir" (cf. `references/liste-rejetes.md`).
 
 Signal de puits sec = les mêmes shops reviennent (matelas/clones, déjà-testés, stores fourre-tout), OU le tri sans catégorie est dominé par le santé/corps et le maison/jardin (exclusions).
+- **Basculer sur le SOP officiel 1.5** (ci-dessous) : c'est le filet de secours acté par Roméo le 16/07/2026 si la V3 ne sort plus rien de frais.
+
+### Filet de secours officiel + tactiques formation (leçons 1.5 / 4.1 / 4.3, transcrites le 16/07/2026)
+
+**La V3 ci-dessus reste la méthode de travail par défaut** (tri `reachDelta7d`, filtre catégorie, shop <6 semaines, plancher 3 créas ≥500k reach / ≥70€ daily spend). Le SOP officiel de la formation n'est PAS un remplacement : c'est un complément à activer si la V3 tourne à vide. Détail complet dans `context/formation-dropshipping-synthese.md` (section "SOP officiel détaillé"). Résumé opérationnel :
+
+- **⚡ Deep-dive bibliothèque Meta pour un candidat récent.** Si un produit a des créas de <3 mois et que TrendTrack ne montre qu'1 créa dans les critères, NE PAS le jeter : la data récente ne remonte pas à 100% sur TrendTrack. Ouvrir la bibliothèque Meta → **Reveal All Spend** → trier par daily spend → compter les créas ≥70 €. Souvent c'est là qu'on récupère un winner. (Pour un produit >3 mois, la data est déjà remontée, on reste sur les impressions.)
+- **Recherche saisonnière N-1/N-2 (brique absente de la V3, à ajouter au rythme mensuel).** 1×/mois, viser le mois **M+1** (un mois d'avance) en 2025 puis 2024. Filtres : mois cible, impressions 400k→max, followers FB max 70k / IG max 30k, tri reach. On ne regarde jamais le daily spend (créas anciennes) → impressions seules. On repère les produits à **saisonnalité marquée** (top créas concentrées sur les mêmes mois) et on les note pour la bonne fenêtre. Un seul gros time-to-market scalé peut faire le chiffre de l'année. La recherche récente V3 reste hebdo, celle-ci vient en plus.
+
+**Tactiques d'exécution (une fois un candidat retenu / au moment de préparer le test) :**
+- **Copier la PAGE PRODUIT principale, pas la landing page.** Le lien de redirection majoritaire des ads est quasi toujours la page produit (pas une LP/listicle). Focus dessus = plus rapide, meilleure vitesse d'exécution. Vérifier le top lien de redirection via BrandTracker avant de copier.
+- **Répliquer le ratio vidéo/statique du concurrent** dans le test à 6 créas. Ex. concurrent à ~80% vidéo / 20% statique → viser 5 vidéos + 1 statique (ou 4+2).
+- **Plafond AOV ~100 €.** Ne pas partir sur un concurrent dont le panier moyen dépasse ~100 € (trop dur à faire décoller au test débutant).
+- **Google Sheet secondaire "shops de niche à surveiller".** Quand on tombe sur un bon shop de la niche SANS produit en scaling à l'instant T, le lister à part et le re-checker 1×/semaine : on sera les premiers à voir son prochain winner, avant qu'il passe sur les radars TrendTrack.
+- **Ne pas one-one bêtement un pick d'un tableau tiers** (y compris le tableau de la formation) : toujours refaire sa propre vérification (data + copiabilité) avant de lancer.
 
 ### Après validation par Roméo
 

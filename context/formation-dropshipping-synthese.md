@@ -38,18 +38,27 @@ On ne cherche pas des produits, on cherche des **créatives gagnantes**. C'est l
 ### Critères d'un produit gagnant
 Audience large, evergreen (tourne toute l'année), produits à cashflow testables.
 
-### Les 2 critères initiaux d'un produit à cashflow
-Chaque produit recommandé DOIT remplir ces 2 critères pour être shortlisté. Pas de compromis.
+### Les 4 critères d'un produit à cashflow (leçon 1.1 — cadrage officiel, transcrit le 16/07/2026)
+Chaque produit recommandé DOIT remplir ces critères pour être shortlisté. Pas de compromis. (Avant le 16/07, cette section ne listait que le time-to-market et le contenu ; la formation officielle en ajoute deux en amont : la marge et la qualité produit.)
 
-**1. Time-to-market**
-- Le produit vient d'exploser récemment (moins de 2 mois)
+**1. Bonne marge — multiplicateur minimum x3,5 (prix de vente / COGS)**
+- Le COGS = coût de production + livraison rendue au client. Prix de vente minimum = COGS × 3,5 (ex. COGS 10 € → prix de vente ≥ 35 €). On peut viser plus, jamais moins pour commencer.
+- Pourquoi x3,5 et pas x2,8-x3 : en scaling, au fur et à mesure qu'on augmente le budget, le CPA (coût par acquisition) grimpe et la marge fond. Un multiplicateur trop faible rend le ROAS break-even trop élevé → impossible à tenir sur des mois. On pourra améliorer le multiplicateur ensuite (négocier le COGS avec le volume, monter l'AOV via upsell/CRO), mais on part avec x3,5 mini.
+- Prix de vente plancher : on ne vend pas un produit à 15 € sur Meta (souvent louche = no-ship qui ne livre pas). Une offre 1 de bundle à 20-25 € est OK **à condition** que l'offre 2 ou 3 (AOV plus élevé) soit celle qui part le plus. Une seule offre sous 25 € sans bundle = trop léger.
+
+**2. Bonne qualité produit**
+- On ne joue pas le cash à 3 semaines. Mauvaise qualité = retours en masse, remboursements (qui mangent la marge), blocage des processeurs de paiement, plaintes DGCCRF, mauvaise note Trustpilot (perte de conversion), CPM Meta qui montent (Meta pénalise les mauvaises notes internes), bans de pages/Business Managers (→ obligation d'acheter des comptes agences qui coûtent chaque mois).
+- En scaling, surveiller TOUS les retours (mails + commentaires des ads) et réagir vite avec l'agent. Piège classique : l'usine ou l'agent livre une qualité inférieure au même prix (ils prennent la marge sur votre dos), la satisfaction chute sans que vous le voyiez. D'où l'importance d'un bon agent qui alerte si la qualité de production baisse.
+
+**3. Time-to-market**
+- Le produit vient d'exploser récemment (moins de 2 mois ; idéalement moins d'1 mois et demi). Ne pas prendre trop tôt non plus (pas 3 jours) : laisser ~1 semaine à 10 jours pour que le produit soit validé. OU produit qui a explosé à la même période les années précédentes (saisonnalité N-1/N-2, cf. recherche produit saisonnière plus bas).
 - **Important** : le critère TTM se vérifie sur le `first_seen` du premier créatif actif, PAS sur la date de création du shop. Un shop peut être ancien mais lancer un nouveau produit. C'est la date du premier créatif qui compte.
-- Mauvais timing = échec garanti même avec un bon produit.
+- Mauvais timing = échec garanti même avec un bon produit (ex. veste chauffante lancée en été = 0 vente, quelle que soit la qualité de la fiche produit).
 
-**2. Contenu disponible**
-- Plus il y a de contenu existant (vidéos, statiques, b-rolls), plus on peut créer de pubs et scaler vite.
+**4. Contenu disponible** (le critère le plus sous-coté, auquel personne ne pense)
+- Plus il y a de contenu existant (vidéos, statiques, b-rolls), plus on peut créer de pubs, tester des angles/personnages/messages et scaler vite (3, 4, 5, 10k€/jour) sans acheter d'UGC.
 - Vérifier : produit déjà scalé par d'autres concurrents sur d'autres marchés ? Présent sur TrendTrack ? Beaucoup de pubs visibles sur Meta ?
-- Peu de contenu = bloqué créativement = obligé de payer cher en UGC.
+- Peu de contenu = bloqué créativement = obligé de payer cher en UGC. Coût direct + délai (filtrer les créateurs, envoyer le produit, attendre la vidéo) = perte de vitesse d'exécution face à quelqu'un qui a déjà du contenu dispo.
 
 ### Critère de validation créatives
 Pour qu'un produit passe à l'évaluation complète :
@@ -126,6 +135,25 @@ Pour chaque produit qui a passé l'étape 2 :
 **Étape 4 — Scoring final et recommandation**
 - Présenter un tableau avec tous les liens des shops sélectionnés.
 - Être cash : si aucun produit ne tient la route, le dire et relancer une recherche.
+
+### SOP officiel détaillé (leçon 1.5, transcrite le 16/07/2026)
+
+> Complète les étapes ci-dessus avec le SOP filmé de la formation. La méthode V3 opérationnelle de Roméo (tri `reachDelta7d`, filtre catégorie, shop <6 semaines, cf. skill `recherche-produit`) reste la méthode de travail par défaut. Ce SOP officiel est le filet de secours documenté : on y bascule si la V3 ne sort plus rien de frais (décision Roméo 16/07/2026).
+
+**Les 2 critères de sélection (rappel condensé)**
+1. **Preuve de dépense** : 3 à 4 créatives qui remplissent l'un des deux seuils → ≥500k impressions par créa (peu importe active/inactive), OU ≥70 € de daily spend (créa **active** ET ≥5 jours d'ancienneté ; au-delà de 5 jours encore active avec du spend = réellement rentable).
+2. **Time-to-market** (saisonnalité) : produit en train d'exploser (<1,5 mois) OU qui a explosé à la même période en N-1/N-2. Se juge sur le **mois de création des top créas winneuses**.
+
+**⚡ Technique clé — le deep-dive bibliothèque Meta pour les produits récents.** Quand un produit est récent (créas de moins de ~3 mois) et que TrendTrack ne montre qu'1 créa dans les critères, NE PAS fermer : la data récente ne remonte pas encore à 100% sur TrendTrack (outil intermédiaire entre toi et la bibliothèque Meta). Ouvrir la bibliothèque Meta, faire **Reveal All Spend** (bouton dispo avec l'extension TrendTrack payante, sinon un par un), trier par daily spend, et compter combien de créas passent réellement ≥70 €. C'est souvent là qu'on récupère un winner qui aurait été raté. Pour un produit >3 mois, la data est déjà remontée → on se base sur les impressions (pas besoin du deep-dive).
+- Ne pas compter deux fois une même créa dupliquée (même visuel/ID) ni la même créa active qui apparaît en double.
+
+**Les 2 types de recherche produit** (les deux se remplissent dans le tableau de recherche produit) :
+- **Recherche récente — 1×/semaine (ex. dimanche).** On balaie les 3 dernières semaines. Le recoupement d'une semaine à l'autre est NORMAL et voulu (des concurrents passent en scaling entre-temps, et TrendTrack a un léger délai sur Meta). Filtres 1.5 : date de création de l'**ad** = 30 derniers jours ; impressions/reach min 100k ; technologie Shopify ; page max ~60k followers (ou 40k/30k) pour exclure les grosses marques ; tri par reach. **Bonus** : filtrer par date de création du **shop** (30 derniers jours à ~2 mois) pour isoler les shops tout frais — vision plus restreinte mais on va droit au but (rate les vieux shops qui relancent un produit neuf).
+- **Recherche saisonnière N-1/N-2 — 1×/mois (début de mois).** ⚠️ Brique absente de la V3 jusqu'ici. On regarde le mois **M+1** (un mois d'avance pour anticiper le time-to-market et préparer les produits) en 2025 PUIS 2024. Ex. le 1er juin → on cherche juillet 2025 et juillet 2024. Filtres : mois cible, impressions 400k → max, followers FB max 70k / IG max 30k, tri par reach. Ici on ne regarde JAMAIS le daily spend (les créas sont anciennes) → on se base uniquement sur les impressions. On repère les produits à **saisonnalité marquée** (top créas concentrées sur les mêmes mois) et on les note pour les relancer à la bonne fenêtre. Un seul gros time-to-market scalé peut faire le chiffre de l'année.
+
+**Posture d'exécution "robot/machine" (1.5).** Pendant la recherche, on ne s'attarde PAS à analyser le site, l'offre, les créas. On fait juste : est-ce une marque ou un produit sourçable ? (doute → recherche par image sur 1688/Alibaba) ; pas une trop grosse marque = risque DMCA ? → puis on extrait la data (impressions/dates/daily spend) et on remplit le tableau. L'analyse fine vient APRÈS la sélection, pas pendant. Descendre TRÈS bas dans les résultats : plus on scrolle, plus on tombe sur des pépites (un produit peu de reach mais tout récent peut être excellent au deep-dive Meta).
+
+**Note sur le "No EU Data" (vu en 4.1).** Sur la bibliothèque Meta, une ad marquée "No EU Data Available" cible hors Europe → impossible d'obtenir ses impressions/dépenses réelles (la transparence DSA ne couvre que l'UE/UK). Le daily spend affiché par TrendTrack est une **approximation** (impressions × CPM par défaut 9 € ÷ nombre de jours d'activité), pas un chiffre exact : utile comme ordre de grandeur du scaling, à ne pas prendre au pied de la lettre.
 
 ### Règles de comportement Claude
 1. Ne JAMAIS recommander un produit qui ne remplit pas les critères. Pas d'exception.

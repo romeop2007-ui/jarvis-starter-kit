@@ -20,6 +20,18 @@
 
 ---
 
+## 2026-07-17
+
+### Typographie leboria live (Playfair+Aleo) + transcription vidéo 1.7 + mega-prompt refonte home
+- Vidéo 1.7 "Création de la page d'accueil" (Module 7) téléchargée via cookie Kajabi + transcrite en local (46 min) : SOP home mobile-first section par section (barre d'annonce, header sticky sans recherche, bannière unique, produits phares, avis, support client, réassurance, footer légal), images toujours en WebP
+- Analyse typographique du CSS source réel de leboria.com (site de référence donné par Roméo, construit avec la méthode exacte de la formation) : Playfair Display titres (600, échelle 1.3) + Aleo corps, pas de Poppins. Décision actée : reprendre cette typo à l'identique, garder la palette couleurs Zooryn (brun/beige/terracotta)
+- EXÉCUTÉ ET LIVE, vérifié côté serveur : polices posées via les réglages du thème (settings_data.json), header zooryn-header.liquid converti pour hériter des polices globales, override Manrope global supprimé de theme.liquid (cause racine qui écrasait tout), section "Nos produits phares" (collection Voyage) ajoutée à la home. Rendu typo validé par Roméo
+- Première passe home jugée insuffisante par Roméo (simple ajout + réordre au lieu d'une copie exacte de leboria) : mega-prompt complet "refonte home leboria" rédigé (structure exacte, suppressions engagements/histoire/FAQ/CTA, avis 20→7, support client + réassurance, footer légal, interdits et pièges techniques), Roméo l'exécute dans une session dédiée
+- Incidents résolus : auth CLI 401 (refix shopify store auth avec scopes), cache CDN pleine page + challenge anti-bot Shopify sur curl (vérification fiable = theme pull vers dossier temporaire pré-créé)
+- Restent hors périmètre du mega-prompt : conversion typo des 3 pages produit (Manrope/Poppins en dur), sections héritées zooryn-matelas/oreiller
+
+---
+
 ## 2026-07-15
 
 ### `/semaine` — bilan, refonte des objectifs (30/08) + décisions stratégiques

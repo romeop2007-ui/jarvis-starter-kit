@@ -57,6 +57,31 @@
         "show_text_below": false
       }
     },
+    "produits_phares": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Nos produits phares",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "collection": "voyage",
+        "products_to_show": 5,
+        "columns_desktop": 3,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 40,
+        "padding_bottom": 44
+      }
+    },
     "engagements": {
       "type": "engagements",
       "settings": {
@@ -503,9 +528,10 @@
   },
   "order": [
     "hero",
+    "produits_phares",
+    "avis",
     "engagements",
     "histoire",
-    "avis",
     "faq",
     "cta_final"
   ]

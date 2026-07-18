@@ -13,9 +13,36 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "logo": {
+          "type": "image",
+          "settings": {
+            "image_width": 140
+          }
+        },
+        "liens": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Liens utiles",
+            "menu": "main-menu"
+          }
+        },
+        "legales": {
+          "type": "text",
+          "settings": {
+            "heading": "Pages légales",
+            "subtext": "<p><a href=\"/policies/legal-notice\">Mentions légales</a><br/><a href=\"/policies/terms-of-sale\">CGV</a><br/><a href=\"/policies/refund-policy\">Politique de remboursement</a><br/><a href=\"/policies/privacy-policy\">Politique de confidentialité</a><br/><a href=\"/policies/terms-of-service\">Conditions d'utilisation</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "logo",
+        "liens",
+        "legales"
+      ],
       "settings": {
         "color_scheme": "scheme-4",
-        "newsletter_enable": true,
+        "newsletter_enable": false,
         "newsletter_heading": "Recevez nos conseils et nos nouveautés",
         "enable_follow_on_shop": false,
         "show_social": false,

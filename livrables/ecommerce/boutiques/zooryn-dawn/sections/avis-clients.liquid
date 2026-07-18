@@ -26,17 +26,39 @@
     font-size: 2rem;
     margin: 0;
   }
-  .avis-clients__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  .avis-clients__rail {
+    display: flex;
     gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 4px;
   }
-  @media (max-width: 900px) {
-    .avis-clients__grid { grid-template-columns: repeat(2, 1fr); }
+  .avis-clients__rail::-webkit-scrollbar { display: none; }
+  .avis-clients__arrows {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.75rem;
   }
-  @media (max-width: 600px) {
-    .avis-clients__grid { grid-template-columns: 1fr; }
+  .avis-clients__arrow {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(110,78,55,0.35);
+    background: transparent;
+    color: #6E4E37;
+    font-size: 22px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background .15s;
   }
+  .avis-clients__arrow:hover { background: rgba(110,78,55,0.08); }
   .avis-card {
     background: var(--color-background);
     border: 2px solid rgba(110,78,55,0.28);
@@ -46,6 +68,14 @@
     flex-direction: column;
     gap: 0.75rem;
     box-shadow: 0 2px 8px rgba(110,78,55,0.07);
+    flex: 0 0 calc((100% - 3rem) / 3);
+    scroll-snap-align: start;
+  }
+  @media (max-width: 900px) {
+    .avis-card { flex: 0 0 calc((100% - 1.5rem) / 2); }
+  }
+  @media (max-width: 600px) {
+    .avis-card { flex: 0 0 70%; }
   }
   .avis-card__stars {
     color: #f5a623;
@@ -106,7 +136,7 @@
       <span class="avis-clients__caption">{{ section.settings.caption }}</span>
       <h2 class="avis-clients__heading">{{ section.settings.heading }}</h2>
     </div>
-    <div class="avis-clients__grid">
+    <div class="avis-clients__rail" id="avis-rail-{{ section.id }}">
       {%- for block in section.blocks -%}
         <div class="avis-card" {{ block.shopify_attributes }}>
           <div class="avis-card__top">
@@ -127,8 +157,28 @@
         </div>
       {%- endfor -%}
     </div>
+    <div class="avis-clients__arrows">
+      <button type="button" class="avis-clients__arrow" data-avis-prev aria-label="Avis précédents">&lsaquo;</button>
+      <button type="button" class="avis-clients__arrow" data-avis-next aria-label="Avis suivants">&rsaquo;</button>
+    </div>
   </div>
 </div>
+
+<script>
+(function(){
+  var rail = document.getElementById('avis-rail-{{ section.id }}');
+  if(!rail){ return; }
+  var section = rail.closest('.avis-clients');
+  var step = function(){
+    var card = rail.querySelector('.avis-card');
+    return card ? card.getBoundingClientRect().width + 24 : rail.clientWidth;
+  };
+  var prev = section.querySelector('[data-avis-prev]');
+  var next = section.querySelector('[data-avis-next]');
+  if(prev){ prev.addEventListener('click', function(){ rail.scrollBy({ left: -step(), behavior: 'smooth' }); }); }
+  if(next){ next.addEventListener('click', function(){ rail.scrollBy({ left: step(), behavior: 'smooth' }); }); }
+})();
+</script>
 
 {% schema %}
 {

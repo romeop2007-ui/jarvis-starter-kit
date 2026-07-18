@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-07-18
+
+### Refonte home leboria (suite) + bascule stratégique vers le thème payant Shrine Pro
+- Refonte home poursuivie sur le thème Dawn custom (`zooryn-dawn`) : structure à 5 sections (hero, produits phares, avis, support client, réassurance) poussée live, sections engagements/histoire/FAQ/CTA final retirées de la home, avis réduits de 20 à 7 en rail horizontal, header rendu sticky avec logo repositionné et redimensionné, footer réorganisé (logo, liens utiles, pages légales), newsletter retirée
+- Plusieurs itérations sur la barre d'annonce et les titres du footer à la demande de Roméo (comparaisons par capture d'écran avec leboria.com), avec un détour raté sur la police du corps de texte (Bold → SemiBold → tentative Poppins) suite à une fausse piste ("thème Shrine")
+- **Correction par la preuve** : curl et WebFetch bloqués par la protection anti-bot Cloudflare de leboria.com (503, même comportement que sur zooryn.com) ; contournement via le skill `browser-use` (navigateur réel) qui passe la protection sans souci. Inspection DevTools en direct (`getComputedStyle`) : leboria.com n'utilise que **Aleo (400/700, corps) et Playfair Display (600, titres)**, aucune trace de Poppins sur toute la page. Tout remis dans l'état exact mesuré (barre d'annonce Aleo 400/20px/letter-spacing 1px, titres footer Playfair Display 600/23,4px, confirmant que la config d'origine — jamais touchée jusque-là — était déjà correcte)
+- **Décision stratégique actée : Roméo bascule vers le thème payant Shrine Pro**, rouvrant plus tôt que prévu la décision du 14/07/2026 de garder le Liquid à la main (checkpoint initial fixé à mi-septembre). Déclencheur explicite : friction répétée sur des ajustements visuels fins pendant cette session, plus la confiance dans le formateur Zecom qui recommande ce thème après en avoir testé plusieurs. Précision technique actée en discussion : Shrine Pro est lui aussi un thème Liquid (la différence est "sections pro calibrées" vs "sections codées à la main"), pas "Liquid vs autre chose"
+- **Achat en cours via la formation** : la formation Zecom Academy achète Shrine en gros (~300 licences à ~70 €/unité au lieu de ~350 € prix normal) et le revend aux élèves à ~130 € (vs ~300 € en direct sur Shrine). Roméo doit ouvrir un ticket sur le Discord Zecom Academy puis patienter ~1 semaine avant de pouvoir paramétrer le nouveau thème
+- **En attendant** : la boutique reste en l'état actuel (Dawn, refonte home déjà live), et Roméo bascule son temps sur le tableau de recherche produit, repris **par anticipation** (avant la reprise prévue en août), pour arriver avec un pipeline de produits plein le jour où Shrine Pro est prêt à être configuré
+
+---
+
 ## 2026-07-16
 
 ### Assimilation Module 5 (recherche produit) : 7 leçons transcrites + intégrées proprement

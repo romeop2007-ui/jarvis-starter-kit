@@ -29,8 +29,8 @@
     --zh-clair:#EDE6D9;
     --zh-vert-accent:#736C62;
     --zh-maxw:1180px;
-    --zh-font:var(--font-body-family,'Aleo',serif);
-    --zh-font-annonce:var(--font-body-family,'Aleo',serif);
+    --zh-font:var(--font-body-family,'Poppins',sans-serif);
+    --zh-font-annonce:var(--font-body-family,'Poppins',sans-serif);
     font-family:var(--zh-font);
   }
   .zhead *{box-sizing:border-box;}
@@ -42,22 +42,21 @@
   /* ---- Barre d'annonce ---- */
   .zh-topbar{
     background:var(--zh-vert-fonce);color:var(--zh-clair);
-    font-family:var(--zh-font-annonce);
-    font-size:13px;font-weight:600;letter-spacing:.04em;
-    display:flex;align-items:center;justify-content:center;gap:14px;
-    padding:9px 16px;text-align:center;min-height:38px;
+    font-family:var(--font-body-family,'Aleo',serif);
+    font-size:20px;font-weight:400;letter-spacing:1px;line-height:1.3;
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    padding:8px 16px;text-align:center;min-height:36px;
   }
-  .zh-promo-single{text-transform:uppercase;}
-  .zh-rotator{position:relative;flex:1;max-width:760px;height:18px;overflow:hidden;}
+  .zh-rotator{position:relative;flex:1;max-width:960px;height:26px;overflow:hidden;}
   .zh-slide{
     position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-    opacity:0;transition:opacity .4s ease;text-transform:uppercase;
+    opacity:0;transition:opacity .4s ease;
   }
   .zh-slide.active{opacity:1;}
   .zh-arrow{
-    flex:none;width:24px;height:24px;border-radius:50%;
+    flex:none;width:32px;height:32px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
-    font-size:18px;line-height:1;color:var(--zh-clair);opacity:.7;transition:opacity .15s;
+    font-size:22px;line-height:1;color:var(--zh-clair);opacity:.7;transition:opacity .15s;
   }
   .zh-arrow:hover{opacity:1;}
 
@@ -66,11 +65,11 @@
     background:var(--zh-creme);position:sticky;top:0;z-index:60;
     border-bottom:1px solid rgba(110,78,55,.12);
   }
-  .zh-inner{display:flex;align-items:center;justify-content:space-between;height:80px;position:relative;}
+  .zh-inner{display:flex;align-items:center;justify-content:space-between;height:auto;min-height:{{ section.settings.logo_height | default: 64 | plus: 14 }}px;padding:6px 0;position:relative;}
   .zh-left,.zh-right{display:flex;align-items:center;gap:22px;}
-  .zh-nav{display:none;gap:24px;font-size:14px;font-weight:600;}
+  .zh-nav{display:none;gap:24px;font-size:14px;font-weight:500;}
   .zh-nav a:hover{color:var(--zh-vert-accent);}
-  .zh-logo{display:inline-flex;align-items:center;font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--zh-vert);}
+  .zh-logo{display:inline-flex;align-items:center;font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--zh-vert);position:absolute;left:50%;transform:translateX(-50%);}
   .zh-logo-img{width:auto;max-width:240px;}
   .zh-icon{display:flex;align-items:center;}
   .zh-icon svg{width:22px;height:22px;stroke:var(--zh-vert);fill:none;stroke-width:1.8;}
@@ -84,8 +83,7 @@
   @media(min-width:990px){
     .zh-nav{display:flex;}
     .zh-burger{display:none;}
-    .zh-inner{height:96px;}
-    .zh-logo-center{position:absolute;left:50%;transform:translateX(-50%);}
+    .zh-logo{position:static;transform:none;}
   }
 
   /* ---- Menu mobile (déroulant simple) ---- */
@@ -121,21 +119,20 @@
         <button class="zh-burger zh-icon" id="zhBurger" aria-label="Menu">
           <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
         </button>
+        <a href="{{ routes.root_url }}" class="zh-logo">
+          {%- if header_logo != blank -%}
+            <img class="zh-logo-img" src="{{ header_logo | image_url: width: 400 }}" alt="{{ shop.name }}" style="height:{{ section.settings.logo_height | default: 64 }}px;">
+          {%- else -%}
+            Zooryn
+          {%- endif -%}
+        </a>
         <nav class="zh-nav">
-          <a href="{{ pages.contact.url | default: '/pages/contact' }}">Contactez-nous</a>
-          <a href="{{ routes.all_products_collection_url }}">Acheter</a>
+          <a href="{{ routes.root_url }}">Accueil</a>
           <a href="/collections/voyage">Voyage</a>
-          <a href="/apps/parcelpanel">Suivre ma commande</a>
+          <a href="{{ pages.contact.url | default: '/pages/contact' }}">Contact</a>
+          <a href="/apps/parcelpanel">Suivi de commande</a>
         </nav>
       </div>
-
-      <a href="{{ routes.root_url }}" class="zh-logo zh-logo-center">
-        {%- if header_logo != blank -%}
-          <img class="zh-logo-img" src="{{ header_logo | image_url: width: 400 }}" alt="{{ shop.name }}" style="height:{{ section.settings.logo_height | default: 64 }}px;">
-        {%- else -%}
-          Zooryn
-        {%- endif -%}
-      </a>
 
       <div class="zh-right">
         <a href="{{ routes.account_url }}" class="zh-icon" aria-label="Compte">
@@ -150,10 +147,10 @@
 
     <!-- Menu mobile -->
     <div class="zh-mobile" id="zhMobile">
-      <a href="{{ pages.contact.url | default: '/pages/contact' }}">Contactez-nous</a>
-      <a href="{{ routes.all_products_collection_url }}">Acheter</a>
+      <a href="{{ routes.root_url }}">Accueil</a>
       <a href="/collections/voyage">Voyage</a>
-      <a href="/apps/parcelpanel">Suivre ma commande</a>
+      <a href="{{ pages.contact.url | default: '/pages/contact' }}">Contact</a>
+      <a href="/apps/parcelpanel">Suivi de commande</a>
     </div>
   </header>
 
@@ -169,6 +166,20 @@
   var burger = root.querySelector('#zhBurger');
   var mobile = root.querySelector('#zhMobile');
   if(burger && mobile){ burger.addEventListener('click', function(){ mobile.classList.toggle('open'); }); }
+
+  /* Header sticky : la section entière colle en haut, décalée de la hauteur
+     de la barre d'annonce (l'annonce défile, l'en-tête reste visible). */
+  var topbar = root.querySelector('.zh-topbar');
+  var wrapper = root.closest('.shopify-section');
+  if(wrapper){
+    var applySticky = function(){
+      wrapper.style.position = 'sticky';
+      wrapper.style.top = '-' + (topbar ? topbar.offsetHeight : 0) + 'px';
+      wrapper.style.zIndex = '60';
+    };
+    applySticky();
+    window.addEventListener('resize', applySticky);
+  }
 
   /* Rotation de l'annonce */
   var rotator = root.querySelector('.zh-rotator');

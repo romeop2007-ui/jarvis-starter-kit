@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-07-18 (session recherche produit V3 corrigée)
+
+### Recherche produit : méthode V3 durcie après erreurs de process + 1er candidat validé (Celaure)
+- Reprise de la recherche de la 2e sous-niche (après le pivot niche maison du 12/07). Une 1re passe large ("balance des shops à tout va") a présenté des candidats jugés peu concluants par Roméo : plancher ads vérifié sur l'agrégat du shop au lieu des créas individuelles, un candidat personnalisable (bracelet Nordband) présenté comme "bon" alors qu'exclu par principe, plusieurs produits gros/électroniques (débroussailleuse, caméra d'inspection) durs à expédier, et surtout deux candidats (sac bandoulière belluccifirenze, chaussettes funnysock) re-proposés dans la même session lors d'une passe de vérification, jugé absurde par Roméo.
+- **4 corrections actées et écrites dans `.claude/skills/recherche-produit/SKILL.md`** : (1) vérifier le plancher (≥500k reach OU ≥70€/j) créa par créa, pas sur le cumul advertiser ; (2) exclure les produits personnalisables en phase de test ; (3) écarter par défaut les produits gros/encombrants/électroniques plutôt que les repricer ; (4) ne jamais reproposer un candidat déjà montré dans la même session, même sous un angle différent.
+- **Méthode SOP 1.5 (filet de secours officiel) testée pour la première fois** : recherche récente (ad créée <30j, reach min 100k, technologie Shopify, page <60k likes, shop créé 1-2 mois) via `search_ads`. Première passe sans filtre de fraîcheur shop a remonté de grosses marques établies (Humantra, Roborock, YETI...) au lieu de dropshippers frais ; ajout du filtre `shop_created_after`/`shop_created_before` (bonus documenté dans le SOP) corrige le tir.
+- **Candidat validé : Celaure (celaure.com)**, pochette en tissu enduit de cire d'abeille pour conserver le pain frais. Mono-produit confirmé (130 pubs), plancher passé (3 créas ≥70€/j : 170€/j, 84€/j, 128€/j), marché CZ (pas FR), produit léger non personnalisable, niche Cuisine. Roméo : "excellent, on peut tout faire avec honnêtement" → à enregistrer au tableau de recherche produit dans un second temps.
+- **Candidat écarté sur le fit (pas la data) : Belayan (belayan.com)**, culotte de compression post-partum (technique Bengkung). Passait aussi le plancher (3 créas ≥70€/j : 270€/j, 129€/j, 76€/j) mais écarté car niche santé/féminine ("niche rose") pas prioritaire pour Roméo + diffusion directement en France (concurrence frontale avec un acteur déjà installé, pas un winner à traduire). Gardé en réserve dans `references/liste-rejetes.md` si Roméo ouvre un jour une niche santé/beauté-femme.
+
+---
+
 ## 2026-07-18 (session checkout 1.8)
 
 ### Leçon checkout (Module 7, 1.8) transcrite + test API traductions concluant "à faire à la main"

@@ -3,6 +3,10 @@
 > À consulter AVANT toute présentation de candidat. Ne JAMAIS reproposer un rejeté.
 > À mettre à jour en fin de chaque session de recherche (nouveaux rejetés, changements de statut).
 
+## 🟢 Pipeline validé (prêt pour le tableau de recherche produit)
+
+- **Celaure (celaure.com)** — pochette en tissu enduit de cire d'abeille pour conserver le pain frais. Validé le 18/07/2026 : mono-produit confirmé (130 pubs), plancher passé (3 créas ≥70€/j : 170€/j, 84€/j, 128€/j), marché CZ (pas FR, idéal), produit léger/textile non personnalisable. Niche Cuisine. Défauts notés : copie publicitaire en récit long à adapter, marché CZ plus petit que DE/FR. Roméo : "excellent, on peut tout faire avec honnêtement" → à enregistrer au tableau de recherche produit.
+
 ## 🔴 Rejetés définitifs (ne jamais ressortir)
 
 | Candidat | Produit | Motif |
@@ -38,6 +42,8 @@
 | Hydiqo (hydiqo.com) | Douche portable | Vu 03/07 : renfort du pattern douche, mais diffusion US/NZ = data non analysable |
 
 ## 🟠 Réserve / en veille (rouvrables sous condition)
+
+- **Belayan (belayan.com)** — culotte de compression post-partum (technique Bengkung). Vu le 18/07/2026 : répond pourtant à tous les critères data (mono-produit, 187 pubs, plancher passé avec 3 créas ≥70€/j : 270€/j, 129€/j, 76€/j). **Écarté par Roméo sur le fit, pas la data** : niche santé/féminine ("niche rose", pas une priorité) + diffusion directement en France (pas un winner à traduire, concurrence frontale avec un acteur déjà installé). Rouvrable si Roméo décide un jour d'ouvrir une niche santé/beauté-femme.
 
 - **Douche de camping portable** (campingbruser.com DK + craftaison.com DE/AT) : double winner, fit parfait, FR vierge. Écartée le 16/06 car Roméo ne peut pas vérifier la data lui-même. Rouvrable si accès data retrouvé.
 - **Thermoseat** (craftaison.com, coussin chauffant) : data recoupable mais trop jeune au 16/06.

@@ -33,10 +33,12 @@ Ordre strict, non négociable :
 - **Irréel / non copiable** : il faut un vrai shop, de vraies créas, un vrai tunnel à recopier.
 - **Réseaux de domaines** : mêmes créas/page FB déclinées en .de/.fr/.nl/.es = expansion géo d'un shop existant, pas une explosion produit → écarter.
 - **Déjà rejeté** : ne JAMAIS reproposer un produit de `references/liste-rejetes.md`. Consulter cette liste avant toute présentation.
+- **Déjà montré DANS LA MÊME SESSION (acté 18/07/2026)** : ne jamais re-proposer un shop/produit déjà présenté plus tôt dans la même session, même sous un angle différent (ex. re-vérifier son plancher de créas). Si une nouvelle passe de recherche est demandée dans la même session, elle doit sourcer des candidats neufs. Un candidat déjà vu ne peut ressortir qu'après un délai de quelques jours (nouvelle session), pas immédiatement après.
+- **Personnalisable (acté 18/07/2026)** : tout produit qui repose sur une personnalisation (gravure, initiales, choix complexe côté client) est exclu en phase de test. COGS variable et tunnel d'achat plus lourd, pas adapté à un test 50€/jour. Ne pas présenter, peu importe la qualité de la data.
 
-## Garde-fou frais de port (acté 01/07/2026)
+## Garde-fou frais de port et encombrement (acté 01/07/2026, durci 18/07/2026)
 
-Le port tue la marge sur le lourd/volumineux et les produits à batterie lithium (transport restreint). Dès la recherche : pour tout produit **lourd/encombrant ou à batterie**, exiger que le winner le vende déjà à **≥45-50 €**. Vendu <30 € = le port explosera la marge → écarter ou signaler qu'il faudra repricer haut. On ne bannit pas l'électronique, on price correctement (objectif x3, marge nette 20-25 %).
+Le port tue la marge sur le lourd/volumineux et les produits à batterie lithium (transport restreint), et complique le sourcing/fulfillment. **Constat du 18/07/2026 : une recherche a présenté trop de produits gros/encombrants ou électroniques (débroussailleuse, caméra d'inspection, etc.), tous durs à expédier.** Nouvelle doctrine : ces catégories ne sont pas juste à re-pricer, elles sont à **écarter en amont sauf cas exceptionnel** (data exceptionnelle + winner qui vend déjà ≥45-50€ prouvant que le pricing absorbe le port). Par défaut, privilégier des produits légers/compacts/faciles à expédier (accessoire, textile, petit objet du quotidien) plutôt que du gros électroménager, outillage encombrant ou électronique complexe. Si un candidat électronique/volumineux est présenté malgré tout (data trop forte pour l'ignorer), le signaler explicitement comme tel dans les défauts, sans le mettre en avant.
 
 ## Exécution
 
@@ -78,6 +80,8 @@ Sorties volumineuses → sauver en fichier et parser avec `node -e` ou PowerShel
 2-3 créas dont le reach/dépense GRIMPE **là, maintenant** (`reachDelta7d` positif fort), actives et fraîches. Croiser avec `daysRunning` et l'historique `advertising.history` du shop (`search_shops`) : la courbe de pubs actives doit **monter récemment** (ex : 4→9→25→43 sur les 6 dernières semaines), pas être un plateau installé depuis des mois. Un plateau ancien = trop tard.
 
 **Plancher dur (repris de la méthode du tableau de recherche produit, cf. [[project_tableau_recherche_produit]]) : au moins 3 créas sur TrendTrack, chacune avec ≥500k de reach ET/OU ≥70€/jour de daily spend.** Plus il y en a, mieux c'est, mais 3 est le minimum en dessous duquel le candidat n'est pas présenté. Ce plancher se cumule avec le critère de pente ci-dessus, il ne le remplace pas.
+
+**⚠️ Vérification obligatoire créa par créa, PAS sur l'agrégat (leçon 18/07/2026).** Une recherche a présenté des candidats dont la plupart des créas individuelles étaient très loin du plancher (seul le reach total du shop/advertiser, cumulé sur des dizaines de pubs, semblait solide). Avant de présenter un candidat, compter explicitement combien de créas individuelles (pas le cumul advertiser) passent réellement ≥500k reach OU ≥70€/jour. Si moins de 3 créas franchissent ce seuil, le candidat ne se présente pas (ou se présente en "réserve/à surveiller", jamais comme candidat prêt).
 
 ### Étape 5 — Concurrence FR (mesurer le degré, pas fuir)
 

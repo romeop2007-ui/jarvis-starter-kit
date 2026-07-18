@@ -7,6 +7,16 @@
 
 ---
 
+## 2026-07-18 (session checkout 1.8)
+
+### Leçon checkout (Module 7, 1.8) transcrite + test API traductions concluant "à faire à la main"
+- Vidéo 1.8 "Optimiser son étape de paiement (checkout)" téléchargée (yt-dlp + cookies Kajabi frais) et transcrite en local (17 min, large-v3-turbo), rangée dans `Module 7 - Créer sa boutique de niche brandée/1.8 Optimiser son étape de paiement (checkout)/video/`. Deux blocages réglés en route : cookies Kajabi expirés (session `_kjb_session` périmée → Roméo a ré-exporté des cookies frais), et surtout **`curl_cffi` installé** pour que yt-dlp passe la protection anti-bot Cloudflare de Kajabi (acquis outil réutilisable pour les prochaines transcriptions de formation).
+- Contenu de la leçon = réglages checkout one-shot : activer les options marketing email/SMS (Paramètres > Paiement) pour précocher les consentements, ajouter un logo de confiance (2100×530, fond transparent), réécrire les textes (consentement email → "Être informé à l'expédition de ma commande", SMS → "Cocher la case pour activer le suivi de votre colis par SMS", "Expédition" → "Livraison offerte", suppression taxe/politique/contact du footer, bouton "Payer maintenant" → "Valider ma commande"), renommer le tarif de livraison, option "étapes 1-2-3" réservée à une audience âgée (type niche maison). **Non intégré au skill `boutique`** (décision Roméo : réglages qu'on ne rouvre plus, pas un SOP réutilisable ; au passage, note que le skill `boutique` fait en réalité de la fiche/page produit, renommage possible plus tard).
+- **Test API concluant :** tenté d'appliquer les textes via l'API Shopify (`translationsRegister` sur le thème live). La mutation **n'est PAS bloquée par la sécurité MCP** (elle atteint bien Shopify), mais Shopify la refuse : *"Locale ne peut pas être identique aux paramètres régionaux principaux de la boutique"*. Cause = boutique en **français comme seule langue (primaire)** → l'API de traduction ne modifie que des langues secondaires, jamais le texte par défaut de la langue primaire. **Conclusion gravée en mémoire : les textes du checkout sont éditables uniquement à la main dans l'admin ("Modifier le contenu du thème par défaut"), pas par API.**
+- **Trajectoire reconfirmée :** ces réglages checkout seront appliqués **à la main sur le nouveau thème Shrine Pro** une fois reçu (pas maintenant, ça bougerait avec le thème). En attendant Shrine Pro → priorité **recherche produit**.
+
+---
+
 ## 2026-07-18
 
 ### Refonte home leboria (suite) + bascule stratégique vers le thème payant Shrine Pro

@@ -7,6 +7,15 @@
 
 ---
 
+## 2026-07-18 (session stratégie boutique Shrine Pro)
+
+### Discussion stratégie Shrine Pro + audit des pages de la boutique + clarification MCP/CLI
+- Roméo reconfirme la bascule vers Shrine Pro (~130 € via la formation), ticket Discord ouvert mais aucune licence disponible pour l'instant, mis en file de priorité.
+- Question soulevée par Roméo : peur de laisser des restes sales dans la boutique (il se souvenait d'une page "introuvable" rencontrée en cliquant dans l'admin). Audit réel effectué via `graphql_query` (pages, menus, shopPolicies) : page "Track my order" orpheline avec template Sculpted disparu du thème (cause très probable du 404 vu par Roméo), page "Matelas gonflable ultraléger PRO" vide et doublon fantôme du vrai produit, 4 brouillons de pages légales morts (les vraies politiques légales sont natives Shopify, complètes et bien liées), lien footer "Suivi de commande" cassé vers `/apps/parcelpanel`. Rien supprimé sur demande de Roméo, nettoyage repoussé à la bascule Shrine Pro.
+- Question de Roméo sur les capacités de Claude clarifiée : MCP Shopify = ressources admin sans toucher au thème ; réglages du thème customizer (`config/settings_data.json`) = éditables par Claude via la CLI, sans écrire de Liquid ; code Liquid sur-mesure = seulement via CLI, réservé au non couvert par le thème. Avec Shrine Pro, Claude pourra configurer quasiment tout le thème sans Liquid.
+
+---
+
 ## 2026-07-18 (session recherche produit V3 corrigée)
 
 ### Recherche produit : méthode V3 durcie après erreurs de process + 1er candidat validé (Celaure)

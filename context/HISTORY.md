@@ -16,6 +16,17 @@
 
 ---
 
+## 2026-07-18 (session sourcing + tableau + taxe UE)
+
+### Celaure inscrit au tableau, sourcing 1688/agent assimilé, taxe UE 3€/colis découverte
+- **Celaure enregistré au tableau de recherche produit** (Sheet Google, ligne 2) avec toutes les données vérifiées en direct sur TrendTrack (URL fiche produit, pays, niche, 4 ads passant le plancher, prix winner converti en euros). Un premier essai avec un AD4 inactif a été corrigé par Roméo lui-même en direct dans le Sheet ; Claude a nettoyé une cellule fantôme laissée par sa propre correction tardive sur la mauvaise ligne (décalage causé par la suppression concurrente des lignes d'exemple du template par Roméo).
+- **Nouvelle recherche produit lancée sur les catégories sport/animaux/maison** (2e sous-niche) : 0 candidat validé mais **Pälshem.se** (gant réutilisable anti-poils d'animaux, Suède) repéré en réserve, pente d'ads exceptionnelle (quasi-doublement hebdo) mais plancher dur pas encore techniquement passé, à re-checker sous 3-5 jours. Plusieurs candidats écartés et tracés dans `references/liste-rejetes.md` (Ovalrise/Printsretro en print-on-demand, Filterbox niche cheval trop étroite, Bostie & Co complément ingéré chien, DealHubs, Dogs & Promise, MoonSpoon/Lenixi).
+- **Découverte majeure : nouvelle taxe UE de 3€ par colis (pas par article) en vigueur depuis le 1er juillet 2026.** Annoncée par l'agent Aplusfulfill (message du 15/06), confirmée en direct par l'agent Yuri Yang, et recoupée sur le Discord Zecom Academy (discussions d'élèves du 10-13/07 : la taxe pèse jusqu'à 30% du COGS sur du low ticket, le coach recommande désormais un multiplicateur minimum **x3,5** au lieu de x3,2). Comme la taxe est par colis, un bundle "1 acheté = 1 offert" expédié en un seul colis ne la paie qu'une fois pour 2 unités : avantage réel à vérifier par devis, pas encore une certitude. Nouvelle règle actée : toujours calculer la marge palier par palier (jamais sur le meilleur cas), et signaler la structure d'offres du concurrent dès l'offre n°1 dans les futures présentations de candidats (jamais comme critère d'exclusion).
+- **Sourcing 1688 assimilé via 4 vidéos du Module 6 déjà transcrites** (jamais exploitées avant) : extension Chrome "Aliprice Beta" pour la recherche par image, méthode d'envoi du lien à l'agent, règles de communication (Guanxi, jamais blâmer, bullet points courts, ne pas négocier tôt), SOP de contrôle de factures via un projet Claude (pour plus tard, pas au volume actuel), seuil de branding (30-40 commandes/jour avant de brander). **Correction de Roméo actée : ne pas solliciter l'agent pendant la phase de recherche/validation produit** (ça use la relation sans vente derrière), contacter seulement au moment de réellement lancer un test.
+- Réponse de l'agent Yuri Yang à une question générale sourcing : transporteurs habituels YunExpress/Wanb/4PX (poids réel ou volumétrique, le plus élevé compte), règle de marge x3 minimum confirmée côté agent, catégories spéciales (compléments/cosmétiques/batteries). Lecture de Roméo sur le style de réponse (généraliste, jamais de "non" direct) rattachée à la culture de communication chinoise, pas à un manque de bonne volonté.
+
+---
+
 ## 2026-07-18 (session recherche produit V3 corrigée)
 
 ### Recherche produit : méthode V3 durcie après erreurs de process + 1er candidat validé (Celaure)

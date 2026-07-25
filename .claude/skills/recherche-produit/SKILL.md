@@ -94,6 +94,8 @@ Sorties volumineuses → sauver en fichier et parser avec `node -e` ou PowerShel
 
 Format : pour/contre par candidat, **défauts inclus, sans survendre** (pas de "banger de l'année", les chiffres parlent). Pour chaque candidat : shop + lien, produit, prix du winner, data (pente reach, nb créas qui montent, fraîcheur), trafic, concurrence FR, défauts. Tout candidat "assez bon" qui passe les étapes 1→5 se présente, même imparfait.
 
+**Structure des offres à signaler (acté 18/07/2026, lié à la taxe UE 3€/colis, cf. [[feedback_cogs_avant_pricing]]) :** quand c'est visible sur la fiche produit du winner, indiquer l'échelle d'offres à partir de l'**offre n°1** (pas juste "il y a un bundle quelque part"). Ce qui compte : est-ce que le multi-unités est déjà dans l'offre par défaut (ex. offre 1 = "1 acheté = 1 offert", offre 2 = "3 acheté = 2 offerts" → excellent, un colis mutualisé dès le premier choix) ou seulement planqué en offre 2/3 après un solo par défaut (offre 1 = "1 acheté" seul → beaucoup moins intéressant, la plupart des clients prennent le défaut). **Ceci est une INFORMATION, jamais un critère d'exclusion** : ne pas écarter ou déprioriser un candidat pour une mauvaise structure d'offres, la data de scale reste le seul filtre dur. Un shop avec une structure moyenne aujourd'hui peut l'améliorer plus tard ; on peut re-checker un candidat solide sur la data même si son offre 1 n'est qu'un solo.
+
 Si rien ne passe les critères durs : le dire clairement. Un résultat nul honnête vaut mieux qu'un faux candidat forcé.
 
 ### Quand le puits est sec (constat récurrent, acté 16/06 et reconfirmé 03/07)

@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-07-26 (mise à jour budget)
+
+### Budget Google Sheet corrigé : dépense pub T3 sous-estimée + ligne Shrine Pro oubliée du total
+- **Vérification croisée Shopify + Meta Ads** avant écriture : aucune commande nouvelle depuis #1005 (04/07), donc rien à ajouter côté ventes/CA. Dépense pub confrontée aux vrais chiffres Meta (compte EUR) : T4 exact (81,81 €), T5 quasi exact (44,88 € vs 44,92 € réel), mais **T3 (matelas) sous-estimé : 45 € au lieu du vrai total de campagne 50,43 €** (campagne désormais PAUSED, chiffre définitif).
+- **Bug de formule découvert** : la ligne "Thème Shrine PRO" (130 €, ajoutée par Roméo lui-même le 25/07) n'était pas comptée dans le TOTAL mensuel (ligne 14, formule `SUM(B3:B11)` qui s'arrêtait juste avant). Les 130 € n'apparaissaient donc nulle part dans le total ni dans la case finale.
+- **Corrections écrites** (avec l'accord de Roméo) : H29 (charges pub T3) → 50,43 € ; N29 (charges pub T5) → 44,92 € ; formule TOTAL mensuel (B14:M14) étendue à `SUM(X3:X12)` pour inclure la nouvelle ligne.
+- **Nouvelle case finale (B35) : -2 694,85 €** (contre -2 559,99 € au dernier point du 04/07).
+- **Vérification faite sur une incohérence suspectée en CONTEXT.md** (candidat Celaure encore marqué "validé/enregistré" dans une lecture précédente) : en relisant le fichier au moment d'écrire, le kill du 25/07 (taxe UE 3€/colis, coefficient sous x3) y était déjà correctement tracé. Rien à corriger, fausse alerte due à une lecture précédente périmée.
+
+---
+
 ## 2026-07-25 (bascule Shrine Pro + bannière d'accueil)
 
 ### Thème Shrine Pro live, boutique nettoyée, palette appliquée, bannière d'accueil finalisée

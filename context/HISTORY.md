@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-07-26 (session home + refonte skill fiche-produit)
+
+### Testimonials/réassurance sur la home, tentative checkout abandonnée, leçon 1.10 analysée, skill boutique → fiche-produit réécrit, app Rapi Bundle
+- **7 avis clients rédigés et poussés** sur la home (bloc "Testimonials" natif, `templates/index.json`), ton varié, prénoms mixtes, sans reprendre la fausse urgence "aujourd'hui seulement" du modèle du formateur sans le signaler.
+- **3 blocs de réassurance remplis** (Livraison offerte / Satisfait ou Remboursé / Support 7j/7, bloc "multicolumn"), mot pour mot la capture donnée par Roméo, avec un point d'honnêteté signalé sur la fausse urgence "aujourd'hui seulement".
+- **Logo checkout passé en transparent** (`logo checkout - transparent.png`), fond et cases beige retirés par seuil de luminance + décontamination alpha (Python/Pillow/numpy), seuls le logo et les 3 mini-cases restent visibles. Vérifié en composant sur fond rouge.
+- **Tentative de suppression des liens de politique en bas du checkout — ABANDONNÉE.** Bloqué techniquement des deux côtés (API : `translationsRegister` refusé sur la langue primaire, confirmé une 2e fois par un autre chemin API ; à la main : l'astuce espace/caractère invisible n'a pas marché pour Roméo non plus). Décision assumée : détail mineur, ne bloque pas la vente.
+- **Leçon 1.10 "Création de la fiche produit" (Zecom Academy) téléchargée, transcrite, et analysée image par image** (140 captures extraites par détection de changement d'écran + planches contact, faute d'accès vidéo direct). Confirme la méthode "copier le funnel, pas le pixel" et liste les blocs natifs Shrine Pro à utiliser (Testimonials, Text with icon, Image with text, Sizing chart, Collapsible content, Payment badges, Image/Video Slider, Sticky Add To Cart).
+- **Skill `boutique` renommé `fiche-produit` et entièrement réécrit.** Nouvelle méthode par défaut = blocs natifs Shrine Pro. Sur-mesure autorisé uniquement via `custom_css` de section (vérifié natif dans le vrai thème) ou bloc natif "Liquid personnalisé", toujours visible/modifiable par Roméo dans le Personnalisateur. **Ancienne méthode Claude Design → Liquid intégral supprimée** à la demande explicite de Roméo (elle le rendait dépendant de Claude pour tout ajustement ultérieur, aucun fichier `.liquid` séparé n'est plus autorisé sans accord explicite). CLAUDE.md mis à jour en conséquence.
+- **Décision : les bundles/paliers de prix sont gérés par l'app `Rapi Bundle`** (installée par Roméo le 26/07), pas par nous. Vérifié concrètement : requête GraphQL `appInstallations` refusée ("access denied"), le bloc d'app embed dans le thème n'expose aucun réglage côté fichiers. Rôle de Claude : conseiller les réglages d'après le concurrent, jamais cliquer dans l'app lui-même.
+- **Astuce retenue pour les futurs Testimonials (idée de Roméo) : titrer le bloc "Avis de la semaine"** plutôt que "Avis clients", pour justifier nativement de n'en montrer que 9 à 12 sans créer d'écart suspect avec un total d'avis affiché ailleurs sur la page (ex. badge "4,8/5 — 2 805 avis"). Ajouté à la check-list du skill.
+
+---
+
 ## 2026-07-26 (mise à jour budget)
 
 ### Budget Google Sheet corrigé : dépense pub T3 sous-estimée + ligne Shrine Pro oubliée du total

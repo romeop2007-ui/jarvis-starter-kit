@@ -159,9 +159,9 @@ Skill d'analyse de la campagne Meta du moment. Activé via `/bilan-ads`, ou quan
 
 Skill de recherche produit dropshipping pour Zooryn via TrendTrack, qui formalise la méthode V3 de Roméo. Activé quand Roméo dit "recherche produit", "trouve-moi un produit", "cherche un winner", "lance une recherche produit", "on alimente le pipeline". Applique l'ordre strict "la data avant le produit" : filtre par catégorie de l'ombrelle outdoor/voyage, tri `reachDelta7d` (ce qui décolle cette semaine, jamais `reachDelta30d`), shop frais (<6 semaines, peu de produits, trafic <1700 vérifié à la main), traçabilité EU obligatoire, pente de reach, puis présente une short-list pour/contre sans survendre. C'est Roméo qui tranche, le skill ne kille jamais avant présentation. Sourcing = Roméo. Anti-doublon des rejetés et fiche outils TrendTrack dans `references/`.
 
-### boutique
+### fiche-produit
 
-Convertit un design Claude Design (bundle `.dc.html` exporté depuis claude.ai/design) en page produit Liquid fonctionnelle sur la boutique Shopify Zooryn, en conservant le header/footer du thème live. Se déclenche quand Roméo envoie un message du type "Use the claude_design MCP ... Implement: nom.dc.html" avec un lien claude.ai/design/p/... Couvre carrousel d'images, bundle/offres en variantes Shopify, prix, avis/FAQ en Liquid pur, prénoms francisés, déploiement live.
+Construit une fiche produit Shopify sur le thème live Zooryn (Shrine Pro) en copiant le funnel d'un concurrent réel avec les blocs natifs du thème (Testimonials, Image with text, Sizing chart, Collapsible content, etc.), pas en recodant une page entière en Liquid sur-mesure. Se déclenche quand Roméo donne l'URL d'un concurrent à reproduire + le produit Shopify cible, ou dit "fais-moi la fiche produit", "reproduis cette page", "copie ce concurrent". Le Liquid sur-mesure n'intervient qu'en dernier recours (champ `custom_css` d'une section, ou bloc natif "Liquid personnalisé"), toujours visible et modifiable par Roméo dans le Personnalisateur, jamais un fichier séparé que lui ne peut pas toucher. Renommé le 26/07/2026 (ex-skill `boutique`, ancienne méthode Claude Design → Liquid intégral entièrement abandonnée, trop lourde et hors du contrôle de Roméo une fois codée).
 
 ### crea-pub
 
@@ -258,7 +258,7 @@ Pour les pages produit/landing copiées d'un winner, Roméo fait d'abord designe
 
 Une page rattachée à un template suffixe se crée via une page boutique (`pageCreate`, `templateSuffix`) pointée par le template `page.<suffixe>`.
 
-**Cette méthode est désormais formalisée dans le skill `boutique` (`.claude/skills/boutique/`, créé le 27/06/2026)**, qui en fait le SOP complet (questions à poser, ordre des blocs, bundle → variantes, vérifications avant de clore). Cette section reste la trace de la décision d'origine, le skill est la référence opérationnelle à jour.
+**Cette méthode est désormais formalisée dans le skill `fiche-produit` (`.claude/skills/fiche-produit/`, créé le 27/06/2026 sous le nom `boutique`, renommé et réécrit le 26/07/2026)**, qui en fait le SOP complet (questions à poser, blocs natifs Shrine Pro à utiliser en priorité, mécanismes autorisés pour le sur-mesure, vérifications avant de clore). Cette section reste la trace de la décision d'origine, le skill est la référence opérationnelle à jour.
 
 ---
 

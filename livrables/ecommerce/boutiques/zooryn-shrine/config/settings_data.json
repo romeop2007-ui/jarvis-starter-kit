@@ -47,7 +47,7 @@
     "spacing_sections": 0,
     "spacing_grid_horizontal": 40,
     "spacing_grid_vertical": 40,
-    "link_btn_hover": "arrow",
+    "link_btn_hover": "glow",
     "action_btn_hover": "center",
     "buttons_border_thickness": 2,
     "buttons_border_opacity": 100,
@@ -157,9 +157,9 @@
     "drawer_shadow_vertical_offset": 4,
     "drawer_shadow_blur": 5,
     "brand_headline": "",
-    "brand_description": "<p>contact@zooryn.com</p>",
+    "brand_description": "",
     "brand_image": "shopify://shop_images/LOGO_LOGO_simplifie_-_transparent_-_blanc.png",
-    "brand_image_width": 100,
+    "brand_image_width": 185,
     "social_facebook_link": "",
     "social_instagram_link": "",
     "social_youtube_link": "",
@@ -840,7 +840,14 @@
         }
       }
     },
-    "content_for_index": []
+    "content_for_index": [],
+    "blocks": {
+      "9696655121035291526": {
+        "type": "shopify://apps/rapi-bundle/blocks/app-embed/99617c17-a32b-4e70-a883-7a155610d032",
+        "disabled": false,
+        "settings": {}
+      }
+    }
   },
   "presets": {
     "Default": {

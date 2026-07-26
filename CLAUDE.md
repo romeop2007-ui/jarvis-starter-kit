@@ -222,12 +222,16 @@ Cette règle s'applique sans que Roméo ait à la redemander.
 
 ### Synchronisation boutique Shopify (travail à deux sans s'écraser)
 
-**Contexte du problème :** la boutique vit à deux endroits qui ne se synchronisent pas tout seuls. (1) L'éditeur Shopify en ligne (le "Personnaliser"), où Roméo modifie le contenu et le visuel, enregistré côté Shopify dans `config/settings_data.json`. (2) Les fichiers locaux suivis par Git (dossier `livrables/ecommerce/boutiques/zooryn-dawn`), où Claude modifie le code. Un `theme push` qui inclut `settings_data.json` écrase la version en ligne par la version locale, et donc supprime les changements que Roméo a faits dans l'éditeur entre-temps.
+**Contexte du problème :** la boutique vit à deux endroits qui ne se synchronisent pas tout seuls. (1) L'éditeur Shopify en ligne (le "Personnaliser"), où Roméo modifie le contenu et le visuel, enregistré côté Shopify dans `config/settings_data.json` et les fichiers `templates/*.json`. (2) Les fichiers locaux suivis par Git (dossier `livrables/ecommerce/boutiques/zooryn-shrine`), où Claude modifie le code. Un `theme push` qui inclut ces fichiers de contenu écrase la version en ligne par la version locale, et donc supprime les changements que Roméo a faits dans l'éditeur entre-temps.
+
+**🔓 CLI débloquée en permanence (depuis le 25/07/2026).** Un mot de passe **Theme Access** (app officielle Shopify, `shptka_...`) est stocké dans `.env` sous `SHOPIFY_CLI_THEME_TOKEN`. L'exporter avant tout `theme pull`/`theme push` (`export $(grep SHOPIFY_CLI_THEME_TOKEN .env)`) évite toute reconnexion navigateur. Conséquence : Claude peut éditer n'importe quel bloc/réglage du thème (couleurs, textes, images déjà uploadées, liens, layout...) en modifiant directement le JSON, exactement comme si Roméo le faisait à la main dans le Personnalisateur.
+
+**⚠️ Le Liquid custom est le dernier recours, jamais sans autorisation.** Claude ne modifie/écrit du code Liquid QUE si aucun bloc ou réglage natif du thème ne couvre le besoin, et même dans ce cas, **toujours avec l'accord explicite de Roméo avant d'écrire ou de pousser quoi que ce soit** (acté le 26/07/2026).
 
 **Règles que Claude doit appliquer automatiquement, sans que Roméo le redemande :**
 
 1. **Toujours `pull` avant de toucher à la boutique.** Avant toute intervention sur le thème, Claude lance d'abord :
-   `shopify theme pull --store cqqah9-t1.myshopify.com --theme 201573302617 --only config/settings_data.json --path "livrables/ecommerce/boutiques/zooryn-dawn"`
+   `shopify theme pull --store cqqah9-t1.myshopify.com --theme 203403854169 --only config/settings_data.json --path "livrables/ecommerce/boutiques/zooryn-shrine"`
    pour récupérer dans les fichiers locaux le travail le plus récent de Roméo (textes, photos, réglages). Ça garantit qu'on part toujours de son état à jour et qu'on n'écrase rien.
 
 2. **Séparation des rôles = source de vérité par fichier :**
@@ -238,9 +242,9 @@ Cette règle s'applique sans que Roméo ait à la redemander.
 
 4. **Déploiement live = on prévient, on ne crée pas de brouillon.** Tout `theme push --allow-live` est une action en production : Claude annonce à Roméo ce qu'il pousse (quels fichiers) au moment de le faire. Le classifier peut demander une confirmation ponctuelle ; c'est normal. Mais Claude **ne crée plus de thèmes d'aperçu/brouillons** : Roméo veut qu'on travaille directement sur le live.
 
-5. **Édition directe sur le live (acté le 17/06/2026).** Roméo a tranché : on modifie **toujours directement le thème publié** (#201573302617), même si c'est visible de tous, sans passer par une copie ou un thème non publié. Il s'en moque d'avoir un brouillon, ça l'embête. Donc : push ciblé `--only` sur le live, on annonce, on vérifie le rendu après coup, et si un truc cloche on corrige/reverte en direct. Plus de `--unpublished`, plus de lien `preview_theme_id`.
+5. **Édition directe sur le live (acté le 17/06/2026).** Roméo a tranché : on modifie **toujours directement le thème publié** (#203403854169), même si c'est visible de tous, sans passer par une copie ou un thème non publié. Il s'en moque d'avoir un brouillon, ça l'embête. Donc : push ciblé `--only` sur le live, on annonce, on vérifie le rendu après coup, et si un truc cloche on corrige/reverte en direct. Plus de `--unpublished`, plus de lien `preview_theme_id`.
 
-Règle actée le 02/06/2026, **révisée le 17/06/2026 (passage en édition directe live, fin des brouillons d'aperçu)**. Thème live et dossier local : boutique sur Dawn neuf "Zooryn FR" #201573302617, dossier `zooryn-dawn`. L'ancien thème custom #201043444057 / dossier `sculpted-shopify` est conservé comme bibliothèque de pièces.
+Règle actée le 02/06/2026, **révisée le 17/06/2026 (passage en édition directe live, fin des brouillons d'aperçu)**, **et le 25/07/2026 (bascule vers Shrine Pro)**. Thème live et dossier local : boutique sur **"shrine-theme-pro" #203403854169, dossier `zooryn-shrine`**. L'ancien Dawn custom "Zooryn FR" #201573302617 (dossier `zooryn-dawn`) et le thème custom d'origine #201043444057 (dossier `sculpted-shopify`) sont désormais dépubliés, conservés comme bibliothèque de pièces.
 
 ### Workflow Claude Design → Liquid → boutique (acté le 17/06/2026)
 

@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-07-25 (bascule Shrine Pro + bannière d'accueil)
+
+### Thème Shrine Pro live, boutique nettoyée, palette appliquée, bannière d'accueil finalisée
+- **Bascule effective vers Shrine Pro** : licence reçue via la formation Zecom, ZIP importé et publié par Roméo. Thème live = "shrine-theme-pro" #203403854169, dossier local `zooryn-shrine`. Ancien Dawn custom "Zooryn FR" repassé en archive. Extraction du ZIP comparée au live (checksum settings_schema.json identique) pour confirmer le code, puis pull ciblé des vrais réglages.
+- **Blocage CLI 401 résolu définitivement** : mot de passe Theme Access (`shptka_...`) généré côté Shopify, stocké dans `.env` (`SHOPIFY_CLI_THEME_TOKEN`). Plus besoin de reconnexion navigateur pour aucun `theme pull`/`push`.
+- **Nettoyage complet des pages Shopify** : 8 pages supprimées (page orpheline "Track my order", 2 pages légales en anglais dépassées, page "Livraison & retours" courte, brouillons CGV/Mentions légales inachevés avec placeholders, page "Our Story" orpheline, page fantôme "Matelas gonflable ultraléger PRO" doublon du vrai produit). 6 nouvelles pages créées avec le texte exact des vraies Politiques natives Shopify (CGU, CGV, Remboursement, Confidentialité, Livraisons et Retours, Mentions légales), Contact conservée. Menus header et footer reconnectés en liens natifs "Page liée" (`resourceId`), plus de liens en dur ni vers checkout.shopify.com. Tout fait en GraphQL Admin API, aucun Liquid touché.
+- **Palette de couleurs posée dans le thème** : Accentuation 1 (bouton uni) = Terracotta `#C1522A` (tranché face au Rouge brique, les deux étaient verrouillés depuis le 14/07), Accentuation 2 = Olive `#736C62`, Arrière-plan 1 = Beige `#EDE6D9`, dégradés désactivés partout.
+- **Logo blanc généré** : `LOGO + LOGO simplifié - transparent - blanc.png`, recoloration en Python/Pillow du vrai fichier source (icône Z + wordmark), transparence conservée.
+- **Bannière d'accueil construite de A à Z** : prompts ChatGPT dédiés PC (paysage, sujet au tiers droit) et mobile (quasi carré, sujet centre-haut), avec consigne stricte de rendu photoréaliste anti-IA. Image itérée 3 fois pour corriger peau trop lisse, vapeur trop opaque, puis netteté trop uniforme. Textes posés : titre "Le confort du quotidien, sublimé", sous-titre "Des essentiels pensés pour rendre chaque jour plus agréable.", bouton "Découvrir nos produits" relié à la collection Tous les produits. Deux réglages Shrine identifiés et corrigés : "Hauteur de diapositive" sur "Adapter à la première image" (évite le rognage du sujet), et décocher "Show content below images on mobile" pour garder le texte en overlay sur mobile. Point mineur laissé de côté : bouton blanc au lieu de terracotta sur mobile, cause non isolée avec certitude, non bloquant vu le faible trafic sur la home.
+- **Kill du candidat recherche produit Celaure** (pochette pain) : la taxe douane sur les colis Chine→France (~3 €/colis) fait passer le coefficient multiplicateur sous le seuil x3 minimum. Pipeline recherche produit repart à vide.
+- **Nouvelles règles actées pour la suite** : la CLI Shopify étant débloquée en permanence, Claude édite désormais les blocs/réglages du thème directement en JSON, exactement comme si Roméo le faisait à la main dans le Personnalisateur. Le Liquid custom reste le dernier recours, et seulement avec l'accord explicite de Roméo avant d'écrire ou de pousser quoi que ce soit.
+
+---
+
 ## 2026-07-18 (session stratégie boutique Shrine Pro)
 
 ### Discussion stratégie Shrine Pro + audit des pages de la boutique + clarification MCP/CLI

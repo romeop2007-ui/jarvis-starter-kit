@@ -7,6 +7,21 @@
 
 ---
 
+## 2026-07-28 (flow paiement abandonné Klaviyo)
+
+### Connecteur Klaviyo autorisé, découverte panier vs paiement abandonné, 4 emails du flow paiement abandonné construits et en ligne
+- **Connecteur Klaviyo officiel autorisé** en session, débloquant un ensemble d'outils MCP bien plus complet que la clé API brute (`KLAVIYO_API_KEY` déjà en place dans `.env`).
+- **Leçon Module 8 "1.6 Set-up le flow de panier abandonné" transcrite localement** (`scripts/transcribe.py`, dossier `livrables/ecommerce/formation/Module 8 - L'emailing et SMS marketing/1.6 Set-up le flow de panier abandonné/`). SOP assimilé : différence panier abandonné (déclencheur Added to Cart, lien dynamique `event.url`) vs paiement abandonné (déclencheur Checkout Started, lien dynamique `event.extra.checkout_url`), timing standard 20-30 min / 1j / 1j / 1j, structure des 4 mails (relance, plain text fondateur, promo, FOMO), filtre anti-doublon entre les deux flows ("Checkout started zero times" sur le flow panier, "Placed order zero times" sur les deux).
+- **Découverte : le flow déjà construit par Roméo (`Y5FaK9`, nommé "Page de commande abandonnée Rappel - Standard") est en réalité le flow PAIEMENT ABANDONNÉ, pas panier abandonné.** Le vrai panier abandonné reste bloqué : la métrique "Added to Cart" n'existe pas encore dans le compte Klaviyo réel (aucun ajout au panier réel enregistré à ce jour côté site). À débloquer : vérifier la case "Track behavioral events" dans l'intégration Shopify de Klaviyo, et générer un vrai ajout au panier sur le site.
+- **Méthode technique trouvée et prouvée pour éditer le contenu d'un email de flow** (l'API standard Klaviyo bloque toute modification directe du template déjà attaché à un flow-message, erreur 404 systématique) : créer un nouveau template via `create_dnd_email_template` (blocs natifs, pas de HTML custom), puis rebrancher l'email du flow dessus via `update_flow_action` (en conservant `links`/`id` du message existant). Fonctionne à l'identique pour les 4 emails.
+- **Les 4 emails du flow paiement abandonné sont construits et en ligne (statut brouillon)**, contenu exact du document Notion "Templates de flows mail (Zecom Academy)", adapté en tutoiement pour cohérence avec la voix de marque déjà établie : Email 1 (relance, 20 min), Email 2 ("Une surprise t'attend !", code PANIER10 -10%, 24h après), Email 3 ("Dernier rappel avant annulation", même code, 24h après), Email 4 (message plain text signé "Julien, fondateur de Zooryn", code PANIER20 -20%, style "Envoyé depuis mon iPhone", 24h après). Lien dynamique `event.extra.checkout_url` utilisé de façon cohérente partout (jamais `event.url`, réservé au panier).
+- **2 codes promo créés et actifs sur Shopify** : PANIER10 (-10%, tous produits, sans minimum) et PANIER20 (-20%, tous produits, sans minimum).
+- **Déclencheur et filtre vérifiés par Roméo (captures d'écran) et confirmés conformes à la vidéo** : déclencheur "Commande Débutée" (Checkout Started), filtre "Commande Passée, zéro fois, depuis le début de ce flux" (Placed order zero times). Reste à vérifier : la fenêtre de ré-entrée (7 à 10 jours recommandés par le formateur, non visible dans les captures partagées).
+- **Prochaine étape actée pour la session suivante : appliquer la vraie palette Zooryn aux 4 emails** (CTA bleu par défaut `#1155CC` → Terracotta `#C1522A`, bandeau noir `#000000` → Brun noisette `#6E4E37`, bloc crème `#FFF5EA` → Beige `#EDE6D9`, texte du corps inchangé en noir). Roméo configure de son côté Réglages → Marque dans Klaviyo (logo + palette) pour que ses futures créations manuelles héritent des bonnes couleurs automatiquement (confirmé : ce réglage n'est pas accessible via l'API et ne repeint pas rétroactivement les templates déjà construits).
+- **Reste en attente, non traité aujourd'hui** : le flow post-achat (vidéo dédiée à venir, envoyée par Roméo dans une session future).
+
+---
+
 ## 2026-07-27
 
 ### Transcription leçon bundle + SOP RapidBundle figé + incident RAM

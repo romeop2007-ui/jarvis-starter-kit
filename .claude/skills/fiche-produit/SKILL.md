@@ -118,13 +118,16 @@ sans accord explicite de Roméo :
 
 ## Étape 4 — Bundle / prix par palier
 
-- Géré par une **app dédiée** installée par Roméo (ex. Rapi Bundle), pas par un bloc natif
-  Shrine ni par du Liquid custom, sauf absence d'app sur ce produit (voir méthode de repli).
+- Géré par une **app dédiée** installée par Roméo (**RapidBundle**), pas par un bloc natif Shrine
+  ni par du Liquid custom, sauf absence d'app sur ce produit (voir méthode de repli).
 - **Vérifié le 26/07/2026 : aucun accès API/CLI/MCP à la configuration de ces apps** (requête
   `appInstallations` refusée, "access denied" ; les blocs d'app embed n'exposent aucun réglage
   côté thème). Le rôle de Claude ici : conseiller les réglages exacts à reproduire d'après ce
   que fait le concurrent, réagir à des captures d'écran de l'app envoyées par Roméo — jamais
   cliquer soi-même dans l'app.
+- **SOP complet de configuration dans `references/rapidbundle-sop.md`** (installation, timing,
+  type de bundle à choisir, design des blocs, réglages avancés critiques, astuce "dupliquer" pour
+  scaler sur un nouveau produit sans repartir de zéro).
 
 ## Étape 5 — Vérification avant de clore
 

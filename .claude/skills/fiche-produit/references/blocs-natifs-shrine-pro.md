@@ -144,8 +144,8 @@ Personnalisateur.
 
 ## Ce qui a été explicitement mis de côté (pour le moment)
 
-- **Le bundle/les paliers de prix** : géré par une app dédiée (ex. Rapi Bundle), pas par le
-  bloc bundle natif Shrine ni par du Liquid custom. Voir le futur sujet dédié "app de bundle"
-  une fois la vidéo correspondante analysée.
+- **Le bundle/les paliers de prix** : géré par une app dédiée (**RapidBundle**), pas par le
+  bloc bundle natif Shrine ni par du Liquid custom. SOP complet dans
+  `references/rapidbundle-sop.md`.
 - **Personas / mises en situation clients détaillées** : jugées à faible ROI par le formateur
   (peu de clics), à ne reproduire que si Roméo le demande explicitement pour CE produit.

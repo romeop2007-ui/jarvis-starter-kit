@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-07-27
+
+### Transcription leçon bundle + SOP RapidBundle figé + incident RAM
+- Leçon "3.1 L'application de bundle" (Zecom Academy) téléchargée (Kajabi/Wistia + cookies préparés à l'avance) et transcrite localement (faster-whisper).
+- **Incident RAM** : le PC de Roméo n'a que 8 Go de RAM ; lancer la transcription avec `large-v3` (modèle par défaut du script) a fait grimper l'usage à 97%, PC redémarré une fois entre-temps. Process tué, relancé avec `large-v3-turbo` (moitié moins de paramètres, qualité quasi identique). **Watchdog PowerShell mis en place** en parallèle : surveille la RAM toutes les 5s et tue le process de transcription si l'usage atteint 95%, pour ne plus attendre que Roméo signale le problème.
+- **SOP RapidBundle figé** dans `.claude/skills/fiche-produit/references/rapidbundle-sop.md` : installation/timing (installer la veille du 1er lancement pour ne pas gâcher l'essai gratuit), type de bundle à choisir (toujours "Bundle classique"), design des blocs (calqué sur le bouton A2C du thème), configuration des 3 paliers, réglages avancés critiques (masquer prix/variant natifs, garder les prix barrés, ne jamais sauter l'étape panier), passe mobile, et l'astuce "dupliquer" pour scaler sur un nouveau produit sans repartir de zéro.
+- **Nom de l'app corrigé : RapidBundle** (pas "Rapi Bundle" comme noté la veille), confirmé par la transcription officielle. `SKILL.md` et `blocs-natifs-shrine-pro.md` mis à jour en conséquence.
+- Workflow confirmé avec Roméo pour le jour où un bundle réel doit être configuré : il fournit l'URL du concurrent + des captures d'écran de RapidBundle au fur et à mesure, Claude guide étape par étape sans jamais avoir d'accès direct à l'app.
+
+---
+
 ## 2026-07-26 (session home + refonte skill fiche-produit)
 
 ### Testimonials/réassurance sur la home, tentative checkout abandonnée, leçon 1.10 analysée, skill boutique → fiche-produit réécrit, app Rapi Bundle

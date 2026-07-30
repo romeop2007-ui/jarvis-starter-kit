@@ -7,6 +7,15 @@
 
 ---
 
+## 2026-07-30
+
+### Obligations légales micro-entreprise clarifiées + skill `sav-client` créé
+- **Point sur les obligations légales micro-entreprise**, au-delà de la déclaration mensuelle de CA (déjà en place) : identification de la **déclaration initiale CFE** (formulaire 1447-C-SD, à déposer avant le 31/12/2026 sur impots.gouv.fr, exonéré de paiement la 1ère année). Notée dans le Google Calendar de Roméo avec un rappel mi-décembre 2026. **Médiateur de la consommation et déclaration annuelle de revenus (impôt)** identifiés comme obligations réelles mais **consciemment repoussés par Roméo** tant qu'il ne gagne pas vraiment d'argent, décision assumée cohérente avec sa logique Pareto habituelle (focus produit qui scale, admin secondaire mis de côté).
+- **Nouveau skill `sav-client` créé**, à partir du template officiel de réponses SAV Zecom Academy (Module 9, PDF déposé par Roméo dans `livrables/ecommerce/formation/Module 9 - SAV/`). Modèle de travail simple, sans automatisation : Roméo colle un message client, Claude identifie le cas correspondant dans le template et sort la réponse prête à copier-coller, sans improviser, Roméo l'envoie lui-même. Si ça marche bien dans la durée, Roméo envisage d'automatiser la génération plus tard, pas maintenant.
+- **Deux décisions actées sur ce skill** : (1) ton en **vouvoiement**, différent du tutoiement de marque utilisé ailleurs sur Zooryn (registre SAV volontairement plus formel) ; (2) sur les frais de retour, le template dit que c'est le client qui paie alors que les CGV publiées de Zooryn disent l'inverse (frais à la charge de Zooryn) — Roméo a tranché : **on suit le template tel quel**, la correction des CGV pour lever la contradiction est **repoussée à la phase de scale**, non prioritaire en plein testing sans vraies ventes. Deux infos à compléter au moment venu (pas bloquant) : lien "suivre ma commande" fiable (l'ancien pointait vers une app probablement désinstallée) et adresse de retour de l'agent Aplusfulfill.
+
+---
+
 ## 2026-07-28 (flow paiement abandonné Klaviyo)
 
 ### Connecteur Klaviyo autorisé, découverte panier vs paiement abandonné, 4 emails du flow paiement abandonné construits et en ligne

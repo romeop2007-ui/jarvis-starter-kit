@@ -167,6 +167,10 @@ Construit une fiche produit Shopify sur le thème live Zooryn (Shrine Pro) en co
 
 Usine à créas publicitaires Zooryn. À partir d'une pub concurrent (sourcée dans le tableau de recherche produit ou fournie par Roméo), produit un dossier prêt à finaliser. Vidéo → script voix off FR adapté à la marque + voix off ElevenLabs calée sur la durée (le détourage Vmake est désormais 100% manuel côté Roméo). Image → image finale FR générée via gpt-image (appel API direct, pas le skill imagegen). Sur demande, fournit aussi le texte de pub Meta (titre/corps/description/CTA/URL) prêt à copier-coller, Roméo montant seul toute la campagne. À déclencher quand Roméo dit "fais-moi les créas", "transforme cette pub", "adapte cette créa", "donne-moi le texte de la pub", ou fournit un .mp4/.jpg/.png de concurrent à adapter.
 
+### sav-client
+
+Génère la réponse SAV à envoyer à un client Zooryn, à partir du template officiel Zecom Academy (Module 9). Se déclenche quand Roméo colle un message client et demande la réponse à envoyer, ou dit "réponds à ce client", "c'est quoi la réponse pour ça", "gère ce mail SAV". Pas d'automatisation ni de connecteur mail : Roméo colle le message, Claude sort la réponse prête à copier-coller à partir du template (zéro improvisation hors template), Roméo l'envoie lui-même. Ton en vouvoiement (registre différent du tutoiement de marque utilisé ailleurs sur Zooryn). Créé le 30/07/2026.
+
 ### recherche-logement-huesca
 
 Recherche un appartement à Huesca (Espagne) pour Roméo en élargissant chaque fois à de nouveaux sites/agences, puis pousse les résultats sur la page Notion "Logement Huesca". Déclencheurs : "trouve des appartements pour Huesca", "recherche appartement Espagne/Huesca", "cherche-moi un logement à Huesca", "continue la recherche logement Saragosse".

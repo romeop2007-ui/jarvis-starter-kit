@@ -9,6 +9,15 @@
 
 ## 2026-07-30
 
+### Flow Klaviyo panier abandonné : palette Zooryn + vouvoiement
+- Appliqué la palette Zooryn sur les 4 emails du flow "Page de commande abandonnée Rappel - Standard" (Y5FaK9) : CTA bleu → terracotta #C1522A, bannière noire → brun noisette #6E4E37, bloc crème → beige #EDE6D9.
+- Converti les 4 emails du tutoiement au vouvoiement (corps, sujets, preview text).
+- Découvert que l'outil `update_dnd_email_template` de Klaviyo est cassé (404 persistant même avec payload valide) ; contournement fiable = create_dnd_email_template + repoint via update_flow_action (Klaviyo clone alors automatiquement le template).
+- Bug trouvé et corrigé : le repoint des flow-actions avait vidé reply_to_email (repassé à contact@zooryn.com).
+- Vérification complète des liens sur les 4 emails (checkout_url, codes PANIER10/PANIER20, désabonnement, lien produit, branding) : tout est intact.
+- Flow actuellement en statut draft (pas actif) : à activer manuellement dans Klaviyo si ce n'est pas volontaire.
+- Rendu Gmail dark mode laissé tel quel (décision Roméo, pas de meta color-scheme possible sans code custom dans l'éditeur DND).
+
 ### Obligations légales micro-entreprise clarifiées + skill `sav-client` créé
 - **Point sur les obligations légales micro-entreprise**, au-delà de la déclaration mensuelle de CA (déjà en place) : identification de la **déclaration initiale CFE** (formulaire 1447-C-SD, à déposer avant le 31/12/2026 sur impots.gouv.fr, exonéré de paiement la 1ère année). Notée dans le Google Calendar de Roméo avec un rappel mi-décembre 2026. **Médiateur de la consommation et déclaration annuelle de revenus (impôt)** identifiés comme obligations réelles mais **consciemment repoussés par Roméo** tant qu'il ne gagne pas vraiment d'argent, décision assumée cohérente avec sa logique Pareto habituelle (focus produit qui scale, admin secondaire mis de côté).
 - **Nouveau skill `sav-client` créé**, à partir du template officiel de réponses SAV Zecom Academy (Module 9, PDF déposé par Roméo dans `livrables/ecommerce/formation/Module 9 - SAV/`). Modèle de travail simple, sans automatisation : Roméo colle un message client, Claude identifie le cas correspondant dans le template et sort la réponse prête à copier-coller, sans improviser, Roméo l'envoie lui-même. Si ça marche bien dans la durée, Roméo envisage d'automatiser la génération plus tard, pas maintenant.

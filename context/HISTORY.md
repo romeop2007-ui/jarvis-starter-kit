@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-08-01 (mise à jour 2)
+
+### Skill `eugene-schwartz-breakthrough-advertising` réécrit à partir du vrai livre (lu intégralement)
+- **PDF communautaire "Breakthrough Advertising" (Eugene M. Schwartz) FR lu intégralement (229 pages)**, déposé par Roméo dans `livrables/ecommerce/formation/Ressource commu/`. Roméo pensait qu'un travail d'intégration avait déjà été commencé sur ce fichier : vérification faite (HISTORY, mémoire, git), aucune trace trouvée, à ne pas confondre avec le PDF voisin "Framework Meta Ads Testing Optimisation Scaling" déjà intégré à `bilan-ads` le 13/07/2026.
+- **Ancien skill** (importé de la marketplace SkillsMP le 19/06/2026, anglais, ne couvrait que 2 frameworks très résumés avec des exemples génériques sommeil/skincare) **entièrement remplacé** par une synthèse opérationnelle fidèle au vrai livre, en français, avec exemples appliqués aux produits Zooryn (matelas gonflable, sac sling, guirlande Luma).
+- Réalisé par un agent en tâche de fond (2 tentatives interrompues par une limite de session, reprises sur les notes déjà écrites plutôt que recommencées à zéro).
+- **`SKILL.md` réécrit** : les 5 stades de conscience du marché, les 5 niveaux de sophistication, résumé condensé des 7 techniques avancées (Intensification, Identification, Gradation, Redéfinition, Mécanisation, Concentration, Camouflage), une section honnêteté (le livre valide la dramatisation d'un vrai défaut mais jamais l'invention d'une preuve/prix barré fictif — reliée aux débats déjà eus chez Zooryn sur les avis de démo et garanties recopiées), 3 prompts IA en français adaptés Zooryn.
+- **Nouveau fichier `references/synthese-complete.md`** (571 lignes) : détail chapitre par chapitre fidèle au livre, citations, études de cas du livre (réparation télé, Chesterfield, Lifebuoy, Robert Collier, industrie du tabac).
+- **Limites honnêtement signalées dans les deux fichiers** : le PDF communautaire s'arrête en plein chapitre 14 ("Humour"), avant l'épilogue annoncé au sommaire (contenu doctrinal complet malgré tout, les 2 parties et 14 chapitres sont couverts) ; une page (226) illisible dans le PDF source (probable publicité en image), non exploitée.
+- `CLAUDE.md` mis à jour (description du skill dans la liste des skills disponibles).
+
+---
+
 ## 2026-08-01
 
 ### Réponse à l'agent Aplusfulfill (feedback + retard de réponse)

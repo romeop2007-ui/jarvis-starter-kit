@@ -185,7 +185,7 @@ Automatise la navigation web quand aucun connecteur/MCP ne couvre le besoin (ex.
 
 ### eugene-schwartz-breakthrough-advertising
 
-Applique le cadre des "5 niveaux de sophistication" et "5 stades de conscience du marché" d'Eugene Schwartz pour écrire les pages produit, pubs et emails Zooryn. Gardé lors du tri SkillsMP du 19/06/2026.
+Applique les frameworks du vrai livre *Breakthrough Advertising* d'Eugene Schwartz (5 stades de conscience du marché, 5 niveaux de sophistication, 7 techniques avancées : Intensification, Identification, Gradation, Redéfinition, Mécanisation, Concentration, Camouflage) pour écrire pages produit, pubs Meta et emails Klaviyo Zooryn. Réécrit le 01/08/2026 à partir de l'édition FR communautaire (Zecom Academy) lue intégralement (`livrables/ecommerce/formation/Ressource commu/Breakthrough Advertising (EUGENE M. SCHWARTZ) FR/`), remplaçant l'ancienne version marketplace générique en anglais (gardée lors du tri SkillsMP du 19/06/2026, ne couvrait que 2 frameworks résumés). Détail chapitre par chapitre dans `references/synthese-complete.md`.
 
 ### skill-creator
 

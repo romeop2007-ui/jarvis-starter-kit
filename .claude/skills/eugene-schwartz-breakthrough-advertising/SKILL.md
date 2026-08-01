@@ -1,233 +1,210 @@
 ---
 name: eugene-schwartz-breakthrough-advertising
-description: Apply Eugene Schwartz's "5 Stages of Market Awareness" and "5 Levels of Sophistication" from Breakthrough Advertising (1966) to write ads, product pages, and emails for dropshipping, ecommerce, and info products. Schwartz's framework is the single most important model in direct response — it determines your headline, hook angle, and how much proof you need. Used by every top Facebook/Google ad buyer.
-version: "1.0.0"
-author: karausab590-ops
-website: https://clawads.io
-tags:
-  - eugene-schwartz
-  - breakthrough-advertising
-  - market-awareness
-  - direct-response
-  - facebook-ads
-  - dropshipping
-  - copywriting
-  - ecommerce
+description: Applique les frameworks du vrai livre "Breakthrough Advertising" d'Eugene Schwartz (1966, édition FR communautaire lue intégralement) pour écrire pages produit, pubs Meta et emails Klaviyo Zooryn : les 5 stades de conscience du marché, les 5 niveaux de sophistication, et les 7 techniques avancées (Intensification, Identification, Gradation, Redéfinition, Mécanisation, Concentration, Camouflage). Remplace l'ancienne version marketplace générique (anglais, 2 frameworks résumés). À utiliser dès qu'il s'agit de trouver un angle, écrire un titre/hook, structurer une page produit ou un email long, ou diagnostiquer pourquoi une créa/page ne convertit pas.
+user-invocable: true
 ---
 
-# Eugene Schwartz — Breakthrough Advertising
+# Eugene Schwartz — Breakthrough Advertising, synthèse Zooryn
 
-## Why This Framework Matters
+> Source : *Breakthrough Advertising* (Eugene M. Schwartz, 1966), édition française communautaire
+> (Zecom Academy), PDF `livrables/ecommerce/formation/Ressource commu/Breakthrough Advertising
+> (EUGENE M. SCHWARTZ) FR/Breakthrough Advertising (EUGENE M. SCHWARTZ) FR.pdf` (229 pages, lu
+> intégralement le 01/08/2026). Synthèse opérationnelle du livre réel, pas un résumé générique de
+> marketplace. Détail chapitre par chapitre, citations et cas du livre, exemples appliqués aux
+> produits Zooryn : `references/synthese-complete.md`.
+>
+> Limite honnête de la source : le PDF communautaire s'arrête en plein milieu du chapitre 14
+> ("Humour"), avant l'épilogue annoncé au sommaire. Tout le contenu doctrinal (les 2 parties, les
+> 14 chapitres, les 7 techniques) est en revanche couvert intégralement. Détails dans
+> `references/synthese-complete.md`.
 
-Eugene Schwartz wrote *Breakthrough Advertising* in 1966. It sells for $125+ used and is passed around in private Facebook groups and paid masterminds. Every serious dropshipper, media buyer, and direct response copywriter uses his two core models:
+## Le principe central du livre (à ne jamais perdre de vue)
 
-1. **5 Stages of Market Awareness** — How aware is your customer of the problem and your solution?
-2. **5 Levels of Market Sophistication** — How many competitors have said the same thing before you?
+**Le désir ne se crée pas, il se canalise.** "Le pouvoir qui fait fonctionner la publicité vient
+du marché lui-même, pas du texte." Canaliser un désir déjà là peut générer 850-1000 € de vente pour
+1 € de pub ; essayer d'éduquer le marché plafonne à 1 pour 1. Conséquence directe pour Zooryn : ne
+jamais partir de "comment convaincre quelqu'un que ce produit est génial" mais de "quel désir déjà
+présent chez ce client ce produit peut-il satisfaire, et comment le lui montrer".
 
-Get these wrong and your ads fall flat. Get them right and your copy lands instantly.
-
----
-
-## Framework 1: The 5 Stages of Market Awareness
-
-Your headline and hook must match where the buyer IS — not where you want them to be.
-
-### Stage 1: Most Aware
-**Who they are:** They know your product. They're basically ready to buy. Just need the offer.
-**What they want:** Price, guarantee, deal.
-**Example headline:** "Sleepwell Pro — Now 30% Off. Free Shipping This Week Only."
-**Where you find them:** Retargeting audiences, email lists, past customers
-**Ad angle:** Pure offer. Discount, bonus, urgency. No need to explain what the product does.
+Deuxième principe transversal, à respecter dans toutes les applications Zooryn : **jamais vendre le
+produit physique (matière, specs), toujours le produit fonctionnel (ce qu'il FAIT pour le
+client).** Ex. ne pas vendre "nylon ripstop 800D", vendre "résiste à une lame qui tente de trancher
+la bandoulière en pleine rue" — le nylon ripstop est la preuve, pas l'argument.
 
 ---
 
-### Stage 2: Product Aware
-**Who they are:** They know products like yours exist, but don't know yours specifically.
-**What they want:** Proof yours is better than the alternatives they've seen.
-**Example headline:** "Why 47,000 Light Sleepers Chose This Over Melatonin (And Never Looked Back)"
-**Where you find them:** Warm audiences — engaged with competitor content, browsed similar products
-**Ad angle:** Differentiation. Why you vs. the category. Testimonials. Comparison.
+## Framework 1 : les 5 stades de conscience du marché (chapitre 2)
+
+Détermine où en est le prospect par rapport au produit — gouverne le titre/hook et l'angle.
+
+| Stade | Le prospect... | Ce qu'il faut dans le titre/hook |
+|---|---|---|
+| **1. Le plus conscient** | Connaît le produit, le veut, pas encore acheté | Nom du produit + offre imbattable, rien de plus |
+| **2. Connaît le produit, ne le désire pas encore** | Marque connue, pas convaincu | Renforcer le désir par association, nouvelle preuve, nouvelle fonctionnalité |
+| **3. Nouveau produit** | Veut le bénéfice, ignore que le produit existe | Nommer le besoin/solution, prouver que c'est réalisable |
+| **4. Répond à un besoin** | Reconnaît le besoin, ne voit pas le lien avec le produit | Nommer le besoin, le dramatiser, présenter le produit comme solution |
+| **5. Marché totalement inconnu** | N'a même pas conscience du désir/besoin | Titre d'identification pur, aucun prix/nom/description directe |
+
+Exemples Zooryn par stade : Stade 1 = retargeting panier abandonné ("Le sac sling Zooryn, encore
+en stock, -15% ce week-end"). Stade 4 = "Plus jamais de prise électrique en camping" (guirlande
+solaire Luma). Stade 5 = titre qui fait écho à une identité/émotion partagée, sans jamais
+mentionner le produit frontalement.
+
+**Rôle réel du titre : il n'a qu'une fonction, faire lire la phrase suivante — pas vendre.** Sur un
+hook Meta Ads, l'équivalent est le hook entier (2-3 lignes avant "voir plus"), pas la première
+ligne isolée.
+
+**Un titre efficace devient obsolète quand le marché change de stade** — pas de martingale figée,
+réévaluer régulièrement.
+
+Détail complet (7 missions du titre au stade 2, techniques du stade 5, règle du titre préventif,
+étude de cas tabac) : `references/synthese-complete.md`, chapitres 2 et 3.
 
 ---
 
-### Stage 3: Solution Aware
-**Who they are:** They know the problem. They've tried things. They know solutions exist but haven't committed.
-**What they want:** The right mechanism explained clearly — "how does this solve what I've tried to fix before?"
-**Example headline:** "Finally: A Sleep Aid That Works Without Melatonin Dependency"
-**Where you find them:** Cold Facebook audiences with interest/behavior targeting (insomnia, sleep, wellness)
-**Ad angle:** Name the mechanism. Explain WHY it works differently. Build curiosity around the method.
+## Framework 2 : les 5 niveaux de sophistication du marché (chapitre 3)
+
+Détermine combien de fois le marché a déjà entendu ce type de promesse — gouverne le TYPE de
+titre.
+
+| Niveau | Le marché a déjà vu... | Stratégie |
+|---|---|---|
+| **1. Premier sur le marché** | Rien de similaire | Simple, direct, une seule affirmation du bénéfice principal |
+| **2. Deuxième** | Le même type de claim | Surenchérir (mais ça finit toujours par s'effondrer — scepticisme) |
+| **3. Mécanisme** | Toutes les surenchères de promesse | Basculer sur le COMMENT (le mécanisme devient l'argument, jusque dans le titre) |
+| **4. Mécanisme crowded** | Plusieurs mécanismes concurrents | Le mécanisme lui-même doit surenchérir (plus simple, plus rapide) |
+| **5. Saturation totale** | Ne croit plus ni aux promesses ni aux mécanismes | Bascule sur l'identification (comme le stade 5 de conscience) |
+
+Être "premier sur le marché" (niveau 1) peut venir d'un ANGLE inédit sur un produit déjà connu, pas
+seulement d'un produit inédit — pertinent pour la méthode Zooryn "traduire un concurrent" : traduire
+un produit peut recréer un niveau 1 sur l'angle (ex. sac sling positionné "anti-pickpocket voyage"
+plutôt que "sac banane streetwear"), même si le produit lui-même n'est pas nouveau.
+
+Étude de cas complète (l'industrie du tabac traverse les 5 niveaux) : `references/synthese-complete.md`, chapitre 3.
 
 ---
 
-### Stage 4: Problem Aware
-**Who they are:** They feel the pain. They know something is wrong. But they haven't searched for solutions yet.
-**What they want:** To feel understood. Validation that their problem is real and fixable.
-**Example headline:** "If You Can't Fall Asleep No Matter What You Try, Read This"
-**Where you find them:** Broad cold audiences — only demographic + behavior signals
-**Ad angle:** Open with the problem. Agitate it. Then reveal a solution exists. Don't pitch the product immediately.
+## Croiser les deux frameworks
+
+| Conscience | Sophistication | Angle |
+|---|---|---|
+| Stade 4-5 | Niveau 3-4 | Agitation du problème + nouveau mécanisme |
+| Stade 3 | Niveau 3 | Mécanisme d'abord ("voici comment ça marche") |
+| Stade 2 | Niveau 2-3 | Comparaison directe + preuve sociale |
+| Stade 1 | N'importe lequel | Offre directe + urgence |
+| Stade 4-5 | Niveau 5 | Identité hyper-spécifique ("pour les gens comme vous...") |
+
+Pour évaluer la sophistication d'un produit Zooryn : compter les publicités similaires en Meta Ad
+Library / TrendTrack. Moins de 5 pubs similaires = niveau 1-2. 5-20 = niveau 3. 20+ répétant le
+même argument = niveau 4-5.
 
 ---
 
-### Stage 5: Completely Unaware
-**Who they are:** They don't know they have a problem, or don't know it can be fixed.
-**What they want:** Curiosity. A pattern interrupt. Something surprising.
-**Example headline:** "Most People Don't Know Their Phone Is Ruining Their Sleep Quality"
-**Where you find them:** Broad cold audiences, lookalike audiences
-**Ad angle:** Reveal an unknown problem or enemy. Make them feel like they just learned something. Then introduce the problem as real and the fix as achievable.
+## Les 7 techniques avancées (partie 2 du livre, chapitres 7 à 13)
+
+Une fois le stade et le niveau identifiés, ces 7 techniques structurent le CORPS du texte (page
+produit, email long, script pub). Résumé condensé, détail complet avec cas du livre et applications
+Zooryn dans `references/synthese-complete.md`.
+
+1. **Intensification** (ch. 7) — rendre le désir concret et visualisable. 13 procédés (présentation
+   détaillée, mise en scène, avant/après, témoignages, comparaison, catalogue de bénéfices,
+   garantie comme point culminant...). Pour une campagne multi-créas : garder le même bénéfice
+   dominant mais varier l'angle de présentation à chaque créa (démonstration / témoignage /
+   avant-après / comparaison prix), jamais répéter le même angle.
+2. **Identification** (ch. 8) — le produit comme expression de soi, pas seulement satisfaction d'un
+   besoin. Toujours partir de l'image déjà perçue du produit (jamais aller contre), construire un
+   "pont" progressif vers l'image visée plutôt qu'un saut direct. Une image d'identification mal
+   calibrée détruit la crédibilité de TOUT le reste de l'annonce.
+3. **Gradation** (ch. 9) — ne jamais commencer par l'argument le plus fort si le produit est
+   inconnu. Partir d'un point de friction reconnu instantanément, obtenir des "oui" successifs,
+   PUIS le mécanisme, PUIS la promesse forte, avec preuve avant chaque montée en charge. Structure
+   directement transposable à une page produit Shopify ou un email Klaviyo long.
+4. **Redéfinition** (ch. 10) — désamorcer un vrai défaut en le recontextualisant ("il est CECI, pas
+   CELA"), jamais en inventant une caractéristique absente. S'applique à 3 objections : produit
+   compliqué (simplification), marché trop restreint (échelonnement), prix élevé (changer le point
+   de comparaison — toujours avec un ancrage réel, jamais un prix barré fictif).
+5. **Mécanisation** (ch. 11) — la question n'est jamais "expliquer le mécanisme ou pas" mais "à quel
+   niveau de détail", selon la sophistication du marché : le nommer seulement (marché qui connaît
+   déjà), le décrire (marché qui ne connaît pas), ou le mettre en avant jusque dans le titre (marché
+   très sophistiqué). Le texte du mécanisme doit vendre autant que la promesse, jamais de ton
+   scientifique ennuyeux.
+6. **Concentration** (ch. 12) — attaque frontale d'une alternative concurrente. Règle absolue du
+   livre : **ne jamais attaquer une faiblesse concurrente sans apporter immédiatement la preuve que
+   le produit corrige exactement ce défaut** — l'attaque seule ne fait que du scepticisme.
+7. **Camouflage** (ch. 13) — emprunter la crédibilité d'un format de confiance (post organique/UGC
+   plutôt que pub classique), ton sobre sans superlatifs, ou "sincérité mortelle" (assumer une
+   limite avant de vendre, ce qui rend la suite plus crédible).
+
+**Chapitre 14 — les touches finales** : la preuve (Vérification) doit arriver au moment précis où le
+lecteur la réclame, jamais avant, jamais en bloc isolé — "la documentation est intrinsèquement
+ennuyeuse, votre travail est d'y ajouter de l'émotion". Une limite honnête juxtaposée à un argument
+fort MULTIPLIE la crédibilité (Renforcement), elle ne s'additionne pas. Chaque phrase devrait porter
+promesse, image ET logique en même temps (Imbrication), pas en blocs séparés. Diagnostic quand un
+texte "ne prend pas" : ce n'est presque jamais le contenu qui est faux, c'est la structure/séquence
+qui est mal calée — "une nouvelle structure, c'est une nouvelle annonce."
 
 ---
 
-## Framework 2: The 5 Levels of Market Sophistication
+## Point d'honnêteté (à respecter systématiquement pour Zooryn)
 
-This determines your HEADLINE TYPE. As more ads saturate a market, you have to evolve your approach.
-
-### Level 1: First in the Market
-Nobody's heard this claim before. Make the claim boldly.
-**Example:** "Lose Weight Fast" (in 1960, nobody had said this — it worked)
-
-### Level 2: Second (Competitors Copying You)
-Others are making the same claim. You need to be bigger and more specific.
-**Example:** "Lose 27 Pounds in 30 Days"
-
-### Level 3: Mechanism Level
-Claims are crowded. Now you need a unique mechanism — HOW does it work?
-**Example:** "The 4-Minute Morning Habit That Burns Fat While You Sleep"
-
-### Level 4: Mechanism is Crowded
-Everyone has a mechanism. Yours must be newer, faster, easier.
-**Example:** "The Upgraded Fat-Loss Method — No Dieting, No Exercise, Just This"
-
-### Level 5: Fully Saturated Market
-Sophistication maxed out. Now you go back to basics: bond with the customer, understand them better than they know themselves. Identification and intimacy win.
-**Example:** "For Men Over 40 Who've Tried Everything and Are Done Playing Games"
-
-**Most dropshipping markets in 2024-2025 are at Level 3-4.** You need a mechanism, or you need to niche down hard.
+Le livre valide la dramatisation, la redéfinition d'un défaut réel, l'ancrage de prix par
+comparaison — mais **jamais l'invention d'une preuve, d'un prix barré fictif, ou d'une
+caractéristique absente**. La Redéfinition (ch. 10) recontextualise un fait réel, elle ne
+l'invente pas. La Réduction de prix psychologique (ch. 10) exige un ancrage de comparaison réel.
+Une image d'identification ou une preuve mal calibrée "contamine" la crédibilité de toute
+l'annonce (ch. 8 et 14) — argument de fond, indépendant du cadre légal, pour rester rigoureux sur
+les avis clients, garanties et prix barrés Zooryn.
 
 ---
 
-## How to Use Both Frameworks Together
+## Prompts IA actionnables
 
-**Step 1: Identify Awareness Stage**
-Ask yourself: "Where does my cold traffic audience actually sit?"
-- First-time Facebook cold traffic = usually Stage 3-4
-- Google search traffic = usually Stage 2-3 (they searched the solution)
-- Retargeting = Stage 1-2
-
-**Step 2: Identify Sophistication Level**
-Go to your product niche on Facebook Ad Library. Count how many ads make the same claim.
-- Under 5 similar ads → Level 1-2
-- 5-20 similar ads → Level 3
-- 20+ ads all saying the same thing → Level 4-5
-
-**Step 3: Match Your Hook**
-
-| Awareness | Sophistication | Hook Type |
-|-----------|---------------|-----------|
-| Stage 4-5 | Level 3-4 | Problem agitation + new mechanism |
-| Stage 3 | Level 3 | Mechanism-first ("here's how it works") |
-| Stage 2 | Level 2-3 | Direct comparison + social proof |
-| Stage 1 | Any | Straight offer + urgency |
-| Stage 4-5 | Level 5 | Hyper-specific identity ("for people like you...") |
-
----
-
-## AI Prompt — Generate Your Awareness-Matched Ad
+### Diagnostiquer une page/pub existante
 
 ```
-You are a direct response copywriter trained on Eugene Schwartz's Breakthrough Advertising.
+Voici le texte de ma page produit / pub Meta / email Klaviyo pour [produit Zooryn] :
 
-My product:
-- Name: [PRODUCT NAME]
-- Category: [PRODUCT TYPE]
-- Problem it solves: [PROBLEM]
-- Mechanism (how it works): [HOW IT SOLVES THE PROBLEM — the unique method/feature]
-- Target audience: [AGE, SITUATION, PAIN]
-- Awareness Stage: [1 / 2 / 3 / 4 / 5]
-- Sophistication Level: [1 / 2 / 3 / 4 / 5]
+[COLLER LE TEXTE]
 
-Using Schwartz's framework, write:
-1. Three headline options appropriate for this awareness stage and sophistication level
-2. A 150-word Facebook ad hook (first 3 sentences visible before "See More")
-3. The full ad body (250-400 words) with appropriate angle for this stage
-4. A CTA that matches the awareness stage (Stage 1: direct offer, Stage 4-5: curiosity/soft CTA)
+Mon audience est probablement au stade de conscience [1/2/3/4/5] et le marché est au niveau de
+sophistication [1/2/3/4/5] (compétiteurs vus sur Meta Ad Library / TrendTrack : [décrire]).
 
-Rules:
-- Match the language sophistication to the awareness level
-- Stage 3-5 ads should NOT start with the product name
-- Include the mechanism in Stage 3 ads
-- Stage 4-5 ads must open with the problem, not the solution
-- No hype language, no ALL CAPS except for emphasis in Stage 1-2 offers
+En te basant sur les frameworks de Breakthrough Advertising d'Eugene Schwartz (5 stades de
+conscience, 5 niveaux de sophistication, les 7 techniques Intensification/Identification/
+Gradation/Redéfinition/Mécanisation/Concentration/Camouflage), diagnostique :
+1. Le titre/hook est-il calé sur le bon stade et le bon niveau ?
+2. Quelle technique manque ou est mal placée dans la séquence ?
+3. Propose une nouvelle structure (pas juste un nouveau texte) si le problème est structurel.
 ```
 
----
+### Générer un titre/hook calé sur le bon stade
 
-## Quick Diagnosis Prompts
-
-### Prompt: Find Your Awareness Stage
 ```
-I sell [product] to [target customer].
+Produit Zooryn : [nom, ce qu'il fait concrètement pour le client, pas ses caractéristiques]
+Stade de conscience du prospect : [1 à 5, avec la source de trafic : retargeting / cold Meta / etc.]
+Niveau de sophistication du marché : [1 à 5, avec le nombre de pubs similaires vues]
 
-My traffic source is [Facebook cold / Facebook retargeting / Google search / email list].
-
-Based on Eugene Schwartz's 5 Stages of Market Awareness, which stage is my cold traffic audience in, and why? Give me a specific hook angle I should use for that stage.
-```
-
-### Prompt: Find Your Sophistication Level
-```
-I sell [product] in the [niche] market.
-
-The most common claims competitors make are: [list 3-5 common ad headlines you've seen].
-
-Based on Eugene Schwartz's Sophistication levels, what level is this market at? What should my headline strategy be to stand out? Give me 3 specific headline examples.
+Écris 3 titres/hooks (2-3 lignes, format hook Meta Ads avant "voir plus") calés STRICTEMENT sur ce
+stade et ce niveau selon les frameworks d'Eugene Schwartz (Breakthrough Advertising). Rappel des
+règles : au stade 4-5 ne jamais commencer par le nom du produit ni sa description directe ; au
+niveau 3+ le mécanisme doit apparaître dans le titre ; pas de superlatifs si l'angle est stade 5
+(camouflage/ton sobre).
 ```
 
-### Prompt: Rewrite Existing Ad by Stage
+### Structurer une page produit longue (Gradation + Imbrication)
+
 ```
-Here is my current Facebook ad copy:
+Produit Zooryn : [nom + bénéfice principal + mécanisme + 1-2 défauts réels connus]
+Point de friction que le client reconnaît instantanément : [ex. "20 min à gonfler un matelas avant
+de dormir"]
 
-[PASTE YOUR AD]
-
-This ad is underperforming. My audience is at Awareness Stage [X] and Sophistication Level [Y].
-
-Rewrite this ad to properly match Stage [X], Sophistication [Y] using Schwartz's Breakthrough Advertising framework. Keep the same product — change the hook, angle, and opening.
+Construis le plan de la page produit en suivant la logique de Gradation d'Eugene Schwartz : partir
+du point de friction (question ou constat à "oui"), enchaîner 2-3 affirmations à accord croissant,
+introduire le mécanisme seulement une fois l'accord installé, placer la promesse forte avec preuve
+juste après, puis clore sur une redéfinition honnête d'un défaut réel suivie de l'argument fort qui
+le compense (renforcement par juxtaposition, pas simple accumulation).
 ```
 
----
-
-## Real Examples by Stage
-
-### Stage 3 Ad (Solution Aware) — Posture Corrector
-**Headline:** "Finally: A Posture Device That Works in the Background — No Reminders, No Discomfort"
-**Hook:** "Most posture braces either hurt after 20 minutes or you forget to wear them. This works differently — a gentle haptic buzz when you slouch, then nothing. Your body trains itself."
-
-### Stage 4 Ad (Problem Aware) — Blue Light Glasses
-**Headline:** "Your Phone Isn't Keeping You Up. Your Eyes' Response To It Is."
-**Hook:** "Most people think doomscrolling keeps them awake. The real culprit is the blue wavelengths hitting your retina after 8pm — suppressing melatonin for up to 3 hours after you put the phone down."
-
-### Stage 2 Ad (Product Aware) — Resistance Bands
-**Headline:** "Our Bands Have 14,000 Reviews. But Here's Why That's Not Why You Should Buy Them."
-**Hook:** "Resistance bands are everywhere. Ours are different because of how they snap — or rather, don't. After testing 6 sets over 8 months, our team found only one that didn't break under progressive overload..."
-
-### Stage 1 Ad (Most Aware) — Skincare
-**Headline:** "The Vitamin C Serum That Sold Out in 72 Hours — Back in Stock This Week"
-**Hook:** "We restocked. If you've been waiting, here's your window. Current offer: free SPF moisturizer with every order, this week only. Ships in 2 days."
-
----
-
-## Key Quotes From Schwartz (Apply These)
-
-> "Your prospect's desire doesn't need to be created — it's already there. Your job is to channel it."
-
-This means: don't TRY to make people want your product. Find the desire that already exists and attach your product to it.
-
-> "The headline has one job: get the right people to read the next line."
-
-Implications: your headline isn't selling. It's filtering and inviting. Write it for Stage, not for conversion.
-
-> "A mass desire is a public spread of a private want."
-
-For dropshipping: find a desire that millions feel but only privately admit (better sleep, less pain, looking younger, easier money). Then be the first to say it out loud in your market.
-
----
-
-*This skill follows the Agent Skills 2.0 open standard. Install via: `npx skills add karausab590-ops/clawads-marketing-skills`*
+Pour toute question de détail non couverte ici (le cas complet de gradation "réparation télé", les
+38 façons de renforcer un titre, les 13 procédés d'intensification, les cas Chesterfield/Lifebuoy/
+Robert Collier...), consulter `references/synthese-complete.md`.

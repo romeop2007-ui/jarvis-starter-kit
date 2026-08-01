@@ -7,7 +7,24 @@
 
 ---
 
+## 2026-08-01
+
+### Réponse à l'agent Aplusfulfill (feedback + retard de réponse)
+- Message reçu de Yuri Yang resté sans réponse (COGS/logistique/taxe UE déjà connus) + demande de feedback sur le service
+- Réponse rédigée et envoyée : excuse ciblée sur le retard, accusé de réception des infos, feedback positif (quotes rapides, alerte taxe UE utile), suggestion mineure sur le suivi des numéros de tracking
+- Règles Guanxi appliquées (pas de reproche, pas de négociation)
+
+---
+
 ## 2026-07-30
+
+### Transcription leçon post-achat + flow Klaviyo post-achat construit de A à Z (8 mails)
+- **Leçon "1.7 Set-up le flow post-achat" (Module 8) téléchargée et transcrite localement** (`livrables/ecommerce/formation/Module 8 - L'emailing et SMS marketing/1.7 Set-up le flow post-achat/`), aucun souci RAM cette fois (12 min, `large-v3-turbo`). SOP assimilé : trigger Placed Order + Low Reentry 30 jours, E1 immédiat (merci + upsell), +5 min questionnaire post-achat, +2j storytelling/social proof, +3j tracking colis, +1j réassurance, +2j tuto d'utilisation, +10j split conditionnel (a racheté → push collection / sinon → code promo), +5j questionnaire post-réception avec routage par étoiles (1-3★ → formulaire interne, 4-5★ → Trustpilot, méthode "Reputon" vue en formation).
+- **Flow "Zooryn - Post-achat" (id `ShpSNp`) construit intégralement dans Klaviyo, statut brouillon**, même méthode technique que le flow paiement abandonné (`create_dnd_email_template` + `create_flow`) et même palette de marque exacte (logo header, CTA Terracotta `#C1522A`, bandeau brun noisette `#6E4E37` "LIVRAISON OFFERTE", footer noir), vouvoiement partout. 9 templates créés pour 8 emails effectifs (E1, E1bis questionnaire, E2 storytelling, E3 tracking, E4 réassurance, E5 conseils, split A push collection / split B code promo, E8 avis post-réception).
+- **Nouveau code promo `MERCI10` (-10%, tous produits, sans minimum) créé et actif sur Shopify**, dédié à ce flow pour ne pas mélanger le suivi avec PANIER10/PANIER20 (décision de Roméo).
+- **2 liens laissés en placeholder faute d'outils existants** (`https://zooryn.com/?todo=lien-questionnaire-post-achat` et `...todo=lien-trustpilot`), à remplacer par Roméo quand il aura un vrai formulaire (Google Forms/Tally) et une page Trustpilot Zooryn — décision actée en session plutôt que d'inventer des liens.
+- **Lien tracking colis (E3) pointé vers `/account/orders`** (page native Shopify, toujours valide) plutôt que vers l'ancien lien "Suivre ma commande" du footer, repéré cassé lors d'une session précédente (pointait vers une app ParcelPanel probablement désinstallée).
+- **Flow laissé en statut brouillon (pas activé)**, comme le flow paiement abandonné : à activer manuellement par Roméo dans Klaviyo quand il valide le rendu.
 
 ### Flow Klaviyo panier abandonné : palette Zooryn + vouvoiement
 - Appliqué la palette Zooryn sur les 4 emails du flow "Page de commande abandonnée Rappel - Standard" (Y5FaK9) : CTA bleu → terracotta #C1522A, bannière noire → brun noisette #6E4E37, bloc crème → beige #EDE6D9.

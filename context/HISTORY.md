@@ -14,6 +14,12 @@
 - Réponse rédigée et envoyée : excuse ciblée sur le retard, accusé de réception des infos, feedback positif (quotes rapides, alerte taxe UE utile), suggestion mineure sur le suivi des numéros de tracking
 - Règles Guanxi appliquées (pas de reproche, pas de négociation)
 
+### Adresse postale retirée du footer sur les 2 flows Klaviyo (panier abandonné + post-achat)
+- **Demande de Roméo : ne garder que le nom de l'entreprise dans le footer des emails, plus l'adresse postale complète** (`{{ organization.full_address }}` supprimé, `{{ organization.name }}` conservé avec le même style).
+- **13 templates au total recréés sans adresse** (même méthode create_dnd_email_template + update_flow_action que d'habitude, `update_dnd_email_template` restant cassé) : les 4 du flow paiement abandonné (`Y5FaK9`) et les 9 du flow post-achat (`ShpSNp`), contenu strictement identique à l'existant, seul le bloc footer a changé.
+- **Les 13 flow-actions repointées avec succès**, `reply_to_email` et tous les autres champs (from_email, subject_line, preview_text, name) vérifiés intacts après coup. Point technique à retenir : lors du repoint, il faut explicitement renvoyer le champ `links.next` de l'action (sinon Klaviyo le vide et bloque l'update avec "You cannot change the links of an action").
+- Comme d'habitude, Klaviyo a re-cloné chaque template en un nouvel ID au moment de l'attacher au flow (comportement connu, sans incidence).
+
 ---
 
 ## 2026-07-30

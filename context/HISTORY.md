@@ -7,6 +7,16 @@
 
 ---
 
+## 2026-08-02
+
+### Photo de signature Gmail + configuration email pro
+- Détourage de la photo de Roméo (fond transparent) via rembg, dans le dossier `livrables/ecommerce/boutiques/image zooryn/`, puis recoloration du haut (t-shirt camel) en #EDE6D9 par transfert de teinte préservant les ombres/plis.
+- Version avec fond plein #6E4E37 générée à la demande, puis version compressée et redimensionnée à 300px/17 Ko (`signature-photo-fond-6e4e37-300px.jpg`) pour résoudre l'erreur Gmail "La signature est trop longue" : le blocage venait de l'encodage base64 de l'image directement dans le HTML de la signature (limite ~10 000 caractères), pas de la taille visuelle de l'image. Solution actée : héberger l'image sur Shopify Fichiers et insérer un lien URL dans Gmail plutôt qu'un upload direct.
+- Explication donnée sur le transfert automatique Gmail (pro→perso) et comment le retirer via Paramètres → Transfert et POP/IMAP.
+- Configuration en cours du SMTP "Envoyer en tant que" pour contact@zooryn.com via Private Email (Namecheap) : correction du serveur SMTP (`mail.privateemail.com`, pas `mx1.privateemail.com` qui est le serveur de réception), nom d'utilisateur = adresse complète, mot de passe = celui de la boîte Private Email (récupérable/réinitialisable dans le panneau Namecheap).
+
+---
+
 ## 2026-08-01 (mise à jour 2)
 
 ### Skill `eugene-schwartz-breakthrough-advertising` réécrit à partir du vrai livre (lu intégralement)

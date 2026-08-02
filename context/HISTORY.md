@@ -22,6 +22,14 @@
 
 ## 2026-08-01
 
+### Trustpilot revendiqué, avis post-achat reporté au scaling, clarification codes promo
+- Compte Trustpilot Zooryn créé et revendiqué (business.trustpilot.com), lien d'évaluation https://fr.trustpilot.com/evaluate/zooryn.com opérationnel.
+- Décision : l'étape "Avis post-réception" du flow post-achat Klaviyo (Email 8 + délai 5j, routage 1-3★ formulaire interne / 4-5★ Trustpilot) reportée à la phase de scaling, suite à une remarque du formateur sur Discord. Roméo a supprimé les 2 blocs à la main dans l'éditeur Klaviyo (impossible via l'API, qui interdit de modifier la structure/les liens d'un flow). Le template email reste sauvegardé dans Klaviyo, juste déconnecté.
+- Google Form pour le questionnaire interne 1-3 étoiles discuté mais pas créé, même décision de report.
+- Vérification Shopify : PANIER10, PANIER20, MERCI10 sont des codes génériques publics, sans restriction (usageLimit null, appliesOncePerCustomer false), donc réutilisables par n'importe qui. Système alternatif "code unique par destinataire" (Klaviyo Coupon + Shopify "Code de réduction téléchargé") expliqué mais jugé sur-engineering au volume actuel, non couvert par la formation. Décision : codes génériques gardés tels quels, pas de verrou posé.
+
+---
+
 ### Réponse à l'agent Aplusfulfill (feedback + retard de réponse)
 - Message reçu de Yuri Yang resté sans réponse (COGS/logistique/taxe UE déjà connus) + demande de feedback sur le service
 - Réponse rédigée et envoyée : excuse ciblée sur le retard, accusé de réception des infos, feedback positif (quotes rapides, alerte taxe UE utile), suggestion mineure sur le suivi des numéros de tracking

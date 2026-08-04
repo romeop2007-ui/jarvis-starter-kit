@@ -9,10 +9,31 @@
 
 ## 2026-08-04
 
+### Flow panier abandonné construit + bug des liens code promo corrigé sur les 3 flows Klaviyo
+- Relecture manuelle des 7 emails du flow post-achat : RAS, rien de cassé.
+- Nouveau flow "Zooryn - Panier abandonné" (UeSBJA) construit de A à Z : déclencheur Added to Cart, 4 emails (20min/1j/1j/1j, structure identique au paiement abandonné), filtre anti-doublon (sort si Checkout Started ou Placed Order depuis le début du flow).
+- Bug découvert en testant en réel (Roméo) : le paramètre `?discount=CODE` ne s'applique que sur une vraie session de checkout, pas sur une page produit/collection normale. Corrigé sur le Split B post-achat (MERCI10) et les emails 2/3/4 du panier abandonné (PANIER10/PANIER20) avec le lien officiel Shopify `/discount/CODE?redirect=...`. Le paiement abandonné n'était pas concerné (utilise déjà une vraie URL de checkout).
+- Email 5 du post-achat allégé : retrait du conseil générique "suivez les indications fournies avec le produit" (catalogue multi-produits, conseil creux), gardé la demande de photo et le réflexe "contactez-nous avant de laisser un avis".
+- Discussion sur la collecte d'emails : Roméo et un ami e-commerçant (celui qui l'a lancé dans le e-commerce) pensaient qu'il fallait un espace client / attendre le seuil de 1000€/jour pour que le panier abandonné fonctionne. Clarifié que ce n'est pas le cas : le vrai blocage est l'absence de popup de capture email (le client anonyme n'a pas d'adresse connue avant d'ajouter au panier), un simple formulaire Klaviyo suffirait, pas besoin d'attendre le scaling. Sujet ouvert, pas implémenté cette session.
+- Bilan : les 3 flows Klaviyo (paiement abandonné, post-achat, panier abandonné) sont prêts et cohérents, tous en brouillon, à activer par Roméo au prochain vrai lancement.
+
+---
+
+## 2026-08-04
+
 ### Skill `crea-pub` enrichi (2e ad copy AIDA) + déclaration URSSAF juillet
 - Nouvelle synthèse compacte `.claude/skills/crea-pub/references/synthese-copywriting-ads.md` (Adweek Copywriting Handbook de Sugarman + The Art of Creating an Ad That Scales de Theriot, PDF déposés par Roméo dans `livrables/ecommerce/formation/Ressource commu/`). Synthèse volontairement courte (principes essentiels, pas un résumé chapitre par chapitre).
 - Skill `crea-pub` mis à jour : sur demande, génère désormais une **2e ad copy originale** (structure AIDA, angle psychologique différent, prompt fixe donné par Roméo) en plus du texte traduit du concurrent, pour tester 2 textes par pub comme recommandé par Meta.
 - Déclaration URSSAF de juillet 2026 faite : CA 78€ (2 ventes sac sling #1004/#1005), cotisation 5€.
+
+---
+
+## 2026-08-04
+
+### Vidéo "3.2 Les KPIs sur Meta Ads" transcrite et intégrée
+- Vidéo Kajabi téléchargée (yt-dlp + cookie Kajabi réutilisé depuis la leçon 2.1, catégorie Kajabi différente du produit "Le plan d'action de 0 à 1k/day") et transcrite localement (`scripts/transcribe.py`, `large-v3-turbo`). Titre exact inconnu au départ (page Kajabi protégée, WebFetch 403) : un dossier temporaire a été créé et renommé après lecture de la transcription, en doublon avec le dossier `3.2 Les KPIs sur Meta Ads` que Roméo avait entre-temps créé lui-même (avec le bon cookie) pour la même vidéo. **Doublon fusionné le 04/08/2026** : fichiers vidéo/txt/srt déplacés dans le dossier de Roméo, dossier temporaire supprimé. Chemin final : `livrables/ecommerce/formation/Module 10 - Meta Ads/3.2 Les KPIs sur Meta Ads/video/`.
+- Contenu : suite logique de la vidéo 2.1 (définitions) — fourchettes indicatives "bon KPI" sur le marché FR (CPM 7-20 €, CTR ~2 %, CPC 0,30-0,70 €, CPA 7-15 € pour un AOV ~40 €), facteurs qui les font varier (niche, format image/vidéo, structure CBO/ABO, ciblage, ancienneté du compte), et un cas réel chiffré (campagne 324 000 € dépensés / ROAS 2,23) où CTR et CPC étaient mauvais isolément mais la campagne restait très rentable. Leçon centrale répétée par le formateur : ne jamais isoler une métrique, le profit (ROAS vs ROAS BE/TARGET) prime toujours.
+- **Intégré dans `references/baremes.md` du skill `bilan-ads`** (nouvelle section 5bis), plutôt que dans `lexique-meta-ads.md` (celui-ci reste les définitions, `baremes.md` les seuils/décision). Fourchettes étiquetées **formation** mais avec la précision explicite du formateur que ce n'est "pas gravé dans le marbre" (contre-exemples rentables fréquents).
 
 ---
 

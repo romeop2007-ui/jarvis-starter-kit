@@ -7,6 +7,16 @@
 
 ---
 
+## 2026-08-04 (mise à jour 5)
+
+### Refonte de la méthode de recherche produit en catalogue versionné
+- Recherche produit sur la niche "maison" élargie (03/08) : 10 catégories couvertes, 0 candidat passant le plancher (Zomesi crochets ventouse, Holmgaard poêles titane, tous deux en réserve, aucun validé).
+- Roméo pointe que s'accrocher à 1-2 filtres fixes fait retomber sur les mêmes shops que les 700 autres élèves de la formation.
+- Nouveau fichier `references/methodes-versionnees.md` dans le skill recherche-produit : catalogue de 19 méthodes de filtre TrendTrack (V1-V19), chacune un angle différent (dépense 24h réelle, reach cumulé, pente de créa, croissance du nb de pubs, rank movers, split-testing, rotation géo EU sous-explorée, thèmes/apps Shopify typiques dropship...), avec statut validée/en test/retirée et journal de résultats.
+- Règle de présentation actée : méthode validée = bénéfice du doute possible sur un candidat borderline ; méthode en test = binaire, net début de scale ou rien, jamais de compromis pour avoir quelque chose à montrer. Une méthode en test qui ne sort jamais rien après plusieurs essais est retirée du catalogue.
+
+---
+
 ## 2026-08-04 (mise à jour 4)
 
 ### Configuration Meta Business Manager + création du compte Instagram pro

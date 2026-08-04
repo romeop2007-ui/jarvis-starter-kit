@@ -7,6 +7,24 @@
 
 ---
 
+## 2026-08-04
+
+### Skill `crea-pub` enrichi (2e ad copy AIDA) + déclaration URSSAF juillet
+- Nouvelle synthèse compacte `.claude/skills/crea-pub/references/synthese-copywriting-ads.md` (Adweek Copywriting Handbook de Sugarman + The Art of Creating an Ad That Scales de Theriot, PDF déposés par Roméo dans `livrables/ecommerce/formation/Ressource commu/`). Synthèse volontairement courte (principes essentiels, pas un résumé chapitre par chapitre).
+- Skill `crea-pub` mis à jour : sur demande, génère désormais une **2e ad copy originale** (structure AIDA, angle psychologique différent, prompt fixe donné par Roméo) en plus du texte traduit du concurrent, pour tester 2 textes par pub comme recommandé par Meta.
+- Déclaration URSSAF de juillet 2026 faite : CA 78€ (2 ventes sac sling #1004/#1005), cotisation 5€.
+
+---
+
+## 2026-08-03
+
+### Vidéo "2.1 Explication des termes Meta Ads" (produit "Le plan d'action de 0 à 1k/day") transcrite et intégrée
+- Vidéo Kajabi téléchargée (yt-dlp + cookie Kajabi réutilisé depuis `Module 10 - Meta Ads`, encore valide jusqu'au 10/08/2026) et transcrite localement (`scripts/transcribe.py`, `large-v3-turbo`). **Fichiers rangés dans `livrables/ecommerce/formation/Module 10 - Meta Ads/2.1 Explication des termes Meta Ads/video/`** (Roméo avait d'abord créé le module Meta Ads sans le sous-dossier de leçon ; un premier rangement provisoire dans un dossier `Plan d'action 0 à 1k par jour` a été supprimé par erreur puis reconstruit une fois le bon dossier créé — vidéo re-téléchargée et re-transcrite à l'identique).
+- Contenu : lexique Meta Ads de base — structure des assets (profil FB → Business Manager → adaccount), structure campagne (campagne → adcet → créa), les 3 types de campagne (CBO, ABO, Advantage+) avec leurs différences, et les 7 KPI (ROAS, CPM, CTR, CPC, CPA, coût par ATC, AOV) avec formules et exemples chiffrés.
+- **Nouveau fichier `references/lexique-meta-ads.md` créé dans le skill `bilan-ads`**, distinct de `baremes.md` (définitions/structure vs seuils de décision formation). SKILL.md du skill mis à jour avec une section "Références" pointant vers les deux fichiers.
+
+---
+
 ## 2026-08-02
 
 ### Photo de signature Gmail + configuration email pro

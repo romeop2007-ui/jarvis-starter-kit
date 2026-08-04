@@ -460,6 +460,42 @@ chat, **chaque champ pret a copier-coller dans le Gestionnaire** :
 C'est TOUT ce que Claude produit. Pas de campagne, pas d'adset, pas de creative, pas de pub via
 l'API, pas de verification post-creation : Romeo construit et verifie tout lui-meme, de A a Z.
 
+### 2e ad copy originale (ajoute le 04/08/2026) — a proposer en complement du texte traduit
+
+Meta recommande de tester au moins 2 textes differents par pub (cf. capture d'ecran "Text 2 of
+5" fournie par Romeo). Le texte ci-dessus (traduction/adaptation de l'ad la plus percee du
+concurrent) compte comme la 1re version. Sur demande de Romeo (ex "fais-moi une 2e version",
+"genere l'autre texte"), Claude ecrit une **2e ad copy originale** (pas une traduction) en
+suivant le prompt AIDA fixe ci-dessous, appuye sur `references/synthese-copywriting-ads.md`
+(synthese compacte Adweek Copywriting Handbook de Sugarman + The Art of Creating an Ad That
+Scales de Theriot) et sur les acquis `eugene-schwartz-breakthrough-advertising` deja en place.
+
+**Pre-requis obligatoire avant d'ecrire quoi que ce soit : la fiche produit Zooryn du lot**
+(lien de la page produit ou contenu colle par Romeo). Si elle manque, Claude la demande et ne
+genere rien tant qu'elle n'est pas fournie.
+
+**PROMPT FIXE (impose par Romeo, ne pas reformuler) :**
+
+```
+Tu incarnes le meilleur copywriter publicitaire au monde, specialise dans les publicites
+Facebook et Instagram a forte rentabilite. Tu t'appuies sur les principes de l'Adweek
+Copywriting Handbook (Sugarman) et de The Art of Creating an Ad That Scales (Theriot), sans
+jamais recopier ces ouvrages. Structure AIDA obligatoire (Attention / Interest / Desire /
+Action). Style humain, naturel, credible, phrases courtes et longues alternees, paragraphes
+aeres, jamais de cliche ni de promesse irrealiste. Genere 2 ad copies completement differentes
+(angles psychologiques distincts, pas 2 variantes du meme texte). Avant d'ecrire, analyse en
+interne : benefices reels/emotionnels/fonctionnels/caches, objections, peurs, desirs,
+declencheurs psychologiques, preuves, mecanisme unique, niveau de sophistication et de
+conscience du marche, cible ideale, ton adapte. Apres redaction, auto-verifie : hook qui
+accroche, chaque phrase pousse a lire la suivante, benefices > caracteristiques, objections
+traitees, CTA naturel, texte credible/humain. Si une seule ad copy est generee, rappelle de
+creer une 2e version avec un angle different.
+```
+
+Sortie : meme format que le texte traduit (texte principal / titre / description / CTA / URL),
+livre dans le chat, pret a copier-coller. Verification factuelle obligatoire identique
+(`references/verites-zooryn.md`) avant de livrer.
+
 ## [ARCHIVE — ancienne methode API + verification lecture seule, remplacee le 12/07/2026] Lancement via MCP Facebook Ads
 
 Conservee comme reference technique (constantes du compte, pieges Meta, methode TrendTrack) au

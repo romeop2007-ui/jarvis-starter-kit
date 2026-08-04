@@ -7,6 +7,13 @@ allowed-tools: mcp__claude_ai_Facebook_Ads_MCP__ads_get_ad_accounts, mcp__claude
 
 # Bilan ads — analyse kill/continue d'une campagne Meta
 
+## Références
+
+- `references/baremes.md` : les **seuils de décision** (ROAS BE/TARGET, paliers testing/scaling, kill/continue).
+- `references/lexique-meta-ads.md` : les **définitions de base** (assets, structure campagne/adcet/créa,
+  types de campagne CBO/ABO/Advantage+, formules des 7 KPI). À consulter si Roméo demande d'expliquer un
+  terme Meta Ads, avant de sortir un bilan.
+
 ## Objectif
 
 Sortir à Roméo, **directement dans le chat**, un bilan clair de sa campagne Meta du moment :

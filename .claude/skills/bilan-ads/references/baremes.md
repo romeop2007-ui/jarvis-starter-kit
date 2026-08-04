@@ -8,6 +8,10 @@
 > Source principale : **Framework Meta Ads Testing · Optimisation · Scaling** (ressource
 > officielle de la formation, intégré le 13/07/2026). PDF source :
 > `livrables/ecommerce/formation/Ressource commu/Framework Meta Ads Testing Optimisation Scaling/`.
+> Source complémentaire (section 5bis) : vidéo "3.2 Les KPIs sur Meta Ads",
+> `livrables/ecommerce/formation/Module 10 - Meta Ads/3.2 Les KPIs sur Meta Ads/`.
+> Source complémentaire (section 1bis) : vidéo "1.1 Calculer son ROAS BE & ROAS TARGET",
+> `livrables/ecommerce/formation/Module 12 - Analyse et prise de décision post-testing/1.1 Calculer son ROAS BE & ROAS TARGET/`.
 
 ---
 
@@ -15,18 +19,61 @@
 
 La formation décide **sur la rentabilité**, pas sur des seuils de vanité.
 
-- **ROAS BE (break-even)** = seuil pour ne pas perdre d'argent.
-  - Calcul : `ROAS BE = prix de vente / (prix de vente − COGS)`, soit `1 / marge`.
+- **ROAS BE (break-even)** = seuil pour ne pas perdre d'argent (0 % de marge nette).
+  - Calcul : `ROAS BE = prix de vente / (prix de vente − COGS net)`, soit `1 / marge`.
   - Exemple : produit à 49,99 €, COGS 15 € → marge = (49,99−15)/49,99 = 70 % → ROAS BE ≈ 1,43.
   - Sous ce seuil = on perd de l'argent sur la journée.
-- **ROAS TARGET** = seuil pour scaler avec **20-25 % de marge nette**.
-  - Approche simple : `ROAS TARGET ≈ ROAS BE / (1 − 0,225)` (≈ +29 % au-dessus du BE), à ajuster selon les frais réels (Shopify Payments ~1,5-2 %, frais de pub déjà dans le ROAS).
-- **RANGE ROAS TARGET** = la zone entre `ROAS TARGET − 20 %` et `ROAS TARGET`. Sert de zone tampon
-  dans les décisions (phase d'optimisation en testing, "ne pas toucher" en scaling).
-- **ROAS "−20 % de perte"** = `ROAS TARGET × 0,80` appliqué côté perte : le plancher sous lequel on cut à J+4.
+- **ROAS TARGET** = le ROAS qui donne **20 % de marge nette minimum**. Au-dessus, sur les 3 derniers
+  jours, on peut scaler (marge confortable).
+- **RANGE ROAS TARGET** = officiellement défini par la formation comme le ROAS correspondant à
+  **entre 15 % et 20 % de marge nette** (pas une simple décote de -20 % du TARGET, cf. précision
+  ci-dessous). Sur les 3 derniers jours, on ne touche pas au budget dans cette zone.
+- **ROAS "−20 % de perte"** = plancher sous lequel on cut à J+4 (indicateur séparé dans le fichier
+  officiel de calcul, cf. section 1bis).
 - **Coût ATC max** = **20 % de l'AOV** (panier moyen). Au-dessus, l'ajout au panier coûte trop cher pour être rentabilisé.
 - ⚠️ **Règle du framework : ces seuils se calculent UNE FOIS avant le test (COGS + AOV du produit) et ne se
-  recalculent pas en cours de test.** C'est pour ça que le COGS doit être connu AVANT de lancer (leçon Luma).
+  recalculent pas en cours de test** (sauf ajustement du COGS moyen toutes les 2 semaines en scaling,
+  cf. section 1bis). C'est pour ça que le COGS doit être connu AVANT de lancer (leçon Luma).
+
+---
+
+## 1bis. Méthode officielle de calcul (vidéo "1.1 Calculer son ROAS BE & ROAS TARGET", Module 12,
+intégrée le 04/08/2026)
+
+La formation fournit un **Google Sheet calculateur** (lien en description de la vidéo, à récupérer
+par Roméo) qui calcule automatiquement multiplicateur, ROAS BE, ROAS TARGET, RANGE ROAS TARGET et
+ROAS −20 % de perte à partir des colonnes suivantes, **par produit** :
+
+- **Frais de PSP** (processeur de paiement) : Shopify Payments et/ou PayPal, à demander à chaque
+  plateforme et moyenner si les deux sont utilisés. **+2 % environ** si la société est basée hors
+  UE (US, UK, Hong Kong...).
+- **TVA** (0 si franchise en base, cas de Zooryn) et **URSSAF** (cotisations).
+- **Autres frais** : prestataires payés au %CA (rare, souvent 0).
+- **Marge minimum retenue** : le fichier calcule sur la base de **15 % de marge nette** (bas de la
+  RANGE ROAS TARGET) et **20 % de marge nette** (ROAS TARGET, haut de la range).
+- **COGS et prix de vente** : voir méthode multi-bundle ci-dessous.
+
+### Méthode multi-bundle (important pour Zooryn, qui utilise RapidBundle)
+
+- **Au lancement du testing** (pas encore de data) : utiliser le COGS et le prix de vente de
+  **l'offre bundle n°1 uniquement** (approximation faute de mieux).
+- **Une fois en phase de scaling** : recalculer un **COGS moyen pondéré** et un **prix de vente
+  moyen pondéré** sur toutes les offres du bundle, pondérés par leur **taux de conversion réel**
+  (disponible dans **RapidBundle → onglet Analytics**, déjà installé sur Zooryn : "25 % des
+  acheteurs prennent l'offre 1, 50 % l'offre 2, 25 % l'offre 3", etc.).
+  - Raison : les offres 2/3 ont un **multiplicateur COGS moins avantageux** (rabais volume accordé
+    au client) mais génèrent **plus de profit net en valeur absolue**. Ignorer cette pondération
+    fausse le ROAS BE/TARGET réel dès qu'on a plusieurs paliers.
+  - Exemple donné dans la vidéo : offre 1 à 30 € (25 % des ventes), offre 2 à 50 € (50 %), offre 3
+    à ~65-70 € (25 %) → COGS moyen pondéré et prix de vente moyen pondéré recalculés (ex. 14,50 €
+    / 59,25 € dans l'exemple).
+  - **À refaire tous les 15 jours** sur les produits qui tournent et sont rentables : le mix
+    d'offres acheté par les clients bouge avec le temps (Meta cible des audiences différentes à
+    mesure qu'on scale, moins "chaudes"), donc le COGS/prix moyen pondéré — et donc le ROAS BE —
+    peuvent légèrement dériver sans qu'aucune offre n'ait changé.
+- Rejoint et précise la mémoire déjà actée côté Zooryn : *calculer la marge palier par palier,
+  jamais sur le meilleur cas* — cette vidéo donne la méthode exacte de pondération à appliquer une
+  fois qu'il y a assez de data (RapidBundle Analytics), plutôt qu'une simple moyenne arithmétique.
 
 ---
 
@@ -126,6 +173,32 @@ Servent à lire le funnel, jamais à décider seuls. Depuis l'intégration du fr
 
 > Ces fourchettes bougent selon le prix, le marché, le format. Elles cadrent la lecture,
 > elles ne remplacent JAMAIS les grilles des sections 2 à 4.
+
+### 5bis. Fourchettes FR précisées par le formateur (vidéo "3.2 Les KPIs sur Meta Ads",
+intégrée le 04/08/2026 — étiquette **formation**, mais explicitement présentées par le formateur comme
+**indicatives, pas gravées dans le marbre**, avec de nombreux contre-exemples rentables)
+
+| Métrique | Fourchette "bonne" selon le formateur | Marché |
+|----------|---------------------------------------|--------|
+| **CPM** | 7 € à 20 € | FR / marchés similaires (IT, ES...) |
+| **CTR (lien)** | ~2 % | FR |
+| **CPC** | 0,30 € à 0,70 € | FR |
+| **CPA** | 7 € à 15 € | pour un AOV de référence ~40 € (le CPA "acceptable" monte avec l'AOV) |
+
+Facteurs qui font bouger ces fourchettes (cités par le formateur) : niche (fashion/beauté/santé =
+plus de concurrence donc CPM plus cher, mais achat parfois plus facile), format (image = CPM plus
+bas que vidéo), structure de campagne (CBO < ABO en général), ciblage (broad < intérêts en général),
+ancienneté du compte (le CPM baisse avec le temps/le spend cumulé).
+
+**Cas réel donné en exemple par le formateur (campagne à 324 000 € dépensés / 725 000 € de CA,
+ROAS 2,23)** : CPM excellent (7 €, top ads à 4,47 €) MAIS CTR très faible (0,8 %, top ads à 0,5 %)
+ET CPC élevé (0,88 €, top ads à 1,60 €) — deux métriques "mauvaises" isolément. **Pourtant très
+rentable** : le trafic, bien que peu cliqueur, convertissait très fort une fois sur la fiche produit
+(la top ads avait généré 3 fois son CPA en profit malgré ses mauvaises stats de clic). Leçon
+répétée du formateur : **ne jamais isoler une métrique, ne jamais couper sur une seule métrique qui
+a l'air mauvaise** — c'est le global (et in fine le ROAS vs ROAS BE/TARGET, donc le **profit**) qui
+tranche. Complète la grille "où le tunnel casse" (section 6) : un maillon faible n'est un problème
+que si le ROAS global ne compense pas.
 
 ---
 

@@ -7,6 +7,15 @@
 
 ---
 
+## 2026-08-04 (mise à jour 4)
+
+### Configuration Meta Business Manager + création du compte Instagram pro
+- Immatriculation de l'entreprise sur Meta Business Manager : type "Entreprise individuelle" (micro-entreprise), statut "Immatriculée" (SIRET existant), fiche entreprise sélectionnée dans les résultats de recherche officielle (PIAT ROMEO ANDRE, Cambrai), identifiant fiscal choisi au format SIRET (SIREN-NIC).
+- Compte Instagram professionnel créé sous le nom d'utilisateur **@zooryn.co** ("zooryn" seul indisponible, "zoorynoff" écarté à connotation limite négative en anglais, "zooryn.fr" écarté par anticipation d'un développement à l'international). Nom d'affichage corrigé (le nom de famille "PIAT", pré-rempli par défaut par Instagram, retiré du champ "Nom").
+- Texte de post Facebook exemple (format du formateur, ex. marque "Naemya") adapté à Zooryn : "Zooryn réunit en un seul endroit tout ce qui rend le quotidien plus agréable : essentiels maison, voyage et plein air, pensés pour toi, simplement." Recherche d'image lifestyle maison (tons chauds/terracotta, cosy) fournie en remplacement du repère "femme qui sourit" du formateur, non pertinent pour une niche maison neutre.
+
+---
+
 ## 2026-08-04
 
 ### Flow panier abandonné construit + bug des liens code promo corrigé sur les 3 flows Klaviyo
@@ -16,6 +25,15 @@
 - Email 5 du post-achat allégé : retrait du conseil générique "suivez les indications fournies avec le produit" (catalogue multi-produits, conseil creux), gardé la demande de photo et le réflexe "contactez-nous avant de laisser un avis".
 - Discussion sur la collecte d'emails : Roméo et un ami e-commerçant (celui qui l'a lancé dans le e-commerce) pensaient qu'il fallait un espace client / attendre le seuil de 1000€/jour pour que le panier abandonné fonctionne. Clarifié que ce n'est pas le cas : le vrai blocage est l'absence de popup de capture email (le client anonyme n'a pas d'adresse connue avant d'ajouter au panier), un simple formulaire Klaviyo suffirait, pas besoin d'attendre le scaling. Sujet ouvert, pas implémenté cette session.
 - Bilan : les 3 flows Klaviyo (paiement abandonné, post-achat, panier abandonné) sont prêts et cohérents, tous en brouillon, à activer par Roméo au prochain vrai lancement.
+
+---
+
+## 2026-08-04 (mise à jour 3)
+
+### Vidéo "1.1 Calculer son ROAS BE & ROAS TARGET" (Module 12) transcrite et intégrée
+- Vidéo Kajabi téléchargée directement dans le bon dossier (Roméo l'avait créé avec le cookie déjà déposé) et transcrite localement (`scripts/transcribe.py`, `large-v3-turbo`). Fichiers dans `livrables/ecommerce/formation/Module 12 - Analyse et prise de décision post-testing/1.1 Calculer son ROAS BE & ROAS TARGET/video/`.
+- Contenu : présentation du **Google Sheet officiel de calcul du ROAS BE/TARGET** (lien en description de la vidéo, à récupérer par Roméo), colonnes à remplir (frais PSP, TVA, URSSAF, autres frais %, COGS, prix de vente), et **méthode multi-bundle** : au testing on utilise le COGS/prix de l'offre 1 seule, puis une fois en scaling on recalcule un **COGS moyen pondéré** par le taux de conversion réel de chaque offre (lu dans RapidBundle → Analytics), à refaire tous les 15 jours. Précision officielle : RANGE ROAS TARGET = ROAS correspondant à 15-20 % de marge nette (pas une simple décote -20 % du TARGET comme l'approximation utilisée jusqu'ici).
+- **Intégré dans `references/baremes.md` du skill `bilan-ads`** : section 1 clarifiée (définitions exactes des seuils), nouvelle section 1bis (méthode officielle de calcul + méthode multi-bundle pondérée, directement applicable à Zooryn qui utilise déjà RapidBundle).
 
 ---
 

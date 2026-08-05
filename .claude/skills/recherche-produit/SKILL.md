@@ -113,11 +113,12 @@ Sorties volumineuses → sauver en fichier et parser avec `node -e` ou PowerShel
 **Leçon du 04/08/2026 (NordBand)** : candidat présenté avec un plancher franchi et une pente exemplaire, tué en trente secondes par Roméo qui a simplement ouvert le site — le client pouvait faire graver **la phrase de son choix**, donc produit personnalisable, exclusion dure. Claude n'avait jamais quitté TrendTrack.
 
 **Checklist à faire sur la page produit du winner, avant toute présentation :**
-1. **Personnalisation ?** (gravure, texte libre, initiales, choix complexe) → exclusion dure, on jette.
-2. **Nature du produit** : ingéré ? topique à promesse santé ? → exclusion dure.
-3. **Prix exact et structure d'offre** à partir de l'offre n°1 (solo ou multi-unités par défaut).
-4. **Pricing cohérent ou cassé** (cf. `sites-a-ne-pas-recopier.md`) → si cassé, non copiable.
-5. **Nombre de produits réel** au catalogue, pour confirmer le mono-produit.
+1. **Saisonnalité ?** Le produit tourne-t-il à l'année, ou est-ce hors-saison au moment où on lancerait le test ? → exclusion dure si oui, même si tout le reste (plancher, prix, marché) est excellent. **Leçon Vivalyo (05/08/2026)** : un candidat qui passe tous les critères data peut quand même être mort si le time to market ne colle pas (brosse de nettoyage barbecue présentée en toute fin d'été) — vérifier ce point EN PREMIER, avant de creuser le reste.
+2. **Personnalisation ?** (gravure, texte libre, initiales, choix complexe) → exclusion dure, on jette.
+3. **Nature du produit** : ingéré ? topique à promesse santé ? → exclusion dure.
+4. **Prix exact et structure d'offre** à partir de l'offre n°1 (solo ou multi-unités par défaut).
+5. **Pricing cohérent ou cassé** (cf. `sites-a-ne-pas-recopier.md`) → si cassé, non copiable.
+6. **Nombre de produits réel** au catalogue, pour confirmer le mono-produit.
 
 ### Étape 6 — Présentation de la short-list
 

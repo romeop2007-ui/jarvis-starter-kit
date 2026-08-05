@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-08-05 (mise à jour 5)
+
+### Reprise de la recherche produit : V1/V4 étendus, catalogue de filtres formation découvert, panne TrendTrack
+- **Recherche produit relancée en session interactive.** V1 + V4 relancés sans catégorie (méthode actée le 04/08) sur une nouvelle page de résultats : rien de nouveau côté validé. ScandicBeam (caméra d'inspection/endoscope pour canalisations) reste seul candidat en réserve, plancher pas franchi au sens strict (2 créas sur 3 seulement passent 70€/j).
+- **Vivalyo (GrillMeister Pro™, brosse motorisée de nettoyage de grille de barbecue) — candidat qui passait TOUS les critères data** (mono-produit + upsells, pente d'ads nette sur 8 semaines, plancher franchi créa par créa avec 3 créas ≥70€/j, prix 69€ pile dans la cible 50-70€, marché 100% DE) **mais rejeté par Roméo sur la saisonnalité** : brosse à barbecue lancée en toute fin d'été, time to market mort. **Erreur de Claude actée** : la saisonnalité fait pourtant partie des exclusions dures documentées depuis longtemps, mais n'était pas dans la checklist concrète de vérification avant présentation (étape 5bis du skill) — corrigé dans la foulée (cf. bullet skill ci-dessous). Repassé en rejeté dans `liste-rejetes.md`, avec la leçon consignée en toutes lettres.
+- **Sur demande de Roméo, 4 filtres du catalogue testés d'un coup (F7, F8, F9, F10)** : 0 candidat exploitable sur les 4. F9 (rotation géo Pologne) mis en pause car mal calibré tel quel (`main_countries` seul sans signal e-commerce remonte les plus gros annonceurs nationaux du pays, pas des dropshippers). F10 (combo le plus strict) retiré définitivement, confirmant noir sur blanc la loi structurelle du 04/08 ("seuil absolu cumulé + shop frais = toujours 0").
+- **Découverte en response à la demande de Roméo d'aller rechercher les filtres de la formation** : les vidéos déjà transcrites du Module 5 (1.5, 4.1, 4.3) montrent une méthode de filtrage jamais testée côté Claude, basée sur la **technologie du site** (Shopify/WooCommerce/PrestaShop/ClickFunnels/GemPages), le **CTA** (Shop Now/Learn More), la **langue de la pub** et un **plafond de followers Facebook/Instagram** — au lieu du trafic/pays utilisés jusqu'ici. 4 recettes préparées à partir de cette méthode, prêtes à lancer.
+- **Panne du connecteur TrendTrack en cours de session** (erreur 502 côté serveur Cloudflare/TrendTrack, confirmée non liée aux crédits du compte : 19 294 crédits restants juste avant la coupure). Recherche suspendue en plein test des 4 recettes formation, à reprendre dès que le connecteur remonte.
+- **Prochaine étape actée avec Roméo** : tester les filtres de la formation un par un dès que TrendTrack remonte, puis lancer une **recherche saisonnière adaptée au Q4 qui arrive**, différente de la méthode N-1 classique : au lieu de chercher les pubs qui ont explosé en septembre 2025 (top créas), chercher les **shops CRÉÉS en septembre 2025** (pas août) — la période où les dropshippers montent leur boutique pour préparer le rush Q4, moment où le volume de bons produits est le plus fort de l'année.
+- **Skill `recherche-produit` corrigé** : la checklist de l'étape 5bis (vérifications obligatoires avant de présenter un candidat) n'incluait pas explicitement la saisonnalité alors que c'est une exclusion dure documentée ailleurs dans le fichier — ajoutée en premier point de la checklist pour que l'erreur Vivalyo ne se reproduise pas.
+- **Aparté (hors recherche produit)** : campagne Meta "Campagne de likes" de Roméo (créée le 03/08, active) diagnostiquée en lecture seule via le MCP Facebook Ads à sa demande. Constat : 0 vrai like de Page malgré 33 réactions et 67 interactions Page, parce que l'ensemble de publicités est réglé sur l'objectif large "Interaction avec le profil et la Page" (résultat suivi = vues de page, pas mentions J'aime). Expliqué à Roméo comment lire lui-même ces métriques dans le Gestionnaire de publicités (colonnes personnalisées Réactions/Interactions, ou aperçu du post).
+
+---
+
 ## 2026-08-05 (mise à jour 4)
 
 ### Remplissage du P&L officiel + migration complète depuis l'Investissement E-commerce

@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-08-05 (mise à jour 3)
+
+### SOP acté : on n'achète pas de la qualité avant d'avoir prouvé la demande
+- Roméo formalise le principe qui sous-tendait sa décision sur la ligne de transport, et qui dépasse largement la logistique.
+- **Temps 1, testing :** aucune qualité de service achetée. Les premiers clients servent à prouver qu'il existe des gens prêts à payer pour ce produit, et une livraison longue ne fausse pas cette réponse. On subit aussi le tarif de base de l'agent, faute de volume donc de levier de négociation. Assumé.
+- **Temps 2, demande prouvée :** on inverse volontairement et on accepte d'écraser sa marge pour financer une vraie expérience client. Ce n'est pas une perte, c'est le ticket d'entrée du branding, cohérent avec la doctrine "branding tranché après un winner".
+- **Temps 3, volume :** les ventes quotidiennes qui justifient de payer plus cher sont exactement ce qui donne le levier pour négocier le COGS à la baisse. On récupère d'un côté ce qu'on a dépensé de l'autre.
+- **Conséquence directe pour Claude, gravée en mémoire :** ne plus recommander d'investir dans la qualité de service tant qu'un produit n'a pas prouvé sa demande. Erreur commise deux fois dans la même session (pousser vers la ligne rapide, pousser vers la correction des pages légales) alors que le pipeline est vide.
+- Point de vigilance conservé sans remettre la règle en cause : sur un test qui réussit, les clients de la phase lente deviennent les premiers avis pendant le scaling, à traiter en SAV proactif.
+
+---
+
 ## 2026-08-05 (mise à jour 2)
 
 ### Devis logistique Aplusfulfill : les deux lignes chiffrées, avantage bundle confirmé, plancher de prix établi

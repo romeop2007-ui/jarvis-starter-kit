@@ -7,6 +7,21 @@
 
 ---
 
+## 2026-08-05 (mise à jour 4)
+
+### Remplissage du P&L officiel + migration complète depuis l'Investissement E-commerce
+- **Sheet "Calcul ROAS BE & TARGET - ZECOM ACADEMY" partagé et configuré** : ligne de base Zooryn dans l'onglet ROAS BE+TARGET (PSP formule liée au prix de vente, Urssaf 6,2%, TVA 0%, marges 15%/20%), vérifiée avec un test chiffré avant d'être remise à vide.
+- **Sheet "P&L - Zecom Academy 2026" partagé et exploré en détail** : 21 onglets (Daily Report mappé jour par jour sur toute l'année 2026, Testings, COGS Check, Annual P&L + 12 mois, Fees/Taxes centralisé). Règles d'or de remplissage (cases violettes uniquement) actées par Roméo et consignées dans `.claude/skills/budget/references/pnl-officiel-formation.md`.
+- **Fees/Taxes rempli** : PSP 1,5%+0,25€ (Shopify Payments confirmé via capture, forfait Basique), Urssaf 6,2% (ACRE), TVA 0%, PayPal à 0 (vérifié en direct sur Shopify : aucune commande PayPal n'a jamais existé, 4 commandes payées au total, toutes Shopify Payments).
+- **Historique T1-T5 migré dans l'onglet Testings** : une ligne agrégée par testing (pas de reconstruction jour par jour, décision actée par Roméo), avec un bug de nettoyage repéré et corrigé en cours de route (suppression incomplète de colonnes ayant faussé un total). **Découverte importante** : avec les vrais frais PSP/Urssaf déduits (que l'ancien Sheet ne comptait pas), le sac sling T5, cru légèrement rentable (+5,26€), était en réalité quasi à l'équilibre (-0,68€). Perte totale réelle des 5 testings : -196,73€ (vs -185,11€ dans l'ancien calcul).
+- **Blocs Testings compactés** (1 ligne de données + TOTAL par testing, suppression des lignes vides en trop) — mécanique de gestion des lignes (deleteDimension/insertDimension, bas vers le haut) apprise et documentée pour les futurs testings multi-jours.
+- **Mise en forme conditionnelle ajoutée sur la colonne Net Profit des Testings** : rouge si négatif, vert si positif, uniquement sur les lignes TOTAL (formule `$C="TOTAL"`), automatique pour tout futur bloc. Un ancien jeu de règles du formateur (heatmap sur les lignes de données, source de confusion) identifié et expliqué à Roméo, laissé en place à sa demande.
+- **Abonnements Mai-Août portés dans les onglets mensuels** (Claude IA, Shopify, LegalPlace, TrendTrack, Qonto, Vmake, ElevenLabs, Capcut, Zecom, Thème Shrine Pro — RapidBundle et Parcel Panel volontairement exclus, à venir), catégorisés (Software/Tools/App, Services, Other), total vérifié exact à 2 502,72€.
+- **Reconstruction du total historique et décision sur l'Urssaf** : le chiffre cible de Roméo (2 691,83€) s'est révélé être une combinaison de l'ancienne perte testing non corrigée + une cotisation Urssaf réelle ponctuelle, mélangeant deux méthodes de calcul. Décision actée : l'Urssaf est comptée uniquement via l'estimation automatique à 6,2% du CA (Fees/Taxes), pas de ligne manuelle en plus (évite le double comptage). **Total réel final, recoupé par deux calculs indépendants qui tombent au même chiffre : -2 699,45€.**
+- **L'ancien Sheet "Investissement E-commerce" a été supprimé par Roméo**, la migration est terminée. Le skill `budget` continue de couvrir le suivi budget mais s'appuie désormais sur les 2 nouveaux sheets officiels.
+
+---
+
 ## 2026-08-05 (mise à jour 3)
 
 ### SOP acté : on n'achète pas de la qualité avant d'avoir prouvé la demande

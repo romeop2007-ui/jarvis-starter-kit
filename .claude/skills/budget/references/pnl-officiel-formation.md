@@ -210,20 +210,23 @@ Se recalcule entièrement à partir des onglets mensuels et du Daily Report.
 - Catégories disponibles (via `SUMIF` sur la colonne Z) : Shopify App, Software/Tools/App,
   Growth Partner (%), Freelance, Services, Other.
 
-## 5. Décision actée le 05/08/2026 : migration vers le P&L officiel
+## 5. Migration TERMINÉE le 05/08/2026
 
-**Roméo a tranché : le Sheet "Investissement E-commerce" (skill `budget`) sera abandonné
-progressivement au profit du P&L officiel de la formation**, désormais l'outil de référence pour
-suivre le profit (jour par jour ET par testing via l'onglet Testing).
+**Le Sheet "Investissement E-commerce" a été supprimé par Roméo.** Le P&L officiel de la
+formation est désormais l'unique outil de suivi budget/profit. Ce qui a été fait :
 
-Étapes restantes :
-1. Récupérer le lien du Sheet P&L template (description de la vidéo "1.2 Calculer son profit
-   (P&L)") et le partager avec `budget-bot@claude-gws-setup-497511.iam.gserviceaccount.com`.
-2. Une fois l'accès confirmé : nettoyer les colonnes inutiles pour Zooryn (pas de PayPal actif à
-   vérifier, un seul shop → supprimer shop 2/3, pas de conversion devise LLC).
-3. Utiliser l'onglet **Testing** pour le prochain produit lancé (remplace les blocs T1-T5 de
-   l'Investissement E-commerce).
-4. **Ne pas supprimer l'ancien Sheet "Investissement E-commerce" d'un coup** : le garder comme
-   archive historique (T1-T5, apprentissage), arrêter simplement de le mettre à jour une fois le
-   P&L officiel opérationnel. Le skill `budget` reste donc en l'état tant que la bascule n'est pas
-   confirmée fonctionnelle, mais n'est plus l'outil actif au quotidien.
+1. **Sheet ROAS BE & TARGET** (`1QkCJdp5MnCgDyYrBu2KB2diL46pMyjrjx10PyM0sgag`) : ligne de base
+   Zooryn configurée dans l'onglet ROAS BE+TARGET.
+2. **Sheet P&L** (`1bNuSkdCGIH2jM0whvLOfSoVth8nJwvJe6RsHCF6_C8s`) : Fees/Taxes rempli, historique
+   T1-T5 migré dans Testings (une ligne par testing, compactée), abonnements Mai-Août portés dans
+   les onglets mensuels, mise en forme conditionnelle rouge/vert posée sur les totaux Testings.
+3. **Total réel reconstitué : -2 699,45 €** (subscriptions -2 502,72 € + testings historiques
+   -196,73 €, avec les vrais frais PSP/Urssaf déduits — plus précis que l'ancien -2 554,37 €).
+4. **Décision Urssaf** : comptée uniquement via l'estimation automatique 6,2 % du CA dans
+   Fees/Taxes, jamais de ligne manuelle "cotisation réelle" en plus dans les dépenses mensuelles
+   (évite le double comptage).
+5. **À partir du 05/08/2026, DAILY REPORT prend le relais au jour le jour** pour tout nouveau
+   testing (plus de reconstruction rétroactive — cf. règles d'or section 4bis).
+
+**RapidBundle et Parcel Panel volontairement exclus des abonnements pour l'instant** (à venir,
+ne pas les ajouter sans confirmation de Roméo).

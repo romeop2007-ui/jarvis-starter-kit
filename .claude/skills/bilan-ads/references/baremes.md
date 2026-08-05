@@ -12,6 +12,9 @@
 > `livrables/ecommerce/formation/Module 10 - Meta Ads/3.2 Les KPIs sur Meta Ads/`.
 > Source complémentaire (section 1bis) : vidéo "1.1 Calculer son ROAS BE & ROAS TARGET",
 > `livrables/ecommerce/formation/Module 12 - Analyse et prise de décision post-testing/1.1 Calculer son ROAS BE & ROAS TARGET/`.
+> Source complémentaire (section 2) : vidéo "1.4 Analyse et prise de décision en phase de testing"
+> (3 exemples chiffrés commentés) + board Miro officiel "Analyse résultats testing CBO - Zecom
+> Academy" (accès direct via MCP Miro depuis le 05/08/2026, mêmes scénarios en visuel).
 
 ---
 
@@ -90,8 +93,16 @@ On juge à chaque palier de spend cumulé, jamais à chaud entre deux paliers.
 | Scénario | Condition | Décision |
 |----------|-----------|----------|
 | ✅ 1 | ≥ 1 vente | Jour validé, on continue |
-| ✅ 2 | 0 vente MAIS CPC en baisse ou stable (−1 € ou moins) | Jour validé, on continue |
-| ❌ 3 | 0 vente ET CPC en hausse (+1 € ou plus) | **CUT** |
+| ✅ 2 | 0 vente MAIS CPC < 1 € | Jour validé, on continue |
+| ❌ 3 | 0 vente ET CPC > 1 € | **CUT** |
+
+> ⚠️ Correction du 05/08/2026 (vidéo "1.4 Analyse et prise de décision en phase de testing" +
+> board Miro officiel "Analyse résultats testing CBO") : c'est un **seuil absolu** de CPC (1 €),
+> pas une variation. Le board écrit "CPC -1€ / CPC +1€" en raccourci visuel pour "< 1€" / "> 1€" ;
+> la vidéo le confirme sans ambiguïté à l'oral avec des exemples chiffrés (0,40 / 0,70 / 0,90 €
+> tous "inférieurs à 1€" → jour validé). L'ancienne formulation ("CPC en baisse/hausse de 1€",
+> lue comme une variation) était une erreur d'interprétation au moment de l'intégration du PDF
+> le 13/07/2026.
 
 ### Palier 48h (100 € de spend)
 | Scénario | Condition | Décision |
@@ -110,10 +121,46 @@ On juge à chaque palier de spend cumulé, jamais à chaud entre deux paliers.
 
 Le testing peut s'étendre au-delà de 4 jours (72h/6j…) tant qu'on reste en zone 🟠 : on réapplique
 la grille J+4 à chaque journée pleine supplémentaire, jusqu'à basculer en ✅ (scaling) ou ❌ (cut).
+Exemple chiffré du PDF/vidéo (partant d'un cut technique à 48h, cf. 2bis) : 72h (150€) 🟠 ROAS 1,53
+→ 4j (200€) 🟠 ROAS 1,63 → 6j (300€) ✅ ROAS 2,49 → phase de scaling.
 
 > Note d'évolution : ce framework REMPLACE l'ancienne règle simplifiée "journée non rentable → kill
 > immédiat" utilisée sur les tests T1-T5 (pré-formation). Il est plus patient : un J1 sans vente mais
 > avec un CPC sain n'est plus un motif de kill.
+
+---
+
+## 2bis. Marge de discrétion et philosophie du plan (vidéo "1.4 Analyse et prise de décision en
+phase de testing", commentaire oral du formateur, absent du PDF/Miro qui ne montrent que le
+résultat écrit des grilles)
+
+**Les paliers de spend sont approximatifs, pas des seuils au centime près.** Si l'analyse tombe à
+95-97 € au lieu de 100 €, ou à 110-120 € au lieu de 100 €, ou qu'on n'a pas pu analyser pile au bon
+moment et qu'on a dépensé 20-25 € de plus que prévu, ce n'est pas grave : on reste dans la tranche
+et on prend quand même la décision sur cette base. Meta ne dépense jamais exactement le budget fixé,
+c'est toujours une approximation.
+
+**Le plan est un guide, pas une loi rigide — mais seulement une fois qu'on a de l'expérience.** Le
+formateur est explicite : "si vous êtes vraiment débutant intermédiaire, vous n'avez toujours pas
+fait vos premiers 1-2 K/day, suivez le plan à la lettre." Mais il donne un contre-exemple assumé
+(l'Exemple 3 du PDF/Miro, celui qui affiche officiellement CUT ❌ à 48h avec ROAS 0,72) : le coût
+par ATC y est excellent (7,40 € contre un seuil de 12,50 €), signe d'une vraie traction (beaucoup de
+monde ajoute au panier) même sans vente. Dans ce cas précis, le formateur dit que lui-même aurait
+laissé tourner 50 € de plus avant de couper officiellement, plutôt que d'appliquer le CUT à la
+lettre — c'est cette décision qui donne l'"Exemple étendu"/"Exemple 3 bis" (qui finit par scaler à
+300 €, cf. section 2). **Ce n'est pas une règle chiffrée à appliquer systématiquement** (le
+formateur dit lui-même "les deux décisions sont possibles, ça dépend de votre trésorerie, de votre
+expérience"), plutôt une invitation à ne pas couper de façon 100% mécanique quand un signal fort
+(ATC très bas) contredit le CUT du ROAS — et à ne pas se sentir obligé de le faire non plus.
+
+**Pourquoi on coupe tôt par défaut (rationale, pas juste la règle).** Un produit peut toujours finir
+par "péter" si on s'acharne assez longtemps et qu'on dépense assez. Mais on ne sait jamais à l'avance
+combien de temps ni combien d'argent ça prendrait. En dropshipping débutant, la trésorerie est
+limitée : chaque jour de spend non rentable avant d'atteindre le seuil de rentabilité, c'est de la
+trésorerie qui fond sans garantie de retour. Mieux vaut couper un produit trop loin de la vérité dès
+le début et passer au suivant (qui a statistiquement plus de chances d'être proche de la rentabilité)
+plutôt que de s'entêter à l'aveugle. C'est la même logique cash-first que la doctrine SOP "on
+n'achète pas de qualité avant d'avoir prouvé la demande" (05/08/2026, cf. mémoire dédiée).
 
 ---
 

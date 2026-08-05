@@ -15,6 +15,11 @@
 > Source complémentaire (section 2) : vidéo "1.4 Analyse et prise de décision en phase de testing"
 > (3 exemples chiffrés commentés) + board Miro officiel "Analyse résultats testing CBO - Zecom
 > Academy" (accès direct via MCP Miro depuis le 05/08/2026, mêmes scénarios en visuel).
+> Source complémentaire (section 3) : vidéo "3.1 Phase d'optimisation, quoi optimiser" (4 exemples
+> chiffrés commentés) + board Miro officiel "Phase d'OPTI (où est le pb) - Zecom Academy" (mêmes
+> 4 exemples en visuel, texte identique au mot près).
+> Source complémentaire (section 3bis) : vidéo "4.1 Problème côté site, les 3 cartouches" —
+> pas de board Miro dédié trouvé à ce jour (05/08/2026), contenu 100% oral.
 
 ---
 
@@ -166,23 +171,108 @@ n'achète pas de qualité avant d'avoir prouvé la demande" (05/08/2026, cf. mé
 
 ## 3. Phase d'OPTIMISATION — diagnostiquer ads vs fiche produit (formation, framework officiel)
 
-Quand une campagne n'est pas validée mais mérite d'être creusée (zone 🟠), on identifie la source
-du problème AVANT de décider quoi optimiser. Deux étapes croisées :
+**On entre en phase d'optimisation à partir de 200 € de spend (fin du testing), quand le ROAS est
+entre ROAS TARGET et ROAS -20 % de perte (zone 🟠, cf. section 2).** Avant ce seuil, le testing n'est
+pas terminé, on n'y est pas encore.
+
+**Pourquoi optimiser plutôt que couper tout de suite (rationale du formateur, vidéo 3.1) :** à ce
+stade, dans le pire cas on perd très peu d'argent, dans le meilleur cas on est déjà rentable ou proche
+du break-even — quelques modifications ciblées du funnel peuvent suffire à faire basculer un produit
+de non-rentable à très rentable. Continuer à dépenser dans cette zone ne fait pas fondre la trésorerie
+de façon significative, donc autant se laisser une chance de le faire exploser plutôt que de couper
+un produit qui montre déjà un peu de traction.
+
+**⏳ Règle des 3 cartouches maximum.** On se laisse **3 tentatives d'optimisation** (3 "cartouches",
+= 3 changements/tests successifs) pour tenter de faire décoller le produit. Si après ces 3 cartouches
+le produit n'a toujours pas explosé, on passe au produit suivant, point final — même si c'est le
+premier produit qui a montré un peu de traction et que ça fait mal d'arrêter. Rationale : n'importe
+quel produit peut théoriquement finir par scaler avec assez de temps et d'ajustements, mais on ne
+sait jamais à l'avance combien de temps ça prendra ; s'entêter sur un seul produit coûte plus cher
+en opportunité (temps + argent) que de couper à 3 essais et de retenter un produit neuf qui a
+statistiquement plus de chances d'être proche de la rentabilité dès le départ.
+
+Pour identifier la source du problème AVANT de décider quoi optimiser, deux étapes croisées :
 
 **Étape 1 — CPC sur l'ad account :**
 - CPC > 0,70 € → le problème vient (certainement) **des ads**
 - CPC < 0,70 € → le problème vient (certainement) **de la fiche produit**
+- ⚠️ Seuil valable pour les **marchés européens** (France, Espagne, Italie, Pays-Bas, Allemagne...).
+  Sur des marchés anglophones (UK, US, Canada), revoir ce seuil à la hausse.
 
 **Étape 2 — Analytics Shopify :**
 - CVR < 2 % ET taux ATC < 8 % → problème **fiche produit**
 - CVR > 2 % ET taux ATC > 8 % → problème **ads**
+- Précision terminologique (vidéo 3.1) : le **CVR** de cette grille, c'est le **taux de paiement
+  initié** dans les analytics Shopify (Conversion Rate), pas le taux de conversion final panier→achat.
 
-Lecture croisée : les deux étapes peuvent pointer chacune un coupable différent (cas mixte) ; on
-priorise alors l'optimisation du côté le plus dégradé (ex. CVR très bon + CPC et taux ATC rouges =
-on rajoute des ads, on ne touche pas à l'offre).
+**⚠️ Ces seuils ne sont pas des certitudes à 100 %, juste des probabilités fortes ("certainement",
+pas "sûrement").** Contre-exemple assumé par le formateur lui-même : un CPC de 1,50-1,60 € (2x le
+seuil, énorme sur un marché EU) sur 40 000 € de spend, avec un ROAS de 3, largement rentable. Un
+chiffre isolé qui a l'air mauvais ne veut pas dire que le produit ne marche pas ; on lit toujours au
+global, jamais une métrique seule.
+
+Lecture croisée des deux étapes, 4 configurations rencontrées dans les exemples officiels (vidéo +
+board Miro "Phase d'OPTI (où est le pb)", chiffres identiques au board au centime près) :
+
+| Exemple | CPC | Taux ATC | CVR (paiement initié) | Diagnostic | Action |
+|---------|-----|----------|------------------------|------------|--------|
+| 1 (ROAS 1,83, spend J+4) | 0,61 € ✅ | 6,60 % ❌ | 0,94 % ❌ | Fiche produit | On retravaille l'offre (prix, bundle, angle, preuve sociale) |
+| 2 (spend 225 €) | 1,18 € ❌ | 9,45 % ✅ | 2,12 % ✅ | Ads | On rajoute des ads (nouvelles créatives), on ne touche pas à l'offre |
+| 3 (ROAS 1,33, spend 212 €) | 0,83 € ❌ | ~12 % ✅ | 1,41 % ❌ | **Ambigu (1 bon, 2 mauvais partagés)** | **Cas particulier, voir ci-dessous** |
+| 4 (ROAS 2,68, spend 212 €) | 0,83 € ❌ | <8 % ❌ | 2,92 % ✅ | Ads (un peu plus) | On ne touche PAS l'offre (le CVR la valide déjà), on rajoute juste des ads |
+
+**Cas ambigu (Exemple 3) : quand les indicateurs sont vraiment partagés, on cumule les deux
+premières actions au lieu de trancher.** Ici, l'ATC est excellent (~12 %, les gens ajoutent
+massivement au panier) mais le CVR s'effondre à l'étape de paiement (1,41 %) ET le CPC est dégradé :
+aucun côté n'est clairement validé ni clairement fautif. Plutôt que de forcer un diagnostic, le
+formateur applique **la première cartouche côté ads (rajouter des ads) ET la première cartouche
+côté site (changer l'offre) en même temps**, sur cette seule cartouche. Logique : le trafic clique
+un peu cher mais pas de façon délirante (peut-être mal qualifié pour l'achat, bien qualifié pour
+l'ajout panier), et l'offre fait ajouter au panier mais ne convainc pas de payer — les deux pistes
+sont plausibles à la fois, donc on ne se prive d'aucune des deux.
 
 ⚠️ Le CVR et le taux ATC de cette grille se lisent dans **les analytics Shopify**, pas dans Meta
 (hors périmètre du MCP Facebook Ads → demander à Roméo ou recouper via le connecteur Shopify).
+
+---
+
+## 3bis. Problème côté SITE — le détail des 3 cartouches (vidéo "4.1 Problème côté site")
+
+**Cadrage 80/20 : "problème côté site" veut dire "problème de la fiche produit", pas du site en
+général.** 80-90 % des visiteurs qui arrivent sur la fiche produit ne se baladent jamais ailleurs
+sur le site (home, à propos...) : soit ils achètent, soit ils repartent depuis cette page. Donc
+100 % de l'effort d'optimisation "côté site" se concentre sur la fiche produit, jamais sur la home
+ou les pages annexes.
+
+**⚠️ Fenêtre d'analyse différente de la phase de testing : après chaque cartouche, on juge
+uniquement sur les 2-3 jours DEPUIS le changement, pas sur le spend cumulé depuis le lancement de
+la campagne.** On laisse tourner 2-3 jours de spend après chaque changement, puis on analyse
+seulement cette fenêtre glissante. Après chaque cartouche : si le ROAS dépasse le ROAS TARGET →
+**scaling**, on sort de la phase d'optimisation. Si toujours entre TARGET et TARGET -20 %, ou si ça
+s'est dégradé → cartouche suivante.
+
+| Cartouche | Actions | Détail |
+|-----------|---------|--------|
+| **1** | Changer l'offre | L'offre est l'élément de la fiche produit qui a le plus d'impact sur le taux de conversion — c'est ce qui débloque le plus souvent la situation. **Pas d'A/B test, on change directement.** Exemple : bundle x1/x2/x3 → repasser sur x1 seul / 2 acheté 1 offert / 3 acheté 2 offerts (ou retirer carrément l'offre 3). Catalogue complet des types d'offres à tester : `references/meilleures-offres.md`. |
+| **2** | Re-changer l'offre + rajouter 3-4 nouvelles créatives | Une 2e config d'offre différente. On rajoute des créas même si le problème est "côté site" car les ads influencent la qualité/le profil du trafic amené : une nouvelle créa peut ramener une audience plus encline à convertir sur la nouvelle offre. Sourcing des créas : piocher dans les meilleures créas déjà repérées chez le même concurrent mais pas encore lancées ; à défaut, redescendre un peu le seuil de reach sur ce concurrent (ex. 500k → 380k) ; à défaut, chercher un nouveau concurrent (TrendTrack, autres spy tools). |
+| **3 (dernière, "big swing")** | Changer l'offre (3e config) + 1ère image du carrousel + copywriting au-dessus du bouton ATC + copywriting de la 1ère section sous le bouton ATC + 3-4 nouvelles créatives | Grand changement. Au-dessus du bouton ATC : bullet points, éventuellement le titre du produit lui-même (ex. titre "bénéfice" → titre descriptif classique, ou l'inverse). Sous le bouton ATC : uniquement la 1ère section (titre + texte, nouveau bénéfice mis en avant, ChatGPT en copilote copywriting) — inutile d'aller plus bas, peu de monde scroll toute la page. Catalogue des types de 1ère image de carrousel à tester : `references/premiere-image-carousel.md`. |
+
+**Si toujours pas d'explosion (ou dégradation) après la cartouche 3 → CUT, produit suivant. On ne
+tente pas de 4e cartouche.**
+
+**Assouplissement de la règle des 3 cartouches (nuance importante, complète la règle stricte de la
+section 3) : si le produit est déjà rentable mais pas encore au niveau de marge cible** (ex. 10-18 %
+de marge nette, proche des 20 % visés), **on peut continuer au-delà des 3 cartouches** — retenter un
+changement d'offre, rajouter des créas — car le produit est déjà proche de scaler et peut parfois
+s'auto-optimiser avec quelques jours de plus. **En revanche, si le produit est break-even ou pas
+encore rentable** (y compris une petite marge du type 5 %, traitée comme équivalente au break-even),
+**on ne tente même pas une cartouche de plus : next product direct.**
+
+**Un produit optimisé sans succès n'est pas mort définitivement.** Il peut être relancé plus tard
+(2, 3, 6 mois après) et parfois surprendre positivement (nouveau contexte marché, nouvelles
+audiences Meta, produit redevenu tendance). Pas une priorité immédiate, mais à garder en tête pour
+le pipeline de Zooryn plutôt que de considérer un produit optimisé-mais-cut comme définitivement
+mort.
 
 ---
 

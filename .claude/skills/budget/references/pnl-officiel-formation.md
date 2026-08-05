@@ -88,6 +88,32 @@ sert à connaître le profit réel, pas un profit optimiste mal calculé.
   faible (loin des 700-900 €/jour mentionnés comme seuil).
 - **Devise/LLC** : non applicable, Zooryn est en micro-entreprise FR, vente et encaissement 100 % EUR.
 
+## 3bis. Onglet "Testing" (vidéo complémentaire "1.3 Calculer son profit par testing", intégrée le 05/08/2026)
+
+Le formateur a ajouté un **3e onglet "Testing"** au même fichier P&L (à côté de Daily Report et
+Annual P&L) : une vue **par produit/testing** plutôt que par jour global.
+
+- **10-11 sections** dans l'onglet, une par testing, extensible (copier/coller une section pour
+  en ajouter une 12e, etc.).
+- Chaque section = un mini P&L allégé pour CE testing : date de début, **statut** (coupé / en
+  cours / opti (phase d'optimisation) / scaling), puis jour par jour les mêmes infos essentielles
+  que le Daily Report mais **simplifiées** (pas de détail PayPal/retours fins — pas nécessaire au
+  stade testing). Calcule net profit, profit %, ROAS par jour de test.
+- Si un testing est cut à J2, on peut supprimer les lignes des jours non utilisés (clic droit →
+  supprimer les lignes) pour garder le tableau compact.
+- **Deux façons de gérer une fois que ça scale (plusieurs produits actifs en même temps)** :
+  1. **Garder intégré au fichier P&L principal** (comme fourni par défaut) : simple au début, mais
+     devient vite lourd/confus une fois plusieurs testings accumulés.
+  2. **Faire un document séparé "Testing P&L"**, dupliqué du fichier principal en ne gardant QUE
+     l'onglet Testing (supprimer Daily Report, Annual P&L, COGS Check de la copie) — une ligne de
+     produits qu'on empile au fil du temps, un peu comme l'actuel Sheet "Investissement E-commerce".
+- **Position du formateur, à prendre en compte pour Zooryn** : cette vue par-produit est surtout
+  utile en tout DÉBUT d'activité. Une fois plusieurs produits actifs (7-8+), il déconseille de
+  continuer à analyser produit par produit au quotidien — le pilotage doit redevenir **global**
+  (via le ROAS de chaque campagne Meta, cf. skill `bilan-ads`), sous peine de perdre un temps fou.
+  Donc : utile maintenant pour Zooryn (encore en phase de recherche du premier winner), à
+  réévaluer une fois plusieurs produits qui tournent en parallèle.
+
 ## 4. Différence avec le Sheet "Investissement E-commerce" (skill `budget`)
 
 | | Investissement E-commerce (actuel) | P&L officiel (cette vidéo) |
@@ -104,10 +130,100 @@ business global au jour le jour, l'Investissement E-commerce sert à juger un te
 produit. À trancher avec Roméo : garder les deux (rôles différents) ou migrer entièrement vers le
 P&L officiel et abandonner/simplifier le Sheet maison.
 
-## 5. Décision en attente
+## 4bis. Règles d'or de remplissage (actées par Roméo le 05/08/2026, à ne jamais enfreindre)
 
-Roméo doit :
-1. Récupérer le lien du Sheet template (description de la vidéo) et le partager avec
-   `budget-bot@claude-gws-setup-497511.iam.gserviceaccount.com`.
-2. Trancher : garder les deux outils (rôles complémentaires) ou remplacer l'Investissement
-   E-commerce par ce P&L (au risque de perdre la vue par-palier de bundle déjà construite).
+Sheet réel : **"P&L - Zecom Academy 2026"**, ID `1bNuSkdCGIH2jM0whvLOfSoVth8nJwvJe6RsHCF6_C8s`.
+21 onglets : `DAILY REPORT`, `TESTINGS`, `COGS CHECK`, `Annual P&L ` (espace final dans le nom réel),
+`Q1`/`Jan-26`/`Feb-26`/`Mar-26`, `Q2`/`Apr-26`/`May-26`/`Jun-26`, `Q3`/`Jul-26`/`Aug-26`/`Sep-26`,
+`Q4`/`Oct-26`/`Nov-26`/`Dec-26`, `Fees/Taxes`.
+
+**Règle absolue : ne remplir QUE les cases violettes (cases d'entrée). Tout le reste = formule,
+ne jamais toucher, sinon on casse le calcul.**
+
+### DAILY REPORT
+- Une ligne = un jour, **toute l'année 2026 pré-mappée par date** : ligne 3 = 1er janvier 2026,
+  ligne N = 1er janvier + (N-3) jours. Formule : `serial = 46023 + (jour - 1 janvier 2026 en jours)`.
+  Ex. ligne pour le 5 août 2026 = ligne 219.
+- Colonnes violettes à remplir (aller chercher dans Shopify, jamais inventer) : **Total Orders**,
+  **PayPal Order Total**, **PayPal Sales**, **Returns Paypal**, **FB Ads Costs**, **Google Ads
+  Costs**, **Pinterest Ads Costs**, **COGS**.
+- **Ne remplir que les jours où l'activité a réellement eu lieu** (ne pas remplir le 1er janvier
+  2026, l'activité Zooryn n'existait pas encore). Point de départ réel = date du premier vrai
+  lancement (Sculpted, 06/06/2026).
+- Colonnes automatiques, **NE JAMAIS ÉCRIRE DEDANS** : Total Sales, Net Profit, Net Profit %,
+  ROAS, AOV, Fees/Taxes.
+- **Vérifié le 05/08/2026 via Shopify direct (GraphQL orders, financial_status:paid) : aucune
+  commande PayPal n'a jamais existé sur Zooryn (4 commandes payées au total, toutes
+  `shopify_payments`).** Donc colonnes PayPal + taux PayPal dans Fees/Taxes restent à 0/vides.
+  Idem Pinterest (jamais utilisé, Meta = seul canal ads Zooryn).
+
+### TESTINGS
+- Colonnes violettes à remplir : **Nom du produit**, **Date**, **Statut**, **Total Orders**,
+  **FB Ads Costs**, **COGS**, **Total Sales**.
+- **Statut = un choix STRICT parmi les 4 valeurs existantes du menu déroulant** (ex. "⏳En cours",
+  "🟠 Opti", + les 2 autres à identifier sur place : cut / scaling). **Ne jamais inventer un
+  nouveau statut** — sélectionner comme si Roméo cliquait lui-même à la main.
+- Colonnes automatiques, **NE JAMAIS ÉCRIRE DEDANS** : Net Profit, Net Profit %, ROAS, AOV,
+  Fees/Taxes, et les lignes TOTAL (formules SUM).
+- **Historique T1-T5 : PAS besoin de reconstituer jour par jour.** Consigne explicite de Roméo :
+  "tu n'es pas obligé de mettre un nombre d'informations énorme, le but c'est que dans le total du
+  produit on arrive à voir la perte que j'ai faite, c'est tout." → une seule ligne agrégée par
+  ancien testing suffit (total commandes, total dépense FB, total COGS, total ventes), pas un
+  historique jour par jour.
+- Le nombre de blocs testing à remplir pour l'instant = **5** (T1 Sculpted, T2 protège-tibias,
+  T3 matelas, T4 Luma, T5 sac sling), pas la peine de pré-remplir les 11 blocs.
+
+### TESTINGS — gestion des lignes par bloc (actée le 05/08/2026)
+Chaque bloc doit avoir **exactement autant de lignes de données que de jours réels du testing**,
+suivies immédiatement de sa ligne TOTAL (formule `SUM` sur la plage de lignes du bloc, qui
+s'adapte automatiquement si on ajoute/supprime des lignes à l'intérieur du bloc). **Ne jamais
+laisser de lignes vides inutilisées entre les données et le TOTAL.**
+- **Testing d'1 jour** : 1 seule ligne de données + TOTAL juste en dessous.
+- **Testing de plusieurs jours** : une ligne par jour réel, TOTAL juste après la dernière.
+- **Pour compacter un bloc** (ex. après une saisie agrégée) : `deleteDimension` (ROWS) sur les
+  lignes vides en trop, **du bas vers le haut sur l'ensemble du fichier** (traiter le bloc le plus
+  bas en premier) pour ne pas décaler les numéros de ligne des blocs pas encore traités dans la
+  même série d'opérations.
+- **Pour un futur testing multi-jours** : `insertDimension` (ROWS) juste avant la ligne TOTAL du
+  bloc concerné à chaque nouveau jour, saisir la nouvelle ligne, laisser le TOTAL s'auto-étendre.
+- **Confirmé le 05/08/2026 : l'onglet TESTINGS n'est référencé par AUCUNE formule ailleurs dans
+  le fichier** (ni Annual P&L, ni les onglets mensuels). C'est une vue isolée, indépendante du
+  cumul global du P&L (qui lui se base uniquement sur DAILY REPORT). Conséquence : les pertes/gains
+  historiques saisis dans TESTINGS (T1-T5) **n'apparaissent nulle part dans le total cumulé
+  Annual P&L** tant qu'ils ne sont pas aussi injectés quelque part dans le flux Daily Report /
+  dépenses mensuelles (cf. section 5bis).
+
+### COGS CHECK (onglet 3) — **NE PAS TOUCHER pour l'instant**
+Utilisé seulement une fois en phase de scaling avec un agent facturé régulièrement. Rien à faire
+tant que Zooryn n'y est pas.
+
+### Annual P&L (onglet 4) — **NE PAS TOUCHER, tout est automatique**
+Se recalcule entièrement à partir des onglets mensuels et du Daily Report.
+
+### Onglets mensuels (Jan-26 → Dec-26)
+- **Tout est automatique SAUF les colonnes Y (Expense Name), Z (Categories), AA (Amount)** —
+  c'est le seul endroit à remplir à la main, un par un, pour chaque dépense fixe/abonnement du
+  mois (Shopify, TrendTrack, Claude, freelance, partenaire...). Montant **en positif** (le tableau
+  le soustrait tout seul du résultat final).
+- **Ne jamais y mettre ce qui est dû au fournisseur (COGS)** — le COGS vit uniquement dans
+  DAILY REPORT ou TESTINGS, jamais dans les dépenses mensuelles.
+- Catégories disponibles (via `SUMIF` sur la colonne Z) : Shopify App, Software/Tools/App,
+  Growth Partner (%), Freelance, Services, Other.
+
+## 5. Décision actée le 05/08/2026 : migration vers le P&L officiel
+
+**Roméo a tranché : le Sheet "Investissement E-commerce" (skill `budget`) sera abandonné
+progressivement au profit du P&L officiel de la formation**, désormais l'outil de référence pour
+suivre le profit (jour par jour ET par testing via l'onglet Testing).
+
+Étapes restantes :
+1. Récupérer le lien du Sheet P&L template (description de la vidéo "1.2 Calculer son profit
+   (P&L)") et le partager avec `budget-bot@claude-gws-setup-497511.iam.gserviceaccount.com`.
+2. Une fois l'accès confirmé : nettoyer les colonnes inutiles pour Zooryn (pas de PayPal actif à
+   vérifier, un seul shop → supprimer shop 2/3, pas de conversion devise LLC).
+3. Utiliser l'onglet **Testing** pour le prochain produit lancé (remplace les blocs T1-T5 de
+   l'Investissement E-commerce).
+4. **Ne pas supprimer l'ancien Sheet "Investissement E-commerce" d'un coup** : le garder comme
+   archive historique (T1-T5, apprentissage), arrêter simplement de le mettre à jour une fois le
+   P&L officiel opérationnel. Le skill `budget` reste donc en l'état tant que la bascule n'est pas
+   confirmée fonctionnelle, mais n'est plus l'outil actif au quotidien.

@@ -7,6 +7,30 @@
 
 ---
 
+## 2026-08-05 (mise à jour 2)
+
+### Devis logistique Aplusfulfill : les deux lignes chiffrées, avantage bundle confirmé, plancher de prix établi
+- Échange complet avec Yuri Yang, parti d'une proposition commerciale de sa part (nouvelle ligne "EU tax-included", annoncée moins chère que la taxe de 3 €/colis) et poussé jusqu'à obtenir de vrais chiffres. Il a fallu trois relances : ses réponses générales restent vagues, seules des questions fermées avec des colis d'exemple chiffrés ont sorti un devis. Confirme la lecture culturelle de Roméo du 18/07.
+- **Devis obtenu (colis type 0,3 kg, produit à 10 USD) : ligne standard + taxe 3 € = 23,30 USD rendu (≈ 21,44 €) en 5-10 jours ouvrés ; ligne DDP taxe incluse = 21,25 USD rendu (≈ 19,55 €) en 7-15 jours ouvrés.** Surcoût batterie ~0,70 € sur les deux.
+- **Découverte contre-intuitive : la ligne "taxe incluse" est la LENTE, et la ligne à 3 € utilisée depuis le début est la RAPIDE.** Les 5-10 jours ouvrés de la ligne actuelle correspondent exactement au délai promis sur les pages légales publiées le 29/06, qui ne sont donc pas fausses tant que Zooryn reste dessus.
+- **Vérification sur données réelles (Shopify) :** les 4 commandes #1002 à #1005 sont toutes parties en YunExpress avec 2 jours ouvrés de traitement, ce qui valide l'annonce "2-3 jours ouvrés" de l'agent. En revanche `deliveredAt` est vide sur les 4 : le suivi YunExpress ne remonte jamais dans Shopify, donc le délai réellement subi par les clients reste inconnu.
+- **Avantage bundle CONFIRMÉ ("1 time") : 2 unités du même produit dans un seul colis paient la taxe UE une seule fois.** L'hypothèse du 18/07 est validée. Les coûts fixes se diluent sur le palier bundle, ce qui en fait le vrai levier sur le plancher de prix, davantage que le choix de ligne.
+- **Plancher de vente établi : la logistique coûte 10 à 12 € sur un petit colis quelle que soit la ligne, soit plus que le produit lui-même.** Avec le x3,5, rien n'est vendable sous ~36 € (DDP) ou ~43 € (standard). Explique rétroactivement le kill du sac sling à 39 €.
+- **Décision actée par Roméo : DDP pendant le testing, ligne rapide au scaling.** Son argument, retenu comme le meilleur de l'échange : le résultat d'un test se lit sur le ROAS à J1-J4, bien avant qu'un colis arrive, donc la logistique n'influence pas la data ; le testing valide la fiche produit et les créas, pas la livraison. Pages légales volontairement non corrigées en phase de testing. Erreur de raisonnement corrigée en route : changer de ligne ne descend le plancher que de ~43 € à ~36 €, ça n'élargit pas vraiment le vivier produit. Le vrai levier de COGS sera la négociation à 40-50 commandes/jour.
+- **Erreur de Claude corrigée en session :** j'avais déduit de la formule "total weight + total price" que la taxe était proportionnelle à la valeur déclarée, et j'en avais conclu que les bundles y perdaient. Faux, Yuri a confirmé un forfait de 3 € indépendant du prix déclaré. La conclusion "on ne change rien" tenait toujours, mais pour une raison différente (le délai, pas le coût).
+- Règle actée pour le prochain devis : demander les prix sur **les paliers exacts de l'offre du concurrent copié**, pas un 1/2 arbitraire.
+
+---
+
+## 2026-08-05
+
+### Vidéo "1.3 Calculer son profit par testing" transcrite + décision de migration du suivi budget
+- Vidéo Kajabi téléchargée (dossier déjà créé par Roméo, cookie déposé) et transcrite localement. Fichiers dans `livrables/ecommerce/formation/Module 12 - Analyse et prise de décision post-testing/1.3 Calculer son profit par testing/video/`.
+- Contenu : le formateur ajoute un **3e onglet "Testing"** au fichier P&L (à côté de Daily Report et Annual P&L) — une vue simplifiée par produit/testing (statut coupé/en cours/opti/scaling, jour par jour), 10-11 sections extensibles. Deux façons de gérer à l'échelle : garder intégré, ou dupliquer un document "Testing P&L" séparé. Le formateur recommande de repasser à une vision globale (ROAS par campagne) une fois plusieurs produits actifs, plutôt que de continuer à suivre produit par produit indéfiniment.
+- **Décision actée par Roméo : le Sheet "Investissement E-commerce" (skill `budget`) est abandonné progressivement au profit du P&L officiel de la formation** (Daily Report + onglet Testing couvrent le même besoin, en mieux). `references/pnl-officiel-formation.md` mis à jour avec le plan de migration : récupérer le lien du template P&L, le partager au compte de service, nettoyer les colonnes non pertinentes pour Zooryn, utiliser l'onglet Testing dès le prochain produit lancé, garder l'ancien Sheet comme archive plutôt que de le supprimer d'un coup.
+
+---
+
 ## 2026-08-04 (mise à jour 6)
 
 ### Refonte de la recherche produit : fin du filtre catégorie et du jugement de fit

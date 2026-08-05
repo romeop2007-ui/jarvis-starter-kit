@@ -7,6 +7,21 @@
 
 ---
 
+## 2026-08-04 (mise à jour 6)
+
+### Refonte de la recherche produit : fin du filtre catégorie et du jugement de fit
+- **Catalogue de filtres renommé F1-F19 / V1-V19** (F = filtre en test, V = filtre validé, le numéro ne change jamais, seule la lettre bouge). Objectif : lever la collision de noms avec la « méthode générale V3 », qui désigne la doctrine de recherche produit (data avant produit, pente, timing entre les deux) et n'a rien à voir avec les filtres. Retirer un filtre F3 ne touche donc pas la méthode V3.
+- **4 filtres testés en conditions réelles.** F4 validé en V4, le plus productif de la session : il voit la phase de début de scale que V1 rate structurellement à cause de son `min_active_ads ≥ 40`, donc les deux se lancent désormais en binôme. F3 et F5 retirés, F2 mis en pause.
+- **Loi structurelle dégagée après trois échecs identiques (F2, F3, F5)** : un seuil absolu cumulé (reach total, dépense totale, nombre de pubs) combiné à un filtre de fraîcheur du shop rend toujours 0, par construction. Accumuler prend du temps. Seuls les filtres basés sur une dérivée (vitesse ou accélération) fonctionnent sur du frais. Cette loi permet désormais de prédire quels filtres restants ne valent pas le coup d'être testés.
+- **Correction de fond : ne plus jamais filtrer par `category_ids` sur TrendTrack.** « Maison » est une ombrelle généraliste, pas une catégorie TrendTrack. Le retrait du filtre a fait passer la même requête V1 de 0 candidat à 20 résultats, dont le premier à franchir le plancher de la journée. Le « puits sec » diagnostiqué les 03 et 04/08 était un artefact de ce filtre, pas une réalité du marché.
+- **Règle actée : Claude ne juge jamais le fit produit.** « Niche maison » ne veut rien dire de plus que « généraliste ». Aucun produit ne doit être écarté ni déprécié au motif qu'il paraît hors sujet. Seuls comptent la data et les exclusions dures, c'est Roméo qui juge le produit.
+- **Hiérarchie des critères actée** : la preuve créa est le seul critère non négociable. Un prix hors tranche ou un produit lourd et encombrant se pardonnent si les créas sont fortes. L'inverse jamais. Illustré par le kill de Ridrplug, bon sur absolument tout sauf les créas.
+- **Croissance du nombre de créas seule = faux signal**, vérifié par Roméo lui-même sur Pälshem : les créas montaient, ni le reach ni le daily spend ne suivaient. Les trois doivent monter ensemble.
+- **Nouvelle étape obligatoire avant toute présentation : ouvrir la page produit du concurrent.** Leçon NordBand, candidat au plancher franchi (3 créas à 366, 104 et 103 euros par jour, dont une à 976k de reach) tué en trente secondes par Roméo qui a simplement visité le site : le client pouvait faire graver la phrase de son choix, donc produit personnalisable, exclusion dure. Claude n'avait jamais quitté TrendTrack.
+- **Rejetés cette session** : NordBand, Ridrplug, Pälshem et Contoura, NordCap, Kakelo, Titano, NordicGrip, Blok Earplugs. Aucun candidat validé, pipeline toujours vide.
+
+---
+
 ## 2026-08-04 (mise à jour 5)
 
 ### Refonte de la méthode de recherche produit en catalogue versionné
@@ -35,6 +50,16 @@
 - Email 5 du post-achat allégé : retrait du conseil générique "suivez les indications fournies avec le produit" (catalogue multi-produits, conseil creux), gardé la demande de photo et le réflexe "contactez-nous avant de laisser un avis".
 - Discussion sur la collecte d'emails : Roméo et un ami e-commerçant (celui qui l'a lancé dans le e-commerce) pensaient qu'il fallait un espace client / attendre le seuil de 1000€/jour pour que le panier abandonné fonctionne. Clarifié que ce n'est pas le cas : le vrai blocage est l'absence de popup de capture email (le client anonyme n'a pas d'adresse connue avant d'ajouter au panier), un simple formulaire Klaviyo suffirait, pas besoin d'attendre le scaling. Sujet ouvert, pas implémenté cette session.
 - Bilan : les 3 flows Klaviyo (paiement abandonné, post-achat, panier abandonné) sont prêts et cohérents, tous en brouillon, à activer par Roméo au prochain vrai lancement.
+
+---
+
+## 2026-08-04 (mise à jour 4)
+
+### Vidéo "1.2 Calculer son profit (P&L)" (Module 12) transcrite et intégrée + Sheet ROAS BE/TARGET configuré
+- Sheet officiel de la formation **"Calcul ROAS BE & TARGET - ZECOM ACADEMY"** (2 onglets : `ROAS BE + TARGET` et `CALCULATEUR COGS + PV`) partagé par Roméo avec le compte de service `budget-bot`, accès vérifié. Ligne 2 configurée comme modèle de base Zooryn : PSP en formule `=1,5%+0,25/prix de vente` (forfait Shopify Basique confirmé via capture, cartes standard FR), URSSAF 6,2 % (ACRE), TVA 0 % (franchise en base), autres frais 0 %, marge minimum 15 %, marge cible 20 %. Nom produit/COGS/prix de vente laissés vides jusqu'au prochain vrai testing (aucun produit actif sur Shopify au 04/08/2026, vérifié en direct — un seul produit test "edfver" sans rapport avec Zooryn).
+- Vidéo "1.2 Calculer son profit (P&L)" téléchargée et transcrite (interrompue une première fois par un redémarrage PC pendant la transcription, relancée à l'identique). Fichiers dans `livrables/ecommerce/formation/Module 12 - Analyse et prise de décision post-testing/1.2 Calculer son profit (P&L)/video/`.
+- Contenu : présentation d'un **2e Sheet officiel, un vrai P&L quotidien** (Daily Report rempli chaque matin pour la veille : commandes, PayPal/autres processeurs, retours, dépenses ads par canal, COGS, frais PSP détaillés + TVA + conversion devise LLC), qui remonte automatiquement en P&L mensuel/trimestriel/annuel avec les dépenses fixes catégorisées, plus un onglet "COGS Check" qui détecte une possible surfacturation d'un agent de sourcing (comparaison COGS TrueProfit vs facture agent sur une période alignée).
+- **Nouveau fichier `references/pnl-officiel-formation.md`** dans le skill `budget` : résume la structure du tableau, ce qui s'applique à Zooryn (pas de PayPal actif à vérifier, TrueProfit pas nécessaire au volume actuel, COGS Check applicable à terme avec Aplusfulfill), et un tableau comparatif avec le Sheet "Investissement E-commerce" actuel (granularité par jour/business global vs par testing/produit). **Décision en attente de Roméo** : garder les deux outils ou migrer vers le P&L officiel — il doit d'abord récupérer le lien du template (description de la vidéo) et le partager avec le compte de service.
 
 ---
 

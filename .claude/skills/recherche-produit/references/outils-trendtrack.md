@@ -2,11 +2,25 @@
 
 > Leçons actées les 15-16/06/2026 sur plusieurs sessions de recherche réelles. À relire avant de dépenser des crédits.
 
-## ✅ Le filet qui MARCHE : `search_ads` filtré par catégorie
+## ⛔ CORRECTION MAJEURE DU 04/08/2026 : ne plus filtrer par catégorie
+
+Tout ce qui suit sur `category_ids` a été écrit quand la niche était **outdoor/voyage**, un univers étroit qu'il fallait isoler du bruit maison/jardin et santé/corps. **Depuis le pivot vers l'ombrelle "maison" généraliste (12/07/2026), filtrer par catégorie est une erreur qui vide artificiellement les résultats.**
+
+« Maison » n'est pas une catégorie TrendTrack : c'est un magasin fourre-tout qui peut accueillir n'importe quelle collection (voyage, automobile, animaux, cuisine, ménage, déco, jardinage, bricolage, bébé...). Outdoor/voyage n'en est qu'**une branche parmi d'autres**. Restreindre la recherche aux sous-catégories Home & Garden revenait à ignorer la majorité des produits éligibles.
+
+**Méthode correcte : chercher LARGE (aucun `category_ids`), et NE JAMAIS juger le fit produit.**
+
+🚫 **Ne jamais se demander « est-ce que ça a sa place dans une boutique maison ? ».** « Maison » = « généraliste », point. Ce n'est ni un thème ni un univers à respecter. Claude ne filtre que sur la **data** (plancher créa, pente, fraîcheur, marché non-FR, traçabilité EU) et les **exclusions dures** (ingéré, topique-santé, saisonnier, personnalisable, non-copiable). Le fit produit est jugé par Roméo, jamais par Claude.
+
+Électronique et gadgets-blague : **à signaler, pas à écarter**, si la data passe.
+
+Le tableau d'IDs de catégories ci-dessous est **conservé à titre documentaire uniquement** (utile si on veut un jour explorer une catégorie précise à dessein), pas comme filtre par défaut.
+
+## Le reste du filet (toujours valable)
 
 Recette validée (c'est elle qui a sorti le matelas, le sac sling, valotalo, bryngrill) :
 
-- `category_ids` : filtrer sur l'univers de l'ombrelle (voir IDs ci-dessous)
+- ~~`category_ids`~~ → **ne plus utiliser par défaut**, cf. correction ci-dessus
 - `min_active_ads` ≥ 40 (preuve de scale = une page avec un vrai paquet de pubs)
 - `max_traffic` < 2000 (petit shop frais)
 - `shop_created_after` = il y a **~5-6 semaines max** (pas 3 mois)

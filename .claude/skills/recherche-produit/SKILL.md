@@ -48,8 +48,18 @@ Le port tue la marge sur le lourd/volumineux et les produits à batterie lithium
 
 **Exclusions de niche pour cette recherche de 2e collection** (en plus des exclusions dures produit) : **santé/bien-être** et **niches 100% féminines** (ex. rendu impossible du fait des exclusions dures de toute façon, mais à écarter dès le sourcing pour ne pas perdre de temps).
 
-Méthode principale : **filtrer par CATÉGORIE, jamais par tri global** (le tri global noie tout sous la santé/beauté et le maison/jardin, qui dominent TrendTrack). Via `search_ads` (MCP TrendTrack) :
-- `category_ids` : large éventail hors santé/féminin (liste des IDs dans `references/outils-trendtrack.md`)
+**⛔ NE PLUS FILTRER PAR CATÉGORIE (corrigé le 04/08/2026, erreur de fond).** L'ancienne consigne « filtrer par catégorie, jamais par tri global » datait de l'époque où la niche était outdoor/voyage : il fallait alors exclure le maison/jardin et le santé/corps qui noyaient les résultats. **Depuis le pivot vers l'ombrelle "maison" généraliste, cette consigne est non seulement périmée, elle est nuisible** : "maison" n'est PAS une catégorie TrendTrack, c'est un magasin fourre-tout qui peut accueillir n'importe quelle collection (voyage, auto, animaux, cuisine, ménage, déco, bricolage...). Filtrer sur les sous-catégories Home & Garden revenait donc à s'amputer de l'immense majorité des produits éligibles. Constat empirique du 04/08 : avec `category_ids`, les recherches rendaient 0 ou du déjà-vu en boucle.
+
+**Nouvelle méthode : chercher LARGE (aucun `category_ids`), et NE JAMAIS juger le fit produit.**
+
+**🚫 RÈGLE ABSOLUE (Roméo, 04/08/2026) : Claude ne filtre JAMAIS sur son intuition produit.** « Niche maison » ne veut rien dire de plus que « généraliste » — ce n'est pas un thème, pas une ambiance, pas un univers à respecter. **Ne jamais se demander « est-ce que ça a sa place dans une boutique maison ? », ne jamais écrire « le fit est discutable », ne jamais écarter ou déprioriser un produit parce qu'il paraît hors sujet.** Mot de Roméo : *« s'il faut me donner un pince-nez plus une carotte avec un sèche-cheveux, donne-moi les deux. C'est à moi d'adapter et à moi de juger. Ton intuition est nulle, donne-moi juste des produits qui marchent sur la data. »*
+
+**Le seul tri autorisé = la DATA** (plancher créa, pente, fraîcheur du shop, marché non-FR, traçabilité EU) **+ les exclusions dures listées plus haut** (ingéré, topique-santé, saisonnier, personnalisable, non-copiable, réseau de domaines, déjà rejeté). Rien d'autre.
+
+Deux préférences seulement, à **signaler sans écarter** : l'électronique (shipping/SAV/batteries) et les produits gadget-blague. Si la data est là, on présente quand même et on mentionne le point — c'est Roméo qui tranche.
+
+Via `search_ads` (MCP TrendTrack) :
+- **pas de `category_ids`**
 - `min_active_ads` ≥ 40, `max_traffic` < 2000
 - **`sort_by reachDelta7d`** (⚠️ PAS `reachDelta30d`), `max_ads_per_brand` 1, marché ≠ FR
 - **`shop_created_after` = il y a ~5-6 SEMAINES max** (pas "< 3 mois" large)
@@ -58,7 +68,11 @@ Méthode principale : **filtrer par CATÉGORIE, jamais par tri global** (le tri 
 
 Moteurs d'appoint : `daily_radar` (produits/shops qui montent) et le filet nordique (`shop_creation_countries` SE/DK/NO/FI/DE/NL/AT + `max_products` bas). Les outils qui NE marchent PAS (find_similar_shops, keywords, find_winning_products, search_advertisers growth) sont documentés dans `references/outils-trendtrack.md` : ne pas perdre de crédits dessus.
 
-**⚠️ Catalogue versionné de méthodes (acté 04/08/2026) : `references/methodes-versionnees.md`.** La recette ci-dessus (catégorie + `reachDelta7d` + shop frais) est la méthode V1, validée par un vrai track record (matelas, sac sling, valotalo, bryngrill), mais ce n'est plus la SEULE à lancer. Le fichier liste ~19 méthodes numérotées (V1-V19), chacune un angle de filtre TrendTrack différent (dépense 24h réelle, reach cumulé, pente de créa individuelle, croissance du nombre de pubs, rank movers, split-testing, rotation géographique EU sous-explorée, thèmes/apps Shopify typiques dropship, etc.), avec un statut (✅ validée / 🧪 en test / ⏸️ en pause / ❌ retirée) et un journal de résultats. **Toujours commencer par les méthodes ✅ validées, puis piocher 3-4 🧪 en test non encore essayées si le puits est sec**, et consigner le résultat dans le journal du fichier à la fin de la session (garder si ça sort un vrai candidat, retirer/mettre en pause après plusieurs échecs). Raison : sur une niche déjà bien explorée, se limiter à 1-2 filtres fait retomber sur les mêmes shops que les 700 autres élèves de la formation qui utilisent les mêmes critères.
+**⚠️ Catalogue de filtres (acté 04/08/2026) : `references/methodes-versionnees.md`.** La recette ci-dessus (catégorie + `reachDelta7d` + shop frais) est le filtre **V1**, validé par un vrai track record (matelas, sac sling, valotalo, bryngrill), mais ce n'est plus le SEUL à lancer. Le fichier liste 19 filtres TrendTrack numérotés, chacun un angle différent.
+
+**Convention de nommage (Roméo, 04/08/2026) : `F` = filtre en test, `V` = filtre validé, le numéro ne change jamais** (F15 validé devient V15). **⚠️ À ne pas confondre avec la « méthode générale V3 »**, qui désigne la doctrine de recherche produit (arbitrages de fond ci-dessus) et n'a rien à voir avec ces filtres — retirer un filtre F3 ne touche pas la méthode V3.
+
+**Toujours lancer V1 ET V4 en binôme** (V1 filtre sur `min_active_ads ≥ 40` et rate donc structurellement les shops en début de scale à 5-25 créas ; V4 couvre cette phase-là). Puis piocher 2-3 `F` non encore essayés si le puits est sec, et consigner le résultat dans le journal du fichier. **Avant de tester un `F`, vérifier s'il filtre sur un stock ou sur une dérivée** : la loi structurelle documentée en tête du catalogue prédit qu'un seuil absolu cumulé combiné à un filtre de fraîcheur rend toujours 0. Raison d'être du catalogue : sur une niche déjà explorée, se limiter à 1-2 filtres fait retomber sur les mêmes shops que les 700 autres élèves de la formation.
 
 **Une fois un produit identifié (candidat en validation, ou déjà en test)**, pour trouver un maximum de SES concurrents (plus de data, plus de créas à adapter en optimisation/scaling) : voir `references/trouver-concurrents.md` (3 méthodes formation : TrendTrack mots-clés multilingues, TrendTrack par niche/catégorie, Kalodata par catégorie, + liste d'outils alternatifs).
 
@@ -91,6 +105,19 @@ Sorties volumineuses → sauver en fichier et parser avec `node -e` ou PowerShel
 - Marché principal du concurrent ≠ FR = idéal.
 - Présence FR légère / quelques vendeurs qui tâtonnent = on y va, on exécute mieux.
 - Funnel exact déjà dominant en FR = prudence/différenciation, à signaler dans la présentation.
+
+### Étape 5bis — ⚠️ OUVRIR LA PAGE PRODUIT AVANT DE PRÉSENTER (obligatoire, acté 04/08/2026)
+
+**Aucun candidat ne se présente sans que sa page produit ait été ouverte et lue.** La data TrendTrack ne dit RIEN des exclusions dures : elle ne montre ni la personnalisation, ni la structure d'offre réelle, ni le prix exact, ni le fait que le produit soit ingéré/topique, ni un pricing cassé de site chinois.
+
+**Leçon du 04/08/2026 (NordBand)** : candidat présenté avec un plancher franchi et une pente exemplaire, tué en trente secondes par Roméo qui a simplement ouvert le site — le client pouvait faire graver **la phrase de son choix**, donc produit personnalisable, exclusion dure. Claude n'avait jamais quitté TrendTrack.
+
+**Checklist à faire sur la page produit du winner, avant toute présentation :**
+1. **Personnalisation ?** (gravure, texte libre, initiales, choix complexe) → exclusion dure, on jette.
+2. **Nature du produit** : ingéré ? topique à promesse santé ? → exclusion dure.
+3. **Prix exact et structure d'offre** à partir de l'offre n°1 (solo ou multi-unités par défaut).
+4. **Pricing cohérent ou cassé** (cf. `sites-a-ne-pas-recopier.md`) → si cassé, non copiable.
+5. **Nombre de produits réel** au catalogue, pour confirmer le mono-produit.
 
 ### Étape 6 — Présentation de la short-list
 

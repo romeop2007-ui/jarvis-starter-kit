@@ -7,6 +7,28 @@
 
 ---
 
+## 2026-08-06 (mise à jour 2)
+
+### Intégration des prompts Notion du formateur + crea-pub repasse sur ChatGPT + copywriting Sugarman/Theriot lus intégralement
+- Prompts Notion "Les prompts Claude" (Zecom Academy) intégrés dans les skills existants : traduction
+  fiche produit (nouvelle Étape 1bis de `fiche-produit`), ad copy courte + titre Meta optimisé
+  (`crea-pub`), méthode de génération de mots-clés concurrents sans détour ChatGPT (`recherche-produit`),
+  traduction pages légales multilingue mise en réserve (`fiche-produit`, non active tant que Zooryn
+  reste France-only).
+- `crea-pub` Chemin IMAGE réécrit : abandon de l'appel API gpt-image-1 (coûtait quelques centimes par
+  génération), retour à un prompt généré par Claude que Roméo colle lui-même dans ChatGPT avec l'image
+  source. `scripts/edit_openai.mjs` gardé en archive.
+- Les deux livres de copywriting suggérés par le formateur (Adweek Copywriting Handbook de Sugarman,
+  The Art of Creating an Ad That Scales de Theriot) ont été lus intégralement via ChatGPT (upload PDF +
+  synthèse chapitre par chapitre) et intégrés au même niveau de détail que
+  `eugene-schwartz-breakthrough-advertising` : `crea-pub/references/synthese-sugarman-adweek-copywriting.md`
+  (23 copy elements + 31 déclencheurs psychologiques listés en entier) et
+  `crea-pub/references/synthese-theriot-ads-that-scale.md` (16 chapitres). `synthese-copywriting-ads.md`
+  reste le pont condensé avec les acquis Zooryn (liens avec `bilan-ads`, la méthode "traduire un winner",
+  les flows Klaviyo).
+
+---
+
 ## 2026-08-06
 
 ### Recherche produit : formation terminée, catalogue de filtres élargi, veille active sur 2 produits

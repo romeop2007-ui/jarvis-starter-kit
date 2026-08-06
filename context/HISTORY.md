@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-08-05 (mise à jour 6)
+
+### Skill bilan-ads : intégration complète du framework testing → optimisation (6 vidéos formation + 2 boards Miro)
+- **Nouvel outil connecté : MCP Miro**, donnant accès direct aux boards officiels de la formation Zecom Academy. 2 boards trouvés à ce jour : "Analyse résultats testing CBO" et "Phase d'OPTI (où est le pb)".
+- **6 vidéos du Module 12 téléchargées (Kajabi/Wistia via cookie déposé par Roméo) et transcrites localement** (faster-whisper large-v3-turbo) : "1.4 Analyse et prise de décision en phase de testing", "3.1 Phase d'optimisation, quoi optimiser", "4.1 Problème côté site (3 cartouches)", "4.2 Changer son offre (meilleures offres)", "4.3 Changer sa première image de carousel", "5.1 Problème côté ads (3 cartouches)".
+- **`baremes.md` très largement enrichi** : correction d'un seuil CPC mal interprété depuis le 13/07 (seuil absolu <1€/>1€, pas une variation, confirmé par vidéo + board + PDF officiel identiques au mot près), ajout de la règle des 3 cartouches max en optimisation (avec assouplissement si marge proche du target), détail complet des 3 cartouches côté site (3bis) et côté ads (3ter, dont le diagnostic "même créative qui monopolise le spend" et le choix même CBO vs nouvelle CBO), tableau des 4 exemples officiels de diagnostic ads-vs-site.
+- **2 nouveaux fichiers de référence créés** : `meilleures-offres.md` (7 familles d'offres avec exemples réels, dont la règle stricte sur les cadeaux offerts : jamais spéculatif, seulement si un concurrent a déjà scalé avec) et `premiere-image-carousel.md` (8 catégories d'images hero avec exemples réels par capture).
+- **Vérification croisée systématique** : à chaque vidéo, recherche du board Miro correspondant pour confirmer/corriger le contenu transcrit. Aucune divergence de fond trouvée entre vidéos, boards et PDF officiel — une seule et même source déclinée sur plusieurs supports.
+- Le skill `bilan-ads` couvre désormais l'intégralité du parcours testing → optimisation (site + ads) → catalogue d'offres → catalogue d'images carousel, prêt à servir dès le prochain produit testé.
+
+---
+
 ## 2026-08-05 (mise à jour 5)
 
 ### Reprise de la recherche produit : V1/V4 étendus, catalogue de filtres formation découvert, panne TrendTrack

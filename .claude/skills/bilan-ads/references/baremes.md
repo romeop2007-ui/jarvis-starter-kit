@@ -20,6 +20,9 @@
 > 4 exemples en visuel, texte identique au mot près).
 > Source complémentaire (section 3bis) : vidéo "4.1 Problème côté site, les 3 cartouches" —
 > pas de board Miro dédié trouvé à ce jour (05/08/2026), contenu 100% oral.
+> Source complémentaire (section 3ter) : vidéo "5.1 Problème côté ads, les 3 cartouches" —
+> contenu 100% oral, capture annoncée par Roméo mais pas encore reçue au moment de l'intégration
+> (05/08/2026), à compléter si elle arrive.
 
 ---
 
@@ -273,6 +276,59 @@ encore rentable** (y compris une petite marge du type 5 %, traitée comme équiv
 audiences Meta, produit redevenu tendance). Pas une priorité immédiate, mais à garder en tête pour
 le pipeline de Zooryn plutôt que de considérer un produit optimisé-mais-cut comme définitivement
 mort.
+
+---
+
+## 3ter. Problème côté ADS — le détail des 3 cartouches (vidéo "5.1 Problème côté ads")
+
+**Même structure générale que 3bis (fenêtre d'analyse de 2-3 jours DEPUIS chaque changement, pas le
+spend cumulé ; même sourcing des créas : top créas du concurrent non encore lancées → seuil de reach
+redescendu sur ce concurrent → nouveau concurrent via Calodata/TrendTrack/Spybox).** La différence
+avec 3bis : ici l'accent porte sur les ads, avec un diagnostic intermédiaire propre à Meta qui
+n'existe pas côté site.
+
+| Cartouche | Actions | Détail |
+|-----------|---------|--------|
+| **1** | Rajouter 3-4 nouvelles créatives dans la CBO déjà lancée | Simple ajout dans la même structure existante. |
+| **2** | Diagnostic + (rajouter 3-4 créas, même CBO ou nouvelle CBO) + re-changer l'offre | Voir le diagnostic ci-dessous pour choisir même CBO vs nouvelle CBO. On rechange aussi l'offre en parallèle : même si le problème est identifié "côté ads", l'offre reste le levier n°1 sur la conversion, et la fiche produit n'est pas forcément optimale juste parce qu'elle n'est pas la cause principale. |
+| **3 (dernière, "big swing")** | Rajouter 3-4 créas (même CBO ou nouvelle CBO) + re-changer l'offre (3e config) + changer la 1ère image du carrousel + copywriting au-dessus du bouton ATC + copywriting de la 1ère section sous le bouton ATC | Mêmes actions que la cartouche 3 de 3bis, cumulées avec le volet ads. |
+
+**⚠️ Diagnostic propre aux ads, à faire avant la cartouche 2 (nouveau, absent du côté site) : est-ce
+que la même créative du testing initial continue de prendre tout le spend malgré l'ajout de
+nouvelles créas en cartouche 1, avec des résultats moyens ?**
+
+Exemple donné : sur 5 créas lancées au testing, la créa n°2 monopolise tout le spend avec un ROAS
+1,6 alors que le ROAS TARGET est à 2,1 (loin du compte). Après la cartouche 1 (3-4 créas
+supplémentaires dans la même CBO), c'est toujours la créa n°2 qui domine avec des résultats moyens.
+**Deux options dans ce cas :**
+1. **Couper la créative dominante de la CBO** et la remplacer par les nouvelles créas de la
+   cartouche 2, dans la même CBO.
+2. **Laisser tourner la CBO actuelle en l'état** (tant qu'elle n'est pas en perte, ou seulement en
+   légère perte, pas grave de la laisser vivre) **ET lancer une toute NOUVELLE CBO en parallèle**
+   avec les nouvelles créas de la cartouche 2 (et éventuellement celles de la cartouche 1 aussi, en
+   les retirant de la 1ère CBO pour les basculer dans la 2e) — repartir **comme un testing de zéro,
+   50 €/jour**, et observer.
+
+**Point rassurant sur l'option 2 (nouvelle CBO) :** si le funnel de base a déjà une cohérence (le
+produit est break-even ou proche, pas en perte totale), une nouvelle CBO donne rarement des
+résultats catastrophiques. Ça vaut le coup de tenter, ce n'est pas reparti de rien.
+
+**Si Meta ne reste PAS bloqué sur l'ancienne créature** (les nouvelles créas de la cartouche 1
+captent déjà du spend dès le lendemain de leur ajout) → pas besoin de ce diagnostic, on continue
+simplement dans la même CBO, Meta explore normalement les nouvelles créas.
+
+**Nuance sur la dernière section (copywriting sous le bouton ATC), cartouche 3 :** si cette section
+est difficile à changer avec profit (ex. 3 vidéos témoignages déjà traduites), **on peut la laisser
+telle quelle, ce n'est pas grave** — elle a un poids secondaire comparée aux éléments au-dessus du
+bouton ATC (bullet points, titre). Pas obligatoire, contrairement au reste de la cartouche 3.
+
+**Fin de cartouche 3 : même règle d'assouplissement/CUT qu'en 3bis** (marge 10-18% proche du
+target → on peut laisser tourner quelques jours de plus ; break-even/perte → CUT direct, next
+product). **Note humaine du formateur, à garder en tête pour accompagner Roméo le moment venu** :
+il reconnaît explicitement la difficulté psychologique de couper un premier produit qui montrait un
+peu de traction après 6 à 10 jours et plusieurs cartouches de changements — la règle reste la même
+malgré l'attachement (« il n'a pas envie de péter, il n'a pas envie de péter »), on coupe et on
+avance. Produit relançable plus tard si le contexte marché change.
 
 ---
 

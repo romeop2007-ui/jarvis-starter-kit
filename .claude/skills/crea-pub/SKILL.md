@@ -168,6 +168,14 @@ auto-detecte "voice" des que `voix-off.mp3` existe). Mettre l'ancien `accroches-
    `accroches-fr.md` (pub muette/musicale). Calibrer : viser environ `D x 2,4` mots sans
    depasser la duree, et prevoir GENEREUX (Sarah debite vite, plancher vitesse 0,9 ; un
    script trop court sort une voix plus courte que la video).
+   **Regles de fluidite orale (source : prompt formateur "Traduction des sous-titres", Notion
+   "Les prompts Claude", ajoutees le 06/08/2026)**, a appliquer en ecrivant `script-fr.txt` : ne
+   jamais terminer une phrase par un point si l'idee se poursuit (virgule ou rien), point
+   seulement quand la pensee est vraiment close, pas d'ellipse sauf suspension volontaire, chaque
+   phrase doit se lire naturellement A VOIX HAUTE (c'est une voix off, pas un texte ecrit), et si
+   le sens d'une phrase du concurrent est deja couvert plus tot, reformuler plutot que repeter
+   inutilement le nom du produit/de la marque. Ces regles s'ajoutent au PROMPT FIXE existant
+   (remplacement du nom concurrent), elles ne le remplacent pas.
 4. **Detourage = 100% MANUEL cote Romeo depuis le 12/07/2026 (Vmake API abandonnee pour Claude).**
    Romeo a teste l'automatisation via `creas-lot.ps1`/l'API Vmake et prefere desormais faire le
    detourage lui-meme a la main : un detail rate par le pipeline automatique coutait plus de temps
@@ -378,7 +386,11 @@ les relire avant export. Toujours separer les deux phases :
      traduction/localisation, meme un humain qui fait l'adaptation peut l'oublier.
 5. **Faire valider chaque texte final par Romeo si un doute existe** (prix, allegation,
    formulation) avant de passer a la Phase 2 — une fois dans l'image, ce n'est plus modifiable
-   sans tout regenerer.
+   sans tout regenerer. **Presenter ce texte sous la forme stricte `Texte original → Traduction
+   FR` zone par zone** (convention reprise du prompt formateur "Traduction en Français", Notion
+   "Les prompts Claude", ajoute le 06/08/2026) : ca evite d'oublier une zone ou de fusionner deux
+   textes distincts, en particulier sur les petits elements isoles (boutons, badges, CTA) faciles
+   a rater dans un relevé en prose.
 
 ### Phase 2 — Generer l'image (gpt-image, texte deja figé et validé)
 
@@ -451,7 +463,8 @@ reelles type "1 achete = 1 offert", livraison offerte), puis livre a Romeo, en c
 chat, **chaque champ pret a copier-coller dans le Gestionnaire** :
 
 1. **Texte principal** (le body complet adapte FR, dans un bloc de code copiable)
-2. **Titre** (dans un bloc de code copiable)
+2. **Titre** (dans un bloc de code copiable — traduction directe du titre concurrent ; si Romeo
+   veut une version optimisee conversion plutot qu'une traduction, cf. "Titre Meta Ads" plus bas)
 3. **Description** (facultative — si le concurrent n'en a pas, en proposer une courte type
    "Livraison offerte · Satisfait ou rembourse 30 jours")
 4. **Call-to-action** (ex "Acheter" = SHOP_NOW)
@@ -495,6 +508,67 @@ creer une 2e version avec un angle different.
 Sortie : meme format que le texte traduit (texte principal / titre / description / CTA / URL),
 livre dans le chat, pret a copier-coller. Verification factuelle obligatoire identique
 (`references/verites-zooryn.md`) avant de livrer.
+
+### Ad copy courte (ajoutee le 06/08/2026) — variante punchy, en plus de la longue AIDA
+
+Meta recommande de tester plusieurs formats de texte, pas seulement des longueurs de la meme
+structure. En complement de la traduction (1re version) et de la 2e ad copy longue AIDA
+ci-dessus, Romeo peut demander une **version courte** (ex "fais-moi la version courte", "donne-
+moi un hook punchy"). Meme pre-requis (fiche produit du lot), meme verification factuelle
+obligatoire avant de livrer. Source : prompt formateur "Création d'ad copy court", Notion "Les
+prompts Claude".
+
+**PROMPT FIXE :**
+
+```
+Role : Tu es un expert en copywriting publicitaire specialise en e-commerce, Facebook Ads et
+performance creative. Tu maitrises a la perfection les principes de persuasion de « The Art of
+Creating Ads That Scale » (Nick Theriault) et « The Adweek Copywriting Handbook » (Joseph
+Sugarman).
+
+A partir de la fiche produit du lot <LOT> (lien Shopify ou capture), imprègne-toi de : la cible
+(persona), les benefices emotionnels principaux, les douleurs soulagees, le Dream Outcome, les
+preuves (avis, stats, credibilite).
+
+Redige 1 ad copy COURT pret a coller dans une publicite Meta :
+- 2 a 3 lignes maximum
+- Punchy des la premiere phrase, capte l'attention immediatement
+- Ultra concret, aucune promesse floue ou vague
+- Langage simple, compris immediatement, zero jargon
+- Aucun texte generique ou banal
+
+Sortie : uniquement le bloc de texte final, aucun commentaire ni explication.
+```
+
+### Titre Meta Ads (ajoute le 06/08/2026) — champ "Titre" optimise
+
+Le champ "Titre" livre a l'etape "Quand Romeo demande le texte d'une pub" (ci-dessus) est une
+traduction directe du titre du concurrent. Si Romeo veut une version **optimisee pour la
+conversion** plutot qu'une simple traduction (ex "trouve-moi un meilleur titre"), utiliser ce
+prompt dedie. Source : prompt formateur "Création de titre", Notion "Les prompts Claude".
+
+**PROMPT FIXE :**
+
+```
+Role : Tu es un expert en copywriting publicitaire specialise en e-commerce, Facebook Ads et
+performance creative. Tu maitrises a la perfection les principes de persuasion de « The Art of
+Creating Ads That Scale » (Nick Theriault) et « The Adweek Copywriting Handbook » (Joseph
+Sugarman).
+
+A partir de la fiche produit du lot <LOT>, redige 2 titres ultra courts pour le champ "Titre"
+d'une publicite Meta Ads :
+- 30 caracteres maximum chacun (espaces compris)
+- Titre 1 : base sur le benefice emotionnel principal
+- Titre 2 : designation claire et explicite du produit
+- Aucun commentaire, aucune analyse, aucune explication
+
+Format de sortie strict :
+Titre 1 → [benefice principal, 30c max]
+Titre 2 → [nom du produit, 30c max]
+```
+
+Verification factuelle obligatoire identique (`references/verites-zooryn.md`) sur les deux
+prompts ci-dessus avant de livrer a Romeo.
 
 ## [ARCHIVE — ancienne methode API + verification lecture seule, remplacee le 12/07/2026] Lancement via MCP Facebook Ads
 

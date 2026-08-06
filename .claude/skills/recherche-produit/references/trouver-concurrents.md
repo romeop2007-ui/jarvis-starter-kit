@@ -6,11 +6,46 @@
 
 ## Méthode 1 — TrendTrack, recherche par mots-clés
 
-1. Construire avec ChatGPT une liste géante de mots-clés autour du produit : nom produit, variantes, problèmes qu'il résout, bénéfices (ex. pour une chaussure orthopédique : "chaussure orthopédique", "orthopédie", "fasciite plantaire", "hallux valgus"...).
-2. Faire traduire cette liste en plusieurs langues (EN, DE, IT, ES, FR, nordiques) via ChatGPT, en lui demandant le format exact attendu par TrendTrack : `motclé,motclé,` (virgule sans espace, pas de retour à la ligne) pour pouvoir tout coller d'un coup.
+1. Construire une liste géante de mots-clés autour du produit : nom produit, variantes, problèmes qu'il résout, bénéfices (ex. pour une chaussure orthopédique : "chaussure orthopédique", "orthopédie", "fasciite plantaire", "hallux valgus"...).
+2. Traduire cette liste en plusieurs langues (EN, DE, IT, ES, FR, nordiques), au format exact attendu par TrendTrack : `motclé,motclé,` (virgule sans espace, pas de retour à la ligne) pour pouvoir tout coller d'un coup.
 3. Dans TrendTrack, coller la liste complète dans la search bar, onglet **AddCopy** puis **Website**.
 4. Filtrer impressions ≥150-200k, trier par **Top Impression**.
 5. Plus la liste de mots-clés est large (viser 250-300+ mots-clés cumulés), plus on remonte de concurrents. Rester quand même dans le champ lexical du produit (pas n'importe quoi).
+
+### 🔧 Prompt prêt à l'emploi pour l'étape 1 (source : prompt formateur, Notion "Les prompts Claude", ajouté le 06/08/2026)
+
+Mise à jour par rapport à la vidéo formation (transcrite le 14/07/2026) : plus besoin de passer par ChatGPT pour construire la liste, Claude génère directement les mots-clés quasi-identiques (mêmes types d'objets, mêmes catégories, même utilité, variations du même concept), avec ce prompt exact :
+
+```
+Tu es un expert en recherche produit e-commerce et en génération de mots-clés.
+
+À partir du nom de produit suivant : {NOM_DU_PRODUIT}, génère une liste de mots-clés
+extrêmement proches, c'est-à-dire :
+– mêmes types d'objets
+– mêmes catégories
+– même utilité
+– variations du même concept
+
+✅ Le but est de créer des mots-clés presque identiques, à la manière de :
+chaussure orthopédique → chaussures orthopédiques → basket orthopédique → baskets
+orthopédiques → chaussure ergonomique → chaussures ergonomiques → basket ergonomique →
+baskets ergonomiques → chaussure médicale → chaussures de confort → basket corrective
+
+✅ Règles :
+– Tous les mots-clés doivent être des produits très similaires (pas d'accessoires, pas
+  d'objets différents).
+– Tu peux créer des variations de genre (chaussure / baskets), nombre (singulier/pluriel)
+  et adjectifs proches (orthopédique, ergonomique, médical, confort, correctif, stabilisant,
+  amortissant…).
+– Chaque mot-clé doit être unique (pas de doublons exacts).
+– Pas de phrases longues, uniquement des noms de produits ou expressions très courtes.
+
+Génère maintenant 30 mots-clés pour : {NOM_DU_PRODUIT}
+```
+
+Enchaîner directement avec l'étape 2 (traduction multilingue, même format `motclé,motclé,`
+sans espace) dans le même échange, sans repasser par un autre outil : Claude fait les deux
+étapes (génération + traduction) lui-même.
 
 ## Méthode 2 — TrendTrack, recherche par niche/catégorie
 

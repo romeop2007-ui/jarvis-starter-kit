@@ -61,6 +61,49 @@ initial de Roméo.
    screenshots demandés à Roméo) — le comportement mobile diverge souvent du desktop
    (galerie en swipe plutôt qu'en vignettes, ordre image/texte inversé, etc.).
 
+## Étape 1bis — Traduire fidèlement le titre et le texte du concurrent (source : prompts formateur, Notion "Les prompts Claude", ajouté le 06/08/2026)
+
+Avant de remplir le moindre bloc natif à l'Étape 2, traduire le titre et le texte de la fiche
+concurrente observée à l'Étape 1. Deux passes distinctes, dans cet ordre :
+
+**Titre.** À partir du PNG complet de la fiche concurrente (sert uniquement à s'imprégner du
+produit et de ses bénéfices, jamais traduit lui-même) et du titre exact à traduire : fidélité
+stricte au sens, aucune adaptation marketing ni ajout d'info, formulation la plus idiomatique
+possible en français.
+
+⚠️ **Règle spécifique nom de produit inventé** : si le titre contient un nom inventé par le
+concurrent (type "Mira", "Norrfjällen", un nom de modèle propre au concurrent), ne JAMAIS le
+traduire littéralement ni le garder tel quel — créer un nouveau nom court, mémorisable, crédible,
+qui évoque les bénéfices du produit déduits du PNG, en anglais ou anglicisé (esprit e-commerce
+international), dans le même esprit que l'original sans jamais le copier ni le traduire mot à
+mot. C'est ce nom traduit qui devient le nom du produit Shopify (cf. Étape 0). Cette règle
+formalise ce que Zooryn fait déjà au cas par cas (Sculpted, Mira → Luma) : elle devient la
+méthode par défaut à appliquer systématiquement, plus une improvisation ponctuelle.
+
+Format : `Titre original → Titre traduit`.
+
+**Texte (corps de la fiche).** Traduire bloc par bloc, sans jamais fusionner ni fragmenter
+davantage que la structure d'origine (un titre entier → une traduction de titre, un paragraphe
+entier → un paragraphe traduit, une liste à puces → puce par puce dans le même ordre). Fidélité
+exacte au sens, sans adaptation marketing ni ajout/suppression d'info, mais reformulation
+idiomatique française plutôt que mot-à-mot (un vrai copywriter français réécrit, il ne traduit
+pas au mot près). Le gras du texte source reste du gras dans la traduction. Format de sortie,
+répété bloc par bloc :
+
+```
+Texte original (bloc)
+→ Traduction en français (bloc)
+```
+
+Ce résultat bloc par bloc alimente directement les blocs natifs Shrine Pro de l'Étape 2
+(Testimonials, Text with icon, Collapsible content...) : copier-coller la traduction, jamais le
+texte original.
+
+⚠️ Ne pas confondre avec l'adaptation de marque des créas publicitaires (skill `crea-pub`, qui
+lui ADAPTE le texte à la marque Zooryn — remplace prix/marque/prénoms) : ici, l'objectif est une
+traduction fidèle du CONTENU de la fiche produit. La marque Zooryn s'applique naturellement
+ensuite puisque c'est déjà la fiche du produit Shopify Zooryn qu'on remplit avec ce texte.
+
 ## Étape 1.5 — Couleurs de marque : mapping depuis le concurrent
 
 Palette Zooryn, **ordonnée par rang** (jamais un jeu figé de 4 couleurs à plaquer partout, un
@@ -181,6 +224,46 @@ mobile du concurrent (pas un mockup desktop-only) :
   existe en local (le CLI détecte l'absence et supprime côté serveur, sans synchronisation
   complète). Demander confirmation à Roméo avant les mutations Shopify (variantes,
   `templateSuffix`, suppression de fichiers).
+
+## Réserve — Traduction des pages légales pour un marché non francophone (source : Notion "Les prompts Claude", ajouté le 06/08/2026)
+
+**Non actif aujourd'hui : Zooryn vend uniquement en France (cf. `context/CONTEXT.md`), les
+marchés Canada francophone / US / Allemagne restent en réserve, à activer seulement si un
+produit performe.** Prompt conservé ici pour ne pas le perdre, à sortir le jour où Roméo ouvre
+un marché dans une langue non française (mentions légales, CGV, politique de confidentialité...).
+
+```
+Rôle & Contexte :
+Tu es à la fois :
+1. Un traducteur natif de [langue cible], maîtrisant parfaitement les nuances linguistiques,
+   juridiques et culturelles du pays [pays cible].
+2. Un expert en droit des affaires, de la consommation et de la protection des données dans ce
+   pays, spécialisé dans la conformité légale des [type de document : mentions légales /
+   politique de confidentialité / conditions générales de vente / etc.] pour les sites e-commerce.
+
+Objectif : adapter le document ci-dessous, rédigé en français, pour qu'il soit conforme aux lois
+en vigueur dans [pays cible], naturellement formulé dans un langage juridique local,
+culturellement cohérent (références, institutions, devises, formats de date), et entièrement
+fluide et professionnel, comme rédigé directement par un juriste natif.
+
+Instructions :
+1. Lis le texte source ci-dessous (français).
+2. Traduis et réécris intégralement le document en [langue cible], en respectant la structure,
+   les titres et les paragraphes d'origine, en adaptant chaque notion juridique, référence
+   légale, autorité ou terme spécifique au système juridique et culturel de [pays cible].
+3. Si aucun équivalent exact n'existe à un terme ou une notion française, réadapte-le pour la
+   formulation la plus naturelle, claire et juridiquement valide possible dans le pays cible.
+4. Remplace devises, adresses, formats de date et mentions locales (ex. CNIL / RGPD) par leurs
+   équivalents légaux locaux.
+5. Rendu final complet, fluide, professionnel, sans note explicative ni commentaire.
+
+Format de sortie : document final entièrement adapté et traduit en [langue cible], même
+structure/hiérarchie que le document source, style juridique clair et professionnel.
+
+[langue cible] = ????
+Le document est le suivant :
+[COLLER LES MENTIONS LÉGALES, POLITIQUES…]
+```
 
 ## Limites connues
 

@@ -5,12 +5,46 @@
 
 ## 🟢 Pipeline validé (prêt pour le tableau de recherche produit)
 
-_(vide au 05/08/2026 — Vivalyo passait tous les critères data mais rejeté sur la saisonnalité, cf. ci-dessous)_
+_(vide au 06/08/2026)_
+
+## 🟡 En attente d'arbitrage de Roméo (présentés, pas encore tranchés)
+
+| Candidat | Produit / prix | Data | Défauts à assumer |
+|----------|----------------|------|-------------------|
+| **Mon-Veree (`monveree.store`)** | Montres vintage, **89 €** (barré 120 €), offre par défaut « Elige 2, Paga 1 » = 2 montres pour 89 € | 2 créas au plancher (**420 €/j** et 267 €/j), shop de 8 jours, 8 likes FB, 52 pubs actives, 7 produits, marché **ES** | Seulement 2 créas (seuil strict = 3-4) ; IG 12 038 abonnés pour 8 likes FB = followers vraisemblablement achetés ; 2 des 7 montres en rupture ; fausse urgence permanente ; **vérifier visuellement qu'aucun modèle ne copie une marque connue** (risque contrefaçon). **Seul candidat de la session à passer le test de réplicabilité du prix.** Jumeau à re-checker : `belmont-shop.de` (même angle en DE). |
+
+## 🔵 Types/clusters à surveiller (produit confirmé, mais aucun shop copiable à l'instant T)
+
+- **Projecteur galaxie/océan « 5D »** — confirmé par **4 shops indépendants sur 4 marchés** (`pearcehaley.com` CZ, `slimstep.shop` RO, `thenextgenelectronics.com` AU/GB, `fhgugi.top`/`gjhiifh.top` EE/LT), daily spend très élevé (317 à 487 €/j). **Bloqué sur le PRIX** : se vend 23 à 35 € partout, soit très en dessous du plancher de réplicabilité. À rouvrir seulement si un shop le vend ≥60 € ou si le COGS négocié tombe très bas.
+- **Montre « 2 pour le prix d'1 »** — 2 shops indépendants (`monveree.store` ES 89 €, `belmont-shop.de` DE). Cf. arbitrage ci-dessus.
 
 ## 🔴 Rejetés définitifs (ne jamais ressortir)
 
 | Candidat | Produit | Motif |
 |----------|---------|-------|
+| **semori.de** | Colliers/bijoux sentimentaux (Mutter & Kind Kette, 59,95 €) | 06/08/2026 : **1 seule créa ≥400k**, plancher non franchi. Aussi 40+ produits au catalogue (généraliste bijoux). |
+| **dasana.de** | Oreiller cervical OrthoSleep | 06/08/2026 : **1 seule créa ≥400k** malgré 198 €/j. Angle santé/orthopédique + oreiller = poids volumétrique défavorable. |
+| **belmont-shop.de** (Lithemo) | Montre Belmont No.1, « 2 montres 1 prix » | 06/08/2026 : 2 créas seulement (70 €/j et 57 €/j), plancher non franchi. **⚠️ À re-checker : jumeau exact de `monveree.store` (même angle, marché DE au lieu de ES) — si les deux tiennent, le concept est double-confirmé.** |
+| **strykr.store** | Pantalon moto protecteur | 06/08/2026 : **1 seule créa ≥300k malgré 183 pubs actives** (cas IROND : le nombre de pubs ne prouve rien). Se revendique explicitement « echte Marke, kein Dropshipping ». |
+| **maisonvantier.com** | Portefeuille cuir pleine fleur | 06/08/2026 : **personnalisation** (option « Custom Text Personalization » 5,99 $ dans les best-sellers) = exclusion dure. + 36 produits, pente de pubs plate/descendante (11→6→3→9→7). |
+| **thenextgenelectronics.com** | Projecteur galaxie Astra Mini (59 AUD) | 06/08/2026 : **127 produits** (généraliste électronique) + pente de pubs en plateau installé (191→252→129→…→158), pas une pente qui monte. |
+| **heim-zauber.de** | Numéro de maison LED solaire | 06/08/2026 : boutique **généraliste de gadgets** à -50 % (cap organizer, moule à glaçons, coupe-pastèque, cutter, anti-points noirs…). **1 seule créa vivante** au plancher, l'autre créa ≥500k est morte (reachDelta7d 3 570). |
+| **slimstep.shop** | Projecteur dinosaure chambre enfant | 06/08/2026 : 1 seule créa, domaine générique jetable (URL `/products/z3-719dd2`). |
+| **pearcehaley.com** (Vychytávky do Pokoje) | Projecteur galaxie/océan 5D Topacme, 880 CZK ≈ 35 € | 06/08/2026 : domaine jetable sans rapport avec le nom de la page, paiement à la livraison. **Surtout : échoue le test de réplicabilité du prix** (COGS rendu ~18-22 € → ×3,5 = 63-77 € contre 35 € affichés). |
+| **gohomelyoo.com** | Projecteur galaxie USB basique, 22,99 € | 06/08/2026 : ticket très en dessous du plancher logistique (~36 €), reach dérisoire (206). |
+| **huber-outdoor.at** | Lampe frontale 230° USB-C, 39,90 € (1+1 gratuit) | 06/08/2026 : **échoue le test de réplicabilité du prix** (COGS rendu ~15-18 € → ×3,5 = 52-63 € contre 39,90 €, et 19,95 €/unité sur l'offre phare). Data pourtant solide (141 €/j, 2 créas au plancher, shop mono-produit ultra-frais, 31 likes FB). **À rouvrir uniquement si Yuri quote la lampe très bas.** |
+| **elaradk.com** (Elara-DK) | Boucle d'oreille chat « middle finger » | 06/08/2026 : **marché principal FR** = concurrence frontale, + bijou fantaisie à petit ticket (« up to 70 % off »). |
+| **myalmapure.com / myalmapure-it.com** | Bouteille en cuivre « eau vivante » | 06/08/2026 : promesses de santé (digestion, inflammation, thyroïde, collagène) = exclusion dure, **et réseau de domaines** (clone .com DE + -it.com IT du même produit). |
+| **proudlysupportlocal.com** | Merch mémoriel football (« King Kev ») | 06/08/2026 : merch sous licence/print-on-demand. |
+| **calenishop.com** (Joyería Especial) | Rose éternelle + collier gravé | 06/08/2026 : **personnalisation** (collier gravé) = exclusion dure. |
+| **kkkoxx.com** (Global Daily Goods) | Rideau moustiquaire magnétique | 06/08/2026 : domaine chinois jetable, pricing non réplicable (cf. `sites-a-ne-pas-recopier.md`). |
+| **chillneck.shop** (ES + DE) | Anneau rafraîchissant pour le cou | 06/08/2026 : **saisonnier** (produit de canicule présenté le 6 août) + réseau de domaines multi-pays. |
+| **grillnordic.dk** | Brosse barbecue électrique | 06/08/2026 : **saisonnier**, même motif que Vivalyo. |
+| **mundozelora.com** | Pare-soleil voiture pliable | 06/08/2026 : **saisonnier** (été). |
+| **velarsunglasses.com / vysioneyewear.com** | Lunettes de soleil | 06/08/2026 : saisonnier + marques déjà installées (4 217 avis, IG 15k). |
+| **glorio.ro / muvcollection.com** | Réchaud gaz 3 feux / mobilier | 06/08/2026 : encombrants. |
+| **glarexx.com** (Trendify) | Bulbes de plante hosta | 06/08/2026 : végétal vivant, non expédiable en dropshipping Chine. |
+| **portefeuille-corval.com** | Portefeuille RFID slim 29,95 € | 06/08/2026 : marché FR frontal + ticket sous le plancher logistique. |
 | Celaure (celaure.com) | Pochette pain cire d'abeille | Validé le 18/07 puis **ABANDONNÉ le 25/07/2026** (cf. CONTEXT.md) : COGS rendu + taxe douane Chine (~3€/colis) fait passer le multiplicateur prix/COGS sous le seuil x3 minimum |
 | **Vivalyo (vivalyo.com)** | GrillMeister Pro™ (brosse de nettoyage de grille de barbecue) | **Rejeté par Roméo le 05/08/2026 — SAISONNIER (exclusion dure ratée par Claude).** Passait tous les autres critères (mono-produit, pente d'ads nette 2→118 pubs/8sem, plancher créa par créa franchi avec 3 créas ≥70€/j, prix 69€ pile dans la cible, marché 100% DE, page produit propre) mais c'est un produit d'été (nettoyage barbecue) lancé en toute fin d'été = time to market mort. **Erreur de Claude à retenir : vérifier la saisonnalité AVANT de présenter, même quand tout le reste de la data est excellent** — un ticket dans le prix et un plancher franchi ne rachètent pas un produit hors-saison. |
 | sonnfit.de | Fit-Overs | Rejeté par Roméo (14/06), reproposé par erreur le 15/06 → mort |

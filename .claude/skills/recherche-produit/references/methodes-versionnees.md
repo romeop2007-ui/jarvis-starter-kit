@@ -536,6 +536,66 @@ Test `min_reach: 400000` + `max_traffic: 2000` **sans** filtre techno : 20 résu
 
 **Correctif validé : ajouter `technologies: ["shopify"]` force l'existence d'un vrai shop e-commerce indexé et referme le trou** (le test relancé avec ce paramètre a immédiatement éliminé tous les P&G). **Règle : sur tout filtre basé sur un seuil de reach ou de dépense, `max_traffic` et `technologies` vont par paire, jamais l'un sans l'autre.**
 
+## ❌ F36 — Reach de PAGE sur 7 jours, seuil bas seul (testé et RETIRÉ le 06/08/2026)
+
+```
+min_reach_per_page: 2000000
+reach_per_page_period: last7d
+technologies: ["shopify"] + max_traffic: 2000
+shop_created_after: <6 mois
+sort_by: reachDelta7d
+```
+Idée : filtrer sur le reach de la PAGE entière (pas d'une créa isolée) sur 7 jours, pour capter « tout le compte scale cette semaine » — donc mécaniquement un shop à plusieurs créas fortes, le format que Roméo demande.
+
+**Testé le 06/08/2026 : ne discrimine pas.** Résultats dominés par les pages déjà connues et les gros comptes (My-personaltrainer, Gift Soul, Humantra, Zelesta, Blaine Box). **Cause : `min_reach_per_page` seul reste un SEUIL ABSOLU**, même borné à 7 jours — il favorise donc mécaniquement les plus gros comptes, exactement comme F30/F31. 2 shops neufs seulement, tous deux exclus (Proudly Support Local = merch mémoriel sous licence, Chiara Rossi/`myalmapure-it.com` = clone italien de `myalmapure.com`, donc réseau de domaines). **❌ F36 retiré tel quel**, mais l'idée du reach au niveau page est bonne : elle devient exploitable dès qu'on la BORNE (voir F37).
+
+## 🟢 F37 — FENÊTRE de reach de page + signature « peu de likes FB » (LE FILTRE DE LA SESSION, 06/08/2026)
+
+```
+min_reach_per_page: 400000
+max_reach_per_page: 3000000      ← LA correction clé : borner en HAUT
+reach_per_page_period: last7d
+max_facebook_likes: 1000          ← signature du dropshipper frais
+technologies: ["shopify"] + max_traffic: 2000
+shop_created_after: <6 mois
+max_ads_per_brand: 1
+sort_by: reachDelta7d
+```
+
+**Correction de F36 : on ne cherche pas « la page qui fait le plus de reach », on cherche la page qui est EN TRAIN de décoller.** C'est une fenêtre, pas un plancher. Le plafond haut évacue les marques installées, le plancher bas garantit un vrai volume. `max_facebook_likes` ajoute une deuxième barrière qualitative très efficace : un vrai dropshipper frais a 5 à 700 likes (Dasana 5, Huber-Outdoor 31, Mon-Veree 8, Heim-Zauber 127, Mirelia 114), une marque installée en a des dizaines de milliers (Humantra 11 289, Zelesta 43 723).
+
+**Résultat : meilleur rapport signal/bruit de tout le catalogue à ce jour.** Nettement moins de gros comptes que V1/V4/F35/F36, et c'est lui qui a fait remonter le cluster « projecteur galaxie 5D » et, une fois combiné au prix (F38), les deux seuls candidats sérieux de la session.
+
+## 🟢 F38 — F37 + plancher de PRIX du best-seller (le filtre à garder, 06/08/2026)
+
+```
+(tout F37) +
+min_best_seller_price: 45
+max_best_seller_price: 110
+```
+
+**Raison d'être : appliquer le test de réplicabilité du prix EN AMONT plutôt qu'après 30 minutes d'analyse.** La session du 06/08 a tué trois candidats de suite (Elyndra, projecteur galaxie, Huber-Outdoor) pour exactement la même raison : le winner vend trop bas pour qu'on puisse le copier avec notre structure de coûts. Autant l'empêcher de remonter.
+
+**Résultat : le filtre le plus productif de la session.** Sur 20 résultats, une majorité de shops jamais vus, et les 2 seuls candidats présentables sont sortis de là (Mon-Veree, Huber-Outdoor). Il fait aussi remonter des catégories neuves (couteaux forgés `katanuki.nl`, ceinture sans boucle `wellbetter.nl`).
+
+**Page 2 (même session) : 0 nouveau candidat.** Le gisement se referme vite — page 2 dominée par la mode féminine (Sivora, Novelya, Casa Provincial, Maison Tropez, Project Wayne), le santé/ingéré/topique (Nervia ×2, Forhairver, Divaya, Vertaline) et le marché FR frontal (Chatinou, Zenvora). Seul signal noté : **Klynero (`klyneroshop.com`, lanterne solaire à effet flamme, DE, 74 €/j, 181 pubs)** — écarté car saisonnier en fin d'été et trop proche de la guirlande Luma déjà testée et killée. **Conclusion pratique : F38 se joue sur la page 1, ne pas s'acharner au-delà de la page 2.**
+
+**⚠️ Limite importante à connaître : `min_best_seller_price` filtre sur le prix CATALOGUE, pas sur le prix réellement payé.** Huber-Outdoor est passé au travers avec un affichage 59,90 € barré alors que le prix réel est 39,90 € (et 19,95 €/unité sur l'offre 1+1). Le filtre réduit énormément le bruit mais **ne dispense jamais d'ouvrir la page produit** pour relever les vrais paliers (étape 5bis).
+
+## 🔑 Loi corollaire n°3 découverte le 06/08/2026 : en dessous de ~40 € chez le concurrent, le produit est structurellement non réplicable
+
+Trois candidats indépendants ont été tués le même jour par le même calcul, ce n'est pas une coïncidence :
+
+| Candidat | Prix concurrent | COGS rendu estimé | ×3,5 imposé | Écart |
+|----------|----------------|-------------------|-------------|-------|
+| Elyndra (collier) | 19,99 € solo | ~13,85 € | 49,99 € | **+150 %** |
+| Projecteur galaxie 5D | 35 € (CZ), 33 € (AU), 23 € (NL) | ~18-22 € | 63-77 € | **+28 à +42 €** |
+| Huber-Outdoor (lampe frontale) | 39,90 € (19,95 €/u en 1+1) | ~15-18 € | 52-63 € | **+12 à +23 €** |
+
+**Explication : le plancher logistique (~10 à 13 € de transport + 3 € de taxe) est un coût quasi FIXE, indépendant du prix du produit.** Sur un article vendu 20-40 €, ce plancher représente 50 à 90 % du COGS rendu, donc le ×3,5 explose mécaniquement au-dessus du prix du marché. Sur un article vendu 80-100 €, le même plancher se dilue et le ×3,5 retombe dans l'épure.
+
+**Conséquence opérationnelle : ne plus creuser un candidat dont le prix concurrent réel est inférieur à ~40 €** (sauf offre bundle qui remonte le panier au-dessus de ce seuil). Ça ne remplace pas le test de réplicabilité de l'étape 5bis, ça évite juste d'y arriver pour rien.
+
 ## ❌ Approches déjà écartées (ne pas retester telles quelles)
 
 - **`find_similar_shops`** en découverte pure : remonte les grosses marques établies (REI, Decathlon...). Reste utile UNIQUEMENT en aval pour cartographier les concurrents d'un candidat déjà trouvé (cf. `trouver-concurrents.md`).
@@ -549,6 +609,7 @@ Test `min_reach: 400000` + `max_traffic: 2000` **sans** filtre techno : 20 résu
 
 | Date | Filtre(s) testé(s) | Résultat | Décision |
 |------|--------------------|----------|----------|
+| 06/08/2026 (10) | **F35 relancé à `min_reach: 500000` (pages 1-4, fenêtre shop élargie à 6 mois), puis F36, F37 et F38 (nouveaux)** — session autonome longue demandée par Roméo | **F35 à 500k : gisement quasi épuisé** (12 résultats page 1, 5 annonceurs). Élargir la fenêtre shop de 4 à 6 mois relance le volume mais tout ce qui franchit le plancher tombe en exclusion dure. **12 candidats bruts extraits des pages 1-4, TOUS écartés à la vérification** — motif dominant et récurrent : **un seul hero creative par shop** (Semori 1 créa ≥400k, Dasana 1, Belmont 2, Strykr 1 malgré 183 pubs, slimstep 1, Heim-Zauber 1 vivante). Maisonvantier tué sur une option « Custom Text Personalization » à 5,99 $ (personnalisation) + pente plate ; NextGen Electronics sur 127 produits + pente en plateau. **F36 ❌** (seuil absolu de reach de page = mêmes gros comptes). **F37 🟢** (borner la fenêtre en haut + `max_facebook_likes` ≤1000) = meilleur rapport signal/bruit du catalogue. **F38 🟢** (F37 + `min_best_seller_price` 45-110) = le plus productif, sort les 2 seuls candidats de la session. | **F36 ❌ retiré, F37 et F38 🟢 à garder et relancer en binôme.** **Loi corollaire n°3 actée** (sous ~40 € de prix concurrent, produit structurellement non réplicable — 3 candidats tués par le même calcul le même jour). Cluster produit identifié : **projecteur galaxie 5D chez 4 shops indépendants** (CZ/RO/AU-GB/EE-LT) mais tué sur le prix (23-35 €). **2 candidats présentés à Roméo : Mon-Veree (`monveree.store`, montres 89 € en 2-pour-1, ES) — seul à passer le test de réplicabilité — et Huber-Outdoor (`huber-outdoor.at`, lampe frontale, échoue le prix mais data solide).** Concept montre « 2 pour le prix d'1 » confirmé par 2 shops indépendants (ES + DE). |
 | 06/08/2026 (9) | **F35 (plancher direct + techno Shopify + shop <4 mois)** + prix best-seller 45-75€ + `search_tiktok_library` (canal jamais interrogé) + `min_spend last7d` | **Percée méthodologique.** Le prix best-seller marche techniquement mais le tri ramène les mêmes têtes de liste. `min_spend 350 last7d` = 0 résultat même à 12 semaines. `search_tiktok_library` inexploitable : pas de `max_followers` dans l'API, donc impossible d'exclure les influenceurs/grandes marques (Aitana, Tokio Hotel, ALDI, Avicii...). **Mais F35 sort ENFIN des shops avec 4 à 10 créas au-dessus du plancher** — le format que Roméo demande depuis le début. Découverte en route : `max_traffic` ne filtre rien face aux pubs qui pointent vers un lien d'app (P&G passait au travers), `technologies: ["shopify"]` referme le trou. | **F35 🟢 prometteur, à poursuivre pages 3-6 avec `min_reach: 500000`.** Loi corollaire n°2 actée (`max_traffic` + `technologies` vont par paire). TikTok library définitivement écarté comme canal de découverte. 3 shops physiques creusés : Splash&Ray (saisonnier+encombrant), Tekko (ROMs piratées), Babilo (plancher pas franchi, vérifié sur 8 créas). |
 | 06/08/2026 (8) | **F32 (segment natif rising-star), F33 (bande Trustpilot 3-80 avis), F34 (rollup TikTok search_shops)** — 3 angles inédits, jamais tirés du catalogue de paramètres bruts, demandés en posture "analyste senior, liberté d'innover" par Roméo, avec relèvement du plancher de présentation à 4 créas (au lieu de 3) ≥500k reach OU ≥70€/j | F32 : reproduit exactement le lot V1/V4 déjà connu, aucun candidat neuf. F33 : seulement 2 résultats (1 hors modèle, 1 trop faible), donnée Trustpilot quasi absente sur ce segment. F34 : même défaut que F26, dominé par des shops hors-EU (Golfe/Maghreb/Amérique latine). En parallèle : arbitrage des 2 candidats en attente (Origini, LaVina Milano) et vérification d'acquahome.pt (confirmé généraliste 30+ produits, spa/jacuzzi = encombrant, la plupart des modèles au-dessus du plafond AOV ~100€). | **F32, F33, F34 tous ❌ retirés.** Puits confirmé sec même sous 3 angles neufs jamais tentés avant (segment interne, Trustpilot, TikTok via shops) — le catalogue est proche de la saturation sur les axes purement TrendTrack. Acquahome.pt rejeté (généraliste + encombrant). Origini et LaVina Milano présentés à Roméo pour arbitrage final. |
 | 06/08/2026 (7) | **F30 (découplage âge shop/créa), F31 (double confirmation 7j+14j), F5 élargi (<90j + trafic conservé)** — 3 pistes issues d'une proposition externe (ChatGPT), demandées par Roméo | F30 et F31 lancés sans `max_traffic` : 100% marques mondiales dans les deux cas (Nestlé, Disney+, Pepco, Red Bull...), 0 utilisable. F5 élargi (avec `max_traffic` conservé) : 0 candidat au plancher mais 2 cas de clonage de créa confirmés (kroue.shop, robe azalia) et 2 pistes fraîches sous le plancher (Lovi traceur GPS, Tech & Wash accessoire Dyson). | **F30 ❌ et F31 ❌ retirés tels quels** : nouvelle loi corollaire actée (retirer `max_traffic` en triant sur une valeur absolue ramène systématiquement les plus gros comptes, peu importe l'âge du shop). **F5 élargi 🟡 prometteur**, à relancer sur un nouvel échantillon. L'idée de fond (découpler shop et créa) reste valide, juste jamais sans garde-fou de taille. |

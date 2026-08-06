@@ -7,6 +7,23 @@
 
 ---
 
+## 2026-08-06 (mise à jour 5)
+
+### Session autonome longue : filtres F36-F38, loi corollaire n°3 sur le prix, critère de redirection des ads
+- **Cadre posé par Roméo** : il part longtemps et demande une session en autonomie totale, sans validation intermédiaire, avec consigne explicite de ne pas se limiter à un ou deux candidats et d'inventer de nouveaux filtres plutôt que de conclure au puits sec.
+- **F35 relancé comme prévu à `min_reach: 500000`** : gisement quasi épuisé (12 résultats page 1 pour 5 annonceurs). Fenêtre d'ancienneté du shop élargie de 4 à 6 mois pour relancer le volume, pages 1 à 4 balayées, **12 candidats bruts extraits et vérifiés un par un, tous écartés**. Motif structurel dominant : **un seul hero creative par shop** (Semori 1, Dasana 1, Belmont 2, slimstep 1, Heim-Zauber 1 vivante, et Strykr 1 seule malgré 183 pubs actives, nouveau cas IROND). Maisonvantier tué sur une option « Custom Text Personalization » (personnalisation) + pente plate ; NextGen Electronics sur 127 produits + pente en plateau.
+- **3 filtres inédits conçus et testés. F36 ❌ retiré** (reach de page en seuil absolu : ramène les mêmes gros comptes, même erreur que F30/F31). **F37 🟢** = la correction : borner la fenêtre de reach de page **en haut ET en bas** + `max_facebook_likes` ≤1000 (signature du dropshipper frais : Dasana 5 likes, Huber-Outdoor 31, Mon-Veree 8, contre Humantra 11 289 et Zelesta 43 723). **F38 🟢** = F37 + plancher de prix du best-seller, le plus productif du catalogue.
+- **🔑 Loi corollaire n°3 découverte** : trois candidats tués le même jour par le même calcul (Elyndra 19,99 €, projecteur galaxie 23-35 €, Huber-Outdoor 39,90 €). **En dessous de ~40 € de prix concurrent réel, un produit est structurellement non réplicable** : le plancher logistique (~10-13 € de transport + 3 € de taxe) est un coût quasi fixe qui pèse 50 à 90 % du COGS rendu sur un petit ticket, donc le ×3,5 dépasse mécaniquement le prix du marché. Transformée en pré-filtre TrendTrack (`min_best_seller_price`), avec sa limite documentée : le paramètre lit le prix catalogue et pas le prix payé (Huber-Outdoor est passé au travers avec un 59,90 € barré pour un prix réel de 39,90 €).
+- **Cluster produit repéré puis bloqué** : le projecteur galaxie/océan « 5D » tourne chez **4 shops indépendants sur 4 marchés** (`pearcehaley.com` CZ, `slimstep.shop` RO, `thenextgenelectronics.com` AU/GB, `fhgugi.top` EE/LT) à 317-487 €/j, soit le pattern multi-shops qui avait validé le matelas. Mort sur le prix : il se vend 23 à 35 € partout. Noté en surveillance.
+- **2 candidats présentés. Mon-Veree (`monveree.store`)** : validé sur la data et le prix par Roméo (« très bon shop, très belle data, prix vraiment pas mal ») mais **bloqué sur un point structurel qu'il a identifié lui-même** : toutes les ads redirigent vers la collection « toutes les montres », pas vers une page produit, donc copier impose de recréer les 7 produits et de tester un angle par montre. **Gardé en réserve, décision reportée, explicitement PAS ajouté au tableau de recherche produit.** **Huber-Outdoor (`huber-outdoor.at`)** : data jugée solide mais **killé sur le prix**, avec une condition de réouverture précise (si le concurrent repasse à ~49,90 €, on pourrait se placer à ~54 €).
+- **🔗 Nouveau critère de sélection acté** : vérifier la **structure de redirection des ads** du winner (page produit unique vs collection). Une redirection vers une collection signale un modèle de catalogue, pas de produit, et multiplie la charge de travail de la copie. Pas un kill automatique, mais un coût à annoncer systématiquement.
+- **⚖️ Nuance actée sur la méthode** : *« je préfère vraiment qu'on aille chercher des bonnes datas sur les ads plutôt que de se focus vraiment sur le prix de vente »*. Le pré-filtre prix ne doit pas devenir l'étouffoir de la recherche ; garder des passes sans lui.
+- **Validation des filtres par Roméo** : « tu as réussi à aller nicher vraiment des choses, tu as au moins cinq shops aujourd'hui qui avaient vraiment des belles datas et dont on n'avait jamais entendu parler, donc c'est que tes filtres marchent ».
+- Gain technique de session : un **parseur local** (`scratchpad/parse.mjs`) qui compacte les sorties volumineuses de `search_ads` en un tableau lisible, ce qui a permis de balayer beaucoup plus de pages sans saturer le contexte. ~250 unités TrendTrack consommées sur les 20 000 du mois.
+- 22 shops ajoutés à `liste-rejetes.md` avec leur motif, sections « en attente d'arbitrage » et « clusters à surveiller » créées.
+
+---
+
 ## 2026-08-06 (mise à jour 4)
 
 ### Percée méthodologique F35 + nouveau critère "réplicabilité du prix" (test grandeur nature sur Elyndra)

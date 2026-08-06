@@ -468,6 +468,74 @@ Reprise de F5 (❌ retiré le 04/08 avec une fenêtre de fraîcheur trop stricte
 
 **Testé le 06/08/2026 : nettement plus riche que la version originale et que F30/F31.** 0 candidat qui franchit le plancher dur, mais plusieurs signaux utiles : **2 cas de clonage de créa confirmés** (le même set de blocs "pub irlandaise" kroue.shop tournant sous deux pages annonceur différentes ; la même robe "azalia" tournant sous deux domaines quasi-identiques calinaglam.com/noaglam.com) — validation empirique du signal "duplication du winner" évoqué en théorie. **2 pistes fraîches sous le plancher à noter** : Lovi/trakpin.com (traceur GPS/Bluetooth compatible Apple Find My et Android, sans abonnement, SE, quasi 100% de son reach fait dans les 7 derniers jours = très précoce) et Tech & Wash/trydrwash.com (accessoire de lavage de sol compatible aspirateurs Dyson, ES). **🟡 F5 élargi devient prometteur** : garder `max_traffic`, élargir la fraîcheur du shop plutôt que la retirer, c'est la bonne formule. À relancer sur un nouvel échantillon avant de trancher V ou ❌.
 
+## ❌ F32 — Segment natif "rising-star" (testé et RETIRÉ le 06/08/2026)
+
+```
+spender: rising-star
+shop_created_after: <6 semaines
+max_traffic: 2000
+sort_by: reachDelta7d
+max_ads_per_brand: 1
+```
+Idée : TrendTrack propose un segment catégoriel natif "pages en forte croissance" (`spender: rising-star`), jamais exploité jusqu'ici (le catalogue ne construisait que des combinaisons de paramètres bruts). Hypothèse : ce tri interne pourrait capter un signal que `reachDelta7d` seul ne voit pas.
+
+**Testé le 06/08/2026 : reproduit exactement le même lot que V1/V4 de ces derniers jours**, aucun candidat neuf — Humaniti, trydentalbeam, Brapp Society, NordBand, Havengrand, Hazel & Ivy/Astrid Göteborg, Custom Sneakers, Orthovita, Afterfade, WideDogs, valizigo, Eva & Marie, Proměna, ScandicBeam, Maxsound, sabrstack, EnkelDyne (nattlyshop.dk) — tous déjà vus/rejetés/en réserve. **❌ F32 retiré** : le segment "rising-star" n'ajoute rien à `reachDelta7d`, il semble calculé sur une base très proche (même population de résultats).
+
+## ❌ F33 — Bande étroite d'avis Trustpilot (testé et RETIRÉ le 06/08/2026)
+
+```
+min_trustpilot_reviews: 3
+max_trustpilot_reviews: 80
+shop_created_after: <8 semaines
+max_traffic: 2000
+sort_by: reachDelta7d
+max_ads_per_brand: 1
+```
+Idée inédite : un shop avec 3 à 80 avis Trustpilot a déjà eu de vraies commandes/livraisons (pas une coquille vide) mais n'a pas encore accumulé la réputation d'une marque installée — fenêtre de crédibilité minimale sans être un accumulateur ancien. **Filtre qualitatif → pas de problème de stock en théorie.**
+
+**Testé le 06/08/2026 : seulement 2 résultats sur 20 demandés.** Woodify Česko (plans de menuiserie PDF, produit numérique donc hors modèle Zooryn) et Numora (lit berceau bébé DK, signal faible : 14k reach, 127€ de spend). **❌ F33 retiré** : la quasi-totalité des shops frais/petit trafic (le profil recherché) n'ont tout simplement pas encore d'avis Trustpilot indexés à ce stade — même défaut structurel que F25 (donnée absente sur ce segment, pas un seuil mal calibré). Idée à garder en confirmation a posteriori sur un candidat déjà trouvé, jamais en filtre de découverte à froid.
+
+## ❌ F34 — Rollup TikTok côté `search_shops` (testé et RETIRÉ le 06/08/2026)
+
+```
+sort_by: tiktokAvgActiveAds7d
+creation_date_from: <6 semaines
+max_monthly_visits: 2000
+min_tiktok_active_ads: 3
+```
+Variante technique de F26 : au lieu du signal TikTok côté `search_ads`, utiliser le rollup dédié `tiktokAvgActiveAds7d` de `search_shops` (jamais interrogé), pour voir si la moyenne lissée sur 7 jours change le tri par rapport au TikTok brut de F26.
+
+**Testé le 06/08/2026 : même défaut structurel que F26.** Sur 20 résultats, écrasante majorité de shops hors-EU non pertinents pour un test FR (Kuwait, Oman, Bahrain, Algérie, Egypte, Chili) — même famille que Laurus Aroma (Golfe) déjà écarté en F26. **❌ F34 retiré** : le signal TikTok, quel que soit l'angle technique pour l'obtenir, est structurellement dominé par des marchés hors-EU sur ce segment shop frais/petit trafic ; confirme et referme F26 plutôt que de rouvrir une piste.
+
+## 🟢 F35 — Plancher direct + techno Shopify + shop semi-frais (LE FILTRE DE LA SESSION, 06/08/2026)
+
+```
+min_reach: 300000
+reach_period: total
+technologies: ["shopify"]          ← INDISPENSABLE, voir la loi ci-dessous
+max_traffic: 2000
+shop_created_after: <4 mois        ← volontairement plus large que les 6-8 semaines habituelles
+max_ads_per_brand: 2 à 4           ← 15 pour compter les créas d'un shop, 2 pour balayer plus de shops
+sort_by: reachDelta7d
+cta: ["SHOP_NOW"]                  ← option, coupe une partie des advertorials santé
+```
+
+**C'est le premier filtre du catalogue qui produit réellement le format demandé par Roméo : des shops avec 4 créas ou plus au-dessus du plancher.** Là où V1/V4 ne remontaient qu'une créa forte par shop (dédup à 1), F35 filtre directement sur le plancher de reach et lève la déduplication, donc chaque ligne retournée EST une créa qui passe le seuil, et il suffit de compter par annonceur.
+
+**Logique de conception** : la loi structurelle du 04/08 dit qu'un seuil absolu est incompatible avec un shop très frais. F35 ne contourne pas cette loi, il l'ACCEPTE — on relâche volontairement la fraîcheur à ~4 mois (au lieu de 6-8 semaines) pour laisser le temps à l'accumulation, et on compense en gardant les deux garde-fous de taille (`max_traffic` ET `technologies`). C'est la généralisation de ce qui rendait F5 élargi prometteur.
+
+**Résultats du premier passage (06/08/2026) : le filtre marche, mais tous les shops remontés tombent sur des exclusions dures.** Mirelia (5 créas au plancher, mais complément ingéré), Gift Soul (10 créas, mais 100% personnalisé), Tekko (3 créas, mais console rétro à 20 000 jeux préchargés = piratage de ROMs, même famille de risque légal que Luke Store), SkinLab/Vertaline (santé), Nuara (topique), Anea (féminin), Zoomad (ingéré), Cumpario (topique), Pure Comfort/Ergosteg (santé). **2 pistes physiques non-exclues creusées puis écartées** : Splash&Ray (voile d'ombrage, saisonnier + encombrant) et Babilo (porte-bébé de hanche, plancher pas franchi créa par créa).
+
+**🟢 Statut : prometteur, à relancer sur les pages suivantes.** Le taux d'exclusion dure est ici mécanique (à 4 mois d'ancienneté et 300k+ de reach, le gisement est majoritairement santé/beauté/personnalisé), mais c'est le seul filtre qui atteint enfin le format cible. Prochain passage : monter à `min_reach: 500000` pour coller au plancher strict, et parcourir les pages 3-6.
+
+## 🔑 Loi corollaire n°2 découverte le 06/08/2026 : `max_traffic` seul ne protège pas, il faut `technologies`
+
+Test `min_reach: 400000` + `max_traffic: 2000` **sans** filtre techno : 20 résultats à 100% Procter & Gamble (Fairy España, Lenor Unstoppables, ARIEL — jusqu'à 50 millions de reach sur une seule créa). Le garde-fou de trafic n'avait rien filtré.
+
+**Explication : `max_traffic` porte sur le trafic du SHOP LIÉ. Quand une pub pointe vers un lien d'application ou un domaine de tracking (ici `lacuponera.go.link`), il n'y a pas de shop indexé, donc pas de trafic mesuré, donc le plafond ne s'applique jamais.** Les plus gros annonceurs du monde passent au travers par un simple effet de bord technique.
+
+**Correctif validé : ajouter `technologies: ["shopify"]` force l'existence d'un vrai shop e-commerce indexé et referme le trou** (le test relancé avec ce paramètre a immédiatement éliminé tous les P&G). **Règle : sur tout filtre basé sur un seuil de reach ou de dépense, `max_traffic` et `technologies` vont par paire, jamais l'un sans l'autre.**
+
 ## ❌ Approches déjà écartées (ne pas retester telles quelles)
 
 - **`find_similar_shops`** en découverte pure : remonte les grosses marques établies (REI, Decathlon...). Reste utile UNIQUEMENT en aval pour cartographier les concurrents d'un candidat déjà trouvé (cf. `trouver-concurrents.md`).
@@ -481,6 +549,8 @@ Reprise de F5 (❌ retiré le 04/08 avec une fenêtre de fraîcheur trop stricte
 
 | Date | Filtre(s) testé(s) | Résultat | Décision |
 |------|--------------------|----------|----------|
+| 06/08/2026 (9) | **F35 (plancher direct + techno Shopify + shop <4 mois)** + prix best-seller 45-75€ + `search_tiktok_library` (canal jamais interrogé) + `min_spend last7d` | **Percée méthodologique.** Le prix best-seller marche techniquement mais le tri ramène les mêmes têtes de liste. `min_spend 350 last7d` = 0 résultat même à 12 semaines. `search_tiktok_library` inexploitable : pas de `max_followers` dans l'API, donc impossible d'exclure les influenceurs/grandes marques (Aitana, Tokio Hotel, ALDI, Avicii...). **Mais F35 sort ENFIN des shops avec 4 à 10 créas au-dessus du plancher** — le format que Roméo demande depuis le début. Découverte en route : `max_traffic` ne filtre rien face aux pubs qui pointent vers un lien d'app (P&G passait au travers), `technologies: ["shopify"]` referme le trou. | **F35 🟢 prometteur, à poursuivre pages 3-6 avec `min_reach: 500000`.** Loi corollaire n°2 actée (`max_traffic` + `technologies` vont par paire). TikTok library définitivement écarté comme canal de découverte. 3 shops physiques creusés : Splash&Ray (saisonnier+encombrant), Tekko (ROMs piratées), Babilo (plancher pas franchi, vérifié sur 8 créas). |
+| 06/08/2026 (8) | **F32 (segment natif rising-star), F33 (bande Trustpilot 3-80 avis), F34 (rollup TikTok search_shops)** — 3 angles inédits, jamais tirés du catalogue de paramètres bruts, demandés en posture "analyste senior, liberté d'innover" par Roméo, avec relèvement du plancher de présentation à 4 créas (au lieu de 3) ≥500k reach OU ≥70€/j | F32 : reproduit exactement le lot V1/V4 déjà connu, aucun candidat neuf. F33 : seulement 2 résultats (1 hors modèle, 1 trop faible), donnée Trustpilot quasi absente sur ce segment. F34 : même défaut que F26, dominé par des shops hors-EU (Golfe/Maghreb/Amérique latine). En parallèle : arbitrage des 2 candidats en attente (Origini, LaVina Milano) et vérification d'acquahome.pt (confirmé généraliste 30+ produits, spa/jacuzzi = encombrant, la plupart des modèles au-dessus du plafond AOV ~100€). | **F32, F33, F34 tous ❌ retirés.** Puits confirmé sec même sous 3 angles neufs jamais tentés avant (segment interne, Trustpilot, TikTok via shops) — le catalogue est proche de la saturation sur les axes purement TrendTrack. Acquahome.pt rejeté (généraliste + encombrant). Origini et LaVina Milano présentés à Roméo pour arbitrage final. |
 | 06/08/2026 (7) | **F30 (découplage âge shop/créa), F31 (double confirmation 7j+14j), F5 élargi (<90j + trafic conservé)** — 3 pistes issues d'une proposition externe (ChatGPT), demandées par Roméo | F30 et F31 lancés sans `max_traffic` : 100% marques mondiales dans les deux cas (Nestlé, Disney+, Pepco, Red Bull...), 0 utilisable. F5 élargi (avec `max_traffic` conservé) : 0 candidat au plancher mais 2 cas de clonage de créa confirmés (kroue.shop, robe azalia) et 2 pistes fraîches sous le plancher (Lovi traceur GPS, Tech & Wash accessoire Dyson). | **F30 ❌ et F31 ❌ retirés tels quels** : nouvelle loi corollaire actée (retirer `max_traffic` en triant sur une valeur absolue ramène systématiquement les plus gros comptes, peu importe l'âge du shop). **F5 élargi 🟡 prometteur**, à relancer sur un nouvel échantillon. L'idée de fond (découpler shop et créa) reste valide, juste jamais sans garde-fou de taille. |
 | 06/08/2026 (6) | **V1 page 4 + V4 page 4 + F25 desserré (30%) + F26 recalibré (TikTok+ads_growth)** — 2e relance immédiate demandée par Roméo, avec 2 nouveaux filtres (F25/F26 traffic/TikTok) testés en direct | V1 p4 : 20 résultats, 0 candidat — narratifs de fermeture bidon récurrents (Luva Rotaslietas, Nikola Miedz, Edmund Fell, même schéma qu'Holmgaard), reseller générique Viqzes revu 2x, santé/topique massif (Nudea, Nuracalm, AirSleep, Scalora), féminin (Jacinta Porto), contrefaçon montres (vivien-monaco). V4 p4 : 20 résultats (16 lus intégralement, fichier tronqué avant la fin), 0 candidat validé mais 3 catégories neuves sous le plancher à noter : filtre de douche/pomme de douche (2 shops indépendants, Vaporina UK et Doodlo.de DE, aucun ne passe 500k/70€), pièges à souris menthe poivrée (ByePest, multi-marché EU, ~18€/j), jouet Montessori bébé (Broto.pt, ~33€/j). F25 desserré à 30% (au lieu de 50%) : **exactement les 2 mêmes résultats**, confirme que c'est un problème de donnée absente, pas de seuil trop strict. F26 recalibré (TikTok + ads_growth au lieu de TikTok seul) : seulement 4 résultats, tous hors-jeu (TenniixUK trop cher/HK, 3 clones Laurus Aroma Golfe). | **Toujours 0 candidat validé.** F25 et F26 passent en ⏸️ pause (diagnostic clair : donnée insuffisante sur le segment shop frais/petit trafic, pas un problème de calibrage). F27 (Google Ads Library) reste 🧪. 3 catégories neuves (douche/filtre, piège à souris, Montessori bébé) actées comme "types à surveiller" si un shop plus frais/fort les reprend. |
 | 06/08/2026 (5) | **F25 (traffic_growth, nouveau) + F26 (TikTok, nouveau) + F27 (Google Ads Library, nouveau)** — 3 nouveaux canaux jamais interrogés, sur demande de Roméo | F25 (croissance trafic organique ≥50%/30j) : 2 résultats seulement (Eyfel Polska reseller, Haslev vingård vignoble réel). F26 (TikTok actif ≥3 pubs) seul : bruité, marques établies/hors-EU. F27 (Google Ads Library EU) : mélange gros acteurs (Galaxus, Myntra, Fruugo) et micro-services locaux, aucun candidat physique. | Aucun candidat. Mais 3 nouveaux axes de recherche ouverts pour le catalogue, chacun avec un diagnostic clair plutôt qu'un simple "rien trouvé". **BrandTracker enrichi en parallèle** : ScandicBeam, Aurenis, Fjellvaro, Holmgaard ajoutés (rejoignent EnkelDyne) pour rendre F19 (`daily_radar`) enfin exploitable. |

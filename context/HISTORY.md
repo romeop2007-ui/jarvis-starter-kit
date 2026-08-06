@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-08-06 (mise à jour 3)
+
+### Recherche produit : catalogue de filtres poussé à 31, corollaire structurel sur le trafic, collaboration ChatGPT
+- Session marathon de test de filtres (F25 à F31) : croissance de trafic organique, signal TikTok, Google Ads Library, filtre de genre (échec), rotation Baltique, découplage âge du shop/fraîcheur de la créa (proposé par ChatGPT, testé par Claude)
+- Corollaire découvert : retirer le plafond de trafic en élargissant l'âge du shop laisse repasser des marques déjà énormes (Nestlé, Disney+, Pepco...), peu importe le filtre de dérivée utilisé sur le reach
+- F5 élargi (croissance du nombre de pubs + shop <90j + plafond de trafic conservé) devient le filtre le plus prometteur de la session, avec 2 cas de clonage de créa confirmés en aval
+- Roméo utilise désormais ChatGPT Plus en parallèle de Claude pour challenger la méthode de recherche produit ; un briefing complet de la stratégie et de l'historique des 5 testings lui a été rédigé pour ça. Claude reste l'exécuteur technique (accès direct à TrendTrack)
+- BrandTracker TrendTrack élargi de 1 à 6 marques suivies (EnkelDyne, ScandicBeam, Aurenis, Fjellvaro, Holmgaard), rythme de check resserré à tous les 2-3 jours
+- 2 candidats identifiés, aucun validé : Origini (hygiène bucco-dentaire, ticket trop bas) et LaVina Milano (sneakers rétro, mais shop généraliste) — présentés à Roméo avec leurs défauts, en attente de décision
+- 1 piste fraîche notée en fin de session : acquahome.pt (spa gonflable, Portugal), data forte sur 7 jours mais produit encombrant à vérifier avant d'aller plus loin
+- Recherche à reprendre à la prochaine session
+
+---
+
 ## 2026-08-06 (mise à jour 2)
 
 ### Intégration des prompts Notion du formateur + crea-pub repasse sur ChatGPT + copywriting Sugarman/Theriot lus intégralement

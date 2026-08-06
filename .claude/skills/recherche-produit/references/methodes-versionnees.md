@@ -51,6 +51,8 @@ En testant F2, F3 et F5 dans la même session, les trois ont échoué **pour exa
 
 **Les seuls filtres qui fonctionnent sur du frais sont ceux basés sur une DÉRIVÉE — vitesse ou accélération — jamais sur un stock.** C'est précisément ce qui fait marcher les deux validés : V1 (`reachDelta7d` = vitesse) et V4 (`ad_reach_growth` en % = accélération).
 
+**Corollaire découvert le 06/08/2026 (soirée) : retirer `max_traffic` en triant sur une valeur ABSOLUE (reachDelta7d, ou un seuil de % sans autre garde-fou) fait exactement le même dégât dans l'autre sens.** Deux tests visant à "découpler l'âge du shop de la fraîcheur du produit" (proposition externe testée le 06/08) ont été lancés sans plafond de trafic, en triant sur `reachDelta7d` : **les 40 résultats cumulés des deux requêtes étaient à 100% des marques déjà énormes** (Nestlé, Pepco, Disney+, Red Bull, Whiskas, Deborah Milano, Shark, Pringles...), pas un seul petit dropshipper. `max_traffic < 2000` n'est donc pas qu'un proxy de fraîcheur commode à retirer : c'est un garde-fou indispensable qui empêche les gros comptes d'écraser le tri dès qu'on trie sur une métrique absolue. **Règle : ne jamais retirer `max_traffic` en même temps qu'on relâche la fraîcheur du shop, sauf à trier sur un signal en % pur et à accepter un bruit énorme à filtrer à la main.**
+
 **Avant de tester un nouveau filtre, se poser la question : stock ou dérivée ?**
 - **Stock → ne pas perdre de crédits dessus** tant qu'on veut du shop frais. Concerne F10 et, dans une moindre mesure, F7.
 - **Dérivée → candidat valable.** Concerne F6, F8, F17.
@@ -373,6 +375,99 @@ F18 (pixel) remontait de vrais shops sérieux mais noyés de santé faute de dé
 
 **Testé le 06/08/2026 : confirme le problème déjà identifié sur F18, la dérivée seule ne suffit pas à filtrer la santé.** 20 résultats, tous déjà vus (Humaniti, WaxClean, Vivalyo, Havengrand, Grace & Victoria, NovaHome, SilkyShave...), aucun candidat neuf. **⏸️ F24 en pause** : le croisement dérivée+pixel ne change rien sans un filtre d'exclusion santé en amont, que l'API ne propose pas nativement — il faudrait le faire à la lecture, ce que le plancher créa-par-créa fait déjà de toute façon.
 
+## ⏸️ F25 — Croissance de trafic organique du shop (`traffic_growth`, nouvel axe hors reach publicitaire)
+
+```
+shop_created_after: <6 semaines
+max_traffic: 2000
+traffic_growth: [{period: last30d, comparison: greater, value: 30}]  (testé aussi à 50, même résultat)
+sort_by: reachDelta7d
+max_ads_per_brand: 1
+```
+Idée : le reach Meta mesure la pub, pas la demande réelle. Un shop dont le trafic SITE grimpe (recherches de marque, direct, retargeting qui convertit) est une confirmation de demande sur un axe différent, potentiellement moins gamé que les métriques ads. **Filtre qualitatif en théorie → pas de problème de stock attendu.**
+
+**Testé le 06/08/2026 à deux seuils (50% puis 30%) : exactement les 2 mêmes résultats aux deux seuils** (Eyfel Polska, reseller parfum PL déjà vu ; Haslev vingård, un vrai vignoble danois, pas un dropshipper). **Desserrer le seuil ne change rien : ce n'est pas la sévérité du critère qui bloque, c'est la disponibilité de la donnée elle-même.** La plupart des petits shops frais et à faible trafic n'ont tout simplement pas de trafic mesurable/tracké par l'outil sous-jacent (device de mesure de trafic web tiers), donc `traffic_growth` ne peut rien calculer dessus. **⏸️ F25 en pause en position de filtre de découverte primaire** : la combinaison "shop frais + petit trafic + croissance de trafic mesurable" est structurellement rare, cousine de la loi du seuil absolu mais pour une raison différente (donnée absente, pas donnée insuffisante dans le temps). Reste utilisable en confirmation a posteriori sur un candidat déjà trouvé par V1/V4 (vérifier si son trafic grimpe aussi), jamais comme filtre de recherche à froid.
+
+## ⏸️ F26 — Signal TikTok croisé (présence/croissance TikTok + croissance de pubs)
+
+```
+min_tiktok_active_ads: 3
+ads_growth: [{period: last30d, comparison: greater, value: 50}]
+creation_date_from: <6 semaines
+max_monthly_visits: 2000
+```
+Idée : beaucoup de winners dropship apparaissent sur TikTok organique/ads avant ou en parallèle de Meta, signal cross-plateforme jamais exploité dans le catalogue. **Filtre qualitatif → pas de problème de stock attendu.**
+
+**Testé le 06/08/2026 en 2 passes.** Seul (`min_tiktok_active_ads≥3` + fraîcheur) : bruité, remonte surtout des marques établies ou des shops généralistes hors-EU (Maroc, Mexique, Pakistan, Corée). **Recalibré en le combinant à `ads_growth` (croissance de pubs Meta) : seulement 4 résultats au total** — TenniixUK (gadget tennis HK, prix 829-1199 £, très au-dessus du plafond AOV ~100€, catalogue multi-produits) et 3 clones du même shop Laurus Aroma (savons/beauté Koweït/Oman/Bahreïn, marché Golfe non-EU, niche féminine beauté). **Aucun candidat.** **⏸️ F26 en pause** : le signal TikTok, seul ou combiné à une croissance de pubs, ne discrimine pas sans une contrainte géographique EU explicite en plus — et le volume de shops qui cumulent TikTok actif + croissance + fraîcheur semble de toute façon très faible (4 résultats sans même filtrer l'EU). À reconsidérer seulement si un filtre EU strict peut être ajouté à la requête sans faire tomber le volume à 0.
+
+## 🧪 F27 — Google Ads Library (canal Google Shopping/Search, jamais interrogé)
+
+```
+first_seen_after: <8 semaines
+eu_only: true
+sort_by: newest
+```
+Idée : les 700 élèves de la formation regardent tous Meta. Un produit qui scale via Google Shopping/Search pourrait être invisible pour la concurrence qui ne surveille que Facebook Ads Library.
+
+**Testé le 06/08/2026 : l'outil fonctionne mais `shop_created_after`/`max_traffic` ne sont pas des champs vérifiés sur cet index** (contrainte technique de l'API Google Ads MCP, pas un choix de paramétrage). Résultat sans ces filtres de fraîcheur : mélange de gros acteurs installés (Galaxus, Myntra, Fruugo, l'automobile club néo-zélandais) et de très petites structures de service local (institut de coiffure, agence immobilière) — aucun candidat physique dropship. **🧪 F27 reste en test** : canal prometteur en théorie mais qui demande une méthode différente pour approximer la fraîcheur (filtrer sur `min_reach`/`max_advertiser_reach` bas plutôt que sur une date, puisque l'API ne permet pas de filtrer par date de création du shop lié sur cet index).
+
+## ❌ F28 — Filtre de genre `sex: men` sur V1/V4 (testé et RETIRÉ le 06/08/2026)
+
+Idée : couper le flot de mode/beauté féminine qui pollue systématiquement V1/V4 en forçant l'audience sur `sex: men`, en combinaison avec V1 (min_active_ads≥40) puis avec V4 (ad_reach_growth≥100%).
+
+**Testé le 06/08/2026 : 0 résultat dans les deux cas.** La quasi-totalité des campagnes de ce segment (petits dropshippers frais) ciblent `sex: all` par défaut ; très peu segmentent explicitement sur un genre, donc le filtre élimine presque tout au lieu de juste couper le bruit féminin. ❌ **F28 retiré**, ne pas reforcer le genre en filtre de découverte — le tri du bruit féminin doit continuer à se faire à la lecture (exclusion de niche), pas via ce paramètre.
+
+## 🧪 F29 — Rotation géographique Baltique (LT/LV/EE), extension de F9
+
+```
+main_countries: ["LT", "LV", "EE"]
+shop_created_after: <6 semaines
+max_traffic: 2000
+sort_by: reachDelta7d
+max_ads_per_brand: 1
+```
+Suite logique de F9 (Pologne) : tester d'autres petits marchés EU statistiquement moins regardés par les 700 élèves. **⚠️ NO et IS ne fonctionnent PAS avec `main_countries`** (l'API ne couvre que le set de transparence Meta EU/EEA/UK ; utiliser `ad_countries` pour ces marchés, jamais testé).
+
+**Testé le 06/08/2026 : 10 résultats, aucun candidat.** Dominé par des domaines génériques à chaîne de lettres aléatoire type "jetable" (fhgugi.top, gjhiifh.top — un projecteur de veilleuse enfant "SCNDR 5D", décliné sur 2 pages différentes EE/LT, reach trop faible <25k), un reseller déjà vu (Luva Rotaslietas), un ebook immobilier (hors modèle), et de nouveau le mill générique Viqzes. **🧪 F29 reste en test** : le marché Balte semble encore plus mince que la Pologne, mais un seul passage ne suffit pas à conclure, à retenter sur un échantillon différent avant de trancher.
+
+## ❌ F30 — Découplage âge du shop / fraîcheur produit, sans plafond de trafic (testé et RETIRÉ TEL QUEL le 06/08/2026)
+
+```
+shop_created_after: 2 à 24 mois (fenêtre glissante)
+min_active_ads: 5, max_active_ads: 40
+created_after (ad) : <14 jours
+sort_by: reachDelta7d
+aucun max_traffic
+ad_countries: exclude FR
+```
+Idée (proposition externe, ChatGPT) : ce n'est pas le shop qui doit être frais, c'est la campagne/le produit. Un shop de 6-12 mois peut très bien avoir trouvé un winner il y a 2 semaines.
+
+**Testé le 06/08/2026 : 20 résultats, 100% marques déjà établies et énormes** (Haibike vélos, Pepco, Prénatal, Deborah Milano, Shark, Valenti Milano...). **❌ F30 retiré tel quel** : l'idée de fond (découpler shop et créa) reste valable, mais sans `max_traffic`, trier sur `reachDelta7d` en valeur absolue favorise mécaniquement les plus gros comptes, peu importe l'âge du shop. À retester en réintroduisant un plafond de trafic ou de reach total, jamais sans aucun garde-fou de taille.
+
+## ❌ F31 — Double confirmation 7 jours + 14 jours, sans plafond de trafic (testé et RETIRÉ TEL QUEL le 06/08/2026)
+
+```
+ad_reach_growth: [{period: last7d, comparison: greater, value: 50}, {period: last14d, comparison: greater, value: 50}]
+created_after/before (ad) : 10-30 jours
+min_active_ads: 5, max_active_ads: 30
+aucun filtre de shop
+```
+Idée : une créa qui accélère à la fois sur 7j ET 14j est une vraie pente, pas un pic isolé. Fenêtre 14 jours jamais testée avant.
+
+**Testé le 06/08/2026 : 20 résultats, de nouveau 100% marques mondiales** (Nestlé, Disney+, Red Bull, Whiskas, NYX, Pringles, Ben & Jerry's...). **❌ F31 retiré tel quel**, même cause que F30 : sans plafond de trafic/reach, même une double confirmation en % se fait dominer par les budgets énormes. **La fenêtre `last14d` elle-même reste à tester**, juste jamais seule sans garde-fou de taille.
+
+## 🟡 F5 élargi — Croissance du nombre de pubs, shop <90 jours, AVEC plafond de trafic conservé (retesté le 06/08/2026)
+
+```
+ads_growth: [{period: last7d, comparison: greater, value: 50}]
+shop_created_after: <90 jours (au lieu de <8 semaines dans le F5 original)
+max_traffic: 2000 (conservé, contrairement à F30/F31)
+sort_by: reachDelta7d
+```
+Reprise de F5 (❌ retiré le 04/08 avec une fenêtre de fraîcheur trop stricte) avec la seule fenêtre de shop élargie, en gardant `max_traffic` cette fois.
+
+**Testé le 06/08/2026 : nettement plus riche que la version originale et que F30/F31.** 0 candidat qui franchit le plancher dur, mais plusieurs signaux utiles : **2 cas de clonage de créa confirmés** (le même set de blocs "pub irlandaise" kroue.shop tournant sous deux pages annonceur différentes ; la même robe "azalia" tournant sous deux domaines quasi-identiques calinaglam.com/noaglam.com) — validation empirique du signal "duplication du winner" évoqué en théorie. **2 pistes fraîches sous le plancher à noter** : Lovi/trakpin.com (traceur GPS/Bluetooth compatible Apple Find My et Android, sans abonnement, SE, quasi 100% de son reach fait dans les 7 derniers jours = très précoce) et Tech & Wash/trydrwash.com (accessoire de lavage de sol compatible aspirateurs Dyson, ES). **🟡 F5 élargi devient prometteur** : garder `max_traffic`, élargir la fraîcheur du shop plutôt que la retirer, c'est la bonne formule. À relancer sur un nouvel échantillon avant de trancher V ou ❌.
+
 ## ❌ Approches déjà écartées (ne pas retester telles quelles)
 
 - **`find_similar_shops`** en découverte pure : remonte les grosses marques établies (REI, Decathlon...). Reste utile UNIQUEMENT en aval pour cartographier les concurrents d'un candidat déjà trouvé (cf. `trouver-concurrents.md`).
@@ -386,6 +481,9 @@ F18 (pixel) remontait de vrais shops sérieux mais noyés de santé faute de dé
 
 | Date | Filtre(s) testé(s) | Résultat | Décision |
 |------|--------------------|----------|----------|
+| 06/08/2026 (7) | **F30 (découplage âge shop/créa), F31 (double confirmation 7j+14j), F5 élargi (<90j + trafic conservé)** — 3 pistes issues d'une proposition externe (ChatGPT), demandées par Roméo | F30 et F31 lancés sans `max_traffic` : 100% marques mondiales dans les deux cas (Nestlé, Disney+, Pepco, Red Bull...), 0 utilisable. F5 élargi (avec `max_traffic` conservé) : 0 candidat au plancher mais 2 cas de clonage de créa confirmés (kroue.shop, robe azalia) et 2 pistes fraîches sous le plancher (Lovi traceur GPS, Tech & Wash accessoire Dyson). | **F30 ❌ et F31 ❌ retirés tels quels** : nouvelle loi corollaire actée (retirer `max_traffic` en triant sur une valeur absolue ramène systématiquement les plus gros comptes, peu importe l'âge du shop). **F5 élargi 🟡 prometteur**, à relancer sur un nouvel échantillon. L'idée de fond (découpler shop et créa) reste valide, juste jamais sans garde-fou de taille. |
+| 06/08/2026 (6) | **V1 page 4 + V4 page 4 + F25 desserré (30%) + F26 recalibré (TikTok+ads_growth)** — 2e relance immédiate demandée par Roméo, avec 2 nouveaux filtres (F25/F26 traffic/TikTok) testés en direct | V1 p4 : 20 résultats, 0 candidat — narratifs de fermeture bidon récurrents (Luva Rotaslietas, Nikola Miedz, Edmund Fell, même schéma qu'Holmgaard), reseller générique Viqzes revu 2x, santé/topique massif (Nudea, Nuracalm, AirSleep, Scalora), féminin (Jacinta Porto), contrefaçon montres (vivien-monaco). V4 p4 : 20 résultats (16 lus intégralement, fichier tronqué avant la fin), 0 candidat validé mais 3 catégories neuves sous le plancher à noter : filtre de douche/pomme de douche (2 shops indépendants, Vaporina UK et Doodlo.de DE, aucun ne passe 500k/70€), pièges à souris menthe poivrée (ByePest, multi-marché EU, ~18€/j), jouet Montessori bébé (Broto.pt, ~33€/j). F25 desserré à 30% (au lieu de 50%) : **exactement les 2 mêmes résultats**, confirme que c'est un problème de donnée absente, pas de seuil trop strict. F26 recalibré (TikTok + ads_growth au lieu de TikTok seul) : seulement 4 résultats, tous hors-jeu (TenniixUK trop cher/HK, 3 clones Laurus Aroma Golfe). | **Toujours 0 candidat validé.** F25 et F26 passent en ⏸️ pause (diagnostic clair : donnée insuffisante sur le segment shop frais/petit trafic, pas un problème de calibrage). F27 (Google Ads Library) reste 🧪. 3 catégories neuves (douche/filtre, piège à souris, Montessori bébé) actées comme "types à surveiller" si un shop plus frais/fort les reprend. |
+| 06/08/2026 (5) | **F25 (traffic_growth, nouveau) + F26 (TikTok, nouveau) + F27 (Google Ads Library, nouveau)** — 3 nouveaux canaux jamais interrogés, sur demande de Roméo | F25 (croissance trafic organique ≥50%/30j) : 2 résultats seulement (Eyfel Polska reseller, Haslev vingård vignoble réel). F26 (TikTok actif ≥3 pubs) seul : bruité, marques établies/hors-EU. F27 (Google Ads Library EU) : mélange gros acteurs (Galaxus, Myntra, Fruugo) et micro-services locaux, aucun candidat physique. | Aucun candidat. Mais 3 nouveaux axes de recherche ouverts pour le catalogue, chacun avec un diagnostic clair plutôt qu'un simple "rien trouvé". **BrandTracker enrichi en parallèle** : ScandicBeam, Aurenis, Fjellvaro, Holmgaard ajoutés (rejoignent EnkelDyne) pour rendre F19 (`daily_radar`) enfin exploitable. |
 | 06/08/2026 (4) | **F21-F24 (nouveaux, panel élargi)** — sur demande de Roméo après analyse de l'historique (EnkelDyne/Core Armour) | F21 (reachDelta1d) : invalidé, confond budget qui explose sur une vieille campagne et vrai décollage. F22 (F8 resserré) : cohérent avec F8, rien de neuf. F23 (V4+vidéo courte) : 1 découverte (Luke Store 12, contrefaçon parfums) tuée sur exclusion dure. F24 (V4+pixel) : rien de neuf, la dérivée seule ne filtre pas la santé. | **F21 ❌ retiré. F22 et F23 restent 🧪. F24 ⏸️ en pause.** Aucun candidat validé sur ce panel élargi, mais 1 enseignement clé retenu : croiser `reachDelta1d` avec `daysRunning` bas serait le vrai filtre "explosion en cours" — non testable directement, l'API ne permet pas ce croisement en un seul paramètre. |
 | 06/08/2026 (3) | **V1 page 3, V4 page 3, F8 corrigé (+shop_created_after), F9 sur RO** — relance immédiate demandée par Roméo (refus du délai d'attente) | V1 p3 et F9-RO : rien de neuf exploitable (jewelry RO, reseller, ingéré). F8 corrigé : **2 candidats en réserve** — **EnkelDyne** (couette 2-en-1, DK, mono-produit frais 13j, meilleure créa ~87€/j mais plancher pas franchi au sens strict) et **Core Armour It** (débardeur compressif, IT, même famille que Sculpted déjà killé). | Aucun candidat validé, mais 2 pistes réserve ajoutées (vs 0 lors du 1er passage de la journée). Confirme que relancer V1/V4/F8 sur un nouvel échantillon (page suivante) reste la méthode la plus productive, même sans nouveau filtre. |
 | 06/08/2026 (2) | **Balayage complet : F6/F9 retestés combinés, F11-F19 testés pour la 1re fois** (demande explicite de Roméo : tester tout ce qui n'avait jamais été essayé) | 0 candidat validé au global. **Retirés : F6, F11, F14, F17** (bruit ou ne discriminent rien). **Restent en pause : F9 (fix technique validé mais marché PL déjà exploré), F12, F13, F15, F19** (signal trop faible ou pas de brandtracker configuré). **F16 et F18 prometteurs** (🟡, meilleur rapport signal/bruit de la session) mais aucun candidat neuf validé, à relancer sur un nouvel échantillon. 2 pistes en réserve : Fjellvaro (chaussures bébé DK, sous le plancher) et confirmation qu'Astrid Göteborg est un généraliste féminin à ignorer malgré sa pente. | Catalogue nettoyé : sur 20 filtres (V1/V4 validés, F2/F3/F5/F6/F10/F11/F14/F17 retirés = 8 morts), il reste V1, V4, F7, F8, F9, F12, F13, F15, F16, F18, F19, F20 en vie (12 filtres), dont seulement 2 réellement productifs à ce jour (V1, V4). **Constat d'associé : le puits data-first pur est structurellement sec en ce moment, aucun filtre alternatif ne compense.** |

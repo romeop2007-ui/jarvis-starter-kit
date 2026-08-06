@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-08-06
+
+### Recherche produit : formation terminée, catalogue de filtres élargi, veille active sur 2 produits
+- Formation Zecom Academy terminée (tous modules regardés) : Roméo passe en recherche produit quotidienne à temps plein
+- Session TrendTrack marathon : reprise de la panne du 05/08, test systématique de tous les filtres jamais essayés (F6, F9, F11-F20), puis 4 nouveaux filtres créés (F21-F24) sur demande de Roméo pour capter les décollages rapides (24-48h)
+- Enseignement clé : les filtres gagnants historiques (V1, V4) sont tous basés sur une dérivée (pente), jamais un seuil absolu ; le signal 24h seul (reachDelta1d) s'est révélé peu fiable seul (confond budget qui explose sur une vieille campagne et vrai décollage)
+- EnkelDyne (nattlyshop.dk, couette 2-en-1 DK) mis sous surveillance active dans le BrandTracker TrendTrack, check tous les 3-4 jours
+- Core Armour It (débardeur compressif IT) rejeté par Roméo : déjà testé sous forme proche (Sculpted), stats concurrent faibles, absent du marché FR
+- Pipeline toujours vide de produit validé pour un testing, mais méthode de recherche significativement enrichie (24 filtres au catalogue contre 20 avant la session)
+
+---
+
 ## 2026-08-05 (mise à jour 6)
 
 ### Skill bilan-ads : intégration complète du framework testing → optimisation (6 vidéos formation + 2 boards Miro)

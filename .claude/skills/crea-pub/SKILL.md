@@ -1,6 +1,6 @@
 ---
 name: crea-pub
-description: Usine a creas publicitaires Zooryn. A partir d'une pub concurrent (sourcee dans le tableau de recherche produit ou fournie par Romeo), produit un dossier pret a finaliser. Detecte automatiquement le type. Video -> script voix off FR adapte a la marque + voix off ElevenLabs calee sur la duree (le detourage Vmake est desormais 100% manuel cote Romeo). Image -> image finale FR generee via gpt-image. Sur demande, fournit aussi le texte de pub Meta (titre/corps/description/CTA/URL) pret a copier-coller, Romeo montant seul toute la campagne. A declencher quand Romeo dit "fais-moi les creas", "transforme cette pub", "adapte cette crea", "donne-moi le texte de la pub", ou fournit un .mp4/.jpg/.png de concurrent a adapter.
+description: Usine a creas publicitaires Zooryn. A partir d'une pub concurrent (sourcee dans le tableau de recherche produit ou fournie par Romeo), produit un dossier pret a finaliser. Detecte automatiquement le type. Video -> script voix off FR adapte a la marque + voix off ElevenLabs calee sur la duree (le detourage Vmake est desormais 100% manuel cote Romeo). Image -> Claude genere un prompt pret a coller dans ChatGPT (texte FR verrouille + composition), Romeo genere l'image finale lui-meme dans ChatGPT (API gpt-image abandonnee le 06/08/2026, trop de centimes pour rien). Sur demande, fournit aussi le texte de pub Meta (titre/corps/description/CTA/URL, ad copy courte, titre) pret a copier-coller, Romeo montant seul toute la campagne. A declencher quand Romeo dit "fais-moi les creas", "transforme cette pub", "adapte cette crea", "donne-moi le texte de la pub", ou fournit un .mp4/.jpg/.png de concurrent a adapter.
 allowed-tools: Bash, Read, Write, Edit, Glob
 ---
 
@@ -344,13 +344,23 @@ ressources créas après modifs/<LOT>/<ADn>/
 
 Romeo importe ensuite visuel + audio (ou accroches) dans CapCut pour le rendu final.
 
-## Chemin IMAGE (pub statique .jpg/.png) — methode gpt-image (validee 19/06, revisee 23/06)
+## Chemin IMAGE (pub statique .jpg/.png) — methode prompt ChatGPT (RE-REVISEE le 06/08/2026)
 
 Objectif : garder le visuel exact du concurrent, remplacer le texte par du FR adapte a la
-marque, et livrer une **image finie**, pas un plan de placement. ⚠️ La methode "lire + ecrire
-`accroches-fr.md` + Romeo pose dans Canva" est PERIMEE, ne plus l'utiliser : depuis le 19/06 on
-utilise l'API **gpt-image-1** (`scripts/edit_openai.mjs`) qui prend l'image source (+ le logo
-Zooryn SI besoin) et un prompt, et renvoie directement l'image editee.
+marque, et livrer a Romeo un **prompt pret a coller dans ChatGPT**, pas une image finie generee
+par Claude. ⚠️ La methode "lire + ecrire `accroches-fr.md` + Romeo pose dans Canva" reste
+PERIMEE. **Revirement acte le 06/08/2026 : l'appel direct a l'API gpt-image-1
+(`scripts/edit_openai.mjs`, methode en place du 19/06 au 05/08) est ABANDONNE.** Raison donnee
+par Romeo : chaque generation via l'API coutait quelques centimes (`_couts_openai.json`), alors
+que ChatGPT (deja paye via l'abonnement) fait le meme travail gratuitement a l'usage des lors que
+Claude fournit un prompt assez precis pour une reproduction fidele en un seul essai — c'est
+exactement la methode a deux missions du prompt formateur "Traduction en Français" (Notion "Les
+prompts Claude"), dont seule la mission de traduction avait ete portee le 06/08/2026 (cf.
+`references/verites-zooryn.md` et l'historique du skill) ; la mission de generation de prompt
+ChatGPT, ecartee a tort ce jour-la comme "obsolete", est desormais la methode par defaut.
+**Claude ne genere plus d'image lui-meme : Claude s'arrete au prompt, Romeo colle l'image source
+(+ le logo Zooryn si besoin) et ce prompt dans ChatGPT, recupere l'image generee et la depose
+dans le dossier livrable.**
 
 **Principe cle (le pixel ne se corrige pas apres coup) : verrouiller TOUT le texte en discussion
 texte normale, valide et factuellement correct, AVANT le moindre appel a gpt-image.** Ne jamais
@@ -392,7 +402,7 @@ les relire avant export. Toujours separer les deux phases :
    textes distincts, en particulier sur les petits elements isoles (boutons, badges, CTA) faciles
    a rater dans un relevé en prose.
 
-### Phase 2 — Generer l'image (gpt-image, texte deja figé et validé)
+### Phase 2 — Ecrire le prompt ChatGPT (Romeo genere l'image lui-meme)
 
 6. **Decider si le logo Zooryn doit etre integre, CAS PAR CAS** (ne pas l'imposer par defaut) :
    - **OUI** si le logo du concurrent est visible sur le produit/packaging/scene dans l'image
@@ -400,19 +410,30 @@ les relire avant export. Toujours separer les deux phases :
    - **NON** si l'image ne montre aucun logo produit (ex un screenshot de conversation iMessage
      qui mentionne juste le nom de la marque dans le texte) — passer le logo en reference ne
      sert a rien et risque de le faire apparaitre artificiellement.
-7. **Ecrire le prompt gpt-image avec le texte EXACT deja valide en Phase 1** (pas une consigne
-   de traduction, une consigne de REPRODUCTION) : "reproduis ce visuel a l'identique, remplace
-   chaque zone de texte par exactement ce texte : <texte FR final figé>, garde la meme police/
-   mise en page", + si pertinent "remplace le logo par <logo Zooryn fourni en piece jointe>", +
-   si pertinent "le prenom doit etre <prenom francais choisi>".
-8. **Lancer** `node scripts/edit_openai.mjs --image <source> --out <dest> --prompt-file <p.txt>
-   [--size auto] [--quality high]` (Claude peut executer ce script lui-meme, c'est un appel API,
-   pas un pilotage d'interface). Le format de sortie gpt-image est recadre automatiquement au
-   format de la source par le script (cf. `closestSize`).
-9. **Relire l'image generee** (outil Read, vision) et comparer chaque zone au texte verrouille en
-   Phase 1 : si un mot/prix/nom differe, regenerer plutot que livrer tel quel.
-10. **Deposer l'image finale** directement dans le dossier livrable du `ADn`. Rien d'autre a
-    faire dans Canva, l'image est prete a poster.
+7. **Ecrire le prompt ChatGPT avec le texte EXACT deja valide en Phase 1** (pas une consigne de
+   traduction a faire par ChatGPT, une consigne de REPRODUCTION d'un visuel dont le texte est
+   deja fige) : decrire fidelement la composition (mise en page, style graphique, couleurs,
+   typographie, elements visuels, disposition), integrer les textes traduits EXACTEMENT a leur
+   emplacement d'origine (titres, sous-titres, boutons, CTA, badges), en respectant la hierarchie
+   visuelle de l'original, + si pertinent "remplace le logo par le logo Zooryn (fourni en piece
+   jointe)", + si pertinent "le prenom affiche doit etre <prenom francais choisi>". Le prompt
+   doit etre assez precis pour une reproduction fidele en une seule tentative — c'est Romeo qui
+   colle l'image source dans ChatGPT en meme temps que ce prompt, Claude ne voit jamais le
+   resultat au moment de la generation.
+8. **Livrer ce prompt a Romeo dans le chat**, dans un bloc de code separe, pret a copier-coller
+   tel quel dans ChatGPT (aucun mot en anglais dans le texte a afficher sur l'image, sauf le nom
+   de marque Zooryn). Rappeler explicitement la marche a suivre : "colle l'image source (+ le
+   logo Zooryn si besoin) et ce prompt dans ChatGPT, recupere l'image generee, depose-la dans
+   `<LOT>/<ADn>/`".
+9. **Si Romeo redepose l'image generee dans le dossier ADn et demande une relecture** : comparer
+   chaque zone (outil Read, vision) au texte verrouille en Phase 1 — si un mot/prix/nom differe,
+   le signaler et proposer un prompt corrige plutot que de laisser passer un ecart. Etape
+   optionnelle, a la demande de Romeo, jamais automatique (Claude ne genere plus rien lui-meme).
+
+**[ARCHIVE — ancienne methode API gpt-image-1, abandonnee le 06/08/2026]** `scripts/edit_openai.mjs`
+reste dans le repo (appel direct API, `--image <source> --out <dest> --prompt-file <p.txt>`) au
+cas ou Romeo redemande explicitement un retour a la generation automatique un jour. Ne plus
+l'utiliser par defaut : la Phase 2 ci-dessus (prompt ChatGPT) est desormais la seule methode.
 
 ### PROMPT FIXE pour le texte image — Phase 1, traduction/adaptation (avant tout appel image)
 
@@ -428,14 +449,17 @@ les relire avant export. Toujours separer les deux phases :
 > allegation factuelle (garantie, origine/fabrication, livraison) a `references/verites-zooryn.md`
 > avant de valider le texte final.
 
-### Sortie d'un dossier pub IMAGE / muette (pret a poster)
+### Sortie d'un dossier pub IMAGE / muette (livrable Claude + livrable Romeo)
 
 ```
+prompt-chatgpt.txt            <- livrable Claude : le prompt pret a coller dans ChatGPT
 ressources créas après modifs/<LOT>/<ADn>/
-  <visuel-final>.png   <- l'image finie (texte FR + logo si besoin), generee par gpt-image
+  <visuel-final>.png   <- livrable Romeo : l'image generee par ChatGPT, deposee une fois recuperee
 ```
 
-Romeo n'a plus de pose de texte a faire dans Canva : l'image livree est deja prete a poster.
+Claude livre le prompt dans le chat (et peut le sauver en fichier si Romeo le demande). Romeo
+genere l'image lui-meme dans ChatGPT (image source + prompt) puis la depose dans le dossier
+`<LOT>/<ADn>/` — plus de generation automatique cote Claude, plus de pose de texte dans Canva.
 
 ## Bilan final (toujours)
 

@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-08-07
+
+### Recherche produit : Staydries validé et ajouté au pipeline, deux erreurs de méthode corrigées par Roméo
+
+- **Staydries (`staydries.se` + `staydries.com`) validé et ajouté au Google Sheet "Products"** (ligne 3, 7 créas) : boxer anti-fuites hommes 60+, offre 3/6/9 (≈54,65€), pente d'ads monotone 5→97 sur 10 semaines, zéro concurrence FR. Testé sans devis Yuri préalable, prix copié du concurrent (règle formation confirmée : ne pas solliciter l'agent avant d'être prêt à sourcer réellement).
+- Catalogue de filtres TrendTrack porté à 44 recettes (F41-F43 validés, dont F43 = V1 corrigé par `max_facebook_likes`, qui a sorti Staydries).
+- **2 erreurs de méthode repérées et corrigées en direct par Roméo**, les deux gravées dans le skill : (1) formule €/jour incohérente avait fait annoncer 4 créas au plancher au lieu de 2 réelles (`estimatedSpend÷daysRunning` désormais systématique) ; (2) recherche limitée au domaine `staydries.se` avait raté une créa à ~100€/j sur le domaine sœur `staydries.com` (marché Danemark), que Roméo a retrouvée lui-même via la Bibliothèque publicitaire Meta — le plancher de 3 créas est en fait atteint.
+- Colonne "Impressions/spend" du tableau clarifiée par Roméo : liste déroulante fermée (reach total OU dépense totale, jamais de texte libre ni de calcul journalier).
+- Risque politique Meta identifié sur les hooks du concurrent (ciblage direct de l'état de santé supposé) : à réécrire pour Staydries, pas à traduire mot à mot.
+- Watchlist externe créée (prix concurrents + présence UE) avec routine ChatGPT quotidienne pour les candidats en réserve non actionnables par TrendTrack.
+
+---
+
 ## 2026-08-06 (mise à jour 5)
 
 ### Session autonome longue : filtres F36-F38, loi corollaire n°3 sur le prix, critère de redirection des ads

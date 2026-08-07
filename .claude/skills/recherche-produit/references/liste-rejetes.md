@@ -5,18 +5,44 @@
 
 ## 🟢 Pipeline validé (prêt pour le tableau de recherche produit)
 
-_(vide au 06/08/2026)_
+- **Staydries (`staydries.se` + `staydries.com`)** — **VALIDÉ par Roméo le 06/08/2026**, sans attendre de devis Yuri (méthode « prix copié du concurrent, on teste, on source seulement si ça vend »). Boxer anti-fuites urinaires hommes 60+, offre 3/6/9. Historique de correction en 2 temps le 06-07/08 : d'abord un plancher surestimé (4 créas annoncées → 2 réelles après recalcul homogène), puis un 2e domaine (`staydries.com`, marché Danemark) découvert par Roméo via la Bibliothèque publicitaire Meta, qui ramène le plancher à **3 créas réelles ≥70€/j** (152€/j, 104€/j, 77€/j) — le minimum est atteint. Pente d'ads (5→97 sur 10 sem) et absence totale de concurrence FR inchangées. **Ajouté au Google Sheet "Products" (ligne 3, 7 créas), pays corrigé en Suède/Danemark.** Détail complet ci-dessous. **Prochaine étape : fiche produit + créas (hooks à réécrire, pas à traduire mot à mot — cf. risque politique Meta ci-dessous).**
+- Celaure (`celaure.com`) reste inscrit en ligne 2 du Sheet "Products" mais **statut réel = ABANDONNÉ le 25/07/2026** (COGS + taxe douane sous le seuil x3). Ligne non supprimée du Sheet, à nettoyer si Roméo le souhaite un jour.
 
 ## 🟡 En attente d'arbitrage de Roméo (présentés, pas encore tranchés)
 
 | Candidat | Produit / prix | Data | Défauts à assumer |
 |----------|----------------|------|-------------------|
-| **Mon-Veree (`monveree.store`)** | Montres vintage, **89 €** (barré 120 €), offre par défaut « Elige 2, Paga 1 » = 2 montres pour 89 € | 2 créas au plancher (**420 €/j** et 267 €/j), shop de 8 jours, 8 likes FB, 52 pubs actives, 7 produits, marché **ES** | Seulement 2 créas (seuil strict = 3-4) ; IG 12 038 abonnés pour 8 likes FB = followers vraisemblablement achetés ; 2 des 7 montres en rupture ; fausse urgence permanente ; **vérifier visuellement qu'aucun modèle ne copie une marque connue** (risque contrefaçon). **Seul candidat de la session à passer le test de réplicabilité du prix.** Jumeau à re-checker : `belmont-shop.de` (même angle en DE). |
+| **Mon-Veree (`monveree.store`)** | Montres vintage, **89 €** (barré 120 €), offre par défaut « Elige 2, Paga 1 » = 2 montres pour 89 € | 2 créas au plancher (**420 €/j** et 267 €/j), shop de 8 jours, 8 likes FB, 52 pubs actives, 7 produits, marché **ES** | Seulement 2 créas (seuil strict = 3-4) ; IG 12 038 abonnés pour 8 likes FB = followers vraisemblablement achetés ; 2 des 7 montres en rupture ; fausse urgence permanente ; **vérifier visuellement qu'aucun modèle ne copie une marque connue** (risque contrefaçon). **Seul autre candidat de la session à passer le test de réplicabilité du prix.** Jumeau à re-checker : `belmont-shop.de` (même angle en DE). |
+
+### Fiche conservée — Staydries (validé, cf. pipeline ci-dessus)
+
+**Staydries (`staydries.se`)** — trouvé le 06/08/2026 (session 11, filtre F43). Boxer anti-fuites urinaires pour **hommes 60+**, textile lavable 95 % coton. Offre par défaut **3 boxers = 599 SEK ≈ 54 €** (barré 899 SEK), paliers **3 / 6 / 9 unités** (2e best-seller à 699 SEK ≈ 63 €). Page produit : `staydries.se/products/staydries-boxers`.
+
+**Data** — ⚠️ **corrigée le 06/08/2026 (soirée) : le chiffre "4 créas au plancher" annoncé au moment de la présentation était FAUX**, erreur de méthode de calcul (mélange moyenne 7 jours / moyenne vie entière entre les créas au lieu d'une seule formule cohérente). Recalcul rigoureux avec la méthode utilisée partout ailleurs dans ce fichier (`estimatedSpend ÷ daysRunning` = dépense moyenne sur toute la durée de vie de la créa) sur les 6 créas ≥60k reach du shop :
+| Créa | Reach total | Jours de diffusion | €/j (moyenne vie entière) |
+|---|---|---|---|
+| AD2 (07/22) | 219 558 | 13 | **152 €/j** ✅ |
+| AD4 (07/14) | 179 809 | 21 | **77 €/j** ✅ |
+| AD1 (06/01) | 270 829 | 64 | 38 €/j |
+| AD6 (07/07) | 93 630 | 28 | 30 €/j |
+| AD3 (06/16) | 185 164 | 49 | 34 €/j |
+| AD5 (06/08) | 166 335 | 57 | 26 €/j |
+
+**Seulement 2 créas franchissaient le seuil de 70 €/j sur `staydries.se` seul — sous le minimum de 3 fixé par le skill.** Mais le 07/08/2026, Roméo a repéré via la Bibliothèque publicitaire Meta une 3e créa forte que la recherche initiale avait ratée : **`staydries.com` (même page Facebook, marché Danemark) fait tourner sa PROPRE campagne en parallèle**, avec une créa à **104 €/j** (`estimatedSpend` 624€ / 6 jours TrendTrack, cross-vérifié à 89 444 de couverture officielle Meta sur 9 jours ≈ 89-90€/j). **Le plancher de 3 créas ≥70€/j est donc bien atteint : 152€/j (AD2, SE), 104€/j (AD7, DK, `staydries.com`), 77€/j (AD4, SE).** Erreur initiale : la recherche n'avait interrogé que le domaine `staydries.se`, ratant toute la branche danoise de la campagne (même page Facebook `1143132445554393`, textes en danois/norvégien sur `staydries.com`). **Leçon pour la suite : toujours vérifier les variantes de domaine d'un shop (`.se`/`.com`/`.dk`...) avant de conclure sur le plancher.**
+
+Aucune créa individuelle n'atteint 500k de reach, mais ce n'est plus nécessaire vu le plancher désormais franchi côté €/j. Ce qui reste vrai et solide : la **pente d'ads** (5 → 10 → 19 → 26 → 37 → 41 → 51 → 58 → 86 → 97 sur 10 semaines, monotone, avec accélération sur les 3 derniers paliers) et 86 % du reach total du shop fait sur les 30 derniers jours. Shop créé le 22/05/2026 (11 sem), 4 produits (mono-produit), 54 likes FB, 96-98 pubs actives sur l'ensemble des domaines. **Marché réel : Suède ET Danemark** (pas seulement Suède comme annoncé au départ), zéro présence FR. Ads → page produit unique (pas une collection). Support en `@gmail.com`, aucune société affichée = vrai petit dropshipper, copiable sans risque DMCA. **7 créas au total référencées dans le Sheet (ligne 3), dont 3 au-dessus du plancher.**
+
+**Points assumés en connaissance de cause (validés par Roméo le 06/08/2026, pas des blocages)** : prix testé tel quel sans devis Yuri préalable (méthode "prix copié, on source si ça vend", risque = 50 € de test max) ; niche sensible (incontinence masculine 60+, tabou mais pas une exclusion dure — même famille que Sculpted/protège-tibias) ; 6 tailles S→3XL et risque de retours acceptés comme faisant partie du jeu ; `monthlyVisits: 0` = shop trop récent pour être indexé, pas une donnée manquante inquiétante.
+
+**⚠️ Point de vigilance réel, pas un défaut de data : politique Meta sur les attributs personnels.** Les accroches du concurrent suédois s'adressent directement à l'état de santé supposé du lecteur (« tu portes encore des couches en silence », « tu sais où sont toutes les toilettes du centre commercial »). Traduites mot à mot, elles tombent sous l'interdiction Meta d'affirmer/sous-entendre connaître l'état de santé de la personne ciblée — motif de refus fréquent voire de restriction de compte, risqué sur un Business Manager encore neuf. **Les hooks doivent être réécrits à la 3e personne/au général (« Des milliers d'hommes ont arrêté... »), pas traduits mot à mot.** Seule dérogation actée à la méthode "traduire un winner" pour ce produit. Second domaine `staydries.com` (même création, mêmes produits/pubs, libellés norvégiens) : ressemble à une expansion SE/DK/NO d'un seul opérateur, à confirmer à l'œil avant de lancer.
 
 ## 🔵 Types/clusters à surveiller (produit confirmé, mais aucun shop copiable à l'instant T)
 
 - **Projecteur galaxie/océan « 5D »** — confirmé par **4 shops indépendants sur 4 marchés** (`pearcehaley.com` CZ, `slimstep.shop` RO, `thenextgenelectronics.com` AU/GB, `fhgugi.top`/`gjhiifh.top` EE/LT), daily spend très élevé (317 à 487 €/j). **Bloqué sur le PRIX** : se vend 23 à 35 € partout, soit très en dessous du plancher de réplicabilité. À rouvrir seulement si un shop le vend ≥60 € ou si le COGS négocié tombe très bas.
 - **Montre « 2 pour le prix d'1 »** — 2 shops indépendants (`monveree.store` ES 89 €, `belmont-shop.de` DE). Cf. arbitrage ci-dessus.
+- **Sous-vêtement anti-fuites lavable** — cluster confirmé le 06/08/2026 par **4 shops indépendants sur 2 marchés** : `staydries.se` (hommes, SE/DK), `lunebo.se` (femmes « SilkyDry », SE), `scarletintimates.se` (femmes, SE, offre 1+1 gratuit), `lenceriarosa.com` (femmes 50+, ES, advertorial fibre de bambou). **Aucun sur le marché FR.** L'angle HOMME n'est tenu que par Staydries et c'est précisément son argument de vente (« les produits féminins ne sont pas faits pour l'anatomie masculine ») → sous-angle le moins encombré du cluster. Cf. arbitrage ci-dessus.
+- **Couette 2-en-1 (housse intégrée, se lave comme un drap)** — cluster confirmé le 06/08/2026 par **3 shops indépendants sur 3 marchés** : `nattlyshop.dk` (EnkelDyne, DK, déjà en BrandTracker), `reeest.com` (« DormiPuro », IT, 206 pubs), `pleene.com` (« EasyRest », GB, 151 pubs). **Demande réelle et prouvée, mais produit structurellement inexpédiable pour nous** : une couette a un poids volumétrique (L×l×h/8000) catastrophique en fret aérien depuis la Chine, très loin de la grille 0,3 kg d'Aplusfulfill. **Ne pas rouvrir sans un devis Yuri spécifique sur ce type de colis.** Motif de rejet à distinguer de la data, qui est bonne. Vérification faite sur `reeest.com` : sur 5 créas ≥200k reach, seules 2 sont encore vivantes, et le pic de la principale est un ré-abondement de budget sur une campagne de 115 jours (piège F21), pas un décollage.
+- **Oreiller ergonomique pour enfant** — 2 shops, 2 marchés : `sennlysklep.pl` (Sennly, PL, 226 pubs) et `calina.store` (FR). Écarté le 06/08/2026 : seulement **2 créas au plancher** sur 4 mesurables (91 €/j et 135 €/j sur 7 j), les 222 autres pubs sont minuscules — schéma de **dispersion** (beaucoup de pubs, aucune concentration de budget), l'inverse du profil recherché. S'ajoute une **promesse santé agressive sur le développement du visage de l'enfant**, juridiquement risquée en France et propice au refus Meta.
 
 ## 🔴 Rejetés définitifs (ne jamais ressortir)
 
@@ -154,6 +180,33 @@ Aucun des deux ne coche toutes les cases (l'un a un ticket trop bas, l'autre un 
 - **Douche de camping portable** (campingbruser.com DK + craftaison.com DE/AT) : double winner, fit parfait, FR vierge. Écartée le 16/06 car Roméo ne peut pas vérifier la data lui-même. Rouvrable si accès data retrouvé.
 - **Thermoseat** (craftaison.com, coussin chauffant) : data recoupable mais trop jeune au 16/06.
 - **Types désirables sans shop EU exploitable** (à rechasser dès qu'un shop EU frais + pente les prend) : sac à dos cabine à compression sous-vide, chaise pliable ultra-compacte, mini-pompe rechargeable, anti-moustique portable lumineux, lampe frontale/lanterne LED, lit de camp pliable.
+
+## ❌ Rejetés le 06/08/2026 (session 11 — filtres F39 à F44)
+
+| Shop (domaine complet) | Produit / marché | Motif de rejet |
+|------------------------|------------------|----------------|
+| `sitslouch.eu` | Chaise + parasol **de plage**, GR/IT | **Saisonnier** (rejeté un 6 août) + encombrant + c'est une vraie marque sud-africaine qui s'étend en Europe (`#madeinsouthafrica`), pas un dropshipper copiable. Seules 1-2 créas au plancher. |
+| `reeest.com` | Couette 2-en-1 « DormiPuro », IT | Poids volumétrique (cf. cluster couette ci-dessus) + 2 créas vivantes sur 5, pic = ré-abondement de budget sur campagne de 115 j. |
+| `pleene.com` | Couette 2-en-1 « EasyRest », GB | Idem cluster couette. |
+| `sennlysklep.pl` / `calina.store` | Oreiller ergonomique enfant, PL / FR | 2 créas au plancher seulement + promesse santé enfant à risque (cf. cluster ci-dessus). |
+| `difhouser.com` | Humidificateur/diffuseur « méduse », 32 pays | Créa principale en diffusion depuis **137 jours** = très au-delà de la fenêtre « 2-4 semaines » de la doctrine V3, `isLowReach` levé. Trop tard à copier. |
+| `vanisia.ro` | Nettoyant DPF (liquide chimique auto), RO | Liquide chimique → canal logistique spécial chez Aplusfulfill (même famille que gels/poudres), marge et délai non maîtrisés. |
+| `maouery.com` | Peigne démêloir animal **et** peinture de rénovation carrelage, HU | Généraliste : 2 pages FB du même shop vendant des produits sans aucun rapport. |
+| `vitalshop.ro` | Mini powerbank « 2+1 gratuit », RO | Batterie + ticket très bas (sous le plancher de réplicabilité ~40 €). |
+| `ergosteg.se` | Semelles orthopédiques (douleur au talon), SE | Exclusion santé. |
+| `nervialab.com` / `cortii.de` / `lymphoria.de` / `wunora.de` | Drainage hépatique / cortisol / drainage lymphatique / gummies superfood | Exclusion dure **ingéré**. |
+| `cumpario.ro` / `quavionx.com` / `biocyte.it` | Crème talons / patchs microaiguilles / activateur de bronzage | Exclusion dure **topique à promesse santé**. |
+| `tryclipse.com` | Facettes dentaires, FR | Santé/dentaire + marché FR frontal. |
+| `velt-ro.com` | Culotte post-partum (diastasis), FR | Santé + féminin + marché FR frontal. |
+| `selovaire.store` | Tablettes de traitement piscine 6-en-1, FR | Chimique + saisonnier piscine + marché FR frontal. |
+| `ferranosaitalia.com` | Débroussailleuse 52cc à 99,99 €, IT | Encombrant/outillage lourd (catégorie écartée en amont depuis le 18/07). |
+| `iniafrance.com` | Prolongateur de prise rotatif, FR | Marché FR frontal + ads pointant vers une **collection**. |
+| `luciatoscana.com` / `casaprovincial.es` / `maisontropez.fr` / `ciqau.com` / `caobea.com` / `ariellera.com` / `palmsite.com` / `vasariclo.com` / `brackenbrands.com` / `overstore.it` | Mode / maillots / sandales / robes, divers marchés | Niche féminine, mode généraliste, ou saisonnier — plusieurs pointent en plus vers une collection. |
+| `qetroi.com` | Tankini **et** nettoyant de lentilles, HU | Généraliste (2 pages, produits sans rapport). |
+| `nbaparisofficial.com` | Billetterie match NBA Paris 2027, FR | Pas un produit physique. |
+| `sennlysklep.pl` voisins : `lunebo.se`, `scarletintimates.se`, `lenceriarosa.com` | Sous-vêtement anti-fuites **femmes**, SE / ES | Pas des rejets sur la data : **conservés comme preuve du cluster** (cf. section clusters). Trop petits individuellement (5 à 27 pubs) et sur l'angle féminin déjà encombré. |
+
+**Note de suivi** : `shomathy.com` (FR) porte le **cluster projecteur galaxie 5D à 5 shops**, désormais présent sur le marché français. Toujours bloqué sur le prix, mais le cluster se densifie — à re-checker si un shop le vend ≥60 €.
 
 ## ✅ Déjà testés (historique)
 

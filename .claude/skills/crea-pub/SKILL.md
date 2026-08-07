@@ -9,6 +9,33 @@ allowed-tools: Bash, Read, Write, Edit, Glob
 Transforme une pub concurrent (.mp4) en un dossier pret a monter pour Romeo. Voir le plan
 complet : `C:\Users\franv\.claude\plans\ok-on-passe-en-wild-cascade.md`.
 
+## ⛔ ETAPE 0 — LE HOOK (bloquante, ajoutee le 07/08/2026)
+
+**Avant d'ecrire la moindre ligne de hook, d'accroche ou de texte a l'ecran, lire dans cet
+ordre :**
+
+1. **`references/meta-policy-hooks.md`** — ce qu'un hook n'a pas le droit de dire. Contient le
+   "test de la phrase", les grilles refuse/conforme, et les 4 portes de sortie quand le produit
+   touche un attribut protege (sante, age, handicap, situation financiere).
+2. **`references/hooks-playbook.md`** — les 3 types de hooks officiels Meta avec leurs cas
+   chiffres, les multiplicateurs de la recherche Toluna en reponse directe, les contraintes
+   techniques (9:16, son, zone de securite 35 %) et le process en 8 etapes.
+3. **`references/synthese-caples-schwab-accroches.md`** — la matiere : 5 regles de Caples, les 10
+   accroches qui ont echoue et pourquoi, les 35 formules regroupees, les 7 principes de Schwab, et
+   la section decisive sur les **sujets genants** (comment vendre un produit intime sans jamais
+   nommer la condition du spectateur).
+
+**Regle absolue : on ne traduit JAMAIS mot a mot le hook d'un concurrent qui cible un etat de
+sante, un age ou un handicap suppose du spectateur.** Meta refuse toute pub qui a l'air de savoir
+quelque chose de sensible sur la personne qui la regarde, y compris en tournure indirecte ("pour
+les personnes qui gerent X") depuis mars 2026. Le hook est reecrit, pas traduit. Concerne
+directement Staydries (boxer absorbant, hommes 60+).
+
+**Bonne nouvelle a garder en tete :** le hook conforme Meta et le hook gagnant chez Caples sont le
+meme hook. La question posee au spectateur sur son propre probleme ("Avez-vous ce probleme ?")
+figure a la fois dans les interdits de Meta et dans les 10 echecs mesures de Caples. La contrainte
+ne coute aucune performance.
+
 ## CHECKLIST DE DEMARRAGE — a poser a Romeo EN UNE FOIS, avant toute action
 
 Objectif (demande de Romeo le 23/06) : ne plus lui redemander une info au milieu du pipeline,

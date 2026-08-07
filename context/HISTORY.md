@@ -7,6 +7,23 @@
 
 ---
 
+## 2026-08-07 (mise à jour 3)
+
+### Recherche produit autonome (session 13) : catalogue à 56 filtres, 2 candidats tranchés, nouvelle loi corollaire
+
+- **Cadre posé par Roméo** : recherche longue en autonomie totale, résultats seuls comptent (concurrents avec la data ciblée), méthode laissée libre.
+- **4 filtres neufs testés sur les angles F51 restants** : F53 (`search_shops` trié `createdAt`, 🟢 validé) et F54 (filtre sur apps de bundle Shopify installées, 🟢 validé comme renouvellement d'échantillon) ; F55 (plancher groupé sur `search_ads`) et F56 (marchés GB/IE) testés et retirés/pausés faute de gisement neuf. Catalogue porté de 52 à **56 filtres**.
+- **Test de dispersion (loi n°5) confirmé décisif** : 6 nouveaux kills malgré des pentes de compteur spectaculaires (`mannenkamer.nl`, `velcor.co`, `allcarsfix-es.com`, `schnauzenheld.de`, `norrheimkitchen.com`, `cladist.com`), tous à 0 créa ≥100k reach.
+- **2 candidats ont franchi le plancher de 3 créas ≥70€/j**, présentés avec défauts assumés (jamais killés avant présentation) :
+  - **Titanox** (`titanoxufficiale.com`, poêle 100% titane pur, IT, 4 créas ≥70€/j, 3e shop indépendant sur ce type après Titankjokken NO et Holmgaard DK) — **gardé en réserve par Roméo** malgré un écart de prix inquiétant sur le test de réplicabilité (COGS estimé par Claude 33-41€, Roméo espère 17-18€ et veut tester à ~60€). Devis Yuri à obtenir avant de trancher définitivement.
+  - **TRUE ONE** (`trueone.pl`, parfum homme phéromones, PL, 3 créas ≥70€/j, prix réel ~47€) — **tué par Roméo en session**, sur une leçon rapportée du module Sourcing de la formation : un produit liquide coûte structurellement plus cher à expédier qu'un solide, indépendamment du poids/volume affiché. Prix copié 49,99€ imposerait un COGS sous 15€, jugé irréaliste. **Condition de réouverture actée : concurrent remonte à ~54-59€.**
+- **Nouvelle loi corollaire n°7 découverte** : le plancher de créas et le test de réplicabilité du prix se contredisent structurellement (un concurrent qui soutient 3 créas fortes a du volume, donc un COGS que le dropshipping unitaire ne peut pas égaler) → à plancher égal, privilégier systématiquement les produits légers/compacts.
+- **Nouveau garde-fou logistique gravé dans le skill** (`SKILL.md`) : les produits liquides (parfum, huile, gel, sérum) sont désormais traités comme le lithium — surcoût de transport structurel à absorber par un prix concurrent élevé, sinon écarter.
+- Malqisparfum (`malqisparfum.com`, 2e shop sur le type parfum, 8 créas mais plafonnées à 60€/j) reste en réserve, tué sur le plancher pas sur le type.
+- Fichiers mis à jour : `references/liste-rejetes.md` (session 13 tracée en détail), `references/methodes-versionnees.md` (F53-F56 + loi n°7 + journal), `SKILL.md` (garde-fou liquide).
+
+---
+
 ## 2026-08-07 (mise à jour 1)
 
 ### Session recherche produit autonome : 9 filtres inédits, percée méthodologique F51, 10 kills, 0 candidat

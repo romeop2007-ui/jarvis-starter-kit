@@ -40,6 +40,8 @@ Ordre strict, non négociable :
 
 Le port tue la marge sur le lourd/volumineux et les produits à batterie lithium (transport restreint), et complique le sourcing/fulfillment. **Constat du 18/07/2026 : une recherche a présenté trop de produits gros/encombrants ou électroniques (débroussailleuse, caméra d'inspection, etc.), tous durs à expédier.** Nouvelle doctrine : ces catégories ne sont pas juste à re-pricer, elles sont à **écarter en amont sauf cas exceptionnel** (data exceptionnelle + winner qui vend déjà ≥45-50€ prouvant que le pricing absorbe le port). Par défaut, privilégier des produits légers/compacts/faciles à expédier (accessoire, textile, petit objet du quotidien) plutôt que du gros électroménager, outillage encombrant ou électronique complexe. Si un candidat électronique/volumineux est présenté malgré tout (data trop forte pour l'ignorer), le signaler explicitement comme tel dans les défauts, sans le mettre en avant.
 
+**⚠️ Produits LIQUIDES = surcoût de transport structurel (confirmé par Roméo le 07/08/2026, leçon du module Sourcing de la formation).** Un liquide (parfum, huile, gel, sérum) coûte plus cher à expédier qu'un solide de même poids, indépendamment du volume/poids affiché — contrainte logistique propre au liquide (fret restreint, conditionnement). À traiter comme le lithium : un candidat liquide doit vendre nettement plus cher que la moyenne pour absorber ce surcoût, sinon écarter (cas `trueone.pl`, parfum à 47 €, tué le 07/08/2026 faute de marge sous ce surcoût + la taxe UE 3€/colis).
+
 ## Exécution
 
 ### Étape 1 — Sourcer les candidats (marché de copie ≠ FR)

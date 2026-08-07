@@ -828,3 +828,78 @@ Sept candidats ont été creusés créa par créa dans la même session, tous av
 | 04/08/2026 (1) | **F2** sur 9 catégories | 0 partout. Diagnostic : incompatibilité `min_spend 60/24h` + shop <6 semaines, pas un bug. | **F2 ⏸️ en pause**, à retenter avec fraîcheur desserrée à 10-12 semaines. |
 | 04/08/2026 (1) | **V1** sur 8 catégories | **0 nouveau candidat.** Re-sort Holmgaard (déjà vu 03/08) et 2 déjà rejetés (Filterboxen, Lenixi). Reste : bruit santé, gros généralistes non copiables (Havengrand, Viqzes), signaux <30k reach. Storage (816) : 0 résultat. | **V1 reste ✅.** Il confirme de façon cohérente les mêmes signaux forts = il fonctionne, mais le puits est sec par CET angle. Ne pas le relancer sur les mêmes catégories avant 1-2 semaines. |
 | 03/08/2026 | V1 sur 10 catégories (maison élargie) | Rien qui passe le plancher (Zomesi 66 €/j, Holmgaard 40 €/j) | V1 reste ✅ (track record antérieur), sèche sur cette niche neuve — normal, jamais explorée avant. |
+
+---
+
+# Filtres ajoutés le 07/08/2026 (session 13) — exploitation des angles F51 restants
+
+## 🟢 F53 — F51 trié par `createdAt` (les shops les plus jeunes qui ont déjà des pubs)
+
+```
+search_shops:
+  sort_by: createdAt            ← NEUF, jamais utilisé
+  min_active_ads: 15
+  max_monthly_visits: 3000
+  creation_date_from: <4 mois
+  max_products_count: 25
+  main_market_countries: EU (SANS NO ni CH, cf. loi n°6)
+```
+Angle : au lieu de trier sur une métrique de performance (qui favorise mécaniquement les shops installés), on trie sur la **date de naissance**. On voit donc le vivier dans l'ordre exact où il se renouvelle, ce qui garantit un échantillon neuf à chaque session sans avoir à inventer un filtre.
+
+**Testé le 07/08/2026 : 63 shops, 12 neufs sur 30 en page 1.** A sorti `trueone.pl` (candidat retenu) et `mannenkamer.nl`. **🟢 Validé.** Limite connue : gisement étroit (63 résultats seulement), à relancer chaque semaine plutôt qu'à paginer en profondeur.
+
+## 🟢 F54 — F51 filtré sur les APPS DE BUNDLE installées
+
+```
+search_shops:
+  shopify_app_ids: [4277, 309, 3590, 1408, 172]   ← Kaching Bundle Quantity Breaks,
+                                                     Rapi Bundle, Pumper Bundles,
+                                                     Xboost, Kaching Bundles
+  min_active_ads: 15 + max_monthly_visits: 3000
+  creation_date_from: <5 mois + max_products_count: 30
+  main_market_countries: EU
+```
+Angle : un shop qui installe une app de paliers de quantité est un dropshipper qui **travaille son AOV**, donc quelqu'un de sérieux qui a déjà un produit à pousser. Le paramètre `shopify_app_ids` n'avait jamais été utilisé en 52 filtres. IDs résolus via `lookup_filter_ids type=shopify_apps query=bundle`.
+
+**Testé le 07/08/2026 : 49 shops, 17 neufs sur 30.** A sorti `velcor.co` et `allcarsfix-es.com` (tous deux tués en dispersion). **🟢 Validé comme filtre de découverte** (il renouvelle l'échantillon), mais rendement final nul sur cette passe. Bénéfice secondaire : les shops qu'il remonte ont par construction une **structure d'offre multi-unités**, ce que la doctrine demande de signaler à chaque candidat.
+
+## ❌ F55 — Plancher directement mesuré, sans déduplication par marque (testé et RETIRÉ le 07/08/2026)
+
+```
+search_ads:
+  technologies:["shopify"] + max_traffic: 2000-2500 + max_facebook_likes: 1500
+  shop_created_after: <5 mois
+  min_reach: 40 000 à 55 000, reach_period: last7d   ← ≈ 70 à 100 €/j soutenus
+  max_ads_per_brand: 4-5        ← NEUF : on ne déduplique PAS, pour compter les créas par shop
+  sort_by: reachDelta7d
+```
+**L'idée était bonne et mérite d'être retenue même si le filtre est retiré** : en laissant 4-5 créas par marque au lieu d'1, la requête **compte directement le plancher** (un shop qui sort 3 lignes a 3 créas fortes), au lieu de trouver un shop puis de dépenser un appel de dispersion par candidat. Conversion utile : à CPM 9 €, **70 €/j ⇔ ~55 000 de reach sur `last7d`**.
+
+**Retiré parce qu'il ne sourcé rien de neuf** : les deux passes n'ont remonté que des shops déjà connus ou rejetés (Mirelia, Vanisia, Splash&Ray, NBA Paris, Overstore, ChillNeck, Difhouser, Alessandro Varetti, Biocyte). **C'est la confirmation directe de la thèse de F51** : tout ce qui passe par `search_ads` partage le même gisement, quelle que soit l'astuce de paramétrage. ❌ Ne pas y revenir pour du sourcing — en revanche, **garder la mécanique `max_ads_per_brand` élevé + `min_reach` sur `last7d` comme test de plancher groupé** quand on a déjà une liste de shops à qualifier.
+
+## ⏸️ F56 — Marchés GB/IE seuls (testé le 07/08/2026, EN PAUSE)
+
+```
+search_shops: main_market_countries: ["GB","IE"] + signature F51 habituelle
+```
+Angle jamais tenté : le marché anglophone, jamais exploré depuis le pivot France. **Gisement quasi inexistant : 8 shops au total**, dont 6 déjà rejetés et 2 exclusions dures. ⏸️ En pause — pas assez de volume pour justifier un appel régulier, à retenter dans plusieurs semaines.
+
+## 🔑 Loi corollaire n°7 (07/08/2026) : le plancher de créas et le test de réplicabilité du prix se contredisent structurellement
+
+Constat de la session : **les deux seuls shops à franchir le plancher de 3 créas ≥70 €/j échouent tous les deux au test de réplicabilité du prix**, et pour la même raison de fond.
+
+> Un concurrent qui soutient 3 créas à plus de 70 €/j a nécessairement du volume. Le volume lui donne un COGS que le dropshipping unitaire ne peut pas égaler : il achète en gros et expédie souvent par fret groupé, là où nous payons ~10-13 € de transport + 3 € de taxe **par colis**. Plus il scale, plus son prix de vente descend sous notre plancher `COGS × 3,5`.
+
+**Conséquence pratique** : sur un produit **lourd ou volumineux**, l'écart devient rédhibitoire (cas Titanox : poêle ~1 kg volumétrique, COGS rendu estimé 33-41 €, soit 115-143 € au ×3,5 contre 64,99 € affichés). Sur un produit **petit et léger**, il reste discutable (cas TRUE ONE : ~18 € de COGS rendu, 63 € au ×3,5 contre 47 €).
+
+**Règle à appliquer dès le sourcing** : à plancher de créas égal, **privilégier systématiquement les produits légers et compacts**, parce que ce sont les seuls où l'écart de COGS entre le winner et nous reste rattrapable par une négociation avec l'agent. Le poids est le vrai discriminant, pas le prix affiché.
+
+## Journal — session 13 (07/08/2026, mise à jour 2)
+
+| Date | Filtre | Résultat | Décision |
+|------|--------|----------|----------|
+| 07/08/2026 (2) | **F53** (`search_shops` tri `createdAt`) | 63 shops, 12 neufs/30 en p1. Sort `trueone.pl` (**candidat retenu**) + `mannenkamer.nl`. | **🟢 Validé.** À relancer chaque semaine (le tri par date se renouvelle tout seul). |
+| 07/08/2026 (2) | **F54** (apps de bundle) | 49 shops, 17 neufs/30. Sort `velcor.co`, `allcarsfix-es.com` (tués en dispersion). | **🟢 Validé** comme renouvellement d'échantillon, rendement nul cette passe. |
+| 07/08/2026 (2) | **F55** (plancher groupé sur `search_ads`) | 2 passes, **100 % de shops déjà connus/rejetés**. | **❌ Retiré** pour le sourcing. Confirme la thèse F51. Mécanique à garder pour qualifier une liste existante. |
+| 07/08/2026 (2) | **F56** (GB/IE) | 8 shops au total, aucun exploitable. | **⏸️ En pause**, gisement trop étroit. |
+| 07/08/2026 (2) | **F51** variantes (mono-produit `max_products_count: 4`, tri `growth30d`, marchés SE/DK/FI purs) | Beaucoup de volume mais **saturé de beauté/santé** (exclusions dures). Sort `titanoxufficiale.com` (**candidat retenu**) via la variante « très frais + 30 pubs min ». | **🟢 F51 reste le meilleur filtre du catalogue.** Le tri `activeAds` sur une fenêtre de création serrée (mai+) est la variante la plus rentable. |

@@ -677,6 +677,121 @@ F39 et F40 ont échoué le même jour pour une raison commune, et elle affine la
 
 **Règle pratique : un seul plancher chiffré par requête, et il se mesure sur `last7d`. Tout le reste du filtrage doit être qualitatif** (technologies, max_traffic, max_facebook_likes, shop_created_after, fenêtre de prix). Empiler deux planchers chiffrés (F39 : reach de page + reach par créa) vide la requête même quand chacun pris isolément fonctionne.
 
+## ❌ F45 — F41 + plafond de produits du shop (testé et RETIRÉ le 07/08/2026)
+
+```
+(tout F41) + max_products: 15
+```
+Hypothèse : le motif d'échec le plus visible des sessions précédentes était le **shop généraliste** (Havengrand 429 produits, NextGen 127, LaVina ~70, Gift Soul, Acquahome 30+). `max_products` n'avait jamais été combiné à la signature dropshipper frais.
+
+**Testé le 07/08/2026 : 16 résultats sur 20 étaient des shops déjà rejetés.** ❌ Retiré. **Diagnostic à retenir : le généraliste n'est PAS le motif d'échec dominant.** Les vrais tueurs sont les **exclusions santé/ingéré/topique** et le **marché FR frontal** — or ces shops-là sont justement des mono-produits, donc `max_products` ne mord pas dessus. Le paramètre reste inoffensif mais inutile : il ne coûte rien et n'apporte rien.
+
+## 🟢 F47 — Fenêtre d'ancienneté de la créa + exclusion du marché FR (07/08/2026)
+
+```
+technologies: ["shopify"] + max_traffic: 2000 + max_facebook_likes: 1500
+shop_created_after: <6 mois
+min_reach: 150000, reach_period: last7d     ← plancher unique sur last7d (loi n°4)
+min_days_running: 8, max_days_running: 40   ← NEUF : le « timing entre les deux » enfin paramétré
+ad_countries: {exclude: ["FR"]}             ← NEUF : tue le marché FR frontal en amont
+max_ads_per_brand: 1, sort_by: reachDelta7d
+```
+
+**Deux paramètres jamais utilisés dans les 44 filtres précédents, et les deux marchent :**
+
+1. **`min_days_running`/`max_days_running`** traduit enfin en paramètre la règle de doctrine « timing entre les deux » (produit qui scale depuis 2-4 semaines), qui n'avait jamais été qu'un critère de lecture manuelle. Effet vérifié : **renouvelle réellement l'échantillon** en éliminant d'office les accumulateurs (Mirelia 53 j, Vanisia 83 j, Belmont 90 j, Bracken 123 j...).
+2. **`ad_countries: {exclude:["FR"]}`** élimine les shops à marché FR frontal (Revyv, Mavaro, Exovella, shomathy sont sortis des résultats), motif de rejet le plus fréquent du fichier `liste-rejetes.md`.
+
+**⚠️ Piège vérifié : `market: {exclude:["FR"]}` NE FONCTIONNE PAS pour ça.** Il porte sur le marché visiteur du *shop lié*, souvent non indexé sur un shop frais, donc les shops FR passent au travers. C'est bien **`ad_countries`** (distribution réelle des pubs) qu'il faut utiliser. Les deux se ressemblent, un seul mord.
+
+## 🟢 F48 — Marchés à fort pouvoir d'achat (nordique + DACH) + prix plancher (07/08/2026)
+
+```
+(signature dropshipper frais) + min_reach: 80000 last7d
+main_countries: ["SE","DK","FI","DE","AT","NL","BE","IE"]
+min_best_seller_price: 45
+```
+Raison d'être : **tous les bons candidats historiques viennent de là** (Staydries SE/DK, matelas SE, sac sling SE, Huber AT), et ce sont les marchés à ticket élevé, donc ceux qui répondent structurellement à la loi corollaire n°3 (prix concurrent ≥40 €).
+
+**Résultat : le filtre RETROUVE Staydries** (bonne validation croisée) et sort 1 candidat neuf. **Gisement étroit** (9 résultats avec le prix, ~40 sans), à lancer en complément et non en filtre principal. ⚠️ `main_countries` ne couvre que le jeu EU/UK de la transparence Meta : **NO et CH n'y matchent rien** (warning explicite de l'API), il faut passer par `ad_countries` pour ces deux marchés.
+
+## ❌ F50 — Concentration budgétaire (peu de créas actives, gros reach) (testé et RETIRÉ le 07/08/2026)
+
+```
+(signature) + max_active_ads: 35 + min_reach: 200000 last7d + max_ads_per_brand: 3
+```
+Hypothèse séduisante : le motif d'échec qui tue le plus de candidats est la **dispersion** (Ridrplug, Babilo, oreiller enfant : beaucoup de pubs, aucune concentration). `max_active_ads` (l'inverse de `min_active_ads`) n'avait jamais été utilisé. L'idée était de sélectionner directement les shops qui concentrent leur budget sur peu de créas fortes.
+
+**Testé : 8 résultats, un seul neuf (sandales orthopédiques IT, saisonnier).** ❌ Retiré. La combinaison est trop restrictive : à ce niveau de reach, les shops qui plafonnent à 35 pubs sont déjà tous connus.
+
+## 🟢🟢 F51 — ENTRÉE PAR LES SHOPS (`search_shops`) au lieu des ADS — LA PERCÉE DU 07/08/2026
+
+```
+search_shops:
+  min_active_ads: 15-30
+  max_monthly_visits: 2500-3000
+  creation_date_from: <4 mois
+  max_products_count: 15-25
+  main_market_countries: [SE,DK,NO,FI,DE,AT,NL,BE,IT,ES,PL,CZ,GB,IE,PT]   ← OBLIGATOIRE, voir piège
+  sort_by: growth30d  (ou activeAds)
+```
+
+**Tous les filtres du catalogue, de V1 à F50, interrogent `search_ads` : ils partent de la CRÉA et remontent au shop. Ils partagent donc le même gisement, et c'est pour ça que toutes leurs variantes finissent par retomber sur le même pool d'une quarantaine de shops.** `search_shops` part du SHOP et trie sur des métriques de shop (croissance de trafic, nombre de pubs actives, date de création) : population **totalement différente**. Premier passage : **5 014 shops, dont un seul déjà vu**, puis 112 une fois restreint aux marchés EU.
+
+**Avantage secondaire décisif** : la réponse contient `catalog.bestSellers` (titre + **prix** + devise), `advertising.history` (**la pente semaine par semaine**) et `traffic.history`. On lit donc le prix, la pente et la fraîcheur **avant** de dépenser un seul appel de vérification — là où `search_ads` oblige à ouvrir chaque shop pour ça.
+
+**⚠️⚠️ PIÈGE MAJEUR, à ne jamais oublier : sans `main_market_countries` EU, ce filtre remonte des shops SANS DATA EU.** Cas fondateur **Weloria** (`weloria.store`, sac à dos de voyage NL, pente 4→88 monotone sur 8 semaines, exactement le type recherché) : toutes ses créas sont en `targetedCountries:["US"]`, avec `reach: 0`, `estimatedSpend: 0`, `isEuAd: null`. Diffusion 100 % américaine = aucune transparence DSA = **inanalysable**, donc inexploitable (même famille que MIRIS, Coziya, Hydiqo). `search_ads` filtrait ce cas implicitement, `search_shops` non : ses tris (trafic, nombre de pubs) existent même sans data EU. **Toujours imposer le marché EU dans la requête, et toujours re-vérifier `isEuAd`/`reach` sur les créas avant de creuser.**
+
+**Parseur dédié** : `scratchpad/parseshops.mjs` (compacte la sortie en une ligne par shop : création, pays, produits, prix best-sellers, pente d'ads, trafic).
+
+## ⏸️ F52 — Filtrer sur le THÈME Shopify (Shrine / Shrine Pro) (testé le 07/08/2026, EN PAUSE)
+
+```
+search_shops:
+  theme_ids: [Shrine Pro, Shrine, Shrine Pro Ecom Elite, Shrine+, Shrine PRO]
+  main_market_countries: EU + max_monthly_visits: 3000 + creation_date_from: <6 mois
+  sort_by: activeAds
+```
+IDs résolus via `lookup_filter_ids type=themes query=Shrine` : `fe4bee86-5947-4725-8c3b-943c347663bd` (SHRINE PRO, 89 213 shops), `b8d5ff70-08eb-4e4f-95d2-d3992abf8907` (SHRINE, 25 557), `3d77efb0-b641-4ddd-8da6-ac859d1c6ff3` (SHRINE PRO ECOM ELITE, 11 900), `ff5ccdae-3d89-4dc9-806f-f4b20cbb4dfb` (SHRINE⁺, 2 275), `e53f5993-f72c-46ff-bd5d-4689d134ad3b` (Shrine PRO, 2 042).
+
+**Double intérêt théorique** : (1) un shop qui paie un thème pro est un dropshipper sérieux, pas un bricoleur ; (2) **c'est le thème de Zooryn**, donc son tunnel est directement transposable en blocs natifs, sans Liquid — un gain de temps considérable au moment de copier.
+
+**Testé le 07/08/2026 : le gisement existe (887 shops sur le seul filtre thème) mais l'intersection avec « frais + petit trafic + marché EU » est quasi vide (6 résultats, dont 5 à ZÉRO pub active).** Le seul vivant, `levorialab.com`, a été tué au test de dispersion. En desserrant les contraintes, on retombe sur des gros comptes, du hors-EU et des réseaux de clones (`ference01/02/03.shop` + `krisztina01.shop`, 4 domaines HK identiques à 999 pubs).
+
+**⏸️ Statut : en pause comme filtre de DÉCOUVERTE, mais à garder comme signal en AVAL.** Une fois un candidat trouvé par un autre filtre, vérifier s'il tourne sous Shrine : si oui, sa page produit se recopie bloc à bloc dans le thème de Zooryn. C'est une information d'exécution, pas de sourcing.
+
+## 🔑 Loi corollaire n°6 découverte le 07/08/2026 : NO et CH sont des angles morts de la transparence Meta
+
+Le warning renvoyé par l'API sur `main_countries` le dit noir sur blanc : *« main_countries only covers Meta's EU/UK ad transparency set, so NO, CH matches no ad »*.
+
+**Conséquence : un shop dont le marché principal est la Norvège ou la Suisse est INANALYSABLE, exactement comme un shop américain.** Cas fondateur **Titankjokken** (`titankjokken.com`, poêles titane, page FB « Caléna ») : 126 pubs actives, pente monotone 43→116 sur 8 semaines, 3e shop indépendant sur un type déjà confirmé — et pourtant `reach: 0`, `estimatedSpend: 0`, `targetedCountries: null`, `isEuAd: null`, `totalReach: 6 712` sur toute la page. Rien d'exploitable.
+
+**Réflexe à prendre : la DEVISE est le signal d'alerte le moins cher.** Dans une sortie `search_shops`, `NOK` ou `CHF` en `profile.currency` = probable angle mort, à vérifier avant d'investir la moindre analyse. Ça disqualifie rétroactivement plusieurs shops croisés le 07/08 : `kurasko.no`, `grillnordic.no`, `arkverk.no` (NOK), `flofrei.com`, `sivorakleidung.ch` (CHF).
+
+⚠️ Ne pas confondre avec le cas Weloria : là c'était le marché **US**. La cause diffère, le résultat est le même — pas de data DSA, donc pas de candidat.
+
+## 🔑 Loi corollaire n°5 découverte le 07/08/2026 : la DISPERSION est le motif d'échec dominant, pas le produit
+
+Sept candidats ont été creusés créa par créa dans la même session, tous avec une pente d'ads propre. **Les sept échouent au plancher, et six pour exactement la même raison** :
+
+| Candidat | Pubs actives | Meilleure créa | Verdict |
+|----------|--------------|----------------|---------|
+| Petloom (`petloom.de`) | 26 | 203k / 57 €/j | 1 hero + 25 pubs de bruit |
+| LederKur (`lederkur.de`) | 167 | **aucune ≥80k** | dispersion totale (cas IROND) |
+| Ciriel (`ciriel.de`) | 239 | **aucune ≥100k** | dispersion totale (cas IROND) |
+| Nordscrub (`nordscrub.dk`) | 34 | 139k / 32 €/j | dispersion |
+| Borvane (`borvane.com`) | 137 | 159k / 24 €/j | pente d'ads sans reach (cas Pälshem) |
+| Verador (`verador.ro`) | 51 | 956k / 86 €/j | 2 créas au plancher, catalogue multi-produits |
+| Weloria (`weloria.store`) | 89 | — | no EU data |
+
+> **Un shop frais qui monte en nombre de créas ne monte presque jamais en dépense par créa.** La croissance du compteur de pubs est le signal le plus facile à trouver et le moins fiable qui soit : il se satisfait de dizaines de micro-créas à 5-20 €/j. Le plancher « 3 créas ≥70 €/j » sélectionne en réalité une population **très rare**, et c'est ce qui explique le taux de kill de ces dernières sessions bien plus que la qualité des filtres.
+
+**Conséquence opérationnelle : ne jamais présenter un candidat sur la seule foi de la pente `advertising.history`.** Vérifier `estimatedSpend ÷ daysRunning` créa par créa AVANT de creuser le produit, le prix ou la page — c'est le test le moins cher et le plus discriminant. Un `search_ads` par domaine avec `min_reach: 100000, reach_period: total` répond en un appel : s'il rend 0 ou 1 ligne, le candidat est mort, inutile d'aller plus loin.
+
+**✅ TRANCHÉ PAR ROMÉO LE 07/08/2026 : on TIENT le plancher tel quel, 3 créas ≥70 €/j, sans exception ni assouplissement pour les shops frais.** La question lui a été posée explicitement (assouplir à 2 créas sur shop <10 semaines / tenir / descendre la barre à 50 €/j) ; il a choisi de tenir. Cohérent avec sa doctrine constante : *« on pourrait valider un produit malgré un prix hors tranche ou un produit lourd, s'il a de bonnes créas. Mais mauvais marketing + bon produit, c'est mort »* (kill Ridrplug, 04/08).
+
+**Conséquence assumée : ~1 candidat validable toutes les 2-3 sessions.** Une session à 0 candidat n'est donc PAS un échec de méthode ni un signal qu'il faut baisser les critères — c'est le régime normal de ce plancher. **Ne plus reposer la question**, et ne jamais présenter un candidat sous le plancher en espérant qu'il passe : le remonter en réserve avec ses chiffres, point.
+
 ## ❌ Approches déjà écartées (ne pas retester telles quelles)
 
 - **`find_similar_shops`** en découverte pure : remonte les grosses marques établies (REI, Decathlon...). Reste utile UNIQUEMENT en aval pour cartographier les concurrents d'un candidat déjà trouvé (cf. `trouver-concurrents.md`).
@@ -690,6 +805,8 @@ F39 et F40 ont échoué le même jour pour une raison commune, et elle affine la
 
 | Date | Filtre(s) testé(s) | Résultat | Décision |
 |------|--------------------|----------|----------|
+| 07/08/2026 (13) | **F51 page 2 + F52 (thème Shopify Shrine)** — suite de la même journée, Roméo demande de rester en autonomie sur la recherche et de continuer à faire évoluer les filtres pendant qu'il prépare la copy Staydries de son côté. | F51 p2 : 40 shops de plus, 1 seul candidat sérieux (`titankjokken.com`, poêle titane, 3e shop du type). **F52 ⏸️** : le gisement Shrine existe (887 shops) mais l'intersection avec frais+petit trafic+EU est quasi vide (6 résultats dont 5 à zéro pub active). | **3 kills de plus : `titankjokken.com` (NO DATA, marché NO), `levorialab.com` (1 créa au plancher sur 9, créas de 67-160 j, pente qui redescend), + 5 shops Shrine morts.** **Loi corollaire n°6 actée** : NO et CH sont des angles morts de la transparence Meta au même titre que les US → la devise (`NOK`/`CHF`/`USD`) est le signal d'alerte le moins cher. **F52 reste utile en AVAL** : si un candidat tourne sous Shrine, sa page se recopie bloc à bloc dans le thème de Zooryn. **Total journée : 10 candidats creusés, 10 kills, pipeline toujours à 1 (Staydries).** |
+| 07/08/2026 (12) | **F45 à F51 (7 filtres inédits)** — session autonome, consigne de Roméo : continuer sur la lancée, tester les filtres qui marchent et en recréer d'autres en autonomie plutôt que conclure. Objectif : 2-3 candidats pour porter le pipeline à 3-4 avant le premier testing. | **F45 ❌** (`max_products` : le généraliste n'est pas le motif d'échec dominant). **F47 🟢** (`min/max_days_running` traduit enfin le « timing entre les deux » en paramètre + `ad_countries.exclude` tue le FR frontal ; piège : `market.exclude` ne marche pas pour ça). **F48 🟢** (marchés nordique/DACH + prix ≥45 : **retrouve Staydries**, gisement étroit). **F50 ❌** (concentration budgétaire : trop restrictif). **F51 🟢🟢 = LA PERCÉE** : passer par `search_shops` au lieu de `search_ads` ouvre un gisement totalement neuf (5 014 shops, 1 seul déjà vu) et donne prix + pente + fraîcheur avant toute vérification. | **7 candidats creusés créa par créa, 7 kills** : Weloria (no EU data, piège F51), Petloom, LederKur, Ciriel, Nordscrub, Borvane, Verador. **Aucun candidat présentable, pipeline reste à 1 (Staydries).** **Loi corollaire n°5 actée** : la DISPERSION budgétaire est le motif d'échec dominant (6 kills sur 7), la pente du compteur de pubs est le signal le plus facile et le moins fiable → vérifier `estimatedSpend ÷ daysRunning` AVANT de creuser produit/prix/page. **Question de méthode remontée à Roméo** : le plancher 3 créas ≥70 €/j est-il tenable sur des shops <3 mois ? |
 | 06/08/2026 (11) | **F39 à F44 (6 filtres inédits)** — 2e session autonome longue, consigne de Roméo : conserver ce qui marche, corriger ce qui ne marche pas, et revenir avec des concurrents littéralement copiables. Contrainte de départ : même journée que la session 10, donc relancer F37/F38 à l'identique aurait rendu exactement le même échantillon → obligation de reparamétrer. | **F39 ❌** (empiler plancher de page + plancher par créa = 6 résultats, tous connus). **F40 ❌** (`min_spend` 7 j = 0 résultat ; diagnostiqué : ne laisse passer que Belluna/Holafly/Mother's Earth, c'est un volume déguisé). **F41 🟢** = la correction (un seul plancher, mesuré sur `last7d`, tout le reste qualitatif) → 20 résultats, majorité de shops neufs. **F42 🟢** (F41 + fenêtre de prix). **F43 🟢 = V1 + `max_facebook_likes`, qui sort STAYDRIES**, premier candidat depuis longtemps à franchir le plancher de 3 créas. **F44 ❌** (duplicates : ne fait que re-trier une population déjà visible). | **1 candidat présenté : `staydries.se`** (boxer anti-fuites hommes 60+, SE/DK, 4 créas au plancher à 152/99/78/77 €/j, pente d'ads monotone **5→97 sur 10 semaines**, shop de 11 sem., 4 produits, 54 likes FB, zéro présence FR, ads → page produit unique). Point à trancher : devis Yuri par palier (3/6/9), le palier d'entrée à 54 € est tendu au ×3,5. **Loi corollaire n°4 actée** (c'est la FENÊTRE du plancher qui décide, pas sa nature ; un seul plancher chiffré par requête, sur `last7d`). **3 clusters produit documentés** : sous-vêtement anti-fuites (4 shops, SE/ES, angle homme libre) ✅, couette 2-en-1 (3 shops DK/IT/GB) ❌ poids volumétrique, oreiller enfant (2 shops PL/FR) ❌ dispersion + promesse santé. Cluster projecteur galaxie porté à 5 shops (arrivée de `shomathy.com` en FR). |
 | 06/08/2026 (10) | **F35 relancé à `min_reach: 500000` (pages 1-4, fenêtre shop élargie à 6 mois), puis F36, F37 et F38 (nouveaux)** — session autonome longue demandée par Roméo | **F35 à 500k : gisement quasi épuisé** (12 résultats page 1, 5 annonceurs). Élargir la fenêtre shop de 4 à 6 mois relance le volume mais tout ce qui franchit le plancher tombe en exclusion dure. **12 candidats bruts extraits des pages 1-4, TOUS écartés à la vérification** — motif dominant et récurrent : **un seul hero creative par shop** (Semori 1 créa ≥400k, Dasana 1, Belmont 2, Strykr 1 malgré 183 pubs, slimstep 1, Heim-Zauber 1 vivante). Maisonvantier tué sur une option « Custom Text Personalization » à 5,99 $ (personnalisation) + pente plate ; NextGen Electronics sur 127 produits + pente en plateau. **F36 ❌** (seuil absolu de reach de page = mêmes gros comptes). **F37 🟢** (borner la fenêtre en haut + `max_facebook_likes` ≤1000) = meilleur rapport signal/bruit du catalogue. **F38 🟢** (F37 + `min_best_seller_price` 45-110) = le plus productif, sort les 2 seuls candidats de la session. | **F36 ❌ retiré, F37 et F38 🟢 à garder et relancer en binôme.** **Loi corollaire n°3 actée** (sous ~40 € de prix concurrent, produit structurellement non réplicable — 3 candidats tués par le même calcul le même jour). Cluster produit identifié : **projecteur galaxie 5D chez 4 shops indépendants** (CZ/RO/AU-GB/EE-LT) mais tué sur le prix (23-35 €). **2 candidats présentés à Roméo : Mon-Veree (`monveree.store`, montres 89 € en 2-pour-1, ES) — seul à passer le test de réplicabilité — et Huber-Outdoor (`huber-outdoor.at`, lampe frontale, échoue le prix mais data solide).** Concept montre « 2 pour le prix d'1 » confirmé par 2 shops indépendants (ES + DE). |
 | 06/08/2026 (9) | **F35 (plancher direct + techno Shopify + shop <4 mois)** + prix best-seller 45-75€ + `search_tiktok_library` (canal jamais interrogé) + `min_spend last7d` | **Percée méthodologique.** Le prix best-seller marche techniquement mais le tri ramène les mêmes têtes de liste. `min_spend 350 last7d` = 0 résultat même à 12 semaines. `search_tiktok_library` inexploitable : pas de `max_followers` dans l'API, donc impossible d'exclure les influenceurs/grandes marques (Aitana, Tokio Hotel, ALDI, Avicii...). **Mais F35 sort ENFIN des shops avec 4 à 10 créas au-dessus du plancher** — le format que Roméo demande depuis le début. Découverte en route : `max_traffic` ne filtre rien face aux pubs qui pointent vers un lien d'app (P&G passait au travers), `technologies: ["shopify"]` referme le trou. | **F35 🟢 prometteur, à poursuivre pages 3-6 avec `min_reach: 500000`.** Loi corollaire n°2 actée (`max_traffic` + `technologies` vont par paire). TikTok library définitivement écarté comme canal de découverte. 3 shops physiques creusés : Splash&Ray (saisonnier+encombrant), Tekko (ROMs piratées), Babilo (plancher pas franchi, vérifié sur 8 créas). |

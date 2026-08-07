@@ -7,6 +7,22 @@
 
 ---
 
+## 2026-08-07 (mise à jour 1)
+
+### Session recherche produit autonome : 9 filtres inédits, percée méthodologique F51, 10 kills, 0 candidat
+
+- **Cadre posé par Roméo** : continuer en autonomie totale sur la recherche produit, tester les filtres qui marchent et **en recréer d'autres plutôt que de conclure au puits sec**, pendant qu'il se renseigne de son côté sur la réécriture des hooks Staydries (risque de ban Meta s'il traduit mot à mot).
+- **🔁 Méthode de travail en batch actée** (cf. CONTEXT.md) : 1-2 jours de recherche par semaine, puis préparation des fiches produit et créas **en lot**, avec un **minimum de 3-4 produits validés en réserve avant de lancer le premier testing**. Motif explicite de Roméo : la démotivation est le vrai risque du projet sur la durée, et lancer un produit isolé qui échoue avec un pipeline vide est le pire scénario.
+- **9 filtres inédits conçus et testés (F45 à F52).** **F47 🟢** : deux paramètres jamais utilisés en 44 filtres, `min/max_days_running` (qui traduit enfin le « timing entre les deux » de la doctrine en paramètre au lieu d'un critère de lecture manuelle) et `ad_countries.exclude: FR` (qui tue le marché FR frontal en amont, motif de rejet le plus fréquent du fichier) ; piège découvert : `market.exclude` ne fait pas ce travail, seul `ad_countries` mord. **F48 🟢** : marchés nordique/DACH + prix ≥45 €, **retrouve Staydries** (bonne validation croisée). **F45 ❌** (`max_products` : diagnostic à retenir, le shop généraliste n'est PAS le motif d'échec dominant). **F50 ❌** (concentration budgétaire, trop restrictif). **F52 ⏸️** (thème Shopify Shrine).
+- **🟢🟢 PERCÉE F51 : passer par `search_shops` au lieu de `search_ads`.** Les 44 filtres précédents interrogeaient tous les CRÉAS et partageaient donc le même gisement, ce qui explique pourquoi toutes leurs variantes retombaient sur le même pool d'une quarantaine de shops. Partir du SHOP ouvre une population totalement différente : **5 014 résultats au premier passage, un seul déjà vu**. Avantage décisif : la réponse contient le **prix du best-seller, la pente d'ads semaine par semaine et la fraîcheur du shop**, donc on trie avant de dépenser le moindre appel de vérification. Parseur dédié créé (`scripts/parseshops.mjs`).
+- **10 candidats creusés créa par créa, 10 kills, aucun présentable.** Weloria (`weloria.store`, sac à dos voyage, pente monotone 4→88, pile le type recherché depuis juin) tué sur **no EU data** ; Verador (`verador.ro`) sur 2 pages FB et 3 produits ; Petloom (`petloom.de`), LederKur (`lederkur.de`, 0 créa ≥80k pour 167 pubs), Ciriel (`ciriel.de`, 0 créa ≥100k pour 239 pubs), Nordscrub (`nordscrub.dk`), Borvane (`borvane.com`) sur la dispersion ; Titankjokken (`titankjokken.com`, poêle titane, 3e shop du type) sur le no data norvégien ; Levorialab (`levorialab.com`) sur 1 seule créa au plancher et des créas de 67-160 jours.
+- **🔑 Loi corollaire n°5 : la DISPERSION budgétaire est le motif d'échec dominant** (6 kills sur 10 pour ce seul motif). Un shop frais qui monte en NOMBRE de créas ne monte presque jamais en DÉPENSE par créa. La pente du compteur de pubs est le signal le plus facile à trouver et le moins fiable qui soit. **Test à un seul appel gravé dans le skill** (`search_ads` par domaine avec `min_reach: 100000`) : 0 ou 1 ligne = candidat mort, on n'ouvre ni page produit ni prix ni sourcing. C'est lui qui a tué LederKur et Ciriel en une requête chacun.
+- **🔑 Loi corollaire n°6 : trois angles morts de la transparence Meta, les US, la NORVÈGE et la SUISSE.** Un shop qui cible principalement ces marchés ne publie aucune donnée DSA (`reach: 0`, `isEuAd: null`), donc il est inanalysable quelle que soit sa pente. Signal d'alerte le moins cher : la **devise** du shop (`NOK`, `CHF`, `USD` hors contexte EU). Disqualifie rétroactivement 5 shops croisés le même jour.
+- **🎯 Plancher tranché par Roméo : on TIENT 3 créas ≥70 €/j, sans exception.** Question posée explicitement après les 7 premiers kills. Conséquence assumée et désormais écrite : ~1 candidat toutes les 2-3 sessions, une session à 0 candidat est le régime normal.
+- Catalogue porté de 44 à **52 filtres**, `liste-rejetes.md` enrichi des 10 kills détaillés et d'une cinquantaine d'écartés en amont. Pipeline inchangé à 1 produit validé (Staydries). ~3 500 unités TrendTrack consommées sur les 20 000 du mois.
+
+---
+
 ## 2026-08-07
 
 ### Recherche produit : Staydries validé et ajouté au pipeline, deux erreurs de méthode corrigées par Roméo

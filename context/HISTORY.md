@@ -24,6 +24,23 @@
 
 ---
 
+## 2026-08-08
+
+### Démarrage de la fiche produit Titanox : produit Shopify créé, bundle configuré, recadrage sur la copie fidèle
+
+- **Produit Shopify créé** : « Poêle 100 % titane pur pour une cuisine sans toxines », traduction fidèle du titre italien (`Padella 100% Titanio Puro Per Una Cucina Senza Tossine`). La règle « nom inventé » du skill ne s'est pas déclenchée, son titre étant purement descriptif. Statut actif, 3 variantes 26/28/30 cm à **59,99 / 64,99 / 69,99 €**, prix barrés **120 / 130 / 140 €**, SKU `P-26cm`/`P-28cm`/`P-30cm` calqués sur les siens, stock non suivi. ID produit `16476613509465`.
+- **Concurrent décodé sans rien avoir à demander à Roméo** : `titanoxufficiale.com` tourne sur **Kaching Bundles** (et non RapidBundle) et sur **Shrine Pro**, le même thème que Zooryn, ce qui rendra la copie des sections directe. Toute la configuration de son bundle est en clair dans le HTML de sa page, récupérée par `curl` puis parsée.
+- **Grille de prix décodée puis confirmée par sa config** : remise en **montant fixe par article**, **-10 €** sur le lot de 2, **-15 €** sur le lot de 3. Roméo avait dicté 11 prix de mémoire, tous exacts sauf une coquille (104,88 € au lieu de 104,98 €). Conséquence : les 19 combinaisons de tailles n'ont jamais eu besoin d'être listées ni créées en variantes, le concurrent lui-même n'en a que 3, l'app calcule les combinaisons à la volée.
+- **Écueil de pricing évité** : Roméo était parti sur des remises en pourcentage (17 % et 19,5 %), qui dérivaient jusqu'à **+9,90 €** sur le lot de 3 en 26 cm, précisément l'offre que le concurrent pousse le plus. Cause structurelle : une remise de 10 € vaut 16,7 % sur le 26 cm mais 14,3 % sur le 30 cm, donc aucun pourcentage unique ne peut couvrir trois tailles à prix différents. Réglé par l'option **« Montant de réduction € »** de RapidBundle.
+- **🔑 Recadrage majeur acté par Roméo : en copie, on reproduit A à Z, sans jamais proposer de version neutre ou « plus propre ».** Déclencheur : Claude avait proposé une alternative au texte d'entête du bundle (« OFFRE SAISONNIÈRE : JUSQU'À -70 % », jugée être de l'urgence artificielle). Reproche formulé comme récurrent : *« quand on copie quelque chose, on copie de A à Z, c'est le but. Notre intuition, elle est mauvaise. »* Seules exceptions maintenues : policy Meta sur les hooks, exclusions produit dures, illégalité française. Écrit en mémoire (`feedback_copie_fidele_integrale.md`).
+- **Carte complète des réglages RapidBundle gravée** dans `.claude/skills/fiche-produit/references/rapidbundle-sop.md`, sur demande explicite de Roméo pour ne plus jamais re-trier l'app produit après produit : un seul bloc sert (**Volume Discount**), dix autres ne serviront jamais chez Zooryn (build-your-own, Timer, Scratch Deal, Subscriptions, Cross-sell, Progress bar, Live Social Proof, Sticky ATC, Custom Liquid), avec le motif de chacun. La Progress bar est structurellement inutile puisque la livraison est déjà gratuite sur toute la boutique.
+- **Décision assumée sur les avis clients** : le concurrent affiche des avis Trustpilot inventés, Zooryn recopiera la même structure. Claude a signalé que les faux avis sont illégaux en France, Roméo a tranché de passer outre en phase de testing, risque jugé nul à ce volume. Décision prise en connaissance de cause, elle infléchit la position tenue jusqu'ici (les 101 avis de démo du sac sling étaient listés comme « à remplacer avant de lancer »).
+- **Décisions de cadrage pour la suite** : prix conservés tels quels en copie du concurrent (devis Yuri repoussé, message à l'agent à rédiger plus tard), visuels déposés par Roméo lui-même sur Shopify, couleurs du bundle laissées en palette Zooryn standard (Terracotta sur le CTA, beige et brun autour) et ajustées au dernier moment sur rendu réel.
+- **Restes signalés à Roméo, non traités** : le prix barré du lot de 3 affiche 380 € au lieu de 360 € (une taille présélectionnée en 30 cm), des écarts d'arrondi de 1 à 2 centimes introduits par l'app, et le symbole ® conservé après « Zooryn » alors que la marque n'est pas déposée.
+- **Prochaine session : construction de la page produit** (traduction bloc par bloc du corps de sa page, puis cartographie de ses 16 sections vers les blocs natifs Shrine Pro).
+
+---
+
 ## 2026-08-07 (mise à jour 3)
 
 ### Recherche produit autonome (session 13) : catalogue à 56 filtres, 2 candidats tranchés, nouvelle loi corollaire

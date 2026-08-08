@@ -7,6 +7,23 @@
 
 ---
 
+## 2026-08-08
+
+### Recherche produit session 14 : Titanox validé (pipeline à 2), catalogue à 62 filtres, découverte du ratio de concentration
+
+- **Titanox (`titanoxufficiale.com`) validé par Roméo et passé de la réserve au pipeline.** Poêle 100 % titane pur, marché IT, 4 créas ≥70 €/j. Il vise ~60 € de prix de vente en tablant sur un COGS de 17-18 € (l'estimation de Claude était 33-41 €, écart assumé et non tranché). **Pipeline à 2 produits validés** (Staydries + Titanox), il en manque 1 à 2 avant le premier testing. Ajouté au Google Sheet "Products" à la main par Roméo.
+- **Règle de méthode rappelée fermement : aucun devis à Yuri avant une première VENTE réelle.** Motif : c'est la méthode de travail de l'agent, le solliciter sans vendre derrière abîme la relation. Claude ne doit plus jamais conclure une présentation par « il faut demander le devis » ni relancer sur un devis en attente.
+- **Session en 3 passes autonomes, 16 kills, 0 candidat neuf**, mais 2 acquis méthodologiques majeurs et 3 nouvelles lois.
+- **F57 🟢 : changer le TRI, pas les filtres.** F55 avait été retiré la veille en modifiant ses filtres tout en gardant `sort_by: reachDelta7d` ; or c'est le tri qui décide de la population. En passant sur `newest`, la requête demande « quelles créas viennent d'apparaître et passent déjà le plancher ». A sorti `securetechstore.com` (traceur GPS format carte, **5 créas ≥70 €/j**), tué ensuite sur un prix de 29,90 € et 3 signaux de non-copiabilité (lithium, footer sans mentions légales, « Chip Anti-Radiazioni » au catalogue).
+- **F62 🟢🟢 : le RATIO DE CONCENTRATION, le meilleur filtre du catalogue.** `min_reach_per_page` 220k sur 7 jours ÷ `max_active_ads` 40. Premier filtre qui attaque la dispersion **en amont** : une page à 220k de reach hebdo sur ≤40 créas ne peut pas être dispersée, c'est mécanique. F50 avait la bonne intuition mais le mauvais numérateur (reach de créa au lieu de reach de page). Résultat : 100 % de shops concentrés (108 à 246 €/j), du jamais vu. **Réserve honnête : 7 des 8 annonceurs étaient déjà rejetés**, donc le filtre valide la méthode a posteriori sans révéler de gisement neuf.
+- **Loi corollaire n°8** : la zone gagnante est l'**intersection étroite « léger ET 45-100 € »**, pas « léger » seul. Le léger se vend structurellement pas cher (securetechstore 29,90 €, Kovah 34,95 €, Kidora 37,90 €, tous morts sur la loi n°3), le cher est structurellement lourd ou hors AOV. C'est le profil exact de Staydries.
+- **Loi corollaire n°9** : ne trier que sur la fraîcheur ou la vitesse. Les tris `longestRunning` et `mostDuplicates`, testés le même jour, sélectionnent tous deux le même archétype (fermes à advertorial santé en paiement à la livraison sur HU/CZ/RO, créas dupliquées jusqu'à 1 994 fois pour contourner les bans Meta), donc un modèle d'annonceur et pas un bon produit. **Tous les tris de `search_ads` sont désormais épuisés.**
+- **Kills notables** : `kidora.nl` (pente parfaite 19→194 mais **0 créa ≥100k sur 190 pubs**), `absolutparfum.com`/`deseoabsolutoit.com` (3e shop parfum à 55-69 €, creusé car il dépassait la condition de réouverture de TRUE ONE, tué avec **0 créa ≥100k pour 427 pubs**, pire dispersion du catalogue), `impaktwear.com` (meilleur profil sur le papier, 1 seule créa et elle s'éteint), `leichtkraut.de` (complément ingéré), `kuraskor.se` (créas de 142 jours à 7-8 €/j).
+- **🔑 Constat de fond qui change la cadence : le facteur limitant n'est plus la méthode de filtrage mais le renouvellement du vivier.** La population « shop frais + concentré + EU analysable » à un instant T fait une dizaine d'annonceurs, tous déjà arbitrés. Décision : **arrêter d'inventer des filtres, relancer F62 + F51/F53 une à deux fois par semaine**. Pistes d'élargissement retenues : relâcher la fraîcheur du SHOP au profit de `max_days_running` sur la CRÉA (confusion de doctrine traînée depuis le début), ouvrir NL/PT/GR/RO/CZ/IE, activer le BrandTracker sur les profils « passe presque », recherche saisonnière Q4 fin août, deep-dive bibliothèque Meta.
+- Fichiers mis à jour : `methodes-versionnees.md` (F57-F62, lois n°8 et n°9, journaux), `liste-rejetes.md` (16 kills détaillés + Titanox au pipeline), `SKILL.md` (loi n°8 en règle opérationnelle), nouveau parseur `scripts/parseshops2.mjs`. ~1 500 unités TrendTrack consommées, 30 514 restantes.
+
+---
+
 ## 2026-08-07 (mise à jour 3)
 
 ### Recherche produit autonome (session 13) : catalogue à 56 filtres, 2 candidats tranchés, nouvelle loi corollaire
@@ -37,6 +54,20 @@
 - **🔑 Loi corollaire n°6 : trois angles morts de la transparence Meta, les US, la NORVÈGE et la SUISSE.** Un shop qui cible principalement ces marchés ne publie aucune donnée DSA (`reach: 0`, `isEuAd: null`), donc il est inanalysable quelle que soit sa pente. Signal d'alerte le moins cher : la **devise** du shop (`NOK`, `CHF`, `USD` hors contexte EU). Disqualifie rétroactivement 5 shops croisés le même jour.
 - **🎯 Plancher tranché par Roméo : on TIENT 3 créas ≥70 €/j, sans exception.** Question posée explicitement après les 7 premiers kills. Conséquence assumée et désormais écrite : ~1 candidat toutes les 2-3 sessions, une session à 0 candidat est le régime normal.
 - Catalogue porté de 44 à **52 filtres**, `liste-rejetes.md` enrichi des 10 kills détaillés et d'une cinquantaine d'écartés en amont. Pipeline inchangé à 1 produit validé (Staydries). ~3 500 unités TrendTrack consommées sur les 20 000 du mois.
+
+---
+
+## 2026-08-07 (mise à jour 2)
+
+### Skill crea-pub enrichi d'une méthodologie hooks anti-ban Meta
+- **Déclencheur** : besoin de modifier les hooks du concurrent copié pour un produit à venir, sans se faire bannir sur Meta, alors que Roméo n'avait aucune connaissance du sujet. Recherche web menée par Claude (Meta Advertising Standards, TikTok Business Library, Motion Benchmarks 2026) puis Roméo a fourni 6 documents officiels Meta trouvés via ChatGPT (dont "The Science of the Hook" et l'étude Toluna "Deconstructing the Power of Reels").
+- **Étape 0 bloquante ajoutée en tête du `SKILL.md` de `crea-pub`** : lecture obligatoire de 3 nouveaux fichiers avant d'écrire le moindre hook.
+- **3 nouveaux fichiers dans `references/`** : `meta-policy-hooks.md` (le "test de la phrase" de Meta, grilles refusé/conforme par catégorie, 3 pièges dont le durcissement de mars 2026 sur les tournures indirectes, 4 portes de sortie pour les produits sensibles) ; `hooks-playbook.md` (3 types de hooks officiels Meta avec cas chiffrés, les 6 enseignements Toluna en réponse directe dont le 5,3x sur le contexte/USP, contraintes techniques 9:16/son/zone de sécurité, process en 8 étapes) ; `synthese-caples-schwab-accroches.md` (John Caples *Tested Advertising Methods* 5e édition et Victor Schwab *100 Good Advertising Headlines*, les deux lus intégralement en texte source depuis archive.org).
+- **Tri des 6 documents fournis par Roméo** : 4 gardés (dont l'étude Toluna, chiffre le plus fort du corpus : ajouter du contexte/USP = 5,3x plus de chances d'être dans le top 20% sur l'intention d'achat), 2 écartés comme obsolètes (une étude Facebook 2016 dont les recommandations sur le son sont aujourd'hui inversées).
+- **Découverte méthodologique clé, vérifiée dans le texte de Caples** : les 10 accroches que Caples a mesurées comme des échecs historiques sont toutes des questions accusatrices posées au lecteur sur sa propre condition — exactement la construction que Meta interdit aujourd'hui sur les attributs personnels (santé, âge, handicap). **Le hook conforme à Meta et le hook historiquement gagnant sont la même construction** : pas d'arbitrage à faire entre sécurité et performance.
+- **Clarification demandée par Roméo et tranchée** : la règle de réécriture n'est pas une question de jugement (« après 60 ans votre vessie change » n'est pas plus insultant que le reste), c'est un déclenchement mécanique de la policy Meta dès que la phrase assigne un attribut de santé/corps au lecteur via "votre/ton" + une partie du corps ou un état, peu importe le ton. Décision : réécrire reste recommandé, non pour une raison éthique, mais parce que le compte pub Zooryn est neuf et unique, et que le risque de restriction de compte pèse plus lourd que le gain marginal de punch d'un hook non conforme.
+- **Textes sources archivés** dans `livrables/ecommerce/formation/Ressource commu/` (dossiers dédiés Caples et Schwab), à côté de Sugarman et Theriot déjà présents.
+- **Statut : méthodologie posée, aucun hook réécrit pour l'instant.** La réécriture effective (notamment pour Staydries) se fera au moment de produire les créas, pas en amont.
 
 ---
 

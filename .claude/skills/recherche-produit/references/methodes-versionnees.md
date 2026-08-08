@@ -903,3 +903,160 @@ Constat de la session : **les deux seuls shops à franchir le plancher de 3 cré
 | 07/08/2026 (2) | **F55** (plancher groupé sur `search_ads`) | 2 passes, **100 % de shops déjà connus/rejetés**. | **❌ Retiré** pour le sourcing. Confirme la thèse F51. Mécanique à garder pour qualifier une liste existante. |
 | 07/08/2026 (2) | **F56** (GB/IE) | 8 shops au total, aucun exploitable. | **⏸️ En pause**, gisement trop étroit. |
 | 07/08/2026 (2) | **F51** variantes (mono-produit `max_products_count: 4`, tri `growth30d`, marchés SE/DK/FI purs) | Beaucoup de volume mais **saturé de beauté/santé** (exclusions dures). Sort `titanoxufficiale.com` (**candidat retenu**) via la variante « très frais + 30 pubs min ». | **🟢 F51 reste le meilleur filtre du catalogue.** Le tri `activeAds` sur une fenêtre de création serrée (mai+) est la variante la plus rentable. |
+
+---
+
+# Filtres ajoutés le 08/08/2026 (session 14) — changer le TRI plutôt que les filtres
+
+## 🟢 F57 — Plancher groupé trié par `newest` (le filtre de la session)
+
+```
+search_ads:
+  technologies:["shopify"] + max_traffic: 2500 + max_facebook_likes: 1500
+  shop_created_after: <5 mois
+  min_reach: 55000, reach_period: last7d     ← plancher unique sur last7d (loi n°4)
+  max_ads_per_brand: 3-5                     ← on ne déduplique pas : compte le plancher directement
+  ad_countries: {exclude:["FR"]}             ← seul paramètre qui tue vraiment le FR frontal
+  sort_by: newest                            ← NEUF : le tri, pas les filtres
+```
+
+**L'idée qui change tout : F55 avait été retiré parce qu'il ne sourçait que du déjà-vu, mais on avait changé les FILTRES en gardant `sort_by: reachDelta7d`.** Or c'est le tri qui détermine la population : trier sur « ce qui accélère le plus » ramène toujours les mêmes têtes de liste, quels que soient les garde-fous. `sort_by: newest` répond à une autre question — **« quelles créas viennent d'apparaître ET dépassent déjà le plancher ? »** — ce qui est exactement le « timing entre les deux » de la doctrine, doublé du test de concentration.
+
+**Testé le 08/08/2026 : sort `securetechstore.com`, shop jamais vu, avec 5 créas ≥70 €/j** (493, 345, 263, 206, 72 €/j) — le meilleur profil de concentration rencontré depuis Staydries. Le candidat a été tué ensuite sur le prix (29,90 €), mais **le filtre a fait exactement son travail**. 🟢 À lancer en tête de session avec F51.
+
+**Tris jamais essayés et disponibles** : `createdAt`, `longestRunning`, `mostDuplicates`, `adOrder`, `relevanceScore`. Le catalogue n'a exploité que `reachDelta1d/7d/30d`, `rankDelta*`, `reach` et maintenant `newest`.
+
+## ❌ F58 — F57 + plancher de prix du best-seller (testé et RETIRÉ le 08/08/2026)
+
+```
+(tout F57) + min_best_seller_price: 50
+```
+Hypothèse : viser directement la zone gagnante de la loi n°8 (léger ET cher) en filtrant le prix en amont.
+
+**Testé : 100 % de déjà-vu/déjà-rejeté** (Mon-Veree, Vivalyo, Skeye/`vysioneyewear.com`, Valeria Montel, Page studios). ❌ Retiré. **Diagnostic : `min_best_seller_price` est un filtre trop rare pour se combiner à un plancher de reach** — il réduit la population à la poignée de shops chers déjà connus, et annule le bénéfice du tri `newest`. Même conclusion que F42/F38 avant lui : le pré-filtre prix se paie en volume. **Appliquer le prix à la LECTURE (parseur), jamais dans la requête.**
+
+## ⏸️ F59 — Preuve de VENTES via Trustpilot (`search_shops`), pas preuve de dépense
+
+```
+search_shops:
+  min_trustpilot_review_count: 8
+  min_active_ads: 25 + max_active_ads: 500 + max_monthly_visits: 3500
+  creation_date_from: <6 mois + max_products_count: 25
+  currencies: ["EUR","SEK","DKK","PLN"]
+  sort_by: growth30d
+```
+**Angle inédit et conceptuellement le meilleur du catalogue** : tous les autres filtres mesurent ce que le concurrent DÉPENSE, jamais ce qu'il VEND. Un shop frais avec déjà 8+ avis Trustpilot **et** 25+ pubs actives a converti pour de vrai.
+
+**Testé le 08/08/2026 : gisement de 15 shops au total** (contre 742 sans le paramètre). 0 candidat : `leichtkraut.de` (ingéré), `rigenerati.instantcare.it` (iPhones 549 €), `vanherman.nl` (topper 259-339 €), le reste déjà rejeté. **⏸️ En pause pour la même raison que F33 : la donnée Trustpilot est quasi absente sur les shops frais** (un dropshipper de 3 mois n'a pas encore d'avis indexés). L'angle reste juste, mais il ne devient exploitable qu'à partir de ~6-9 mois d'ancienneté, c'est-à-dire trop tard pour copier. **À réserver comme signal de CONFIRMATION sur un candidat déjà trouvé.**
+
+## 🔑 Loi corollaire n°8 (08/08/2026) : la zone gagnante est l'intersection étroite « léger ET cher »
+
+La loi n°7 disait « à plancher égal, privilégier les produits légers et compacts ». Cette session montre que ça ne suffit pas, parce que **le poids et le prix sont corrélés** :
+
+| Produit rencontré | Poids | Prix concurrent | Verdict |
+|---|---|---|---|
+| SmartCard Pro (`securetechstore.com`) | ultra-léger (1,8 mm) | **29,90 €** | mort sur la loi n°3 |
+| Tapis chien (`get-kovah.com`) | léger | 34,95 € | mort sur la loi n°3 |
+| Livre Montessori (`kidora.nl`) | léger | 37,90 € | mort sur la loi n°3 |
+| Poêle titane (Titanox) | ~1 kg volumétrique | 64,99 € | mort sur le COGS transport |
+| Topper de lit (`vanherman.nl`) | volumineux | 259-339 € | mort sur l'AOV >100 € |
+
+> **Un produit léger se vend structurellement pas cher, et un produit cher est structurellement lourd ou hors AOV.** La cible n'est donc pas « léger » (loi n°7) ni « ≥45 € » (loi n°3) pris séparément, mais leur **intersection**, qui est étroite : un objet à **forte valeur perçue et faible volume**, vendu **45-100 €**. En pratique : textile technique, accessoire premium non électronique, dispositif compact sans batterie. C'est la description exacte de Staydries (boxer technique, 54 €, quelques centaines de grammes) — le seul candidat validé du pipeline.
+
+**Conséquence opérationnelle : trier les shops sur `prix du best-seller ≥45 €` À LA LECTURE dès la sortie `search_shops`, avant tout appel de vérification** (le parseur le fait en local, coût zéro : 36 shops écartés sur 40 en une passe le 08/08). Ne pas mettre ce prix dans la requête (cf. F58 ❌).
+
+## ⚠️ Piège confirmé le 08/08/2026 : `exclude_market_countries` ne filtre PAS le marché FR sur `search_shops`
+
+Requête lancée avec `exclude_market_countries: ["FR"]` → a quand même remonté `bebysh.com` (48 % FR), `bellesimone.com` (55 % FR), `laycelia.com` (50 % FR). **Le paramètre porte sur le marché VISITEUR du shop (trafic web), pas sur la distribution géographique des pubs.** Exactement le même piège que `market.exclude` sur `search_ads` (documenté en F47).
+
+> **Seul `ad_countries: {exclude:["FR"]}` mord réellement — et il n'existe que sur `search_ads`.** Sur `search_shops`, le marché FR doit donc être filtré **à la lecture**, jamais dans la requête.
+
+## Journal — session 14 (08/08/2026)
+
+| Date | Filtre | Résultat | Décision |
+|------|--------|----------|----------|
+| 08/08/2026 | **F57** (plancher groupé, tri `newest`) | Sort `securetechstore.com`, **shop neuf à 5 créas ≥70 €/j**. Tué ensuite sur le prix (29,90 €). | **🟢 Validé.** Le tri est le vrai levier de renouvellement, pas les filtres. À lancer en tête avec F51. |
+| 08/08/2026 | **F58** (F57 + prix ≥50 €) | 100 % déjà-vu/rejeté. | **❌ Retiré.** Le pré-filtre prix annule le bénéfice du tri. Prix = à la lecture. |
+| 08/08/2026 | **F59** (Trustpilot sur `search_shops`) | 15 shops au total, 0 candidat. | **⏸️ En pause.** Donnée absente sur les shops frais (cf. F33). À garder en confirmation aval. |
+| 08/08/2026 | **F51/F53 variantes** (tris `activeAds`, `createdAt`, `growth30d` + `currencies` EU) | `currencies` EU 🟢 utile (traduit la loi n°6 en paramètre, élimine NOK/CHF/USD en amont). Tri `activeAds` ❌ ramène les réseaux (3 400 pubs) → **toujours plafonner `max_active_ads` ~400-500**. | Gisement pauvre cette passe : dominé par mode, topique et marché FR frontal. |
+
+**Bilan session 14 : 6 kills, 0 candidat présentable, pipeline inchangé à 1 (Staydries).** Régime normal du plancher (cf. loi n°5, tranchée par Roméo le 07/08). ~700 unités TrendTrack consommées.
+
+---
+
+# Session 14 (suite) — les 3 derniers tris inexploités, testés le 08/08/2026
+
+## ❌ F60 — Tri `mostDuplicates` (testé et RETIRÉ le 08/08/2026)
+
+```
+(signature dropshipper frais) + min_reach: 50000 last7d + sort_by: mostDuplicates
+```
+Hypothèse : un shop qui décline la même créa en dizaines de variantes scale activement un angle qui marche. Reprend l'idée de F7/F44 (`min_duplicates` en FILTRE, tous deux retirés) mais en TRI, jamais essayé.
+
+**Testé : le pire rapport signal/bruit du catalogue.** Les résultats affichent 143 à **1 994 duplicates** par créa et sont à ~90 % des **patchs minceur transdermiques** vendus en cash-on-delivery sur HU/CZ/RO (BSWELL, Funutri, `peststyle.shop`, `benudaily.com`, `lcjywl.shop`, `mingminghungg.shop`), tous en advertorial narratif (faux témoignages de mères). ❌ Retiré. **Diagnostic : dupliquer une créa 500 fois n'est pas une signature de scaling, c'est une signature de contournement de ban Meta.**
+
+## ❌ F61 — Tri `longestRunning` + créa de 25-90 jours sur shop frais (testé et RETIRÉ le 08/08/2026)
+
+```
+(signature) + min_days_running: 25, max_days_running: 90
+min_reach: 40000 last7d + sort_by: longestRunning
+```
+**L'hypothèse était la meilleure de la session** : tous les filtres du catalogue mesurent ce que le concurrent DÉPENSE ; une créa qu'on laisse tourner 30 à 90 jours est une créa qu'on ne coupe pas, donc un proxy de RENTABILITÉ. Personne ne paie 2 mois pour une créa qui ne convertit pas.
+
+**Testé : même population que F60.** Advertorials santé cash-on-delivery (`benudaily.com`, `feliorna.com` diffuseur nasal, `peststyle.shop`), infoproduits (`redazione-culturamoderna.it`, guide « Claude pour enseignants »), et `slimpur.de` (t-shirt de compression homme = famille Sculpted, déjà killée en T1). ❌ Retiré.
+
+## 🔑 Loi corollaire n°9 (08/08/2026) : seuls les tris de FRAÎCHEUR et de VITESSE sont exploitables
+
+Les trois tris jamais utilisés ont été testés le même jour, et deux échouent en désignant **exactement le même archétype d'annonceur** :
+
+| Tri | Population sélectionnée | Verdict |
+|---|---|---|
+| `newest` (F57) | créas qui viennent d'apparaître et passent déjà le plancher | 🟢 le seul bon |
+| `longestRunning` (F61) | advertorials santé cash-on-delivery HU/CZ/RO/PL | ❌ |
+| `mostDuplicates` (F60) | fermes à duplication anti-ban, mêmes marchés | ❌ |
+
+> **Les tris « exotiques » sélectionnent un MODÈLE D'ANNONCEUR, pas un bon produit.** Le funnel santé en paiement à la livraison sur les marchés d'Europe centrale maximise structurellement la durée de vie des créas (pas de ban immédiat) et leur duplication (contournement organisé). Il n'a rien à voir avec le modèle Zooryn. **À retenir : ne trier que sur la FRAÎCHEUR (`newest`, `createdAt`) ou la VITESSE (`reachDelta7d`).** Le catalogue a désormais épuisé tous les tris disponibles de `search_ads` ; le renouvellement du gisement doit venir de `search_shops` (F51) et de ses paramètres, pas d'un nouveau tri d'ads.
+
+## Journal — session 14 (suite)
+
+| Date | Filtre | Résultat | Décision |
+|------|--------|----------|----------|
+| 08/08/2026 | **F61** (tri `longestRunning`) | Advertorials santé COD + infoproduits + `slimpur.de` (famille Sculpted). | **❌ Retiré.** Bonne hypothèse (rentabilité), mauvaise population. |
+| 08/08/2026 | **F60** (tri `mostDuplicates`) | ~90 % patchs minceur HU/CZ/RO à 143-1 994 duplicates. | **❌ Retiré.** Duplication = contournement de ban, pas scaling. |
+| 08/08/2026 | **F51 variante mono-produit** (`min/max_products_count` 1-3, tri `growth30d`) | 305 shops, 4 retenus après pré-filtre prix+pente local. Tous tués : `mynivashop-ge.com` (FR frontal), `jewelrydesignersprokit.com` (infoproduit, reach US/LT/AU dispersé), `impaktwear.com` (1 créa ≥80k sur 91 pubs, et elle s'éteint : 5 714 de reach sur 7j contre 141 738 sur 30j), `mkt-pt.shop` (**0 créa ≥80k sur 120 pubs**). | Variante 🟢 utile (gisement propre, 305 shops mono-produit), rendement nul cette passe. |
+
+**Bilan consolidé session 14 : 9 kills, 0 candidat présentable.** Pipeline porté à **2** par la validation de Titanox par Roméo (Staydries + Titanox). ~1 100 unités TrendTrack consommées, 30 686 restantes.
+
+## 🟢🟢 F62 — RATIO DE CONCENTRATION : reach de PAGE ÷ nombre de créas actives (08/08/2026)
+
+```
+search_ads:
+  min_reach_per_page: 220000, reach_per_page_period: last7d   ← le numérateur
+  max_active_ads: 40                                          ← le dénominateur
+  technologies:["shopify"] + max_traffic: 2500 + max_facebook_likes: 1500
+  shop_created_after: <6 mois
+  ad_countries: {exclude:["FR"]}
+  max_ads_per_brand: 2, sort_by: reachDelta7d
+```
+
+**C'est la traduction directe de la loi n°5 en paramètre, et c'est le premier filtre du catalogue qui attaque la dispersion EN AMONT au lieu de la constater après coup.** L'idée : ni le reach de page ni le nombre de créas ne disent quoi que ce soit pris isolément (F36 l'avait montré pour le premier, F50 pour le second) — c'est leur **rapport** qui mesure la concentration. Une page à 220 000 de reach hebdomadaire répartie sur ≤40 créas ne PEUT PAS être dispersée : la moyenne impose des créas fortes.
+
+**F50 avait eu la bonne intuition mais le mauvais numérateur** : il utilisait `min_reach` (reach de la CRÉA), ce qui empilait deux planchers et vidait la requête (loi n°4). `min_reach_per_page` est un agrégat de page, il se combine donc librement avec `max_active_ads`.
+
+**Résultat du test : 100 % des shops remontés sont concentrés** — Alessandro Varetti 246 €/j, ChillNeck 210 €/j, Sit Slouch 188 €/j, Kovana 108 €/j, Velar 240 €/j, belmont-shop 70 €/j. Aucun autre filtre du catalogue n'avait jamais produit un lot sans un seul cas de dispersion.
+
+**⚠️ Verdict honnête, à ne pas enjoliver : 7 des 8 annonceurs étaient DÉJÀ dans `liste-rejetes.md`** (Velar, Overstore, Sit Slouch, ChillNeck, belmont-shop, Alessandro Varetti, + GaloppGlamour écarté le jour même). Le filtre **valide la méthode a posteriori** — il retrouve précisément les meilleurs shops déjà identifiés par d'autres voies, ce qui prouve qu'il sélectionne la bonne population — mais il n'a pas révélé de gisement neuf à cet instant. Seul inédit : `kovana.fr` (stick fond de teint coréen DE/AT, 8 pubs actives, 1 créa à 108 €/j), sous le plancher.
+
+**🟢 À garder et à relancer à chaque session** : c'est le meilleur détecteur de concentration du catalogue, donc le jour où un shop concentré neuf apparaît, F62 le verra immédiatement et sans qu'on ait à dépenser un appel de dispersion par candidat. Seuil à moduler : 600k = trop haut (3 annonceurs, tous des gros déjà connus), 220k = bon équilibre.
+
+## 🔑 Enseignement de fin de session 14 : le plancher n'est plus le goulot, le GISEMENT l'est
+
+Le catalogue sait désormais faire deux choses correctement : **trouver du frais** (F51/F53 via `search_shops`) et **détecter la concentration** (F62). Or F62 démontre que la population « shop frais + budget concentré + marché EU analysable » à un instant T se compte en **une petite dizaine d'annonceurs**, et que Zooryn les a déjà tous vus et arbitrés.
+
+> **Conséquence pour les prochaines sessions : arrêter d'inventer des filtres.** Le catalogue a épuisé les tris (loi n°9), les seuils (lois n°2/4), les signaux qualitatifs (thème, apps, pixel, Trustpilot, TikTok, devise) et mesure enfin la concentration (F62). Le facteur limitant n'est plus la méthode de filtrage, c'est le **renouvellement naturel du vivier**. La bonne cadence devient : **relancer F62 + F51/F53 une à deux fois par semaine** sur l'échantillon renouvelé, plutôt que multiplier les angles dans la même journée sur un vivier déjà écumé.
+
+| Date | Filtre | Résultat | Décision |
+|------|--------|----------|----------|
+| 08/08/2026 | **F62** (ratio reach page ÷ créas actives, seuils 600k puis 220k) | 100 % de shops concentrés (108 à 246 €/j), mais 7/8 déjà rejetés. 1 inédit : `kovana.fr`, sous le plancher. | **🟢🟢 Validé et à relancer chaque semaine.** Premier filtre qui attaque la dispersion en amont. |
+| 08/08/2026 | **F51 `has_tiktok: true`** | 45 shops. `absolutparfum.com`/`deseoabsolutoit.com` (3e shop parfum, 55-69 €) creusé puis tué : **0 créa ≥100k pour 427 pubs**, pire dispersion du catalogue. Reste : mystery box, infoproduits, ingéré. | Paramètre 🟢 utile (gisement propre et distinct) mais rendement nul. |
+| 08/08/2026 | **F51 mono-produit page 2** | 12 retenus après pré-filtre local. `kuraskor.se` creusé : 3 créas ≥100k mais à **7-8 €/j** (créas de 142 jours qui accumulent lentement) + ads vers une landing page. | Confirme : un reach total élevé sur une créa ancienne n'est jamais un plancher. |

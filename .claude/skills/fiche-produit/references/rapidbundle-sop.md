@@ -91,6 +91,39 @@ Reproduire fidèlement la structure du concurrent, palier par palier :
 - "Afficher les bundles sur la page d'accueil" : non par défaut, seulement si Roméo veut mettre
   un produit + son bundle en avant sur la home.
 
+## Carte des réglages RapidBundle — ce qui sert, ce qui ne sert JAMAIS (relevé du 07/08/2026)
+
+Relevé exhaustif de l'onglet **Offers** fait sur le bundle Titanox. Demande explicite de Roméo :
+mémoriser ce qui est inutile pour aller au plus simple et ne pas re-trier l'app à chaque produit.
+
+**Le SEUL bloc à activer : `Volume Discount`.** Tout le reste de l'onglet Offers reste OFF par
+défaut sur un produit Zooryn, sauf décision contraire explicite :
+
+| Bloc | État | Pourquoi |
+|---|---|---|
+| Let the customer build his own bundle | OFF | sert à mixer des produits DIFFÉRENTS ; nos paliers portent sur un seul produit |
+| Timer | OFF | urgence artificielle, non utilisée par les concurrents copiés jusqu'ici |
+| Scratch Deal | OFF | gadget |
+| **Volume Discount** | **ON** | c'est le quantity-break, le cœur de l'offre |
+| Subscriptions | OFF | Zooryn ne vend pas d'abonnement |
+| Add different product / Cross-sell (Beta) | OFF | l'upsell se gère ailleurs, pas dans le bloc d'offre |
+| Progress bar (goals free shipping) | OFF | la livraison est **déjà gratuite sur toute la boutique**, une barre de progression vers "livraison offerte" n'a aucun sens ici |
+| Live Social Proof ("X people are viewing") | OFF | si le concurrent affiche un compteur de stock/vues, il se reproduit dans le THÈME, pas dans l'app de bundle |
+| Sticky add to cart (Beta) | OFF | Shrine Pro a son propre sticky ATC natif, ne pas empiler les deux |
+| Custom Liquid/Html | OFF | dernier recours, jamais sans accord de Roméo |
+
+**Dans une offre du Volume Discount**, champs qui servent vs champs à ignorer :
+
+- **Servent** : `Title`, `Subtitle`, `Quantity`, `Tag` (= le badge du concurrent), `Image`,
+  `Selected by default`, `Price`, `Highlight this offer`.
+- **À laisser tel quel / OFF** : `Add quantity widget` (le nombre d'unités est déjà dans le
+  titre), `Manual compare-at price` (laisser **Auto** : le prix barré vient des variantes
+  Shopify), `COGS` (le P&L se suit dans le Sheet officiel de la formation, pas ici),
+  `Mark as out of stock`, `Add Benefits`, `Add upsell`, `Add free gift`,
+  `Require item selection to complete bundle purchase`, `Design "Select" Product Popup`.
+- **Offer Type** : toujours **Volume Discount**, jamais `Combo Bundle` (qui sert à associer des
+  produits différents).
+
 ## Bug connu : masquage du prix natif
 
 Masquer le prix natif du thème peut produire un rendu visuel bizarre selon le thème/section

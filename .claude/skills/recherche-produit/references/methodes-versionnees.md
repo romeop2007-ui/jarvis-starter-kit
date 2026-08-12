@@ -1060,3 +1060,98 @@ Le catalogue sait désormais faire deux choses correctement : **trouver du frais
 | 08/08/2026 | **F62** (ratio reach page ÷ créas actives, seuils 600k puis 220k) | 100 % de shops concentrés (108 à 246 €/j), mais 7/8 déjà rejetés. 1 inédit : `kovana.fr`, sous le plancher. | **🟢🟢 Validé et à relancer chaque semaine.** Premier filtre qui attaque la dispersion en amont. |
 | 08/08/2026 | **F51 `has_tiktok: true`** | 45 shops. `absolutparfum.com`/`deseoabsolutoit.com` (3e shop parfum, 55-69 €) creusé puis tué : **0 créa ≥100k pour 427 pubs**, pire dispersion du catalogue. Reste : mystery box, infoproduits, ingéré. | Paramètre 🟢 utile (gisement propre et distinct) mais rendement nul. |
 | 08/08/2026 | **F51 mono-produit page 2** | 12 retenus après pré-filtre local. `kuraskor.se` creusé : 3 créas ≥100k mais à **7-8 €/j** (créas de 142 jours qui accumulent lentement) + ads vers une landing page. | Confirme : un reach total élevé sur une créa ancienne n'est jamais un plancher. |
+
+---
+
+# Session 15 (08/08/2026) — la confusion de doctrine enfin corrigée
+
+## 🟢🟢 F63 — RATIO DE CONCENTRATION + fraîcheur de la CRÉA (et non plus du SHOP)
+
+```
+search_ads:
+  min_reach_per_page: 220000, reach_per_page_period: last7d   ← ratio F62 conservé
+  max_active_ads: 40                                          ← ratio F62 conservé
+  min_days_running: 8, max_days_running: 45                   ← REMPLACE shop_created_after
+  technologies:["shopify"] + max_traffic: 2500 + max_facebook_likes: 1500
+  ad_countries: {exclude:["FR"]}
+  max_ads_per_brand: 1, sort_by: reachDelta7d
+```
+
+**C'est la correction d'une confusion de doctrine traînée depuis le tout premier filtre.** La règle du « timing entre les deux » porte sur **le produit qui scale depuis 2-4 semaines**, c'est-à-dire sur **l'âge de la CRÉA**. Or le catalogue l'a toujours implémentée par `shop_created_after`, c'est-à-dire sur **l'âge du SHOP** — deux choses différentes. Un shop de 8 mois qui lance une créa neuve qui décolle est exactement le profil recherché, et il était exclu d'office par tous les filtres depuis V1.
+
+**Mesure directe du gain, faite le même jour sur le même ratio de concentration :**
+
+| Filtre | Fraîcheur portée sur | Shops neufs |
+|---|---|---|
+| F62 (relancé à l'identique) | le SHOP (`shop_created_after`) | **1 sur 8** |
+| F63 (même ratio, fraîcheur déplacée) | la CRÉA (`min/max_days_running`) | **13 sur 20** |
+
+> Le goulot n'était pas la méthode de filtrage ni le vivier, c'était `shop_created_after`. L'enseignement de fin de session 14 (« le facteur limitant est le renouvellement naturel du vivier ») est donc **partiellement infirmé** : le vivier était bien plus large que mesuré, il était amputé par un paramètre mal placé.
+
+**⚠️ Le garde-fou reste nécessaire ailleurs.** `max_traffic: 2500` + `max_facebook_likes: 1500` continuent de faire le travail que `shop_created_after` faisait accessoirement (écarter les marques installées). Ne pas retirer ces deux-là en même temps, sinon retour du problème documenté en loi corollaire n°2.
+
+**⚠️ Ne PAS combiner avec `sort_by: newest`** (testé le même jour) : `newest` + `min_days_running: 8` sélectionne mécaniquement les créas d'exactement 8 jours, donc du micro-reach (`sonoearplugs.com` à 0-1 €/j, `vvsshop.ro` à 0-2 €/j). Le tri de vitesse `reachDelta7d` est le bon.
+
+**⚠️ `min_best_seller_price: 45` reste à éviter dans la requête** (confirmé une 3e fois, cf. F58/F42/F38) : la variante prix de F63 a rendu 8 déjà-vus sur 20 contre 7 sur 20 sans lui, pour un gisement plus pauvre. Prix = à la lecture.
+
+## Journal — session 15 (08/08/2026)
+
+| Date | Filtre | Résultat | Décision |
+|------|--------|----------|----------|
+| 08/08/2026 | **F62** relancé à l'identique | 7 déjà-rejetés sur 8 (Velar, Sit Slouch, Overstore, ChillNeck, Belmont/Lithemo, Alessandro Varetti, Dasana, LaVina Milano). 1 inédit : `livrapid.ro` (spray anti-papillomes = topique santé, exclusion dure). | Confirme que le vivier « shop frais » est écumé — mais c'était le mauvais axe de fraîcheur. |
+| 08/08/2026 | **F63** (fraîcheur portée sur la créa) | **13 shops neufs sur 20.** Meilleur taux de renouvellement du catalogue. | **🟢🟢 Validé, à lancer en tête de session devant F62 et F51.** |
+| 08/08/2026 | **F63 + `sort_by: newest`** | Micro-reach uniquement (créas de 8 jours à 0-3 €/j). | ❌ Ne pas combiner. |
+| 08/08/2026 | **F63 + `min_best_seller_price: 45`** | Gisement plus pauvre, davantage de déjà-vus. | ❌ Confirme F58 : le prix se lit, il ne se filtre pas. |
+
+**Bilan session 15 : 8 kills, 0 candidat au plancher, pipeline inchangé à 2 (Staydries + Titanox).** ~350 unités TrendTrack consommées, 30 331 restantes. L'acquis de la session est méthodologique (F63), pas un candidat.
+
+## 🔑 Événement à suivre : Huber-Outdoor a franchi sa condition de réouverture
+
+`huber-outdoor.at` (lampe frontale 230° USB-C, DE/AT) avait été killé le 06/08/2026 sur le prix, avec une condition de réouverture explicite actée par Roméo : *« si le concurrent repasse son prix à ~49,90 €, on pourrait se placer à ~54 € »*.
+
+**Relevé le 08/08/2026 : il est passé de 39,90 € à 59,90 €** (`compare_at_price` 59,91). La condition est donc dépassée. Sa data tient toujours : 141 €/j sur la créa principale (42 j) et **une 2e créa de 10 j déjà à 156 €/j**, sur 25 pubs actives et 31 likes FB.
+
+**Il reste à 2 créas ≥70 €/j, pas 3** — aucun domaine sœur trouvé (recherche `search_shops` sur « huber-outdoor » ne ramène que du bruit sans rapport). Sous la règle du plancher tenu sans exception (tranchée par Roméo le 07/08), il ne se présente donc pas comme candidat prêt. **À re-checker en priorité à chaque session : c'est le shop le plus proche du plancher de tout le fichier, et son prix joue désormais en notre faveur.**
+
+**⚠️ Réserve à ne pas oublier** : l'offre poussée en créa est « la 2e OFFERTE », donc 59,90 € pour deux lampes = ~29,95 €/unité. Le test de réplicabilité doit se calculer sur le bundle de 2 (deux produits dans un colis), pas sur le prix affiché.
+
+## Session 15 (suite) — profondeur de F63 et bornes du filtre
+
+### ❌ F64 — Ratio de concentration DURCI (`max_active_ads: 15`, `min_reach_per_page: 150k`)
+Hypothèse : viser les shops à très peu de créas et gros reach, donc encore plus concentrés que F63.
+**Testé : 7 neufs sur 19, contre 13 sur 20 pour F63.** Le durcissement fait perdre du volume sans gagner en qualité — les shops à ≤15 créas actives sont majoritairement des pages d'advertorial (2 à 5 créas) et non des dropshippers concentrés. ❌ Retiré, garder F63 tel quel (`max_active_ads: 40`).
+
+### ❌ F65 — F63 à fenêtre resserrée (10-25 j) + plancher de reach par créa
+```
+(tout F63) + min_days_running: 10, max_days_running: 25 + min_reach: 120000 last7d
+```
+Hypothèse : cibler le cœur du « timing entre les deux » et ne garder que les créas fortes.
+**Testé : 0 shop neuf**, uniquement des annonceurs déjà arbitrés dans la même session. ❌ Retiré. **Diagnostic : c'est la loi corollaire n°4 qui frappe** — `min_reach_per_page` est déjà un plancher chiffré, y ajouter `min_reach` par créa en empile un second et réduit le gisement aux mêmes têtes de liste. Un seul plancher chiffré par requête, toujours.
+
+### 📏 Bornes établies pour F63
+- Fenêtre de créa **8-45 jours** = le bon réglage. Plus court (10-25) vide, plus long ramène les accumulateurs.
+- `max_active_ads: 40` = le bon plafond. À 15, on sélectionne des pages d'advertorial.
+- Un seul plancher chiffré : le ratio (`min_reach_per_page`). Ne rien empiler dessus.
+- Rendement par page (session 15) : p1 13/20 neufs, p2 ~15/20, p3 14/20, p4 **19/20**, p5 18/20 mais **qualité en chute** (advertorials santé, marques tierces, produits sous plancher). **En pratique : exploiter les pages 1 à 4, s'arrêter à la 5.**
+
+## 🔍 Observation de session à confirmer : concentration et prix semblent anti-corrélés
+
+Sur les 15 shops creexaminés créa par créa cette session, un motif revient :
+
+| Shop | Concentration | Prix | Verdict |
+|---|---|---|---|
+| `kilvona.shop` | **3 créas ≥70 €/j sur 5 pubs** (la meilleure de la session) | 31,95 € | mort loi n°3 |
+| `packfreund.de` | 1 hero sur 38 pubs | **69,90 €** | mort dispersion |
+| `homevision-shop.de` | 1 hero sur 13 pubs | **99,95 €** | mort dispersion |
+| `huber-outdoor.at` | 2 créas | **59,90 €** | plancher raté |
+| `movewell.se` | 2 créas sur 6 fortes | ? | plancher raté |
+
+> Les seuls shops vraiment concentrés de la session vendent des produits impulsifs à moins de 40 €, et tous les produits dans la bonne fourchette 45-100 € reposent sur un hero creative unique. **Hypothèse : un produit impulsif bon marché supporte une créa unique très diffusée (achat sans réflexion), là où un produit à 60-100 € demande plusieurs angles pour convaincre, donc disperse le budget.**
+
+**⚠️ À traiter comme une observation d'une seule session, pas comme une loi.** Échantillon de 15 shops, non représentatif. À reconfirmer sur 2-3 sessions avant d'en tirer une règle. Si elle se confirme, elle durcirait la loi n°8 : la zone « léger ET cher ET concentré » serait une intersection de trois contraintes, encore plus étroite que les deux déjà connues.
+
+| Date | Filtre | Résultat | Décision |
+|------|--------|----------|----------|
+| 08/08/2026 | **F63 pages 2 à 5** | ~50 shops neufs au total. 15 creusés créa par créa. **0 au plancher.** | Filtre 🟢🟢 confirmé sur le volume ; rendement final nul cette passe. |
+| 08/08/2026 | **F64** (ratio durci) | 7 neufs sur 19, sélectionne des pages d'advertorial. | ❌ Retiré. |
+| 08/08/2026 | **F65** (fenêtre 10-25 j + plancher créa) | 0 neuf. | ❌ Retiré (loi n°4). |

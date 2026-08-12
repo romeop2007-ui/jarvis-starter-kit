@@ -315,3 +315,38 @@ Aucun des deux ne coche toutes les cases (l'un a un ticket trop bas, l'autre un 
 | Matelas gonflable ultraléger | T3, 24/06 | Kill, 0 vente |
 | Guirlande solaire Luma | T4, 28/06-01/07 | Kill (COGS réel 16,40 $ → break-even ROAS ~2,0 intenable à 29,99 €), 2 ventes |
 | Sac sling anti-vol RFID | T5, 03/07 | En cours |
+
+---
+
+## Session 15 — 08/08/2026 (filtre F63, fraîcheur portée sur la créa)
+
+| Shop | Produit / marché | Data | Motif du kill |
+|---|---|---|---|
+| `kilvona.shop` (LumaSpace) | Projecteur galaxie 5D, AT/DE/SE | **3 créas ≥70 €/j (550, 232, 281 €/j) sur 5 pubs actives** — meilleure concentration de la session | **Prix 31,95 €** (paliers 22,95 / 31,95 / 41,95 / 59,95). Loi n°3. **5e shop du cluster projecteur galaxie** après pearcehaley/slimstep/thenextgenelectronics/fhgugi : le produit marche partout, il n'est réplicable nulle part à ce prix. |
+| `packfreund.de` (Glattmann) | Cubes de compression pour valise, DE/AT | 1 créa à 228 €/j, mais 3 autres à 7, 16 et 33 €/j (créas de 93 et 154 jours) | **Un seul hero creative** (cas IROND). Dommage : **prix 69,90 €**, pile la zone de la loi n°8 (léger ET cher), et c'est le type « rangement/compression voyage » cherché depuis juin. À re-checker s'il lance de nouvelles créas. |
+| `homevision-shop.de` | Mini-vidéoprojecteur 130", AT/DE | 1 créa à 311 €/j, la 2e à 29 €/j (97 jours) | Dispersion + électronique + AOV à 99,95 € en limite haute. |
+| `giorgiovalentiwatch.com` (Valenti Milano) | Montre minimaliste 1+1 offert, IT | **1 seule créa ≥100k** | Dispersion. Clone exact de Belmont (`belmont-shop.de`) : même angle « 2 montres, 1 prix », même paiement à la livraison. |
+| `voldt.pl` / `voldt.pt` | Câbles et adaptateurs de recharge pour véhicules électriques, PL/PT | 193 et 354 €/j | Hors plafond AOV (~100 €) + produit lourd. Réseau de domaines par pays. |
+| `abacionline.com` (Abaci London) | Vêtements hijab / mode conservatrice, GB | 374 €/j sur 8 j | Catalogue de mode, aucun produit unique à copier. |
+| `bumboom.ro` | Set de 6 manches tatouages 3D, RO | 254k reach | Prix ~20 RON. Très en dessous de la loi n°3. |
+| `livrapid.ro` | Spray anti-verrues/papillomes, RO | 443 €/j | **Exclusion dure** : topique à promesse santé. |
+
+**Écartés en amont sur exclusion dure, sans creuser** (F63 pages 1-3) : `wunder-buch.de` (livre personnalisé avec la photo de l'enfant = personnalisation), `loseitpolska.shop` (patch minceur transdermique), `limfae.com` (complément drainage lymphatique), `dubaiaura.store` (parfums = liquide + 30 €), `zentrum-der-mannergesundheit.blog` + `protocol.bg` + `trydentalbeam.shop` (advertorials santé), `biolash.nl` + `emanuelfolco.com` + `vvsshop.ro` + `skinsorbet.com` + `debeautyblog.nl` (topique/beauté), `helioshealth.it` (aide auditive = dispositif santé), `avido.ro` (facettes dentaires), `kadr.ai` + `montagepartner.eneto.com` (infoproduit / B2B, pas un produit physique), `eshiunderwear.com` + `palmsite.com` (no EU data), `natsfootwear.com` + `peroatelier.com` + `aerrefashion.com` + `oro2000.com` + `labottegaonly.com` (marques mode/bijouterie à catalogue), `quakerfurniture.co.uk` + `viviincampagna.com` (mobilier / matériel de cave, lourd), `citybuyiyds.com` (plaques déco, petit ticket), `mancsbaratok.hu` + `sonoearplugs.com` + `blpgroup.pl` (sous le plancher).
+
+**🔦 `huber-outdoor.at` — NE PAS traiter comme un rejeté définitif.** Killé le 06/08 sur le prix, mais **son prix est passé de 39,90 € à 59,90 € au 08/08/2026**, ce qui franchit la condition de réouverture actée par Roméo. Data toujours bonne (141 €/j + une 2e créa de 10 j à 156 €/j). Bloqué uniquement par le plancher : 2 créas au lieu de 3. **À re-checker en priorité chaque session.**
+
+### Session 15 — 2e passe (F63 pages 2-5, F64, F65)
+
+| Shop | Produit / marché | Data | Motif du kill |
+|---|---|---|---|
+| `movewell.se` | Semelles à support de pronation, SE | **6 créas ≥100k** mais seulement 2 à ≥70 €/j (98 et 96 €/j, puis 62, 55, 51, 35) | Plancher raté de peu. Réserve en plus : hooks à promesse médicale lourde (hanche, genou, dos, fasciite plantaire) — terrain à risque sur la policy Meta. Duplicates 20-24. |
+| `zenipaws.nl` | Diffuseur de phéromones apaisantes pour chien, BE/NL | 1 seule créa ≥100k | Dispersion. Advertorial vétérinaire très long (famille des advertorials santé). |
+| `bloomya.de` | Bouquet de roses éternelles, DE/AT | 1 seule créa ≥100k | Dispersion + cadeau saisonnier. |
+| `sensur.co.uk` | Skincare homme « Complete Ritual Bundle », GB | 1 seule créa ≥100k | Dispersion **et** exclusion dure (topique à promesse « smoother, healthier-looking skin »). |
+| `miraglam.com` | Encre à lèvres, HU | 1 seule créa ≥100k, 3 pubs actives | Dispersion. |
+| `my-beya.com` | 5 vernis format stylo sans lampe UV, DE/AT | 160 €/j | Prix **29,99 €** (barré 49,99). Loi n°3. |
+| `zachownia-polska.pl` | Sachets à pain coton-cire, PL | 142 €/j | Prix 99,99 PLN ≈ **23 €**. Loi n°3. |
+
+**Écartés en amont, 2e passe** : `metalcut-interior.de` (fabrication sur mesure = personnalisation), `prazent.hr` (mug cadeau personnalisé), `maclir.co` + `slimguru.shop` + `leanphoria.shop` + `cumparasigur.ro` (ingéré), `norinova.com` (complément érection), `femmique.de` + `fitenerge.shop` + `dogmama.es` + `hylhtiltvr.top` + `blog.recensionicani.it` + `info.norwellhome.com` (advertorials santé à faux profil de médecin), `haarwald.com` + `magiunescu.ro` + `goodvillainbeauty.com` + `debeautyblog.nl` (topique/beauté), `g-essestore.com` (sneakers Jacquemus) + `wellingtontime.com` (MoonSwatch) + `promomarket.eu` (packs Ariel/Lenor) + `uk.lassie.co` (**marques tierces, non copiables, risque DMCA**), `nexisolution.ro` (pantalon minceur « ions négatifs d'oxygène »), `learn.myonebrain.com` + `kadr.ai` + `iconpop.it` (infoproduits), `euro-eclipse.com` (lunettes d'éclipse = saisonnier extrême), `vikguirao.com` (agendas scolaires = saisonnier), `hux-home.com` (cache-poubelle, volumineux), `truetoys.co.uk` + `dsas.shop` + `gogetfit.ee` + `blackcircus.eu` + `lunomilano.com` + `novelya.es` + `affiniafashion.nl` + `rive-store.com` + `oro2000.com` (catalogues mode/jouets), `dogcare.gr` + `omeupatudo.pt` + `handlyireland.com` + `alunelo.ro` + `bytomzee.com` + `dobriatstopanin.com` + `buttercase.pl` + `flippo.es` + `amirah.ro` + `sereniakids.com` + `wellnesswave.se` (sous le plancher ou hors critères).
+
+**⚠️ `wellnesswave.se`** (gouttière anti-ronflement SnoreShield, SE, 162 €/j, 44 likes FB) : non creusé faute de temps, mais **dispositif intra-buccal** — à traiter comme un dispositif médical si jamais il ressort, même s'il n'entre formellement ni dans « ingéré » ni dans « topique ».

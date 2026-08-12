@@ -7,6 +7,23 @@
 
 ---
 
+## 2026-08-12
+
+### Recherche produit session 15 : découverte du filtre F63, une confusion de doctrine corrigée depuis le début du catalogue
+
+- **🔑 LA DÉCOUVERTE DE LA SESSION : depuis le tout premier filtre, la fraîcheur était filtrée sur le mauvais objet.** La doctrine du « timing entre les deux » parle du **produit qui scale depuis 2-4 semaines**, donc de l'âge de la **CRÉA**. Or tout le catalogue l'implémentait via `shop_created_after`, donc l'âge du **SHOP**. Conséquence : un shop de 8 mois qui lance une créa neuve qui décolle, c'est-à-dire exactement le profil recherché, était exclu d'office depuis juin.
+- **Gain mesuré le même jour, sur le même ratio de concentration** : **F62 relancé à l'identique = 1 shop neuf sur 8**, contre **F63 (fraîcheur déplacée sur la créa) = 13 shops neufs sur 20**, puis jusqu'à **19/20 en page 4**. Environ **50 shops jamais vus** sortis sur 5 pages.
+- **Enseignement de fin de session 14 partiellement INFIRMÉ.** On avait conclu que « le facteur limitant n'est plus la méthode de filtrage mais le renouvellement naturel du vivier » et qu'il fallait espacer les recherches. Faux : le vivier était bien plus large, il était amputé par un paramètre mal placé.
+- **Bornes de F63 établies et gravées** : fenêtre de créa **8-45 jours** (resserrée à 10-25 j = 0 résultat neuf), `max_active_ads: 40` (durci à 15, on ne sélectionne plus que des pages d'advertorial), **un seul plancher chiffré par requête** (y ajouter `min_reach` par créa vide la requête, loi n°4 confirmée), et **s'arrêter à la page 4** (la 5 renouvelle encore mais la qualité s'effondre). F64 et F65 testés et retirés.
+- **15 shops creusés créa par créa, 0 candidat au plancher. Pipeline inchangé à 2** (Staydries + Titanox). ~800 unités TrendTrack consommées, 30 177 restantes. Régime normal du plancher tenu (loi n°5).
+- **Kills notables** : `kilvona.shop` (**meilleure concentration de la session, 3 créas à 550/232/281 €/j sur 5 pubs seulement**, mais c'est le projecteur galaxie 5D à **31,95 €**, 5e shop du cluster, mort loi n°3) ; `packfreund.de` (cubes de compression valise à **69,90 €**, pile la zone de la loi n°8 et le type « rangement voyage » cherché depuis juin, mais un seul hero creative : 228 €/j puis 7, 16 et 33 €/j) ; `movewell.se` (6 créas ≥100k mais 2 seulement à ≥70 €/j, plus des hooks à promesse médicale lourde) ; `homevision-shop.de`, `giorgiovalentiwatch.com`, `zenipaws.nl`, `bloomya.de`, `sensur.co.uk`, `miraglam.com`. Plus une quarantaine écartés en amont sur exclusion dure (livre personnalisé `wunder-buch.de`, patchs minceur, advertorials à faux profils de médecin, revente de marques tierces type MoonSwatch et Jacquemus).
+- **🔍 Observation notée comme À CONFIRMER, pas comme loi** : sur les 15 shops creusés, les seuls vraiment concentrés vendent des produits impulsifs sous 40 €, et **tous** ceux dans la fourchette 45-100 € reposent sur un hero creative unique. Hypothèse : un produit impulsif bon marché tient sur une créa unique très diffusée, là où un produit à 60-100 € demande plusieurs angles et disperse donc le budget. Échantillon d'une seule session, à reconfirmer avant d'en tirer une règle.
+- **⚠️ Erreur de méthode de Claude, relevée par Roméo.** Claude a annoncé que Huber-Outdoor était « passé de 39,90 € à 59,90 € », donc que la condition de réouverture était franchie. Roméo, voyant toujours 39,90 €, a demandé une preuve. Vérification : **le prix actuel est bien 59,90 €** (API Shopify publique, `products/stirnlampe.json`), **mais le CHANGEMENT n'est pas prouvable** — le shop a un upsell à 39,90 € et deux autres produits à ce prix, donc le relevé du 06/08 a pu porter sur le mauvais élément. Leçon : ne pas annoncer un changement quand on ne peut prouver que l'état actuel.
+- **⏳ Nouveau critère de méthode acté par Roméo : on ne copie jamais un prix qui vient de changer chez le concurrent.** Un prix de quelques jours n'a aucune preuve de conversion : le copier, c'est copier une expérience en cours et hériter d'un échec possible sans le savoir. **Décision sur Huber : on n'y touche pas, et pas de surveillance active** (watchlist explicitement refusée), d'autant qu'il reste à 2 créas et que c'est un produit électronique à batterie lithium à 60 €, marge jugée trop serrée.
+- Fichiers mis à jour : `methodes-versionnees.md` (F63 validé, F64/F65 retirés, bornes, journaux), `liste-rejetes.md` (kills détaillés des deux passes), `CONTEXT.md` (fiche Huber corrigée + nouveau corollaire prix).
+
+---
+
 ## 2026-08-08
 
 ### Recherche produit session 14 : Titanox validé (pipeline à 2), catalogue à 62 filtres, découverte du ratio de concentration

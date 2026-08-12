@@ -138,26 +138,62 @@ Image/Video Slider, Sizing chart (popup), Payment badges, Testimonials, Contenu 
 
 ## Étape 3 — Mécanismes autorisés pour le sur-mesure (quand un bloc natif ne suffit pas)
 
-Deux mécanismes natifs seulement, jamais un fichier `.liquid` séparé ni une section sur-mesure
-sans accord explicite de Roméo :
+> ⚠️ **CORRECTION du 12/08/2026 : le champ `custom_css` N'EXISTE PAS dans Shrine Pro.** L'ancienne
+> version de cette étape affirmait le contraire. Vérifié section par section (`testimonials`,
+> `rich-text`, `main-product`) : zéro occurrence de `custom_css` dans les schémas. C'était un
+> reste de Dawn. **Ne jamais le proposer à Roméo, ne jamais l'écrire dans un template : Shopify
+> ignore le réglage inconnu et rien ne s'applique.** Il ne reste donc qu'UN seul mécanisme de
+> sur-mesure, le Liquid personnalisé.
 
-1. **Besoin de style seul** (couleur, taille, espacement d'un élément existant) → le champ
-   natif **`custom_css`** de LA section concernée. C'est un vrai réglage de plateforme Shopify
-   (vérifié dans le thème : `templates/product.json` contient `"custom_css": []` au niveau de
-   chaque section), visible et éditable par Roméo directement dans le panneau "CSS personnalisé"
-   de la section, dans le Personnalisateur. Éditer ce champ via le JSON du template revient
-   exactement à ce que Roméo le fasse lui-même à la main.
-2. **Besoin de vrai contenu/structure** (un badge stylé, une bulle de texte, un mini-widget que
-   le concurrent a et qu'aucun bloc natif ne couvre) → le **bloc natif "Liquid personnalisé"**
-   (Custom Liquid), posé DANS la section concernée comme n'importe quel autre bloc (via
-   "Ajouter un bloc"). Son contenu (le HTML/CSS/Liquid) vit dans le champ du bloc, visible et
-   modifiable par Roméo directement dans le Personnalisateur — jamais un fichier séparé dans
-   `sections/` ou `snippets/` que lui ne pourrait pas rouvrir sans risquer de casser autre chose.
-3. Écrire ce code directement (pas besoin de passer par un aller-retour ChatGPT comme le fait le
-   formateur dans la vidéo — observer le concurrent réel via WebFetch/DevTools suffit pour
-   écrire le HTML/CSS soi-même), scopé pour ne jamais entrer en collision avec le reste du thème.
-4. **Toujours annoncer à Roméo** quand `custom_css` ou un bloc "Liquid personnalisé" est utilisé,
-   et pourquoi un bloc natif ne suffisait pas — jamais silencieusement.
+Un seul mécanisme, jamais un fichier `.liquid` séparé ni une section sur-mesure sans accord
+explicite de Roméo :
+
+1. **Le "Liquid personnalisé"** (Custom Liquid), qui existe en deux formes, à choisir selon le
+   besoin :
+   - en **bloc**, posé DANS une section (via "Ajouter un bloc") → pour un élément qui vit à
+     l'intérieur de la colonne d'achat (badge, alerte de stock, bandeau de réassurance) ;
+   - en **section**, posée entre deux sections (via "Ajouter une section") → pour un bloc pleine
+     largeur (bandeau de logos défilant, section d'arguments, bandeau de notation).
+   Dans les deux cas le HTML/CSS vit dans le champ, visible et modifiable par Roméo directement
+   dans le Personnalisateur — jamais un fichier séparé dans `sections/` ou `snippets/` qu'il ne
+   pourrait pas rouvrir sans risquer de casser autre chose.
+2. Écrire ce code directement (pas besoin d'un aller-retour ChatGPT comme le formateur dans la
+   vidéo), scopé sous une classe racine pour ne jamais entrer en collision avec le thème.
+3. **Toujours annoncer à Roméo** qu'un Liquid personnalisé est utilisé et pourquoi un bloc natif
+   ne suffisait pas — jamais silencieusement.
+
+### 🥇 Méthode qui marche le mieux (validée par Roméo le 12/08/2026)
+
+Roméo l'a formulé lui-même : *« ce qui est vraiment très très fort, c'est quand tu me donnes un
+custom liquid que je puisse aller coller directement, parce que tu peux aller récupérer le HTML
+et tout »*. **C'est le mode de travail à privilégier par défaut sur toute reprise d'un élément
+visuel du concurrent :**
+
+1. `curl` la page du concurrent, retrouver le fragment exact (HTML + `<style>`) de l'élément visé.
+2. Le recopier tel quel, en ne changeant que : les textes (traduits) et les couleurs (mappées
+   palette Zooryn), toujours déclarées en variables CSS en haut du bloc pour que Roméo puisse
+   réajuster sans revenir vers Claude.
+3. Livrer le bloc prêt à coller, en indiquant précisément OÙ le poser.
+
+Le gain est double : rendu identique au pixel sans avoir à le redevisser, et zéro dépendance —
+Roméo édite le bloc lui-même dans le Personnalisateur.
+
+### ⚠️ Le JavaScript ne s'exécute PAS dans un Liquid personnalisé (vécu le 08/08/2026)
+
+Shrine Pro rend la section produit en AJAX ; un `<script>` injecté par `innerHTML` **n'est jamais
+exécuté**. Symptôme exact : le HTML et le CSS s'affichent normalement, mais rien ne réagit au
+clic — un bouton "mort".
+
+**Conséquence : toute interactivité doit être faite en HTML/CSS pur.** La technique de référence
+est la case à cocher masquée (`<input type="checkbox">` sans attribut `name`, donc jamais soumise
+avec le formulaire d'ajout au panier) + `:checked ~ .overlay { display:flex }`, avec des `<label>`
+comme déclencheurs. C'est ce qui a débloqué le guide des tailles Titanox après deux versions JS
+mortes. Un `<label>` plein écran derrière la boîte de dialogue sert de fermeture au clic sur le
+fond.
+
+Limite acceptée de cette technique : pas de fermeture à la touche Échap, et si un conteneur
+parent porte un `transform`, le `position:fixed` de l'overlay est contenu dans ce parent au lieu
+de couvrir l'écran — à vérifier au rendu.
 
 ## Étape 4 — Bundle / prix par palier
 
@@ -172,14 +208,42 @@ sans accord explicite de Roméo :
   type de bundle à choisir, design des blocs, réglages avancés critiques, astuce "dupliquer" pour
   scaler sur un nouveau produit sans repartir de zéro).
 
+### 🔘 Le bouton d'ajout au panier de l'app crée un doublon (vécu sur Titanox, 10/08/2026)
+
+Par défaut l'app de bundle **injecte son propre bouton "Ajouter au panier"** collé sous les
+paliers. Comme le thème a déjà le sien plus bas, la page se retrouve avec deux boutons, et tout
+ce qu'on veut intercaler entre le bundle et le bouton (image d'offre, compte à rebours, badges)
+se retrouve coincé APRÈS le premier bouton — l'ordre du concurrent est cassé.
+
+**Diagnostic rapide** : compter les `<button name="add">` dans le HTML servi (`curl`). S'il n'y en
+a qu'UN alors que la page en montre deux, le second est injecté en JS par l'app.
+
+**Solution, confirmée comme étant celle du concurrent** : dans sa config Kaching on lit
+`addToCartButton: null` et `intercept_cart_request: true`, et son bouton est bien le bouton natif
+du thème (`main-product-atc`). Donc → **masquer le bouton de l'app** (réglage *Design* de l'app :
+"Show add to cart button" / "Use theme's add to cart button"), le bouton du thème prend le relais
+et l'app intercepte le formulaire.
+
+⚠️ **Test obligatoire après ce réglage** : sélectionner le palier le plus élevé, cliquer sur le
+bouton du thème, ouvrir le panier. Si le panier ne contient qu'une seule unité, l'app
+n'intercepte pas → revenir en arrière et déplacer les blocs intercalaires AVANT le bundle. La
+vente passe avant la fidélité de la copie.
+
+Réglage frère à connaître : **`Selected by default`** sur un palier (= palier précoché à
+l'ouverture). Le concurrent précoche **le palier n°1, l'unité seule** (`preselectedDealBarId`
+pointe sur le premier), pas le bundle mis en avant par les badges.
+
 ## Étape 5 — Vérification avant de clore
 
 Ne jamais annoncer "terminé" sans avoir vérifié, dans l'ordre :
 1. Le bouton "Ajouter au panier" ajoute la bonne variante.
 2. Chaque bloc rendu correspond à ce que montre le concurrent (info présente, au bon endroit).
 3. Les images utilisées sont bien celles du produit Shopify désigné à l'Étape 0.
-4. Si un bloc "Liquid personnalisé" ou un `custom_css` a été utilisé, Roméo sait où le retrouver
-   et le modifier lui-même dans le Personnalisateur.
+4. Si un bloc "Liquid personnalisé" a été utilisé, Roméo sait où le retrouver et le modifier
+   lui-même dans le Personnalisateur.
+5. **Vérifier sur la page PUBLIÉE, pas sur le fichier local.** `curl` la vraie URL produit et
+   chercher les chaînes attendues (titres traduits, noms de fichiers d'images, ancres, classes
+   CSS). Un push "successful" ne prouve pas que le contenu s'affiche.
 
 ## Étape 6 — Passe mobile obligatoire
 
@@ -201,12 +265,57 @@ mobile du concurrent (pas un mockup desktop-only) :
 
 1. **Toujours `pull` avant de toucher au thème** :
    `shopify theme pull --store cqqah9-t1.myshopify.com --theme 203403854169 --only config/settings_data.json --only "templates/*.json" --path "livrables/ecommerce/boutiques/zooryn-shrine"`
-2. Push **ciblé** (`--only`) sur les seuls fichiers modifiés (le plus souvent
+2. **VALIDER le template AVANT de pousser** — `scripts/validate-template.mjs`, voir ci-dessous.
+   Non négociable : c'est ce qui coûte le plus de temps quand on l'oublie.
+3. Push **ciblé** (`--only`) sur les seuls fichiers modifiés (le plus souvent
    `templates/product.<slug>.json`, jamais `settings_data.json` sans prévenir).
-3. **Édition directe sur le live** : pas de thème d'aperçu, pas de brouillon. Annoncer à Roméo
+4. **Édition directe sur le live** : pas de thème d'aperçu, pas de brouillon. Annoncer à Roméo
    les fichiers poussés au moment de le faire.
-4. Une fois en ligne, vérifier le rendu réel (demander un screenshot à Roméo si le rendu visuel
-   est en jeu).
+5. Une fois en ligne, vérifier le rendu réel sur la page publiée (cf. Étape 5.5).
+
+### 🚨 Shopify VALIDE les settings et refuse le fichier sans dire pourquoi (vécu le 08/08/2026)
+
+Un push qui affiche **"pushed with errors"** sans le moindre détail = le template a été REJETÉ,
+le fichier n'existe pas côté serveur. Le CLI ne donne jamais la cause. Les trois causes réelles
+rencontrées :
+
+1. **Valeur de `select` hors des options du schéma** (`alignment: "flex-start"` alors que le bloc
+   n'accepte que `left|center|right`).
+2. **Valeur de `range` qui ne respecte pas le `step`** — le piège n°1, parce qu'il est invisible.
+   Une marge à `10` sur un range `0..45 step 3` est refusée. Idem `padding_top: 30` sur un
+   `step 4`. **Toujours prendre un multiple du step à partir du `min`.**
+3. **Type de bloc non accepté par la section** (ex. un bloc `image` dans une section `rich-text`,
+   qui n'accepte que heading/caption/text/button/rating-stars/trustpilot-stars/atc-button/container).
+
+Ne JAMAIS diagnostiquer ça par dichotomie de pushs successifs (une demi-heure perdue le
+08/08) : **lancer le validateur**, qui lit les schémas du thème et sort la liste exacte des
+valeurs fautives en une seconde.
+
+```bash
+node .claude/skills/fiche-produit/scripts/validate-template.mjs \
+  livrables/ecommerce/boutiques/zooryn-shrine/templates/product.<slug>.json
+```
+
+### 🚫 Setting `video` : impossible à renseigner par la CLI
+
+Aucun format de référence n'est accepté (`shopify://videos/<id>`, `shopify://files/<id>`,
+`gid://shopify/Video/<id>`, l'ID nu, le nom de fichier — les cinq testés, tous rejetés). Seule
+une valeur vide passe. **Donc : poser les blocs vidéo vides, tout le reste du contenu en place,
+et donner à Roméo la liste "quelle vidéo va dans quel emplacement" à sélectionner lui-même dans
+le Personnalisateur.** Ne pas perdre de temps à chercher le bon format.
+
+### ⚔️ Le Personnalisateur ouvert ÉCRASE un push (vécu le 09/08/2026)
+
+Si Roméo a l'éditeur de thème ouvert sur la version d'avant le push, le premier enregistrement
+qu'il y fait réécrit TOUT le template depuis l'état chargé dans son navigateur — le travail
+poussé entre-temps disparaît sans le moindre message. Symptôme : « il ne s'est pas mis », alors
+que la vérification serveur était bonne juste après le push.
+
+**Règle des deux côtés :**
+- Claude : `pull` systématique juste avant chaque modification, même quand on vient de pousser
+  cinq minutes plus tôt. Puis patch chirurgical du JSON pull, jamais régénération complète du
+  template (sinon on écrase le travail manuel de Roméo).
+- Roméo : recharger (F5) l'éditeur avant de retoucher, et le fermer pendant que Claude pousse.
 
 ## Erreurs déjà commises (à ne pas refaire)
 
@@ -224,6 +333,20 @@ mobile du concurrent (pas un mockup desktop-only) :
   existe en local (le CLI détecte l'absence et supprime côté serveur, sans synchronisation
   complète). Demander confirmation à Roméo avant les mutations Shopify (variantes,
   `templateSuffix`, suppression de fichiers).
+- **Avoir affirmé que `custom_css` existait dans Shrine Pro.** Il n'existe nulle part. Corrigé le
+  12/08/2026, cf. encadré de l'Étape 3.
+- **Avoir écrit du Liquid là où le concurrent utilisait un bloc natif.** Sur le carrousel d'avis
+  Titanox, Roméo demandait « le custom liquid pour tout faire d'un coup » ; l'inspection de son
+  HTML (`review-items-container`, `review-item--top`, `splide-component`, `--star-color:#ffcc00`)
+  a montré qu'il utilisait le bloc natif **Reviews** de Shrine Pro. Écrire du Liquid aurait
+  ÉLOIGNÉ de lui tout en rendant Roméo dépendant de Claude. **Réflexe : avant d'écrire du Liquid,
+  chercher les classes du thème dans le HTML du concurrent — s'il tourne lui aussi sur Shrine Pro
+  (c'était le cas de Titanox), ses classes trahissent le bloc natif exact à utiliser, et ses
+  variables CSS inline donnent les réglages à recopier un par un.**
+- **Jetons de champ à connaître** (faciles à rater, écrits en tout petit sous le champ dans le
+  Personnalisateur) : dans le bloc **Reviews**, le champ *Auteur* accepte `[stars]` pour afficher
+  les étoiles et `[checkmark]` pour la coche « vérifié » — sans le jeton, aucune étoile ne
+  s'affiche. Le bloc est limité à **3 avis** maximum.
 
 ## Réserve — Traduction des pages légales pour un marché non francophone (source : Notion "Les prompts Claude", ajouté le 06/08/2026)
 

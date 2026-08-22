@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-08-22
+
+### Migration complète du workspace Windows → Mac (MacBook acheté), environnement vérifié et nettoyé, blocage matériel levé
+
+- **MacBook acheté, blocage matériel du 12/08 levé.** Migration du workspace Jarvis effectuée via VS Code + Claude Code, mémoire (61 fiches) transférée avec succès dans `~/.claude/projects/-Users-franv-Desktop-jarvis-starter-kit/memory/`.
+- **Audit complet de l'environnement** : Node, npm, Python, Git, Shopify CLI, ffmpeg tous opérationnels. Connexion Shopify CLI testée en réel (lecture du thème live `shrine-theme-pro #203403854169` confirmée), preuve que la chaîne boutique fonctionne de bout en bout sur la nouvelle machine.
+- **Deux bugs Git issus de la migration corrigés durablement** : fins de ligne CRLF/LF sur 61 fichiers (le contenu réel était identique, vérifié fichier par fichier avant correction ; fix = `.gitattributes` avec `text=auto eol=lf` + `core.autocrlf input` en local) et mauvaise normalisation Unicode des noms de fichiers accentués propre à macOS (fix = `core.precomposeunicode true`). `git status` est désormais propre.
+- Dossier `_MEMOIRE-CLAUDE/` (doublon de migration, déjà copié au bon endroit) supprimé du repo.
+- **Décisions actées sur les outils** : `gh` CLI jamais utilisé (recherché dans tout l'historique, aucune trace) → pas réinstallé. Connecteurs Google Docs et SlidesGPT jamais utilisés → pas reconnectés. Confirmation que le pipeline vidéo Vmake reste 100% manuel côté Roméo (règle déjà actée le 12/07) : Claude ne s'occupe que du script voix off + génération ElevenLabs, les modules Python `crea-pub` (demucs/easyocr/torch) ne sont donc pas nécessaires.
+- **Test de continuité mémoire réussi** : contexte de l'agent de fulfillment Yuri Yang (Aplusfulfill) et historique de la relation correctement restitués après la migration, à l'occasion d'un message de relance de Yuri après ~7-8 semaines sans commande.
+
+---
+
 ## 2026-08-21
 
 ### Création d'un téléprompteur web réutilisable, hébergé sur Netlify (session du 19 au 21 août)

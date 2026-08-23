@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-08-23
+
+### Blocage clé d'accès Meta Business Suite résolu
+
+- Roméo bloqué sur business.facebook.com par une demande de clé d'accès (passkey) sans aucune alternative visible, ne correspondant pas à sa 2FA habituelle (2FAS).
+- Contournement trouvé : se connecter directement via facebook.com (plutôt que business.facebook.com) permet d'accéder aux paramètres de sécurité sans le blocage.
+- Cause : une ancienne clé d'accès Google enregistrée, introuvable/inutilisable au moment du blocage. Supprimée puis remplacée par une nouvelle clé d'accès créée via ProtonPass (gestionnaire de mots de passe déjà utilisé pour les comptes critiques).
+- Connexion rétablie.
+
+---
+
 ## 2026-08-22
 
 ### Migration complète du workspace Windows → Mac (MacBook acheté), environnement vérifié et nettoyé, blocage matériel levé

@@ -9,6 +9,19 @@
 
 ## 2026-08-28
 
+### Recherche produit via le BrandTracker : Monveree retenu (mécanisme "cadeau gratuit" découvert), ScandicBeam tué sur le prix
+
+- **BrandTracker passé en revue (14 shops suivis)**, plutôt qu'un nouveau filtre TrendTrack, à la demande de Roméo qui voulait avancer avant le départ Espagne (04/09). **ScandicBeam (`scandicbeam.se`/.fi/.store/.eu, caméra d'inspection) confirmé en réouverture forte niveau data** : 240 pubs actives, 2,95M reach/30j, 10 créas ≥100k reach dont jusqu'à 137€/j. **Mais tué sur le prix** : 399 SEK (~35€), sous le seuil nécessaire de ~50-59€ pour un produit électronique. Condition de réouverture actée : si le concurrent ou un jumeau EU vend ≥50€. **LederKur, Nattly DK/EnkelDyne, RAYVER (9,90€), Elyndra, Lavina Milano, fjellvaro et holmgaard titanium confirmés morts** (dispersion budgétaire malgré des volumes de pubs en hausse, ou prix sous le plancher).
+- **Monveree (`monveree.store`) confirmé et retenu.** Montres vintage dorées ES/IT, 3 créas ≥100k reach (jusqu'à 189€/j), 0 pub FR. Produit ciblé : **Émeraude Dorée (89€)**, seule montre du shop avec preuve de scale individuelle. COGS estimé par Roméo ~20€/montre → marge jugée saine (x2,2 sur le bundle).
+- **🔑 Découverte du vrai mécanisme du tunnel concurrent, qui a changé le scope de copie envisagé.** Toutes les pubs redirigent vers la fiche Émeraude Dorée. Après ajout au panier, le client choisit une 2e montre GRATUITE parmi les autres modèles du catalogue (Éclat Doré, Signature Dorée, Élégance, Cuir Noir...), puis reçoit un upsell pour un pack de 5 bracelets (19,95€). **Décision actée : les 7 autres montres ne seront PAS construites en pages produit complètes** (aucune preuve de scale individuelle), seulement en fiches Shopify minimales (image + prix) pour servir de variantes du cadeau gratuit. Seule l'Émeraude Dorée reçoit le traitement complet (page fidèle au concurrent, réutilisation du principe "avis inventés" déjà validé sur Titanox).
+- **Nuance de méthode actée avec Roméo** : la règle "copie fidèle A à Z" (08/08) s'applique au niveau du TUNNEL entier, pas au nombre de pages à recréer — copier fidèlement le mécanisme (cadeau gratuit + upsell) prime sur reconstruire chaque montre en profondeur. Discussion en 3 temps : Claude a d'abord proposé de scoper à 1 seul produit (par contrainte de temps), Roméo a proposé d'aller à l'inverse vers une réplication complète du catalogue (temps disponible en vacances mais pas de lancement de pub prévu), puis a clarifié que les "8 produits" ne sont en réalité que des variantes d'un seul mécanisme de cadeau, ce qui a réconcilié les deux positions.
+- **Séquencement du départ Espagne (04/09) acté** : pas de lancement de pub cette semaine (vacances, peur de ne pas pouvoir scaler avant le départ), mais construction complète pour pouvoir activer dès l'arrivée à Huesca. Prochaine session : Claude inspecte le vrai tunnel Monveree (mécanisme technique du sélecteur de cadeau + upsell, quel outil/app Shopify le reproduit, RapidBundle ne semble pas suffire) pendant que Roméo importe les produits sur Shopify de son côté (images non traduites pour l'instant, à remplacer à la main ensuite).
+- Fichiers mis à jour : `CONTEXT.md` (pipeline non-vide + décisions actées), `.claude/skills/recherche-produit/references/liste-rejetes.md` (Monveree passé en pipeline validé, ScandicBeam + confirmations de mort ajoutés pour l'anti-doublon).
+
+---
+
+## 2026-08-28
+
 ### Vérification d'entreprise Meta Business Manager validée
 
 - Roméo a repris la vérification de sa micro-entreprise sur Meta après un premier échec passé et le blocage passkey résolu le 23/08.

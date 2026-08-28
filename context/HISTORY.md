@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-08-28
+
+### Vérification d'entreprise Meta Business Manager validée
+
+- Roméo a repris la vérification de sa micro-entreprise sur Meta après un premier échec passé et le blocage passkey résolu le 23/08.
+- Guidé étape par étape : type d'entreprise = "Entreprise individuelle", nom = "Roméo PIAT" (personne physique enregistrée au SIRENE), autre nom = "Zooryn" (nom commercial), numéro de téléphone en +33 (sans le 0 initial), identifiant fiscal = le SIRET complet (105 496 970 00010) plutôt que le SIREN seul.
+- Meta a retrouvé l'entreprise dans les registres officiels (nom légal confirmé : PIAT ROMEO ANDRE, adresse 34 boulevard de la Liberté, Cambrai) et a validé la vérification.
+- Débloque l'usage complet du Business Manager pour Zooryn (création de campagnes, comptes pub, etc.).
+
+---
+
 ## 2026-08-23
 
 ### Blocage clé d'accès Meta Business Suite résolu

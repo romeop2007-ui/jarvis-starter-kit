@@ -7,6 +7,22 @@
 
 ---
 
+## 2026-08-29
+
+### Mécanisme "montre gratuite" Monveree identifié, 4 fiches légères créées, méthode fiche-produit refondue (décision Liquid autonome + mobile-first)
+
+- **Inspection technique directe de `monveree.store`** (curl HTML/JS, pas un mockup) : le sélecteur "choisis ta montre gratuite" est propulsé par une app tierce (Essential Apps, cart drawer + app "Free Gift", gratuite), qui fonctionne par sélection de PRODUITS Shopify actifs (image + prix), jamais par variantes — vérifié : les 8 montres du concurrent sont 8 `product_id` Shopify distincts.
+- **Décision actée : tenter de reproduire le mécanisme sans aucune app**, via une remise native Shopify "Achetez X, obtenez Y" (BOGO, 100% gratuit sur une collection dédiée) combinée à une popup de sélection en Liquid personnalisé, construite sur les briques déjà présentes dans Shrine Pro (`modal-dialog`/`modal-opener`, comme la popup guide des tailles). Avantage sur l'app ou sur un prix à 0€ en dur : le prix affiché des montres-cadeaux reste réel, la remise ne s'applique que si l'Émeraude Dorée est déjà dans le panier, donc zéro fuite. RapidBundle explicitement écarté pour ce mécanisme (pensé pour des paliers de prix, pas pour un sélecteur de cadeau).
+- **4 fiches produits légères créées sur Zooryn** via le connecteur Shopify : Éclat Doré, Signature Dorée, Élégance Dorée, Cuir Noir (89€ barré 120€, 1 image, sans description, non liées à la navigation), correspondant aux 4 montres montrées dans le sélecteur du concurrent en plus de l'Émeraude Dorée. **Prix de la fiche Émeraude Dorée corrigé** (créée par erreur à 0,00€, repassée à 89€ barré 120€).
+- **Refonte de la méthode de construction du skill `fiche-produit`, suite à un retour honnête de Roméo sur le vécu Titanox** (allers-retours inutiles entre bloc natif et Liquid patché par-dessus, obligation de tout refaire à la main). Trois changements actés et gravés dans le skill + `CLAUDE.md` :
+  1. **Décision autonome bloc natif vs Liquid personnalisé** : Claude choisit lui-même section par section, plus besoin de l'accord explicite de Roméo à chaque fois (remplace la règle du 26/07/2026).
+  2. **Garde-fou couleurs** : tout Liquid personnalisé pioche dans les variables CSS globales du thème, jamais un hex codé en dur, pour que la palette de marque reste pilotable en un seul endroit.
+  3. **Garde-fou isolation** : chaque Liquid personnalisé reste un bloc/section natif "Liquid personnalisé" du Personnalisateur (jamais un fichier séparé), scopé sous une classe CSS racine unique par produit, pour qu'une correction sur un bloc ne touche jamais les autres.
+  4. **Mobile d'abord, desktop ensuite** : la version mobile du concurrent devient la référence de construction (à demander à Roméo si absente), le desktop s'adapte après, jamais l'inverse.
+- Fichiers mis à jour : `CLAUDE.md` (automatisme Shopify + description du skill), `.claude/skills/fiche-produit/SKILL.md` (frontmatter, principe directeur, Étapes 0/1/2/3/6), mémoires `feedback_liquid_autorisation.md` (réécrite) et `feedback_fiche_produit_mobile_first.md` (créée), `CONTEXT.md` (pipeline Monveree + bullet skill fiche-produit).
+
+---
+
 ## 2026-08-28
 
 ### Recherche produit via le BrandTracker : Monveree retenu (mécanisme "cadeau gratuit" découvert), ScandicBeam tué sur le prix

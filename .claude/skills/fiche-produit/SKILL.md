@@ -1,6 +1,6 @@
 ---
 name: fiche-produit
-description: Construit une fiche produit Shopify sur le thème live Zooryn (Shrine Pro) en copiant le funnel d'un concurrent réel avec les blocs natifs du thème (Testimonials, Image with text, Sizing chart, Collapsible content, etc.), pas en recodant une page entière en Liquid sur-mesure. Se déclenche quand Roméo donne l'URL d'un concurrent à reproduire + le produit Shopify cible, ou dit "fais-moi la fiche produit", "reproduis cette page", "copie ce concurrent". Le Liquid sur-mesure n'intervient qu'en dernier recours, toujours visible et modifiable par Roméo dans le Personnalisateur (jamais un fichier séparé que lui ne peut pas toucher).
+description: Construit une fiche produit Shopify sur le thème live Zooryn (Shrine Pro) en copiant le funnel d'un concurrent réel. Choisit lui-même, section par section, entre bloc natif du thème (Testimonials, Image with text, Sizing chart, Collapsible content, etc.) et Liquid personnalisé selon ce qu'il faut pour rester fidèle au concurrent — couleurs toujours pilotées par les réglages globaux du thème (jamais codées en dur), chaque Liquid personnalisé isolé sous sa propre classe racine et posé en bloc/section natif du Personnalisateur (jamais un fichier séparé). Construction mobile d'abord, adaptation desktop ensuite. Se déclenche quand Roméo donne l'URL d'un concurrent à reproduire + le produit Shopify cible, ou dit "fais-moi la fiche produit", "reproduis cette page", "copie ce concurrent".
 allowed-tools: Bash, Read, Write, Edit, Glob, Grep, WebFetch
 ---
 
@@ -8,14 +8,23 @@ allowed-tools: Bash, Read, Write, Edit, Glob, Grep, WebFetch
 
 Reconstruit la fiche produit d'un concurrent réel sur le thème live Zooryn
 (shrine-theme-pro #203403854169, dossier `livrables/ecommerce/boutiques/zooryn-shrine`), en
-utilisant en priorité les sections/blocs **natifs** du thème.
+choisissant à chaque section entre bloc **natif** du thème et **Liquid personnalisé**, selon ce
+qu'il faut pour rester fidèle au concurrent.
 
 **Renommé et réécrit le 26/07/2026** (ex-skill `boutique`, qui était calé sur l'ancien thème
 Dawn et une méthode Claude Design → Liquid intégral, entièrement abandonnée : trop lourde, et
 surtout, elle produisait des sections en Liquid sur-mesure que Roméo ne pouvait plus retoucher
-lui-même sans risquer de tout casser). Si un jour un besoin sort vraiment du cadre des blocs
-natifs + `custom_css`/"Liquid personnalisé", on définira une nouvelle méthode à ce moment-là,
-pas en ressortant celle-ci.
+lui-même sans risquer de tout casser).
+
+**Méthode de décision revue le 29/08/2026**, après le constat sur Titanox que la règle "bloc
+natif en priorité absolue, Liquid en dernier recours avec accord à chaque fois" créait des
+allers-retours inutiles (essayer un bloc natif, constater que ça ne colle pas au concurrent,
+redemander un Liquid en patch par-dessus). Le vrai enjeu n'a jamais été "bloc natif vs Liquid",
+mais "est-ce que ça reste modifiable par Roméo dans le Personnalisateur sans repasser par
+Claude". Deux garanties tiennent lieu de garde-fou à la place d'une validation au cas par cas :
+couleurs toujours pilotées par les variables du thème (jamais codées en dur), et chaque Liquid
+personnalisé isolé dans son propre bloc/section, scopé sous une classe racine unique — voir
+Étape 2. Claude décide donc lui-même, sans redemander l'autorisation à chaque section.
 
 ## Principe directeur
 
@@ -23,14 +32,32 @@ pas en ressortant celle-ci.
    poids visuel que le concurrent — jamais besoin des mêmes coins arrondis, du même alignement
    au pixel, de la même icône exacte. (Confirmé par la leçon 1.10 de la formation : "ce n'est
    pas la forme qui compte, c'est le fond".)
-2. **Construire avec les blocs natifs Shrine Pro en priorité absolue.** Jamais recoder une page
-   entière en Liquid sur-mesure quand un bloc natif fait le travail. Voir la check-list complète
-   par zone dans `references/blocs-natifs-shrine-pro.md`.
-3. **Règle d'or, actée par Roméo le 26/07/2026 : rien ne doit devenir une boîte noire.** Tout ce
-   que Claude produit doit rester visible et modifiable par Roméo directement dans le
-   Personnalisateur Shopify, sans qu'il ait besoin de repasser par Claude pour un simple
-   ajustement. C'est la raison d'être de cette réécriture : l'ancienne méthode (tout en Liquid
-   sur-mesure) empêchait Roméo d'intervenir sans risquer de casser le travail.
+2. **Choisir soi-même, section par section, entre bloc natif et Liquid personnalisé (acté le
+   29/08/2026, Claude n'attend plus d'accord au cas par cas).** Partir du bloc natif Shrine Pro
+   par défaut pour tout ce qui est générique et où il fait le travail sans compromis (voir la
+   check-list par zone dans `references/blocs-natifs-shrine-pro.md`). Basculer en Liquid
+   personnalisé dès que la fidélité au concurrent l'exige : structure, mise en page ou
+   comportement que les réglages du bloc natif n'exposent pas. Toujours indiquer à Roméo, en
+   passant, ce qui est natif et ce qui est du Liquid perso — jamais silencieusement.
+3. **Règle d'or, actée le 26/07/2026 : rien ne doit devenir une boîte noire.** Tout ce que Claude
+   produit doit rester visible et modifiable par Roméo directement dans le Personnalisateur, sans
+   qu'il ait besoin de repasser par Claude pour un simple ajustement. Deux garanties tiennent lieu
+   de garde-fou (précisées le 29/08/2026), quelle que soit la méthode choisie à l'étape 2 :
+   - **Couleurs toujours pilotées par le thème, jamais codées en dur.** Tout Liquid personnalisé
+     consomme les variables CSS globales de Shrine (posées via Personnalisateur > Couleurs), et
+     utilise le réglage natif "Jeu de couleurs" de la section/du bloc quand il existe. Si Roméo
+     change sa palette de marque, tout se met à jour partout, natif et Liquid perso, sans repasser
+     par Claude.
+   - **Chaque Liquid personnalisé est isolé** dans son propre bloc/section natif "Liquid
+     personnalisé" du Personnalisateur (jamais un fichier `.liquid` séparé dans
+     `sections/`/`snippets/`), scopé sous une classe CSS racine unique. Une correction sur un bloc
+     ne touche jamais les autres — c'est ce qui permet à Roméo de tout modifier un par un sans
+     risquer de casser le reste.
+4. **Mobile d'abord, desktop ensuite (acté le 29/08/2026).** La majorité du trafic pub achète
+   depuis un téléphone : on construit et on valide la version mobile en premier, la version
+   desktop vient s'adapter dessus, jamais l'inverse. Voir Étape 0 (demander la référence mobile)
+   et Étape 6 (checklist mobile, appliquée à la construction, pas seulement en vérification
+   finale).
 
 ## Déclencheur
 
@@ -45,6 +72,10 @@ pas en ressortant celle-ci.
    son template).
 3. **Le produit a-t-il un guide des tailles ?** Une app de bundle est-elle déjà installée pour
    gérer les paliers de prix (voir Étape 4), ou fait-on un prix simple pour le moment ?
+4. **La version MOBILE du concurrent** (captures d'écran de chaque section, ou lien testable en
+   direct). Acté le 29/08/2026 : c'est elle qui sert de référence de départ, pas la version PC
+   (voir Principe directeur, point 4). Si Roméo ne l'a pas donnée spontanément, la demander avant
+   de commencer — ne jamais construire uniquement à partir d'un rendu desktop.
 
 Ne pas avancer sans ces réponses. Ne pas reposer une question déjà répondue dans le message
 initial de Roméo.
@@ -57,9 +88,11 @@ initial de Roméo.
 2. Inspecter le HTML/CSS réel pour : structure des sections, ordre exact des blocs, couleurs
    réelles (`grep -oE "#[0-9a-fA-F]{6}"`), variables CSS nommées, apps installées (attributs de
    classe type `kaching-bundles`, scripts JSON de config visibles en clair).
-3. **Regarder aussi le rendu mobile réel du concurrent** (DevTools format téléphone, ou
-   screenshots demandés à Roméo) — le comportement mobile diverge souvent du desktop
-   (galerie en swipe plutôt qu'en vignettes, ordre image/texte inversé, etc.).
+3. **Partir en premier du rendu MOBILE réel du concurrent** (captures fournies par Roméo à
+   l'Étape 0, ou DevTools format téléphone) — acté le 29/08/2026, c'est la référence de
+   construction, pas une simple vérification finale. Le rendu desktop est regardé ensuite, en
+   second, pour l'adaptation. Le comportement mobile diverge souvent du desktop (galerie en swipe
+   plutôt qu'en vignettes, ordre image/texte inversé, etc.), voir Étape 6 pour la checklist.
 
 ## Étape 1bis — Traduire fidèlement le titre et le texte du concurrent (source : prompts formateur, Notion "Les prompts Claude", ajouté le 06/08/2026)
 
@@ -126,17 +159,29 @@ mapping rang par rang) :
    va sur ce bouton".** Vérifier que la couleur Zooryn assignée reproduit un contraste
    équivalent contre le fond du bloc concerné ; sinon, le signaler à Roméo avant de conclure.
 
-## Étape 2 — Construire avec les blocs natifs Shrine Pro (méthode par défaut)
+## Étape 2 — Construire : bloc natif ou Liquid personnalisé, décision de Claude (revu le 29/08/2026)
 
-Voir `references/blocs-natifs-shrine-pro.md` pour la check-list complète, zone par zone (bloc
-produit principal, prix, bullet points, guide des tailles, badges paiement, réassurance,
-carrousel, avis, FAQ, sticky add to cart...), issue de l'analyse détaillée de la leçon 1.10.
+**Sur mobile d'abord** (Étape 1) : pour chaque section de la fiche, décider soi-même, sans
+demander l'accord de Roméo :
 
-Blocs natifs disponibles à connaître : **Rating stars, Text with icon, Image with text,
-Image/Video Slider, Sizing chart (popup), Payment badges, Testimonials, Contenu réductible
-(Collapsible content), Sticky Add To Cart, Custom columns.**
+- **Bloc natif Shrine Pro par défaut** dès qu'il fait le travail sans compromis vs le concurrent.
+  Voir `references/blocs-natifs-shrine-pro.md` pour la check-list complète, zone par zone (bloc
+  produit principal, prix, bullet points, guide des tailles, badges paiement, réassurance,
+  carrousel, avis, FAQ, sticky add to cart...), issue de l'analyse détaillée de la leçon 1.10.
+  Blocs natifs disponibles à connaître : **Rating stars, Text with icon, Image with text,
+  Image/Video Slider, Sizing chart (popup), Payment badges, Testimonials, Contenu réductible
+  (Collapsible content), Sticky Add To Cart, Custom columns.**
+- **Liquid personnalisé** dès que la fidélité au concurrent l'exige (structure, mise en page ou
+  comportement que les réglages du bloc natif n'exposent pas) — voir Étape 3 pour le mécanisme et
+  les deux garde-fous obligatoires (couleurs, isolation).
+- **Réflexe avant d'écrire du Liquid : chercher les classes du thème dans le HTML du concurrent.**
+  S'il tourne lui aussi sur Shrine Pro (ou Dawn), ses classes trahissent souvent le bloc natif
+  exact à utiliser (cf. leçon Titanox dans "Erreurs déjà commises" plus bas), et ses variables
+  CSS inline donnent les réglages à recopier un par un.
+- Dans tous les cas, **indiquer à Roméo, en passant**, ce qui est natif et ce qui est du Liquid
+  perso — jamais silencieusement, mais sans attendre de feu vert avant d'écrire.
 
-## Étape 3 — Mécanismes autorisés pour le sur-mesure (quand un bloc natif ne suffit pas)
+## Étape 3 — Le Liquid personnalisé : mécanisme et garde-fous obligatoires
 
 > ⚠️ **CORRECTION du 12/08/2026 : le champ `custom_css` N'EXISTE PAS dans Shrine Pro.** L'ancienne
 > version de cette étape affirmait le contraire. Vérifié section par section (`testimonials`,
@@ -145,8 +190,8 @@ Image/Video Slider, Sizing chart (popup), Payment badges, Testimonials, Contenu 
 > ignore le réglage inconnu et rien ne s'applique.** Il ne reste donc qu'UN seul mécanisme de
 > sur-mesure, le Liquid personnalisé.
 
-Un seul mécanisme, jamais un fichier `.liquid` séparé ni une section sur-mesure sans accord
-explicite de Roméo :
+Un seul mécanisme, jamais un fichier `.liquid` séparé — mais depuis le 29/08/2026, plus besoin
+d'un accord explicite de Roméo avant de l'utiliser, seulement des deux garde-fous ci-dessous :
 
 1. **Le "Liquid personnalisé"** (Custom Liquid), qui existe en deux formes, à choisir selon le
    besoin :
@@ -157,10 +202,19 @@ explicite de Roméo :
    Dans les deux cas le HTML/CSS vit dans le champ, visible et modifiable par Roméo directement
    dans le Personnalisateur — jamais un fichier séparé dans `sections/` ou `snippets/` qu'il ne
    pourrait pas rouvrir sans risquer de casser autre chose.
-2. Écrire ce code directement (pas besoin d'un aller-retour ChatGPT comme le formateur dans la
-   vidéo), scopé sous une classe racine pour ne jamais entrer en collision avec le thème.
-3. **Toujours annoncer à Roméo** qu'un Liquid personnalisé est utilisé et pourquoi un bloc natif
-   ne suffisait pas — jamais silencieusement.
+2. **Garde-fou couleurs (acté le 29/08/2026) : consommer les variables CSS globales du thème,
+   jamais un hex codé en dur.** Shrine expose ses couleurs de marque en variables CSS globales
+   (posées via Personnalisateur > Couleurs) ; les réutiliser dans le code du bloc (`var(--color-...)`)
+   plutôt que d'écrire `#6E4E37` en dur. Si le bloc/la section "Liquid personnalisé" propose lui-même
+   un réglage natif "Jeu de couleurs" (color scheme), l'utiliser en plus — à vérifier au cas par cas,
+   ce réglage n'est pas garanti disponible sur tous les emplacements. Le but : si Roméo change sa
+   palette de marque un jour, le Liquid perso suit automatiquement, sans repasser par Claude.
+3. **Garde-fou isolation (acté le 29/08/2026) : scoper systématiquement sous une classe CSS
+   racine unique** (ex. `.zsac` pour le sac sling, `.zmat` pour le matelas, une nouvelle par
+   produit). Ça garantit qu'une correction sur un bloc ne touche jamais les autres — c'est ce qui
+   permet à Roméo de tout modifier un par un sans risquer de casser le reste de la page.
+4. **Toujours annoncer à Roméo** qu'un Liquid personnalisé est utilisé et pourquoi un bloc natif
+   ne suffisait pas — jamais silencieusement, mais sans attendre son accord pour agir.
 
 ### 🥇 Méthode qui marche le mieux (validée par Roméo le 12/08/2026)
 
@@ -171,8 +225,9 @@ visuel du concurrent :**
 
 1. `curl` la page du concurrent, retrouver le fragment exact (HTML + `<style>`) de l'élément visé.
 2. Le recopier tel quel, en ne changeant que : les textes (traduits) et les couleurs (mappées
-   palette Zooryn), toujours déclarées en variables CSS en haut du bloc pour que Roméo puisse
-   réajuster sans revenir vers Claude.
+   palette Zooryn). **Priorité aux variables CSS globales du thème** (garde-fou couleurs
+   ci-dessus) ; ne déclarer une variable locale en haut du bloc que pour une couleur sans
+   équivalent global (badge/promo isolé propre à cette section).
 3. Livrer le bloc prêt à coller, en indiquant précisément OÙ le poser.
 
 Le gain est double : rendu identique au pixel sans avoir à le redevisser, et zéro dépendance —
@@ -245,10 +300,13 @@ Ne jamais annoncer "terminé" sans avoir vérifié, dans l'ordre :
    chercher les chaînes attendues (titres traduits, noms de fichiers d'images, ancres, classes
    CSS). Un push "successful" ne prouve pas que le contenu s'affiche.
 
-## Étape 6 — Passe mobile obligatoire
+## Étape 6 — Checklist mobile (appliquée à la construction, pas en vérification finale)
 
-Vécu sur Luma (28/06) : la page rendait bien sur desktop mais a dû être reprise cinq fois sur
-des détails mobile. Toujours faire cette passe AVANT de clore, en s'appuyant sur le vrai rendu
+**Depuis le 29/08/2026, cette checklist s'applique DÈS l'Étape 2 (construction), pas seulement
+avant de clore** : la page se construit mobile d'abord (cf. Principe directeur, point 4), donc
+ces points sont déjà en place avant même de passer au desktop. Historique de la leçon : vécu sur
+Luma (28/06), où la page rendait bien sur desktop mais a dû être reprise cinq fois sur des
+détails mobile parce que le mobile n'avait été regardé qu'à la fin. S'appuyer sur le vrai rendu
 mobile du concurrent (pas un mockup desktop-only) :
 
 1. **Galerie produit = swipe à la main sur mobile**, pas forcément les mêmes vignettes que
@@ -260,6 +318,10 @@ mobile du concurrent (pas un mockup desktop-only) :
 5. **Tout `<button>` textuel ajouté en Liquid personnalisé doit avoir `color:inherit` explicite**
    (sinon il s'affiche en bleu sur iOS Safari, rendu par défaut du système Apple — vécu sur
    Luma avec les boutons de FAQ/accordéon).
+
+**Une fois le mobile posé, passer au rendu desktop** : vérifier que rien ne casse en largeur
+(colonnes qui doivent réapparaître, galerie qui redevient vignettes, texte qui peut se recentrer
+si c'est ce que fait le concurrent) avant l'Étape 5 (vérification) et l'Étape 7 (déploiement).
 
 ## Étape 7 — Déploiement (règles du CLAUDE.md)
 

@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-08-31
+
+### Fiche produit Émeraude Dorée : deux tentatives ratées, tout supprimé, méthode remise à plat
+
+- **Tentative 1 : blocs 100% natifs Shrine.** Découverte au passage que le thème a une architecture bien plus riche que ce que documentait le skill (`.claude/skills/fiche-produit/references/blocs-natifs-shrine-pro.md`, écrit sur une version plus ancienne/plus pauvre) : un dossier `blocks/` avec des dizaines de blocs imbriqués natifs (titre, prix, urgence, livraison estimée dynamique, bullets à puces, avis, FAQ en accordéon, cadeaux par palier de quantité, carrousel média...). Résultat jugé « pas beau du tout » par Roméo : chaque bloc a son style par défaut, empilés ils ne forment pas un ensemble cohérent.
+- **Tentative 2 : reconstruction complète en Liquid personnalisé fait main**, en théorie la méthode que Roméo préfère ([[feedback_custom_liquid_pret_a_coller]]). Mais SANS le vrai HTML du concurrent : `monveree.store` bloque `curl` par Cloudflare (403), et le skill `browser-use` s'est révélé **non installé** sur cette machine (jamais vérifié depuis la migration Mac du 22/08 ; `npx browser-use` existe mais c'est une CLI différente de celle documentée). Construit à partir du texte réel (récupéré via `WebFetch`, qui contourne Cloudflare) + de la capture d'écran mobile envoyée par Roméo, mais le design (boutons, cartes, espacements, couleurs) a été **inventé** plutôt que recopié du vrai concurrent. Résultat encore rejeté : *« tu fais n'importe quoi, y'a rien qui va »*.
+- **Tout supprimé sur demande explicite** : fichier template local supprimé, suppression poussée sur le thème live (`shopify theme push --only` sur un fichier absent), produit `emeraude-doree` repassé sur le template par défaut (`templateSuffix` vidé). Vérifié sur la page publiée.
+- **Ce qui reste acquis malgré l'échec de mise en forme** : le contenu texte intégral traduit du concurrent (titre, sous-titre, bullets, description, livraison/retours, 20 avis clients traduits, FAQ à 6 questions), le prix barré 120€/89€ posé sur les 5 montres du mécanisme cadeau (Émeraude, Éclat, Signature, Élégance, Cuir Noir), et le repérage confirmé du vrai mécanisme concurrent ("Elige 2, Paga 1" + popup de sélection de la montre gratuite).
+- **Flag légal maintenu** (non remis en cause dans la session) : la ligne "Hailey Bieber, Cara Delevingne + 500 000 femmes" et les logos de presse (VOGUE/InStyle/ELLE/GLAMOUR) du concurrent ne doivent pas être copiés tels quels (fausse caution/allégation commerciale, risque juridique distinct des faux avis déjà tolérés).
+- **Roméo demande explicitement de changer de méthode de travail** sur ce chantier précis, sans trancher laquelle pour l'instant. Rien n'est décidé sur la suite (blocs natifs, Liquid, ou autre) : à redéfinir ensemble à la prochaine session avant de retoucher au produit. Collection "Cadeaux Émeraude" toujours à créer par Roméo lui-même (bloqué côté Claude par le classifier de permissions).
+
+---
+
 ## 2026-08-29
 
 ### Mécanisme "montre gratuite" Monveree identifié, 4 fiches légères créées, méthode fiche-produit refondue (décision Liquid autonome + mobile-first)

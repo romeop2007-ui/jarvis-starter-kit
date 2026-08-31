@@ -161,7 +161,13 @@ Skill de recherche produit dropshipping pour Zooryn via TrendTrack, qui formalis
 
 ### fiche-produit
 
-Construit une fiche produit Shopify sur le thème live Zooryn (Shrine Pro) en copiant le funnel d'un concurrent réel. Choisit lui-même, section par section, entre bloc natif du thème (Testimonials, Image with text, Sizing chart, Collapsible content, etc.) et Liquid personnalisé selon ce qu'il faut pour rester fidèle au concurrent (décision autonome depuis le 29/08/2026, plus d'accord à demander à chaque fois) — toujours avec les couleurs pilotées par les variables globales du thème (jamais codées en dur) et chaque Liquid personnalisé isolé sous sa propre classe racine, posé en bloc/section natif "Liquid personnalisé" du Personnalisateur, jamais un fichier séparé que Roméo ne peut pas toucher. Construction mobile d'abord, adaptation desktop ensuite. Se déclenche quand Roméo donne l'URL d'un concurrent à reproduire + le produit Shopify cible, ou dit "fais-moi la fiche produit", "reproduis cette page", "copie ce concurrent". Renommé le 26/07/2026 (ex-skill `boutique`, ancienne méthode Claude Design → Liquid intégral entièrement abandonnée, trop lourde et hors du contrôle de Roméo une fois codée) ; méthode de décision revue le 29/08/2026.
+**🔄 Doctrine entièrement revue le 31/08/2026 : c'est Roméo qui construit ses pages produit, pas Claude.** Roméo les monte lui-même, à la main, avec les blocs natifs de Shrine Pro, en suivant le SOP de la formation. Claude n'intervient **que sur demande explicite**, et **uniquement sur l'élément demandé** : Roméo envoie une capture d'écran d'un morceau de fiche concurrente, Claude la reproduit **à l'identique** sous forme d'un bloc Custom Liquid prêt à coller, adapté aux couleurs de Zooryn. Livraison dans le chat par défaut, Roméo colle lui-même ; push seulement s'il le demande.
+
+Se déclenche quand Roméo envoie une capture et dit "fais-moi ce bloc", "reproduis ça en custom liquid", "adapte-moi ça aux couleurs de ma boutique". **Une URL de concurrent seule ne veut plus dire "construis-moi la page".**
+
+Trois garde-fous inchangés sur le bloc livré : couleurs pilotées par les variables globales du thème (jamais un hex de marque en dur), CSS scopé sous une classe racine unique, et bloc posé en "Liquid personnalisé" du Personnalisateur (jamais un fichier séparé). Avant d'écrire du Liquid, Claude vérifie systématiquement qu'un des ~100 blocs de `blocks/` ne fait pas déjà le travail — si oui, il le dit et s'arrête là.
+
+Historique : créé le 27/06/2026 sous le nom `boutique` (méthode Claude Design → Liquid intégral, abandonnée), renommé et réécrit le 26/07/2026 (méthode blocs natifs), décision Liquid rendue autonome le 29/08/2026, **puis doctrine renversée le 31/08/2026** après que la fiche Émeraude Dorée, construite intégralement en Liquid par Claude, a été supprimée le jour même : elle rendait Roméo dépendant d'une session Claude pour des retouches qui prennent cinq secondes en natif, et Claude avait reconstruit en Liquid le titre, le prix, la note et les accordéons que Shrine faisait nativement.
 
 ### crea-pub
 
@@ -230,9 +236,15 @@ Cette règle s'applique sans que Roméo ait à la redemander.
 
 **🔓 CLI débloquée en permanence (depuis le 25/07/2026).** Un mot de passe **Theme Access** (app officielle Shopify, `shptka_...`) est stocké dans `.env` sous `SHOPIFY_CLI_THEME_TOKEN`. L'exporter avant tout `theme pull`/`theme push` (`export $(grep SHOPIFY_CLI_THEME_TOKEN .env)`) évite toute reconnexion navigateur. Conséquence : Claude peut éditer n'importe quel bloc/réglage du thème (couleurs, textes, images déjà uploadées, liens, layout...) en modifiant directement le JSON, exactement comme si Roméo le faisait à la main dans le Personnalisateur.
 
-**🎨 Choix bloc natif vs Liquid personnalisé : décision autonome de Claude (acté le 29/08/2026, remplace la règle du 26/07/2026 qui exigeait un accord à chaque fois).** Claude choisit lui-même, section par section, sans redemander la permission à chaque fois : bloc natif Shrine Pro par défaut pour tout ce qui est générique (là où il fait le travail sans compromis), Liquid personnalisé dès que la fidélité au concurrent l'exige. Il indique toujours, en passant, ce qui est natif et ce qui est du Liquid perso — jamais silencieusement — mais n'attend plus de feu vert avant d'écrire.
+**🎨 Qui construit quoi : Roméo construit, Claude fournit du Liquid ponctuel (acté le 31/08/2026, remplace la règle d'autonomie du 29/08/2026 et celle du 26/07/2026).**
 
-Deux garde-fous non négociables accompagnent cette autonomie, quelle que soit la méthode choisie :
+- **Les pages produit sont montées par Roméo**, à la main, aux blocs natifs Shrine Pro, selon le SOP de la formation. Claude ne construit plus de fiche produit de sa propre initiative.
+- **Claude intervient sur demande explicite uniquement**, et sur le seul élément demandé : Roméo envoie une capture d'un concurrent, Claude rend un bloc Custom Liquid prêt à coller, identique à la capture, aux couleurs de Zooryn.
+- **Avant d'écrire du Liquid, vérifier qu'un bloc natif ne fait pas déjà le travail** (`ls livrables/ecommerce/boutiques/zooryn-shrine/blocks/`, ~100 blocs disponibles). Si oui, le dire et s'arrêter là : Roméo gagne un bloc qu'il pilote seul.
+
+Motif, tiré de l'échec du 31/08/2026 (fiche Émeraude Dorée construite en Liquid puis supprimée dans la journée) : un bloc natif se règle en cinq secondes dans le Personnalisateur et hérite gratuitement du comportement du thème ; un bloc Liquid n'hérite de rien et crée une dépendance à Claude pour la moindre retouche. Formulation de Roméo : *« si je veux modifier un truc, je suis obligé de passer par toi et je ne peux pas faire à la main un truc qui mettrait vraiment 5 secondes à faire »*. **Le Liquid ne se justifie QUE là où le thème ne sait pas faire.**
+
+Deux garde-fous non négociables sur tout bloc livré :
 1. **Couleurs toujours pilotées par le thème, jamais codées en dur.** Tout Liquid personnalisé consomme les variables CSS globales déjà posées par Shrine (issues des réglages Personnalisateur > Couleurs), et utilise le réglage natif "Jeu de couleurs" de la section/du bloc quand celui-ci en propose un. Si Roméo change sa palette de marque, tout se met à jour partout, natif et Liquid perso, sans repasser par Claude.
 2. **Chaque Liquid personnalisé est isolé** : posé en bloc/section natif "Liquid personnalisé" du Personnalisateur (jamais un fichier `.liquid` séparé dans `sections/`/`snippets/`), scopé sous une classe CSS racine unique. Une correction sur un bloc ne touche jamais les autres.
 

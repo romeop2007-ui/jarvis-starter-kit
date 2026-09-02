@@ -1,0 +1,250 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "Gallery": {
+          "type": "main-product_gallery",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "media-gallery": {
+              "type": "main-product_media-gallery",
+              "settings": {},
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "media-gallery"
+          ]
+        },
+        "Details": {
+          "type": "main-product_details",
+          "static": true,
+          "settings": {},
+          "blocks": {
+            "custom_liquid_CzXDDp": {
+              "type": "custom-liquid",
+              "name": "Custom Liquid",
+              "settings": {
+                "custom_liquid": "<style>\n  .zooryn-press-wrapper {\n    width: 100%;\n    margin-top: -64px;\n    margin-bottom: 26px;\n  }\n\n  .zooryn-press-bar {\n    display: flex;\n    align-items: center;\n    justify-content: space-around;\n    gap: clamp(10px, 3vw, 34px);\n    width: 100%;\n    padding: 28px 20px;\n    box-sizing: border-box;\n    overflow: hidden;\n    background-color: #6E4E37;\n  }\n\n  \n\n  .zooryn-official-logo {\n    display: block;\n    flex: 1 1 0;\n    min-width: 0;\n    height: 36px;\n    background-color: #EDE6D9;\n\n    -webkit-mask-position: center;\n    -webkit-mask-repeat: no-repeat;\n    -webkit-mask-size: contain;\n\n    mask-position: center;\n    mask-repeat: no-repeat;\n    mask-size: contain;\n  }\n\n\n\n.zooryn-official-vogue {\n  max-width: 150px;\n\n  -webkit-mask-image: url(\"https://upload.wikimedia.org/wikipedia/commons/f/f8/VOGUE_LOGO.svg\");\n  mask-image: url(\"https://upload.wikimedia.org/wikipedia/commons/f/f8/VOGUE_LOGO.svg\");\n}\n\n  \n\n  .zooryn-official-instyle {\n    max-width: 145px;\n\n    -webkit-mask-image: url(\"https://upload.wikimedia.org/wikipedia/commons/6/62/InStyle.svg\");\n    mask-image: url(\"https://upload.wikimedia.org/wikipedia/commons/6/62/InStyle.svg\");\n  }\n\n  \n\n  .zooryn-official-elle {\n    max-width: 115px;\n\n    -webkit-mask-image: url(\"https://upload.wikimedia.org/wikipedia/commons/9/9c/ELLE_Magazine_Logo.svg\");\n    mask-image: url(\"https://upload.wikimedia.org/wikipedia/commons/9/9c/ELLE_Magazine_Logo.svg\");\n  }\n\n\n\n.zooryn-official-glamour {\n  max-width: 150px;\n\n  -webkit-mask-image: url(\"https://upload.wikimedia.org/wikipedia/commons/b/ba/Glamour_logo.svg\");\n  mask-image: url(\"https://upload.wikimedia.org/wikipedia/commons/b/ba/Glamour_logo.svg\");\n}\n\n  @media screen and (max-width: 749px) {\n    .zooryn-press-wrapper {\n      position: relative;\n      left: 50%;\n      width: 100vw;\n      margin-top: -64px;\n      margin-bottom: 28px;\n      margin-left: -50vw;\n    }\n\n    .zooryn-press-bar {\n      width: 100%;\n      gap: 8px;\n      padding: 20px 13px;\n    }\n\n    .zooryn-official-logo {\n      height: 27px;\n    }\n\n    .zooryn-official-vogue {\n      max-width: 75px;\n    }\n\n    .zooryn-official-instyle {\n      max-width: 72px;\n    }\n\n    .zooryn-official-elle {\n      max-width: 55px;\n    }\n\n    .zooryn-official-glamour {\n      max-width: 90px;\n    }\n  }\n\n  @media screen and (max-width: 370px) {\n    .zooryn-press-bar {\n      gap: 6px;\n      padding-right: 10px;\n      padding-left: 10px;\n    }\n\n    .zooryn-official-logo {\n      height: 24px;\n    }\n  }\n\n  /* ===== DESKTOP UNIQUEMENT (ajout Claude, 01/09) ===== */\n  @media screen and (min-width: 750px) {\n    .zooryn-press-wrapper {\n      margin-top: 0;\n      margin-bottom: 22px;\n    }\n\n    .zooryn-press-bar {\n      justify-content: space-between;\n      gap: 26px;\n      padding: 18px 26px;\n      border-radius: 10px;\n    }\n\n    .zooryn-official-logo {\n      height: 26px;\n    }\n  }\n</style>\n\n<div class=\"zooryn-press-wrapper\">\n  <div class=\"zooryn-press-bar\" aria-label=\"Ils parlent de nous\">\n\n    <span\n      class=\"zooryn-official-logo zooryn-official-vogue\"\n      role=\"img\"\n      aria-label=\"Vogue\">\n    </span>\n\n    <span\n      class=\"zooryn-official-logo zooryn-official-instyle\"\n      role=\"img\"\n      aria-label=\"InStyle\">\n    </span>\n\n    <span\n      class=\"zooryn-official-logo zooryn-official-elle\"\n      role=\"img\"\n      aria-label=\"ELLE\">\n    </span>\n\n    <span\n      class=\"zooryn-official-logo zooryn-official-glamour\"\n      role=\"img\"\n      aria-label=\"Glamour\">\n    </span>\n\n  </div>\n</div>"
+              },
+              "blocks": {}
+            },
+            "custom_liquid_MUKXYp": {
+              "type": "custom-liquid",
+              "name": "Custom Liquid",
+              "settings": {
+                "custom_liquid": "<style>\n  .zooryn-celebrity-proof {\n    display: flex;\n    align-items: center;\n    flex-wrap: nowrap;\n    gap: 9px;\n    width: 100%;\n    padding: 8px 0;\n    box-sizing: border-box;\n    font-family: inherit;\n  }\n\n  .zooryn-celebrity-faces {\n    display: block;\n    flex: 0 0 auto;\n    width: 74px;\n    height: 38px;\n    object-fit: contain;\n    background-color: #EDE6D9;\n  }\n\n  .zooryn-celebrity-names {\n    flex: 0 0 auto;\n    color: #171717;\n    font-family: inherit;\n    font-size: clamp(13px, 2.2vw, 20px);\n    line-height: 1;\n    font-weight: 700;\n    white-space: nowrap;\n  }\n\n  .zooryn-verified-badge {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    flex: 0 0 auto;\n    width: 24px;\n    height: 24px;\n  }\n\n  .zooryn-verified-badge img {\n  display: block;\n  width: 100%;\n  height: 100%;\n  object-fit: contain;\n}\n  }\n\n  .zooryn-celebrity-description {\n    min-width: 0;\n    color: #7d8290;\n    font-family: inherit;\n    font-size: clamp(12px, 2.1vw, 19px);\n    line-height: 1.2;\n    font-weight: 400;\n    white-space: nowrap;\n  }\n\n  @media screen and (max-width: 749px) {\n    .zooryn-celebrity-proof {\n      flex-wrap: wrap;\n      column-gap: 5px;\n      row-gap: 0;\n      padding-top: 4px;\n      padding-bottom: 0;\n      margin-bottom: 18px;\n      overflow: visible;\n    }\n\n    .zooryn-celebrity-faces {\n      width: 55px;\n      height: 29px;\n    }\n\n    .zooryn-celebrity-names {\n      font-size: clamp(9px, 2.75vw, 13px);\n    }\n\n    .zooryn-verified-badge {\n      width: 17px;\n      height: 17px;\n    }\n\n    .zooryn-celebrity-description {\n      flex: 0 0 100%;\n      width: 100%;\n      margin-top: -2px;\n      margin-left: 60px;\n      font-size: clamp(10px, 3vw, 13px);\n      line-height: 1;\n      white-space: normal;\n    }\n  }\n\n  @media screen and (max-width: 370px) {\n    .zooryn-celebrity-proof {\n      column-gap: 4px;\n    }\n\n    .zooryn-celebrity-faces {\n      width: 49px;\n      height: 26px;\n    }\n\n    .zooryn-celebrity-names {\n      font-size: 8.5px;\n    }\n\n    .zooryn-verified-badge {\n      width: 15px;\n      height: 15px;\n    }\n\n    .zooryn-celebrity-description {\n      margin-left: 53px;\n      font-size: 10px;\n    }\n  }\n\n  /* ===== DESKTOP UNIQUEMENT (ajout Claude, 01/09) ===== */\n  @media screen and (min-width: 750px) {\n    .zooryn-celebrity-proof {\n      flex-wrap: nowrap;\n      gap: 8px;\n      padding: 0 0 2px;\n    }\n\n    .zooryn-celebrity-faces {\n      width: 58px;\n      height: 30px;\n    }\n\n    .zooryn-celebrity-names {\n      flex: 0 0 auto;\n      font-size: 15px;\n    }\n\n    .zooryn-verified-badge {\n      width: 18px;\n      height: 18px;\n    }\n\n    /* la cause du texte en colonne verticale : sans flex-shrink:0, min-width:0\n       laissait ce bloc etre ecrase a 0 de large par les elements incompressibles */\n    .zooryn-celebrity-description {\n      flex: 0 0 auto;\n      min-width: auto;\n      font-size: 15px;\n      line-height: 1.2;\n      white-space: nowrap;\n    }\n  }\n</style>\n\n<div class=\"zooryn-celebrity-proof\">\n\n  <!-- TROIS PORTRAITS AVEC FOND BEIGE -->\n  <img\n    class=\"zooryn-celebrity-faces\"\n    alt=\"Hailey Bieber et Cara Delevingne\"\n    src=\"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQIAOAA4AAD/2wBDAAwICQsJCAwLCgsODQwOEh4UEhEREiUbHBYeLCcuLisnKyoxN0Y7MTRCNCorPVM+QkhKTk9OLztWXFVMW0ZNTkv/2wBDAQ0ODhIQEiQUFCRLMisyS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0v/wAARCAAmAEoDASIAAhEBAxEB/8QAGwAAAgMBAQEAAAAAAAAAAAAABQYABAcCAwH/xAAwEAACAQMDAQcDBAIDAAAAAAABAgMABBEFEiExBhMiQVFxgWGRoRRCweEHJFRy8P/EABgBAAMBAQAAAAAAAAAAAAAAAAECAwQA/8QAIBEAAgIDAQACAwAAAAAAAAAAAQIAEQMhMRIiQVFSgf/aAAwDAQACEQMRAD8A0KWVIYmlldUjQZZmOABSbrvbwWdy1tp9vHMy9ZZH8J9gOv3rvtNrLtqv6CPDWyLtmB6MSP44/NKw01NwBVmUkjOOgxnJ+BXLj18ob/EMN271mzvxBfadasnn3TMD0z1yaddN1IX9klwYJIS37HxkfX2rNbSWOSWe6ulTuIFLYK53EnAH3OfYGjmj65qjWneBDcRKSN7JgE+mRU032UyALoRqTWIHuHhyquhwctXuL+IbjJ4FUZLE8AeprJtNWXU9Yu9VuXdGWTju+OfjyApsvppTDFas24qoaRh+5jz+B+c02JDkfzcVyFT1L+rdsorNGa1t2nC+ZBGfYUL0z/IMt25VraIkdUGVP3yaqyQZCgjOSOAeaVtdY2d7BPboEHLcDqT61ocY0egLEmoZlu9zXtK1u11PwxkpMBkxPwf7olWUaTevPDHdQkxyocgjyIp3i7V2vdJ3isH2jcB6+dB8BJvHyKuT9ohavq0Vv2g1GOSJw63L5ZeM+I4/FE4LtL60aKxDf7DBV3dR5t09MVx/kPsrNJqp1K1XMVwB3uP2uBj8gffNCrW1uNK07f3hikhYsoXzzgVkdrHkdmrGK+R5DlvpMa6PJvbexmjLZGOAH6feiekJdeM2wIVVwFHC9PP6f1QLSNXmvN1pK8SLKu3fyCp6g+nlg/QmnfT5Db2sUCqY9qgMPPPnShSR2EtR5FK2QRtsTCqWJIA+TV7UEc3103Re9bk+mTRUaZb5JCAE5yc1U1O3LBu5fdhQrgEZBxxn3H81bFanR7JZCG/kFCcmQgHDqpx6ny4oXdW4kTLRkheDkZr7dK8N0MZ358WKq3dzKZo1XdsPXPToa1tQZQfqILIYj7ktzLZNNHb23eRMdyhTyPXj3rv9Vd/8GT/3xV7Q7d7qcNGhYHwgeZNOydnbTYveZL4G4g9TS5MgU0IirY3C7osiFHUMrDBBGQaV9b7IfrEIsbhYgeTHICQfn+jUqVjloG0zsBqFvcBri6tVj3ZOzcxx8gU6DSoxbrGJZN69JM8+3tUqUAIbMqS6XfgnubqM/wDYY/g156ZoE9tctPc3gfefHGkYw30JPUfFSpRGrnHdSvf9kxLcPNaXOwucskg3D4NU5extzcRhHuYos8Mygtx9BgVKlX9sV2ZMAAw/omiW+jQlIWd3blnc9fYdBROpUqJJPY8//9k=\"\n  >\n\n  <span class=\"zooryn-celebrity-names\">\n    Hailey Bieber, Cara Delevingne\n  </span>\n\n  <!-- BADGE CERTIFIÉ -->\n  <span class=\"zooryn-verified-badge\" aria-label=\"Compte certifié\">\n  <img\n    src=\"https://img.icons8.com/color/48/instagram-verification-badge.png\"\n    alt=\"Badge de certification Instagram\"\n    width=\"24\"\n    height=\"24\"\n  >\n</span>\n\n  <!-- DEUXIÈME LIGNE SUR TÉLÉPHONE -->\n  <span class=\"zooryn-celebrity-description\">\n    et plus de 50 000 femmes portent Zooryn\n  </span>\n\n</div>"
+              },
+              "blocks": {}
+            },
+            "title": {
+              "type": "product_title",
+              "settings": {
+                "heading_tag": "h1",
+                "uppercase_title": false,
+                "desktop_size": 39,
+                "alignment": "left",
+                "mobile_size": 28,
+                "mobile_alignment": "mobile-left",
+                "margin_top": 0,
+                "margin_bottom": 0
+              },
+              "blocks": {}
+            },
+            "icon_with_content_xh9HUg": {
+              "type": "icon-with-content",
+              "name": "Icon with content",
+              "settings": {
+                "visibility": "always-display",
+                "icon": "",
+                "filled_icon": false,
+                "icon_size": "m",
+                "icon_position": "next-to-title",
+                "icon_color": "accent-1",
+                "custom_icon_color": "#ff0000",
+                "icon_text_alignment": "left",
+                "text_color": "text",
+                "custom_text_color": "#ff0000",
+                "title": "",
+                "icon_heading_size": "h3",
+                "text": "<p><strong>La montre qui ne se démode jamais.</strong> Une pièce qui allie la délicatesse de la joaillerie classique à une subtile touche de couleur en pierres précieuses.</p><p></p>",
+                "text_size": 14,
+                "margin_top": 15,
+                "margin_bottom": 15
+              },
+              "blocks": {}
+            },
+            "custom_liquid_JqXnUP": {
+              "type": "custom-liquid",
+              "name": "Custom Liquid",
+              "settings": {
+                "custom_liquid": "<style>\n  .zooryn-product-info {\n    width: 100%;\n    font-family: inherit;\n    color: #292929;\n  }\n\n  \n\n  .zooryn-rating-line {\n    display: flex;\n    align-items: center;\n    flex-wrap: nowrap;\n    gap: clamp(5px, 1.5vw, 14px);\n    width: 100%;\n    margin-bottom: 32px;\n    white-space: nowrap;\n  }\n\n  .zooryn-stars {\n    position: relative;\n    display: inline-block;\n    flex: 0 0 auto;\n    font-size: clamp(17px, 4.2vw, 30px);\n    line-height: 1;\n    letter-spacing: 0;\n    white-space: nowrap;\n  }\n\n  .zooryn-stars-background {\n    color: #ddd6d1;\n  }\n\n  .zooryn-stars-filled {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 94%;\n    overflow: hidden;\n    color: #6E4E37;\n  }\n\n  .zooryn-rating-text {\n    flex: 0 1 auto;\n    min-width: 0;\n    font-size: clamp(11px, 3.15vw, 23px);\n    line-height: 1;\n    white-space: nowrap;\n  }\n\n  .zooryn-rating-text strong {\n    font-weight: 700;\n  }\n\n  \n\n  .zooryn-price-line {\n    display: flex;\n    align-items: center;\n    flex-wrap: nowrap;\n    gap: clamp(7px, 1.5vw, 14px);\n    width: 100%;\n    white-space: nowrap;\n  }\n\n  .zooryn-compare-price {\n    flex: 0 0 auto;\n    color: #292929;\n    font-size: clamp(19px, 5vw, 29px);\n    line-height: 1;\n    text-decoration: line-through;\n  }\n\n  .zooryn-current-price {\n    flex: 0 0 auto;\n    color: #C1522A;\n    font-size: clamp(20px, 5.2vw, 30px);\n    line-height: 1;\n    font-weight: 500;\n  }\n\n  .zooryn-discount-badge {\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n    flex: 1 1 auto;\n    min-width: 0;\n    padding: clamp(10px, 2.2vw, 14px) clamp(12px, 2.8vw, 22px);\n    border-radius: 11px;\n    background-color: #C1522A;\n    color: #ffffff;\n    font-size: clamp(9px, 2.1vw, 14px);\n    line-height: 1;\n    font-weight: 800;\n    white-space: nowrap;\n  }\n\n  @media screen and (max-width: 749px) {\n    .zooryn-rating-line {\n      margin-bottom: 26px;\n    }\n  }\n\n  /* ===== DESKTOP UNIQUEMENT (ajout Claude, 01/09) ===== */\n  @media screen and (min-width: 750px) {\n    .zooryn-rating-line {\n      gap: 10px;\n      margin-bottom: 24px;\n    }\n\n    .zooryn-stars {\n      font-size: 22px;\n    }\n\n    .zooryn-rating-text {\n      font-size: 16px;\n    }\n\n    .zooryn-price-line {\n      gap: 12px;\n    }\n\n    .zooryn-compare-price {\n      font-size: 24px;\n    }\n\n    .zooryn-current-price {\n      font-size: 25px;\n    }\n\n    /* le badge s'etirait sur toute la largeur restante a cause de flex:1 1 auto */\n    .zooryn-discount-badge {\n      flex: 0 0 auto;\n      min-width: auto;\n      padding: 11px 18px;\n      font-size: 12px;\n    }\n  }\n</style>\n\n<div class=\"zooryn-product-info\">\n\n  <div class=\"zooryn-rating-line\">\n    <div class=\"zooryn-stars\" aria-label=\"Note de 4,7 sur 5\">\n      <span class=\"zooryn-stars-background\">★★★★★</span>\n      <span class=\"zooryn-stars-filled\">★★★★★</span>\n    </div>\n\n    <div class=\"zooryn-rating-text\">\n      <strong>4,7/5</strong> · Excellent · <strong>plus de 3 500 avis</strong>\n    </div>\n  </div>\n\n  <div class=\"zooryn-price-line\">\n    {% if product.compare_at_price > product.price %}\n      <span class=\"zooryn-compare-price\">\n        {{ product.compare_at_price | money }}\n      </span>\n    {% endif %}\n\n    <span class=\"zooryn-current-price\">\n      {{ product.price | money }}\n    </span>\n\n    <span class=\"zooryn-discount-badge\">\n      -30% + LIVRAISON OFFERTE\n    </span>\n  </div>\n\n</div>"
+              },
+              "blocks": {}
+            },
+            "custom_liquid_JHUGQP": {
+              "type": "custom-liquid",
+              "name": "Custom Liquid",
+              "settings": {
+                "custom_liquid": "<style>\n  .zooryn-features-section {\n    width: 100%;\n    padding-top: 22px;\n    padding-bottom: 22px;\n    font-family: inherit;\n    box-sizing: border-box;\n  }\n\n  \n\n  .zooryn-feature-separator {\n    display: block !important;\n    width: 100% !important;\n    height: 1px !important;\n    min-height: 1px !important;\n    margin: 0 !important;\n    padding: 0 !important;\n    border: 0 !important;\n    background-color: #c7c7c7 !important;\n  }\n\n  .zooryn-feature-separator-top {\n    margin-bottom: 22px !important;\n  }\n\n  .zooryn-feature-separator-bottom {\n    margin-top: 22px !important;\n  }\n\n  \n\n  .zooryn-features-grid {\n    display: flex;\n    flex-direction: column;\n    align-items: flex-start;\n    gap: 12px;\n    width: 100%;\n  }\n\n  .zooryn-features-first-row {\n    display: flex;\n    align-items: center;\n    flex-wrap: nowrap;\n    gap: 12px;\n    width: 100%;\n  }\n\n  \n\n  .zooryn-feature-badge {\n    display: inline-flex;\n    align-items: center;\n    justify-content: flex-start;\n    gap: 9px;\n    min-width: 0;\n    min-height: 48px;\n    padding: 10px 16px;\n    border-radius: 15px;\n    background-color: #6E4E37;\n    color: #EDE6D9;\n    box-sizing: border-box;\n    white-space: nowrap;\n  }\n\n  .zooryn-feature-icon {\n    width: 20px;\n    height: 20px;\n    flex: 0 0 20px;\n    color: #EDE6D9;\n  }\n\n  .zooryn-feature-icon svg {\n    display: block;\n    width: 100%;\n    height: 100%;\n    fill: none;\n    stroke: currentColor;\n    stroke-width: 1.8;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n  }\n\n  .zooryn-feature-text {\n    min-width: 0;\n    color: #EDE6D9;\n    font-family: inherit;\n    font-size: clamp(11px, 2vw, 16px);\n    line-height: 1.1;\n    font-weight: 500;\n    white-space: nowrap;\n  }\n\n  @media screen and (max-width: 749px) {\n    .zooryn-features-section {\n      padding-top: 20px;\n      padding-bottom: 20px;\n    }\n\n    .zooryn-feature-separator-top {\n      margin-bottom: 20px !important;\n    }\n\n    .zooryn-feature-separator-bottom {\n      margin-top: 20px !important;\n    }\n\n    .zooryn-features-grid,\n    .zooryn-features-first-row {\n      gap: 8px;\n    }\n\n    .zooryn-feature-badge {\n      gap: 6px;\n      min-height: 40px;\n      padding: 8px 10px;\n      border-radius: 12px;\n    }\n\n    .zooryn-feature-icon {\n      width: 17px;\n      height: 17px;\n      flex-basis: 17px;\n    }\n\n    .zooryn-feature-text {\n      font-size: clamp(9px, 2.65vw, 13px);\n    }\n  }\n\n  @media screen and (max-width: 370px) {\n    .zooryn-feature-badge {\n      gap: 5px;\n      padding-right: 7px;\n      padding-left: 7px;\n    }\n\n    .zooryn-feature-icon {\n      width: 15px;\n      height: 15px;\n      flex-basis: 15px;\n    }\n\n    .zooryn-feature-text {\n      font-size: 9px;\n    }\n  }\n\n  /* ===== DESKTOP UNIQUEMENT (ajout Claude, 01/09) ===== */\n  @media screen and (min-width: 750px) {\n    .zooryn-features-first-row {\n      flex-wrap: wrap;\n      gap: 10px;\n    }\n\n    .zooryn-features-grid {\n      gap: 10px;\n    }\n\n    /* largeur du contenu, jamais etires sur toute la colonne */\n    .zooryn-feature-badge {\n      flex: 0 0 auto;\n      min-height: 42px;\n      padding: 9px 15px;\n    }\n\n    .zooryn-feature-text {\n      font-size: 14px;\n    }\n\n    .zooryn-feature-icon {\n      width: 18px;\n      height: 18px;\n      flex-basis: 18px;\n    }\n  }\n</style>\n\n<div class=\"zooryn-features-section\">\n\n  <!-- BARRE GRISE DU HAUT -->\n  <div class=\"zooryn-feature-separator zooryn-feature-separator-top\"></div>\n\n  <div class=\"zooryn-features-grid\">\n\n    <!-- PREMIÈRE LIGNE -->\n    <div class=\"zooryn-features-first-row\">\n\n      <!-- BRACELET AJUSTABLE -->\n      <div class=\"zooryn-feature-badge\">\n        <span class=\"zooryn-feature-icon\" aria-hidden=\"true\">\n          <svg viewBox=\"0 0 24 24\">\n            <path d=\"M12 11a2 2 0 0 1 2 2c0 3-.8 5.4-2.1 7.4\"></path>\n            <path d=\"M8.2 21c1.2-2.1 1.8-4.7 1.8-8a2 2 0 0 1 4 0c0 1.2-.1 2.4-.3 3.5\"></path>\n            <path d=\"M5.5 19.2C6.5 17.3 7 15.3 7 13a5 5 0 0 1 10 0c0 2.7-.4 5.2-1.3 7.5\"></path>\n            <path d=\"M3.5 16.5c.4-1.1.5-2.3.5-3.5a8 8 0 0 1 16 0c0 1.7-.1 3.2-.4 4.7\"></path>\n            <path d=\"M5.2 7.2A8.6 8.6 0 0 1 12 4.5c2 0 3.9.7 5.3 1.9\"></path>\n          </svg>\n        </span>\n\n        <span class=\"zooryn-feature-text\">\n          Bracelet ajustable\n        </span>\n      </div>\n\n      <!-- ACIER INOXYDABLE -->\n      <div class=\"zooryn-feature-badge\">\n        <span class=\"zooryn-feature-icon\" aria-hidden=\"true\">\n          <svg viewBox=\"0 0 24 24\">\n            <path d=\"M12 3 20 6v6c0 5-3.4 8.2-8 9.5C7.4 20.2 4 17 4 12V6l8-3Z\"></path>\n            <path d=\"m9 12 2 2 4-4\"></path>\n          </svg>\n        </span>\n\n        <span class=\"zooryn-feature-text\">\n          Acier inox. 1re qualité\n        </span>\n      </div>\n\n    </div>\n\n    <!-- DEUXIÈME LIGNE -->\n    <div class=\"zooryn-feature-badge\">\n      <span class=\"zooryn-feature-icon\" aria-hidden=\"true\">\n        <svg viewBox=\"0 0 24 24\">\n          <circle cx=\"12\" cy=\"12\" r=\"9\"></circle>\n          <path d=\"M12 7v6h5\"></path>\n        </svg>\n      </span>\n\n      <span class=\"zooryn-feature-text\">\n        Mouvement à quartz et verre minéral\n      </span>\n    </div>\n\n  </div>\n\n  <!-- BARRE GRISE DU BAS -->\n  <div class=\"zooryn-feature-separator zooryn-feature-separator-bottom\"></div>\n\n</div>"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "custom_liquid_CzXDDp",
+            "custom_liquid_MUKXYp",
+            "title",
+            "icon_with_content_xh9HUg",
+            "custom_liquid_JqXnUP",
+            "custom_liquid_JHUGQP"
+          ]
+        }
+      },
+      "custom_css": [],
+      "settings": {
+        "display_id": false,
+        "enable_sticky_info": true,
+        "color_scheme": "background-1",
+        "pattern_bg": "none",
+        "pattern_color": "#6d388b",
+        "pattern_size": 20,
+        "pattern_thickness": 2,
+        "pattern_angle": 45,
+        "pattern_opacity_mode": "low",
+        "pattern_opacity_low": 7,
+        "pattern_opacity_normal": 80,
+        "enable_breadcrumbs": false,
+        "breadcrumbs_position": "above_first_block",
+        "breadcrumbs_mode": "hybrid",
+        "breadcrumbs_show_home": true,
+        "breadcrumbs_home_label": "Home",
+        "breadcrumbs_show_product": false,
+        "breadcrumbs_separator": "›",
+        "breadcrumbs_desktop_text_size": 13,
+        "breadcrumbs_mobile_text_size": 12,
+        "breadcrumbs_font": "body",
+        "breadcrumbs_text_color": "text",
+        "breadcrumbs_custom_color": "#dd1d1d",
+        "breadcrumbs_alignment": "left",
+        "breadcrumbs_bottom_margin": 14,
+        "display_variant_image_first": false,
+        "disable_prepend": true,
+        "hide_variants": false,
+        "variant_image_filtering": "none",
+        "image_zoom_desktop": "combined",
+        "hover_zoom_style": "inline",
+        "image_zoom_mobile": "lightbox",
+        "thumbnails_ratio": "square",
+        "arrows_color_scheme": "inverse",
+        "transparent_arrows": false,
+        "dots_color_scheme": "inverse",
+        "video_player": "play_btn",
+        "enable_video_looping": false,
+        "autoplay_videos_pause_btn": false,
+        "video_sound_btn": false,
+        "video_timeline": false,
+        "play_btn_color_scheme": "accent-1",
+        "sound_btn_color_scheme": "inverse",
+        "video_fullscreen_btn": false,
+        "fullscreen_btn_color_scheme": "inverse",
+        "timeline_color": "accent-1",
+        "media_size": "medium",
+        "media_position": "left",
+        "gallery_layout": "thumbnail_slider",
+        "desktop_thumbnails_position": "bottom",
+        "desktop_thumbnails_count": 5,
+        "desktop_vertical_thumbnails_width": 16,
+        "desktop_vertical_thumbnails_hide_arrows": false,
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "desktop_arrows_position": "hidden",
+        "mobile_media_corner_radius": 0,
+        "mobile_spacing_pixels": 0,
+        "mobile_arrows_position": "sides",
+        "mobile_pagination": "dots_overlay",
+        "mobile_thumbnails_position": "hidden",
+        "mobile_thumbnails_count": 5,
+        "mobile_vertical_thumbnails_width": 22,
+        "mobile_vertical_thumbnails_hide_arrows": true,
+        "mobile_scroll_padding_percentage": 0,
+        "mobile_scroll_padding_pixels": 0,
+        "enable_mobile_outher_spacing": false,
+        "mobile_slides_container_width": 100,
+        "mobile_slides_inner_width": 100,
+        "trust_badge_position": "top-right",
+        "badge_display_on": "all",
+        "badge_size_percentage": 20,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 16,
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "display_id": false,
+        "title": "You may also like",
+        "title_highlight_1": "solid-color",
+        "title_highlight_1_gradient": "linear-gradient(57deg, rgba(249, 119, 255, 1) 8%, rgba(54, 212, 255, 1) 47%, rgba(43, 252, 135, 1) 83%)",
+        "title_highlight_1_bg-color": "#f9efff",
+        "title_highlight_1_color": "#6d388b",
+        "highlighted-1_border_radius": 8,
+        "highlighted-1_border_width": 0,
+        "highlighted-1_border": "solid",
+        "highlighted-1_border_color": "#6d388b",
+        "highlighted-1_padding-block": 0.3,
+        "highlighted-1_padding-inline": 0.3,
+        "title_highlight_1_underline-thickness": 2,
+        "title_highlight_1_underline-color": "#6d388b",
+        "title_highlight_1_underline-color--gradient": "linear-gradient(57deg, rgba(249, 119, 255, 1) 8%, rgba(54, 212, 255, 1) 47%, rgba(43, 252, 135, 1) 83%)",
+        "title_highlight_1_underline-color-position": 25,
+        "title_highlight_1_handwritten-color": "#6d388b",
+        "title_highlight_1_handwritten-stroke-width": 3,
+        "title_highlight_1_handwritten-position": 60,
+        "title_highlight_2": "none",
+        "title_highlight_2_gradient": "linear-gradient(57deg, rgba(249, 119, 255, 1) 8%, rgba(54, 212, 255, 1) 47%, rgba(43, 252, 135, 1) 83%)",
+        "title_highlight_2_bg-color": "#f9efff",
+        "title_highlight_2_color": "#6d388b",
+        "highlighted-2_border_radius": 8,
+        "highlighted-2_border_width": 0,
+        "highlighted-2_border": "solid",
+        "highlighted-2_border_color": "#6d388b",
+        "highlighted-2_padding-block": 0.3,
+        "highlighted-2_padding-inline": 0.3,
+        "title_highlight_2_underline-thickness": 2,
+        "title_highlight_2_underline-color": "#6d388b",
+        "title_highlight_2_underline-color--gradient": "linear-gradient(57deg, rgba(249, 119, 255, 1) 8%, rgba(54, 212, 255, 1) 47%, rgba(43, 252, 135, 1) 83%)",
+        "title_highlight_2_underline-color-position": 25,
+        "title_highlight_2_handwritten-color": "#6d388b",
+        "title_highlight_2_handwritten-stroke-width": 3,
+        "title_highlight_2_handwritten-position": 60,
+        "heading_size": "h2",
+        "custom_desktop_size": 39,
+        "custom_mobile_size": 28,
+        "products_to_show": 4,
+        "stretch_cards": false,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "button_funcionality": "add-to-cart",
+        "button_label": "Go to product",
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 24
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products"
+  ]
+}

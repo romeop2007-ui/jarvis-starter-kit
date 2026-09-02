@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-09-02 (mise à jour 3)
+
+### Configuration Mac, compte ElevenLabs récupéré, protection Meta BM avant l'Espagne, candidature parrainage
+
+- **Config Mac finalisée** : notifications limitées à Calendar seulement (tout le reste coupé, y compris les appels relayés depuis l'iPhone, désactivés en permanence), délai d'extinction d'écran corrigé (était retombé à 2 min/10 min, remis à 30 min sur batterie et secteur), point de vigilance signalé sur le mot de passe après veille (actuellement "Jamais", laissé au choix de Roméo).
+- **OpenSuperWhisper installé** (dictée vocale open source, gratuite, signée/notariée par un vrai développeur Apple, donc aucun blocage Gatekeeper). Téléchargé et installé directement en terminal sur le Mac de Roméo, testé et fonctionnel au premier envoi.
+- **🔐 Compte ElevenLabs perdu puis récupéré (01-02/09/2026), épisode complet.** En configurant le nouveau Mac, Roméo s'est retrouvé bloqué par une demande de 2FA sans avoir ni le code TOTP ni le code de secours, et sans mot de passe ProtonPass pour ce compte. Cause identifiée en cours de route : ce compte n'est pas un compte perso classique, c'est un abonnement Creator 1 an acheté via le revendeur tiers **G2G** (facture 56,45 €, 02/06/2026), enregistré sous une identité distincte que Roméo contrôle mais qui n'est pas la sienne (`jeanmitchelledu77@gmail.com`, nom de compte "Jean Mitchelle"). Récupéré via le support ElevenLabs (exigence stricte : la demande doit venir de l'email du compte lui-même), en fournissant la facture G2G et l'ancien mail de sécurité du 6 juin comme preuves. **Correction apportée à CONTEXT.md** : la fiche "Chantier sécurité" du 11/07/2026 indiquait par erreur que c'était le compte perso romeop2007.
+- **🛡️ Setup Multilogin + proxy pour protéger le Meta Business Manager pendant les 5 mois en Espagne.** Après une 1re erreur (profil créé en "Mobile" au lieu de "Browser"), corrigée par suppression et recréation, profil Browser `FB010926` configuré avec un proxy résidentiel français acheté séparément, vérifié propre via WhoerIP (IP Ile-de-France, Orange, VPN/Proxy/TOR/Anonymous tous "Undetected"). Connecté à Meta Business Manager dans cette fenêtre dédiée, à réutiliser systématiquement pour ce compte à partir de maintenant (jamais le navigateur normal), y compris une fois physiquement en Espagne, pour que Meta ne voie aucun changement de pays. Plan gratuit Multilogin vérifié suffisant pour cet usage (jusqu'à 5 profils, le quota 200 Mo / 30 min affiché ne concerne que le proxy/mobile propre à Multilogin, pas le proxy externe de Roméo).
+- **5 rappels calendrier créés** (Google Calendar, calendrier principal) pour le renouvellement du proxy (abonnement 1 mois strict, jamais plusieurs mois, conseil formation) : 30/09, 30/10, 29/11, 30/12/2026 et 30/01/2027, ce dernier couvrant la période jusqu'au retour prévu début février 2027.
+- **Candidature envoyée pour devenir parrain/marraine sur le Discord Zecom Academy**, motivée par l'envie d'accompagner des débutants et de rester plongé dans l'e-com au quotidien (observation faite dans le chat d'attente du Drop 5 : même les parrains peu chiffrés progressaient énormément au contact des nouveaux). En attente de réponse des formateurs.
+
+---
+
 ## 2026-09-02 (mise à jour 2)
 
 ### Monveree abandonné sur le coût de réplication, boutique vidée, et mise au point sur la motivation

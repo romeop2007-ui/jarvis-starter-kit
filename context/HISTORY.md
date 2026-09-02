@@ -7,6 +7,32 @@
 
 ---
 
+## 2026-09-02
+
+### Routine posture et fascias montée sur Notion, et cadre reposé : Jarvis est dédié au business
+
+- **Demande ponctuelle et assumée comme telle par Roméo**, avant son départ en Espagne : construire un programme matin/soir d'étirements, mobilité et libération des fascias, à partir de sa page Notion "Posture, Bassin & Fascias" (22 exercices qu'il a lui-même sourcés sur TikTok, avec dosage, fréquence et lien vidéo pour chacun).
+- **Contrainte technique identifiée et tranchée avec lui** : Notion ne sait pas créer par API un lien vers un bloc à l'intérieur d'une page (seules les pages sont adressables, les ancres vers un toggle se font à la main dans l'interface). Impossible, donc, de rendre le tableau cliquable en gardant la bibliothèque en toggles. Trois options présentées, Roméo a choisi la base de données inline.
+- **Réalisé** : base de données "Bibliothèque d'exercices" posée sur la même page (22 fiches avec objectif, exécution pas à pas, dosage, source TikTok et références vidéo YouTube pour les 5 posts infographiques ; propriétés Catégorie, Fréquence, Moment, Dosage, Enchaîner avec, Source TikTok, Référence vidéo), plus le tableau "Programme de la semaine" rempli matin et soir sur 7 jours, chaque exercice étant une mention cliquable vers sa fiche.
+- **Logique de répartition** : le matin ne prend que ce que les créateurs imposent le matin (shaking d'Enzo 15-20 min, puis le bloc visage Lymphatic Reset, Gua Sha, SMAS Gliding, Masseter Release) ; le soir prend tout le travail au sol (hanches, pieds, fascias du corps) ; tout ce qui n'est pas quotidien est poussé vers le week-end comme demandé (superset nuque mardi/samedi/dimanche, trio guerrillazen lundi/mercredi/vendredi/samedi/dimanche, Spiral Twist mercredi/samedi/dimanche) ; jeudi soir volontairement allégé. Deux choix de programmation signalés comme n'étant pas des consignes de créateurs (GOATA Toe Tuck Rocker sans fréquence donnée, Sole Rolls déplacées dans le bloc pieds).
+- **Roméo a démarré les exercices le jour même** et valide le programme tel quel.
+- **🎯 Cadre reposé explicitement, à retenir durablement : Jarvis est consacré au business.** Les sujets personnels ne sont traités que ponctuellement, quand Roméo le demande, et ne deviennent jamais un chantier suivi. Pas de relance de Claude, pas de proposition d'intégration au contexte. Cette routine ne fait pas exception : il la pilote et la modifie seul.
+- Fichiers mis à jour : `CONTEXT.md` (préférences de travail + sujets ouverts Personnel), mémoires `feedback_jarvis_dedie_business.md` (créée) et `project_routine_posture_fascias.md` (créée puis corrigée pour graver l'absence de relance).
+
+---
+
+## 2026-09-01
+
+### Correctif desktop de la fiche produit Émeraude Dorée, mobile strictement intact
+
+- **Suite au renversement de doctrine du 31/08** (Roméo construit ses pages produit, Claude ne fournit que du Liquid ponctuel), Roméo a monté lui-même la fiche Émeraude Dorée, avec un CSS écrit via ChatGPT. Le rendu mobile était très bon, le desktop était cassé.
+- **Cause** : le CSS est desktop-first (les règles de base servent au PC, surchargées par des `@media (max-width: 749px)` pour le mobile), mais il avait été calibré uniquement sur le mobile.
+- **Méthode retenue, non destructive** : aucune règle existante modifiée, aucun élément HTML ajouté ou retiré. Uniquement 4 blocs `@media (min-width: 750px)` ajoutés en fin de `<style>`, qui ne peuvent jamais s'activer sous 750px. Non-régression vérifiée par restitution exacte de l'original après retrait des blocs insérés.
+- **Trois défauts objectifs corrigés** : `celebrity-description` (un `min-width:0` sans `flex-shrink:0` la laissait écraser à 0 de large, d'où le texte en colonne verticale), `discount-badge` (`flex:1 1 auto` l'étirait sur toute la largeur restante), `press-wrapper` (`margin-top:-64px` calibré pour le mobile la faisait chevaucher), plus `feature-badge` qui ne s'étirait pas sur sa colonne.
+- **Volontairement non touché** : la barre presse reste affichée en desktop alors que le concurrent la masque au-dessus de 769px. C'est un retrait de contenu, pas un correctif, donc la décision revient à Roméo. Les deux blocs natifs (titre, icon-with-content) restent intacts, leurs tailles desktop étant des réglages du Personnalisateur.
+
+---
+
 ## 2026-08-31
 
 ### Fiche produit Émeraude Dorée : deux tentatives ratées, tout supprimé, méthode remise à plat

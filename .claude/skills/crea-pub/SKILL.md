@@ -25,11 +25,30 @@ ordre :**
    la section decisive sur les **sujets genants** (comment vendre un produit intime sans jamais
    nommer la condition du spectateur).
 
-**Regle absolue : on ne traduit JAMAIS mot a mot le hook d'un concurrent qui cible un etat de
-sante, un age ou un handicap suppose du spectateur.** Meta refuse toute pub qui a l'air de savoir
-quelque chose de sensible sur la personne qui la regarde, y compris en tournure indirecte ("pour
-les personnes qui gerent X") depuis mars 2026. Le hook est reecrit, pas traduit. Concerne
-directement Staydries (boxer absorbant, hommes 60+).
+**🔄 REGLE RENVERSEE PAR ROMEO LE 02/09/2026 : on TRADUIT le hook du concurrent comme le reste
+de la crea, on ne le reecrit pas.** L'ancienne regle (ci-dessous, conservee pour memoire) imposait
+de reecrire tout hook ciblant un etat de sante, un age ou un handicap suppose. Romeo l'a levee
+explicitement : *« si tous ces trucs-la fonctionnent avec Meta, moi ca devrait aussi fonctionner
+avec Meta. Alors on a toujours un risque de ban mais bon, vraiment je m'en fous. »* Et sur la
+reecriture : *« on ne recree pas les hooks, on est trop nuls pour ca. On le fera quand on aura de
+l'experience. »*
+
+**Ce que ca change concretement :**
+- La categorie douleur / posture / orthopedie / intime **n'est plus un motif d'ecartement** en
+  recherche produit ni en creas. Elle redevient un gisement comme un autre.
+- Les 3 fichiers de reference ci-dessus **restent a lire** : ils gardent toute leur valeur en
+  copywriting pur (Caples/Schwab), et ils servent a SIGNALER a Romeo quand un hook est manifestement
+  hors-charte. **Signaler, pas bloquer, pas reecrire.**
+- **Risque assume et documente** : ban ou restriction du Business Manager, verifie seulement le
+  28/08/2026 donc encore jeune. Le setup Multilogin + proxy francais du 01-02/09 est la protection
+  en place. Si un refus de pub tombe, c'est un cout accepte d'avance, pas une erreur de methode.
+- La reecriture de hooks reviendra **quand Romeo aura de l'experience**, pas avant. Ne pas la
+  reproposer d'ici la.
+
+_Ancienne regle du 07/08/2026, conservee pour l'historique :_ « on ne traduit JAMAIS mot a mot le
+hook d'un concurrent qui cible un etat de sante, un age ou un handicap suppose du spectateur.
+Meta refuse toute pub qui a l'air de savoir quelque chose de sensible sur la personne qui la
+regarde, y compris en tournure indirecte ("pour les personnes qui gerent X") depuis mars 2026. »
 
 **Bonne nouvelle a garder en tete :** le hook conforme Meta et le hook gagnant chez Caples sont le
 meme hook. La question posee au spectateur sur son propre probleme ("Avez-vous ce probleme ?")

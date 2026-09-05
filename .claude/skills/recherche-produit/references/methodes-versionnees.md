@@ -1155,3 +1155,419 @@ Sur les 15 shops creexaminés créa par créa cette session, un motif revient :
 | 08/08/2026 | **F63 pages 2 à 5** | ~50 shops neufs au total. 15 creusés créa par créa. **0 au plancher.** | Filtre 🟢🟢 confirmé sur le volume ; rendement final nul cette passe. |
 | 08/08/2026 | **F64** (ratio durci) | 7 neufs sur 19, sélectionne des pages d'advertorial. | ❌ Retiré. |
 | 08/08/2026 | **F65** (fenêtre 10-25 j + plancher créa) | 0 neuf. | ❌ Retiré (loi n°4). |
+
+---
+
+# Session 16 (02/09/2026) — reprise après 3,5 semaines, aucun filtre neuf inventé
+
+**Décision de méthode prise par Roméo en début de session, à conserver** : après un arrêt de 3 semaines et demie, on ne cherche PAS un nouvel angle de filtre, on **rejoue les filtres validés dans le bon ordre** sur un vivier qui s'est renouvelé tout seul. Son raisonnement : « ça fait 3 semaines qu'on n'a rien fait, il pourrait très bien y avoir des shops qui commencent à scaler qu'on n'avait pas vus ».
+
+**Correction à acter sur le tri des filtres retirés** (l'enseignement de session 14 était trop large) : il faut distinguer deux motifs de retrait.
+- **Retrait STRUCTUREL** — le filtre est mort par construction, ne jamais le rejouer : F3/F5/F10 (stock + fraîcheur, loi structurelle), F30/F31/F14 (plafond de trafic retiré, corollaire n°2), F39/F55/F58/F65 (deux planchers chiffrés empilés, loi n°4), F60/F61 (tris exotiques, loi n°9).
+- **Retrait D'ÉCHANTILLON** — le filtre n'avait rien sorti ce jour-là sur un vivier déjà écumé. Ceux-là redeviennent jouables après quelques semaines. C'est le cas de V1 et V4, qui n'avaient plus été lancés depuis le 04/08 et qui ont fourni cette session le meilleur gisement des trois recettes essayées.
+
+## Résultat : V1 et V4 battent F63 sur un vivier reposé
+
+| Filtre | Lancé | Qualité du gisement | Candidats à creuser |
+|---|---|---|---|
+| **V1** (`min_active_ads`≥40 + `max_traffic` 2000 + shop <6 sem + `reachDelta7d`), sans `category_ids` | p1 + p2 | **p1 excellent**, p2 s'effondre (advertorials, mode en collection, sous plancher) | 5 |
+| **V4** (`ad_reach_growth` >100 % last7d + shop <8 sem + `max_traffic` 2500) | p1 + p2 | **p1 excellent**, recoupe V1 à ~40 % mais apporte du neuf (kneeplex, fatedduo, mylovlygioielli) | 4 |
+| **F63** (ratio de concentration + fraîcheur créa 8-45 j) | p1 | **Décevant cette fois** : dominé par les advertorials santé DE/IT et les collections de mode. Sur 20 lignes, ~12 inexploitables d'office. | 1 (Huber-Outdoor, déjà arbitré) |
+| **F53** (`search_shops` trié `createdAt`) | p1 (30 shops sur 72) | Gisement 100 % neuf comme prévu, mais **3 candidats sur 30 seulement**, tous morts à 0 créa ≥100k | 3 |
+
+> **À retenir pour la prochaine session : lancer V1 et V4 en tête, pas F63.** F63 garde sa valeur (il détecte la concentration en amont) mais son gisement s'est nettement dégradé en 3 semaines, alors que V1/V4 se sont rechargés. Confirme que le catalogue ne se hiérarchise pas une fois pour toutes : **l'ordre optimal dépend de la date de la dernière passe de chaque filtre**, pas d'un classement figé.
+
+## 🔑 Loi corollaire n°10 (confirmée, plus une hypothèse) : LE HÉRO UNIQUE EST LE MOTIF DE KILL DOMINANT
+
+L'« observation à confirmer » de la session 15 est confirmée sur un second échantillon indépendant. **Sur 10 candidats creusés au test de dispersion : 4 à une seule créa ≥100k, 3 à zéro, 2 à deux créas, 1 seul à trois créas mais réparties sur deux produits différents. Zéro candidat au plancher.**
+
+Le cas le plus net est `velmadora-it.com` : **82 pubs actives, une créa à 339 €/j, et rien d'autre au-dessus de 100k**. Le compteur de pubs de la page ne dit toujours rien, c'est la loi n°5 dans sa forme la plus pure.
+
+**Conséquence opérationnelle : le test de dispersion doit rester la PREMIÈRE chose faite sur chaque candidat, avant la page produit, avant le prix, avant tout.** Il coûte 1 à 4 unités et tue 9 candidats sur 10. Toute analyse faite avant lui est du temps perdu.
+
+**Nuance nouvelle sur le comptage des créas** (née d'`asileap.com`) : un shop peut atteindre 3 créas ≥70 €/j **sans qu'aucun de ses produits ne les atteigne**, si les créas portent des produits différents. **Le plancher se compte par PRODUIT, jamais par shop** — vérifier que les créas retenues pointent bien vers la même `landingPageUrl`. À ajouter à la checklist de l'étape 4 du `SKILL.md`.
+
+## Journal — session 16 (02/09/2026)
+
+| Date | Filtre | Résultat | Décision |
+|------|--------|----------|----------|
+| 02/09/2026 | **V1** p1 (sans `category_ids`) | Gisement neuf et riche. 5 candidats creusés (velmadora, defentor, rotafix, asileap, ecoawear) — tous morts en dispersion ou sur le prix. | 🟢 **À relancer en tête de session.** Rechargé après 4 semaines. |
+| 02/09/2026 | **V1** p2 | Qualité en chute libre (advertorials, mode, <70 €/j). 1 seul candidat (nordvera.dk), mort en dispersion. | Exploiter la p1, s'arrêter à la p2. |
+| 02/09/2026 | **V4** p1 | Recoupe V1 à ~40 % mais apporte kneeplex (196 €/j) et fatedduo. Tous morts. | 🟢 **Complément systématique de V1, confirmé.** |
+| 02/09/2026 | **V4** p2 | Rien au plancher. | Idem V1 : p1 seulement. |
+| 02/09/2026 | **F63** p1 | Gisement dégradé : advertorials santé DE/IT + mode. Aucun candidat neuf exploitable. | 🟢 Filtre conservé, mais **déclassé derrière V1/V4** pour la prochaine passe. |
+| 02/09/2026 | **F53** (`search_shops`, `createdAt`) | 72 shops, 30 lus. Échantillon 100 % neuf comme attendu. 3 creusés (bedbuddy, megafort, nordivadanmark), **tous à 0 créa ≥100k**. | 🟢 Toujours valide comme renouveleur d'échantillon, rendement nul cette passe. |
+
+**Bilan session 16 : 6 passes, 10 candidats creusés, 0 au plancher, ~180 unités consommées (19 561 restantes).** Deux candidats historiques fermés définitivement par Roméo (Staydries sur la dégradation de sa data, Huber-Outdoor sur le prix jamais monté à 49,90 €). Acquis de la session : la loi n°10, la règle « le plancher se compte par produit », et l'ordre de lancement V1/V4 devant F63.
+
+## Session 16 (suite) — élargissement en largeur : marchés neufs, F62/F51/F54, saisonnier Q4
+
+### ❌ F66 — V1 et V4 portés sur les MARCHÉS SOUS-EXPLOITÉS (NL, PT, GR, RO, CZ, IE)
+```
+(V1 et V4 à l'identique) + main_countries: ["NL","PT","GR","RO","CZ","IE"]
+```
+Angle : ces 6 marchés n'avaient jamais été ciblés explicitement, l'hypothèse était un vivier vierge.
+
+**Testé le 02/09/2026 : 40 lignes, un seul candidat au-dessus de 100 €/j hors advertorials et infoproduits, mort en dispersion (`kineticsbrace.com`, 1 créa).** Le plafond de €/j y est structurellement plus bas : sur les 40 résultats, la médiane tourne autour de 25-45 €/j, contre 100-340 €/j sur les mêmes filtres en DE/IT/ES/GB.
+
+> **Explication, à retenir comme règle : le €/jour est une mesure de DÉPENSE, donc il suit le CPM et la taille du marché.** Un plancher exprimé en €/j (70 €/j) est mécaniquement plus dur à franchir sur un petit marché à CPM bas. Cibler NL/PT/GR/RO/CZ/IE ne donne donc pas un vivier vierge exploitable : ça donne le même type de shops avec des budgets plus petits. ❌ **Retiré. Rester sur DE, IT, ES, GB, SE, DK, PL, AT, NL** (les marchés où les budgets existent).
+
+Effet de bord notable : RO et CZ font remonter beaucoup d'advertorials santé et d'infoproduits, ce qui recoupe la loi n°9 (ces marchés attirent un modèle d'annonceur particulier, pas de bons produits).
+
+### F62 relancé — toujours valide, mais le gisement a viré à l'advertorial
+Relancé à l'identique le 02/09. Sur 18 lignes : `ripovex.com/pages/adv1`, `100tageautark.de`, `ferranosaitalia.com/pages/kit-4-in-1`, plus des collections de mode italiennes et **un réseau de domaines** (`theqazedc.shop` + `zormella.shop`, même page « Cosmic Glow », handles `JK8181`/`X8181` = exclusion dure). Seul produit réel : `gloewhole.com` (power bank 96 €/j + setting spray 61 €/j) — **2 produits différents, donc sous le plancher par produit**, et le power bank tombe sous le garde-fou lithium.
+> Le ratio de concentration attire mécaniquement les pages d'advertorial : peu de créas, gros reach, c'est leur signature exacte. 🟢 Filtre conservé, mais **il faut lire les `landingPageUrl` avant tout** et jeter tout ce qui contient `/pages/adv`, `/adtorial`, `/reverse`, `/7-reasons-why`.
+
+### F51 relancé (`growth30d`) — 3 candidats, 3 morts
+`officialdadbag.com` (sac à langer 74,99 £, pente 4→57 en 2 semaines) : **0 créa ≥100k**. `nordscrub.dk` (brosses cuisine 47-62 €) : **0 créa ≥100k**. `campingbruser.com` : voir ci-dessous.
+
+### ❌ F54 — RETIRÉ : le gisement n'existe plus (02/09/2026)
+Relancé avec les paramètres d'origine : **0 résultat**. Puis desserré au maximum (création depuis janvier 2026, ≥10 pubs, ≤4000 visites, sans filtre de marché) : **2 shops au total dans le monde**, dont un vendeur d'ebooks argentin et `waxfree.se` (nettoyeur d'oreille 299 SEK ≈ 27 €, sous la loi n°3 et dispositif intra-auriculaire).
+**Les IDs d'apps ont été revérifiés via `lookup_filter_ids` et sont toujours valides** (Kaching 4277 à 151 033 installs, Rapi 309, Pumper 3590, Xboost 1408, Kaching 172). Ce n'est donc pas un problème d'IDs : l'intersection « app de bundle × feed trending × shop frais × petit trafic » est passée de 49 shops (07/08) à 2 (02/09). ❌ **Retiré du catalogue.**
+
+## 📅 Recherche saisonnière Q4 — première exécution du SOP officiel (02/09/2026)
+
+La brique « recherche saisonnière N-1/N-2 » du SOP formation (notée le 05/08, jamais exécutée) a enfin tourné. Recette utilisée, à réutiliser telle quelle :
+```
+search_ads:
+  created_after / created_before : le mois cible de l'année N-1 puis N-2
+  min_reach: 400000, reach_period: total     ← impressions seules, JAMAIS le €/jour
+  max_facebook_likes: 70000, max_instagram_followers: 30000
+  technologies: ["shopify"], ad_countries: {exclude:["FR"]}
+  status: "all"        ← indispensable, ces créas sont pour la plupart inactives
+  sort_by: "reach", max_ads_per_brand: 1
+```
+⚠️ `status: "all"` est le paramètre critique : sans lui on ne voit que les créas encore actives, donc on rate tout le cœur du sujet.
+
+**Résultat octobre 2025 (20 lignes) — deux populations distinctes :**
+- **Les evergreen lancés en octobre** (`daysRunning` 275-323, souvent encore actifs) : sac de frappe, oreiller cervical, fond de teint color-changing, serviette de sport.
+- **Les vrais cadeaux de Noël** (`daysRunning` 52-105, arrêtés) : escape room outdoor (`mysteryguides.co.uk`, 7,9M), puzzles (`originaljigsaw.co.uk`, 6,8M), jeu de société familial (`outsmarted.co.uk`, 6,6M), journal à remplir (`collectivebooks.co`, 5,3M), portefeuille compact (`darako.de`, 5,8M).
+
+**Résultat octobre 2024 (20 lignes) :** presque uniquement des evergreen (`daysRunning` 620-690, soit encore actifs deux ans après) — tabouret de toilette, bonde de douche, semelles orthopédiques, mousse nettoyante, matelas d'acupression.
+
+> **Conclusion honnête, qui corrige l'attente de départ : octobre n'est PAS d'abord une fenêtre de produits saisonniers, c'est la fenêtre où se lancent les winners DURABLES.** Le message de la formation (« le Q4 est la période au plus fort volume de bons produits ») est confirmé, mais le mécanisme n'est pas celui qu'on croyait : ce n'est pas qu'il y a plus de produits de saison, c'est que les gros lancements de l'année se font là. Conséquence pratique : la recherche saisonnière sert surtout à **repérer des TYPES de produits qui se relancent chaque octobre**, pas à trouver un shop à copier tout de suite.
+
+**Deux types notés pour la fenêtre octobre-novembre 2026** (à rechasser avec un shop frais le moment venu, jamais à copier depuis ces shops-là qui sont trop installés) :
+1. **Jeu / livre-cadeau familial non personnalisé** — puzzle, jeu de société, journal à remplir. Léger, ticket 30-50 €, très gros volume en novembre-décembre.
+2. **Accessoire compact homme à forte valeur perçue** — profil portefeuille `darako.de`. C'est exactement la cible de la loi n°8 (léger ET cher).
+
+**⚠️ Constat qui appelle un arbitrage de Roméo : la moitié du gisement Q4 est du CADEAU PERSONNALISÉ** (paillasson animaux, couverts gravés, bijou à gravure, chaussettes au prénom, carte de ville imprimée), qui tombe sous l'exclusion dure « personnalisable » actée le 18/07/2026. Sur les deux années regardées, c'est le motif d'écartement n°1 du gisement saisonnier.
+
+## Journal — session 16 (suite)
+
+| Date | Filtre | Résultat | Décision |
+|------|--------|----------|----------|
+| 02/09/2026 | **F66** (V1+V4 sur NL/PT/GR/RO/CZ/IE) | 40 lignes, 1 candidat creusé (`kineticsbrace.com`), mort en dispersion. Médiane 25-45 €/j contre 100-340 €/j sur les gros marchés. | ❌ **Retiré.** Le €/j suit le CPM : un petit marché ne peut pas franchir un plancher exprimé en dépense. |
+| 02/09/2026 | **F62** relancé | Advertorials + mode + réseau de domaines. `gloewhole.com` seul produit réel, 2 produits différents. | 🟢 Conservé, mais lire les `landingPageUrl` en premier et jeter les `/pages/adv*`. |
+| 02/09/2026 | **F51** (`growth30d`) | 30 shops, 3 creusés, **tous à 0 créa ≥100k**. | 🟢 Conservé comme renouveleur, rendement nul. |
+| 02/09/2026 | **F54** (apps de bundle) | 0 résultat, puis 2 shops au monde en desserrant tout. IDs revérifiés et valides. | ❌ **Retiré, gisement disparu.** |
+| 02/09/2026 | **Saisonnier Q4 oct-2025** | 2 populations : evergreen lancés en octobre + cadeaux de Noël courts. 5 types cadeau identifiés. | 🟢 **SOP validé et opérationnel.** À relancer chaque mois sur M+1. |
+| 02/09/2026 | **Saisonnier Q4 oct-2024** | Quasi que des evergreen encore actifs 2 ans après. | Confirme : octobre = fenêtre de lancement des winners durables. |
+
+## Session 16 (fin) — F57, F63 pages 2-4, et le premier shop de la journée à passer le plancher
+
+### 🔓 Décision de doctrine du 02/09/2026 : la catégorie DOULEUR / POSTURE / ORTHOPÉDIE est rouverte
+Roméo a tranché en fin de session : on ne ferme pas cette catégorie, on **traduit les hooks du concurrent comme le reste**, et le risque de ban est assumé. *« Si tous ces trucs-là fonctionnent avec Meta, moi ça devrait aussi fonctionner avec Meta. On a toujours un risque de ban mais vraiment je m'en fous. »* Et : *« on ne recrée pas les hooks, on est trop nuls pour ça, on le fera quand on aura de l'expérience. »*
+**Ne plus jamais écarter ni déprioriser un candidat sur le risque policy Meta.** Détail dans le `SKILL.md` et dans `crea-pub/SKILL.md` (Étape 0 renversée).
+⚠️ **Précision importante : aucun candidat de la journée n'était mort sur la policy.** Les 19 sont morts sur le plancher. La réouverture ne ressuscite rien rétroactivement, elle change le futur.
+
+### 🟢 F57 relancé — 5 résultats seulement, mais un enseignement de bord
+`sort_by: newest` + plancher `min_reach 55000 last7d` rend un échantillon minuscule (5 lignes contre 20 pour les autres filtres) : c'est normal, il pose une question très étroite (« quelles créas viennent d'apparaître ET dépassent déjà le plancher ? »).
+**Sorti `reinhab-de.com`** (tablettes anti-biofilm pour lave-linge, DE/AT, 70 pubs actives, **6 likes FB**, 68 €/j sur une créa de 8 jours) : **0 créa ≥100k au test de dispersion**, parce que le shop vient littéralement de démarrer.
+> **Cas d'école du bord AVANT la fenêtre « entre les deux ».** F57 attrape des shops à J+8, donc trop tôt pour avoir accumulé le reach qui prouve quoi que ce soit. Ce n'est pas un défaut du filtre, c'est sa nature : **F57 alimente la veille (BrandTracker), pas le pipeline.** Un shop qu'il sort se re-checke à 2-3 semaines.
+
+### F63 pages 2 à 4 — le volume est là, la qualité non
+60 lignes de plus. 4 candidats sortis et creusés, **tous morts** :
+
+| Shop | Produit | Dispersion | Verdict |
+|---|---|---|---|
+| `fataswan.com` | Gabarit de mortaise pour charnières, GB, 139 €/j | **1 créa ≥100k** sur 30 pubs | Mort |
+| `fuelmover.se` | Pompe de transfert de carburant, SE, 130 €/j | 3 créas ≥100k, **1 seule ≥70 €/j** (les 2 autres à 16 et 14 €/j sur 97 jours) | Mort. Winner installé de toute façon (7,99M de reach total) |
+| `boreanova.com` | Veilleuse d'ambiance à variateur, ES | **9 créas ≥100k, toutes sur la même page produit**, mais 1 seule ≥70 €/j | Mort. Tourne depuis 344 jours, 6,6M de reach, et diffuse via **Marie Claire España** et **Muy Interesante** (pages média à 1M et 4,7M de likes) = achat d'espace média, non réplicable à 50 €/jour |
+| `bootei.it` | Chaussures « Made in Italy », IT | **3 créas ≥70 €/j** (151, 152, 88) | Voir ci-dessous |
+
+### ⭐ `bootei.it` — le seul shop de la journée à franchir le plancher, et il n'est pas copiable
+9 pubs actives, **7 likes FB**, 1,19M de reach total, 3 créas à 151, 152 et 88 €/j. Sur le papier c'est le meilleur ratio de concentration rencontré depuis Staydries.
+**Mais les 3 créas pointent vers `https://bootei.it/`, la HOME**, et la copy est du branding pur (« Bootei interpreta il Made in Italy attraverso un design contemporaneo »), sans produit, sans prix, sans offre, en CTA `LEARN MORE` et non `SHOP NOW`.
+> **C'est une campagne de notoriété de marque, pas un tunnel de vente dropshipping.** S'ajoute le produit : des chaussures, donc tailles multiples. Le critère de redirection du 06/08 (page produit vs collection) trouve ici son **troisième cas, le pire** : redirection vers la HOME. À ajouter à l'échelle : page produit unique > collection > home. Une redirection vers la home signifie qu'il n'y a rien à copier du tout.
+
+## Journal — session 16 (fin)
+
+| Date | Filtre | Résultat | Décision |
+|------|--------|----------|----------|
+| 02/09/2026 | **F57** (`newest` + plancher last7d) | 5 lignes. `reinhab-de.com` sorti, 0 créa ≥100k (shop de 8 jours). | 🟢 Conservé, mais **reclassé en filtre de VEILLE**, pas de pipeline. |
+| 02/09/2026 | **F63** p2, p3, p4 | 60 lignes, 4 candidats creusés, 4 morts. Beaucoup d'advertorials, de handles chinois codés (`E8251`, `xyl1`, `viocore2`, `mceqzt11` = réseau de shops génériques) et de cadeaux personnalisés. | Confirme le rendement décroissant après la p1. |
+| 02/09/2026 | **`bootei.it`** | 3 créas ≥70 €/j — **le seul du jour** — mais redirection vers la home et branding pur. | Présenté à Roméo avec ses défauts, non retenu comme candidat prêt. |
+
+## 📊 Bilan complet de la session 16 (02/09/2026)
+
+**18 passes de recherche, 19 candidats passés au test de dispersion, 1 seul au plancher et non copiable.** ~800 unités TrendTrack consommées (19 225 restantes sur 20 000).
+
+**Acquis de la journée, par ordre d'importance :**
+1. **Loi n°10 confirmée** : le héros unique est le motif de kill dominant (13 des 19 candidats à 0 ou 1 créa ≥100k).
+2. **Le plancher se compte par PRODUIT, pas par shop** (cas `asileap.com` et `gloewhole.com`).
+3. **L'échelle de redirection à trois niveaux** : page produit unique > collection > **home** (cas `bootei.it`, le pire).
+4. **Le €/jour suit le CPM** : un plancher en euros par jour ne peut pas être franchi sur un petit marché (F66 retiré).
+5. **L'ordre du catalogue n'est pas figé** : il dépend de la date de dernière passe de chaque filtre. Ce jour-là V1/V4 > F63 > F53 > F57.
+6. **Octobre = fenêtre de lancement des winners durables**, pas fenêtre de produits saisonniers.
+7. **F54 et F66 retirés**, F57 reclassé en veille.
+8. **Catégorie douleur/posture rouverte** par décision de Roméo.
+
+**Filtres jamais essayés qui restent au catalogue** : tris `adOrder` et `relevanceScore`, deep-dive bibliothèque Meta (nécessite un navigateur), saisonnière sur novembre (M+2).
+
+# Session 17 (02/09/2026, soir) — trois hypothèses testées, trois négatifs informatifs
+
+Roméo : *« tu es libre, ton objectif c'est d'aller trouver des créas winneuses avec la data qu'on a l'habitude de chercher. Si les filtres n'ont rien validé, tu enchaînes, tu vas en rechercher d'autres. »*
+
+## ❌ F67 — V1 et V4 découpés PAR MARCHÉ (un pays à la fois)
+Hypothèse : le tri global est monopolisé par le marché qui dépense le plus, donc les autres marchés sont écrasés avant d'être vus. Découper par pays devrait multiplier l'échantillon.
+
+**Testé sur DE, ES et le bloc nordique (SE/DK/FI/NO). Résultat : l'hypothèse est fausse, et ce qu'elle révèle est plus utile qu'elle.**
+
+| Marché | Meilleure ligne | Décrochage |
+|---|---|---|
+| **IT** (via le tri global) | 339 €/j | tient jusqu'à ~75 €/j sur 20 lignes |
+| **DE** | 158 €/j | 4 lignes au-dessus de 50 €/j, puis chute à 15, 11, 8, 5, 2, 1, **0** |
+| **ES** | 296 €/j (Voro, déjà écarté) | 2e ligne à 37 €/j, puis 20, 18, 3, 2, 0, 0, 0 |
+| **Nordiques** | 84 €/j | plafond de la page |
+
+> **Le résultat global de V1 était italien à ~90 % parce que c'est là que se trouve l'argent du dropshipping frais en ce moment, pas à cause d'un biais du tri.** Découper par marché ne multiplie pas l'échantillon, ça montre que l'échantillon était concentré pour une bonne raison. ❌ Retiré. **Corollaire opérationnel : sur une passe V1/V4, l'Italie mérite d'être paginée en profondeur avant d'aller chercher ailleurs.**
+
+Effet de bord utile : la coupe par marché fait remonter en clair des **réseaux de domaines** invisibles dans le tri global — `suzvo.com` apparaît 5 fois avec 5 pages Facebook différentes (Suzvo, Suzvo/1, Suzvo/us, Suzvo Studio, Suzvo/Gift), et la famille `try*` (`tryserelia.com`, `tryallevora.com`, `tryirones.com`, `tryguardality.com`, `tryeska.com`) est un réseau d'advertorials à compléments. Plus un faux `mediamarkt-munich.com` (site frauduleux usurpant MediaMarkt).
+
+## ❌ F68 — V1 avec le plafond de trafic relevé de 2 000 à 6 000
+Hypothèse : `max_traffic: 2000` exclut peut-être des shops qui viennent de commencer à convertir, donc à avoir des acheteurs.
+**Testé : le résultat est quasi identique à V1 (19 lignes sur 20 en commun).** Le plafond n'était pas contraignant du tout.
+> **Explication, à retenir : sur un shop de moins de 6 semaines, le trafic n'a pas eu le temps d'exister.** `max_traffic` ne mord que lorsqu'on relâche la fraîcheur — ce qui est exactement la loi corollaire n°2, mesurée cette fois par l'autre bout. Inutile de toucher à ce paramètre tant que `shop_created_after` est strict. ❌ Retiré.
+
+## 🟡 F69 — Plancher unique sur la CRÉA, sans `min_active_ads`
+```
+search_ads:
+  min_reach: 120000, reach_period: last7d      ← plancher unique (loi n°4)
+  shop_created_after: <11 semaines
+  technologies:["shopify"] + max_facebook_likes: 1500
+  max_ads_per_brand: 3 + ad_countries:{exclude:["FR"]}
+  sort_by: reachDelta7d
+```
+Comble un trou documenté depuis le 04/08 : **V1 impose ≥40 pubs actives et rate donc les shops en début de scale**, et V4 ne couvre ce trou que via un filtre en pourcentage qui a son propre biais. F69 pose la question directement : « quelles créas de shops frais tournent fort cette semaine, quel que soit le nombre de pubs de la page ? »
+
+**A sorti `soleria-store.com`** (IT, 151 pubs, 147 likes FB) avec une créa à **404 €/j sur 11 jours** — la plus grosse dépense par créa vue de toute la journée. 🟡 **À reconduire**, l'angle est bon même si le candidat est mort (voir ci-dessous).
+
+## 🎯 La règle « plancher par PRODUIT » a payé dès sa première application
+
+`soleria-store.com` rend **4 créas ≥100k**, ce qui l'aurait fait passer pour un candidat solide au niveau shop. Réparties par produit :
+- **Slip de compression post-partum** (`/pages/listicle-slip-soleria`) : 404 et 139 €/j → **2 créas ≥70 €/j**
+- **Gouttes de drainage lymphatique** (`/products/drenaggio-linfatico-...`) : 72 et 54 €/j → **1 créa**
+
+Aucun des deux n'atteint 3. Et le second est un **complément ingéré** (gouttes sous la langue), donc exclusion dure de toute façon. Le shop entier tourne sur des personas fabriqués (« Mi chiamo Julie, ho 39 anni », « Dr. Susan Griffin, MD ») et des allégations médicales.
+> **Sans la règle écrite ce matin, ce shop passait pour un candidat au plancher.** C'est le premier cas où elle change le verdict.
+
+## Journal — session 17
+
+| Date | Filtre | Résultat | Décision |
+|------|--------|----------|----------|
+| 02/09/2026 | **F67** (V1/V4 par marché) | DE, ES et nordiques s'effondrent sous 50 €/j. Le gisement frais est italien. | ❌ Retiré. Corollaire : paginer l'Italie en profondeur. |
+| 02/09/2026 | **F68** (`max_traffic` 6000) | 19 lignes sur 20 identiques à V1. | ❌ Retiré. Le plafond ne mord pas sur du shop frais. |
+| 02/09/2026 | **F69** (plancher créa sans `min_active_ads`) | `soleria-store.com`, créa à 404 €/j. Mort au plancher par produit (2 créas) + moitié du catalogue ingérée. | 🟡 **Angle à reconduire**, il voit ce que V1 ne voit pas. |
+
+---
+
+# Session 18 (03/09/2026) — cinq recettes neuves, deux canaux fermés, et la mesure du gisement
+
+Consigne de Roméo en ouverture : *« reteste des filtres qui ont déjà marché, ou reteste des filtres tout courts qui n'ont jamais existé, recrées-en toi-même et teste-les jusqu'à ce que ça marche. Sois autonome pendant longtemps. »* Contrainte de la journée : la session 16-17 a tourné **la veille** (25 passes), donc rejouer V1/V4/F63/F51/F57/F62/F69 à l'identique était garanti de rendre le même échantillon. Toute la session porte donc sur des angles neufs.
+
+## 🟢 F70 — CONCENTRATION BUDGÉTAIRE EN EUROS (le ratio F62, mais au dénominateur monétaire)
+
+```
+search_ads:
+  min_spend_per_page: 1500, spend_per_page_period: last7d   ← le numérateur, en EUROS
+  max_active_ads: 40                                        ← le dénominateur
+  min_days_running: 8, max_days_running: 45                 ← fraîcheur portée sur la CRÉA (F63)
+  technologies:["shopify"] + max_traffic: 2500 + max_facebook_likes: 1500
+  ad_countries: {exclude:["FR"]}
+  max_ads_per_brand: 1, sort_by: reachDelta7d
+```
+
+**`min_spend_per_page` / `max_spend_per_page` n'avaient JAMAIS été utilisés dans les 69 recettes du catalogue.** Tout le catalogue mesure la concentration en REACH (F62/F63 : `min_reach_per_page` ÷ `max_active_ads`). Or le plancher de la doctrine est exprimé en **euros par jour**, pas en reach : mesurer directement la dépense de page sur 7 jours et la diviser par le nombre de créas actives est la traduction exacte du critère.
+
+**Résultat : 8 shops neufs sur 20 en page 1, et surtout TOUTES les lignes rendues sont ≥88 €/j** (408, 405, 361, 306, 273, 234, 222, 199, 186, 181, 168, 167, 164, 136, 94, 88…). Aucun autre filtre du catalogue ne produit un lot où même la dernière ligne franchit le plancher. C'est le meilleur plancher-par-ligne jamais obtenu.
+
+**⚠️ Page 2 s'effondre** (advertorials santé, mode IT, marchés COD BG/RO/GR, 100 % déjà-vu ou exclusion dure). **F70 se joue en page 1 uniquement.**
+
+🟢 **À lancer en tête de session**, à côté de V1/V4. Seuil : 1 500 € / 7 j est le bon réglage ; il équivaut à ~214 €/j de dépense de page répartie sur ≤40 créas.
+
+## 🟢🟢 F71 — FORCER LA REDIRECTION PAGE PRODUIT (`search_in: "url_contains"`)
+
+```
+(n'importe quel filtre) +
+  query: "/products/"
+  search_in: "url_contains"
+```
+
+**Paramètre jamais utilisé dans tout le catalogue.** `search_in` acceptait `ad_copy`, `brand`, `website`, `domain`, `url`, `url_contains` — seul `domain` avait servi (test de dispersion). En passant `/products/`, **100 % des créas rendues pointent vers une page produit Shopify**, ce qui élimine d'un seul paramètre les trois populations qui polluent chaque passe :
+1. les **collections de mode** (`/collections/…`),
+2. les **advertorials et listicles** (`/pages/…`),
+3. les **redirections home** (le motif qui a tué `bootei.it` le 02/09).
+
+C'est la traduction en paramètre de l'échelle de redirection actée le 02/09 (page produit unique > collection > home). Vérifié sur 20 résultats : 20 URLs `/products/`.
+
+🟢🟢 **À greffer par défaut sur tout filtre de découverte.** Coût en volume : modéré (le gisement se réduit d'environ un tiers), bénéfice : on ne dépense plus un seul appel sur un shop non copiable par sa structure.
+
+## 🟢🟢 F74 — PLANCHER PAR PRODUIT MESURÉ DÈS LA DÉCOUVERTE (dédup levée + regroupement local)
+
+```
+search_ads:
+  min_reach_per_page: 220000, reach_per_page_period: last7d   ← base F63
+  max_active_ads: 40
+  min_days_running: 8, max_days_running: 45
+  technologies:["shopify"] + max_traffic: 2500 + max_facebook_likes: 1500
+  ad_countries: {exclude:["FR"]}
+  max_ads_per_brand: 5        ← ★ la dédup est LEVÉE (F62/F63 étaient à 1 ou 2)
+  sort_by: reachDelta7d
+puis regroupement LOCAL par landingPageUrl normalisée (scratchpad/g.mjs)
+```
+
+**La règle « le plancher se compte par PRODUIT, jamais par shop » (actée le 02/09 sur `asileap.com`) était appliquée en aval, après avoir dépensé un appel de dispersion par candidat. F74 l'applique en amont.** En levant `max_ads_per_brand`, chaque annonceur rend jusqu'à 5 de ses créas ; le parseur les regroupe par URL de page produit et affiche directement `[N créas ≥70 €/j sur M]`. Un candidat au plancher se voit en une ligne, sans aucun appel supplémentaire.
+
+**Validé sur 3 pages le 03/09** : le meilleur groupe de la journée est `my-ne.es` avec **4 créas ≥70 €/j sur la même URL** (361, 387, 143, 124 €/j) — tué uniquement parce que ce sont des compléments alimentaires. Aucun autre produit n'a dépassé 2.
+
+🟢🟢 **À utiliser comme filtre de découverte principal.** Il remplace F62/F63 en usage courant (mêmes filtres, dédup levée, lecture par produit) et supprime l'étape « test de dispersion » pour tout ce qui sort de la page 1.
+
+## 🟢 F75 — CROISSANCE DU NOMBRE DE PUBS, CÔTÉ SHOP (`ads_growth` sur `search_shops`)
+
+```
+search_shops:
+  ads_growth: [{period: last30d, comparison: greater, value: 100}]
+  min_active_ads: 20, max_active_ads: 400
+  max_monthly_visits: 3000, max_products_count: 15
+  main_market_countries: EU + currencies: [EUR,SEK,DKK,GBP,PLN,CZK]
+  sort_by: growth30d, limit: 100
+```
+
+`ads_growth` avait été testé **sur `search_ads`** (F5, retiré le 04/08 : sans fraîcheur il rend des accumulateurs, avec fraîcheur il rend 0). **Sur `search_shops` il n'avait jamais été essayé**, et il se comporte différemment : c'est une dérivée pure, donc la loi structurelle ne mord pas, et on peut se passer de `creation_date_from`.
+
+**Résultat : 59 shops, quasiment tous inédits** — population complètement disjointe de tout ce que le catalogue avait produit. **Réserve honnête : sans filtre de fraîcheur du shop, la population est majoritairement composée de marques installées** (créations 2019-2025 : N-Pro rugby 2016, Aqualux 2022, Scrubols 2023, Boomnutritions 2024…). Ce n'est pas disqualifiant — la doctrine F63 dit que c'est la fraîcheur de la CRÉA qui compte — mais il faut trier à la lecture.
+
+🟢 **À garder comme renouveleur d'échantillon**, au même titre que F53. Meilleures sorties du jour : `shophoki.com` (89,99 €, pente 73→266) et `aqualux.fi` (69-79 €, 6 créas ≥100k sur une seule page produit), tous deux tués ensuite au plancher.
+
+## ❌ F72 / F73 — le plafond de trafic, mesuré une troisième fois par un troisième chemin
+
+- **F72** = F71 + plancher créa `min_reach: 55000 last7d` + `max_traffic: 2500` → **9 résultats seulement**. Pas un échec : c'est une **mesure**. Voir plus bas.
+- **F73** = F72 avec `max_traffic` relevé de 2 500 à **20 000**. Hypothèse : un shop qui convertit vraiment a du trafic, et 2 500 l'exclut. **Testé : le lot bascule immédiatement sur des accumulateurs** — `lantecy.com` (créa de 276 j), `wauzy.com` (319 j, coussins personnalisés Disney-Pixar), `anewsleep.dk` (243 j). ❌ Retiré.
+
+> **Troisième confirmation de la loi corollaire n°2, par un chemin neuf.** F30/F31 l'avaient montrée en retirant `max_traffic` avec un tri absolu ; F68 en le relevant avec `shop_created_after` strict (aucun effet) ; F73 le relève **sans** fraîcheur de shop et **avec** fraîcheur de créa — et cette fois le plafond mord violemment. Conclusion consolidée : **`max_traffic ≤ 2 500` est le garde-fou anti-accumulateur dès qu'on relâche `shop_created_after`. Ne jamais le toucher.**
+
+## ❌ Google Ads Library (F27) — canal FERMÉ définitivement
+
+```
+search_google_ads_library: eu_only + status active + min_reach 50000
+  + min/max_days_running 8-60 + exclude_audience_countries ["FR"] + sort impressions
+```
+F27 était 🧪 « jamais testé » depuis le 04/08. **Testé : 28 résultats au total**, dont Amazon Web Services, google.com, youtube.com (via Cycleurope), et deux agences média italiennes (PHD S.r.l., Mindshare Spa). **Un seul shop exploitable dans tout le canal** : `qookie-baby.com` (tué ensuite, vraie marque).
+
+⚠️ **Limites techniques constatées** : `max_traffic` et `shop_creation_after` sont **rejetés par l'API** (`website.traffic.monthly_visits is not verified for public Google Ads MCP reads`). Impossible d'appliquer la signature dropshipper frais. Et le reach Google n'est renseigné que sur une fraction des annonces.
+
+❌ **Retiré. Le dropshipping frais ne fait pas de Google Ads, et TrendTrack ne l'indexe pas.** Ne plus dépenser de crédits dessus.
+
+## ❌ TikTok Library — canal FERMÉ (même maladie que la loi n°9)
+
+```
+search_tiktok_library: type=ad + has_shop_linked=yes + countries EU
+  + min_views 300000 + published_after 2026-07-15 + sort_by views
+```
+Jamais tenté dans le catalogue. **Résultat : 2 756 items, et le tri par vues sélectionne des célébrités et des grandes marques** — TikTok España, Cat Burns, Becky Hill, Aitana, Latto, Tokio Hotel, ALDI Nord, MediaMarkt, L'Oréal, Liquid I.V. Le champ `shop` rattaché est du bruit (`danumystical.com` accroché au compte officiel de TikTok Espagne).
+
+> **C'est exactement la loi corollaire n°9, transposée à un autre réseau : un tri de POPULARITÉ sélectionne un modèle d'annonceur (l'influenceur), pas un bon produit.** Un usage de TikTok resterait possible en aval, pour vérifier la traction d'un candidat déjà trouvé (`has_shop_linked` + `domain`), jamais en découverte.
+
+## 📏 LA MESURE DU GISEMENT — 8 shops. C'est tout.
+
+Requête posée sans tri, pour compter la population et non pour en extraire une tête de liste :
+
+```
+search_shops:
+  creation_date_from: 2026-06-01        ← shop de moins de 3 mois
+  min_active_ads: 25, max_active_ads: 400
+  max_monthly_visits: 2500
+  max_products_count: 10                ← mono-produit
+  main_market_countries: [IT,DE,ES,NL,SE,DK,FI,PL,AT,BE,GB,IE,PT,CZ,NO]
+  currencies: [EUR,SEK,DKK,GBP]
+```
+
+**Réponse de l'API : `total: 8`.**
+
+`thewarmbox.se`, `sleepynights.se`, `megafort.nl`, `aktivnord.se`, `barutz.com`, `autwild.at`, `neuropur.de`, `shop-velia.com`. **Six étaient déjà dans `liste-rejetes.md`**, `autwild.at` a été tué le jour même, `barutz.com` est une marque d'influenceur.
+
+> **Ce n'est plus une impression, c'est un chiffre : la population « shop EU frais + mono-produit + volume de pubs sérieux » se compte à UN CHIFFRE à un instant T, et Zooryn l'a intégralement vue.** Toute recette qui impose simultanément `shop_created_after < 3 mois` ET `min_active_ads ≥ 25` puise donc dans un vivier de 8 lignes, quelles que soient ses autres options. C'est l'explication mécanique du « 0 candidat » des sessions 16, 17 et 18.
+>
+> **Conséquence de doctrine, à appliquer dès la prochaine session : abandonner la fraîcheur du SHOP comme filtre de découverte principal, et ne garder que la fraîcheur de la CRÉA** (`min_days_running` / `max_days_running`, la correction F63 du 08/08). Le vivier utile n'est pas « les shops nés il y a 2 mois », c'est « les produits qui décollent cette semaine », et il est un ordre de grandeur plus large. `max_traffic: 2500` + `max_facebook_likes: 1500` suffisent à écarter les marques installées (F73 le confirme a contrario).
+
+## 🎯 Deux TYPES à rechasser (data insuffisante aujourd'hui, profil idéal)
+
+1. **Filtre de douche anti-chlore, 69-79 €** (`aqualux.fi`, FI). Léger, non électronique, sans batterie, non saisonnier, page produit unique, forte valeur perçue : c'est la description littérale de la zone gagnante de la loi n°8. Le winner finlandais concentre 6 créas ≥100k sur une seule page produit mais aucune à 70 €/j — **plafond de CPM d'un petit marché**, pas un défaut de produit. Recherche mots-clés multilingues (`Duschfilter`, `filtro doccia`, `filtro de ducha`, `douchefilter`, `shower filter`) sur DE/IT/ES/NL avec plancher 50k/7j : **0 résultat**. Personne ne l'a encore porté sur un grand marché. À relancer chaque semaine.
+2. **Chaise de camping ultra-compacte, 99,90 €** (`autwild.at`, DE/AT). Mono-produit parfait, 100 % des créas sur une seule page, pente 54→130 en 8 semaines. Tué aujourd'hui parce que ses trois grosses créas sont passées inactives et qu'on est en fin de saison. **À re-checker en mars-avril 2027** : le type et le point de prix sont bons, la fenêtre ne l'est pas.
+
+## Journal — session 18 (03/09/2026)
+
+| Date | Filtre | Résultat | Décision |
+|------|--------|----------|----------|
+| 03/09/2026 | **F70** (concentration en €, `min_spend_per_page`) | 8 shops neufs sur 20 en p1, **toutes les lignes ≥88 €/j**. p2 s'effondre. | 🟢 **Validé, à lancer en tête. Page 1 uniquement.** |
+| 03/09/2026 | **F71** (`search_in: url_contains` = `/products/`) | 20/20 des créas pointent vers une page produit. Tue collections, advertorials et redirections home en un paramètre. | 🟢🟢 **À greffer par défaut sur tout filtre de découverte.** |
+| 03/09/2026 | **F72** (F71 + plancher créa 55k/7j + trafic <2500) | 9 résultats. Mesure du gisement plus qu'un filtre. | Conservé comme sonde. |
+| 03/09/2026 | **F73** (F72, `max_traffic` porté à 20 000) | Accumulateurs immédiats (créas de 243 à 319 jours). | ❌ Retiré. 3e confirmation de la loi n°2. |
+| 03/09/2026 | **F74** (F63 + dédup levée + regroupement par `landingPageUrl`) | Le plancher par produit se lit directement dans la sortie. Meilleur groupe : 4 créas ≥70 €/j sur une même URL. | 🟢🟢 **Filtre de découverte principal. Remplace F62/F63 en usage courant.** |
+| 03/09/2026 | **F75** (`ads_growth` sur `search_shops`) | 59 shops, population quasi 100 % inédite, mais majoritairement des marques installées. | 🟢 Renouveleur d'échantillon, à trier à la lecture. |
+| 03/09/2026 | **F27 Google Ads Library** | 28 résultats, que des géants. `max_traffic` et `shop_creation_after` rejetés par l'API. | ❌ **Canal fermé définitivement.** |
+| 03/09/2026 | **TikTok Library** (tri vues) | Célébrités et grandes marques. Loi n°9 transposée. | ❌ **Pas un canal de découverte.** Usage aval seulement. |
+| 03/09/2026 | **Sonde de gisement** (`search_shops`, shop <3 mois + ≥25 pubs + mono-produit + EU) | **`total: 8`**, dont 6 déjà rejetés. | 📏 **Mesure structurante : abandonner la fraîcheur du SHOP en découverte.** |
+
+**Bilan session 18 : ~15 passes, 13 candidats creusés, 13 tués, 0 au plancher.** Pipeline toujours vide. ~500 unités TrendTrack consommées, 18 588 restantes sur 20 000. L'acquis est méthodologique (F70, F71, F74, F75, deux canaux fermés) et surtout **la mesure du gisement**, qui explique enfin pourquoi trois sessions de suite rendent 0.
+
+## Dernière passe de la session 18 — F74 + F71 combinés, plancher de page abaissé à 150k
+
+```
+(tout F74) + query "/products/" search_in url_contains
+           + min_reach_per_page: 150000 (au lieu de 220000)
+           + max_days_running: 60 (au lieu de 45)
+```
+Passe de contrôle lancée après la mesure du gisement, pour appliquer la doctrine corrigée (fraîcheur de créa seule) avec l'aperture la plus large encore propre. **Résultat : 4 annonceurs seulement en page 1** (kneeplex, peroatelier, zormella, defentor), tous déjà arbitrés. Meilleur groupe : **`defentor.pl`** (répulsif à souris aux huiles essentielles, PL, 45 pubs, 61 likes FB, 100 % des créas sur `/products/defentor`) avec **2 créas ≥70 €/j** (156 et 117 €/j) — le meilleur profil de concentration de la journée, mais sous le plancher de 3, et déjà creusé et tué la veille en session 16. Confirme la mesure : à aperture large et propre, le marché EU rend aujourd'hui une poignée d'annonceurs, tous connus.
+
+## 🔴 CORRECTION MAJEURE de fin de session 18 : F73 était un test INVALIDE, et le plafond de trafic coupait la moitié du gisement
+
+**Erreur commise et corrigée le 03/09/2026 dans la même session.** F73 (« relever `max_traffic` de 2 500 à 20 000 ») a été lancé **sans `min_days_running`/`max_days_running`**. Ce n'était donc pas un test du plafond de trafic, c'était un test du retrait de TOUTE fraîcheur. D'où les accumulateurs (Lantecy 276 j, Wauzy 319 j, anewsleep 243 j) et la conclusion erronée « ne jamais toucher `max_traffic` ».
+
+**Test refait correctement — `max_traffic: 15000` ET fenêtre de créa 8-45 jours maintenue :**
+
+```
+search_ads:
+  query "/products/", search_in url_contains        ← F71
+  min_reach_per_page: 150000, reach_per_page_period: last7d
+  max_active_ads: 45
+  min_days_running: 8, max_days_running: 45          ← ★ LE paramètre qui manquait à F73
+  technologies:["shopify"] + max_facebook_likes: 1500
+  max_traffic: 15000                                 ← relevé de 2500
+  ad_countries:{exclude:["FR"]} + max_ads_per_brand: 4-5
+  sort_by: reachDelta7d
+```
+
+**Résultat immédiat, page 1 : deux produits au-dessus du plancher de 3, ce que trois sessions consécutives disaient impossible.**
+
+| Produit | Créas ≥70 €/j sur la MÊME page produit |
+|---|---|
+| `vysioneyewear.com/it-it/products/grey` (Skeye, lunettes ES+IT) | **4** : 1 061, 506, 251, 201 €/j |
+| `cazzatrend.it/products/o-lei-o-niente-red` (t-shirt IT) | **3** : 571, 400, 145 €/j |
+
+Les deux tombent sur des exclusions (Skeye = saisonnier + marque installée, déjà rejeté le 06/08 ; Cazzatrend = personnalisation). **Mais la démonstration tient : le plancher EST franchissable, on ne le voyait plus.**
+
+> **Loi corrigée : `max_traffic: 2500` n'est un garde-fou nécessaire QUE lorsqu'on filtre sur la fraîcheur du SHOP.** Dès qu'on porte la fraîcheur sur la CRÉA (`min/max_days_running`), c'est cette fenêtre qui écarte les accumulateurs, et le plafond de trafic ne fait plus que couper des shops parfaitement copiables — un shop de 6 mois à 8 000 visites/mois qui lance un produit qui décolle est exactement la cible. **Nouveau réglage par défaut : `max_traffic: 15000` AVEC fenêtre de créa obligatoire. Ne jamais relever le plafond sans la fenêtre.**
+
+**Leçon de méthode, à retenir au-delà de ce cas : quand un test « retire un garde-fou », vérifier que TOUS les autres garde-fous sont bien restés dans la requête avant de conclure.** Le `meta.filters` de la réponse le dit ; je ne l'avais pas relu.
+
+## 🟢 Le BrandTracker comme source de produits (première exploitation systématique, 03/09/2026)
+
+14 marques suivies. `list_tracked_brands` donne en une requête le nombre de **nouvelles créas sur 1 / 7 / 30 jours** par marque : c'est un détecteur de LANCEMENT, pas de scaling. Deux signaux forts ce jour-là : **Nattly DK, 91 nouvelles créas en 7 jours** (148 actives) et **ScandicBeam, 34 en 7 jours** (274 actives).
+
+`get_brandtracker_scaling_ads` sur Nattly révèle un **produit entièrement neuf** : **EnkelDyne**, une couette dont la housse est intégrée (lavable en machine domestique, sèche en 2 h), 899 NOK (~77 €) avec 2 taies offertes et 40 nuits d'essai, poussée sur deux nouveaux domaines (`sovna.eu` pour la Norvège, `nattlyshop.dk` pour le Danemark). Aucun filtre TrendTrack ne l'aurait sorti : le shop est déjà rejeté, donc invisible pour l'anti-doublon.
+
+> **C'est la tactique « Google Sheet secondaire des shops de niche à surveiller » de la formation, enfin outillée.** Un shop rejeté n'est pas mort : il reste le meilleur endroit où voir apparaître le PROCHAIN winner avant tout le monde. **À faire au début de chaque session, avant tout filtre : `list_tracked_brands`, repérer les marques à fort `newAdsLast7Days`, et ouvrir leur ScalingTab.** Coût : 2 requêtes.
+
+Rappel du 28/08 : Monveree avait été trouvé exactement comme ça, par un passage en revue du BrandTracker, pas par un filtre.

@@ -62,6 +62,16 @@ Le port tue la marge sur le lourd/volumineux et les produits à batterie lithium
 
 Deux préférences seulement, à **signaler sans écarter** : l'électronique (shipping/SAV/batteries) et les produits gadget-blague. Si la data est là, on présente quand même et on mentionne le point — c'est Roméo qui tranche.
 
+**🔓 CATÉGORIE DOULEUR / POSTURE / ORTHOPÉDIE / INTIME : ROUVERTE PAR ROMÉO LE 02/09/2026.** C'est le gisement le plus dense et le plus concentré du marché EU frais (relevé sur 2 sessions : KneePlex, Rotafix, Kinetics, NordVera, MoveWell, PillowDaddy, Norma-Design, Orthotal, ComfySoles, Powerinsole, Ergonomikliniken, Staydries). Ces candidats mouraient jusqu'ici sur un motif de **policy Meta**, jamais sur la data.
+
+Décision de Roméo, à appliquer telle quelle : *« si tous ces trucs-là fonctionnent avec Meta, moi ça devrait aussi fonctionner avec Meta. On a toujours un risque de ban mais vraiment je m'en fous. »* Et : *« on ne recrée pas les hooks, on est trop nuls pour ça, on le fera quand on aura de l'expérience. »*
+
+**Conséquences pour ce skill :**
+- **Ne plus jamais écarter ni déprioriser un candidat au motif du risque policy Meta.** Seuls comptent la data et les exclusions dures (ingéré, topique à promesse santé, saisonnier, personnalisable, non-copiable, réseau de domaines, déjà rejeté).
+- ⚠️ **L'exclusion « topique à promesse santé » reste entière** (sérum anti-rides, crème repousse cheveux, savon antimycosique). C'est une exclusion de RISQUE PRODUIT, pas de policy publicitaire : elle n'est pas concernée par cette réouverture.
+- Un hook manifestement hors-charte se **signale en une ligne** dans la présentation du candidat, comme un défaut parmi d'autres. Il ne kille rien et ne déclenche aucune réécriture.
+- Idem pour les dispositifs à revendication médicale explicite (attelle, semelle orthopédique, gouttière) : ils se présentent, avec la mention du risque, et c'est Roméo qui tranche.
+
 Via `search_ads` (MCP TrendTrack) :
 - **pas de `category_ids`**
 - `min_active_ads` ≥ 40, `max_traffic` < 2000
@@ -76,7 +86,18 @@ Moteurs d'appoint : `daily_radar` (produits/shops qui montent) et le filet nordi
 
 **Convention de nommage (Roméo, 04/08/2026) : `F` = filtre en test, `V` = filtre validé, le numéro ne change jamais** (F15 validé devient V15). **⚠️ À ne pas confondre avec la « méthode générale V3 »**, qui désigne la doctrine de recherche produit (arbitrages de fond ci-dessus) et n'a rien à voir avec ces filtres — retirer un filtre F3 ne touche pas la méthode V3.
 
-**⭐⭐⭐ Depuis le 07/08/2026 (session 12), COMMENCER PAR F51 (`search_shops`), puis F43 → F41 → F47 → F38.** F51 est le seul filtre du catalogue qui n'interroge pas `search_ads` : il part du SHOP et non de la CRÉA, et ouvre donc un gisement que tous les autres filtres ne voient pas (5 014 shops au premier passage, un seul déjà vu). Il donne en plus le **prix du best-seller, la pente d'ads semaine par semaine et la fraîcheur du shop dans la réponse elle-même**, donc on trie avant de dépenser le moindre appel de vérification. **⚠️ Toujours lui passer `main_market_countries` EU** : sans ça il remonte des shops US sans data DSA, inanalysables (cas Weloria). Parseur : `scratchpad/parseshops.mjs`.
+**⭐⭐⭐⭐ ORDRE DE LANCEMENT À JOUR (acté le 03/09/2026, session 18) : F74 → F70 → V1 → V4 → F75/F51.**
+
+- **F74 = le filtre de découverte principal.** Ratio de concentration F63 (`min_reach_per_page: 220000 last7d` + `max_active_ads: 40`) + fraîcheur portée sur la CRÉA (`min_days_running: 8`, `max_days_running: 45`) + signature dropshipper (`technologies:["shopify"]`, `max_traffic: 2500`, `max_facebook_likes: 1500`, `ad_countries:{exclude:["FR"]}`), mais avec **`max_ads_per_brand: 5` (dédup LEVÉE)**, puis regroupement local par `landingPageUrl` via `scripts/group-par-produit.mjs`. La sortie affiche directement, produit par produit, combien de créas ACTIVES franchissent 70 €/j : **le plancher par produit se lit dès la découverte, sans dépenser un appel de dispersion par candidat.**
+- **F70 = concentration budgétaire en EUROS** (`min_spend_per_page: 1500` sur `last7d` ÷ `max_active_ads: 40`). Seul filtre dont **toutes** les lignes franchissent le plancher. **Page 1 uniquement**, la page 2 s'effondre systématiquement.
+- **Greffer `search_in: "url_contains"` + `query: "/products/"` (F71) sur tout filtre de découverte** : force 100 % des créas à pointer vers une page produit et supprime d'un paramètre les collections de mode, les advertorials `/pages/` et les redirections home.
+- **V1 et V4** restent le binôme de fond (ils se rechargent en quelques semaines), **F75** (`ads_growth` sur `search_shops`) et **F51/F53** servent à renouveler l'échantillon.
+
+**📏 Mesure structurante du 03/09/2026, à ne pas oublier : la population « shop EU créé il y a moins de 3 mois + ≥25 pubs actives + mono-produit + <2500 visites » compte 8 shops en tout.** Chiffre relevé directement (`total: 8`). Conséquence : **ne plus utiliser `shop_created_after` comme filtre de découverte principal**, mais la fraîcheur de la CRÉA (`min/max_days_running`). `max_traffic: 2500` + `max_facebook_likes: 1500` suffisent à écarter les marques installées — et `max_traffic` ne doit JAMAIS être relevé (3 confirmations : F30/F31, F68, F73).
+
+**⛔ Canaux fermés le 03/09/2026, ne plus y dépenser de crédits : Google Ads Library** (28 résultats au total, que des géants ; `max_traffic` et `shop_creation_after` rejetés par l'API) et **TikTok Library en découverte** (le tri par vues sélectionne des célébrités et des grandes marques — loi n°9 transposée). TikTok reste utile en aval, pour confirmer la traction d'un candidat déjà trouvé.
+
+**Historique — ordre du 07/08/2026 (session 12) : COMMENCER PAR F51 (`search_shops`), puis F43 → F41 → F47 → F38.** F51 est le seul filtre du catalogue qui n'interroge pas `search_ads` : il part du SHOP et non de la CRÉA, et ouvre donc un gisement que tous les autres filtres ne voient pas (5 014 shops au premier passage, un seul déjà vu). Il donne en plus le **prix du best-seller, la pente d'ads semaine par semaine et la fraîcheur du shop dans la réponse elle-même**, donc on trie avant de dépenser le moindre appel de vérification. **⚠️ Toujours lui passer `main_market_countries` EU** : sans ça il remonte des shops US sans data DSA, inanalysables (cas Weloria). Parseur : `scratchpad/parseshops.mjs`.
 
 **Ordre historique (toujours valable pour la partie `search_ads`) :**
 
@@ -122,6 +143,8 @@ search_ads: query=<domaine>, search_in=domain, min_reach=100000,
 S'il rend **0 ou 1 ligne → le candidat est mort**, on n'ouvre ni la page produit, ni le prix, ni le sourcing. S'il rend 3+ lignes, on calcule `estimatedSpend ÷ daysRunning` sur chacune et on compte celles à ≥70 €/j. **Ne jamais présenter un candidat sur la seule foi de `advertising.history` (la pente du compteur de pubs).**
 
 **⚠️ Vérification obligatoire créa par créa, PAS sur l'agrégat (leçon 18/07/2026).** Une recherche a présenté des candidats dont la plupart des créas individuelles étaient très loin du plancher (seul le reach total du shop/advertiser, cumulé sur des dizaines de pubs, semblait solide). Avant de présenter un candidat, compter explicitement combien de créas individuelles (pas le cumul advertiser) passent réellement ≥500k reach OU ≥70€/jour. Si moins de 3 créas franchissent ce seuil, le candidat ne se présente pas (ou se présente en "réserve/à surveiller", jamais comme candidat prêt).
+
+**⚠️ LE PLANCHER SE COMPTE PAR PRODUIT, JAMAIS PAR SHOP (acté le 02/09/2026, cas `asileap.com`).** Un shop peut afficher 3 créas ≥70 €/j sans qu'aucun de ses produits ne les atteigne, si ces créas poussent des produits différents. Avant de conclure qu'un candidat passe le plancher, **vérifier que les créas retenues pointent vers la MÊME `landingPageUrl`**. Cas fondateur : Asileap avait 342, 158 et 139 €/j, mais réparties sur un clip chauffant (`vo46p`) et un mastic d'étanchéité (`wa826nt`) — soit 2 créas maximum sur le produit le mieux doté, donc sous le plancher.
 
 ### Étape 5 — Concurrence FR (mesurer le degré, pas fuir)
 

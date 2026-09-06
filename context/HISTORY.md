@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-09-06
+
+### Pipeline débloqué : Belorna/PureShot trouvé, fiche produit construite et terminée
+
+- **Recherche produit relancée** après "Monveree abandonné, pipeline vide" (02/09). BrandTracker en premier puis filtres F74/F70/F71 du catalogue : `belorna.com` (pistolet anti-odeurs pour animaux) trouvé avec 3 créas ≥70 €/j sur la même page produit, marché 100 % Italie, aucune présence FR.
+- **Fiche produit "PureShot™" construite et terminée par Roméo lui-même** sur Shopify : bundle RapidBundle en Combo Bundle (cas particulier, 2 produits associés), tableau comparatif et 2 blocs FAQ traduits fidèlement à partir du vrai code source du concurrent, galerie de 8 images réordonnée pour matcher le concurrent, section réassurance dupliquée de la home. Claude a créé les 2 produits recharges manquants, corrigé un bug de publication (produits créés par API non publiés sur les canaux de vente par défaut), réordonné la galerie via l'API Shopify, et fait une QA complète de fin de fiche (aucune trace du concurrent, tout bien traduit).
+- **Décision produit : parfum lavande uniquement**, le citron prévu par défaut sur les visuels a été écarté pour un risque de toxicité féline (agrumes/limonène).
+- **Sourcing 1688 identifié et vérifié au-delà du prix** : pistolet nu chez un fournisseur, flacon concentré lavande à confirmer chez un second (MSDS fourni). Mécanisme découvert en lisant le code du concurrent : le réservoir se remplit à l'eau du robinet + quelques gouttes de concentré, pas un spray prêt à l'emploi.
+- **Prochaine étape : les créas**, puis lancement du test à 50 €/jour si le temps le permet.
+- Fichiers mis à jour : `CONTEXT.md` (Engagements actifs + Sujets ouverts / Business), `HISTORY.md`.
+
+---
+
 ## 2026-09-05
 
 ### Arrivée à Huesca, logement trouvé, loyer calé dans l'agenda

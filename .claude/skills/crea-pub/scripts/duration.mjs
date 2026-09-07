@@ -12,9 +12,7 @@ export async function getDuration(filePath) {
   if (!existsSync(filePath)) {
     throw new Error(`Fichier introuvable : ${filePath}`);
   }
-  const ffprobe = (await import("ffprobe-static")).default;
-  const ffprobePath = ffprobe.path || ffprobe;
-  const { stdout } = await execFileP(ffprobePath, [
+  const { stdout } = await execFileP("ffprobe", [
     "-v", "error",
     "-show_entries", "format=duration",
     "-of", "default=noprint_wrappers=1:nokey=1",

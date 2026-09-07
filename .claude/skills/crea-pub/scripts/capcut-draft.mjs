@@ -21,8 +21,7 @@ import { getDuration } from "./duration.mjs";
 
 const execFileP = promisify(execFile);
 async function getDimensions(filePath) {
-  const ffprobe = (await import("ffprobe-static")).default;
-  const { stdout } = await execFileP(ffprobe.path || ffprobe, [
+  const { stdout } = await execFileP("ffprobe", [
     "-v", "error", "-select_streams", "v:0",
     "-show_entries", "stream=width,height",
     "-of", "csv=p=0:s=x", filePath,
@@ -31,8 +30,8 @@ async function getDimensions(filePath) {
   return { width, height };
 }
 
-const CAPCUT_ROOT = "C:/Users/franv/AppData/Local/CapCut/User Data/Projects/com.lveditor.draft";
-const BASE_PROJECT_NAME = "0604"; // projet de reference (9:16, 1 video + 1 piste texte + 1 piste audio)
+const CAPCUT_ROOT = "/Users/franv/Movies/CapCut/User Data/Projects/com.lveditor.draft";
+const BASE_PROJECT_NAME = "0906"; // projet de reference Mac (9:16, 1 video + 1 piste texte + 1 piste audio), recree le 06/09/2026 (l'ancien 0604 Windows n'a pas survecu a la migration)
 const BASE_PROJECT_DIR = join(CAPCUT_ROOT, BASE_PROJECT_NAME);
 
 const uuid = () => randomUUID().toUpperCase();
@@ -191,7 +190,7 @@ async function buildVoiceType({ lot, ad, adDir, videoPath, audioPath, captionAud
 
   const groups = groupWords(items);
 
-  const d = JSON.parse(readFileSync(join(BASE_PROJECT_DIR, "draft_content.json"), "utf8"));
+  const d = JSON.parse(readFileSync(join(BASE_PROJECT_DIR, "draft_info.json"), "utf8"));
 
   const videoMat = d.materials.videos[0];
   videoMat.path = toPosix(videoPath);
@@ -264,10 +263,10 @@ async function buildMusicalType({ lot, ad, adDir, videoPath, mdPath }) {
   const rows = parseAccrochesMd(mdPath);
   console.log(`Type MUSICAL : video ${videoDur.toFixed(2)}s, ${rows.length} accroches lues depuis accroches-fr.md`);
   if (rows.length === 0) {
-    throw new Error(`Aucune ligne de tableau trouvee dans ${mdPath} (verifier le format).`);
+    console.log("Aucune accroche : pub musicale sans legende (son d'origine conserve tel quel).");
   }
 
-  const d = JSON.parse(readFileSync(join(BASE_PROJECT_DIR, "draft_content.json"), "utf8"));
+  const d = JSON.parse(readFileSync(join(BASE_PROJECT_DIR, "draft_info.json"), "utf8"));
 
   const videoMat = d.materials.videos[0];
   videoMat.path = toPosix(videoPath);
@@ -328,6 +327,7 @@ function registerDraft(NEW_DIR, meta) {
   const entry = JSON.parse(JSON.stringify(template));
   entry.draft_fold_path = NEW_DIR;
   entry.draft_cover = `${NEW_DIR}/draft_cover.jpg`;
+  if (entry.draft_json_file) entry.draft_json_file = `${NEW_DIR}/draft_info.json`;
   entry.draft_id = meta.draft_id;
   entry.draft_name = meta.draft_name;
   entry.tm_duration = meta.tm_duration;
@@ -387,11 +387,11 @@ async function main() {
   // silencieux (bug majeur rencontre le 23/06). Plus sur et plus simple que de re-synchroniser
   // chaque fichier a la main : supprimer ces caches derives pour forcer CapCut a les
   // reconstruire proprement a partir du VRAI draft_content.json au premier chargement.
-  for (const stale of ["Timelines", "template.tmp", "template-2.tmp", "timeline_layout.json", "draft_content.json.bak"]) {
+  for (const stale of ["Timelines", "template.tmp", "template-2.tmp", "timeline_layout.json", "draft_info.json.bak"]) {
     rmSync(join(NEW_PROJECT_DIR, stale), { recursive: true, force: true });
   }
 
-  writeFileSync(join(NEW_PROJECT_DIR, "draft_content.json"), JSON.stringify(d), "utf8");
+  writeFileSync(join(NEW_PROJECT_DIR, "draft_info.json"), JSON.stringify(d), "utf8");
 
   const metaPath = join(NEW_PROJECT_DIR, "draft_meta_info.json");
   const meta = JSON.parse(readFileSync(metaPath, "utf8"));

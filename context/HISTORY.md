@@ -7,6 +7,24 @@
 
 ---
 
+## 2026-09-09 (mise à jour 5)
+
+### Méthode complète de sourcing créas en scaling (Spybox), Sheet de suivi créé
+
+- 8 vidéos Zecom Academy transcrites (Module 12 étape scaling + Module 5 sous-partie 3.2 à 3.9) :
+  TrendTrack mots-clés, Kalodata, AdSpy, PipiAds, Dropship.io, Adsparo, Content Research.
+- Réécriture complète de `recherche-produit/references/trouver-concurrents.md` : méthode et
+  seuils par outil (TrendTrack ≥200k impr., AdSpy ≥150-200 likes, Kalodata ≥5-7k$ CA cumulé,
+  PipiAds ≥50-100k vues, Dropship.io/Adsparo sans seuil fiable).
+- Nouveau Google Sheet "Zooryn - Concurrents & Créas Scaling" créé (via connecteur Drive,
+  partagé avec le compte de service), structuré avec statuts colorés et onglet seuils.
+  Script `concurrents-scaling.mjs` créé pour l'écriture programmatique.
+- Roméo souscrit à Spybox (~200 €/an) pour regrouper les outils.
+- Mode de travail acté : Claude guide outil par outil, Roméo manipule lui-même les interfaces
+  pour apprendre, en attendant une éventuelle clé API.
+
+---
+
 ## 2026-09-09 (mise à jour 4)
 
 ### Mise en conformité "bouton de rétractation" (obligation UE du 19/06/2026)

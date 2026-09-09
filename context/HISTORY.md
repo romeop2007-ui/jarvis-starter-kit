@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-09-09 (mise à jour 2)
+
+### Mandat SEPA DGFIP, 3 sessions de recherche produit (0 nouveau candidat), palier de sécurité PureShot et préparation du scaling
+
+- **Mandat SEPA DGFIP créé sur Qonto**, pour le compte professionnel impots.gouv.fr activé le jour même. Créancier DGFIP (distinct de l'URSSAF), prélèvement récurrent, sert avant tout à la future CFE (à partir de 2027).
+- **3 sessions supplémentaires de recherche produit (20, 21, 22)** menées en tâche de fond sur consigne de Roméo (« continue jusqu'à en trouver un maximum ») : plus de 35 passes cumulées, filtres validés d'août rejoués (F35/F38/F41/F42/F43/F47/F48/F51/F53/F62/F63) + 3 filtres neufs inventés (F76, F77, F78) + BrandTracker + pagination profonde Italie/Espagne. **0 nouveau candidat validé**, confirme la mesure du 03/09 (gisement à un chiffre). **4 profils mis en veille avec condition de réouverture chiffrée** : KneePlex (bande rotulienne genou), Cervia SE (décompression cervicale), Sturzfest (pantalon protection moto, re-check priorisé au 23/09 sur demande de Roméo), Viveaprotect (dispositif anti-étouffement enfant).
+- **Calcul de sécurité PureShot** : données J3 récupérées en direct via l'API Meta Ads (133,05 € dépensés cumulés, 6 ventes, CA 389,94 €, ROAS 2,93). Même en simulant 0 vente supplémentaire jusqu'à la fin de demain, le ROAS resterait à ≈1,92, largement au-dessus du ROAS BE estimé (~1,44). Décision actée : anticiper la préparation du scaling avant le palier officiel de décision (200 € cumulés).
+- **Recherche de concurrents pour la phase scaling** : Belorna (le concurrent d'origine de PureShot) toujours très actif, a lancé 3 nouvelles variantes de créa en août 2026 dont un script long-form du 18/08 pas encore traduit. La recherche de vrais concurrents alternatifs par mots-clés TrendTrack n'a rien donné d'exploitable.
+- **Prochaine session annoncée par Roméo** : il va fournir un maximum d'informations/vidéos sur les essentiels de la phase scaling (recherche de concurrents, méthode d'analyse), à enregistrer et exploiter en arrière-plan pour anticiper au maximum.
+
+---
+
 ## 2026-09-09
 
 ### Premiers résultats PureShot (J1-J2 excellents), devis Yuri finalisé, diagnostic bug UI Meta Ads

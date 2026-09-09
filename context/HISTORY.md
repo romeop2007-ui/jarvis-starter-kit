@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-09-09
+
+### Premiers résultats PureShot (J1-J2 excellents), devis Yuri finalisé, diagnostic bug UI Meta Ads
+
+- **Palier 48h validé, trajectoire scaling.** J1 (07/09) : 45,08 €, 1 vente, ROAS 1,33. J2 (08/09) : 57,09 €, 4 ventes, ROAS 4,73. Cumulé : 102,17 € dépensés, 5 ventes, CA 329,95 €, ROAS 3,23. Vérifié sur Shopify (5 commandes) : 100 % des ventes sur l'offre "Pack" (x1+3 recharges), 1 avec upsell, personne sur l'offre solo à 49,99 €. COGS réel cumulé 71,01 €, marge réelle 78,5 %.
+- **Bug Meta Ads Manager résolu : c'était un mauvais filtre de dates** ("30 derniers jours" au lieu d'"aujourd'hui"), pas un problème de pixel, de compte ou de localisation/proxy. Diagnostic fait via l'API (lecture seule) : pixel actif, 2 événements Purchase reçus, aucune erreur de compte. Au passage, clarifié pour Roméo que l'appel API (token) ne passe pas par le même canal que le login navigateur que son setup Multilogin + proxy protège, donc pas de risque de détection lié à mes lectures API.
+- **Devis sourcing Yuri finalisé pour PureShot.** 4 combos chiffrés (gun seul 13 $ / gun+upsell 18,21 $ / pack 15,40 $ / pack+upsell 20,87 $, livraison incluse), marge x4,18-4,77 confirmée, bien au-dessus du x3-3,5 attendu. Confirmé : pistolet électrique/à batterie, flacons lavande 10 ml au même prix. Prix officiel système Aplusfulfill légèrement différent sur un combo (21,05 $ au lieu de 20,87 $ annoncé) : écart mineur non contesté maintenant, gardé en réserve pour négocier au volume plus tard. 100 € rechargés (virement bancaire, alors que PayPal aurait été plus adapté pour ce montant) pour payer ce devis.
+- **Nouvelle règle mémoire : toujours demander la qualité "medium" à l'agent lors d'un sourcing/quote 1688** (retrouvé dans une leçon Module 6 non encore transcrite).
+- **Confirmation SOP formation, palier 24h : une seule vente suffit à valider la journée**, peu importe le ROAS à ce stade (le ROAS n'entre en jeu qu'au palier 48h). Confirmé aussi : pas d'ajout de créas en testing ni en scaling direct, uniquement en phase d'optimisation (cartouches).
+- **Fiche `recherche-produit/references/trouver-concurrents.md` (déjà existante depuis le 14/07) retrouvée et confirmée** en réponse à la question de Roméo sur comment trouver des concurrents avant/pendant le scaling. Décision : lancer une recherche de concurrents agressive dès que le J3 confirme la tendance, sans attendre le palier officiel, PureShot étant un produit encore peu connu.
+- **Admin :** clarifié le fonctionnement du solde prépayé Aplusfulfill (pas de carte bancaire, débit automatique du solde) et rédigé le message de transmission à Qonto pour le mandat de prélèvement SEPA interentreprises DGFiP (URSSAF). Raison sociale confirmée à Roméo : Roméo PIAT, EI, SIRET 105 496 970 00010.
+
+---
+
 ## 2026-09-07
 
 ### Créas PureShot terminées, pipeline CapCut réparé après la migration Mac, campagne lancée

@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-09-09 (mise à jour 4)
+
+### Mise en conformité "bouton de rétractation" (obligation UE du 19/06/2026)
+
+- Découverte que Roméo était en retard sur une obligation légale e-commerce méconnue : depuis le 19/06/2026 (ordonnance n°2026-2 transposant la directive UE 2023/2673), tout site B2C doit proposer une fonctionnalité de rétractation accessible directement en ligne (article L221-21 du Code de la consommation), sous peine d'amende DGCCRF et d'un délai de rétractation étendu à 12 mois et 14 jours en cas de non-conformité.
+- App Shopify déjà installée par Roméo : Revoq - EU Withdrawal. Le mode par défaut testé (bouton flottant) était disproportionné visuellement, jugé "énorme".
+- Bascule sur l'option "Page de rétractation dédiée" (recommandée par l'app) : page `/pages/eu-formulaire-retractation` créée automatiquement par Revoq.
+- Claude a ajouté le lien "Se rétracter du contrat" dans le menu Shopify natif (GraphQL `menuUpdate`, pas de Liquid touché). Première tentative dans le menu "footer" par défaut, invisible car le thème Shrine utilise en réalité les menus "Menu principal" et "Pages légales" pour les deux colonnes du footer. Corrigé en ajoutant le lien dans "Pages légales", colonne où il apparaît effectivement.
+- Sujet clos, à vérifier visuellement par Roméo après rafraîchissement.
+
+---
+
 ## 2026-09-09 (mise à jour 3)
 
 ### Clarifications fiscales : taux URSSAF ACRE et versement libératoire

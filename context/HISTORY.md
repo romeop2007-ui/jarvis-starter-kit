@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-09-09 (mise à jour 3)
+
+### Clarifications fiscales : taux URSSAF ACRE et versement libératoire
+
+- Confirmé : le taux de cotisations URSSAF reste 6,2% (ACRE) jusqu'au 31 mars 2027 (fin du 4e trimestre civil depuis la création du 30/05/2026, pas fin mai comme on pourrait le penser intuitivement, la règle compte en trimestres civils entiers).
+- Erreur identifiée et corrigée par Roméo lui-même dans le Google Sheet budget : une cellule à 7,2% (confusion avec le versement libératoire) remise à 6,2%.
+- Versement libératoire de l'impôt sur le revenu : confirmé NON activé (vérifié par Roméo sur son espace URSSAF). Décision consciente de ne pas l'activer avant le 30/09/2026 (fenêtre pour effet 2027), faute de connaître le RFR/TMI de ses parents et par choix de ne pas les solliciter pour un enjeu de quelques dizaines d'euros. Sujet clos sauf si le CA scale significativement ou si ses parents en parlent d'eux-mêmes.
+- Mécanisme de l'acompte de prélèvement à la source (PAS) pour non-salarié expliqué : sans versement libératoire, un acompte basé sur le revenu de l'année précédente sera prélevé automatiquement à partir de 2027 (basé sur le CA 2026 déclaré au printemps 2027), aucun impact avant ça.
+- **Perte d'information à noter** : Roméo avait transmis dans une autre session le contenu "essentiels du scaling" (recherche et analyse de concurrents) annoncé le 09/09, mais cette session n'a pas été enregistrée (pas de /update), le contenu est donc perdu et à redemander avant de pouvoir l'intégrer aux références du skill `recherche-produit`.
+
+---
+
 ## 2026-09-09 (mise à jour 2)
 
 ### Mandat SEPA DGFIP, 3 sessions de recherche produit (0 nouveau candidat), palier de sécurité PureShot et préparation du scaling

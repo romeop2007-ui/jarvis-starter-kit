@@ -19,6 +19,16 @@
 - **Fiche `recherche-produit/references/trouver-concurrents.md` (déjà existante depuis le 14/07) retrouvée et confirmée** en réponse à la question de Roméo sur comment trouver des concurrents avant/pendant le scaling. Décision : lancer une recherche de concurrents agressive dès que le J3 confirme la tendance, sans attendre le palier officiel, PureShot étant un produit encore peu connu.
 - **Admin :** clarifié le fonctionnement du solde prépayé Aplusfulfill (pas de carte bancaire, débit automatique du solde) et rédigé le message de transmission à Qonto pour le mandat de prélèvement SEPA interentreprises DGFiP (URSSAF). Raison sociale confirmée à Roméo : Roméo PIAT, EI, SIRET 105 496 970 00010.
 
+### Recherche produit continue pendant le testing PureShot, MOBB et Marina Roca retenus
+
+- Roméo a demandé de continuer la recherche produit en tâche de fond pendant que PureShot tourne en test payant.
+- Filtres F74/F70/F71 relancés + nouveaux marchés testés (ES/PT/IT, DE/AT/NL/BE/PL, Nordique) : la plupart des candidats croisés retombent sur des exclusions dures déjà connues (personnalisable : CustomLove, Geschenkfans ; topique santé : LOYA, WomBea, Saaren Taika, Dr.katrin.Hautexpertin ; risque de contrefaçon : Supergameboy) ou des marques déjà établies (Huber-Outdoor, My Angry Socks, LumiLux).
+- **MOBB (mobb.nl) retenu** : bandes magnétiques anti-ronflement, Pays-Bas. Confusion initiale sur la bonne page Facebook (une ancienne page morte à 27 likes coexiste avec la vivante à 18 likes) clarifiée avec les liens Ads Library exacts. Modèle économique éclairci avec Roméo : kit de démarrage réutilisable (bandes + applicateur magnétique) + recharges d'aimants consommables vendues séparément en produit à part, structure "rasoir/lames" malgré l'affichage trompeur "par mois" (aucun abonnement réel, paiement unique confirmé par les totaux panier).
+- **Marina Roca (marinaroca.com) retenu** : collier "Abrazo Eterno", Espagne, 5 créas actives sur la même fiche produit dont plusieurs entre 200 et 500 €/j. Discussion sur le fait que les créas sont quasi identiques (même script dupliqué) : conclu que ça renforce plutôt le signal (la marque a trouvé son hook et scale dessus), pas qu'il l'affaiblit.
+- **Isella (isella.se) écarté** : culotte de compression post-partum, 3 créas ≥100 €/j sur pages localisées par marché, mais niche 100 % féminine explicitement exclue par la règle du skill `recherche-produit` pour cette recherche de 2e collection (aux côtés de santé/bien-être). Erreur de Claude d'avoir présenté ce candidat, repérée par Roméo.
+- Les deux candidats retenus (MOBB, Marina Roca) déjà enregistrés par Roméo lui-même dans le tableau de recherche produit.
+- Recherche à reprendre à la prochaine session.
+
 ---
 
 ## 2026-09-07

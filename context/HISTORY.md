@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-09-10 (mise à jour 5)
+
+### Première session réelle Spybox : recherche concurrents/créas scaling PureShot
+
+- Spybox payé et testé pour la première fois en conditions réelles (TrendTrack, AdSpy, PipiAds, Kalodata).
+- TrendTrack, AdSpy, PipiAds (mode Adspy + Ad Library Meta) : aucun nouveau clone du mécanisme pistolet+concentré, Belorna/PureShot restent seuls dessus. 3 pistes d'angle repérées ailleurs (Peludos Lovers, Softpet, Bebysh, format pastille lave-linge anti-odeurs animaux) à piocher pour le copywriting, pas à copier.
+- Kalodata : 4 shops trouvés (Asterism Store, CozyPetsy, GeniKiss, KWOOV), 18 créas téléchargées dans `livrables/ecommerce/creas/PureShot/Pureshot concurrent/Kalodata concurrent/`. Aucune ne dépasse le seuil de reprise (5-7k$ CA cumulé par créa), retenues quand même faute d'alternative.
+- Confirmation en pratique du blocage structurel Meta (DSA) sur un shop US repéré via recherche par image TrendTrack : données reach/spend indisponibles hors UE/UK peu importe l'outil ; Kalodata (CA TikTok Shop) et PipiAds Adspy restent la vraie alternative pour analyser un shop purement US.
+- Plan : traduire les 18 créas ce soir (script FR + voix off), lancement prévu ce soir.
+
+---
+
 ## 2026-09-10 (mise à jour 4)
 
 ### Enrichissement massif du skill crea-pub : mashup vidéo, statics, catalogues Canva + Google Sheet

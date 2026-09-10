@@ -7,6 +7,38 @@
 
 ---
 
+## 2026-09-10 (mise à jour 3)
+
+### Vérification du board Miro source pour le framework de scaling — la vraie progression de paliers n'est que partiellement vérifiable
+
+- **Premier accès au connecteur MCP Miro**, à la demande de Roméo, pour vérifier au board original ("SOP Media Buying petit budget META - Zecom Academy") les paliers de budget dont la transcription audio de "1.2 Testing validé - phase de scaling" était ambiguë (le fameux "1000 ou 2000 €").
+- **Le board confirme mot pour mot les 4 scénarios de décision** déjà intégrés dans `bilan-ads/references/baremes.md` (scaler / ne pas toucher x2 / déscaler). Mais **le board ne contient pas de liste générique exhaustive des paliers** — seulement des exemples suivis pas à pas : 50→100→150→200 €/j (par tranches de 50), avec un exemple explicite de saut direct 200→250 €/j quand le ROAS est excellent. **Rien de vérifiable au-delà de 250 €/j** sur ce board.
+- **Correction de ma correction précédente** (mise à jour 2 du jour) : j'avais réécrit la progression complète comme si elle était sourcée de façon fiable (50→100→150→200 puis par 100 jusqu'à 500 puis +200 jusqu'à 700). Seule la partie jusqu'à 250 €/j est désormais vérifiée (board + audio concordants) ; la suite reste incertaine et signalée comme telle dans le document, sans arrondir à un chiffre qui semblerait faux.
+- Fichier mis à jour : `.claude/skills/bilan-ads/references/baremes.md` (section 4, nuance ajoutée).
+
+---
+
+## 2026-09-10 (mise à jour 2)
+
+### Framework complet de pilotage budgétaire en phase de scaling transcrit, correction d'une erreur dans `bilan-ads`
+
+- **Vidéo "1.2 Testing validé - phase de scaling" (Module 12) transcrite intégralement** (yt-dlp + cookie Kajabi frais déposé par Roméo + `scripts/transcribe.py`, large-v3-turbo, ~11 min). Contenu : les 4 scénarios de décision (scaler / ne pas toucher / déscaler) sur la double vue 3 jours glissants + dernier jour isolé, les paliers de budget, 2 idées fausses débunkées (règle des 20%, "augmenter casse l'optimisation"), la marche à suivre si une nouvelle créa plombe le ROAS global, la marche à suivre en cas de plafond malgré 20-25 créas (nouvelle CBO test → changement d'offre above-the-fold → dernière cartouche → déscale), et le mindset profit-avant-dashboard.
+- **🔴 Erreur corrigée dans `bilan-ads/references/baremes.md` (section 4)** : l'ancienne progression de paliers indiquée (`100→200→300→400→500→700→1000→1500`) ne correspond pas à ce que dit la vidéo source (`50→100→150→200` par 50, puis `200→300→400→500` par 100, puis `500→700` par 200, la suite au-delà de 700€ restant incertaine dans la transcription — "2000€" probable erreur ASR pour "1000€", signalé comme tel dans le document plutôt que corrigé à l'aveugle). Nouvelle info ajoutée : structure CBO+1 adset gardée telle quelle jusqu'à ~1,5 K/day de CA.
+- Fichiers mis à jour : `.claude/skills/bilan-ads/references/baremes.md` (section 4 réécrite et sourcée), `HISTORY.md`.
+
+---
+
+## 2026-09-10
+
+### Transcription vidéo "Création de statics IA" (Nano Banana Pro), pipeline gardé autonome par Roméo
+
+- **Fausse manip en début de session** : une première vidéo téléchargée/transcrite sous le mauvais lien (autre leçon en parallèle sur une 2e session), s'est avérée être en fait un swipe file de statics (600+ créas en Google Sheet, hors-sujet IA). Fichiers supprimés à la demande de Roméo, cookie Kajabi resté intact. Bon lien redonné avec un cookie frais, vidéo correcte téléchargée (yt-dlp + Wistia) et transcrite en local (`scripts/transcribe.py`, large-v3-turbo).
+- **Contenu de la vraie leçon (Module 11, 1.5.3, formateur Adam/"Loops")** : pipeline de génération de statics par IA en 3 étapes — un agent de "prompt-crafting" (OpenAI Playground + GPT-5.1 dans la vidéo, facturé à la génération) qui transforme un brief de marque en prompt d'image détaillé, puis génération sur **Google AI Studio avec le modèle Nano Banana Pro** (quasi zéro bug de texte/composition), puis retouches (re-prompt visuel + Canva pour le texte éditable et les marges de sécurité).
+- **Adaptation actée par Roméo** : remplace l'étape 1 (OpenAI Playground, facturé à l'usage) par un **Projet ChatGPT** (abonnement déjà payé), garde Google AI Studio/Nano Banana Pro et Canva à l'identique. **Roméo garde les 3 prompts du formateur (système, brief marque, créa) dans son propre Projet ChatGPT, volontairement non transmis à Claude** : il pilote ce pipeline seul, sans intervention de Claude à chaque génération.
+- Synthèse créée : `.claude/skills/crea-pub/references/synthese-statics-ia-nano-banana.md`. Point de doctrine noté dedans : ce pipeline est complémentaire au "Chemin IMAGE" existant du skill (Claude écrit un prompt de traduction/adaptation d'une pub concurrent précise) et ne le remplace pas — Claude ne doit pas proposer de générer un prompt de statique de scaling sans demande explicite.
+
+---
+
 ## 2026-09-09 (mise à jour 5)
 
 ### Méthode complète de sourcing créas en scaling (Spybox), Sheet de suivi créé

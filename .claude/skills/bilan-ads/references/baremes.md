@@ -332,22 +332,90 @@ avance. Produit relançable plus tard si le contexte marché change.
 
 ---
 
-## 4. Phase de SCALING — pilotage du budget (formation, framework officiel)
+## 4. Phase de SCALING — pilotage du budget (vidéo "1.2 Testing validé - phase de scaling",
+Module 12, intégrée le 10/09/2026 — remplace et précise l'ancienne version de cette section)
 
-Entrée en scaling : campagne validée (ROAS ≥ ROAS TARGET sur 4 jours). La décision se prend sur
-**deux vues : les 3 derniers jours (glissant) + le dernier jour isolé.**
+Entrée en scaling : campagne validée (ROAS ≥ ROAS TARGET avec **au moins 200 € de spend**, jamais
+avant, même avec un excellent ROAS sur 100 € — trop peu de data, souvent de la chance). La décision
+se prend sur **deux vues : les 3 derniers jours (glissant) + le dernier jour isolé.**
 
 | Scénario | Condition (vue 3 jours) | Condition (dernier jour) | Décision |
 |----------|------------------------|--------------------------|----------|
-| ✅ 1 | ROAS > ROAS TARGET | ROAS > ROAS BE | **Scaler le budget** (palier suivant, ex. 50 → 100 €/j) |
+| ✅ 1 | ROAS > ROAS TARGET | ROAS > ROAS BE | **Scaler le budget** (palier suivant) |
 | 🟠 2 | ROAS > ROAS TARGET | ROAS < ROAS BE | **Ne pas toucher** (un mauvais jour arrive, pas de panique) |
-| 🟠 3 | ROAS dans le RANGE TARGET (target −20 % à target) | — | **Ne pas toucher** |
-| ❌ 4 | ROAS < RANGE TARGET | — | **Déscaler** (palier inférieur, ex. 100 → 50 €/j) |
+| 🟠 3 | ROAS dans le RANGE TARGET (15-20 % de marge) | — (peu importe, on ne regarde même pas) | **Ne pas toucher** |
+| ❌ 4 | ROAS < RANGE TARGET (< 15 % de marge, ou perte) | — | **Déscaler** (palier inférieur) |
 
-- Paliers de scaling vertical (formation) : `100 → 200 → 300 → 400 → 500 → 700 → 1000 → 1500 → +500/+1000`.
-- **Règle de sortie** : si on retombe une **2e fois** en scénario 4 alors qu'on est déjà redescendu au
-  budget minimum (50 €/j) → **on coupe la campagne**. Retour en phase d'optimisation avec **3 nouvelles
-  cartouches créatives**, sinon → produit suivant (NEXT PRODUCT).
+**⚠️ Paliers de scaling vertical — CORRECTION du 10/09/2026, VÉRIFIÉE sur le board Miro source
+("SOP Media Buying petit budget META - Zecom Academy", consulté via le connecteur Miro).**
+L'ancienne version de cette section indiquait `100 → 200 → 300 → 400 → 500 → 700 → 1000 → 1500`,
+qui ne correspond ni à l'audio ni au board. **Ce qui est confirmé par le board (exemples concrets
+suivis pas à pas, texte identique à l'écran)** : progression par tranches de **+50 €** au moins
+jusqu'à 200 €/j (50→100→150→200), avec la possibilité explicite de **sauter un palier** si le ROAS
+est excellent (le board donne l'exemple d'un saut direct à 250 €/j depuis 200 €/j). **Au-delà de
+250 €/j, ni l'audio ni le board consultés ne donnent d'exemple concret vérifiable** — la
+transcription orale évoque ensuite des tranches de +100 € jusqu'à 500 €, puis +200 € jusqu'à 700 €,
+puis une valeur de fin peu claire ("1000 €" probable, "2000 €" selon la transcription automatique,
+**à ne pas utiliser telle quelle**). **Ne pas traiter la suite au-delà de 250 €/j comme vérifiée** —
+au moment de scaler au-delà, redemander confirmation à Roméo ou revérifier au board/à la vidéo.
+**On garde la structure CBO + 1 ad set + toutes les créas dedans jusqu'à environ 1,5 K/day de CA**,
+sans y toucher niveau structure (juste le budget) — passé ce cap, d'autres techniques (hors scope
+ici) deviennent possibles.
+
+**Marge de manœuvre sur les paliers** : ce ne sont pas des règles absolues. Si un palier casse tout
+(ex. 50→100 € ne passe pas alors que 50 € était très rentable), on peut chercher un palier
+intermédiaire (70 €) et s'y stabiliser. À l'inverse, si le ROAS est très largement au-dessus du
+TARGET (>35-40 % de marge, cf. l'exemple vérifié du saut 200→250 €), on peut sauter un palier
+plutôt que suivre la progression à la lettre — c'est explicitement illustré sur le board, pas
+seulement une extrapolation.
+
+### Idées fausses à débunker (formateur, explicitement)
+
+- **"Ne jamais augmenter le budget de plus de 20 % à la fois" — FAUX sur petit budget.** La règle du
+  20 % a du sens sur de très gros comptes (2000 €/j → pas direct à 4000 €/j), mais sur 50-500 €/j les
+  paliers ci-dessus dépassent largement 20 % (doubler 50→100 par ex.) et ça ne pose aucun problème.
+- **"Augmenter le budget rapidement casse l'optimisation Meta/la créa/la campagne" — FAUX.** Si un
+  palier ne passe pas, ce n'est pas parce qu'on l'a "cassé", c'est que cet asset (créa/ad set/campagne)
+  n'a tout simplement pas le potentiel de scaler plus haut — ça fait partie du jeu, toutes les créas
+  n'ont pas le même plafond. **Ne jamais réagir à une seule mauvaise journée après une hausse de
+  budget** : toujours réanalyser sur les 3 derniers jours avant de redescendre en panique.
+
+### Si une nouvelle créa ajoutée dans la CBO fait chuter le ROAS global
+
+Meta peut réallouer tout le spend vers une créa neuve qui ne convertit pas, au détriment de
+l'ancienne créa qui performait. **Attendre 3 jours complets** avant de conclure (pas une seule
+journée) : si le ROAS reste mauvais sur les 3 jours, couper les nouvelles créas fautives. Si ça
+persiste, créer une **nouvelle CBO à 50 €/j dédiée aux nouvelles créas** (mini-testing de 5-6 créas à
+la fois), plutôt que de les renvoyer dans la CBO qui gagne déjà.
+
+### Si on plafonne malgré 20-25 créas envoyées (impossible de percer un plafond de CA)
+
+1. Nouvelle CBO à 50 €/j, tester un nouveau lot de créas (comme un testing classique). Si ça ne
+   prend toujours pas :
+2. **Changer l'offre drastiquement** (PAS d'A/B test — pas assez de volume à ce stade). Cibler en
+   priorité tout ce qui est **"above the fold"** (au-dessus du bouton Ajouter au panier) : 1ère image
+   du carousel (le plus gros impact sur le taux de conversion), bullet points/bénéfices, offre
+   commerciale (prix, structure de bundle). Laisser tourner 2-3 jours et réévaluer.
+3. Si toujours rien, **changer l'offre une 2e fois** (l'offre = le levier avec le plus d'impact sur
+   les résultats).
+4. Si toujours rien, se laisser **une dernière cartouche** (nouvelles créas + nouveau changement
+   d'offre), exactement comme la phase d'optimisation initiale (3 cartouches, cf. section 3).
+5. Si ça ne marche toujours pas → **déscaler à budget minimal, laisser tourner en fond tant que
+   rentable, réorienter le focus sur un autre produit.** Le produit n'est pas mort, juste mis en
+   retrait — possibilité d'y remettre du focus plus tard si les conditions changent.
+
+**Règle de sortie inchangée** : si on retombe une **2e fois** en scénario 4 alors qu'on est déjà
+redescendu au budget minimum (50 €/j) → **on coupe la campagne**. Retour en phase d'optimisation avec
+**3 nouvelles cartouches créatives**, sinon → produit suivant (NEXT PRODUCT).
+
+### Mindset (formateur, explicite) : le profit avant le dashboard
+
+**Ne jamais maintenir un niveau de CA qui n'est plus rentable par ego.** Mieux vaut 1 000 €/j de
+profit à "3K/day" de CA que 500 €/j de profit à "6K/day" — c'est le profit qui compte, pas la taille
+du chiffre affiché. Le formateur signale un piège classique : une fois qu'on a montré un gros
+dashboard publiquement (ex. Twitter/X), l'ego rend difficile d'accepter de redescendre le budget même
+quand ce n'est plus rentable. **Descaler sans hésiter dès que la rentabilité n'y est plus, peu importe
+l'image que ça renvoie.**
 
 ---
 

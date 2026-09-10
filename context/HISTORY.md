@@ -7,6 +7,35 @@
 
 ---
 
+## 2026-09-10 (mise à jour 4)
+
+### Enrichissement massif du skill crea-pub : mashup vidéo, statics, catalogues Canva + Google Sheet
+
+- 3 vidéos Zecom Academy transcrites en local (Module 11 - Les créatives) : "1.4.1 Étape 3 - mashup
+  vidéo & vidéo ads", "1.5.1 Étape 4.2 - Créer ses propres statics", "1.5.2 Inspirations de statics".
+- Doc Notion "Les concepts d'ads vidéo" (18 concepts avec exemples) récupéré via le connecteur Notion
+  et intégré à `synthese-mashup-video-scaling.md` : méthode de construction d'un mashup (script
+  concurrent traduit/adapté via GPT + b-rolls récupérés), 4 types de mashup, framework récurrent des
+  ads qui scalent, règle de diversification concept + angle/avatar.
+- `synthese-statics-scaling.md` créé : test de "static friendliness" (70 statiques testées, win rate
+  cible ≥7%, statique winner = ≥500-700€ dépensés), 3 sources d'itération (concurrents, veille globale,
+  propres winners), 8 formats détaillés. ⚠️ Point de vigilance ajouté : ne jamais écrire littéralement
+  "avant/après" dans une créa (risque de suppression Meta et de compte pub qui saute), toujours
+  reproduire le concept sans le mot-clé.
+- Whiteboard Canva du formateur "Tops formats de static" (~900 exemples, ~35 catégories) extrait via
+  le connecteur Canva et catalogué dans `catalogue-formats-statics-canva.md`, généraliste (utilisable
+  sur n'importe quel produit, pas que PureShot).
+- Accès en lecture obtenu sur le Google Sheet "Tops statics - Zecom academy" (partagé par Roméo au
+  compte de service `budget-bot@claude-gws-setup-497511.iam.gserviceaccount.com`, retrouvé aussi via
+  le connecteur Google Drive de Roméo). Fichier volumineux (~500 Mo), non lisible intégralement en un
+  coup. Prise en main documentée dans `sheet-tops-statics-prise-en-main.md` : structure des 11
+  colonnes, taxonomies numérotées Niche et Format, méthode de filtrage par niche/sous-niche du produit
+  pour retrouver les formats qui ont déjà marché sur des produits comparables.
+- Ces 4 nouvelles références sont prêtes à être mobilisées dès la prochaine demande de créas
+  (mashup vidéo ou statique) pour n'importe quel produit Zooryn.
+
+---
+
 ## 2026-09-10 (mise à jour 3)
 
 ### Vérification du board Miro source pour le framework de scaling — la vraie progression de paliers n'est que partiellement vérifiable

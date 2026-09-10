@@ -358,9 +358,17 @@ transcription orale évoque ensuite des tranches de +100 € jusqu'à 500 €, p
 puis une valeur de fin peu claire ("1000 €" probable, "2000 €" selon la transcription automatique,
 **à ne pas utiliser telle quelle**). **Ne pas traiter la suite au-delà de 250 €/j comme vérifiée** —
 au moment de scaler au-delà, redemander confirmation à Roméo ou revérifier au board/à la vidéo.
-**On garde la structure CBO + 1 ad set + toutes les créas dedans jusqu'à environ 1,5 K/day de CA**,
-sans y toucher niveau structure (juste le budget) — passé ce cap, d'autres techniques (hors scope
-ici) deviennent possibles.
+**On garde la structure CBO + 1 ad set jusqu'à environ 1,5 K/day de CA** (pas de nouvelle campagne/ad
+set), mais **le pilotage du budget n'est qu'une moitié du travail : en parallèle, on envoie des
+nouvelles créas en continu dans ce même ad set pendant tout le scaling**, pas seulement en cas de
+plafond. Citation exacte de la vidéo (corrige une mauvaise lecture du 10/09/2026, qui avait laissé
+penser à tort qu'on ne touchait à rien côté créas tant que le scaling passait) : *"ça c'est la partie
+media buying, ça touche au budget, mais à côté il y a tout le taf de renvoyer des nouvelles
+créatives [...] le but sera de lancer à chaque fois des nouvelles créatives pour trouver des créatives
+de mieux en mieux qui performent de plus en plus."* Le scénario "20-25 créas envoyées, ça plafonne
+quand même" (plus bas) n'est donc pas le déclencheur pour COMMENCER à envoyer des créas, c'est ce qui
+arrive quand ce travail continu ne suffit plus. Passé le cap des 1,5 K/day, d'autres techniques (hors
+scope ici) deviennent possibles.
 
 **Marge de manœuvre sur les paliers** : ce ne sont pas des règles absolues. Si un palier casse tout
 (ex. 50→100 € ne passe pas alors que 50 € était très rentable), on peut chercher un palier
@@ -379,6 +387,38 @@ seulement une extrapolation.
   n'a tout simplement pas le potentiel de scaler plus haut — ça fait partie du jeu, toutes les créas
   n'ont pas le même plafond. **Ne jamais réagir à une seule mauvaise journée après une hausse de
   budget** : toujours réanalyser sur les 3 derniers jours avant de redescendre en panique.
+
+### Rythme et taille des batchs de créas en scaling (retour terrain Discord Zecom Academy, 10/09/2026)
+
+⚠️ Retour d'élèves expérimentés du Discord, PAS la formation officielle — à étiqueter "orientation
+communauté" si réutilisé dans un bilan.
+
+- **Batch conseillé : 4 à 6 créas qualitatives à la fois**, pas des lots de 15-20+. Une créa de plus
+  ne sert à rien si elle n'est pas qualitative ; mieux vaut un petit batch soigné qu'un gros lot.
+- **Ne pas craindre que Meta retire du spend aux créas gagnantes en ajoutant de nouvelles créas.**
+  C'est plutôt l'inverse qui se produit par défaut : Meta est "sensible aux winners" et a plutôt du
+  mal à spend sur les nouvelles ads tant que leurs signaux sont faibles, il ne détourne pas le
+  budget des gagnantes pour autant. (Nuance : la section suivante, "si une nouvelle créa fait chuter
+  le ROAS global", décrit un scénario où ça arrive quand même dans certains cas — les deux
+  informations ne se contredisent pas, l'un est le comportement par défaut, l'autre un cas particulier
+  à surveiller après coup, pas une raison de ne jamais ajouter de créas.)
+- Option prudente si Roméo veut y aller doucement : laisser tourner jusqu'à ~100 € de spend vers
+  J5-J6 avant d'envoyer le premier batch, plutôt que d'en envoyer dès J1 du scaling.
+- **Toujours dans le MÊME ad set** (confirmé aussi côté formation, cf. citation plus haut : "on rajoute
+  toutes les nouvelles créatives à l'intérieur [du même ad set]"). Le nouvel ad set/nouvelle CBO reste
+  réservé au cas plafond (20-25 créas déjà envoyées, toujours bloqué).
+- **Pourquoi rajouter progressivement plutôt qu'attendre (rationale Shonan)** : si la campagne tourne
+  plusieurs semaines avec seulement 5-10 créas en laissant juste monter le budget, le ROAS finit par
+  chuter car les créatives fatiguent et il n'y a rien pour prendre le relais — pire, si LA créa
+  gagnante sature, tout s'effondre d'un coup ("château de cartes"). Cadence conseillée : **5-10
+  nouvelles ads tous les 2 jours au début**, pour que la campagne repose sur plusieurs créas
+  gagnantes en parallèle plutôt qu'une seule.
+- **Le budget dispo conditionne la taille du batch qui a une vraie chance d'être testé.** À 100 €/jour
+  de spend, un batch de 50 ads d'un coup se partage un budget bien trop faible par ad pour que Meta
+  puisse leur donner un signal fiable (sauf audience visée bonne, elles risquent de ne quasiment rien
+  prendre) ; le même batch de 50 devient pertinent à 400-800-1500 €/jour, où Meta a assez de budget et
+  de signal pour vraiment les tester. Cohérent avec le conseil "4-6 créas qualitatives" à petit
+  budget ci-dessus.
 
 ### Si une nouvelle créa ajoutée dans la CBO fait chuter le ROAS global
 

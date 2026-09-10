@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-09-10 (mise à jour 6)
+
+### Prépa créas PureShot (Kalodata) : renommage, transcription, traduction fidèle + échec montage CapCut automatisé
+
+- 18 vidéos concurrentes PureShot (Kalodata : Asterism Store, CozyPetsy, GeniKiss, KWOOV) renommées ADS 5 à ADS 22.
+- Transcription audio complète (Whisper local) + identification du genre de voix par analyse de fréquence : 4 vidéos sans voix off (musique seule), 8 scripts uniques (doublons : ADS 7-11 même voix masculine, ADS 6/13 même voix féminine).
+- Traduction française fidèle des 8 scripts : angle et allégations du concurrent conservés à l'identique (correction actée en session : traduire/adapter au nom produit uniquement, jamais adoucir ou changer l'angle). Vérifié via Shopify que PureShot est listé "Pistolet Anti-Odeurs pour Animaux" à 49,99€, confirmant que l'angle enzymes/urine/lumière bleue colle au vrai produit.
+- Tentative de montage vidéo+voix off en CapCut automatisé (fabrication à la main du draft_content.json pour 7 pubs AD5-AD11) : ÉCHEC, projets inaccessibles à l'ouverture. Tout annulé et remis à l'état d'avant (projets supprimés, registre CapCut restauré, script skill remis à l'identique).
+- Leçon retenue : Claude ne peut pas ouvrir CapCut pour vérifier qu'un projet fabriqué à la main se charge réellement, donc ne plus déclarer un montage CapCut fonctionnel sans validation réelle de Roméo. Montage + sous-titres restent faits à la main par Roméo.
+
+---
+
 ## 2026-09-10 (mise à jour 5)
 
 ### Première session réelle Spybox : recherche concurrents/créas scaling PureShot

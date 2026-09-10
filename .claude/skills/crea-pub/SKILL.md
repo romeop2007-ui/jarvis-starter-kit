@@ -289,6 +289,18 @@ Bug reel rencontre le 22/06 sur la guirlande Mira (Belysningshuset) : le script 
 
 ## Etape 7 — Generer le brouillon CapCut par code (zero clic souris)
 
+**⚠️ ECHEC RENCONTRE LE 10/09/2026 sur PureShot AD5-AD11 : projets generes INACCESSIBLES a
+l'ouverture dans CapCut**, cause non identifiee avec certitude (peut-etre lie a l'ajout d'un
+flag `--manual-captions` ce soir-la, peut-etre au template de base "0906" restaure depuis la
+corbeille, peut-etre un probleme plus profond du pipeline). Tout a ete annule et remis a l'etat
+d'avant (projets supprimes, `root_meta_info.json` restaure, script remis a l'identique via git).
+**Ne plus jamais annoncer un brouillon CapCut comme "fonctionnel" ou "pret" sans que Romeo l'ait
+reellement ouvert et confirme dans l'appli.** Claude ne peut pas lancer CapCut ni verifier
+visuellement le rendu : toute verification structurelle du JSON (chemins presents, champs
+remplis) ne prouve rien sur la compatibilite reelle avec l'appli. Avant de reutiliser ce script
+sur un nouveau lot, generer UN SEUL brouillon de test, demander a Romeo de l'ouvrir et de
+confirmer que ca charge, avant d'industrialiser sur plusieurs ADn d'un coup.
+
 Une fois le dossier ADn complet (video-sans-soustitres.mp4 + voix-off.mp3 OU accroches-fr.md),
 generer directement le projet CapCut avec :
 

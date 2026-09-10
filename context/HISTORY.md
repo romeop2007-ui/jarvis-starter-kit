@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-09-10 (mise à jour 7)
+
+### PureShot entre en phase de scaling, correction méthodologique sur l'ajout de créas
+
+- **Bilan complet de la campagne T6 (PureShot)** via le skill `bilan-ads` : palier 4 jours atteint (200,54 € dépensés, recoupé à l'identique avec Shopify, 7/7 commandes). ROAS cumulé 2,39, ROAS 3 derniers jours 2,70, ROAS dernier jour 1,77 — tous au-dessus des seuils calculés (ROAS BE ~1,30, ROAS TARGET ~1,68). Scénario ✅1 de la grille de scaling : décision de monter le budget à 100 €/jour.
+- **Dossier de marque Zooryn + brief produit PureShot créés** (texte + PDF, générés via Chrome headless faute de pandoc/wkhtmltopdf disponibles) pour nourrir le Projet ChatGPT/Playground OpenAI de Roméo en vue de la génération de statics (pipeline Nano Banana Pro, piloté par Roméo seul).
+- **Erreur corrigée après vérification par Roméo sur le Discord Zecom Academy** : j'avais affirmé à tort qu'on n'ajoute des créas qu'en cas de plafond pendant le scaling. Re-lecture de la transcription source + confirmation de 2 élèves expérimentés (Shonan, qentyo) : on ajoute des créas EN CONTINU pendant tout le scaling (même ad set, jamais nouvelle CBO tant qu'on n'a pas plafonné), rythme conseillé ~5-10 créas tous les 2 jours au début, batch de 4-6 créas qualitatives plutôt que de gros lots. `.claude/skills/bilan-ads/references/baremes.md` corrigé (section 4).
+- **Mémoire ajoutée** (`feedback_incertitude_explicite_vs_fausse_certitude.md`) suite à ce même incident : ne jamais affirmer "je suis sûr" sans relecture fraîche de la source, dire l'incertitude explicitement plutôt que projeter une confiance non fondée. Roméo a explicitement demandé ce changement de comportement, applicable à tous les domaines.
+- Décision actée : batch de créas (AD5-AD11, concurrent américain source Kalodata) lancé dans le même ad set + budget monté à 100 €/jour le 10/09 au soir. Prochaine décision de budget : dimanche 13/09 soir (3 jours pleins au nouveau palier).
+
+---
+
 ## 2026-09-10 (mise à jour 6)
 
 ### Prépa créas PureShot (Kalodata) : renommage, transcription, traduction fidèle + échec montage CapCut automatisé

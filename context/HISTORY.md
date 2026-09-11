@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-09-11
+
+### Précision du P&L (accès Qonto, vrai coût des frais PayPal fournisseur) + incident pixel Meta PureShot, nouvelle règle ROAS recalculé
+
+- **Accès en lecture accordé au connecteur MCP Qonto** (compte pro, aucun virement possible depuis cet accès) pour chiffrer précisément les frais perdus sur les recharges PayPal du compte Aplusfulfill, jamais capturés dans le COGS. 4 recharges vérifiées (30/06, 08/07, 09/09, 11/09) en recoupant montant + horodatage Aplusfulfill (UTC+8) avec les transactions Qonto réelles. **Le vrai coût tourne autour de 13 % du montant rechargé, pas les ~4,7 % affichés dans le popup Aplusfulfill** (qui ne montre que sa propre part, pas la marge de change PayPal/carte cachée). 3 lignes "Frais PayPal fournisseur" ajoutées dans les onglets mensuels du P&L officiel : Jun-26 (5,30 €), Jul-26 (5,22 €), Sep-26 (30,43 € pour les 2 recharges du mois). Catégorie "Other", formules du Sheet non touchées.
+- **Nouvel outil créé : `.claude/skills/budget/scripts/pnl-tool.mjs`.** L'ancien `budget.mjs` du skill `budget` pointait vers le Sheet "Investissement E-commerce" supprimé le 05/08/2026 ; le nouveau vise le vrai Sheet P&L actif ("P&L - Zecom Academy 2026"), même logique read/write en `USER_ENTERED`.
+- **Piste ouverte, non tranchée** : tester une recharge Aplusfulfill par virement bancaire plutôt que PayPal, pour voir si ça évite la marge de change cachée (Aplusfulfill suggère lui-même cette option pour les gros montants).
+- **Incident pixel Meta sur PureShot** : 2 ventes Shopify le 11/09, 1 seul événement Purchase reçu par Meta. Vérifié en profondeur via `ads_get_dataset_stats` sur le dataset Shopify : l'événement manque à la fois côté navigateur ET côté serveur/Conversions API, donc pas un problème d'attribution publicitaire mais un vrai trou de tracking sur une commande précise. Cause non identifiée malgré les pistes données (Safari/ITP, ad blocker, consentement cookies) ; Roméo l'accepte comme un événement rare, pas de nouvelle investigation sauf récidive.
+- **Nouvelle règle actée, gravée dans `bilan-ads/references/baremes.md` (section 7)** : dès que Roméo signale un écart entre les ventes vues dans Meta et les ventes réelles Shopify, Claude calcule lui-même le ROAS réel (CA réel Shopify ÷ dépense réelle Meta sur la période) au lieu de se fier au chiffre rapporté par Meta, et l'analyse kill/continue/scale repart de ce ROAS recalculé. C'est Roméo qui repère l'écart en observant ses chiffres, pas une surveillance automatique de Claude.
+
+---
+
 ## 2026-09-10 (mise à jour 7)
 
 ### PureShot entre en phase de scaling, correction méthodologique sur l'ajout de créas

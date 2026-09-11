@@ -520,4 +520,22 @@ que si le ROAS global ne compense pas.
 Le ROAS et les achats **rapportés par Meta** (pixel) peuvent **sur- ou sous-estimer**
 les ventes réelles (fenêtre d'attribution, achats multi-appareils, refus de cookies).
 La vérité comptable, ce sont les **ventes Shopify**. Si l'écart compte pour la décision,
-le signaler et proposer de recouper avec Shopify (hors périmètre MCP de ce skill).
+le signaler et proposer de recouper avec Shopify.
+
+### Incident constaté et règle actée le 11/09/2026
+
+Sur PureShot, 2 commandes payées sur Shopify le même jour, mais seulement **1 événement
+Purchase reçu par le pixel** — vérifié à la fois côté navigateur ET côté serveur/Conversions
+API via `ads_get_dataset_stats` sur le dataset Shopify (`ads_get_datasets` pour le retrouver).
+Ce n'était donc pas un simple problème d'attribution publicitaire (une vente trackée mais
+pas créditée à une pub), mais un vrai trou de tracking sur une commande précise. Cause non
+identifiée malgré vérification (pixel actif, événements récents des deux côtés) : traité
+comme un événement rare par Roméo, pas de nouvelle investigation sauf récidive.
+
+**Règle opérationnelle actée par Roméo : dès qu'il signale un écart entre le nombre de
+ventes vues dans Meta et le nombre de ventes réelles sur Shopify, calculer soi-même le
+ROAS réel** = CA réel Shopify sur la période ÷ dépense pub réelle Meta sur la même période,
+**au lieu de se fier au ROAS/nombre d'achats rapporté par Meta** pour cette période. C'est
+Roméo qui repère l'écart en observant ses chiffres (il ne demande pas à Claude de surveiller
+ça en continu), il le signale, puis l'analyse et la décision (kill/continue/scale) se font
+à partir de ce ROAS recalculé plutôt que du chiffre Meta natif.

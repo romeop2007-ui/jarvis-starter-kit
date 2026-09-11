@@ -19,6 +19,22 @@
 
 ---
 
+## 2026-09-11
+
+### Lot de 5 statiques PureShot, grille des 4 phases de scaling, et deux erreurs de méthode corrigées
+
+- **Méthode de production de statiques rodée de bout en bout.** Roméo a créé son GPT custom « Creative Concept Generator » (prompt système du formateur, gardé dans son Projet ChatGPT) ; Claude fournit désormais les requêtes MODE 1 (copie de structure) et les références réelles tirées du Google Sheet « Tops statics » filtré par niche et par format via le compte de service (lignes L1141 cellsius-shop.com, L133 flytex.fr, L634 petparadisebrand.com, L968 fr.funnyfuzzy.com). Génération Nano Banana Pro en 4:5 et 2K, retouches Canva. **5 statiques produites** sur l'angle « le parfum recouvre, l'enzyme neutralise » : comparatif, témoignage UGC, faux écran AirDrop, bullet points, lifestyle muet.
+- **Enseignements de production :** la créa de référence ne doit PAS être jointe dans Google AI Studio (contamination du visuel), le logo n'est joint que si le prompt l'affiche, le modèle invente un faux logo s'il n'a pas le fichier (corrigé à la main dans Canva sur la créa bullet points), et le rapport de taille produit/concurrent plus l'alignement des paires sont les deux choses que l'agent rate systématiquement sur un comparatif.
+- **Leçon 1.6 « Récap de quel type de créa lancer à quel moment » téléchargée (yt-dlp + cookies Kajabi) et transcrite en local (Whisper large-v3-turbo).** Elle donne la grille officielle des 4 phases de créas en scaling, désormais dans CONTEXT.md. **Conséquence : PureShot est en phase 1 (traduction, 3 à 7 créas par jour jusqu'à 30-40 traduites), et les 70-80 statiques relèvent de la phase 3, à partir de 1-2 k/jour de CA.** Les 5 statiques du jour sont donc gardées en réserve.
+- **Ventilation par créa du 11/09 (MCP Facebook Ads, lecture seule) :** AD1 (30 €) et AD2 (18,82 €) ont consommé 62 % du budget du jour pour 0 vente ; la seule vente attribuée vient d'AD10, une créa neuve, à ROAS 7,96. Meta n'a donc pas détourné le budget vers les nouvelles créas, il peine au contraire à dépenser dessus. AD1, qui portait 4 des 5 premières ventes, est à surveiller pour fatigue.
+- **Décision du soir :** budget inchangé à 100 €/jour (règle formation : ne jamais réagir à une seule mauvaise journée après une hausse de budget), envoi de 5 créas traduites Kalodata dans la même CBO, décision de budget reportée au 13/09 sur les deux vues.
+- **Trois déclencheurs de nouvelle CBO vérifiés à la source primaire** (transcription vidéo 1.2, pas seulement le barème) : créas qui ne prennent pas dans la CBO existante (nouvelle CBO à 50 €/j en mini-testing de 5-6 créas, repartant sur les paliers 24h/48h) ; plafond malgré 20-25 créas envoyées (exemple du formateur : 300 €/j de spend, ROAS 2,8, bloqué à 750-900 € de CA) ; cap structurel d'une CBO et un seul ad set jusqu'à environ 1,5 k/jour de CA.
+- **Divergence formation / Discord documentée** sur la cadence de décision budget (2 vues et 3 jours contre jour par jour, plancher 50 €/j). Arbitrage retenu : la formation, l'échantillon quotidien de Roméo (1 à 4 ventes) ne portant pas de signal.
+- **⚠️ Deux erreurs de méthode de Claude dans la même session, toutes deux rattrapées par Roméo.** (1) Recommandation de n'envoyer aucune créa le soir même, alors que le board Miro dit explicitement 3 à 7 par jour tous les jours : l'erreur venait d'une puce du Discord parlant d'un batch de 50 ads appliquée à tort à un batch de 5, en ignorant une autre puce du même Discord disant de ne pas craindre la dilution. (2) Puis recommandation d'envoyer les 5 statiques, alors que la phase 1 est de la traduction et que les statiques sont de la phase 3. Deuxième jour consécutif d'erreur sur le scaling (après l'incident du 10/09), les deux fois dans le sens trop restrictif. Mémoire `feedback_incertitude_explicite_vs_fausse_certitude` complétée : **quand la formation donne un chiffre explicite, ce chiffre fait foi, et un raisonnement de prudence personnel ne doit jamais être présenté comme la conclusion de la source.**
+- Incident mineur signalé par Claude in Chrome : un clic parti dans la zone de message d'un thread Discord a posté « palier 3 jours » par erreur, supprimé immédiatement. Risque à garder en tête quand un agent pilote le navigateur dans une messagerie partagée.
+
+---
+
 ## 2026-09-10 (mise à jour 7)
 
 ### PureShot entre en phase de scaling, correction méthodologique sur l'ajout de créas

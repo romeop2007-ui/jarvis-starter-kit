@@ -7,6 +7,25 @@
 
 ---
 
+## 2026-09-12
+
+### Fiabilisation du P&L, vrai coût PayPal fournisseur, doctrine scaling confirmée, relance client #1015
+
+- **6 créas concurrentes traduites** (ADS 12 à 16 de CozyPetsy + ADS 22 de KWOOV) : script FR fidèle à l'angle, durée et genre de voix par ad, débit calculé entre 3,5 et 4,0 mots/s pour caler la voix off sur la durée. Fournis aussi les **textes d'incrustation FR** des ads 12, 13, 16 et 22, à la casse et aux emojis de l'original. Parfum corrigé sur indication de Roméo : lavande fraîche, pas Brise Méditerranéenne.
+- **6 nouvelles créas ajoutées dans la CBO le 11/09 au soir, publiées ACTIVES.** Analyse horaire du compte : **42 % du budget quotidien part avant 10h du matin**, dont 32 % sur la seule tranche 7h-9h. Conclusion : publier les créas actives le soir revient exactement à la programmation de minuit recherchée, puisque minuit n'est qu'une remise à zéro de budget et qu'une pub active le reste. Il n'existe aucune programmation d'activation au niveau de la pub chez Meta.
+- **Trois questions de méthode tranchées par la formation** (vidéo « 1.2 Testing validé - phase de scaling », Module 12, lue en local, ce que la session Claude Discord n'avait pas pu faire) : on ajoute les créas dans le même ad set et on ne paie jamais pour forcer le spend, on ne coupe jamais une pub qui ne capte pas de budget, et on ne coupe les nouvelles créas que si elles cassent le ROAS 3 jours d'affilée. Nouvelle CBO seulement à 20-25 créas ou après cet échec. Phase d'apprentissage déclarée non-sujet par le formateur Zezinho sur le Discord.
+- **Analyse du vendredi 11/09 avec ROAS recalculé** : Meta affichait 0,92 (89,99 € attribués sur 97,37 € dépensés), la réalité Shopify était de **3 commandes pour 149,98 €, soit un ROAS de 1,54**. Meta a raté une commande entière de 59,99 €. Journée donc **rentable** (ROAS BE 1,30) mais sous le seuil de scaling (ROAS TARGET 1,68), d'où budget maintenu. **Deuxième jour d'affilée de trou de tracking**, cause toujours inconnue.
+- **Procédure PayPal / carte figée dans le skill `budget`** (`references/frais-psp-paypal-vs-carte.md`). Découverte qui bloquait Roméo depuis la vidéo P&L : sur cette boutique **PayPal passe à travers Shopify Payments**, donc le moyen de paiement affiche `shopify_payments` pour toutes les commandes. Le seul discriminant est `fees.rateName` (PayPal 2,9 % + 0,35 €, carte 1,5 % + 0,25 €). Format de rendu fixé par Roméo : nombre de commandes PayPal et CA PayPal, deux chiffres, rien d'autre.
+- **Trois bugs corrigés dans le P&L.** `Fees/Taxes!C2` contenait le texte `2,9%` au lieu du nombre `0,029` et cassait Net Profit, Net Profit % et Fees/Taxes sur **toutes les lignes de l'année** ; cause racine : le Sheet est en séparateur décimal point, une virgule y crée du texte. `TESTINGS!E17` sommait `E13,E16` au lieu de `E13:E16` (testing T6 à 2 commandes au lieu de 7, AOV à 239,97 € au lieu de 68,56 €), corrigé par Roméo. Ligne « Frais PayPal fournisseur » ramenée de 30,43 € à 20,23 €.
+- **Vrai coût des recharges fournisseur mesuré : 9,54 %**, contre 13 % estimés la veille. Environ 5 % de commission de réception (42,16 $ payés pour 40 $ crédités) plus 4,3 % de marge de change PayPal. Les 4 recharges ont été appariées à la seconde près entre l'appli Aplusfulfill, PayPal et Qonto, au taux BCE officiel. 330 $ crédités, 312,55 € débités, 27,23 € de frais cumulés.
+- **Garantie commerciale alignée à 90 jours** sur les deux pages légales (Politique de Remboursement et CGV article 9), qui annonçaient encore 30 jours alors que la fiche produit promettait 90. Le droit de rétractation légal de 14 jours et la prise en charge des frais de retour par Zooryn sont inchangés.
+- **Relance de la cliente #1015**, qui avait acheté les 6 recharges sans le pistolet (vérifié : aucune commande antérieure, colis déjà expédié). Mail de service rédigé et envoyé, code **RECHARGE10** créé (10 % sur le seul PureShot, expire le 16/09 à 00h00). Au passage, la **fuite RapidBundle est confirmée et assumée** : les 6 recharges à 60 € s'achètent 30 € sans le pistolet, pour environ 8 € de COGS.
+- **Demande de don refusée** à l'association Les Amis de Kâli, avec un mail de renversement du risque (livraison offerte, rétractation 14 jours frais de retour à notre charge, satisfait ou remboursé 90 jours). Cas absent du template SAV Zecom, rédigé hors template et signalé comme tel.
+- **COGS de l'upsell recharges connu** : facturé 9,64 $ par Yuri, soit environ 8 €, vendu 30 €, multiplicateur d'environ 3,7. Sujet clos, Roméo a la facture.
+- Incohérence relevée sur l'identité SAV : expéditeur Gmail « Julien », signature « Camille de Zooryn ». À unifier.
+
+---
+
 ## 2026-09-11
 
 ### Précision du P&L (accès Qonto, vrai coût des frais PayPal fournisseur) + incident pixel Meta PureShot, nouvelle règle ROAS recalculé

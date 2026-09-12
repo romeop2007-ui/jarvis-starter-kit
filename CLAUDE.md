@@ -149,7 +149,13 @@ Skill qui enregistre dans le Google Calendar de Roméo (via le MCP Google Calend
 
 ### budget
 
-Skill qui met à jour le Google Sheet "Investissement E-commerce" (suivi du budget e-commerce) à la demande de Roméo. Activé quand il dit "mets à jour mon budget", "actualise ma compta", "remplis mon tableau d'investissement". Va chercher les ventes (connecteur Shopify MCP) et les dépenses pub (MCP Facebook Ads), puis écrit les cases d'entrée du tableau via un compte de service Google ; les formules (CA, totaux, case finale) se recalculent seules. Modèle crea-pub : Roméo déclenche, le skill exécute dans la session, aucun automate autonome.
+Skill qui alimente le **P&L de Roméo** à la demande. Activé quand il dit "mets à jour mon budget", "actualise ma compta", "fais-moi l'analyse d'hier", "qui a payé par PayPal hier". Va chercher les ventes (connecteur Shopify MCP) et les dépenses pub (MCP Facebook Ads), puis écrit les cases d'entrée via un compte de service Google ; les formules se recalculent seules. Modèle crea-pub : Roméo déclenche, le skill exécute dans la session, aucun automate autonome.
+
+**Cible mise à jour le 11/09/2026 :** le Sheet "Investissement E-commerce" a été supprimé le 05/08/2026. Le tableau actif est **"P&L - Zecom Academy 2026"**, piloté par `scripts/pnl-tool.mjs` (l'ancien `budget.mjs` pointe vers le Sheet mort). Onglets utiles : `DAILY REPORT` (scaling, une ligne par jour), `TESTINGS` (un bloc par produit testé), `Fees/Taxes` (taux PSP et URSSAF), `Sep-26` et les autres mensuels (dont les Other charges en colonnes Y/Z/AA).
+
+**Routine de Roméo :** il remplit le DAILY REPORT **le lendemain matin pour la veille**. Quand il demande l'analyse d'hier, il veut des chiffres bruts prêts à copier-coller, pas une analyse commentée. Testing dans `TESTINGS`, scaling dans `DAILY REPORT`, le résultat net d'un testing terminé étant reporté en charge négative dans les Other charges du mois.
+
+**Deux pièges gravés dans `references/` :** (1) `frais-psp-paypal-vs-carte.md` — sur cette boutique PayPal passe à travers Shopify Payments, donc le moyen de paiement affiche toujours `shopify_payments` ; le seul discriminant est `fees.rateName` (PayPal 2,9 % + 0,35 €, carte 1,5 % + 0,25 €). (2) Le Sheet utilise le **point** comme séparateur décimal : une valeur tapée avec une virgule y est stockée en texte et casse toutes les formules qui la consomment.
 
 ### bilan-ads
 

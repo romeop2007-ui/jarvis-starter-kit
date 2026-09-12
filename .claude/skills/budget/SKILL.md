@@ -147,3 +147,7 @@ Faire ces operations de structure avec validation explicite de Romeo (c'est de l
 - Aucune automatisation autonome : Romeo declenche, le skill execute dans la session. Pas de reveil sur commande client (impossible sur abonnement sans n8n/webhook).
 - Le COGS fournisseur par palier n'est pas recuperable automatiquement (invisible cote Shopify, verifie manuellement sur Aplusfulfill) : Romeo le fournit ou envoie la capture.
 - Les versements Shopify -> Qonto prennent plusieurs jours : on se base sur les commandes Shopify, pas sur les arrivees bancaires.
+
+## References
+- `references/pnl-officiel-formation.md` : structure du P&L officiel de la formation.
+- `references/frais-psp-paypal-vs-carte.md` : **repartition PayPal / carte commande par commande**, pour la ligne "frais de PSP". A lire des que Romeo demande "qui a paye par PayPal / par Shopify Payments". Attention : le gateway vaut `shopify_payments` meme pour PayPal, le seul discriminant est `fees.rateName`.

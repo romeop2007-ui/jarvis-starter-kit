@@ -160,10 +160,15 @@ une voix anglophone "Owen" donnait un rendu robotique avec accent anglais en fra
 CLONE PAS la voix reelle du concurrent (interdit par ElevenLabs, et inutile desormais).
 
 **Regle simple : seul le genre de la voix d'origine compte.**
-- Narrateur/trice FEMME dans la pub source -> voix par defaut **Celine FR** (`voice_id`
-  `3fxbs2pB9bs8S6Z1N38A`, "Celine - Warm & Immersive", francais standard, chaleureuse).
-- Narrateur/trice HOMME dans la pub source -> voix par defaut **Sami FR** (`voice_id`
-  `CHgMYjn76aYQJxan8fTm`, "Sami - Studio-Quality French", francais standard, naturel).
+**🔄 Voix par defaut CHANGEES par Romeo le 12/09/2026** (Celine/Sami remplacees, il trouve les
+nouvelles « bien mieux, bien plus en termes publicite ») :
+- Narrateur/trice FEMME dans la pub source -> voix par defaut **Clemence** (`voice_id`
+  `LFo5X4P9PhYaOLBA9Hyh`).
+- Narrateur/trice HOMME dans la pub source -> voix par defaut **Simon** (`voice_id`
+  `mvhJVdVoTWVUtL4keT7W`, "Simon - Cheerful, Energetic and Rapid").
+
+_Anciennes voix par defaut, conservees pour memoire (ne plus les utiliser sauf demande) :_
+Celine FR `3fxbs2pB9bs8S6Z1N38A`, Sami FR `CHgMYjn76aYQJxan8fTm`.
 - Ces deux voix sont deja ajoutees a la bibliotheque ElevenLabs du compte (ajoutees le 22/06).
   Toujours utiliser `model_id: eleven_multilingual_v2` (verifie compatible francais "standard").
 
@@ -401,6 +406,38 @@ ressources créas après modifs/<LOT>/<ADn>/
 ```
 
 Romeo importe ensuite visuel + audio (ou accroches) dans CapCut pour le rendu final.
+
+## Dialogue a 2 voix et lots de repliques (methode du 12/09/2026)
+
+Quand la pub concurrent est un **dialogue joue par deux personnes** (cas ADS 20 GeniKiss,
+45,7 s, homme + femme), ne pas generer un seul fichier de voix off : **decouper le script par
+REPLIQUE**, en reprenant les timecodes du `.srt` de la video source, et generer **un mp3 par
+replique** nomme d'apres la replique (convention imposee par Romeo : `AD20#1.mp3` ...
+`AD20#12.mp3`). Romeo pose ensuite chaque clip a son timecode dans CapCut : le calage devient
+mecanique au lieu d'etre fait a l'oreille.
+
+Script dedie : `node scripts/tts-batch.mjs <plan.json> <dossier_sortie>`, ou `plan.json` est un
+tableau `[{ name, voice, text, target, mode, speed? }]` :
+- `mode: "fit"` -> caler pile sur `target` (monologue continu) ;
+- `mode: "cap"` -> ne jamais DEPASSER `target` (replique de dialogue : un clip plus court que
+  son creneau est normal, il y a des actions et des respirations a l'image) ;
+- `mode: "fixed"` -> vitesse imposee via `speed`, aucune iteration.
+Le script retire aussi les silences de bord de chaque mp3 (sinon un silence de tete decale tout
+le montage sur un clip de 1,5 s).
+
+⚠️ **Variance ElevenLabs mesuree le 12/09/2026 : deux generations du MEME texte a la MEME
+vitesse peuvent s'ecarter de 2 a 3 secondes** sur un script de 50 s (les pauses et l'intonation
+changent d'une passe a l'autre). Consequence : sur un monologue long, ne pas chasser la seconde
+en reecrivant le script en boucle. **Generer 2-3 prises et garder la plus proche de la cible**
+coute quelques centimes et marche mieux que trois reecritures.
+
+**Debit de reference francais** (verifie sur ce lot) : viser **5,5 a 6,5 syllabes/seconde**,
+jamais plus de 7. La metrique "mots/seconde" du SKILL est trompeuse sur les repliques courtes
+(beaucoup de monosyllabes) — compter les syllabes donne un calage bien plus fiable.
+
+**Lip-sync : sujet clos par Romeo le 12/09/2026.** Il ne veut PAS d'outil de synchronisation
+labiale (« ca ne sert vraiment a rien en tout cas pour moi »). Ne plus le proposer. Une voix FR
+sur un visage anglophone passe en feed Meta avec des sous-titres brules.
 
 ## Chemin IMAGE (pub statique .jpg/.png) — methode prompt ChatGPT (RE-REVISEE le 06/08/2026)
 

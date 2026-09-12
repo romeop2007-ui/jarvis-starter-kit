@@ -17,12 +17,13 @@ ou de le recopier du concurrent.
 
 ## Garantie / retours
 
-- **Garantie réelle : 30 jours** (satisfait ou remboursé), pas 365 jours. Si une pub concurrent
-  dit "365 jours" ou "garantie à vie", adapter à "30 jours" — ne jamais recopier le chiffre
-  d'origine tel quel sur une promesse client.
+- **Garantie réelle : 90 jours** (satisfait ou remboursé), alignée le 12/09/2026 sur la
+  Politique de Remboursement ET les CGV article 9 (elles annonçaient encore 30 jours alors que la
+  fiche produit promettait 90). Si une pub concurrent dit "365 jours" ou "garantie à vie", adapter
+  à "90 jours" — ne jamais recopier le chiffre d'origine tel quel sur une promesse client.
 - **Retours (officialisé dans les politiques le 29/06/2026)** : droit de rétractation légal
   14 jours, **frais de retour à la charge de Zooryn** ; EN PLUS garantie commerciale "satisfait
-  ou remboursé" 30 jours. Vrai à dire : "retours gratuits", "satisfait ou remboursé 30 jours".
+  ou remboursé" 90 jours. Vrai à dire : "retours gratuits", "satisfait ou remboursé 90 jours".
 
 ## Prix
 
@@ -39,8 +40,11 @@ ou de le recopier du concurrent.
 ## Livraison
 
 - **Confirmé le 29/06/2026 (officialisé dans la politique d'expédition)** : livraison
-  **100% gratuite**, **France métropolitaine**, délai **5-10 jours ouvrés**, **numéro de suivi**
-  fourni par email. "Livraison offerte / gratuite" est donc vrai et généralisable à toute pub FR.
+  **100% gratuite**, **France métropolitaine**, **numéro de suivi** fourni par email.
+  "Livraison offerte / gratuite" est donc vrai et généralisable à toute pub FR.
+- ⚠️ **Délai : incohérence connue et assumée au 12/09/2026**, à ne pas trancher soi-même dans une
+  créa. CGV : 5-10 jours ouvrés. Politique d'expédition : 5-15. Fiche produit PureShot : 7-10.
+  Dans une pub, rester sur "livraison offerte" sans chiffrer le délai, sauf consigne de Romeo.
 
 ## Origine produit
 

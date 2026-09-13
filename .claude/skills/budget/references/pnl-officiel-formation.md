@@ -152,6 +152,20 @@ ne jamais toucher, sinon on casse le calcul.**
   lancement (Sculpted, 06/06/2026).
 - Colonnes automatiques, **NE JAMAIS ÉCRIRE DEDANS** : Total Sales, Net Profit, Net Profit %,
   ROAS, AOV, Fees/Taxes.
+- **Frais de localisation Meta (ajout du 14/09/2026, demande de Roméo)** : colonne `Fees/Taxes!F`
+  (« Frais localisation Meta », F2 = 0,0283, mesuré sur le reçu du 13/09 : 3,03 € sur 107,00 €).
+  Pas de TVA sur les reçus Meta (hypothèse 20 % du 13/09 réfutée par le reçu). La formule
+  Fees/Taxes de chaque ligne (O3:O367) se termine par `+ (F<ligne> * 'Fees/Taxes'!$F$2)`, idem
+  TESTINGS M13:M17 (bloc T6 seulement, T1-T5 figés). Effet : le Net Profit intègre ces frais, le
+  ROAS reste celui de Meta. **FB Ads Costs se saisit au montant affiché par Meta.** Recaler F2 si
+  d'autres reçus donnent un autre taux.
+- **Don ou commande à 0 €** : exclu de Total Orders (sinon AOV et frais fixes faussés), mais son
+  COGS reste dans la colonne COGS.
+- **Frais de recharge Aplusfulfill** : une ligne « Other » par recharge dans l'onglet du mois =
+  montant débité sur Qonto − (dollars crédités × taux utilisé pour le COGS, ~0,861 en 09/2026).
+- La ligne du testing dans les charges du mois (ex. `Sep-26!AA5`) est liée par formule au TOTAL
+  du bloc (`=-TESTINGS!I17`), plus de recopie manuelle. Sauvegarde d'avant ces modifications :
+  scratchpad de la session du 14/09 (`backup-pnl-2026-09-14.json`).
 - **Vérifié le 05/08/2026 via Shopify direct (GraphQL orders, financial_status:paid) : aucune
   commande PayPal n'a jamais existé sur Zooryn (4 commandes payées au total, toutes
   `shopify_payments`).** Donc colonnes PayPal + taux PayPal dans Fees/Taxes restent à 0/vides.
@@ -254,3 +268,38 @@ colonne I.
    saisie par Roméo le 11/09 (facture Yuri 9,64 $). Le signaler dans la réponse.
 
 Rendu : le total brut, plus le détail en une ligne par offre.
+
+## 7. Contrôle logistique quotidien (facture Aplusfulfill, acté le 14/09/2026)
+
+Adaptation du SOP Zecom « Contrôler ses factures agent avec Claude » (Module 6, leçon 2.2, PDF aussi dans
+`livrables/ecommerce/Logistique/`). Différences : contrôle **quotidien** (l'agent se paie dans le solde à chaque
+commande), commandes lues directement via le MCP Shopify (pas d'export CSV), grille **par offre** et non par pièce.
+
+**Source agent** : `livrables/ecommerce/Logistique/Contrôle logistique quotidien Zooryn/JJ:MM:AA.xlsx`
+(facture Aplusfulfill de la journée, onglet `Invoice`, colonnes Order Id / Order Date / Product Name / QTY / Country /
+Amount). ⚠️ `Amount` = total de la commande répété sur chaque ligne produit : prendre une valeur par Order Id.
+Lecture sans openpyxl : dézipper le xlsx et lire `xl/sharedStrings.xml` + `xl/worksheets/sheet1.xml`.
+`Balance Due` en en-tête : identique sur toutes les factures d'un même export, factures toutes payées selon Roméo (14/09) → c'est très probablement le **solde restant du portefeuille**, pas un reste à payer. La `Date` de l'en-tête est l'heure de l'export (heure de Chine), pas celle du traitement.
+
+**Rythme de l'agent observé (fulfillments Shopify 09-13/09)** : un lot par jour vers 18h heure de Chine (~12h Paris), samedi compris, aucun traitement le dimanche 13/09. Une commande passée après ~12h Paris part au lot du lendemain, celles du samedi après-midi et du dimanche au lot du lundi. Ne pas alerter avant ce délai.
+
+**Grille agent (FR, ligne DDP), en $, relevée sur la facture réelle du 13/09/2026** :
+| Offre (contenu de la commande Shopify) | Prix agent | COGS € saisi |
+|---|---|---|
+| Pistolet seul | 12,98 $ (devis 13,00) | 11,19 € |
+| Pistolet + 3 recharges | 15,40 $ | 13,26 € |
+| Pistolet + 3 recharges + 6 recharges (ou + 3 + 3) | 21,01 $ (devis 20,87, plateforme 21,05) | 18,06 € |
+| Pistolet + upsell | 18,21 $ (devis, jamais facturé à ce jour) | 15,68 € |
+| 6 recharges seules | 9,64 $ (facture Yuri) | 8,33 € |
+Taux implicite du COGS € : ~0,861 €/$. Le coût réel du dollar (recharge PayPal) est ~0,94 €/$ : l'écart est
+compté via les lignes « Frais PayPal fournisseur » des charges du mois, jamais dans le COGS du DAILY REPORT.
+À mettre à jour à chaque changement (nouvelle offre, nouveau pays, passage à la ligne 5-10 jours).
+
+**Contrôles du jour** : (1) chaque commande payée de la veille (heure de Paris, dons compris) présente sur la facture
+au prix de la grille ; (2) aucune commande facturée absente de Shopify, annulée, remboursée ou en double ;
+(3) commandes payées non facturées depuis plus de 48 h = alerte ; (4) COGS € du DAILY REPORT = somme théorique.
+Tolérance : écart ≤ 0,05 $ par commande = arrondi, signalé sans alerte.
+
+**Hebdo (lundi)** : rapprochement du solde (solde départ + recharges créditées − factures = solde affiché) et
+remplissage de l'onglet COGS CHECK. ⚠️ Formule de l'onglet incohérente : `Difference` = D−E lignes 2-4, E−D à partir
+de la ligne 5, à corriger avant usage.

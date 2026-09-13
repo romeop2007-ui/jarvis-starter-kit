@@ -86,6 +86,16 @@ ROAS −20 % de perte à partir des colonnes suivantes, **par produit** :
   jamais sur le meilleur cas* — cette vidéo donne la méthode exacte de pondération à appliquer une
   fois qu'il y a assez de data (RapidBundle Analytics), plutôt qu'une simple moyenne arithmétique.
 
+### ⚠️ Coûts absents du Sheet calculateur pour Zooryn (audit du 14/09/2026, apport Claude, pas la formation)
+Le Sheet ROAS BE & TARGET sous-estime les seuils de PureShot sur trois points :
+- **Frais de localisation Meta ≈ 2,83 %** de la dépense (reçu du 13/09 : 3,03 € sur 107,00 €).
+  Pas de TVA sur les reçus Meta (hypothèse 20 % réfutée par le reçu).
+- **Frais PSP réels ≈ 3,2 % du CA** (73 % des commandes en PayPal + fixes), pas 1,86 %.
+- **Frais de recharge Aplusfulfill ≈ 11,5 % du COGS**, à ajouter au COGS.
+Seuils réels estimés au 14/09/2026, en ROAS affiché par Meta : **BE ≈ 1,56, RANGE ≈ 2,02-2,25,
+TARGET ≈ 2,25**, contre 1,41 / 1,78-1,95 / 1,95 dans le Sheet. Utiliser ces valeurs pour la
+décision du soir tant que le Sheet n'est pas recalibré.
+
 ---
 
 ## 2. Phase de TESTING — seuils de décision par palier (formation, framework officiel)

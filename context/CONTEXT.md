@@ -63,11 +63,11 @@
 - **Historique des tests :** T1 Sculpted (UK, 0 vente), T2 protège-tibias (0 vente), T3 matelas gonflable, T4 guirlande Luma (COGS trop élevé), T5 sac sling (seul rentable, killé car ticket 39 € sans potentiel de scale), **T6 PureShot en scaling**. P&L cumulé à -2 699,45 € au 05/08/2026, formation comprise.
 
 ### Produit actuel : PureShot™ (clone de `belorna.com`, marché IT d'origine)
-- Pistolet anti-odeurs pour animaux, électrique à batterie. Lancé le 07/09/2026, **scaling depuis le 10/09**, CBO à 100 €/jour au 13/09.
+- Pistolet anti-odeurs pour animaux, électrique à batterie. Lancé le 07/09/2026, **scaling depuis le 10/09**, CBO passée de 100 à 150 €/jour le 13/09 au soir.
 - **Offres (RapidBundle en Combo Bundle) :** pack x1 + 3 recharges 59,99 € (l'offre qui vend), pack + upsell 89,99 €, solo 49,99 € (personne ne la prend), 6 recharges seules 30 €.
-- **COGS par offre** (onglet « CALCULATEUR COGS + PV » du Sheet ROAS BE & TARGET) : x1 + 3 recharges 13,26 € ; x1 + 3 recharges + upsell 18,06 € ; x1 11,19 € ; x1 + upsell 15,68 € ; 6 recharges 8,33 €. ROAS BE 1,30, ROAS TARGET 1,68.
+- **COGS par offre** (onglet « CALCULATEUR COGS + PV » du Sheet ROAS BE & TARGET) : x1 + 3 recharges 13,26 € ; x1 + 3 recharges + upsell 18,06 € ; x1 11,19 € ; x1 + upsell 15,68 € ; 6 recharges 8,33 €. Seuils du Sheet 1,41 (BE) / 1,95 (TARGET), mais **sous-estimés** (frais de localisation Meta ~2,83 %, frais PSP et de recharge absents) : seuils réels ≈ **1,56 / 2,25** en ROAS Meta (audit du 14/09, détail dans `bilan-ads/references/baremes.md`). Budget passé à 150 €/jour le 13/09 au soir.
 - **Parfum lavande uniquement** : le citron est écarté (risque de toxicité féline). Recharge = eau du robinet + gouttes de concentré (pas un spray prêt à l'emploi), à ne pas mélanger dans les créas.
-- **Sourcing 1688 :** pistolet chez `嘉兴市筑梦家宠物用品`, concentré lavande chez `宁波花栖之谷科技` (MSDS fourni). Prix saisi par l'agent sur pack + upsell 21,05 $ au lieu de 20,87 $ annoncés, gardé pour la future négociation.
+- **Sourcing 1688 :** pistolet chez `嘉兴市筑梦家宠物用品`, concentré lavande chez `宁波花栖之谷科技` (MSDS fourni). Pack + upsell facturé 21,01 $ en réel (devis 20,87 $, plateforme 21,05 $), écart gardé pour la future négociation.
 - **Bilan du testing au 12/09 :** 989,86 € de CA, 15 commandes payantes, AOV 65,99 €, zéro remboursement, bénéfice estimé ~261 € (COGS dérivé du ROAS BE et spend Meta estimé à ~500 €, à confirmer). 12/09 = record à ROAS réel 3,73.
 - **Fuite RapidBundle assumée :** les 6 recharges s'achètent 30 € sans le pistolet (cas #1015). Ne pas rouvrir sauf demande.
 - **Créas :** 17 actives + 10 en réserve au 12/09 (27 traduites). Phase 1 de la grille des créas (traduire jusqu'à 30-40). 5 statiques produites le 11/09 gardées pour la phase 3, référence réserve pour le comparatif : L757 `forpetloovers.com` (Us vs Them, reach 10M+) dans le Sheet « Tops statics ». **Content research du 13/09** : 8 vidéos à traduire trouvées (7 scripts, deux vidéos NovaPaw partagent le même), soit ~34 traduites après production ; 31 images de référence pour statiques (dont 12 vraies pubs Facebook PetMizer et Celani) et 12 photos clients, rangées dans `livrables/ecommerce/creas/PureShot/Content research/` (guide interactif `guide-content-research.html` dans le même dossier).
@@ -87,7 +87,9 @@
 
 ### Fournisseur : Aplusfulfill (compte AF005217, contact Yuri Yang sur Telegram)
 - Détail des frais et des lignes en mémoire (`reference_fulfillment_aplusfulfill`). Points clés :
-  - **DDP 7-15 jours ouvrés** (ligne actuelle) vs **standard + taxe 5-10 jours** (~2 $ de plus par colis, aucune négociation nécessaire). Traitement avant expédition : 2 jours mesurés sur #1006.
+  - **DDP 7-15 jours ouvrés** (ligne actuelle) vs **standard + taxe 5-10 jours** (~2 $ de plus par colis, aucune négociation nécessaire). Traitement : un lot par jour vers 12h heure de Paris, samedi compris, rien le dimanche (observé 09-13/09).
+  - **Paiement :** Roméo recharge lui-même le solde de la plateforme ; l'app paie chaque facture dans ce solde 30 min après. « Balance Due » des factures = solde restant (probable).
+  - **Prix réels facturés (13/09) :** pistolet seul 12,98 $, pack x1 + 3 recharges 15,40 $, pack + upsell 21,01 $. Grille complète et contrôle quotidien : `budget/references/pnl-officiel-formation.md` section 7.
   - Plancher logistique ~10-12 € de transport sur un petit colis ; au-delà de 0,3 kg, facturation au poids volumétrique (L×l×h/8000) s'il dépasse le poids réel. Capsules, poudres, gels : canaux spéciaux.
   - Recharges : ne jamais fractionner, montant choisi sur la trésorerie (garder ≥ 2 jours de budget pub sur Qonto).
   - La vraie négociation du COGS arrive vers 40-50 commandes par jour.
@@ -119,7 +121,7 @@
 > Dates et rendez-vous à me rappeler en début de session. Un engagement passé sort de la liste.
 
 **Récurrents**
-- **Chaque matin :** DAILY REPORT de la veille (routine « PayPal et COGS d'hier »).
+- **Chaque matin :** « bilan d'hier » pour le DAILY REPORT : COGS et PayPal, dépense Meta, contrôle logistique de la facture Aplusfulfill (`livrables/ecommerce/Logistique/Contrôle logistique quotidien Zooryn/JJ:MM:AA.xlsx`).
 - **Chaque soir vers 22-23h :** décision de budget PureShot sur 3 jours glissants jour J inclus + jour J isolé (barème `bilan-ads`).
 - **Chaque dimanche 17h-18h :** `/semaine`.
 - **Chaque mois :** déclaration URSSAF du mois précédent. Renouvellement du proxy FR (30/09, 30/10, 29/11, 30/12/2026, 30/01/2027).
@@ -159,6 +161,10 @@
 - **Contenu scaling du 09/09 :** transmis dans une session jamais enregistrée. Probablement couvert depuis par les vidéos transcrites, à confirmer avec Roméo.
 - **Pipeline en réserve :** MOBB (`mobb.nl`, bandes anti-ronflement) et Marina Roca (`marinaroca.com`, collier « Abrazo Eterno ») inscrits au tableau le 09/09. Autres profils en veille dans `liste-rejetes.md` (KneePlex, Cervia, Viveaprotect). Filtre de douche anti-chlore (`aqualux.fi`) à rechasser chaque semaine.
 - **Temps Discord de parrain :** à surveiller pour qu'il ne mange pas la production de créas.
+- **Lot de l'agent du lundi 14/09 :** vérifier après 12h que #1017 à #1028 sont bien expédiées ; sinon relancer Yuri.
+- **Sheet ROAS BE & TARGET à recalibrer :** frais de paiement réels ~3,2 % (et non 1,86 %), frais de localisation Meta ~2,83 %, frais de recharge ~11,5 % du COGS, COGS moyen pondéré par les ventes réelles (RapidBundle Analytics) au lieu de la moyenne simple.
+- **Onglet COGS CHECK :** corriger la formule « Difference » (D−E puis E−D à partir de la ligne 5), puis lancer le rapprochement hebdo du lundi (solde du portefeuille, coût réel du dollar).
+- **ParcelPanel :** abonnement à venir (limite de numéros de suivi atteinte), à ajouter aux charges du mois une fois pris.
 
 ---
 

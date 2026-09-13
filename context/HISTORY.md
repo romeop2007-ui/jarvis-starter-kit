@@ -7,6 +7,22 @@
 
 ---
 
+## 2026-09-14 (mise à jour 2)
+
+### Budget à 150 €/jour, audit du P&L, contrôle logistique quotidien de l'agent
+
+- **Analyse du dimanche 13/09 au soir selon le SOP** (3 jours glissants + jour J, ROAS recalculé sur le CA Shopify car Meta a encore raté une vente) : ROAS 2,75 sur 3 jours, 2,91 le 13/09 → scénario 1, **budget passé de 100 à 150 €/jour**, pas de saut à 200 (marge nette sous 35 %).
+- **Audit complet du P&L à la demande de Roméo** (vidéo d'un élève en perte de 600 € malgré un scaling). Hypothèse de 20 % de TVA sur les pubs Meta **réfutée par deux reçus** : Meta ajoute seulement des « frais liés à la localisation » de 2,67 à 2,83 %. Intégrés au Sheet via `Fees/Taxes!F2` (0,0283) dans la formule Fees/Taxes du DAILY REPORT et du bloc T6 : impacte le Net Profit, jamais le ROAS (exigence de Roméo).
+- **Corrections du Sheet** : frais de la recharge Aplusfulfill du 12/09 ajoutés (15,66 €), dates et dépenses pub du bloc T6 corrigées (COGS laissés tels quels, relevés à la main par Roméo), ligne T6 des charges de septembre liée par formule au bloc, don retiré du nombre de commandes du 12/09, dépenses Meta finales des 11-13/09. **Net profit de septembre : 125,44 €** (157,85 € avant audit).
+- **Seuils réels recalculés** (frais de localisation, frais de paiement réels ~3,2 %, frais de recharge ~11,5 % du COGS) : **BE ≈ 1,56, TARGET ≈ 2,25** en ROAS Meta, contre 1,41 / 1,95 dans le Sheet ROAS BE & TARGET, à recalibrer.
+- **Contrôle logistique quotidien mis en place**, adapté du SOP Zecom « Contrôler ses factures agent avec Claude » (Module 6, leçon 2.2) : contrôle chaque jour et non chaque semaine (argent débité à chaque commande), commandes lues directement dans Shopify, grille par offre. Roméo dépose la facture Aplusfulfill du jour dans `livrables/ecommerce/Logistique/Contrôle logistique quotidien Zooryn/JJ:MM:AA.xlsx`. **12/09 et 13/09 conformes**, prix réels relevés : 12,98 $ (pistolet seul), 15,40 $ (pack), **21,01 $** (pack + upsell).
+- **« Bilan d'hier » acté comme routine du matin** : COGS et PayPal, dépense Meta, contrôle logistique.
+- Paiement de l'agent : Roméo recharge lui-même le solde de la plateforme, l'app paie chaque facture 30 min après ; « Balance Due » des factures = solde restant probable. Rythme observé : un lot par jour vers 12h heure de Paris, samedi compris, aucun traitement le dimanche (explique les commandes en attente depuis samedi midi).
+- Formule incohérente repérée dans l'onglet COGS CHECK (D−E puis E−D à partir de la ligne 5).
+- **Leçon gravée en mémoire** : une reconstruction de chiffres n'est pas une preuve, demander le document source avant de modifier un outil de Roméo.
+
+---
+
 ## 2026-09-14
 
 ### Content research PureShot : guide, concurrent NovaPaw, tri de 69 fichiers (session du 13/09 au soir)

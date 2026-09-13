@@ -1,0 +1,847 @@
+---
+name: crea-pub
+description: Usine a creas publicitaires Zooryn. A partir d'une pub concurrent (sourcee dans le tableau de recherche produit ou fournie par Romeo), produit un dossier pret a finaliser. Detecte automatiquement le type. Video -> script voix off FR adapte a la marque + voix off ElevenLabs calee sur la duree (le detourage Vmake est desormais 100% manuel cote Romeo). Image -> Codex genere un prompt pret a coller dans ChatGPT (texte FR verrouille + composition), Romeo genere l'image finale lui-meme dans ChatGPT (API gpt-image abandonnee le 06/08/2026, trop de centimes pour rien). Sur demande, fournit aussi le texte de pub Meta (titre/corps/description/CTA/URL, ad copy courte, titre) pret a copier-coller, Romeo montant seul toute la campagne. A declencher quand Romeo dit "fais-moi les creas", "transforme cette pub", "adapte cette crea", "donne-moi le texte de la pub", ou fournit un .mp4/.jpg/.png de concurrent a adapter.
+allowed-tools: Bash, Read, Write, Edit, Glob
+---
+
+# Skill crea-pub — Usine a creas Zooryn
+
+Transforme une pub concurrent (.mp4) en un dossier pret a monter pour Romeo. Voir le plan
+complet : `C:\Users\franv\.Codex\plans\ok-on-passe-en-wild-cascade.md`.
+
+## ⛔ ETAPE 0 — LE HOOK (bloquante, ajoutee le 07/08/2026)
+
+**Avant d'ecrire la moindre ligne de hook, d'accroche ou de texte a l'ecran, lire dans cet
+ordre :**
+
+1. **`references/meta-policy-hooks.md`** — ce qu'un hook n'a pas le droit de dire. Contient le
+   "test de la phrase", les grilles refuse/conforme, et les 4 portes de sortie quand le produit
+   touche un attribut protege (sante, age, handicap, situation financiere).
+2. **`references/hooks-playbook.md`** — les 3 types de hooks officiels Meta avec leurs cas
+   chiffres, les multiplicateurs de la recherche Toluna en reponse directe, les contraintes
+   techniques (9:16, son, zone de securite 35 %) et le process en 8 etapes.
+3. **`references/synthese-caples-schwab-accroches.md`** — la matiere : 5 regles de Caples, les 10
+   accroches qui ont echoue et pourquoi, les 35 formules regroupees, les 7 principes de Schwab, et
+   la section decisive sur les **sujets genants** (comment vendre un produit intime sans jamais
+   nommer la condition du spectateur).
+
+**🔄 REGLE RENVERSEE PAR ROMEO LE 02/09/2026 : on TRADUIT le hook du concurrent comme le reste
+de la crea, on ne le reecrit pas.** L'ancienne regle (ci-dessous, conservee pour memoire) imposait
+de reecrire tout hook ciblant un etat de sante, un age ou un handicap suppose. Romeo l'a levee
+explicitement : *« si tous ces trucs-la fonctionnent avec Meta, moi ca devrait aussi fonctionner
+avec Meta. Alors on a toujours un risque de ban mais bon, vraiment je m'en fous. »* Et sur la
+reecriture : *« on ne recree pas les hooks, on est trop nuls pour ca. On le fera quand on aura de
+l'experience. »*
+
+**Ce que ca change concretement :**
+- La categorie douleur / posture / orthopedie / intime **n'est plus un motif d'ecartement** en
+  recherche produit ni en creas. Elle redevient un gisement comme un autre.
+- Les 3 fichiers de reference ci-dessus **restent a lire** : ils gardent toute leur valeur en
+  copywriting pur (Caples/Schwab), et ils servent a SIGNALER a Romeo quand un hook est manifestement
+  hors-charte. **Signaler, pas bloquer, pas reecrire.**
+- **Risque assume et documente** : ban ou restriction du Business Manager, verifie seulement le
+  28/08/2026 donc encore jeune. Le setup Multilogin + proxy francais du 01-02/09 est la protection
+  en place. Si un refus de pub tombe, c'est un cout accepte d'avance, pas une erreur de methode.
+- La reecriture de hooks reviendra **quand Romeo aura de l'experience**, pas avant. Ne pas la
+  reproposer d'ici la.
+
+_Ancienne regle du 07/08/2026, conservee pour l'historique :_ « on ne traduit JAMAIS mot a mot le
+hook d'un concurrent qui cible un etat de sante, un age ou un handicap suppose du spectateur.
+Meta refuse toute pub qui a l'air de savoir quelque chose de sensible sur la personne qui la
+regarde, y compris en tournure indirecte ("pour les personnes qui gerent X") depuis mars 2026. »
+
+**Bonne nouvelle a garder en tete :** le hook conforme Meta et le hook gagnant chez Caples sont le
+meme hook. La question posee au spectateur sur son propre probleme ("Avez-vous ce probleme ?")
+figure a la fois dans les interdits de Meta et dans les 10 echecs mesures de Caples. La contrainte
+ne coute aucune performance.
+
+## CHECKLIST DE DEMARRAGE — a poser a Romeo EN UNE FOIS, avant toute action
+
+Objectif (demande de Romeo le 23/06) : ne plus lui redemander une info au milieu du pipeline,
+etape par etape. **Au lancement d'un nouveau `<LOT>`, poser TOUTES ces questions d'un coup**
+(sauter celles deja repondues dans le message de depart de Romeo). Une fois les reponses en
+main, derouler tout le pipeline (creas + lancement Meta Ads si demande) sans repause, sauf
+blocage technique reel ou nouvelle info manquante imprevue.
+
+### A demander pour generer les creas (Chemin VIDEO ou IMAGE)
+
+1. **Le(s) fichier(s) concurrent(s)** (.mp4/.jpg/.png) du lot. **Depuis le 12/07/2026 : ne plus
+   demander a Romeo de fournir/chercher les pubs gagnantes.** Elles sont deja dans le tableau de
+   recherche produit (Google Sheet, cf. `.Codex/skills/recherche-produit/scripts/tableau.mjs`,
+   colonnes AD1->AD15 de la ligne du produit) des lors que Romeo a valide ce produit et demande a
+   l'ajouter au tableau. Aller les recuperer directement depuis le Sheet (liens TrendTrack en
+   priorite, telechargeables) plutot que redemander a Romeo. Ne redemander un fichier que si le
+   produit n'a pas encore de ligne dans le tableau (cas rare, recherche pas encore faite via ce
+   circuit) ou si un lien du Sheet est mort.
+2. **Le nom EXACT du produit Shopify** correspondant (ex "Zooryn - Guirlande lumineuse
+   solaire") — sert a remplacer le nom du produit concurrent partout (script, accroches).
+3. **Le nom du lot** (`T3`, `T4`...) s'il n'est pas deja visible dans le nom du dossier.
+4. **Si plusieurs pubs dans le lot ont des genres de narrateur ambigus** (impossible a deduire
+   a l'oreille/a l'oeil) : demander le genre voulu pour la voix off (sinon regle par defaut :
+   femme -> Celine, homme -> Sami, cf. section voix).
+5. **Budget global du lot** si Romeo veut une limite de cout (ElevenLabs, Vmake, gpt-image) —
+   sinon on avance sans plafond explicite.
+
+### A demander si Romeo veut le TEXTE de la pub pour ce lot
+
+⚠️ **Depuis le 12/07/2026, Codex ne fait plus QUE le texte de la pub** (titre, corps,
+description, CTA, URL) — plus de creation API, plus de verification post-creation (cf. section
+"Campagne Meta Ads"). Seules 2 infos utiles :
+
+6. **L'URL exacte de la page produit Shopify** (le lien de destination de la pub).
+11. **Le nom du concurrent de reference pour CE produit** si Romeo en a un en tete (sinon
+    chercher soi-meme via TrendTrack, ou recuperer direct dans le tableau de recherche produit
+    si la ligne existe deja).
+
+### Actions qui resteront TOUJOURS manuelles (a annoncer a Romeo, pas a lui faire decouvrir)
+
+- **Le detourage Vmake (retrait des sous-titres), 100% manuel cote Romeo depuis le 12/07/2026**
+  (Codex ne prepare plus la commande Vmake ni ne l'execute, cf. section Chemin VIDEO). Executer
+  gpt-image reste possible cote Codex (appel API direct, pas un pilotage d'interface).
+- Ouvrir/verifier/exporter dans CapCut (pas d'API d'export).
+- Deposer les visuels finaux dans Shopify Admin > Contenu > Fichiers pour obtenir une URL
+  publique (aucun outil d'upload de fichier local disponible cote Codex).
+- **Monter TOUTE la campagne Meta dans le Gestionnaire, de A a Z, y compris la verification**
+  (campagne, adset, pubs, upload des videos, duplication, publication, activation) — depuis le
+  12/07/2026, Codex ne fournit QUE le texte de la pub sur demande, plus rien d'autre.
+
+## Entrees attendues (a demander a Romeo si manquantes)
+
+Pour CHAQUE pub :
+1. Le **fichier video .mp4** (la crea concurrent).
+2. Le **nom du produit Shopify** correspondant (ex "Zooryn - Guirlande lumineuse solaire").
+
+Romeo fournit en general un **lot** : un dossier source dans `ressources créas avant modifs/`
+nomme `T3`, `T4`, etc. (un dossier = un produit/test). Traiter chaque pub du lot une par une,
+puis bilan final. Les pubs sont numerotees AD1, AD2, ... dans l'ordre du lot.
+
+## Convention de sortie (livrables) — IMPOSEE PAR ROMEO
+
+Le livrable final de chaque pub va dans :
+
+```
+livrables/ecommerce/creas/ressources créas après modifs/<LOT>/<ADn>/
+```
+
+ex `ressources créas après modifs/T4/AD1/`. Le `<LOT>` = le nom du dossier source (T4...).
+Helper : `node scripts/folder.mjs --lot T4 --ad AD1` cree et imprime ce dossier.
+
+**Chaque dossier ADn ne contient QUE ce dont Romeo a besoin dans CapCut :**
+- pub video AVEC voix off -> `voix-off.mp3` (le seul fichier utile : c'est la voix off generee) ;
+- pub muette/musicale OU pub image -> `accroches-fr.md` (les textes FR a poser).
+
+Le **visuel** (`video-sans-soustitres.mp4` apres Vmake, ou la creas image finale) viendra
+s'ajouter dans ce meme dossier ADn plus tard. Romeo assemble visuel + audio dans CapCut.
+
+Les fichiers de TRAVAIL (transcription source, brouillon de script, frames) ne vont PAS dans
+le livrable final : les garder dans un dossier de travail temporaire (ancien helper
+`scripts/folder.mjs "<produit>" "<nom-pub>"`) et ne pas encombrer `ADn`.
+
+## Detection du type de pub (router)
+
+Regarder l'extension du fichier fourni :
+- **Video** (`.mp4`, `.mov`, `.webm`, `.avi`, `.mkv`) -> suivre le **Chemin VIDEO**.
+- **Image** (`.jpg`, `.jpeg`, `.png`, `.webp`) -> suivre le **Chemin IMAGE**.
+
+Dans un lot mixte, router chaque pub selon son type.
+
+## Pre-requis techniques (verifier une fois)
+
+- `ELEVEN_LABS_API_KEY` presente dans le `.env` (voix off, sinon le dire et s'arreter).
+- `VMAKE_API_KEY` + `VMAKE_API_SECRET` dans le `.env` (retrait sous-titres via API Vmake).
+- Dependances : `cd .Codex/skills/crea-pub && npm install` (Node) ; `python -m pip install requests alibabacloud_oss_v2` (SDK Vmake).
+- Vmake = API officielle (SDK `vendor/vmake-sdk/`), voir `references/vmake-steps.md`. ⚠️ Codex NE PEUT PAS executer le SDK : il prepare la commande, Romeo l'execute.
+
+
+## Choix de la voix (regle fixe, 22/06 : fin de l'imitation du concurrent)
+
+Objectif de Romeo : une voix off NATURELLE en FRANCAIS, jamais robotique, jamais avec un accent. On ne cherche PLUS a imiter la voix/l'accent de la pub d'origine (bug identifie le 22/06 :
+une voix anglophone "Owen" donnait un rendu robotique avec accent anglais en francais). On ne
+CLONE PAS la voix reelle du concurrent (interdit par ElevenLabs, et inutile desormais).
+
+**Regle simple : seul le genre de la voix d'origine compte.**
+**🔄 Voix par defaut CHANGEES par Romeo le 12/09/2026** (Celine/Sami remplacees, il trouve les
+nouvelles « bien mieux, bien plus en termes publicite ») :
+- Narrateur/trice FEMME dans la pub source -> voix par defaut **Clemence** (`voice_id`
+  `LFo5X4P9PhYaOLBA9Hyh`).
+- Narrateur/trice HOMME dans la pub source -> voix par defaut **Simon** (`voice_id`
+  `mvhJVdVoTWVUtL4keT7W`, "Simon - Cheerful, Energetic and Rapid").
+
+_Anciennes voix par defaut, conservees pour memoire (ne plus les utiliser sauf demande) :_
+Celine FR `3fxbs2pB9bs8S6Z1N38A`, Sami FR `CHgMYjn76aYQJxan8fTm`.
+- Ces deux voix sont deja ajoutees a la bibliotheque ElevenLabs du compte (ajoutees le 22/06).
+  Toujours utiliser `model_id: eleven_multilingual_v2` (verifie compatible francais "standard").
+
+- Si Romeo veut varier : chercher d'autres voix FR natives via la bibliotheque partagee
+  (`GET /v1/shared-voices?language=fr`, filtrer `accent: standard` pour eviter les accents
+  regionaux/etrangers sauf demande explicite), jamais une voix dont la langue de base n'est pas
+  le francais (meme les voix "multilingues" anglaises gardent un accent residuel en francais).
+- Lister les voix deja dans le compte : `node scripts/voices.mjs` (filtre possible :
+  `node scripts/voices.mjs french`). **Si erreur "missing permission voices_read"** : la cle de
+  Romeo n'autorise pas le listing ; dans ce cas Romeo choisit directement dans son dashboard
+  ElevenLabs et donne le `voice_id`. La generation (TTS) marche sans cette permission.
+- Memoriser le `voice_id` choisi (genre + defaut ci-dessus, sauf changement explicite de Romeo)
+  dans la fiche infos de la pub.
+
+## Chemin VIDEO (pub .mp4)
+
+Travailler depuis `.Codex/skills/crea-pub`. Utiliser un **dossier de travail** temporaire pour
+les fichiers intermediaires, et le **dossier livrable** `ressources créas après modifs/<LOT>/<ADn>/`
+(via `node scripts/folder.mjs --lot <LOT> --ad <ADn>`) pour le seul fichier final utile.
+
+⚠️ Important : certaines pubs video sont **muettes / musicales** (pas de voix off, juste des
+accroches texte incrustees). Verifier la transcription : si elle ne contient que de la musique
+(ex "(musique de fin)"), il n'y a PAS de voix off a generer -> traiter comme une pub image
+(relever les accroches incrustees et les adapter en FR, cf. Chemin IMAGE), livrable
+`accroches-fr.md`. Ne generer une voix off QUE si la pub d'origine en a une.
+
+⚠️ **Piege reel rencontre le 23/06 (lot T4/AD3) : une pub classee "musicale" avait en fait une
+vraie voix off, jamais detectee.** La transcription de l'epoque (19/06) avait conclu "musique
+seule" alors que l'audio contenait bel et bien un narrateur (meme script que AD2). La STT
+ElevenLabs peut HALLUCINER une annotation generique de musique dans une langue au hasard quand
+elle echoue a transcrire (ex "(轻快的片尾音乐)", "(트로트 음악)") — un texte entre
+parentheses qui ressemble a une legende de musique n'est PAS une preuve fiable d'absence de
+voix, surtout sur un fond musical fort. **Si un doute existe (ou si Romeo signale a l'oreille
+qu'il y a une voix dans une pub deja livree en "musicale")** : retranscrire le
+`video-sans-soustitres.mp4` final (pas seulement la source brute) et, si du texte parle reel
+apparait, **re-traiter cette pub comme un type "voice"** : ecrire `script-fr.txt` (PROMPT FIXE
+ci-dessous, voix choisie selon le genre), generer `voix-off.mp3` (`tts.mjs`, cible = duree du
+`video-sans-soustitres.mp4`), puis regenerer le brouillon CapCut (etape 7, le script
+auto-detecte "voice" des que `voix-off.mp3` existe). Mettre l'ancien `accroches-fr.md` de cote
+(renommer `accroches-fr.OBSOLETE-*.md`) plutot que le supprimer, pour garder une trace.
+
+1. **Duree** : `node scripts/duration.mjs "<video.mp4>"` -> note D en secondes.
+2. **Transcription** : `node scripts/transcribe.mjs "<video.mp4>" "<dossier_travail>"`
+   -> recupere le texte source (langue d'origine) + ecrit `transcription-source.txt`.
+   Si la transcription = musique seule -> bascule sur le traitement "accroches" (voir encadre).
+3. **Texte FR dans le ADn** : ecrire le script rendu en francais (PROMPT FIXE ci-dessous)
+   DIRECTEMENT dans le dossier livrable du ADn : `script-fr.txt` (pub a voix off) ou
+   `accroches-fr.md` (pub muette/musicale). Calibrer : viser environ `D x 2,4` mots sans
+   depasser la duree, et prevoir GENEREUX (Sarah debite vite, plancher vitesse 0,9 ; un
+   script trop court sort une voix plus courte que la video).
+   **Regles de fluidite orale (source : prompt formateur "Traduction des sous-titres", Notion
+   "Les prompts Codex", ajoutees le 06/08/2026)**, a appliquer en ecrivant `script-fr.txt` : ne
+   jamais terminer une phrase par un point si l'idee se poursuit (virgule ou rien), point
+   seulement quand la pensee est vraiment close, pas d'ellipse sauf suspension volontaire, chaque
+   phrase doit se lire naturellement A VOIX HAUTE (c'est une voix off, pas un texte ecrit), et si
+   le sens d'une phrase du concurrent est deja couvert plus tot, reformuler plutot que repeter
+   inutilement le nom du produit/de la marque. Ces regles s'ajoutent au PROMPT FIXE existant
+   (remplacement du nom concurrent), elles ne le remplacent pas.
+4. **Detourage = 100% MANUEL cote Romeo depuis le 12/07/2026 (Vmake API abandonnee pour Codex).**
+   Romeo a teste l'automatisation via `creas-lot.ps1`/l'API Vmake et prefere desormais faire le
+   detourage lui-meme a la main : un detail rate par le pipeline automatique coutait plus de temps
+   a corriger qu'a faire directement. **Codex ne genere plus le detourage ni ne prepare la
+   commande Vmake.** Romeo place lui-meme le `video-sans-soustitres.mp4` final dans le dossier
+   `<LOT>/ADn/` prepare par Codex, une fois son detourage manuel termine.
+   **Voix off (Codex, inchange) : `node scripts/tts.mjs --voice <voice_id> --target <D> --out
+   <LOT>/ADn --text-file script-fr.txt`** genere `voix-off.mp3` cale sur la duree D de la video
+   SOURCE (avant detourage), directement dans le dossier `<LOT>/ADn/`. Cette partie reste 100%
+   cote Codex, methode et voix (Celine/Sami) inchangees.
+5. **Controle STRICT de la duree voix off (tolerance 1 s)** : comparer la duree de `voix-off.mp3`
+   a la duree de la video source (D notee a l'etape 1). La voix off doit durer le MEME temps que
+   la video, a +/- 1 seconde pres. Si l'ecart depasse 1 s : REECRIRE `script-fr.txt` (l'ALLONGER si
+   la voix est trop courte, le raccourcir si trop longue) puis RELANCER `tts.mjs`, et repeter
+   jusqu'a etre dans les +/- 1 s. Le vrai levier = la LONGUEUR du script (la vitesse TTS seule ne
+   suffit pas, elle est bornee a 0,9-1,15). Romeo verifie lui-meme, apres son detourage manuel, que
+   `voix-off.mp3` colle bien au `video-sans-soustitres.mp4` final (le detourage peut legerement
+   changer la duree) — Codex n'a plus ce fichier final sous la main pour le controler lui-meme.
+6. **Fiche infos** (optionnelle, dans le dossier de travail) : durees, voice_id, langue source,
+   statut Vmake.
+
+## Verification factuelle (etape obligatoire, ajoutee le 23/06)
+
+Une pub concurrent peut affirmer n'importe quoi sur SA marque (garantie, fabrication,
+livraison...). On adapte le TON et la STRUCTURE du concurrent, jamais ses FAITS sans verifier.
+**Avant de livrer un `script-fr.txt` ou un `accroches-fr.md` (chemin VIDEO ou IMAGE), comparer
+chaque allegation factuelle (garantie, origine/fabrication, livraison, codes promo) a
+`references/verites-zooryn.md`.** Si une allegation du concurrent ne colle pas a la realite
+Zooryn (ex "garantie 365 jours" alors que la vraie garantie est 30 jours, ou une mise en scene
+de fabrication artisanale francaise alors que Zooryn fait du dropshipping), corriger avec le
+vrai fait, jamais recopier tel quel. Si un fait Zooryn manque dans le fichier, demander a Romeo
+plutot que d'inventer.
+
+**Limite connue : ce controle ne s'applique qu'au TEXTE (script voix off, accroches).** Pour le
+chemin IMAGE, le texte concurrent est lu puis remplace par du texte FR avant d'etre pose dans
+Canva : la verification factuelle s'applique a ce texte de remplacement. Si Romeo fournit deja
+un visuel ou un texte fini contenant une fausse allegation (cas reel du 23/06, lot T3 : 3 visuels
+gpt-image avec "garantie 365 jours" en dur dans les pixels, 2 visuels avec une mise en scene de
+fabrication artisanale francaise inventee), le signaler clairement avant tout lancement de
+campagne, mais Romeo reste decisionnaire : il peut choisir de les utiliser tels quels.
+
+## PROMPT FIXE de generation du script (impose par Romeo)
+
+Utiliser exactement cette consigne pour produire le script FR :
+
+> Tu es le createur de la marque "Zooryn". Le nom de ton produit est "<NOM PRODUIT SHOPIFY>".
+> Traduis ce script en francais, ne depasse pas <D> secondes (en fonction du temps de la video
+> crea, et adapte si besoin sans changer le sens du script) :
+> <TRANSCRIPTION DE LA CREA CONCURRENT>
+>
+> IMPORTANT : la transcription source mentionne le PRODUIT du concurrent sous son propre nom
+> (ex "Mira", "Aurora", un nom de modele invente par le concurrent). Remplace CHAQUE mention de
+> ce nom de produit concurrent par le nom de TON produit ("<NOM PRODUIT SHOPIFY>", ou sa forme
+> orale naturelle et courte, ex "la guirlande Zooryn" plutot que de repeter tout le nom Shopify).
+> Ne garde JAMAIS le nom de produit d'origine du concurrent, meme s'il sonne bien ou est court.
+
+Le script FR doit : garder le sens et la structure de la pub d'origine, sonner naturel a l'oral
+(c'est une voix off, pas un texte ecrit), tenir dans la duree, et ne mentionner NI la marque NI
+le nom de produit du concurrent (uniquement Zooryn + le nom de TON produit).
+
+⚠️ Avant de deposer `script-fr.txt` dans le ADn : RELIRE le script et verifier qu'aucun nom de
+produit concurrent (celui present dans la transcription source) n'a ete conserve par erreur.
+Bug reel rencontre le 22/06 sur la guirlande Mira (Belysningshuset) : le script genere disait
+"la guirlande Mira de Zooryn" — "Mira" est le nom du produit CONCURRENT, jamais a garder.
+
+## Etape 7 — Generer le brouillon CapCut par code (zero clic souris)
+
+**⚠️ ECHEC RENCONTRE LE 10/09/2026 sur PureShot AD5-AD11 : projets generes INACCESSIBLES a
+l'ouverture dans CapCut**, cause non identifiee avec certitude (peut-etre lie a l'ajout d'un
+flag `--manual-captions` ce soir-la, peut-etre au template de base "0906" restaure depuis la
+corbeille, peut-etre un probleme plus profond du pipeline). Tout a ete annule et remis a l'etat
+d'avant (projets supprimes, `root_meta_info.json` restaure, script remis a l'identique via git).
+**Ne plus jamais annoncer un brouillon CapCut comme "fonctionnel" ou "pret" sans que Romeo l'ait
+reellement ouvert et confirme dans l'appli.** Codex ne peut pas lancer CapCut ni verifier
+visuellement le rendu : toute verification structurelle du JSON (chemins presents, champs
+remplis) ne prouve rien sur la compatibilite reelle avec l'appli. Avant de reutiliser ce script
+sur un nouveau lot, generer UN SEUL brouillon de test, demander a Romeo de l'ouvrir et de
+confirmer que ca charge, avant d'industrialiser sur plusieurs ADn d'un coup.
+
+Une fois le dossier ADn complet (video-sans-soustitres.mp4 + voix-off.mp3 OU accroches-fr.md),
+generer directement le projet CapCut avec :
+
+```
+node .Codex/skills/crea-pub/scripts/capcut-draft.mjs --lot <LOT> --ad <ADn> --register
+```
+
+Le script auto-detecte le type (voix-off.mp3 present -> "voice", accroches-fr.md present ->
+"musical") et traite les deux tres differemment :
+
+- **Type "voice"** (pub a voix off, ex AD1/AD2) : transcrit `voix-off.mp3` via STT ElevenLabs
+  (timestamps mot par mot), regroupe en legendes courtes (4-5 mots / ~2,2 s / coupe a la
+  ponctuation), coupe le son d'origine de la video (`volume: 0`) et pose la voix off comme
+  seule piste audio. Legendes en bas (`y: -0.56`), style blanc/contour noir Prompt-Medium.
+- **Type "musical"** (pub musicale/muette, ex AD3/AD4/AD5) : AUCUNE transcription/STT.
+  Parse directement le tableau de `accroches-fr.md` (colonnes Ordre/~temps/origine/FR/
+  Position/Hierarchie) pour placer chaque accroche FR au bon moment. **Le son d'origine
+  (musique) est CONSERVE** (`volume: 1`, pas de piste audio separee) : il n'y a pas de voix
+  off a remplacer. Position/taille mappees depuis les colonnes du tableau : "Haut" -> haut
+  d'ecran, "Centre" -> milieu, "Sous le titre" -> juste en dessous ; "Gros titre" -> plus
+  grand, "Titre moyen" -> taille moyenne, "Sous-titre" -> petit. Le suffixe "(2 lignes)" dans
+  la colonne Position force un retour a la ligne au milieu du texte. **Reglages
+  approximatifs** : Romeo verifie/ajuste la position a l'oeil dans CapCut si besoin.
+
+Projet de base clone : `0604` (template 9:16, 1 piste video + 1 piste texte + 1 piste audio)
+dans `C:/Users/franv/AppData/Local/CapCut/User Data/Projects/com.lveditor.draft/`. Le nouveau
+projet est nomme `ZOORYN-<LOT>-<ADn>` (ex `ZOORYN-T4-AD2`).
+
+**`--register` inscrit le projet dans `root_meta_info.json`** (sinon CapCut peut afficher
+"chemin inhabituel" a l'ouverture). Autorise par Romeo le 23/06 (renverse l'ancienne regle du
+22/06 qui interdisait d'y toucher).
+
+⚠️ **Piege majeur rencontre le 23/06, a ne JAMAIS reproduire : CapCut stocke TOUS les chemins
+en "/" dans `draft_content.json`, meme sur Windows.** `path.join()`/`path.resolve()` de Node y
+mettent des "\\" sur Windows. Consequence si on ecrit un chemin avec des "\\" dans le JSON
+(`materials.videos[0].path`, `materials.audios[0].path`, `draft_fold_path` du registre) : **le
+projet apparait dans la liste CapCut (les metadonnees en cache suffisent a l'affichage), mais
+cliquer pour l'ouvrir ne fait RIEN** (le materiau ne se charge pas, pas de message d'erreur).
+Symptome reel rencontre par Romeo sur AD2-AD5. Regle : utiliser `path.join()` librement pour
+les vrais appels `fs` (lire/copier des fichiers), mais TOUJOURS repasser par un helper
+`toPosix()` (remplace `\\` par `/`) avant d'ecrire une valeur de chemin dans le JSON du
+brouillon ou dans une entree du registre.
+
+Ce script est du Node pur + un appel a l'API ElevenLabs (STT), comme la transcription de
+l'etape 2 : Codex peut l'executer lui-meme normalement. CapCut lui-meme (ouverture, montage,
+export) reste 100% manuel cote Romeo.
+
+⚠️ **Deuxieme piege majeur rencontre le 23/06 : le projet OUVRE mais l'export plante CapCut
+(l'appli se ferme et ne se rouvre jamais).** Symptome visible avant export : vignette
+rouge/marron avec "..." dans la liste CapCut (au lieu d'une vraie image de la video), taille
+du projet identique et louche sur plusieurs brouillons differents (signe de donnees pas a
+jour). Cause : chaque materiau (`materials.videos[0]`, `materials.audios[0]`) porte un champ
+`local_material_id` — la cle du **cache media interne de CapCut** (proxy/decodage/miniature),
+distincte de l'`id` du materiau dans le projet. En clonant le template `0604` sans la changer,
+le NOUVEAU fichier herite de la cle de cache de l'ANCIEN fichier (Sculpted/voix Owen, duree et
+resolution differentes) → CapCut essaie de reutiliser un cache qui ne correspond pas → echec
+silencieux a l'affichage, plantage a l'export (qui doit vraiment decoder/encoder le fichier).
+**Le script regenere systematiquement un nouveau `local_material_id` (minuscule, format UUID
+natif CapCut) pour la video ET l'audio**, et remet `material_name` au vrai nom de fichier ainsi
+que `draft_timeline_materials_size_` (taille reelle des fichiers) dans `draft_meta_info.json` —
+sinon meme symptome. Si un futur brouillon refait le meme plantage : verifier en premier que
+CES TROIS CHAMPS sont bien neufs et pas des restes du template clone.
+
+⚠️ **Troisieme piege, le plus profond, rencontre le 23/06 (celui qui causait reellement le
+plantage) : CapCut garde un CACHE MIROIR complet du projet dans `Timelines/<id_du_template>/`**
+(sa propre copie de `draft_content.json`, un "mini_draft" de secours avec tous les ids de pistes/
+segments, un `project.json`...). Ce dossier porte le nom de l'ID DU TEMPLATE clone (`0604`),
+jamais renomme ni resynchronise avec le nouveau projet -> CapCut affiche bien la fiche projet
+(lecture du `draft_content.json` racine), mais l'edition et l'export passent par ce cache
+perime et incoherent -> plantage silencieux de l'appli (se ferme, ne se rouvre pas), sans aucun
+message. Egalement perimes pour la meme raison : `template.tmp`, `template-2.tmp`,
+`timeline_layout.json`, `draft_content.json.bak` (tous reference l'ancien id ou contiennent une
+copie figee de l'ancien contenu). **Le script SUPPRIME desormais ces caches dans chaque nouveau
+projet genere** (plus simple et plus fiable que de les resynchroniser un par un) : CapCut les
+reconstruit proprement depuis le vrai `draft_content.json` au premier chargement. Si un futur
+brouillon replante a l'edition/export : verifier en premier qu'aucun de ces caches stales n'est
+revenu (ex si on change de PROJET DE BASE ou si CapCut en recree d'autres avec de nouveaux noms).
+
+### Controle apres generation (toujours)
+
+Comparer la duree de `video-sans-soustitres.mp4` a la duree de `voix-off.mp3` (pour le type
+voice) : ecart > 1 s = STOP, regenerer le script-fr.txt avant de monter (cf. regle de duree
+ci-dessus). **Piege reel rencontre le 23/06 (lot T4/AD2)** : la voix off avait ete generee le
+19/06 pour la duree de la video SOURCE (avant Vmake), mais le fichier `video-sans-soustitres.mp4`
+issu de Vmake (20/06) etait 2 s plus court — le detourage Vmake peut legerement changer la duree
+exportee. Toujours mesurer les deux fichiers FINAUX juste avant de generer le brouillon CapCut,
+jamais se fier a une duree notee plus tot dans le process.
+
+## Sortie d'un dossier pub (pret a monter)
+
+Livrable final, minimaliste (Romeo n'y veut que l'essentiel) :
+
+```
+ressources créas après modifs/<LOT>/<ADn>/
+  voix-off.mp3                 <- pub video avec narration (le SEUL fichier audio utile)
+  accroches-fr.md              <- pub muette/musicale ou image (textes FR a poser)
+  video-sans-soustitres.mp4    <- le visuel, ajoute apres Vmake (vient plus tard)
+```
+
+Romeo importe ensuite visuel + audio (ou accroches) dans CapCut pour le rendu final.
+
+## Dialogue a 2 voix et lots de repliques (methode du 12/09/2026)
+
+Quand la pub concurrent est un **dialogue joue par deux personnes** (cas ADS 20 GeniKiss,
+45,7 s, homme + femme), ne pas generer un seul fichier de voix off : **decouper le script par
+REPLIQUE**, en reprenant les timecodes du `.srt` de la video source, et generer **un mp3 par
+replique** nomme d'apres la replique (convention imposee par Romeo : `AD20#1.mp3` ...
+`AD20#12.mp3`). Romeo pose ensuite chaque clip a son timecode dans CapCut : le calage devient
+mecanique au lieu d'etre fait a l'oreille.
+
+Script dedie : `node scripts/tts-batch.mjs <plan.json> <dossier_sortie>`, ou `plan.json` est un
+tableau `[{ name, voice, text, target, mode, speed? }]` :
+- `mode: "fit"` -> caler pile sur `target` (monologue continu) ;
+- `mode: "cap"` -> ne jamais DEPASSER `target` (replique de dialogue : un clip plus court que
+  son creneau est normal, il y a des actions et des respirations a l'image) ;
+- `mode: "fixed"` -> vitesse imposee via `speed`, aucune iteration.
+Le script retire aussi les silences de bord de chaque mp3 (sinon un silence de tete decale tout
+le montage sur un clip de 1,5 s).
+
+⚠️ **Variance ElevenLabs mesuree le 12/09/2026 : deux generations du MEME texte a la MEME
+vitesse peuvent s'ecarter de 2 a 3 secondes** sur un script de 50 s (les pauses et l'intonation
+changent d'une passe a l'autre). Consequence : sur un monologue long, ne pas chasser la seconde
+en reecrivant le script en boucle. **Generer 2-3 prises et garder la plus proche de la cible**
+coute quelques centimes et marche mieux que trois reecritures.
+
+**Debit de reference francais** (verifie sur ce lot) : viser **5,5 a 6,5 syllabes/seconde**,
+jamais plus de 7. La metrique "mots/seconde" du SKILL est trompeuse sur les repliques courtes
+(beaucoup de monosyllabes) — compter les syllabes donne un calage bien plus fiable.
+
+**Lip-sync : sujet clos par Romeo le 12/09/2026.** Il ne veut PAS d'outil de synchronisation
+labiale (« ca ne sert vraiment a rien en tout cas pour moi »). Ne plus le proposer. Une voix FR
+sur un visage anglophone passe en feed Meta avec des sous-titres brules.
+
+## Chemin IMAGE (pub statique .jpg/.png) — methode prompt ChatGPT (RE-REVISEE le 06/08/2026)
+
+Objectif : garder le visuel exact du concurrent, remplacer le texte par du FR adapte a la
+marque, et livrer a Romeo un **prompt pret a coller dans ChatGPT**, pas une image finie generee
+par Codex. ⚠️ La methode "lire + ecrire `accroches-fr.md` + Romeo pose dans Canva" reste
+PERIMEE. **Revirement acte le 06/08/2026 : l'appel direct a l'API gpt-image-1
+(`scripts/edit_openai.mjs`, methode en place du 19/06 au 05/08) est ABANDONNE.** Raison donnee
+par Romeo : chaque generation via l'API coutait quelques centimes (`_couts_openai.json`), alors
+que ChatGPT (deja paye via l'abonnement) fait le meme travail gratuitement a l'usage des lors que
+Codex fournit un prompt assez precis pour une reproduction fidele en un seul essai — c'est
+exactement la methode a deux missions du prompt formateur "Traduction en Français" (Notion "Les
+prompts Codex"), dont seule la mission de traduction avait ete portee le 06/08/2026 (cf.
+`references/verites-zooryn.md` et l'historique du skill) ; la mission de generation de prompt
+ChatGPT, ecartee a tort ce jour-la comme "obsolete", est desormais la methode par defaut.
+**Codex ne genere plus d'image lui-meme : Codex s'arrete au prompt, Romeo colle l'image source
+(+ le logo Zooryn si besoin) et ce prompt dans ChatGPT, recupere l'image generee et la depose
+dans le dossier livrable.**
+
+**Principe cle (le pixel ne se corrige pas apres coup) : verrouiller TOUT le texte en discussion
+texte normale, valide et factuellement correct, AVANT le moindre appel a gpt-image.** Ne jamais
+laisser gpt-image traduire/adapter/calculer un prix a la volee dans le meme appel qui dessine
+l'image : c'est le moment ou les erreurs (devise mal convertie, prix faux, mention "365 jours"
+recopiee du concurrent, marque mal orthographiee) se glissent dans les pixels sans qu'on puisse
+les relire avant export. Toujours separer les deux phases :
+
+### Phase 1 — Verrouiller le texte (pur texte, zero image generee)
+
+1. **Creer le dossier livrable** : `node scripts/folder.mjs --lot <LOT> --ad <ADn>`.
+2. **Lire l'image / les frames** avec l'outil Read (vision) pour voir le visuel ET transcrire
+   TOUT le texte incruste mot pour mot (langue d'origine). Pour une video musicale, extraire
+   plusieurs frames dans le temps (ffmpeg `-ss`) pour capter toutes les accroches qui defilent.
+3. **Relever chaque zone** : texte d'origine, position, hierarchie, ET tout element a localiser
+   au-dela du texte produit — prenom d'un personnage dans la scene (contact d'une conversation,
+   signature d'une carte/note manuscrite, etc.), drapeau/pays affiche, devise.
+4. **Traduire et adapter zone par zone**, avec le PROMPT FIXE ci-dessous :
+   - Remplacer le nom du produit/marque concurrent par celui de Zooryn (jamais le garder).
+   - **Tout prenom de personnage visible dans la scene -> un prenom francais** (contact d'une
+     conversation, signataire d'une note manuscrite...), jamais garder le prenom d'origine.
+   - **Prix/devise : interroger Shopify EN DIRECT** (MCP Shopify, `search_products`/
+     `get-product`) pour CE produit, a CHAQUE lot. Ne jamais estimer par conversion de change,
+     et ne jamais reprendre un prix vu dans une session precedente ou dans cet historique : les
+     prix Shopify changent (promos, ajustements), seule une lecture live fait foi. Piege reel :
+     une conversion approximative donnait 65€, le vrai prix Shopify etait 69,99€.
+   - **Verification factuelle obligatoire** (`references/verites-zooryn.md`) sur CHAQUE
+     allegation (garantie, origine/fabrication, livraison...) — AVANT de figer le texte, pas
+     apres. Piege reel : une regeneration faite a la main par Romeo a traduit/localise le texte
+     correctement mais a garde "Garantie 365 jours" et une mise en scene d'artisan francais
+     fictif ("Julien") sans le voir, alors que la garantie reelle est 30 jours et que Zooryn ne
+     fabrique pas en France — la verification factuelle est un reflexe a part, distinct de la
+     traduction/localisation, meme un humain qui fait l'adaptation peut l'oublier.
+5. **Faire valider chaque texte final par Romeo si un doute existe** (prix, allegation,
+   formulation) avant de passer a la Phase 2 — une fois dans l'image, ce n'est plus modifiable
+   sans tout regenerer. **Presenter ce texte sous la forme stricte `Texte original → Traduction
+   FR` zone par zone** (convention reprise du prompt formateur "Traduction en Français", Notion
+   "Les prompts Codex", ajoute le 06/08/2026) : ca evite d'oublier une zone ou de fusionner deux
+   textes distincts, en particulier sur les petits elements isoles (boutons, badges, CTA) faciles
+   a rater dans un relevé en prose.
+
+### Phase 2 — Ecrire le prompt ChatGPT (Romeo genere l'image lui-meme)
+
+6. **Decider si le logo Zooryn doit etre integre, CAS PAR CAS** (ne pas l'imposer par defaut) :
+   - **OUI** si le logo du concurrent est visible sur le produit/packaging/scene dans l'image
+     source (ex packshot du matelas avec le logo concurrent grave dessus).
+   - **NON** si l'image ne montre aucun logo produit (ex un screenshot de conversation iMessage
+     qui mentionne juste le nom de la marque dans le texte) — passer le logo en reference ne
+     sert a rien et risque de le faire apparaitre artificiellement.
+7. **Ecrire le prompt ChatGPT avec le texte EXACT deja valide en Phase 1** (pas une consigne de
+   traduction a faire par ChatGPT, une consigne de REPRODUCTION d'un visuel dont le texte est
+   deja fige) : decrire fidelement la composition (mise en page, style graphique, couleurs,
+   typographie, elements visuels, disposition), integrer les textes traduits EXACTEMENT a leur
+   emplacement d'origine (titres, sous-titres, boutons, CTA, badges), en respectant la hierarchie
+   visuelle de l'original, + si pertinent "remplace le logo par le logo Zooryn (fourni en piece
+   jointe)", + si pertinent "le prenom affiche doit etre <prenom francais choisi>". Le prompt
+   doit etre assez precis pour une reproduction fidele en une seule tentative — c'est Romeo qui
+   colle l'image source dans ChatGPT en meme temps que ce prompt, Codex ne voit jamais le
+   resultat au moment de la generation.
+8. **Livrer ce prompt a Romeo dans le chat**, dans un bloc de code separe, pret a copier-coller
+   tel quel dans ChatGPT (aucun mot en anglais dans le texte a afficher sur l'image, sauf le nom
+   de marque Zooryn). Rappeler explicitement la marche a suivre : "colle l'image source (+ le
+   logo Zooryn si besoin) et ce prompt dans ChatGPT, recupere l'image generee, depose-la dans
+   `<LOT>/<ADn>/`".
+9. **Si Romeo redepose l'image generee dans le dossier ADn et demande une relecture** : comparer
+   chaque zone (outil Read, vision) au texte verrouille en Phase 1 — si un mot/prix/nom differe,
+   le signaler et proposer un prompt corrige plutot que de laisser passer un ecart. Etape
+   optionnelle, a la demande de Romeo, jamais automatique (Codex ne genere plus rien lui-meme).
+
+**[ARCHIVE — ancienne methode API gpt-image-1, abandonnee le 06/08/2026]** `scripts/edit_openai.mjs`
+reste dans le repo (appel direct API, `--image <source> --out <dest> --prompt-file <p.txt>`) au
+cas ou Romeo redemande explicitement un retour a la generation automatique un jour. Ne plus
+l'utiliser par defaut : la Phase 2 ci-dessus (prompt ChatGPT) est desormais la seule methode.
+
+### PROMPT FIXE pour le texte image — Phase 1, traduction/adaptation (avant tout appel image)
+
+> Tu es le createur de la marque "Zooryn". Le nom de ton produit est "<NOM PRODUIT SHOPIFY>".
+> Voici les textes d'une pub statique d'un concurrent, zone par zone. Traduis-les en francais
+> et adapte-les a la marque sans changer le sens ni le message, en gardant la meme hierarchie
+> et une longueur proche de l'original : <LISTE DES TEXTES PAR ZONE>
+>
+> IMPORTANT : si une zone mentionne le PRODUIT ou la MARQUE du concurrent sous son propre nom,
+> remplace-le par "<NOM PRODUIT SHOPIFY>" / "Zooryn". Si une zone montre un prenom de personnage
+> (contact, signature), remplace-le par un prenom francais. Si une zone affiche un prix, utilise
+> le VRAI prix Shopify du produit, jamais une conversion de change approximative. Compare chaque
+> allegation factuelle (garantie, origine/fabrication, livraison) a `references/verites-zooryn.md`
+> avant de valider le texte final.
+
+### Sortie d'un dossier pub IMAGE / muette (livrable Codex + livrable Romeo)
+
+```
+prompt-chatgpt.txt            <- livrable Codex : le prompt pret a coller dans ChatGPT
+ressources créas après modifs/<LOT>/<ADn>/
+  <visuel-final>.png   <- livrable Romeo : l'image generee par ChatGPT, deposee une fois recuperee
+```
+
+Codex livre le prompt dans le chat (et peut le sauver en fichier si Romeo le demande). Romeo
+genere l'image lui-meme dans ChatGPT (image source + prompt) puis la depose dans le dossier
+`<LOT>/<ADn>/` — plus de generation automatique cote Codex, plus de pose de texte dans Canva.
+
+## Bilan final (toujours)
+
+Apres avoir traite toutes les pubs, annoncer a Romeo combien sont pretes, sous la forme :
+"X pubs pretes a monter dans CapCut" + la liste des dossiers + tout ce qui a bloque (ex Vmake
+en manuel sur telle pub). Romeo verifie, importe dans CapCut, monte, poste sur Meta.
+
+## Campagne Meta Ads — Codex ne fait QUE le texte (acte par Romeo le 12/07/2026)
+
+⚠️ **Depuis le 12/07/2026, le volet Meta Ads de Codex est reduit a UNE seule chose : fournir
+le texte de la pub (titre, corps/description, CTA, URL) a la demande de Romeo.** Tout le reste
+— creation de campagne/adset/pub via l'API (deja abandonne le 03/07), ET la verification
+lecture seule qui existait depuis le 03/07 — est supprime. Raison : Romeo monte desormais toute
+sa campagne a la main en 10-15 minutes, sans bug, alors que le fait de passer par Codex
+introduisait des soucis (ex : l'audience "France" ne s'enregistrait jamais correctement quand
+c'etait Codex qui la posait). Romeo pilote 100% du Gestionnaire, du debut a l'activation.
+
+### Quand Romeo demande le texte d'une pub (ex "donne-moi le texte", "on fait la campagne")
+
+Codex fait sa recherche TrendTrack sur l'ad la plus percee du concurrent que l'on copie (ou la
+recupere directement dans le tableau de recherche produit si le produit y a deja une ligne,
+cf. section ci-dessus), applique la **verification factuelle obligatoire**
+(`references/verites-zooryn.md` : garantie 30 jours, vrai prix Shopify lu en direct, offres
+reelles type "1 achete = 1 offert", livraison offerte), puis livre a Romeo, en clair dans le
+chat, **chaque champ pret a copier-coller dans le Gestionnaire** :
+
+1. **Texte principal** (le body complet adapte FR, dans un bloc de code copiable)
+2. **Titre** (dans un bloc de code copiable — traduction directe du titre concurrent ; si Romeo
+   veut une version optimisee conversion plutot qu'une traduction, cf. "Titre Meta Ads" plus bas)
+3. **Description** (facultative — si le concurrent n'en a pas, en proposer une courte type
+   "Livraison offerte · Satisfait ou rembourse 30 jours")
+4. **Call-to-action** (ex "Acheter" = SHOP_NOW)
+5. **URL de destination** (la page produit Shopify exacte du lot)
+
+C'est TOUT ce que Codex produit. Pas de campagne, pas d'adset, pas de creative, pas de pub via
+l'API, pas de verification post-creation : Romeo construit et verifie tout lui-meme, de A a Z.
+
+### 2e ad copy originale (ajoute le 04/08/2026) — a proposer en complement du texte traduit
+
+Meta recommande de tester au moins 2 textes differents par pub (cf. capture d'ecran "Text 2 of
+5" fournie par Romeo). Le texte ci-dessus (traduction/adaptation de l'ad la plus percee du
+concurrent) compte comme la 1re version. Sur demande de Romeo (ex "fais-moi une 2e version",
+"genere l'autre texte"), Codex ecrit une **2e ad copy originale** (pas une traduction) en
+suivant le prompt AIDA fixe ci-dessous, appuye sur `references/synthese-copywriting-ads.md`
+(synthese compacte Adweek Copywriting Handbook de Sugarman + The Art of Creating an Ad That
+Scales de Theriot) et sur les acquis `eugene-schwartz-breakthrough-advertising` deja en place.
+
+**Pre-requis obligatoire avant d'ecrire quoi que ce soit : la fiche produit Zooryn du lot**
+(lien de la page produit ou contenu colle par Romeo). Si elle manque, Codex la demande et ne
+genere rien tant qu'elle n'est pas fournie.
+
+**PROMPT FIXE (impose par Romeo, ne pas reformuler) :**
+
+```
+Tu incarnes le meilleur copywriter publicitaire au monde, specialise dans les publicites
+Facebook et Instagram a forte rentabilite. Tu t'appuies sur les principes de l'Adweek
+Copywriting Handbook (Sugarman) et de The Art of Creating an Ad That Scales (Theriot), sans
+jamais recopier ces ouvrages. Structure AIDA obligatoire (Attention / Interest / Desire /
+Action). Style humain, naturel, credible, phrases courtes et longues alternees, paragraphes
+aeres, jamais de cliche ni de promesse irrealiste. Genere 2 ad copies completement differentes
+(angles psychologiques distincts, pas 2 variantes du meme texte). Avant d'ecrire, analyse en
+interne : benefices reels/emotionnels/fonctionnels/caches, objections, peurs, desirs,
+declencheurs psychologiques, preuves, mecanisme unique, niveau de sophistication et de
+conscience du marche, cible ideale, ton adapte. Apres redaction, auto-verifie : hook qui
+accroche, chaque phrase pousse a lire la suivante, benefices > caracteristiques, objections
+traitees, CTA naturel, texte credible/humain. Si une seule ad copy est generee, rappelle de
+creer une 2e version avec un angle different.
+```
+
+Sortie : meme format que le texte traduit (texte principal / titre / description / CTA / URL),
+livre dans le chat, pret a copier-coller. Verification factuelle obligatoire identique
+(`references/verites-zooryn.md`) avant de livrer.
+
+### Ad copy courte (ajoutee le 06/08/2026) — variante punchy, en plus de la longue AIDA
+
+Meta recommande de tester plusieurs formats de texte, pas seulement des longueurs de la meme
+structure. En complement de la traduction (1re version) et de la 2e ad copy longue AIDA
+ci-dessus, Romeo peut demander une **version courte** (ex "fais-moi la version courte", "donne-
+moi un hook punchy"). Meme pre-requis (fiche produit du lot), meme verification factuelle
+obligatoire avant de livrer. Source : prompt formateur "Création d'ad copy court", Notion "Les
+prompts Codex".
+
+**PROMPT FIXE :**
+
+```
+Role : Tu es un expert en copywriting publicitaire specialise en e-commerce, Facebook Ads et
+performance creative. Tu maitrises a la perfection les principes de persuasion de « The Art of
+Creating Ads That Scale » (Nick Theriault) et « The Adweek Copywriting Handbook » (Joseph
+Sugarman).
+
+A partir de la fiche produit du lot <LOT> (lien Shopify ou capture), imprègne-toi de : la cible
+(persona), les benefices emotionnels principaux, les douleurs soulagees, le Dream Outcome, les
+preuves (avis, stats, credibilite).
+
+Redige 1 ad copy COURT pret a coller dans une publicite Meta :
+- 2 a 3 lignes maximum
+- Punchy des la premiere phrase, capte l'attention immediatement
+- Ultra concret, aucune promesse floue ou vague
+- Langage simple, compris immediatement, zero jargon
+- Aucun texte generique ou banal
+
+Sortie : uniquement le bloc de texte final, aucun commentaire ni explication.
+```
+
+### Titre Meta Ads (ajoute le 06/08/2026) — champ "Titre" optimise
+
+Le champ "Titre" livre a l'etape "Quand Romeo demande le texte d'une pub" (ci-dessus) est une
+traduction directe du titre du concurrent. Si Romeo veut une version **optimisee pour la
+conversion** plutot qu'une simple traduction (ex "trouve-moi un meilleur titre"), utiliser ce
+prompt dedie. Source : prompt formateur "Création de titre", Notion "Les prompts Codex".
+
+**PROMPT FIXE :**
+
+```
+Role : Tu es un expert en copywriting publicitaire specialise en e-commerce, Facebook Ads et
+performance creative. Tu maitrises a la perfection les principes de persuasion de « The Art of
+Creating Ads That Scale » (Nick Theriault) et « The Adweek Copywriting Handbook » (Joseph
+Sugarman).
+
+A partir de la fiche produit du lot <LOT>, redige 2 titres ultra courts pour le champ "Titre"
+d'une publicite Meta Ads :
+- 30 caracteres maximum chacun (espaces compris)
+- Titre 1 : base sur le benefice emotionnel principal
+- Titre 2 : designation claire et explicite du produit
+- Aucun commentaire, aucune analyse, aucune explication
+
+Format de sortie strict :
+Titre 1 → [benefice principal, 30c max]
+Titre 2 → [nom du produit, 30c max]
+```
+
+Verification factuelle obligatoire identique (`references/verites-zooryn.md`) sur les deux
+prompts ci-dessus avant de livrer a Romeo.
+
+## [ARCHIVE — ancienne methode API + verification lecture seule, remplacee le 12/07/2026] Lancement via MCP Facebook Ads
+
+Conservee comme reference technique (constantes du compte, pieges Meta, methode TrendTrack) au
+cas ou Romeo redemande explicitement une creation ou une verification via l'API un jour.
+**Ne plus creer NI verifier de campagne/adset/pub via l'API sauf demande explicite et
+ponctuelle de Romeo.**
+
+Etape suivante possible une fois un `<LOT>` (T3, T4, T5...) pret : creer la campagne Meta Ads
+correspondante via le MCP Facebook Ads. **Cette etape n'est JAMAIS automatique au sens "meme
+recette a chaque fois"** : chaque lot a son propre produit, son propre nombre de visuels, son
+propre type de creas (image ou video), et sa propre pub concurrent de reference. Le but n'est
+pas de rejouer T3 a l'identique, c'est de reproduire la METHODE en l'adaptant a `<LOT>` chaque
+fois. Ne jamais copier un nom de campagne, un texte ou un nombre de pubs d'un lot precedent.
+
+### Constantes du compte (ne changent pas d'un lot a l'autre)
+
+- **Compte pub Meta** : `1952596875395674` (Zooryn, EUR, actif). Verifier avec
+  `ads_get_ad_accounts` que c'est toujours le bon avant de l'utiliser (un compte peut etre
+  recree/ferme, comme l'ancien GBP `907981678960981` passe en PENDING_CLOSURE le 23/06).
+- **Page Facebook** : `1199198896606468` (Zooryn). Trouvable via `ads_get_pages_for_business`
+  avec le `business_id` `1696599654709305` si jamais ca change.
+- **Pixel** : `2803216990037221`. ⚠️ Le pixel doit etre PARTAGE manuellement (par Romeo, dans
+  Meta Business Settings > Sources de donnees > Pixels > Elements connectes > Connecter les
+  elements) avec tout NOUVEAU compte pub avant de creer les pubs, sinon erreur
+  "Account does not have access to pixel" a la creation de l'ad (rencontre le 23/06 avec le
+  nouveau compte EUR). Le demander a Romeo en amont si un nouveau compte est utilise.
+- **Compte Instagram** : pas recuperable via l'API pour l'instant (`ads_get_ig_accounts`
+  renvoie une erreur de deploiement). Sans lui, les pubs ne delivrent pas sur Instagram. Le
+  signaler a chaque lancement, demander l'ID a Romeo si dispo.
+
+### Etapes a REFAIRE et ADAPTER pour chaque `<LOT>`
+
+1. **Trouver les visuels/videos prets pour CE lot precisement**, dans LES DEUX dossiers (un
+   visuel peut etre fini dans l'un, en travail dans l'autre) :
+   `livrables/ecommerce/creas/créas terminées/<LOT>/` ET
+   `livrables/ecommerce/creas/ressources créas après modifs/<LOT>/`. **Demander confirmation a
+   Romeo sur le compte final et lequel utiliser** si le compte differe entre les deux dossiers
+   (cas reel le 23/06 sur T3 : 2 dans l'un, 6 dans l'autre, total a clarifier avec Romeo plutot
+   que de deviner). Le nombre de pubs = le nombre de visuels que Romeo valide pour ce lot, JAMAIS
+   un nombre fixe repris d'un lot precedent.
+2. **Recuperer l'URL produit Shopify exacte de CE lot** (`search_products` ou demander a
+   Romeo). Ne jamais reutiliser l'URL d'un autre produit.
+3. **Chercher la meilleure pub concurrent du moment pour CE produit** via TrendTrack
+   (`brief_competitor` puis `scan_ad` sur le meilleur candidat scaling) : reach, jours de
+   diffusion, body/hook/CTA complet. Le concurrent de reference change a chaque lot (Norrfjallen
+   pour le matelas T3, un autre pour T4/T5...) — ne pas reutiliser le meme concurrent par defaut,
+   verifier que c'est bien le concurrent du produit du lot en cours.
+   - **Methode concrete validee le 28/06 (T4 guirlande)** : `search_ads` avec `query` = le produit,
+     `sort_by: "reach"` et `status: "all"` (+ `active_only: false`, sinon le defaut filtre les
+     inactives et peut sortir 0 resultat). ⚠️ Prendre l'ad au plus gros reach **qui est vraiment
+     LE meme produit**, pas le top reach brut : sur T4, la 1re par reach (« guirlande solaire effet
+     feu d'artifice », 84k) etait un AUTRE produit ; la bonne = Narvelio (FR, rank #1 actif), la
+     guirlande enroulable/magnetique de camping identique a la notre. On reprend SA description,
+     on la traduit/adapte en FR avec le vrai prix Shopify et les faits Zooryn.
+4. **Traduire et adapter le texte en FR**, et appliquer la verification factuelle obligatoire
+   (`references/verites-zooryn.md`, cf. section plus haut) : corriger toute allegation du
+   concurrent qui ne correspond pas a la realite Zooryn pour CE produit.
+5. **Obtenir une URL publique HTTPS pour chaque visuel** (necessaire pour `ads_create_creative`,
+   aucun outil d'upload direct de fichier local disponible cote Codex) :
+   - Demander a Romeo de deposer les fichiers du `<LOT>` dans Shopify Admin > Contenu > Fichiers
+     (`https://admin.shopify.com/store/cqqah9-t1/content/files`, bouton "Importer des fichiers").
+   - Romeo donne les liens admin (`.../content/files/<id>`) — **ce ne sont PAS les URLs
+     publiques**. Resoudre la vraie URL CDN avec une requete GraphQL Shopify :
+     `nodes(ids: ["gid://shopify/MediaImage/<id>", ...]) { ... on MediaImage { image { url } } }`.
+   - Pour une video, le champ source change (`sources` au lieu de `image.url` sur un type
+     `Video`/`GenericFile`) — verifier le schema avec `graphql_schema` si le type differe.
+   - ⚠️ **Lot VIDEO : une creative video Meta exige un `video_id` DEJA uploade sur le compte pub**
+     (`ads_create_creative` n'accepte pas d'`image_url`/URL pour la video elle-meme), et **aucun
+     outil ne permet d'uploader un fichier local vers Meta**. **METHODE ACTEE PAR ROMEO (02/07/2026)
+     pour un lot VIDEO** : Codex ne cree **qu'UNE SEULE pub-modele** (1 creative + 1 ad), avec tout
+     le texte/titre/CTA **bon partout**, et une **image placeholder ALEATOIRE, au pif** (n'importe
+     quelle `image_url` publique, le visuel n'a AUCUNE importance puisqu'il sera remplace). Romeo
+     s'occupe ensuite de **tout le reste lui-meme** : il duplique cette pub-modele en autant
+     d'exemplaires qu'il y a de videos (ex ×6) pour etre sur que le copy soit rigoureusement
+     identique, et il **uploade ses videos lui-meme** (l'upload video est de toute facon impossible
+     cote Codex). Donc pour un lot video : PAS une pub par visuel, UNE seule pub-modele. (Ancienne
+     methode du 28/06 = une pub image-placeholder par video : REMPLACEE, on n'en fait plus qu'une.)
+6. **Creer la campagne** (`ads_create_campaign`) : nom **"Campagne `<LOT>`"** (jamais "Campagne
+   T3" recopie), objectif a confirmer avec Romeo (OUTCOME_SALES par defaut si conversions),
+   `campaign_daily_budget` = budget donne par Romeo pour CE lot (peut differer de 50€), CBO par
+   defaut sauf demande explicite d'ABO.
+7. **Creer l'adset** (`ads_create_ad_set`) : nom **"Adset `<LOT>` - <pays>"**, pays a confirmer
+   (France par defaut depuis le pivot du 13/06, mais demander si un lot vise un autre marche),
+   `promoted_object` avec le pixel ci-dessus, `targeting` large (Advantage+ Audience, pas
+   d'interets inventes — cf. note ci-dessous), `dsa_beneficiary`/`dsa_payor` = "Zooryn" pour tout
+   pays UE. **Deux pieges de publication a eviter des la creation (vecus sur T3, 24/06) :**
+   - **Type de localisation explicite.** Toujours poser `geo_locations.location_types: ["home"]`
+     (= "personnes qui vivent a cet endroit"), jamais laisser le defaut. Le defaut de l'API
+     ("personnes qui habitent OU se sont recemment rendues" = `home` + `recent`) contient une
+     option **depreciee par Meta** qui **bloque la publication**. Message exact rencontre le
+     24/06 sur T3 a la publication : "Votre audience contient une option de ciblage geographique
+     qui a ete supprimee (les personnes qui habitent ou se sont recemment rendues dans un lieu
+     donne)". Pour de l'e-commerce on veut de toute facon les residents, pas les touristes.
+     - **Corriger un adset DEJA cree avec le mauvais ciblage** (cas reel 24/06, T3 — la campagne
+       existait deja, il a fallu reparer, pas recreer) : `ads_update_entity` sur l'`ad_set`,
+       champ `targeting` =
+       `{"geo_locations":{"countries":["FR"],"location_types":["home"]},"targeting_automation":{"advantage_audience":1}}`.
+       ⚠️ TOUJOURS reinclure `targeting_automation.advantage_audience: 1` : un update du champ
+       `targeting` REMPLACE tout le bloc d'un coup, donc sans ce flag on perd l'audience
+       Advantage+ silencieusement. Verifier ensuite avec `ads_get_errors` sur l'adset qu'il ne
+       reste plus aucune erreur bloquante (`{}` = OK). Note : `targeting` n'est PAS lisible via
+       `ads_get_ad_entities` (champ non supporte), donc on ne peut pas relire l'ancien ciblage
+       avant de l'ecraser — d'ou l'importance de reconstruire le bloc complet a la main.
+     ⚠️ Si Romeo utilise une **audience enregistree** (audience nommee, ex "Zooryn") au lieu du
+     ciblage inline, ce type de localisation vit DANS l'audience enregistree, pas dans l'adset :
+     un `ads_update_entity` sur l'adset ne la corrige pas. Dans ce cas, le seul fix est manuel
+     dans le Gestionnaire (Modifier l'audience > Lieux > "Personnes qui vivent a cet endroit").
+   - **Placements compatibles avec le format des visuels.** Les visuels Zooryn sont en
+     **portrait/carre** ; or le placement **video in-stream exige du paysage** et **bloque la
+     publication** avec une image portrait ("Les images utilisees pour les publicites in-stream
+     ne peuvent pas etre au format portrait"). Donc ne pas laisser les placements automatiques :
+     poser des **placements manuels sans in-stream video**, adaptes au portrait :
+     `publisher_platforms: ["facebook","instagram"]`,
+     `facebook_positions: ["feed","profile_feed","marketplace","video_feeds","story","facebook_reels"]`,
+     `instagram_positions: ["stream","profile_feed","explore","explore_home","story","reels"]`.
+   - ⚠️ **Date de debut programmee : poser `start_time` DES LA CREATION de l'adset** (ISO 8601 avec
+     fuseau, ex `"2026-06-29T00:00:00+02:00"` pour minuit heure de Paris en ete). **Il est
+     IMPOSSIBLE de l'editer apres coup** sur un adset deja demarre : `ads_update_entity` renvoie
+     « Start Time Can't Be Edited: ...if the Ad Set has already started » (un adset cree sans
+     `start_time` = demarre immediatement). Si Romeo demande une date apres coup, **recreer l'adset**
+     avec `start_time` puis recreer ses pubs dessous (vecu le 28/06 sur T4). ⚠️ Supprimer/remplacer
+     un adset **supprime aussi toutes ses pubs** : il faut les recreer.
+8. **Creer la/les creative(s)** (`ads_create_creative`) avec le texte/titre/description/CTA
+   adaptes a l'etape 4 :
+   - **Lot VIDEO (cas standard) : UNE SEULE creative-modele**, image placeholder aleatoire (cf.
+     etape 5), nommee **"Zooryn `<LOT>` - modele"**. Romeo duplique et met les vraies videos.
+   - **Lot IMAGE (visuels finis fournis) : une creative par visuel** avec son URL CDN, nommees
+     **"Zooryn `<LOT>` - AD`n`"**.
+   - ⚠️ **Le texte d'une creative n'est PAS modifiable en place** : pour changer le copy, recreer
+     une nouvelle creative et repointer la pub (`ads_update_entity` champ `creative`, ou recreer la
+     pub). Meta **DEDUPLIQUE les creatives identiques** : deux appels avec exactement le meme spec
+     renvoient le MEME `creative_id` (vu le 28/06) — c'est normal, un seul `creative_id` peut servir
+     plusieurs pubs.
+9. **Creer la/les pub(s)** (`ads_create_ad`) : **lot VIDEO = UNE seule pub-modele** nommee
+   **"`<LOT>` - modele"** (Romeo la duplique ×N lui-meme) ; **lot IMAGE = une pub par visuel**
+   nommees **"`<LOT>` - AD`n`"**.
+10. **Tout reste en PAUSED, toujours.** Ne jamais appeler `ads_activate_entity` ni passer un
+    statut a ACTIVE, meme avec l'accord oral de Romeo (regle absolue du 21/06). Romeo active
+    lui-meme dans le Gestionnaire de publicites apres verification visuelle.
+
+### Pourquoi pas de ciblage par interet (a rappeler si Romeo demande)
+
+Advantage+ Audience (active par defaut) + ciblage large par pays = methode recommandee par Meta
+aujourd'hui, surtout sur un petit budget journalier : le pixel apprend mieux sur un bassin large
+que sur des interets devines a la main. Ne jamais inventer un ID d'interet.
+
+## Limites (rappeler si pertinent)
+
+- Vmake = API officielle (async, fiable). Codex prepare la commande, Romeo l'execute (auto-execution interdite). Fallback manuel si l'API casse.
+- Voix = la plus proche du catalogue, pas un clone.
+- Duree = tres proche, pas exacte a la frame.
+- CapCut : le **brouillon** (assemblage video + audio + sous-titres/accroches) est genere par
+  code (`scripts/capcut-draft.mjs`, etape 7), zero clic souris. **L'ouverture, la verification
+  visuelle, les retouches fines et l'export restent 100% manuels cote Romeo** (pas d'API
+  d'export CapCut). Pour les pubs musicales, le placement des accroches (position/taille) est
+  approximatif (regles de mapping simples) : a verifier/ajuster a l'oeil avant export.

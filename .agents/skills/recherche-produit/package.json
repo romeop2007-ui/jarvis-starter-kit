@@ -1,0 +1,10 @@
+{
+  "name": "recherche-produit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "commonjs",
+  "dependencies": {
+    "googleapis": "^173.0.0"
+  }
+}

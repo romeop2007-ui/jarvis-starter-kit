@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-09-13 (mise à jour 4)
+
+### Nettoyage de CONTEXT.md : photo du présent + leçons gravées en mémoire
+
+- **CONTEXT.md ramené de 243 Ko à une photo du présent**, lisible par `/prime` en une passe. Retiré : tout ce qui est déjà écrit dans un skill, une mémoire ou `CLAUDE.md`, et tout ce qui est mort (anciens produits T1-T5 et leurs pages, thème Dawn, Titanox, Monveree, pipeline outdoor, CapCut automatisé, watcher, sprints, pause MacBook, logement, agent n8n, focus business jusqu'au 10/09, préférence « cycle X/5 »). Archive intégrale dans `context/import/archive-CONTEXT-avant-nettoyage-2026-09-13.md`.
+- **Gardé en condensé** : administratif et fiscal (CFE avant le 31/12, seuils de TVA, e-reporting 2027, URSSAF), sécurité (Multilogin + proxy FR, ElevenLabs G2G), état PureShot (offres, COGS, lavande uniquement, sourcing), pièges Shopify, Klaviyo en brouillon, fournisseur, formation vue à ~50-55 %.
+- **Condition posée par Roméo** : ce qui a marché doit être refait, ce qui a raté ne plus jamais l'être. Quatre mémoires « Leçons » créées à partir de l'historique relu : prouver en réel avant d'affirmer, tests valides à une variable, copier depuis le code réel du concurrent, posture de conseil.
+- **Remontés par la relecture** : re-check Sturzfest du 23/09 absent des engagements (ajouté) ; ligne de livraison 5-10 jours et reprise Klaviyo décidées « pour le scaling », donc maintenant ; provision retours 5 % et handle ™ sans suivi ; règle données clients à trancher. Tous placés dans les sujets ouverts.
+- Mémoire corrigée : `feedback_recherche_produit_pas_dattente` affirmait encore « formation terminée ».
+- **Section Études réduite au strict nécessaire** : BUT 2 S3 à Huesca, 30 ECTS, objectif « valider, focus business ». Décision de Roméo : Jarvis ne suit pas les études (pas de rappels d'examens ni de cours, pas de questions sur le stage), il en parle seulement s'il a besoin d'aide. Gravé dans la mémoire `feedback_jarvis_dedie_business`.
+
+---
+
 ## 2026-09-13 (mise à jour 3)
 
 ### Facturation électronique : situation vérifiée, en règle

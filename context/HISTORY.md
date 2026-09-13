@@ -7,6 +7,34 @@
 
 ---
 
+## 2026-09-13 (mise à jour 3)
+
+### Facturation électronique : situation vérifiée, en règle
+
+- **Réception des factures électroniques confirmée activée sur Qonto** (capture de Roméo). Rien d'autre à faire aujourd'hui.
+- Calendrier clarifié : réception depuis le 01/09/2026 ; **e-reporting B2C bimestriel dès le 01/09/2027, même en franchise** ; émission de factures électroniques uniquement en B2B.
+- Deux idées fausses corrigées : « rien à faire tant que je ne paie pas la TVA » (faux, réception et e-reporting s'appliquent quand même) et « si je paie la TVA je devrai émettre des factures électroniques » (faux, c'est le B2B qui déclenche).
+- Point de vigilance au scaling : seuils TVA 85 000 € et 93 500 € (TVA immédiate), impact de 20 % sur la rentabilité, expert-comptable avant 85 000 €.
+- Procédure « un client demande une facture » définie : Qonto Facturation, mention art. 293 B du CGI, un seul outil pour toutes les factures.
+- Médiateur de la consommation re-signalé, décision laissée à Roméo. Aucun rappel agenda créé (choix de Roméo).
+
+---
+
+## 2026-09-13 (mise à jour 2)
+
+### Parrain accepté, cadence d'analyse quotidienne en scaling, grille 1.6 relue
+
+- **Roméo est parrain sur le Discord Zecom Academy** (candidature du 01/09 acceptée). Lives regardés chaque jour, temps à surveiller face à la production de créas.
+- **Identité SAV unifiée** dans Gmail, sujet clos. Commande #1006 toujours pas livrée.
+- **Chiffres réels Shopify / dépense Meta de la campagne T6** : 10/09 ROAS 1,66 (budget monté en cours de journée), 11/09 1,54, **12/09 3,73 (359,95 € de CA, meilleure journée à ce jour)**. Les « 500 €/jour » évoqués étaient une approximation de Roméo pour dire qu'il est en scaling, pas un chiffre atteint.
+- **Cadence d'analyse corrigée par Roméo après relecture de la vidéo 1.2** : chaque soir vers 22-23h, 3 jours glissants jour J inclus + jour J isolé, rien en journée. Gravé dans le barème `bilan-ads` et en mémoire.
+- **Seuil de la décision du soir** : saut direct à 200 €/jour si marge nette sur 3 jours ≥ 35-40 % (ROAS réel ≈ 2,4 à 2,7), sinon 150 €. Structure inchangée : une CBO, un ad set, on monte le budget et on ajoute des créas dedans.
+- **Leçon 1.6 relue à la source** : PureShot reste en phase 1 (27 créas traduites sur 30-40). Priorité = recherche de nouveau contenu sur tous les canaux (réserve de 10 = 2 soirs). Marketing research seulement à 30-40 traduites ou contenu épuisé, puis 50/50 traduction et créas originales.
+- Cookies de session Kajabi repérés en clair dans le dossier de la leçon 1.6 (ignoré par Git), suppression suggérée.
+- Index de mémoire réorganisé par thème, règle expirée « pas d'études jusqu'au 10/09 » supprimée.
+
+---
+
 ## 2026-09-13
 
 ### Routine P&L du matin : décompte PayPal fiabilisé et COGS automatisé

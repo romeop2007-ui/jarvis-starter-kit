@@ -339,6 +339,14 @@ Entrée en scaling : campagne validée (ROAS ≥ ROAS TARGET avec **au moins 200
 avant, même avec un excellent ROAS sur 100 € — trop peu de data, souvent de la chance). La décision
 se prend sur **deux vues : les 3 derniers jours (glissant) + le dernier jour isolé.**
 
+**Cadence d'analyse en scaling : TOUS LES SOIRS, fenêtre glissante qui inclut le jour J (précisé par
+Roméo le 13/09/2026, après relecture de la vidéo).** On n'attend PAS 3 jours pour analyser puis
+3 jours de plus. Chaque soir, on analyse les 3 derniers jours en comptant le jour même (ex. dimanche
+soir = vendredi + samedi + dimanche ; lundi soir = samedi + dimanche + lundi) + le jour J isolé, et
+on décide. En journée, on laisse tourner sans analyser : le jour en cours n'est pas encore complet
+et Meta n'a pas forcément remonté tous les événements. Remplace la lecture du 11/09/2026 qui avait
+reporté la décision de budget de 2 jours.
+
 | Scénario | Condition (vue 3 jours) | Condition (dernier jour) | Décision |
 |----------|------------------------|--------------------------|----------|
 | ✅ 1 | ROAS > ROAS TARGET | ROAS > ROAS BE | **Scaler le budget** (palier suivant) |

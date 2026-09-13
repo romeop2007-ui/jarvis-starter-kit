@@ -14,9 +14,9 @@ Ce workspace est le Jarvis personnel de Roméo. Il a été créé avec le Jarvis
 
 ## Who I Am
 
-Je m'appelle Roméo. Je vis à Valenciennes en semaine pour mes études et je rentre chez mes parents à Cambrai les week-ends et pendant les vacances. Je suis auto-entrepreneur en e-commerce, je me lance dans le dropshipping en parallèle de mes études.
+Je m'appelle Roméo. Je suis en semestre d'échange au campus de Huesca (Espagne) du 04/09/2026 à début février 2027. En France, je vis à Valenciennes en semaine pour mes études et je rentre chez mes parents à Cambrai les week-ends et pendant les vacances. Je suis auto-entrepreneur en e-commerce (marque Zooryn), en dropshipping en parallèle de mes études.
 
-Mes objectifs prioritaires actuels sont de trouver une niche, lancer ma première boutique Shopify et atteindre 1 000 euros de CA dans les 3 mois.
+Où j'en suis (13/09/2026) : mon produit PureShot est en phase de scaling sur Meta, après 5 produits killés. Mes objectifs prioritaires actuels sont de faire scaler ce produit en suivant le SOP de la formation Zecom Academy et de produire des créas en continu. Pas de nouvel objectif chiffré fixé pour l'instant (l'objectif du 30/08 est caduc, je le redéfinirai moi-même).
 
 À long terme, je veux maîtriser le dropshipping et potentiellement en vivre, sans me fermer la porte à d'autres activités en parallèle d'une boutique qui scale.
 

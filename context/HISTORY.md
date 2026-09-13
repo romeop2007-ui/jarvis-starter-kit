@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-09-14
+
+### Content research PureShot : guide, concurrent NovaPaw, tri de 69 fichiers (session du 13/09 au soir)
+- Guide interactif publié à partir de la leçon 3.9 et de la page Notion « Content research » : 59 sites, liens de recherche pré-remplis en 18 langues (mots-clés traduits par Claude, à contrôler via le prompt de la vidéo 3.2). Fichier `livrables/ecommerce/creas/PureShot/Content research/guide-content-research.html`.
+- NovaPaw décortiqué : page Replit, paiement Funnelish, boutique Shopify multi-produits US `mynovapaw.com` (~98 k visites/mois), 26 pages Facebook créées en lot, ~1 589 pubs. Data US non publiée par Meta, donc TrendTrack inutile ; choix de Roméo : AdSpy.
+- Spybox bloqué : le navigateur intégré tournait sans le lanceur. Solution : fermer, relancer l'app Spybox, passer par la tuile de l'outil.
+- Statique « compatible avec une grande variété de liquides » déconseillée : contredit « sûr pour les animaux », tue la vente de recharges, risque Javel/alcool en brume.
+- Tri complet de « à répartir » (69 fichiers, rien supprimé) : 8 vidéos à traduire avec leur transcription, 31 statiques, 12 avis, 18 écartés.
+- Nouvelles pistes : PetMizer (listicle et statiques Facebook) et Celani. Cookies Kajabi toujours en clair dans le dossier de la leçon 3.9.
+- Production reportée au 14/09 : voix off par Claude (angle inchangé, adaptations Zooryn), statiques traduites à la main par Roméo.
+
+---
+
 ## 2026-09-13 (mise à jour 4)
 
 ### Nettoyage de CONTEXT.md : photo du présent + leçons gravées en mémoire

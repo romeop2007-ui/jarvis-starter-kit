@@ -70,7 +70,7 @@
 - **Sourcing 1688 :** pistolet chez `嘉兴市筑梦家宠物用品`, concentré lavande chez `宁波花栖之谷科技` (MSDS fourni). Prix saisi par l'agent sur pack + upsell 21,05 $ au lieu de 20,87 $ annoncés, gardé pour la future négociation.
 - **Bilan du testing au 12/09 :** 989,86 € de CA, 15 commandes payantes, AOV 65,99 €, zéro remboursement, bénéfice estimé ~261 € (COGS dérivé du ROAS BE et spend Meta estimé à ~500 €, à confirmer). 12/09 = record à ROAS réel 3,73.
 - **Fuite RapidBundle assumée :** les 6 recharges s'achètent 30 € sans le pistolet (cas #1015). Ne pas rouvrir sauf demande.
-- **Créas :** 17 actives + 10 en réserve au 12/09 (27 traduites). Phase 1 de la grille des créas (traduire jusqu'à 30-40). 5 statiques produites le 11/09 gardées pour la phase 3, référence réserve pour le comparatif : L757 `forpetloovers.com` (Us vs Them, reach 10M+) dans le Sheet « Tops statics ».
+- **Créas :** 17 actives + 10 en réserve au 12/09 (27 traduites). Phase 1 de la grille des créas (traduire jusqu'à 30-40). 5 statiques produites le 11/09 gardées pour la phase 3, référence réserve pour le comparatif : L757 `forpetloovers.com` (Us vs Them, reach 10M+) dans le Sheet « Tops statics ». **Content research du 13/09** : 8 vidéos à traduire trouvées (7 scripts, deux vidéos NovaPaw partagent le même), soit ~34 traduites après production ; 31 images de référence pour statiques (dont 12 vraies pubs Facebook PetMizer et Celani) et 12 photos clients, rangées dans `livrables/ecommerce/creas/PureShot/Content research/` (guide interactif `guide-content-research.html` dans le même dossier).
 - **Don association** (#1021, 12/09, PureShot + 3 recharges, tag `don-asso`) : COGS compté dans le DAILY REPORT, commande exclue du CA et du décompte PayPal.
 
 ### Boutique Shopify
@@ -95,7 +95,7 @@
 ### Formation et sources
 - **Zecom Academy** (1 095 €, démarrée le 05/07/2026). Vue à ~50-55 % au 12/08, choix délibéré : tout ce qui sert au testing est vu, les modules de scaling se regardent au moment venu (1.2 et 1.6 lus depuis). **Ne pas présumer que Roméo connaît un contenu de scaling ; signaler quand un sujet relève d'un module non vu.**
 - Base experte : `context/formation-dropshipping-synthese.md`. Discord Zecom en lecture seule (mémoire). **Roméo est parrain** sur le Discord depuis le 13/09/2026.
-- **Spybox** (~200 €/an, payé) : Kalodata, AdSpy, PipiAds, Dropship.io, Adsparo. Méthodes et seuils dans `recherche-produit/references/trouver-concurrents.md`. Claude guide outil par outil, Roméo manipule lui-même pour apprendre.
+- **Spybox** (~200 €/an, payé) : Kalodata, AdSpy, PipiAds, Dropship.io, Adsparo. Méthodes et seuils dans `recherche-produit/references/trouver-concurrents.md`. Claude guide outil par outil, Roméo manipule lui-même pour apprendre. Accès uniquement par le **lanceur Spybox** puis la tuile de l'outil ; un onglet vide dans le navigateur « Chrome for Testing » = lanceur fermé. Concurrent aux US (aucune data Meta publiée) : **AdSpy** (likes ≥150-200) en premier, puis PipiAds, puis Adsparo (tri « Ads Number »).
 - **Google Sheets :** « P&L - Zecom Academy 2026 », « Calcul ROAS BE & TARGET », « Zooryn - Concurrents & Créas Scaling » (script `concurrents-scaling.mjs`), « Tops statics », tableau de recherche produit (écriture sur ordre explicite). Compte de service `budget-bot`.
 
 ### Sécurité des comptes
@@ -126,6 +126,7 @@
 - **Le 4 de chaque mois :** loyer Huesca 420 € (04/10/2026 → 04/02/2027 inclus). Charge perso, hors budget e-commerce.
 
 **Datés**
+- **14/09/2026 :** production des voix off des 8 vidéos du lot content research (skill `crea-pub`).
 - **20/09/2026 :** re-check des candidats en veille EnkelDyne (`sovna.eu`) et Defentor (`defentor.pl`), conditions dans `recherche-produit/references/liste-rejetes.md`.
 - **23/09/2026 :** re-check prioritaire de **Sturzfest** (pantalon de protection moto, DE), jugé en voie de scaling.
 - **Avant le 28/09/2026 :** passer les commandes à l'agent (Golden Week chinoise du 1er au 7 octobre).
@@ -152,7 +153,9 @@
 - **Pages légales :** les CGV ne mentionnent que la carte alors que ~60 % du CA passe par PayPal. Le template SAV Zecom met les frais de retour à la charge du client, les CGV Zooryn disent l'inverse. Lien « suivre ma commande » et adresse de retour de l'agent à compléter dans `sav-client`.
 - **Virement bancaire vers Aplusfulfill :** test à faire à 500-600 € quand la trésorerie le permet. Mesurer le montant débité de Qonto et le montant crédité, pour savoir si le virement supprime seulement la marge de change (~5 %) ou aussi la commission de réception.
 - **Marketing research :** démarre à 30-40 créas traduites ou quand le contenu est épuisé. Roméo la découvre par le SOP de la formation et fournit lui-même les éléments : **ne rien lui expliquer par avance.**
-- **Recherche de contenu élargie :** Amazon, Spybox et sources non exploitées, pour récupérer une dizaine de créas manquées (plan du 13/09).
+- **Production des créas du lot content research (prévue le 14/09) :** Claude fait les voix off FR des 8 vidéos de `Content research/1-videos-a-traduire/` (transcriptions `.txt` posées à côté), **sans changer l'angle**, en remettant les éléments du concurrent à la sauce Zooryn (garantie 60 j → 90 j, cadeaux offerts → recharges, chiffres d'avis → ceux de Zooryn). Roméo traduit lui-même les statiques dans ChatGPT.
+- **Concurrents US repérés le 13/09 :** **NovaPaw** (`mynovapaw.com`, pages de destination `nova-paw-odor-gun.replit.app`, paiement Funnelish, 26 pages Facebook créées en lot, ~1 589 pubs depuis le 04/08, dépense non publiée), à analyser dans AdSpy. **PetMizer** (`petmizer.com`, listicle `/pages/list2`, statiques Facebook très solides), à fouiller en priorité. **Celani**.
+- ⚠️ **Photos clients récupérées :** le pistolet y a une tête plate alors que PureShot a une tête ronde. Privilégier celles où le produit se voit peu.
 - **Contenu scaling du 09/09 :** transmis dans une session jamais enregistrée. Probablement couvert depuis par les vidéos transcrites, à confirmer avec Roméo.
 - **Pipeline en réserve :** MOBB (`mobb.nl`, bandes anti-ronflement) et Marina Roca (`marinaroca.com`, collier « Abrazo Eterno ») inscrits au tableau le 09/09. Autres profils en veille dans `liste-rejetes.md` (KneePlex, Cervia, Viveaprotect). Filtre de douche anti-chlore (`aqualux.fi`) à rechasser chaque semaine.
 - **Temps Discord de parrain :** à surveiller pour qu'il ne mange pas la production de créas.

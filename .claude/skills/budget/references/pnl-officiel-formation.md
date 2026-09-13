@@ -230,3 +230,27 @@ formation est désormais l'unique outil de suivi budget/profit. Ce qui a été f
 
 **RapidBundle et Parcel Panel volontairement exclus des abonnements pour l'instant** (à venir,
 ne pas les ajouter sans confirmation de Roméo).
+
+## 6. COGS de la veille (routine actée le 13/09/2026)
+
+Roméo demande « combien de COGS hier ? ». Claude calcule, Roméo copie dans DAILY REPORT
+colonne I.
+
+1. Lister les commandes du jour (heure de Paris) via la requête de
+   `frais-psp-paypal-vs-carte.md`, en ajoutant `lineItems { title quantity }`.
+2. Lire les COGS par offre dans le Sheet ROAS BE & TARGET, onglet
+   **`CALCULATEUR COGS + PV`** (colonnes Produit / Bundle / COGS / Prix de vente). Toujours
+   relire la source, les COGS peuvent changer. État au 13/09/2026 pour PureShot :
+   x1 49,99 € → 11,19 € ; x1 + upsell 79,99 € → 15,68 € ; x1 + 3 recharges 59,99 € → 13,26 € ;
+   x1 + 3 recharges + upsell (6 recharges) 89,99 € → 18,06 €.
+3. Associer chaque commande à son offre par le **contenu** (lineItems), pas seulement par le
+   montant (un code promo peut changer le prix).
+4. **Compter TOUTES les commandes, dons compris** (tag `don-asso`, commande à 0 €). Le produit
+   offert est payé à l'agent, donc son COGS entre dans le total (décision de Roméo le 13/09/2026,
+   qui remplace la règle du 12/09 « COGS du don dans les Other charges »). Signaler le don en
+   une ligne dans le rendu. Ne pas le remettre aussi dans les Other charges : ce serait un
+   double comptage.
+5. Offre absente du calculateur (ex. 6 recharges seules à 30 €, #1015) : ~8,33 €, la valeur
+   saisie par Roméo le 11/09 (facture Yuri 9,64 $). Le signaler dans la réponse.
+
+Rendu : le total brut, plus le détail en une ligne par offre.

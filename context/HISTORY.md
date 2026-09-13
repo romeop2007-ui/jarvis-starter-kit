@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-09-13
+
+### Routine P&L du matin : décompte PayPal fiabilisé et COGS automatisé
+
+- **PayPal du 12/09 vérifié : 4 commandes pour 299,96 €** (Roméo en comptait 3, #1016 déjà expédiée manquait dans sa vue ; son Total Sales saisi de 359,95 € le prouvait). Règle actée : en cas de contestation, revérifier à la source et recouper avec le DAILY REPORT, jamais s'aligner sans preuve.
+- Nouveaux codes de frais carte repérés (`eea_card_not_present`, `amex_card_not_present`) : tout code commençant par `paypal_` = PayPal, le reste = carte.
+- **COGS de la veille désormais calculé par Claude** à partir de l'onglet « CALCULATEUR COGS + PV » du Sheet ROAS BE & TARGET, en associant chaque commande à son offre par son contenu. Méthode contrôlée sur le 11/09 (34,85 €, identique à la saisie de Roméo).
+- **Décision de Roméo : le COGS compte toutes les commandes, dons compris** (12/09 : 89,16 €). Remplace la règle du 12/09 qui mettait le COGS du don dans les Other charges.
+- 13/09 en cours au moment de la session : #1022 et #1023 PayPal, #1024 carte Amex.
+
+---
+
 ## 2026-09-12 (mise à jour 3)
 
 ### Don association envoyé, frais de recharge mesurés, premier bilan chiffré du testing

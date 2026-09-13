@@ -21,6 +21,10 @@ bloquait Roméo.
 |---|---|---|
 | `paypal_domestic_card_not_present` | **PayPal** | 2,9 % + 0,35 € |
 | `domestic_card_not_present` | **Carte (Shopify Payments)** | 1,5 % + 0,25 € |
+| `eea_card_not_present` | **Carte (EEE hors France)** | vu le 12/09 (#1018) |
+| `amex_card_not_present` | **Carte Amex** | vu le 13/09 (#1024) |
+
+Règle simple : tout `rateName` qui commence par `paypal_` = PayPal, tout le reste = carte.
 
 Confirmation croisée disponible avec `accountNumber` : rempli avec les 4 derniers
 chiffres pour une carte, vide pour PayPal.
@@ -78,8 +82,33 @@ d'autre**, prêts à copier-coller dans le P&L :
 - le **CA** réalisé via PayPal
 
 Pas de tableau détaillé, pas de calcul intermédiaire, pas de commentaire, sauf s'il
-le demande explicitement. Le reste (frais PSP, répartition carte, taux moyen) ne
+le demande explicitement.
+
+Demande combinée validée le 13/09/2026 : « nombre de commandes PayPal hier et COGS
+d'hier ». On rend les deux chiffres PayPal, puis le COGS total avec une ligne par
+offre (méthode : `pnl-officiel-formation.md`, section 6). Le COGS compte TOUTES les
+commandes, dons compris. Un don (0 €, sans transaction) n'entre évidemment pas dans le
+décompte PayPal. Le reste (frais PSP, répartition carte, taux moyen) ne
 sort que sur demande.
+
+## Si Roméo conteste le chiffre (validé par Roméo le 13/09/2026)
+
+Ne jamais s'aligner sur son décompte sans preuve. Refaire la vérification à la source :
+
+1. Relancer la requête avec `shop { ianaTimezone }`, `cancelledAt`, `test`,
+   `sourceName`, `displayFinancialStatus`, `displayFulfillmentStatus`,
+   `totalRefundedSet`, sur une fenêtre élargie (veille et lendemain) pour
+   écarter un problème de fuseau.
+2. Rendre le détail commande par commande en heure de Paris (numéro, heure,
+   montant, moyen de paiement).
+3. Recouper avec ce que Roméo a déjà saisi dans le `DAILY REPORT` du jour
+   (`node pnl-tool.mjs values "'DAILY REPORT'!A<ligne>:O<ligne>"`, ligne =
+   numéro de série de la date − 46023 + 3).
+4. Formuler une hypothèse sur la commande qu'il n'a pas comptée.
+
+Cas fondateur du 12/09 : Roméo comptait 3 PayPal, il y en avait 4. #1016,
+déjà expédiée, n'apparaissait plus dans sa vue. Son Total Sales saisi
+(359,95 €) prouvait les 5 commandes payantes.
 
 ## Exemple vérifié — vendredi 11/09/2026
 

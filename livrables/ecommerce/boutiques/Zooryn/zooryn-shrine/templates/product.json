@@ -1360,7 +1360,7 @@
       "settings": {
         "display_id": false,
         "visibility": "always-display",
-        "image": "shopify://shop_images/hf_20260902_055017_6222605b-f4c6-4c76-8b2d-76f52c3fbdc2.webp",
+        "image": "shopify://shop_images/04e4273c-1d4f-498c-ba7e-c07f63ae1c30.png",
         "video_autoplay": true,
         "video_loop": true,
         "height": "adapt",
@@ -1396,7 +1396,7 @@
         "column_6waeFB": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/hf_20260902_052448_3724d886-963f-4371-8444-92c61ec0347d.webp",
+            "image": "shopify://shop_images/a263ccf8-0169-4cb3-916f-9500ab51c376.png",
             "star_rating": 5,
             "title": "Je l'utilise tous les jours",
             "text": "<p>Ma voiture sentait toujours le chien mouillé après avoir conduit mon golden retriever partout. PureShot a complètement changé cela.</p>",
@@ -1406,7 +1406,7 @@
         "column_3HXTGz": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/hf_20260902_052505_339e8618-b43a-466e-bb1c-9dd43548beff.webp",
+            "image": "shopify://shop_images/10444fa8-2e01-4f78-aef8-bead23fe68c9.png",
             "star_rating": 5,
             "title": "La première chose qui a éliminé l'odeur",
             "text": "<p>Mon canapé et mon salon sentaient toujours le chien, malgré tous mes efforts de nettoyage. C'est la première chose qui a vraiment fait disparaître l'odeur.</p>",
@@ -1416,7 +1416,7 @@
         "column_j6ckxk": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/hf_20260902_052430_abf7ef4b-48b0-4107-9ae6-f1078cf75b56.webp",
+            "image": "shopify://shop_images/07dd6960-c03a-4a85-ba11-e305bd205e8a.png",
             "star_rating": 5,
             "title": "Mieux que tous les sprays que j'ai essayés.",
             "text": "<p>J'ai deux chats et une litière dans mon appartement. J'ai vaporisé le produit une seule fois et toute la maison a senti nettement plus frais en quelques minutes.</p>",
@@ -1833,8 +1833,10 @@
             "heading": "Élimine-t-il vraiment les odeurs d'animaux ?",
             "icon": "",
             "filled_icon": false,
-            "row_content": "<p>PureShot est conçu pour aider à neutraliser les odeurs tenaces d'animaux au lieu de se contenter de les masquer avec un parfum intense. Il aide à rafraîchir rapidement les espaces imprégnés d'odeurs d'animaux et laisse un air nettement plus propre.</p>"
-          }
+            "row_content": "<p>PureShot est conçu pour aider à neutraliser les odeurs tenaces d'animaux au lieu de se contenter de les masquer avec un parfum intense. Il aide à rafraîchir rapidement les espaces imprégnés d'odeurs d'animaux et laisse un air nettement plus propre.</p>",
+            "page": ""
+          },
+          "blocks": {}
         },
         "row_d4E5f6": {
           "type": "collapsible-row-content",
@@ -1843,8 +1845,10 @@
             "heading": "Avec quelles odeurs d'animaux aide-t-il ?",
             "icon": "",
             "filled_icon": false,
-            "row_content": "<p>PureShot peut aider à rafraîchir les espaces touchés par les odeurs de chien mouillé, les odeurs de litière, les accidents d'animaux, les niches, les canapés, les tapis, les couvertures, les sièges de voiture et d'autres odeurs d'animaux tenaces et persistantes.</p>"
-          }
+            "row_content": "<p>PureShot peut aider à rafraîchir les espaces touchés par les odeurs de chien mouillé, les odeurs de litière, les accidents d'animaux, les niches, les canapés, les tapis, les couvertures, les sièges de voiture et d'autres odeurs d'animaux tenaces et persistantes.</p>",
+            "page": ""
+          },
+          "blocks": {}
         },
         "row_g7H8i9": {
           "type": "collapsible-row-content",
@@ -1853,8 +1857,10 @@
             "heading": "Laisse-t-il une forte odeur de parfum ?",
             "icon": "",
             "filled_icon": false,
-            "row_content": "<p>Non. PureShot est conçu pour rafraîchir votre maison sans l'odeur chimique ou parfumée forte que laissent de nombreux sprays.</p>"
-          }
+            "row_content": "<p>Non. PureShot est conçu pour rafraîchir votre maison sans l'odeur chimique ou parfumée forte que laissent de nombreux sprays.</p>",
+            "page": ""
+          },
+          "blocks": {}
         },
         "row_j1K2l3": {
           "type": "collapsible-row-content",
@@ -1863,8 +1869,10 @@
             "heading": "Agit-il rapidement ?",
             "icon": "",
             "filled_icon": false,
-            "row_content": "<p>La plupart des clients constatent un espace plus frais en quelques secondes après application. Pour des odeurs d'animaux plus intenses, quelques pulvérisations supplémentaires peuvent aider à rafraîchir complètement la zone.</p>"
-          }
+            "row_content": "<p>La plupart des clients constatent un espace plus frais en quelques secondes après application. Pour des odeurs d'animaux plus intenses, quelques pulvérisations supplémentaires peuvent aider à rafraîchir complètement la zone.</p>",
+            "page": ""
+          },
+          "blocks": {}
         },
         "row_m4N5o6": {
           "type": "collapsible-row-content",
@@ -1873,8 +1881,10 @@
             "heading": "Où puis-je l'utiliser ?",
             "icon": "",
             "filled_icon": false,
-            "row_content": "<p>PureShot peut être utilisé à la maison, en voiture, sur les niches, les canapés, les tapis, les rideaux, les meubles, dans les zones de litière et dans d'autres espaces où l'odeur des animaux a tendance à persister.</p>"
-          }
+            "row_content": "<p>PureShot peut être utilisé à la maison, en voiture, sur les niches, les canapés, les tapis, les rideaux, les meubles, dans les zones de litière et dans d'autres espaces où l'odeur des animaux a tendance à persister.</p>",
+            "page": ""
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -1886,11 +1896,95 @@
       ],
       "name": "Collapsible content",
       "settings": {
+        "display_id": false,
         "visibility": "always-display",
         "caption": "",
         "title": "Des questions ? On s'en occupe",
+        "title_highlight_1": "solid-color",
+        "title_highlight_1_gradient": "linear-gradient(57deg, rgba(249, 119, 255, 1) 8%, rgba(54, 212, 255, 1) 47%, rgba(43, 252, 135, 1) 83%)",
+        "title_highlight_1_bg-color": "#f9efff",
+        "title_highlight_1_color": "#6d388b",
+        "highlighted-1_border_radius": 8,
+        "highlighted-1_border_width": 0,
+        "highlighted-1_border": "solid",
+        "highlighted-1_border_color": "#6d388b",
+        "highlighted-1_padding-block": 0.3,
+        "highlighted-1_padding-inline": 0.3,
+        "title_highlight_1_underline-thickness": 2,
+        "title_highlight_1_underline-color": "#6d388b",
+        "title_highlight_1_underline-color--gradient": "linear-gradient(57deg, rgba(249, 119, 255, 1) 8%, rgba(54, 212, 255, 1) 47%, rgba(43, 252, 135, 1) 83%)",
+        "title_highlight_1_underline-color-position": 25,
+        "title_highlight_1_handwritten-color": "#6d388b",
+        "title_highlight_1_handwritten-stroke-width": 3,
+        "title_highlight_1_handwritten-position": 60,
+        "title_highlight_2": "none",
+        "title_highlight_2_gradient": "linear-gradient(57deg, rgba(249, 119, 255, 1) 8%, rgba(54, 212, 255, 1) 47%, rgba(43, 252, 135, 1) 83%)",
+        "title_highlight_2_bg-color": "#f9efff",
+        "title_highlight_2_color": "#6d388b",
+        "highlighted-2_border_radius": 8,
+        "highlighted-2_border_width": 0,
+        "highlighted-2_border": "solid",
+        "highlighted-2_border_color": "#6d388b",
+        "highlighted-2_padding-block": 0.3,
+        "highlighted-2_padding-inline": 0.3,
+        "title_highlight_2_underline-thickness": 2,
+        "title_highlight_2_underline-color": "#6d388b",
+        "title_highlight_2_underline-color--gradient": "linear-gradient(57deg, rgba(249, 119, 255, 1) 8%, rgba(54, 212, 255, 1) 47%, rgba(43, 252, 135, 1) 83%)",
+        "title_highlight_2_underline-color-position": 25,
+        "title_highlight_2_handwritten-color": "#6d388b",
+        "title_highlight_2_handwritten-stroke-width": 3,
+        "title_highlight_2_handwritten-position": 60,
         "heading_size": "h2",
+        "custom_desktop_size": 39,
+        "custom_mobile_size": 28,
         "color_scheme": "background-1",
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "pattern_bg": "none",
+        "pattern_color": "#6d388b",
+        "pattern_size": 20,
+        "pattern_thickness": 2,
+        "pattern_angle": 45,
+        "pattern_opacity_mode": "low",
+        "pattern_opacity_low": 7,
+        "pattern_opacity_normal": 80,
+        "video_muted_autoplay": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "rows_spacing": 4,
+        "row_heading_size": "medium",
+        "collapse_icon": "carret",
+        "collapse_icon_style": "standard",
+        "collapse_icon_radius": 15,
+        "animation_speed": 0.4,
+        "border_type": "bottom",
+        "border_thickness": 1,
+        "border_style": "solid",
+        "corner_radius": 8,
+        "enable_custom_style": false,
+        "heading_padding_vertical": 12,
+        "heading_padding_horizontal": 10,
+        "content_padding_vertical": 10,
+        "content_padding_horizontal": 10,
+        "closed_state_border": "#dddddd",
+        "closed_state_header_bg": "#f9f9f9",
+        "closed_state_header_text": "#121212",
+        "closed_state_row_icon": "#121212",
+        "closed_state_collapse_icon": "#121212",
+        "closed_state_collapse_icon_solid": "#ffffff",
+        "closed_state_collapse_bg": "#121212",
+        "closed_state_content_bg": "#f9f9f9",
+        "closed_state_content_text": "#121212",
+        "open_state_border": "#d5aeea",
+        "open_state_header_bg": "#fefaff",
+        "open_state_header_text": "#000000",
+        "open_state_row_icon": "#6d388b",
+        "open_state_collapse_icon": "#121212",
+        "open_state_collapse_icon_solid": "#ffffff",
+        "open_state_collapse_bg": "#6d388b",
+        "open_state_content_bg": "#fefaff",
+        "open_state_content_text": "#121212",
         "padding_top": 36,
         "padding_bottom": 36
       }

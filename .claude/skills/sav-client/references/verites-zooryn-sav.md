@@ -11,7 +11,7 @@
   des templates (le PDF Zecom utilise des chiffres génériques différents selon les mails : 7-12j,
   5-9j. Ne jamais reprendre ces chiffres génériques, toujours écrire 5 à 10 jours ouvrés).
 - **Livraison gratuite** : oui, sans minimum d'achat, France métropolitaine.
-- **Garantie commerciale** : "satisfait ou remboursé" 30 jours.
+- **Garantie commerciale** : "satisfait ou remboursé" 90 jours (passée de 30 à 90 jours le 12/09/2026).
 - **Rétractation légale** : 14 jours.
 - **Zone de vente actuelle** : France (+ Belgique/Luxembourg envisagés en option, jamais confirmés
   vendus à ce jour). Ne jamais citer "Belgique et Suisse" comme le fait un des templates génériques

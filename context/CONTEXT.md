@@ -72,6 +72,8 @@
 - **Fuite RapidBundle assumée :** les 6 recharges s'achètent 30 € sans le pistolet (cas #1015). Ne pas rouvrir sauf demande.
 - **Créas :** 17 actives + 10 en réserve au 12/09 (27 traduites). Phase 1 de la grille des créas (traduire jusqu'à 30-40). 5 statiques produites le 11/09 gardées pour la phase 3, référence réserve pour le comparatif : L757 `forpetloovers.com` (Us vs Them, reach 10M+) dans le Sheet « Tops statics ». **Content research du 13/09** : 8 vidéos à traduire trouvées (7 scripts, deux vidéos NovaPaw partagent le même), soit ~34 traduites après production ; 31 images de référence pour statiques (dont 12 vraies pubs Facebook PetMizer et Celani) et 12 photos clients, rangées dans `livrables/ecommerce/creas/PureShot/Content research/` (guide interactif `guide-content-research.html` dans le même dossier).
 - **Don association** (#1021, 12/09, PureShot + 3 recharges, tag `don-asso`) : COGS compté dans le DAILY REPORT, commande exclue du CA et du décompte PayPal.
+- **Conformité électronique (vidéo 2.4) :** en tant qu'importateur, Roméo est responsable du produit dès la 1re vente. Rien n'est en place (dossier technique, déclaration CE, DEEE, étiquette FR, suivi des lots). Décision de Roméo : le gratuit maintenant, le payant après 1 mois de scaling (vers le 10/10).
+- **Parfums :** le 14/09, une cliente a demandé d'autres parfums que la lavande. On lui a demandé en retour quel parfum elle aimerait.
 
 ### Boutique Shopify
 - Thème live **Shrine Pro #203403854169**, dossier `livrables/ecommerce/boutiques/zooryn-shrine` (règles de synchronisation dans `CLAUDE.md`). Boutique `cqqah9-t1.myshopify.com`.
@@ -83,6 +85,7 @@
   - Transporteur Wanb Express : Shopify ne reçoit aucun jalon de livraison, lire sur ParcelPanel ou 17track.
   - Tags et note d'un brouillon ne passent pas sur la commande (voir mémoire).
 - **Klaviyo :** 3 flows construits et **en brouillon** : paiement abandonné (`Y5FaK9`), post-achat (`ShpSNp`), panier abandonné (`UeSBJA`). Codes génériques publics PANIER10, PANIER20, MERCI10. Template d'avis post-réception (`ULm7Fp`) déconnecté, à reprendre au scaling. Le panier abandonné n'enverra rien sans popup de capture email (pas encore posée).
+- **Mails SAV :** envoyés depuis `savzooryn@gmail.com` en tant que `contact@zooryn.com` (Private Email). Adresse ajoutée en secondaire et validée le 14/09, photo Camille : avatar Gmail attendu sous 72 h. SPF, DKIM et DMARC vérifiés en PASS.
 - **Trustpilot :** compte revendiqué, lien d'avis `https://fr.trustpilot.com/evaluate/zooryn.com`.
 
 ### Fournisseur : Aplusfulfill (compte AF005217, contact Yuri Yang sur Telegram)
@@ -97,6 +100,7 @@
 ### Formation et sources
 - **Zecom Academy** (1 095 €, démarrée le 05/07/2026). Vue à ~50-55 % au 12/08, choix délibéré : tout ce qui sert au testing est vu, les modules de scaling se regardent au moment venu (1.2 et 1.6 lus depuis). **Ne pas présumer que Roméo connaît un contenu de scaling ; signaler quand un sujet relève d'un module non vu.**
 - Base experte : `context/formation-dropshipping-synthese.md`. Discord Zecom en lecture seule (mémoire). **Roméo est parrain** sur le Discord depuis le 13/09/2026.
+- **Module 6 :** leçons 2.3 (cosmétique en UE) et 2.4 (électronique en UE) d'Antoine, transcrites le 14/09. Antoine accepte d'être contacté sur le Discord et envoie ses diapos sur demande.
 - **Spybox** (~200 €/an, payé) : Kalodata, AdSpy, PipiAds, Dropship.io, Adsparo. Méthodes et seuils dans `recherche-produit/references/trouver-concurrents.md`. Claude guide outil par outil, Roméo manipule lui-même pour apprendre. Accès uniquement par le **lanceur Spybox** puis la tuile de l'outil ; un onglet vide dans le navigateur « Chrome for Testing » = lanceur fermé. Concurrent aux US (aucune data Meta publiée) : **AdSpy** (likes ≥150-200) en premier, puis PipiAds, puis Adsparo (tri « Ads Number »).
 - **Google Sheets :** « P&L - Zecom Academy 2026 », « Calcul ROAS BE & TARGET », « Zooryn - Concurrents & Créas Scaling » (script `concurrents-scaling.mjs`), « Tops statics », tableau de recherche produit (écriture sur ordre explicite). Compte de service `budget-bot`.
 
@@ -155,7 +159,7 @@
 - **Pages légales :** les CGV ne mentionnent que la carte alors que ~60 % du CA passe par PayPal. Le template SAV Zecom met les frais de retour à la charge du client, les CGV Zooryn disent l'inverse. Lien « suivre ma commande » et adresse de retour de l'agent à compléter dans `sav-client`.
 - **Virement bancaire vers Aplusfulfill :** test à faire à 500-600 € quand la trésorerie le permet. Mesurer le montant débité de Qonto et le montant crédité, pour savoir si le virement supprime seulement la marge de change (~5 %) ou aussi la commission de réception.
 - **Marketing research :** démarre à 30-40 créas traduites ou quand le contenu est épuisé. Roméo la découvre par le SOP de la formation et fournit lui-même les éléments : **ne rien lui expliquer par avance.**
-- **Production des créas du lot content research (prévue le 14/09) :** Claude fait les voix off FR des 8 vidéos de `Content research/1-videos-a-traduire/` (transcriptions `.txt` posées à côté), **sans changer l'angle**, en remettant les éléments du concurrent à la sauce Zooryn (garantie 60 j → 90 j, cadeaux offerts → recharges, chiffres d'avis → ceux de Zooryn). Roméo traduit lui-même les statiques dans ChatGPT.
+- **Content research PureShot (14/09) :** les **31 statiques AD37 à AD67 sont adaptées en français et validées** par Roméo, enregistrées dans `livrables/ecommerce/creas/PureShot/PureShot terminées/`. Méthode validée : génération d’images intégrée avec ChatGPT/Codex, lots de cinq puis validation, fidélité au produit et aux couleurs Zooryn, contrôle visuel et orthographique. Prompts et correspondances sources conservés dans `Content research/suivi-statiques-zooryn/` ; sources supprimées après validation. Les **8 vidéos restent en cours de traduction** côté Roméo, avec les voix off FR prévues via Claude, sans changer l’angle et en adaptant les éléments à Zooryn.
 - **Concurrents US repérés le 13/09 :** **NovaPaw** (`mynovapaw.com`, pages de destination `nova-paw-odor-gun.replit.app`, paiement Funnelish, 26 pages Facebook créées en lot, ~1 589 pubs depuis le 04/08, dépense non publiée), à analyser dans AdSpy. **PetMizer** (`petmizer.com`, listicle `/pages/list2`, statiques Facebook très solides), à fouiller en priorité. **Celani**.
 - ⚠️ **Photos clients récupérées :** le pistolet y a une tête plate alors que PureShot a une tête ronde. Privilégier celles où le produit se voit peu.
 - **Contenu scaling du 09/09 :** transmis dans une session jamais enregistrée. Probablement couvert depuis par les vidéos transcrites, à confirmer avec Roméo.
@@ -164,6 +168,7 @@
 - **Lot de l'agent du lundi 14/09 :** vérifier après 12h que #1017 à #1028 sont bien expédiées ; sinon relancer Yuri.
 - **Sheet ROAS BE & TARGET à recalibrer :** frais de paiement réels ~3,2 % (et non 1,86 %), frais de localisation Meta ~2,83 %, frais de recharge ~11,5 % du COGS, COGS moyen pondéré par les ventes réelles (RapidBundle Analytics) au lieu de la moyenne simple.
 - **Onglet COGS CHECK :** corriger la formule « Difference » (D−E puis E−D à partir de la ligne 5), puis lancer le rapprochement hebdo du lundi (solde du portefeuille, coût réel du dollar).
+- **Conformité PureShot :** diapo demandée à Antoine sur le Discord le 14/09, réponse attendue. Ensuite, message à Yuri : rapports CE, déclaration RoHS, fiche de sécurité de la batterie, manuel EN, vidéo du produit réel (les rapports doivent couvrir le modèle exact), numéro de lot par commande, photo de contrôle, qui paie la TVA à l'import en DDP. **IOSS :** ne pas s'enregistrer sans réponse fiable, car a priori incompatible avec la franchise de TVA. Commande fantôme livrée à Cambrai proposée (étiquette, qualité, délai réel).
 - **ParcelPanel :** abonnement à venir (limite de numéros de suivi atteinte), à ajouter aux charges du mois une fois pris.
 
 ---

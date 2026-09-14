@@ -7,6 +7,31 @@
 
 ---
 
+## 2026-09-14 (mise à jour 3)
+
+### Conformité UE (vidéos 2.3 et 2.4), SAV parfums, avatar Gmail du SAV
+- Leçons 2.4 « Lancer de l'électronique en UE » et 2.3 « Lancer de la cosmétique en UE » (Module 6, Antoine) téléchargées et transcrites en local.
+- Constat : PureShot (appareil à batterie) est soumis aux règles électroniques dès la 1re vente (marquage CE, dossier technique 10 ans, RoHS, DEEE par pays, étiquette et manuel FR, traçabilité des lots, garantie 2 ans, alerte au-delà de 3 % de pannes). Aucune n'est en place. La partie cosmétique ne s'applique pas.
+- Décision de Roméo : faire tout le gratuit maintenant, repousser le payant (labo 800-3 000 €, dossier via Fiverr, DEEE) à 1 mois de scaling. Vidéo du produit réel à demander à Yuri, les rapports devant couvrir le modèle exact.
+- Message envoyé à Antoine sur le Discord pour obtenir son diapo. Message à Yuri rédigé une fois la réponse reçue.
+- Doute signalé sur les vidéos : valeur déclarée en douane (COGS contre prix de vente) et IOSS incompatible a priori avec la franchise de TVA. Ne pas s'enregistrer sans réponse fiable.
+- SAV : réponse à une cliente qui demandait d'autres parfums (lavande seule, suggestion sollicitée). Réponse Facebook « quelle odeur ? » fournie.
+- Avatar « C » dans Gmail : création d'un compte Google sur contact@zooryn.com bloquée par la vérification téléphone. Solution retenue : adresse secondaire validée sur savzooryn@gmail.com, avec la photo du compte. SPF, DKIM (sélecteur privateemail) et DMARC en PASS.
+- Fichier `sav-client/references/verites-zooryn-sav.md` corrigé : garantie de 30 jours passée à 90 jours.
+
+---
+
+## 2026-09-14
+
+### 31 statiques PureShot adaptées et validées, AD37 à AD67
+
+- Les 31 images du lot content research ont été adaptées en français via la génération d’images intégrée de ChatGPT/Codex, par lots de cinq puis une dernière image, avec validation de Roméo à chaque lot.
+- Produit PureShot et palette Zooryn conservés ; textes contrôlés, garantie adaptée à 90 jours et kit final représenté avec les trois recharges lavande de la boutique. La variante contenant une faute sur « Brume fine » a été supprimée au profit de la version corrigée.
+- Les 31 PNG AD37 à AD67 sont présents directement dans `livrables/ecommerce/creas/PureShot/PureShot terminées/`, avec numérotation complète et sans doublon de fichier. Les prompts et correspondances sources sont conservés dans `Content research/suivi-statiques-zooryn/`.
+- Toutes les sources des 31 statiques ont été supprimées après validation, conformément à la demande de Roméo. AD67 validée en fin de session. Les 8 vidéos restent en cours de traduction côté Roméo.
+
+---
+
 ## 2026-09-14 (mise à jour 2)
 
 ### Budget à 150 €/jour, audit du P&L, contrôle logistique quotidien de l'agent

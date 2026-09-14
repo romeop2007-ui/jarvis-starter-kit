@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-09-15
+
+### Itérations et marketing research : leçons 1.3 et 3.1 intégrées (session du 14/09 au soir)
+- Leçon 1.3 « Les itérations » (63 min) transcrite et recoupée avec la page Notion et les leçons 1.2, 1.5.1, 1.6 : on itère sur les créas qui ont le plus dépensé (pas le ROAS) et sur les tops concurrents, grille vert/orange/rouge vidéo et statique. Selon la 1.6, les itérations arrivent en phase 3 (1-2 k€/jour) ; incohérence avec la numérotation Kajabi (« Étape 2 ») signalée. Synthèse rangée dans crea-pub.
+- Leçon 3.1 « La marketing research » (47 min) transcrite, méthode rangée dans crea-pub. v1 du document PureShot démarrée à partir de la fiche et des 8 scripts NovaPaw, hypothèses séparées des sources réelles. Suite prévue le 15/09.
+- Phase 1 considérée comme atteinte (27 traduites + 31 statiques Codex + 8 vidéos en cours) : passage en phase 2 via la marketing research.
+- Découpage retenu : analyse de budget et choix des ads ce soir dans une session séparée (Roméo parle de 300 €/jour et d'environ 10 ads), marketing research demain.
+- Points soulevés : lumière bleue non confirmée sur PureShot (question pour Yuri), parfums incohérents entre la fiche et le contexte, faux chiffres d'avis repris du concurrent.
+- Nettoyage : cookies Kajabi supprimés dans les dossiers 1.3 et 3.1 (il en reste dans 1.2, 1.4.1, 1.5.x, 1.6). Page Notion « Les itérations » présente en double.
+
+---
+
 ## 2026-09-14 (mise à jour 4)
 
 ### Production du lot content research PureShot (AD28-AD35) + recharge agent par PayPal

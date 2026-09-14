@@ -82,6 +82,8 @@ n'est plus favorable : passer à un autre produit.
   pour soi (avec moins d'intensité).
 - Types d'itération : même angle et concept différent (un mashup classique repassé en founder story
   ou en negative marketing), ou même script et message différent.
+- **Grille complète (quoi changer, ce qui compte ou non comme itération, méthode) :
+  `synthese-iterations-scaling.md`** (leçon 1.3, ajoutée le 14/09/2026).
 
 **2. Envoyer 70 à 80 statiques rapidement**, horizon de 7 jours à 2-3 semaines maximum.
 - Méthode : prendre le catalogue de concepts (`catalogue-formats-statics-canva.md`,

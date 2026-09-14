@@ -9,6 +9,17 @@ allowed-tools: Bash, Read, Write, Edit, Glob
 Transforme une pub concurrent (.mp4) en un dossier pret a monter pour Romeo. Voir le plan
 complet : `C:\Users\franv\.claude\plans\ok-on-passe-en-wild-cascade.md`.
 
+## 🧭 Avant tout : quelle phase, quel type de crea
+
+- **Quand** lancer quel type de crea (traduction, creas perso, iterations, statiques, achat de
+  contenu) : `references/synthese-phases-creas-scaling.md` (lecon 1.6).
+- **Iterer sur une crea** (des que Romeo dit "itere", "fais des variantes", "decline cette crea", ou
+  que le produit atteint la phase 3) : `references/synthese-iterations-scaling.md` (lecon 1.3,
+  choix des creas par depense, grille vert/orange/rouge video et statique, methode).
+- **Marketing research** (base de toute crea perso et de toute iteration) : methode dans
+  `references/synthese-marketing-research.md` (lecon 3.1) ; document PureShot dans
+  `livrables/ecommerce/creas/PureShot/marketing-research-pureshot.md`.
+
 ## ⛔ ETAPE 0 — LE HOOK (bloquante, ajoutee le 07/08/2026)
 
 **Avant d'ecrire la moindre ligne de hook, d'accroche ou de texte a l'ecran, lire dans cet

@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-09-14 (mise à jour 4)
+
+### Production du lot content research PureShot (AD28-AD35) + recharge agent par PayPal
+- 7 voix off FR produites (Clemence AD28-30, Simon AD31-34) + accroche de la vidéo musicale AD35, angle inchangé ; corrigé seulement ce qui serait faux pour PureShot (garantie 90 j, pack 3 recharges, avis 4,8/5 sur 25 089, remplissage eau + gouttes, lumière bleue qui éclaire au lieu de « révéler les taches », portée en mètres retirée). Réductions -50/-40 % du concurrent gardées sur demande de Roméo. DEET traduit « répulsif chimique ».
+- Vidéos sources renommées AD28-AD35 ; vidéos détourées vérifiées par durée + comparaison d'images : le fichier nommé AD28 était AD35, renommé ; AD28 détourée reste à faire.
+- Récap montage par ad (style et position des sous-titres, textes à la main, fin d'AD30 à remplacer par la page PureShot).
+- CapCut réclame le Pro à l'export malgré l'abonnement (sous-titres auto) : message au support ; .srt générés depuis les voix off en solution de secours.
+- Yuri : entrepôt fermé le dimanche, traitement officiel 2-3 jours ouvrés, lot du 14/09 traité. Message de remerciement rédigé.
+- Virement bancaire vers Aplusfulfill abandonné pour l'instant (plusieurs jours de délai, trésorerie tendue) : PayPal conservé malgré les frais, plafond 200 $ par recharge, donc recharge tous les 1-2 jours.
+
+---
+
 ## 2026-09-14 (mise à jour 3)
 
 ### Conformité UE (vidéos 2.3 et 2.4), SAV parfums, avatar Gmail du SAV

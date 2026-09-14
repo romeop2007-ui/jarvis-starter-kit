@@ -161,8 +161,15 @@ ne jamais toucher, sinon on casse le calcul.**
   d'autres reçus donnent un autre taux.
 - **Don ou commande à 0 €** : exclu de Total Orders (sinon AOV et frais fixes faussés), mais son
   COGS reste dans la colonne COGS.
-- **Frais de recharge Aplusfulfill** : une ligne « Other » par recharge dans l'onglet du mois =
-  montant débité sur Qonto − (dollars crédités × taux utilisé pour le COGS, ~0,861 en 09/2026).
+- **Frais de recharge Aplusfulfill (formule depuis le 15/09/2026, demande de Roméo)** : paramètre
+  `Fees/Taxes!G2` = 0,0957 (% du COGS). Calcul : recharge PayPal type 179,25 € débités sur Qonto
+  pour ~190 $ crédités, soit 0,9434 €/$ réel contre 0,861 €/$ dans le COGS → +9,57 %. La formule
+  Fees/Taxes de chaque ligne (O3:O367) se termine par `+ (I<ligne> * 'Fees/Taxes'!$G$2)`, idem
+  TESTINGS M13:M17 (bloc T6). Effet : Net Profit seulement, jamais le ROAS. **Ne plus ajouter de
+  ligne « Frais PayPal fournisseur » dans les charges du mois** (double comptage) : les lignes du
+  09/09+11/09 (20,23 €) et du 12/09 (15,66 €) ont été retirées de `Sep-26` à la mise en place.
+  Recaler G2 si le montant des recharges change (le % grimpe fort sous 100 $) ou au passage au
+  virement bancaire. Sauvegardes d'avant modification : scratchpad de la session du 15/09.
 - La ligne du testing dans les charges du mois (ex. `Sep-26!AA5`) est liée par formule au TOTAL
   du bloc (`=-TESTINGS!I17`), plus de recopie manuelle. Sauvegarde d'avant ces modifications :
   scratchpad de la session du 14/09 (`backup-pnl-2026-09-14.json`).
@@ -292,7 +299,7 @@ Lecture sans openpyxl : dézipper le xlsx et lire `xl/sharedStrings.xml` + `xl/w
 | Pistolet + upsell | 18,21 $ (devis, jamais facturé à ce jour) | 15,68 € |
 | 6 recharges seules | 9,64 $ (facture Yuri) | 8,33 € |
 Taux implicite du COGS € : ~0,861 €/$. Le coût réel du dollar (recharge PayPal) est ~0,94 €/$ : l'écart est
-compté via les lignes « Frais PayPal fournisseur » des charges du mois, jamais dans le COGS du DAILY REPORT.
+compté par la formule `Fees/Taxes!G2` (9,57 % du COGS, depuis le 15/09/2026), jamais dans le COGS du DAILY REPORT.
 À mettre à jour à chaque changement (nouvelle offre, nouveau pays, passage à la ligne 5-10 jours).
 
 **Contrôles du jour** : (1) chaque commande payée de la veille (heure de Paris, dons compris) présente sur la facture

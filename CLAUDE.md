@@ -157,6 +157,8 @@ Skill qui alimente le **P&L de Roméo** à la demande. Activé quand il dit "met
 
 **Frais de localisation Meta (vérifiés sur reçu le 14/09/2026) :** Meta ne facture PAS de TVA, mais ajoute des « frais liés à la localisation » d'environ 2,83 % (reçu du 13/09 : 107,00 € de pub + 3,03 € = 110,03 €). Le Sheet les intègre via `Fees/Taxes!F2` (0,0283), ajouté à la formule Fees/Taxes du DAILY REPORT et du bloc T6 de TESTINGS : impacte le Net Profit, **jamais le ROAS**. FB Ads Costs se saisit toujours au montant affiché par Meta.
 
+**Frais de recharge PayPal de l'agent (formule du 15/09/2026) :** intégrés via `Fees/Taxes!G2` (9,57 % du COGS : ~179,25 € débités pour ~190 $ crédités), même mécanique que les frais Meta, Net Profit seulement. **On n'ajoute plus de ligne « Frais PayPal fournisseur » dans les charges du mois** (double comptage). PayPal gardé durablement pour recharger l'agent.
+
 **Deux pièges gravés dans `references/` :** (1) `frais-psp-paypal-vs-carte.md` — sur cette boutique PayPal passe à travers Shopify Payments, donc le moyen de paiement affiche toujours `shopify_payments` ; le seul discriminant est `fees.rateName` (PayPal 2,9 % + 0,35 €, carte 1,5 % + 0,25 €). (2) Le Sheet utilise le **point** comme séparateur décimal : une valeur tapée avec une virgule y est stockée en texte et casse toutes les formules qui la consomment.
 
 ### bilan-ads

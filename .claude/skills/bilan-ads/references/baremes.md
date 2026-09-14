@@ -364,18 +364,18 @@ reporté la décision de budget de 2 jours.
 | 🟠 3 | ROAS dans le RANGE TARGET (15-20 % de marge) | — (peu importe, on ne regarde même pas) | **Ne pas toucher** |
 | ❌ 4 | ROAS < RANGE TARGET (< 15 % de marge, ou perte) | — | **Déscaler** (palier inférieur) |
 
-**⚠️ Paliers de scaling vertical — CORRECTION du 10/09/2026, VÉRIFIÉE sur le board Miro source
-("SOP Media Buying petit budget META - Zecom Academy", consulté via le connecteur Miro).**
-L'ancienne version de cette section indiquait `100 → 200 → 300 → 400 → 500 → 700 → 1000 → 1500`,
-qui ne correspond ni à l'audio ni au board. **Ce qui est confirmé par le board (exemples concrets
-suivis pas à pas, texte identique à l'écran)** : progression par tranches de **+50 €** au moins
-jusqu'à 200 €/j (50→100→150→200), avec la possibilité explicite de **sauter un palier** si le ROAS
-est excellent (le board donne l'exemple d'un saut direct à 250 €/j depuis 200 €/j). **Au-delà de
-250 €/j, ni l'audio ni le board consultés ne donnent d'exemple concret vérifiable** — la
-transcription orale évoque ensuite des tranches de +100 € jusqu'à 500 €, puis +200 € jusqu'à 700 €,
-puis une valeur de fin peu claire ("1000 €" probable, "2000 €" selon la transcription automatique,
-**à ne pas utiliser telle quelle**). **Ne pas traiter la suite au-delà de 250 €/j comme vérifiée** —
-au moment de scaler au-delà, redemander confirmation à Roméo ou revérifier au board/à la vidéo.
+**⚠️ Paliers de scaling vertical — CORRECTION du 15/09/2026, relue dans la transcription de la vidéo
+1.2 après contestation de Roméo (il avait raison).** Paliers officiels : **50 → 100 → 150 → 200 → 300
+→ 400 → 500 → 700 → 1 000**. **250 n'est PAS un palier** (la version du 10/09 l'avait inventé et
+avait mis en doute toute la suite, à tort). Citation exacte : *« On va passer la CBO de 50 à 100
+euros par jour, à 150, à 200, [...] de 50 en 50. Puis, arrivé à 200, on va faire de 100 en 100,
+jusqu'à arriver donc à 200, 300, 400, 500. À 500, on pourra augmenter de 200 euros de plus, 700 et
+ensuite 2000 euros »* (« 2000 » = erreur de transcription probable pour 1 000, le formateur enchaîne
+sur « après les 1000 »). **Saut de palier** : *« vous pouvez passer de 150 à directement un palier
+supérieur à 250, voire 300 euros par jour [...] Quand vous tournez à plus de 35, 40 % de profit, vous
+pouvez vous permettre de passer un palier »*. Le « 250 » de cette phrase est oral : le palier
+au-dessus de 200 est 300. Appliqué le 14/09/2026 sur PureShot : 150 → 300 (marge ≈ 39 % sur 3 jours).
+Le formateur conseille sinon de *« les suivre à la lettre »*.
 **On garde la structure CBO + 1 ad set jusqu'à environ 1,5 K/day de CA** (pas de nouvelle campagne/ad
 set), mais **le pilotage du budget n'est qu'une moitié du travail : en parallèle, on envoie des
 nouvelles créas en continu dans ce même ad set pendant tout le scaling**, pas seulement en cas de
@@ -391,9 +391,10 @@ scope ici) deviennent possibles.
 **Marge de manœuvre sur les paliers** : ce ne sont pas des règles absolues. Si un palier casse tout
 (ex. 50→100 € ne passe pas alors que 50 € était très rentable), on peut chercher un palier
 intermédiaire (70 €) et s'y stabiliser. À l'inverse, si le ROAS est très largement au-dessus du
-TARGET (>35-40 % de marge, cf. l'exemple vérifié du saut 200→250 €), on peut sauter un palier
-plutôt que suivre la progression à la lettre — c'est explicitement illustré sur le board, pas
-seulement une extrapolation.
+TARGET (>35-40 % de marge), on peut sauter un palier (ex. 150 → 300 en passant par-dessus 200)
+plutôt que suivre la progression à la lettre, c'est dit explicitement dans la vidéo 1.2.
+**La trésorerie n'est pas un critère de décision pour Roméo** (acté le 15/09/2026) : on applique le
+SOP, une contrainte de cash se signale une fois, sans freiner la recommandation.
 
 ### Idées fausses à débunker (formateur, explicitement)
 

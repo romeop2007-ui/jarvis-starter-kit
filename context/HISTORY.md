@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-09-15 (mise à jour 2)
+
+### Scaling à 300 €/jour, 8 créas lancées, frais de recharge intégrés au P&L (session du 14/09 à minuit)
+- **Analyse du soir selon le SOP** (ROAS recalculé sur Shopify, Meta a encore raté des ventes) : 12-14/09 = 1 679,75 € de CA pour 421,92 € de pub, ROAS 3,98 ; 14/09 = 909,86 €, 14 commandes, ROAS 4,95 → scénario 1. Marge nette ≈ 39 % sur 3 jours → **saut de palier, 150 → 300 €/jour**.
+- **Erreur corrigée à la source** : Claude avait proposé 250 €/jour ; Roméo a contesté, la transcription de la vidéo 1.2 lui donne raison (paliers 50, 100, 150, 200, 300, 400, 500, 700, 1 000). Barème `bilan-ads` corrigé. Roméo scale selon le SOP, trésorerie ou pas.
+- **Sélection des créas recadrée sur le SOP** : le premier choix de Claude (variété de concepts) était de l'intuition. SOP phase 1 = tout ce qui a de la traction à la source (200 j'aime AdSpy hors UE), 3 à 7 par jour, sans tri par angle. Aucune traction n'avait été relevée pendant la content research. PetMizer et Celani ciblent les US (reach UE 53 667 et 0 sur 30 jours).
+- **8 créas lancées** : AD35 (NovaPaw) + AD37 à AD43 (PetMizer, Celani), sans contrôle de traction. AD62-AD63 écartées (origine non traçable, sources supprimées). Images Amazon/eBay (AD47-61, AD64-67) gardées pour la phase 3. Relevé AdSpy prévu le 15/09.
+- **Bilan du 14/09** : 4 commandes PayPal pour 229,96 €, COGS 195,59 €, Meta 184,10 €. Facture Aplusfulfill conforme (14 commandes, 225,41 $), #1034 (pistolet + 3 + 3 recharges) facturée 19,21 $ au lieu de 21,01 $, première facture de l'offre pistolet + 6 recharges à 18,21 $. **Solde agent à 58,60 $.**
+- **P&L vérifié** : saisies et formules justes. Frais de recharge PayPal absents du Net Profit journalier → **formule `Fees/Taxes!G2` = 9,57 % du COGS** ajoutée (DAILY REPORT + bloc T6), lignes mensuelles « Frais PayPal fournisseur » retirées pour éviter le double comptage. Meta du 13/09 corrigée (141,53 €). Bénéfice net du 14/09 : **429,06 €** ; septembre : **559,75 €**.
+- **Provision retours écartée** par Roméo (premiers clients pas encore livrés). Risque signalé une fois : décourager un client de sa rétractation par épuisement expose à des litiges et à une restriction de Shopify Payments.
+- **Yuri vu comme un associé** : partager les chiffres du scaling dans le message du 15/09.
+
+---
+
 ## 2026-09-15
 
 ### Itérations et marketing research : leçons 1.3 et 3.1 intégrées (session du 14/09 au soir)

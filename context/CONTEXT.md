@@ -85,7 +85,10 @@
   - Lien de réduction : `/discount/CODE?redirect=...` ; le paramètre `?discount=CODE` ne marche que sur une vraie session de checkout.
   - Transporteur Wanb Express : Shopify ne reçoit aucun jalon de livraison, lire sur ParcelPanel ou 17track.
   - Tags et note d'un brouillon ne passent pas sur la commande (voir mémoire).
-- **Klaviyo :** 3 flows construits et **en brouillon** : paiement abandonné (`Y5FaK9`), post-achat (`ShpSNp`), panier abandonné (`UeSBJA`). Codes génériques publics PANIER10, PANIER20, MERCI10. Template d'avis post-réception (`ULm7Fp`) déconnecté, à reprendre au scaling. Le panier abandonné n'enverra rien sans popup de capture email (pas encore posée).
+- **Klaviyo (audit du 15/09) :** **paiement abandonné (`Y5FaK9`) ACTIF depuis le 15/09** (20 min / 1 j / 1 j / 1 j, liens PANIER10 et PANIER20 corrigés en `&discount=` sur le lien de reprise). **Panier abandonné (`UeSBJA`) corrigé mais pas activé** (boutons vides à cause de `event.url`, repointés sur la fiche PureShot ; enverra peu sans popup de capture email). **Post-achat (`ShpSNp`) en brouillon jusqu'aux premières livraisons** (garantie passée à 90 jours, liens vers la fiche PureShot). Codes génériques PANIER10, PANIER20, MERCI10 **cumulables avec RapidBundle** depuis le 15/09 (sinon refusés sur le pack). Shopify Messaging non installé : aucune relance native en doublon. Offre gratuite Klaviyo : plafond de profils et d'envois à vérifier dans Facturation. Template d'avis post-réception (`ULm7Fp`) déconnecté, remplacé par Reputon à terme.
+- **Rapports Shopify :** lire « Ventes totales », jamais « Ventes nettes » (retire une TVA fictive tant que la collecte est active). P&L vérifié le 15/09 : Total Sales = ventes totales, case TVA à 0, juste.
+- **TVA Shopify :** la boutique applique 20 % de TVA incluse sur les commandes alors que Roméo est en franchise. Collecte à couper (SOP + mention légale), sans impact sur l'argent reçu.
+- **Versements Shopify Payments :** une journée à l'heure de Paris, versée à J+2, frais déduits. Certaines transactions arrivent en décalé (#1014 du 11/09 versée le 16/09 ; 5 commandes carte du 14/09 absentes du versement du 16/09).
 - **Mails SAV :** envoyés depuis `savzooryn@gmail.com` en tant que `contact@zooryn.com` (Private Email). Adresse ajoutée en secondaire et validée le 14/09, photo Camille : avatar Gmail attendu sous 72 h. SPF, DKIM et DMARC vérifiés en PASS.
 - **Trustpilot :** compte revendiqué, lien d'avis `https://fr.trustpilot.com/evaluate/zooryn.com`.
 
@@ -137,10 +140,11 @@
 
 **Datés**
 - **16/09/2026 matin :** analyser la réponse de Yuri (vérification à la lettre avant tout nouveau message).
+- **16/09/2026 :** vérifier que les 5 commandes carte du 14/09 absentes du versement du 16/09 sont bien versées : #1029, #1033, #1034, #1035, #1041 (373,00 € net). Lien : https://admin.shopify.com/store/cqqah9-t1/payments/payouts
 - **Reporté du 15/09, statut non confirmé :** marketing research PureShot, relevé des j'aime AdSpy des sources AD35 à AD46, AD62, AD63 et AD28 à AD34.
 - **20/09/2026 :** re-check des candidats en veille EnkelDyne (`sovna.eu`) et Defentor (`defentor.pl`), conditions dans `recherche-produit/references/liste-rejetes.md`.
 - **23/09/2026 :** re-check prioritaire de **Sturzfest** (pantalon de protection moto, DE), jugé en voie de scaling.
-- **Avant le 28/09/2026 :** passer les commandes à l'agent (Golden Week chinoise du 1er au 7 octobre). Yuri conseille un stock de 7 à 14 jours, fonctionnement et date limite demandés le 15/09.
+- **Avant le 28/09/2026 :** passer les commandes à l'agent (Golden Week chinoise du 1er au 7 octobre). Yuri conseille un stock de 7 à 14 jours, fonctionnement et date limite demandés le 15/09. Estimation au rythme de 15-20 commandes/jour : 100 à 280 packs, soit ~1 500 à 4 300 $ à avancer.
 - **03/10/2026 10h :** vérifier réception, publication et retour du don à l'association (si zéro effet, canal à ne pas refaire).
 - **Mi-octobre à mi-décembre 2026 :** rouvrir l'idée de reversement produit-partage avec l'association (jamais présenté comme un don), si le scaling est sécurisé.
 - **Avant le 31/12/2026 :** déclaration initiale CFE (1447-C-SD).
@@ -159,7 +163,8 @@
 ### Business
 - **Délai de livraison réel :** #1006 (expédiée le 09/09, Wanb Express `WNBAA0500061913YQ`) pas livrée au 13/09. Noter aussi #1007 à #1012 pour un délai moyen. Trois promesses incohérentes en ligne (fiche produit 7-10 jours, CGV 5-10, politique d'expédition 5-15) : corriger une seule fois avec la date réelle. Vrai risque du dossier : le litige lié au délai, qui peut faire restreindre Shopify Payments. À la correction, compter aussi les 2-3 jours ouvrés de traitement de l'agent en plus du transport.
 - **Ligne de livraison 5-10 jours :** décidée en août « pour le scaling », le scaling a commencé le 10/09. Décision à confirmer par Roméo.
-- **Klaviyo :** les 3 flows devaient être repris « au scaling », en suivant le SOP. Popup de capture email à poser pour le panier abandonné.
+- **Klaviyo :** paiement abandonné lancé le 15/09, résultats à lire dans 2-3 jours (Analyse du flow + commandes avec PANIER10/PANIER20). Panier abandonné à activer (Roméo à la main ou sur « go »). Popup de capture email à poser pour le panier abandonné.
+- **Apps du SOP (point du 15/09) :** **AfterSell** (upsell post-achat de recharges) à mettre en place, 1 h, vérifier l'affichage pour PayPal et recalculer le ROAS BE. **Reputon** après les premières livraisons (1-3 étoiles formulaire privé, 4-5 Trustpilot). **UpCart** pas maintenant (micro-optimisation avant achat). **Proveway** inutile (PayPal passe par Shopify Payments). Loox déjà en place pour les avis.
 - **Retours :** pas de provision dans le P&L (décision du 15/09, on verra le moment venu). Les vrais remboursements se saisissent dans la colonne Returns le jour où ils arrivent. Seuil d'alerte : au-delà de 5 % de retours, chercher une cause. Les retours négatifs servent à améliorer produit et expérience client.
 - **Handle produit PureShot :** contient le ™ brut (`pureshot™-...`), URL encodée moche dans Meta. Correctif proposé, jamais confirmé.
 - **Pages légales :** les CGV ne mentionnent que la carte alors que ~60 % du CA passe par PayPal. Le template SAV Zecom met les frais de retour à la charge du client, les CGV Zooryn disent l'inverse. Lien « suivre ma commande » et adresse de retour de l'agent à compléter dans `sav-client`.
@@ -179,7 +184,7 @@
 - **Sheet ROAS BE & TARGET à recalibrer :** frais de paiement réels ~3,2 % (et non 1,86 %), frais de localisation Meta ~2,83 %, frais de recharge ~11,5 % du COGS, COGS moyen pondéré par les ventes réelles (RapiBundle Analytics) au lieu de la moyenne simple.
 - **Onglet COGS CHECK :** corriger la formule « Difference » (D−E puis E−D à partir de la ligne 5), puis lancer le rapprochement hebdo du lundi (solde du portefeuille, coût réel du dollar).
 - **Conformité PureShot :** diapo d'Antoine reçu (`livrables/ecommerce/Logistique/Électronique en UE.pdf`). 2e message à Yuri envoyé le 15/09 : modèle exact et usine du rapport EMC, rapport de sécurité ou CB, déclaration CE, RoHS, dossier technique, manuel EN, poids produit et emballage, photo du marquage sur le produit, version à batterie remplaçable, fonctionnement du stock Golden Week, fournisseur réel et fiche de sécurité exacte du concentré lavande 10 ml. **Règle : toute réponse de Yuri est vérifiée contre ce qu'on a déjà avant d'écrire un nouveau message.** **IOSS :** ne pas s'enregistrer sans réponse fiable. Commande fantôme livrée à Cambrai proposée (étiquette, qualité, délai réel).
-- **ParcelPanel :** abonnement à venir (limite de numéros de suivi atteinte), à ajouter aux charges du mois une fois pris.
+- **ParcelWill (ex-ParcelPanel) :** offre Essential prise le 15/09, ~13 $/mois avec code de réduction (quota conseillé ~500 commandes/mois, 0,05 $ par commande au-delà). À ajouter aux charges de septembre du P&L. Pendant l'essai de 7 jours : vérifier le mode dropshipping et la remontée des numéros Wanb. Professional seulement si on veut envoyer le statut « livré » à Klaviyo.
 
 ---
 

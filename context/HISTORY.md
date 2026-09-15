@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-09-15 (mise à jour 6)
+
+### Klaviyo lancé (paiement abandonné), ParcelWill, apps du SOP, TVA et versements
+- **Audit complet des 3 flows Klaviyo** : déclencheurs Shopify OK (64 paiements commencés, 41 commandes du 07 au 15/09), domaine d'envoi actif, rendu conforme à la charte. 3 bloquants trouvés : codes PANIER10/PANIER20/MERCI10 non cumulables avec la réduction automatique RapidBundle (corrigé dans Shopify), `?discount=` ajouté à un lien de reprise qui contient déjà un `?` (corrigé en `&discount=` sur 4 liens), garantie de 30 jours au lieu de 90 dans le post-achat (corrigé).
+- **Flow panier abandonné** : boutons vides car Shopify envoie `URL` et le template lisait `event.url` (vérifié par rendu). Les 4 boutons pointent maintenant sur la fiche PureShot. Liens upsell du post-achat repointés de la collection vers la fiche produit.
+- **Paiement abandonné (`Y5FaK9`) activé le 15/09** avec ses 4 emails, sans profils passés. Vérification préalable : aucune automatisation marketing Shopify, Shopify Messaging non installé. Panier abandonné pas activé (activation bloquée par les permissions). Post-achat gardé en brouillon jusqu'aux premières livraisons (décision de Roméo).
+- **ParcelWill Essential pris** (~13 $/mois avec code). Offre gratuite limitée à 20 commandes, dépassée depuis début septembre.
+- **Point apps du SOP** : AfterSell à mettre en place (upsell post-achat, sans risque pour la conversion), Reputon après les premières livraisons, UpCart pas maintenant, Proveway inutile (PayPal via Shopify Payments), Loox déjà en place.
+- **TVA** : Shopify affiche 20 % de TVA incluse alors que Roméo est en franchise. Aucun impact sur l'argent reçu (vérifié sur #1046 : 59,99 € encaissés, 2,09 € de frais). P&L vérifié juste. Collecte à couper selon le SOP. Piège : « Ventes nettes » sous-estime le CA.
+- **Versements** : le versement du 16/09 (515,37 €) ne contient pas 5 commandes carte du 14/09 (#1029, #1033, #1034, #1035, #1041, 373,00 € net). Versement en décalé, pas de réserve détectée. Contrôle le 16/09.
+- **Consigne de Roméo** : vérifier soi-même par API ou connecteur avant de lui demander quoi que ce soit, lien direct si impossible.
+
+---
+
 ## 2026-09-15 (mise à jour 5)
 
 ### OpenSuperWhisper : configuration directe en Terminal, IA de correction testée et écartée

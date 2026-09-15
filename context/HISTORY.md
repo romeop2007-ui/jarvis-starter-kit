@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-09-15 (mise à jour 3)
+
+### Montage AD29-AD34 et créas en scaling selon le SOP
+- Récap montage d'AD29 à AD34 redonné (sous-titres, styles, textes à la main), montage terminé par Roméo.
+- AD30 : voix off refaite avec Simon (7 prises, retenue à 89,2 s sans bégaiement), SRT recalé sur la nouvelle voix. Voix de 0,5 s plus longue que la vidéo, couverte par l'enregistrement d'écran de fin.
+- Question SOP tranchée (vidéo 1.2 + leçons 1.3 et 1.6) : les créas s'ajoutent en continu quel que soit le scénario de budget (3 à 7 par jour), on ne supprime quasiment jamais dans une CBO. Seule exception : des nouvelles créas qui prennent la dépense et plombent le ROAS sur 3 jours complets, on coupe celles-là, puis nouvelle CBO à 50 €/jour pour les suivantes.
+- Envoi du lot AD29-AD34 prévu le soir du 15/09. Relevé des j'aime AdSpy des sources (critère SOP phase 1) non confirmé au moment de la mise à jour.
+- Dossier logistique déplacé par Roméo vers `Logistique/Zooryn/` (avec un nouveau sous-dossier « Documents essentiels Pureshot ») : chemin du contrôle logistique corrigé dans `CLAUDE.md`, `CONTEXT.md` et `budget/references/pnl-officiel-formation.md`.
+- Reste à confirmer : statut d'AD28 (montée ou déjà en ligne).
+
+---
+
 ## 2026-09-15 (mise à jour 2)
 
 ### Scaling à 300 €/jour, 8 créas lancées, frais de recharge intégrés au P&L (session du 14/09 à minuit)

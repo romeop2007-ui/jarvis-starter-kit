@@ -282,7 +282,7 @@ Adaptation du SOP Zecom « Contrôler ses factures agent avec Claude » (Module 
 `livrables/ecommerce/Logistique/`). Différences : contrôle **quotidien** (l'agent se paie dans le solde à chaque
 commande), commandes lues directement via le MCP Shopify (pas d'export CSV), grille **par offre** et non par pièce.
 
-**Source agent** : `livrables/ecommerce/Logistique/Contrôle logistique quotidien Zooryn/JJ:MM:AA.xlsx`
+**Source agent** : `livrables/ecommerce/Logistique/Zooryn/Contrôle logistique quotidien Zooryn/JJ:MM:AA.xlsx`
 (facture Aplusfulfill de la journée, onglet `Invoice`, colonnes Order Id / Order Date / Product Name / QTY / Country /
 Amount). ⚠️ `Amount` = total de la commande répété sur chaque ligne produit : prendre une valeur par Order Id.
 Lecture sans openpyxl : dézipper le xlsx et lire `xl/sharedStrings.xml` + `xl/worksheets/sheet1.xml`.

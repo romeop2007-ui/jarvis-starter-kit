@@ -17,6 +17,18 @@
 
 ---
 
+## 2026-09-16
+
+### Bilan scaling du matin, contrôle P&L du 15/09, mécanisme de facturation Meta, doute sur un versement Shopify
+- **Bilan scaling (matin) :** 3 jours glissants 13-15/09 recoupés Shopify (écart détecté le 13/09 : Meta n'avait compté que 5 achats sur 6, 90 € manqués, 14 et 15/09 parfaitement alignés), ROAS 2,89 largement au-dessus du TARGET (2,25). Dernier jour (15/09) pile à la limite du ROAS BE (1,56). Verdict : scénario "ne pas toucher", budget maintenu à 300 €/j. AD28 à AD34 vérifiées directement sur Meta : toujours pas dans la campagne malgré l'envoi prévu le 15/09 au soir, à lancer.
+- **Contrôle P&L du 15/09 :** facture Aplusfulfill (`15:09:26.xlsx`) vérifiée avant tout calcul, bien faite, 6 commandes #1042-#1047 toutes présentes une fois. PayPal : 5 commandes, 389,94 €. COGS total 92,35 €, avec le cas #1047 (même offre achetée 2× dans une seule commande, agent facturé 27,09 $ pour l'ensemble au lieu de 2×15,40 $, COGS combiné plus bas que le calcul naïf). Résultat : profit net ≈ +34 € sur la journée malgré un ROAS pile au break-even, confirmant l'intuition de Roméo.
+- **Mécanisme de facturation Meta expliqué** (seuil de facturation qui double après chaque paiement réussi + date de facturation mensuelle en filet) à partir d'une capture du compte publicitaire : seuil observé ~110-120 €, solde accumulé 118,96 € au moment de la capture. Limite découverte : le MCP Facebook Ads n'expose aucune donnée de facturation, il faut aller la lire directement dans Ads Manager.
+- **Doute sur le versement Shopify du 16/09 :** 5 commandes carte du 14/09 (#1029, #1033, #1034, #1035, #1041, 373,00 €) introuvables dans les versements. Question posée sur `faq-ecom` (Discord Zecom, lecture seule stricte côté Claude, Roméo poste lui-même). Réponse de l'IA Shopify jugée insuffisante (explication générale du mécanisme, aucune commande citée nommément, incohérence non expliquée sur son propre délai de 2 jours ouvrés). Réponse d'un membre du Discord expérimenté (déjà passé 10 000 €/jour) : c'est normal, à revérifier dans 1-2 jours. Tentative de vérification directe par l'API Shopify (`balanceTransactions`/`payouts`) bloquée : scope `read_shopify_payments` manquant sur le connecteur. Recheck posé au 17-18/09.
+- **Journée du 16/09 :** démarrée à ROAS ~0,30 sur ~150 € de spend, remontée en cours de journée avec une vente de 120 € en fin de journée, clôturée sans perte (~+8 € net). Roméo y voit une confirmation que l'algorithme Meta a besoin de temps, pas un signal d'alerte. Intuition (explicitement pas un objectif) : un CA de 1 000 € pourrait tomber le 16/09, aucune décision ni suivi chiffré associé.
+- Session d'environ 6-7h de travail, Roméo commence à tracker la durée de ses sessions de travail.
+
+---
+
 ## 2026-09-15 (mise à jour 6)
 
 ### Klaviyo lancé (paiement abandonné), ParcelWill, apps du SOP, TVA et versements

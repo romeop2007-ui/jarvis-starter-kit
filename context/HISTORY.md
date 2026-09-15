@@ -7,6 +7,16 @@
 
 ---
 
+## 2026-09-15 (mise à jour 7)
+
+### Marketing research PureShot enrichie par nos pubs Meta, priorité AD10
+- Page Notion « Marketing research Pureshot » complétée puis vérifiée : angles, produit, audiences, douleurs, désirs, frustrations, objections et lexique, avec les sources et les hypothèses distinguées. Avis et questionnaire post-achat gardés pour plus tard, conformément à la décision de Roméo.
+- Connexion au serveur officiel Meta Ads MCP par jeton utilisateur mise en place et testée en lecture sur le compte Zooryn EUR. Relevé du 15/09 au soir : 31 pubs PureShot T6, 969,63 € de dépenses renseignées. AD10 est première en dépense (316,98 €, 14 achats attribués, ROAS Meta 2,71), devant AD1 (248,09 €, 11 achats, ROAS 2,78). La priorité suit la dépense cumulée, pas le meilleur ROAS d'une petite pub. Le jeton a expiré dans la soirée ; renouvellement nécessaire pour récupérer rétention, clics et placements.
+- AD10 (vidéo de 30 s) analysée image par image et par transcription : voix « odeur de pipi / caution », texte permanent « Ma maison ENTIÈRE sent siii BON !! », brume bleue et démonstration dans plusieurs pièces. AD1 partage le geste multi-pièces avec un coût par achat Meta presque identique. Ces pubs prouvent des achats attribués à leurs ensembles créatifs, pas l'efficacité isolée d'un hook ni les allégations techniques du script. Lecture intégrée à Notion avec les angles A02, A09, A10, A16, A22-A24 et A29.
+- AD2 recadrée sur la production réelle : son fichier italien sert aux images, son audio est retiré et remplacé en français par Roméo dans CapCut. L'italien de la source ne décrit pas la langue de la pub finale.
+
+---
+
 ## 2026-09-15 (mise à jour 6)
 
 ### Klaviyo lancé (paiement abandonné), ParcelWill, apps du SOP, TVA et versements

@@ -7,6 +7,16 @@
 
 ---
 
+## 2026-09-15 (mise à jour 5)
+
+### OpenSuperWhisper : configuration directe en Terminal, IA de correction testée et écartée
+- Découverte que l'app expose sa config via les préférences macOS (`defaults`, domaine `fr.my-monkey.opensuperwhisper`) et deux fichiers annexes (`~/.config/opensuperwhisper/prompt.md`, hook post-dictée) : Claude peut lire/modifier directement les réglages sans passer par l'interface, sauf le téléchargement du modèle IA et l'ajout manuel d'une entrée test (deux clics faits par Roméo).
+- **Correction IA (Qwen2.5 1.5B) testée en réel puis désactivée** : mesure live confirmée à +1,3 Go de RAM, non libérée après la dictée (contrairement au modèle Whisper qui se décharge à l'inactivité). Avec seulement ~1,8 Go de RAM libre sur la machine au moment du test, décision de Roméo : on reste sur dictionnaire + boost uniquement, aucun coût RAM.
+- **Dictionnaire personnalisé rempli** : 44 entrées (variantes fautives connues d'Aplusfulfill et Zooryn + vocabulaire métier correct en boost : Zooryn, PureShot, RapiBundle, Aplusfulfill, TrendTrack, Klaviyo, Qonto, ROAS, COGS, Huesca, etc.). Correction au cas par cas à poursuivre dès qu'une nouvelle faute de transcription apparaît en usage réel.
+- **RapiBundle, pas RapidBundle** : nom de l'app corrigé partout dans CONTEXT.md (5 occurrences), erreur qui traînait depuis la création du fichier.
+
+---
+
 ## 2026-09-15 (mise à jour 4)
 
 ### Conformité UE de PureShot : diapo d'Antoine, documents de Yuri, messages vérifiés

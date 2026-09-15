@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-09-15 (mise à jour 4)
+
+### Conformité UE de PureShot : diapo d'Antoine, documents de Yuri, messages vérifiés
+- Diapo d'Antoine « Électronique en UE » (22 p.) analysé. Manques identifiés pour PureShot : GPSR, REP en 3 filières (DEEE, piles, emballages) avec IDU dans les CGV, règlement batteries (étiquette depuis le 18/08/2026, amovibilité au 18/02/2027), concentré soumis à REACH/CLP.
+- Premier message à Yuri envoyé. Réponse : 4 PDF (EMC série K8 de 2022, UN38.3 et SDS de la cellule 4,44 Wh), photos, vidéo, batterie non amovible, code SH 8424891000, valeur déclarée 3,01 $, TVA et IOSS de l'agent, pas de suivi de lot, stock Golden Week de 7 à 14 jours proposé.
+- Roméo a exigé une vérification à la lettre avant d'écrire à Yuri. La relecture a corrigé 5 erreurs de Claude, dont 4 questions inutiles (déclaration batterie déjà confirmée, lumière bleue visible sur la boîte, MSDS du concentré trouvable sur 1688) et un faux raisonnement sur la valeur déclarée (comparée à un COGS qui inclut transport et taxe).
+- MSDS du concentré (Ningbo Huaqizhigu) : fiche générique « Aromatherapy set » avec bougie, format non conforme UE, erreurs internes. Yuri n'a jamais confirmé acheter chez ce fournisseur.
+- 2e message envoyé, réponse attendue le 16/09. Suivi dans `Documents essentiels Pureshot/suivi-documents-pureshot.md`.
+
+---
+
 ## 2026-09-15 (mise à jour 3)
 
 ### Montage AD29-AD34 et créas en scaling selon le SOP

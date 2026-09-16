@@ -17,6 +17,17 @@
 
 ---
 
+## 2026-09-17 (mise à jour 2)
+
+### Bilan complet du 16/09, budget maintenu à 300 €/j, 14 créas lancées et rangées
+- **Bilan du 16/09 vérifié de bout en bout** : 7 commandes, 4 PayPal (239,93 €), COGS 92,82 € (recoupé avec la facture Aplusfulfill du jour, aucune anomalie), FB Ads 260,39 €, CA 419,93 €. Ligne DAILY REPORT (ligne 261) confirmée juste : Net Profit 12,62 €, ROAS 1,61. Une première estimation manuelle de Claude à ~38 € de profit était fausse (URSSAF oubliée dans le calcul) ; le chiffre du Sheet, annoncé par Roméo, était le bon.
+- **Décision de budget** : maintenu à 300 €/j malgré la grille scaling officielle qui autorisait mécaniquement un passage à 400 (moyenne 3 jours à 2,43, au-dessus du TARGET 2,25). Roméo a jugé que cette moyenne était tirée par le seul record du 14/09, les 15 et 16/09 restant collés au break-even, sans preuve de stabilité au palier supérieur. Il a aussi sondé des membres de la Zecom Academy dans le même sens.
+- **14 statiques lancées dans la nuit** (AD23, 24, 25, 26, 27, 46, 47, 49, 50, 53, 61, 63, 64, 67), au-delà des 7 initialement validées, pour compenser un signal d'ad fatigue observé sur la créa qui monopolise le spend. AD44, 48, 58, 66 supprimées avant lancement par Roméo (jugées pas de vraies créas) : rien à supprimer côté Meta, elles n'avaient jamais été poussées. Notion mis à jour (13 lignes passées en "Paused / mort" avec note).
+- **Audit de sécurité des ads actives** : détection d'un doublon (l'ad "AD27 T6" réutilisait le même ID Facebook que l'ancienne "AD25 T6", renommée et réactivée au lieu d'une nouvelle création). Vérifié avec Roméo : même visuel, pas un problème réel, aucune action nécessaire.
+- **Dossiers créas resynchronisés avec l'état réel de la CBO** : AD37 à AD42 (déjà actives depuis le 14/09 mais mal rangées) puis les 13 nouvelles actives déplacées de `PureShot terminées` vers `Pureshot en ligne`. Restent en réserve : AD54 (flag "scope creep" non tranché) et AD56 (pas encore publiée par Roméo).
+
+---
+
 ## 2026-09-16 (mise à jour 2)
 
 ### Renommage et audit du dossier conformité PureShot, 3e message envoyé à Yuri

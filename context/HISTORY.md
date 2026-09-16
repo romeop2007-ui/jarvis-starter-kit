@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-09-16 (mise à jour 2)
+
+### Renommage et audit du dossier conformité PureShot, 3e message envoyé à Yuri
+- Renommage complet des 24 documents (PDF, photos, vidéo) du dossier `Documents essentiels Pureshot` en noms explicites, avec suppression de 3 doublons stricts (vérifiés par SHA-256) reçus dans le 2e lot du 16/09.
+- Analyse du 2e lot de Yuri (16/09) : dossier batterie complet (UN38.3, SDS x2, tests chute/gerbage, transport route/mer/air) et CEM du produit (rapport + certificat CE 2014/30/UE) confirmés solides. Nouvelle MSDS du concentré lavande reçue, d'un fournisseur différent (Yunfu Mingcaoyuan) de celui noté précédemment (Ningbo Huaqizhigu), sans savoir lequel facture réellement le flacon expédié. Poids confirmés (266 g net / 326 g brut), aucun marquage sur le produit confirmé par Yuri, batterie amovible toujours indisponible.
+- Audit des « 10 règles à ne jamais enfreindre » du formateur (module Électronique en UE) : 9 règles sur 10 non respectées à ce jour (aucun « à moitié » accepté), 1 non applicable a priori. 4 règles dépendent de Yuri, 5 sont des obligations propres à Roméo (DEEE, IOSS, garantie légale 2 ans + provision SAV, veille RAPEX, process de suivi des changements fournisseur) jamais mises en place, hors scope de Yuri.
+- 3e message préparé et envoyé à Yuri le 16/09 : modèle exact + confirmation usine, rapport de sécurité électrique (LVD, pas seulement CEM), RoHS, dossier technique, manuel EN, photo du marquage réel sur le produit, confirmation écrite que le produit fini (batterie intégrée) est classé UN3481 et accepté par le transporteur (pas seulement la cellule nue UN3480), confirmation d'absence de prise secteur, et clarification du fournisseur réel du concentré lavande. Réponse attendue.
+- Détail complet dans `Documents essentiels Pureshot/suivi-documents-pureshot.md`.
+
+---
+
 ## 2026-09-15 (mise à jour 7)
 
 ### Marketing research PureShot enrichie par nos pubs Meta, priorité AD10

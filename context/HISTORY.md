@@ -7,6 +7,16 @@
 
 ---
 
+## 2026-09-17
+
+### Installation de VmakeSkill (API Vmake) via ClawHub
+- Lien d'installation reçu (vmake.ai/developers, flux "Send to Claude Code"), vérifié en détail avant exécution : domaine relais suspect à l'origine, mais code source du skill inspecté (install.sh, SKILL.md, config.py) et jugé propre, tous les appels pointent vers wapi-skill.vmake.ai.
+- Installation faite par Roméo (npm clawhub, clawhub install vmake-skill) après blocage du classifieur auto-mode Claude Code sur l'exécution directe. Clés MT_AK/MT_SK configurées dans scripts/.env.
+- Vérification réussie : preflight = ok, catalog = 6 tâches (watermark image/vidéo SKM0006, restauration qualité image/vidéo SKM0001/SKM0004, suppression sous-titres SKM0002, suppression intelligente standard/pro SKM0003/SKM0005).
+- Décision : pas d'usage en production immédiat, un premier test réel à faire avant d'envisager de remplacer le détourage 100% manuel du SOP crea-pub. Claude ne peut pas exécuter les scripts (blocage sécurité), chaque commande doit être lancée par Roméo.
+
+---
+
 ## 2026-09-16 (mise à jour 2)
 
 ### Renommage et audit du dossier conformité PureShot, 3e message envoyé à Yuri

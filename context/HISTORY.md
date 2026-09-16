@@ -18,6 +18,22 @@
 
 ---
 
+## 2026-09-16 (mise à jour 2)
+
+### Taxonomie des créas, tableau de suivi par angle, découverte de la mega-famille « Mécanisme »
+- **3 leçons SOP intégrées** : 3.2 (diversité, modèle des poches d'audience qui s'épuisent), 3.3 (5 niveaux de conscience, à ignorer tant que le produit n'est pas à 1 k€/jour), 3.9 (Content Research : usage en avis client explicitement validé par le formateur, seuil de traction allégé une fois en scaling). Nouvelles synthèses dans `crea-pub/references/`.
+- **Honnêteté actée** : le skill `eugene-schwartz-breakthrough-advertising` n'a jamais été réellement mobilisé sur du copy PureShot réel malgré les références qui pointent dessus, à corriger dès la prochaine créa écrite.
+- **Débrief complet du backlog de 36 créas en réserve** (5 faites main + 31 Content Research) : triage par angle et par qualité. Deux flags marquants : AD26 est un faux avis fabriqué (nom « Michelle D. » et mention « Avis vérifié » inventés) ; AD54 sort du périmètre pet-odor (odeurs de cendrier/poubelle/toilettes). AD62 identifiée comme candidate pour la section avis du site plutôt qu'une ad payante.
+- **Taxonomie complète construite** (`taxonomie-types-de-creas.md`) : les 22 concepts vidéo officiels (mashup ×4, founder story, avant/après, negative marketing, Us vs Them, témoignage, VSL, product demo, etc.) + les formats statiques. Définition actée avec Roméo : un angle = une audience différente ciblée, pas juste un décor différent.
+- **Tableau Notion [PureShot - Suivi des angles créas](https://app.notion.com/p/33472de291794bdbb3de2c790379c4bf) créé et peuplé pour les 66 créas** (lancées + réserve), avec vue par angle (board) et vue par dépense, colonnes Angle/Concept/Format/Statut/Dépense/Achats/ROAS/Verdict/Confiance. Historique séparé créé ([PureShot - Historique dépense/ROAS](https://app.notion.com/p/b547ebd7ae644a408dced458bc290703)), vide pour l'instant, alimenté seulement quand Roméo demande une mise à jour (jamais en automatique).
+- **Découverte majeure en vérifiant les vraies previews Meta une par une (pas les fichiers locaux, non fiables)** : 10 ads vidéo (AD1, 5, 6, 7, 8, 9, 10, 17, 19, 21) sont en réalité la même créa « Toute ma maison sent bon », brume bleue, seul le décor/l'actrice change. AD21 (décor cosy automne, bougies) a le meilleur ROAS du compte (9,01) vs AD19 (cuisine claire en plein jour, 1,37, sous le BE) : même message, la variante décor explique l'écart de performance.
+- **Nouveaux angles confirmés** : Voiture (AD31, marque NovaPaw visible à l'écran, jugé sans importance par Roméo : ses parents ne l'ont jamais remarqué, risque de flag Meta jugé rare), Économie (AD22, nouvel angle ajouté à la base). Scope creep confirmé une 2e fois (AD18, odeur de cuisine, en plus d'AD54).
+- AD4 recorrigée en statique (était mal classée en vidéo). AD28 et AD29 montrent une machine d'extraction moquette professionnelle sans aucun produit PureShot visible, à vérifier par Roméo.
+- **Auto-correction actée** : proposition de mettre en pause AD19/20/3/16 (ROAS sous le seuil) retirée après remarque de Roméo, contraire à la règle déjà actée le 15/09 (on ne coupe quasiment jamais dans une CBO, sauf créa neuve qui plombe le ROAS sur 3 jours complets consécutifs, ce qui n'est pas le cas ici).
+- **12 statiques retenues pour le prochain lancement** : AD23, 24, 27, 43, 44, 46, 48, 56, 58, 63, 66, 67, chacune sur un angle ou un concept distinct de ce qui est déjà en ligne (aucune sur « Mécanisme » ni sur le cluster générique, déjà saturés).
+
+---
+
 ## 2026-09-15 (mise à jour 7)
 
 ### Marketing research PureShot enrichie par nos pubs Meta, priorité AD10

@@ -16,9 +16,24 @@ complet : `C:\Users\franv\.claude\plans\ok-on-passe-en-wild-cascade.md`.
 - **Iterer sur une crea** (des que Romeo dit "itere", "fais des variantes", "decline cette crea", ou
   que le produit atteint la phase 3) : `references/synthese-iterations-scaling.md` (lecon 1.3,
   choix des creas par depense, grille vert/orange/rouge video et statique, methode).
+- **Un produit/une crea plafonne, ou avant de dire "c'est mort"** : verifier d'abord la vraie
+  diversite (angle/message, pas juste le montage) dans `references/synthese-diversite-audiences-ads.md`
+  (lecon 3.2, modele des poches d'audience qui s'epuisent, vraie vs fausse diversification).
+- **Diagnostiquer une ad par niveau de conscience (a ne pas prioriser avant 1 k€/jour)** :
+  `references/synthese-niveaux-conscience-ads.md` (lecon 3.3, modele entonnoir TOFU/MOFU/BOFU,
+  grille de diagnostic sur vraies ads). Theorie complete des 5 stades : skill
+  `eugene-schwartz-breakthrough-advertising`.
+- **Comprendre angle / message / concept / format (definitions, confusion frequente)** :
+  `references/taxonomie-types-de-creas.md` — repertoire des 22 concepts video officiels + formats
+  statiques, etat des lieux PureShot par angle/concept deja utilise ou non.
 - **Marketing research** (base de toute crea perso et de toute iteration) : methode dans
   `references/synthese-marketing-research.md` (lecon 3.1) ; document PureShot dans
   `livrables/ecommerce/creas/PureShot/marketing-research-pureshot.md`.
+- **Un produit deja en scaling, contenu trouve en ligne (Content Research) : lancer en ad ? utiliser
+  en avis client ?** Reponse SOP exacte dans `references/synthese-content-research.md` (lecon 3.9,
+  Module 5) : uniquement valable des la phase scaling, "tout le contenu est bon a reprendre",
+  usage avis client explicitement cite par le formateur. Le SOP ne couvre pas le volet
+  honnetete/legal de l'avis client, signale a Romeo sans trancher.
 
 ## ⛔ ETAPE 0 — LE HOOK (bloquante, ajoutee le 07/08/2026)
 

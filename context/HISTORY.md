@@ -7,6 +7,15 @@
 
 ---
 
+## 2026-09-17 (mise à jour 5)
+
+### AD77 traduite et adaptée à PureShot, visuel validé
+- Source `Content research/1-videos-a-traduire/AD77.jpg` retrouvée ; image générée avec l'outil intégré, texte traduit en français, couleurs et composition conservées (fond bois, feuille blanche, textes noirs, traits rouges, accents verts).
+- Belorna remplacé par PureShot ; prix du pistolet seul vérifié dans Shopify à 49,99 €. Remise concurrente de -40 % remplacée par la livraison offerte et promesse de résultat en une heure remplacée par la garantie satisfait ou remboursé 90 jours.
+- Visuel enregistré dans `livrables/ecommerce/creas/PureShot/PureShot terminées/AD77.png` et validé par Roméo. Source conservée, lancement publicitaire non confirmé.
+
+---
+
 ## 2026-09-17 (mise à jour 4)
 
 ### AfterSell post-achat, collection Boutique, un seul ROAS, audit Klaviyo

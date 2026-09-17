@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-09-17 (mise à jour 4)
+
+### AfterSell post-achat, collection Boutique, un seul ROAS, audit Klaviyo
+- Funnel AfterSell « Zecom » activé : Upsell 2 kit -40 % (35,99 €), Upsell 3 10 recharges -50 % (29,99 €), Downsell 2 6 recharges -60 % (23,99 €). Marges nettes pire cas +16 à +18 € par offre. Produits Kit et 10 Recharges créés.
+- Collection : le menu pointait sur /collections/all (tous les produits publiés). Création de la collection manuelle « Boutique » et rebranchement du menu. 10 Recharges publié sur la boutique en ligne.
+- Règle actée : un seul ROAS = CA total Shopify (upsells inclus) ÷ dépense pub du jour ; abonnements d'apps en charges du mois (mémoire + barème bilan-ads).
+- Klaviyo : panier abandonné actif, Smart Sending activé sur les 8 mails après un triple envoi à un client. 0 ouverture sur 13 mails malgré le suivi activé, cause non trouvée. Test en cours avec savzooryn.
+- RapiBundle : formule Starter confirmée (15 $/mois, plafond 1 000 $ de revenus supplémentaires), Roméo juge que ça tient.
+
+---
+
 ## 2026-09-17 (mise à jour 3)
 
 ### 3e réponse de Yuri analysée, page 1688 du concentré, 4e message, #1049 bloquée

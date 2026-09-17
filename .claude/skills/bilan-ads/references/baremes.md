@@ -558,3 +558,12 @@ ROAS réel** = CA réel Shopify sur la période ÷ dépense pub réelle Meta sur
 Roméo qui repère l'écart en observant ses chiffres (il ne demande pas à Claude de surveiller
 ça en continu), il le signale, puis l'analyse et la décision (kill/continue/scale) se font
 à partir de ce ROAS recalculé plutôt que du chiffre Meta natif.
+
+### Règle unique actée le 17/09/2026 (remplace la règle « sur écart signalé »)
+
+**Il n'y a qu'un seul ROAS : CA total Shopify du jour ÷ dépense pub réelle du jour**, calculé
+systématiquement, plus seulement sur écart. Le CA inclut les upsells post-achat AfterSell
+(ajoutés après la validation de commande, probablement invisibles pour Meta). La dépense =
+toutes les campagnes payées du jour (Meta seul aujourd'hui), au montant affiché par Meta.
+Les abonnements mensuels d'apps (AfterSell, ParcelWill, tracking...) vont dans les charges
+du mois du P&L, jamais dans le ROAS. Jamais de « ROAS Meta » et « ROAS Shopify » côte à côte.

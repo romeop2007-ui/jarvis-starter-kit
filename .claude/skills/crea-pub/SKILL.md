@@ -35,6 +35,16 @@ complet : `C:\Users\franv\.claude\plans\ok-on-passe-en-wild-cascade.md`.
   usage avis client explicitement cite par le formateur. Le SOP ne couvre pas le volet
   honnetete/legal de l'avis client, signale a Romeo sans trancher.
 
+### Strategies HORS SOP (page Notion "Strategies hors SOP" de Romeo, integrees le 17/09/2026)
+
+A etiqueter "hors SOP" quand on s'en sert : le SOP decide QUOI produire, ces fichiers disent COMMENT.
+- **Montage video pilote par Claude (Palmier Pro, MCP local)** : `references/palmier-pro-montage.md`.
+  Configuration, garde-fous (aucune generation payante sans OK, voix off ElevenLabs maison), workflow
+  et les 6 consignes de montage a appliquer a CHAQUE montage (recherche visuelle en anglais, Pexels
+  pour les beats d'ambiance, script beat par beat, VO mesuree d'abord, B-roll muets, controle en 3 passes).
+- **Angle long format / pub dramatique** : `references/strategie-drame-long-format.md` (these drame
+  vs chanson, LTV, structure, contraintes de production).
+
 ## ⛔ ETAPE 0 — LE HOOK (bloquante, ajoutee le 07/08/2026)
 
 **Avant d'ecrire la moindre ligne de hook, d'accroche ou de texte a l'ecran, lire dans cet

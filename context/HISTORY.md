@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-09-17 (mise à jour 6)
+
+### Palmier Pro branché, 3 statiques finies, 4 montages vidéo, Vmake en réel, sources renumérotées
+- **Palmier Pro connecté en MCP local** (`http://127.0.0.1:19789/mcp`, portée locale, actif seulement app ouverte). Éditeur et export gratuits, seules les générations IA consomment des crédits. Test de montage validé, puis usage réel. Méthode et 6 consignes de montage dans `crea-pub/references/palmier-pro-montage.md`. Page Notion « Stratégies hors SOP » intégrée au skill (Palmier + angle long format dramatique).
+- **Statiques terminées et renommées : AD71** (note iPhone, angle invités, générée par Claude via Nano Banana Pro, 15 crédits), **AD72** (Us vs Them, corrigée par Roméo), **AD73** (barre de recherche, angle voiture, méthode mode 1 avec capture d'écran comme modèle de structure). Le mode « copier une structure » donne un bien meilleur résultat que la description écrite.
+- **Marketing research enrichie** : premier commentaire réel sous une pub (« ça doit sûrement laisser de l'humidité »), rangé en objection O12 avec la règle d'exploitation des commentaires (chaque doute devient une ligne puis une idée de créa).
+- **4 montages vidéo produits dans Palmier** (AD68 caution, AD69 invités, AD70 voiture, AD78 coût), d'abord à 25 plans puis refaits à 7-10 plans longs après retour de Roméo. **Roméo n'a pas validé le rendu et reprend le montage de son côté.**
+- **Vmake utilisé en production pour la première fois** (tâche Subtitle, SKM0002) : le texte est effacé mais **le rectangle blanc reste**. Limite à retenir avant de relancer du détourage.
+- **Sources renumérotées** : AD74 (Belorna, hook « 2 ans de puanteur »), AD79, AD81 (muette, odeur de cuisine), AD82, AD83 (l'originale déjà lancée en AD2, retraduite volontairement). Un doublon strict supprimé, AD80 écartée (pub d'un panier-griffoir, pas notre produit).
+- **Voix off ElevenLabs générées et rangées** : AD74 et AD75 (Simon), AD76, AD79, AD82, AD83 (Clemence), plus AD68 à AD70 et AD78. Toutes nettoyées des allégations non prouvées (bio-enzymes, désinfecte, extraits végétaux, 100 % sans danger, lumière bleue qui détecte, remises et chiffres du concurrent).
+- **Fable 5.1** : disponible dans Claude Code mais facturé hors abonnement Pro, via les crédits d'usage (`/usage-credits`), désactivés sur l'organisation à ce jour. Tarif 10 $ / 50 $ par million de tokens contre 5 $ / 25 $ pour Opus 5.
+
+---
+
 ## 2026-09-17 (mise à jour 5)
 
 ### AD77 traduite et adaptée à PureShot, visuel validé

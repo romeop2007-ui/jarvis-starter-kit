@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-09-18
+
+### Bilan du 17 septembre, décision de déscaling et valeurs P&L vérifiées
+- Shopify interrogé en lecture seule : 6 commandes payées #1055 à #1060, CA 389,94 €, aucun remboursement. **0 achat PayPal et 0 € PayPal**, confirmé via `fees.rateName = domestic_card_not_present` sur les six paiements réussis. #1060 comporte une tentative échouée puis une réussite : aucun double comptage. Frais PSP réussis : 7,35 €.
+- Accès API Meta refusé pour jeton expiré le 15/09 (erreur 190/463). Roméo choisit de fournir manuellement la dépense du 17/09 : **244,93 €**. Aucune modification de campagne effectuée par Codex.
+- Facture Aplusfulfill `17:09:26.xlsx` (AF005217704696, émise le 18/09) contrôlée contre Shopify : 5 commandes à 15,40 $ et 1 à 21,01 $, total **98,01 $**, produits et quantités conformes. Le montant est répété par ligne produit mais ne se compte qu’une fois par commande ; « Balance Due » n’est pas le total facturé du jour.
+- COGS du calculateur relu : **84,36 €** (5 × 13,26 € + 18,06 €). Valeurs DAILY REPORT transmises à Roméo, aucune écriture dans le Sheet : 6 commandes, PayPal 0/0 €, retours 0 €, FB Ads 244,93 €, autres canaux 0 €, CA 389,94 €. Résultats attendus : profit **14,12 €**, marge **3,62 %**, ROAS **1,59**, AOV 64,99 €, frais/taxes 46,53 €. Saisie finale non vérifiée.
+- P&L du 15/09 relu : bénéfice **6,77 €**, corrige l’ancienne estimation ≈34 € dans le contexte. Le 16/09 reste à 12,62 €.
+- Vue 15-17/09 : CA **1 249,80 €**, pub **787,96 €**, ROAS global **1,59** (sommes, pas moyenne simple), profit calculé ≈33,51 € / 2,68 %. Record du 14/09 sorti de la fenêtre, trois jours proches du break-even : **déscaling de 300 à 200 €/jour validé par Roméo**, application dans Meta non vérifiée.
+- Roméo annonce **3 créas supplémentaires envoyées**, identifiants non précisés, et une dépense inférieure au budget. Aucun lien causal établi entre sous-dépense et performance.
+
+---
+
 ## 2026-09-17 (mise à jour 6)
 
 ### Palmier Pro branché, 3 statiques finies, 4 montages vidéo, Vmake en réel, sources renumérotées

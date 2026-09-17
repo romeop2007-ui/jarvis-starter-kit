@@ -132,3 +132,46 @@ Ne couvre que ce que Yuri peut réellement fournir (règles 1, 4, 5 + manquants 
 - Amovibilité batterie : obligation au 18/02/2027 confirmée (hors Omnibus). Exemptions de l'acte du 14/07/2026 : appareils utilisés dans l'eau, médical, objets connectés portés sur soi, jouets, sondes de cuisson, ATEX, systèmes d'injection, télématique agricole. Un pulvérisateur n'y figure pas.
 - « Written declaration regarding the batteries » : réponse de Yuri à la demande de confirmation écrite, pas un document à réclamer.
 - Valeur déclarée 3,01 $ : impossible de la comparer au prix d'achat du pistolet seul (le COGS rendu inclut transport et taxe). Question pour un expert-comptable, pas pour Yuri.
+
+---
+
+## Troisième réponse de Yuri (17/09/2026, nuit)
+
+### Document reçu
+
+| Fichier | Contenu vérifié |
+|---|---|
+| `MSDS-concentre-lavande-Hankey-HJ7028-YunfuMingcaoyuan-2026-MCY2026073105.pdf` (6 p.) | **Réédition de la MSDS du 16/09**, rapport MCY2026073105 du 31/07/2026 (au lieu de MCY20250425004 du 25/04/2025). Contenu comparé page par page : **strictement identique** (même composition, mêmes 16 sections, même tampon). Seuls le numéro et la date changent. Aucune information nouvelle, mais c'est la version la plus récente à garder en référence. Point relevé à cette lecture : le CAS indiqué pour « Fragrance » (659-70-1) correspond à une molécule précise (isovalérate d'isoamyle, note fruitée) et non à un parfum lavande : CAS recopié ou générique, la fiche ne permet toujours pas de connaître les allergènes. |
+
+### Réponses de Yuri aux 9 questions du 16/09
+
+| # | Question | Réponse | Statut |
+|---|---|---|---|
+| 1 | Modèle exact + usine | « Expédié sous le nom K8 », détails de la marque d'usine « déjà envoyés » (= certificat de marque Wangbuliao expiré en 2015). | **Modèle K8 confirmé par écrit.** Usine non confirmée explicitement. |
+| 2 | Rapport sécurité électrique (LVD) | « Le fournisseur a fourni tous les rapports de test disponibles. » | **N'existe pas** côté fournisseur. |
+| 3 | RoHS | Non cité nommément. « I will send the certificates to you later. » | En attente, sans garantie que ce soit un RoHS. |
+| 4 | Dossier technique | **Refusé** : confidentialité, d'autres clients vendent le même produit. | Ne viendra pas du fournisseur. |
+| 5 | Manuel EN | « Pas de fichiers sources », confidentialité fournisseur. | Refusé (au moins les sources). |
+| 6 | Marquage sur le produit | « The product itself bears no markings. » | Confirmé une 2e fois : **aucun marquage**. |
+| 7 | UN3481 produit fini | Pas de réponse. | **Toujours ouvert.** |
+| 8 | Adaptateur secteur | « Le colis contient uniquement le câble. » | Confirmé. Règle 5 (prise EU) **non applicable**. |
+| 9 | Fournisseur du concentré | Lien 1688 `https://detail.1688.com/offer/714147895067.html` + MSDS Yunfu Mingcaoyuan. | Implicitement Yunfu Mingcaoyuan (Hankey HJ7028), **à confirmer en lisant la page 1688** (non lisible par Claude, lecture par Roméo). |
+
+Autres éléments du message :
+- Yuri recommande de ne personnaliser (étiquettes, manuel) qu'après montée en volume.
+- « Le client qui en a vendu un grand nombre n'a rencontré aucun de ces problèmes » : absence de contrôle constatée, pas une preuve de conformité.
+- **#1049 : ville manquante** (champ ville saisi « city » par le client, CP 59171, FR), commande bloquée tant que l'adresse n'est pas corrigée.
+
+### Conséquence
+
+Le fournisseur a donné tout ce qu'il a. **LVD, RoHS (sauf surprise dans les « certificats »), dossier technique et marquage ne viendront pas de lui.** Le seul chemin vers un DTF complet passe désormais par Roméo (tests commandés à un labo, DoC rédigée par l'importateur), décision déjà cadrée : payant après 1 mois de scaling (~10/10).
+
+### Page 1688 du concentré (capture complète envoyée par Roméo le 17/09)
+
+- **Boutique :** 广东采词化妆品有限公司 (Guangdong Caici Cosmetics Co., Ltd), 11 ans sur 1688, 5 étoiles, taux de litige 100 % résolu. **Ni Yunfu Mingcaoyuan (MSDS) ni Ningbo Huaqizhigu (ancienne fiche).**
+- **Produit :** huile parfumée hydrosoluble 10 ml pour diffuseur/humidificateur (水溶性香薰精油), fonction « désodorisant d'air » (空气清新), liquide. **Marque 韩纪 = « Hankey »**, la même marque que sur la MSDS Yunfu Mingcaoyuan. Référence affichée HJ7011 (la MSDS porte HJ7028, même gamme HJ70xx). Origine Guangdong.
+- **Déclinaisons visibles :** rose, freesia, menthe, océan, thé blanc, jasmin, orange douce, lys, osmanthus, cerisier. **Lavande non visible sur la capture** (liste « voir toutes les déclinaisons » non ouverte).
+- **Prix :** ~0,68 CNY l'unité (≈ 0,09 €), 40 g emballé, 2,7 × 2,7 × 6,7 cm, 720 par carton.
+- **Mention :** « réservé à l'export, vente interdite en Chine ».
+- **Certificats :** seulement un numéro FDA (53-180270-323421), qui est un enregistrement américain, pas une certification, et ne vaut rien en UE. Bannière marketing « FDA / ISO / MSDS / COA / CPNP » sans document derrière.
+- **Lecture :** Caici est très probablement la société de vente et Yunfu Mingcaoyuan le fabricant de la marque Hankey (cohérent, mais pas prouvé). Le concentré n'est pas un cosmétique mais un mélange parfumé désodorisant : ce qui compte en UE, c'est la liste des allergènes du parfum (étiquetage CLP), que ni la MSDS ni la page ne donnent.

@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-09-17 (mise à jour 3)
+
+### 3e réponse de Yuri analysée, page 1688 du concentré, 4e message, #1049 bloquée
+- MSDS du concentré reçue : réédition du 31/07/2026 strictement identique à celle du 16/09 (seuls numéro et date changent), renommée et gardée. CAS du parfum (659-70-1) incohérent avec de la lavande, allergènes toujours inconnus.
+- Réponses de Yuri : modèle K8 confirmé, aucun marquage, câble seul. Dossier technique et fichiers du manuel refusés (confidentialité), LVD inexistant. UN3481 et RoHS sans réponse.
+- Page 1688 du concentré lue : boutique Guangdong Caici Cosmetics, marque 韩纪/Hankey (même marque que la MSDS Yunfu), ~0,68 CNY, export uniquement, seul un numéro FDA sans valeur UE. Lavande non visible dans les déclinaisons capturées.
+- Analyse des refus : agent et non usine, documents probablement inexistants, protection de l'usine, faible volume, responsabilité UE portée par l'importateur. Conclusion : ne pas redemander, dossier complet via labo (décision ~10/10), levier volume plus tard.
+- 4e message court envoyé à Yuri (RoHS, UN3481 produit fini, notice papier, fabricant du concentré + allergènes IFRA).
+- #1049 : ville saisie « city » par le client (vérifié via Shopify), mail SAV envoyé à partir du cas le plus proche du template (colis non récupéré, mail 1), aucun cas exact dans le template Zecom.
+- Détail complet dans `Documents essentiels Pureshot/suivi-documents-pureshot.md`.
+
+---
+
 ## 2026-09-17
 
 ### Installation de VmakeSkill (API Vmake) via ClawHub

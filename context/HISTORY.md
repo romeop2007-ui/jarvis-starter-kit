@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-09-18 (mise à jour 2)
+
+### Coaching Zecom reporté, avis Golden Week, 4e réponse de Yuri, 29 créas scrapées
+- Coaching Zecom déplacé au dimanche 20/09. Conseil écrit du coach en attendant : scraper des créas concurrentes en volume, laisser les KPI décider du scaling ou du descaling, et si le budget redescend jusqu'à 50 €, passer en phase d'optimisation avec 3 cartouches avant de switcher de produit. Message de fond : ne pas rester bloqué trop longtemps sur un produit. Préparation de questions pour la visio faite, blocs 1 (produit au break-even), 2 (créas) et 4 (trésorerie et Golden Week) prioritaires.
+- Avis officiel Aplusfulfill du 15/09 sur la Golden Week : entrepôt ouvert, équipes en congé du 1er au 4 octobre, transport dépendant des transporteurs chinois. L'avis ne couvre pas les usines 1688 en amont, qui sont le vrai risque en achat à la commande. Décision de stock suspendue à la réponse de Yuri.
+- 4e réponse de Yuri (18/09) : notice papier anglaise et chinoise reçue en photo, fournisseur du concentré résolu (Guangdong Caici = Yunfu Mingcaoyuan, confirmé par le commercial de la marque Hankey), #1049 débloquée. RoHS et UN3481 du produit fini toujours sans réponse, relancés auprès de l'usine.
+- Lecture de la notice : aucune information réglementaire, produit présenté comme matériel professionnel, et section « Ban » interdisant l'usage aux enfants, aux femmes enceintes et à une longue liste de profils, en contradiction frontale avec le « Sûr pour les animaux et les enfants » de la fiche produit. Notice montrant un port de charge Android alors que l'unité expédiée a un port USB-C. Photos renommées `notice-papier-EN/CN-nano-spray-machine.jpeg`, suivi mis à jour.
+- Message de clôture rédigé pour Yuri, sans nouvelle demande.
+- 29 sources concurrentes scrapées par Roméo, rangées dans le nouveau dossier « Créas à traduire » (l'ancien « Content research » supprimé) et renommées AD84 à AD112, sans analyse.
+
+---
+
 ## 2026-09-18
 
 ### Bilan du 17 septembre, décision de déscaling et valeurs P&L vérifiées

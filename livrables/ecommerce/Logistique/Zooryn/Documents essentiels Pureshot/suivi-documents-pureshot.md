@@ -175,3 +175,36 @@ Le fournisseur a donné tout ce qu'il a. **LVD, RoHS (sauf surprise dans les « 
 - **Mention :** « réservé à l'export, vente interdite en Chine ».
 - **Certificats :** seulement un numéro FDA (53-180270-323421), qui est un enregistrement américain, pas une certification, et ne vaut rien en UE. Bannière marketing « FDA / ISO / MSDS / COA / CPNP » sans document derrière.
 - **Lecture :** Caici est très probablement la société de vente et Yunfu Mingcaoyuan le fabricant de la marque Hankey (cohérent, mais pas prouvé). Le concentré n'est pas un cosmétique mais un mélange parfumé désodorisant : ce qui compte en UE, c'est la liste des allergènes du parfum (étiquetage CLP), que ni la MSDS ni la page ne donnent.
+
+---
+
+## Quatrième réponse de Yuri (18/09/2026, nuit) : la notice papier existe
+
+### Documents reçus
+
+| Fichier | Contenu vérifié |
+|---|---|
+| `notice-papier-EN-nano-spray-machine.jpeg` | Photo de la **notice papier anglaise** livrée dans la boîte, dépliant 3 volets recto. Titre « Operation Manual — Nano Spray Machine ». Sections : Matters needing attention, Inspection, Product structure (schéma numéroté 1-6), Note, Operation introduction, About the battery, Precautions for safe use, Ban. |
+| `notice-papier-CN-nano-spray-machine.jpeg` | Même notice en chinois, titre 纳米蓝光雾化器 操作手册 (« manuel d'utilisation de l'atomiseur nano à lumière bleue »), contenu identique volet par volet. |
+
+### Ce que la notice contient, et pourquoi c'est un problème
+
+1. **Aucune information réglementaire.** Pas de nom de fabricant, pas d'adresse, pas d'importateur, pas de numéro de modèle, pas de marquage CE, pas de pictogramme poubelle barrée, pas de déclaration de conformité. La notice ne satisfait donc **ni le GPSR ni la règle 7 du formateur** (langue du client), et ne comble aucun manquant de conformité. Elle est uniquement en anglais et en chinois, jamais en français.
+2. **« Only authorized technicians can disassemble this product »** et « this product requires professional personnel to carry out daily operation and maintenance ». La notice du fabricant présente donc l'appareil comme un matériel **à usage professionnel**, alors qu'il est vendu à des particuliers sur zooryn.com.
+3. **Section « Ban » : liste de personnes à qui l'usage est interdit** — enfants, personnes allergiques, troubles mentaux, femmes enceintes, menstruées ou allaitantes, peau lésée, eczéma, dermatite atopique, peau sensible, fièvre, maladies cardiaques, maladies graves ou aiguës, tumeurs malignes, tuberculose, maladies du sang, arythmie, porteurs de dispositifs implantés. Plus : « Minors are forbidden to operate this product » et « do not place it in the place where children touch it ».
+   **Contradiction frontale avec la fiche produit Zooryn, qui affiche « Sûr pour les animaux et les enfants ».** C'est la contradiction la plus lourde du dossier : elle est écrite noir sur blanc par le fabricant, dans la boîte que le client reçoit.
+4. **La notice révèle l'identité d'origine du produit** : un atomiseur nano à lumière bleue de désinfection / soin cutané, pas un appareil anti-odeurs pour animaux. Cohérent avec la gravure « wireless charging nano blue light atomizer » déjà relevée sur le boîtier.
+5. **Port de charge « Android » (micro-USB) sur le schéma**, alors que le produit réellement expédié a un port **USB-C** (vérifié en zoom sur les photos du 15/09). **La notice ne correspond pas exactement à l'unité expédiée**, ce qui affaiblit encore la chaîne de preuve « notre unité = le modèle K8 du rapport EMC ».
+
+### Autres réponses de Yuri du 18/09
+
+- **Fournisseur du concentré : résolu.** « Guangdong Caici = Yunfu Mingcaoyuan », appuyé par une capture d'écran du commercial de la marque 韩纪 (Hankey / 韩纪化妆品：小韩, 18/09/2026 09:13) répondant « 是我们公司的都是 » (« tout ça, c'est notre société »). Les deux noms désignent bien la même entité. La MSDS `...-2026-MCY2026073105.pdf` est donc la bonne fiche pour le flacon expédié.
+- **Allergènes du parfum : toujours pas fournis.** La question reste entière côté étiquetage CLP.
+- **RoHS et UN3481 du produit fini : toujours sans réponse.** Yuri écrit « let me check with the supplier and then send you the outcome » puis « there is no response yet to the first and second questions ».
+- **#1049 débloquée** : « already in process ». L'adresse a été corrigée et la commande est repartie en traitement.
+
+### Bilan après ce 4e lot
+
+**Résolu :** fournisseur du concentré, existence d'une notice papier, #1049.
+**Toujours manquant :** RoHS, UN3481 produit fini, dossier technique (refusé), rapport LVD (inexistant), marquage produit (inexistant), DoC signée, allergènes du parfum, notice en français.
+**Nouveau point ouvert, de niveau marketing et juridique :** la notice livrée au client interdit le produit aux enfants et aux femmes enceintes, pendant que la fiche produit promet l'inverse.

@@ -7,6 +7,17 @@
 
 ---
 
+## 2026-09-19
+
+### Traduction AD84 à AD112, bilan du 18/09 et PureShot sous le seuil
+- 26 vidéos transcrites en local (faster-whisper) et 3 statiques lues, transcriptions brutes livrées, puis tout traduit et adapté à PureShot : enzymes, UV et lumière bleue gardés ; garantie (90 jours), offre (3 recharges), parfum (lavande) et faux inventeur (AD93, AD111) corrigés. Roméo fera lui-même les voix off pour apprendre les hooks.
+- Bilan du 18/09 : 1 commande (#1061, 49,99 €, carte), Meta 220,55 €, COGS 11,19 €, facture Aplusfulfill conforme (12,98 $), perte ≈ -192 €, ROAS 0,23.
+- Vue 16-18/09 : ROAS 1,19, scénario 4 du SOP. Descente à 150 €/jour recommandée ; Roméo garde 200 €/jour jusqu'au bilan du 19/09 au soir, où il tranchera budget ou coupure du produit.
+- Diagnostic 14 → 18/09 : CPM de 21 € à 37 €, clics 391 → 154, ajouts au panier 79 → 13, conversion de la boutique stable : problème en amont.
+- Le connecteur Meta de Claude marche, seul le jeton de l'ancien script est expiré.
+
+---
+
 ## 2026-09-18 (mise à jour 2)
 
 ### Coaching Zecom reporté, avis Golden Week, 4e réponse de Yuri, 29 créas scrapées

@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-09-19 (mise à jour 2)
+
+### PureShot au bord de la coupure, recherche produit relancée
+- Roméo envisage de couper PureShot (break-even puis journée à ~120 €). Avis de Claude : mentalité juste, mais couper dès 200 €/j saute les étapes du SOP et du coach (descaling jusqu'à 50 €/j puis 3 cartouches) ; AD84-AD112 sont la cartouche prête. Décision au bilan du soir.
+- Recherche produit TrendTrack (23 passes, ~560 crédits). Nouveau filtre F79 (advertorials `/pages/`), complémentaire de F71.
+- LulaBini (`lulabini.de`) : 10 créas ≥70 €/j sur un oreiller enfant, data jugée très bonne par Roméo mais niche santé.
+- Medi-band écarté sur le prix ; Alpenwert et Lucia & Mila écartés (vraies marques, nouvelle règle) ; Meridio écarté (trop de modèles).
+- Zunial (`zunial.com`, tablettes lave-linge anti-odeurs d'animaux, 2 créas) ajouté au BrandTracker.
+- Règles actées : AdSpy uniquement en scaling ; pas de marque installée comme candidat. Question de la deuxième boutique santé reportée au coach le 20/09.
+
+---
+
 ## 2026-09-19
 
 ### Traduction AD84 à AD112, bilan du 18/09 et PureShot sous le seuil

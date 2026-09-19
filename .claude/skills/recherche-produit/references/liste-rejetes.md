@@ -543,3 +543,58 @@ Tablettes anti-biofilm pour lave-linge, DE/AT. Seul rescapé de la session 16, m
 |---|---|---|---|
 | **EnkelDyne** — `sovna.eu` (NO), `nattlyshop.dk` (DK, ne résout plus) | Couette avec housse intégrée, lavable en machine domestique, sèche en 2 h. 1 499-1 849 NOK catalogue (**128-158 €**), « fra 899 kr » (77 €) annoncé en pub. Page FB « Danske Hjem Mod Støvmider » (id `905444775994600`) | **148 pubs actives, 91 nouvelles créas en 7 jours.** Marché principal = Norvège, **hors transparence DSA, donc dépense invérifiable par quiconque**. Sur la partie danoise analysable : 9 créas à **48 / 24 / 21 / 17 / 13 / 12 / 10 / 10 / 7 €/j** → **0 au plancher**. | 🟡 **EN VEILLE.** Roméo : *« on le retient en tête, on ne le lance pas maintenant, pas assez de data, mais c'est possible que ça pète dans les prochaines semaines »*. Re-checker sous 2-3 semaines. Trouvé via le BrandTracker, pas via un filtre. |
 | **`defentor.pl`** | Répulsif à souris en sachet (menthe, cannelle, girofle, cèdre), PL. **149,99 PLN barré 219,99 ≈ 35 €** | 45 pubs, 61 likes FB, 100 % des créas sur `/products/defentor`. 2 créas à **156 et 117 €/j**, puis une traîne à **48, 14 €/j** | 🟡 **EN VEILLE.** Motif de Roméo : le prix (35 € chez le concurrent, sous le seuil) ET la traîne trop faible (*« à part ces deux-là, c'est environ 10 € par jour, on n'est pas assez et on ne peut pas le recopier »*). **Conditions de réouverture chiffrées : 3 créas ≥70 €/j, OU la traîne qui passe de ~10 €/j à ~30-40 €/j.** Si ça rouvre, repositionnement autorisé à **40 €, 44 € maximum** (le pack de 3 sachets mutualise le colis, le concurrent annonce lui-même 90 jours par sachet). |
+
+## Session 23 (19/09/2026, recherche relancée alors que PureShot est au break-even) : F74, F70, F78, F75, F38, V4 élargi
+
+| Domaine | Produit | Data | Motif |
+|---|---|---|---|
+| **`medi-band.nl`** (pages « Moderne Élégance Montréal » + « Spoed Gezondheidstips ») | Bracelet d'alerte médicale « anticoagulants » (et diabète, rein, épilepsie...), NL/BE. 26 € solo, 29,99 € homme, offres 2+1 et 3+2 | Page produit `bloedverdunner-armband-zwart` : **458 et 102 €/j** (+ 43 et 56). **207 et 144 €/j** sur la collection `/collections/armband` (même famille de produit). Reach de la meilleure créa : 764k. Shop créé ~08/08. | 🟡 **Présenté à Roméo le 19/09, en attente d'arbitrage.** La data passe, mais **test de prix raté** : 26 € solo, et les bundles ×3,5 dépassent largement le prix du concurrent (pack 3 à 52 € contre ~79 € de prix cible). FR : `canilyshop.com` (14 €/j depuis juin) et `vitalid.store` (test mort), personne ne scale. |
+| `mowello.dk` | Chevillère de sport, DK, 204 DKK (~27 €), -40 % à partir de 2 | 132 et 74 €/j, puis 53, 35 (4 créas de 43 j, 1 à 631k de reach) | 2 créas au plancher + prix sous 40 €. À revoir si le prix monte ou si une 3e créa passe le plancher. |
+| `luneofficial.nl` | Ponceuse électrique anti-callosités, NL/BE | 1 seule créa (100 €/j) | Dispersion. |
+| `candidfrank.com` | Nettoyant magnétique de pare-brise, DE | 1 créa à 210 €/j | Généraliste (déco de Noël, lanterne, calendrier de l'Avent). Même produit que `richbe.co.uk`, déjà rejeté. |
+| `ezfix.se` | Rouleau de retouche peinture, SE | 3 créas ≥500k de reach + 2 fraîches à 143 et 109 €/j | Scale depuis mai 2025 (>6 semaines = trop tard), liquide, marque installée. |
+| `lindehofmode.nl` | Chaussures et mode, NL/BE | 3 créas à ~50-96 €/j sur 3 produits | Généraliste mode. |
+| `ecolino.it` | Microfibre magique ×5, IT | 1 créa (187 €/j) | Dispersion, prix bas, marque ancienne. |
+| `overbores.com` | Cuillère à boulettes, SE | 166 €/j | Généraliste (mascara, vapeur, coque de téléphone...). |
+| `shopvenaroco.com` | Pyjama polaire cadeau de Noël, GB | 1 créa à 188 €/j | Saisonnier Noël + dispersion. |
+| `kalakumla.com` | Calendrier de l'Avent pêche (leurres), FI, 59,99 € | 163 et 71 €/j | Saisonnier Noël + spécifique aux eaux finlandaises. |
+| `rysus.pl` | Cahiers d'écriture à encre invisible pour enfants, PL | 1 créa à 253 €/j | Dispersion. |
+| `emozium.com`, `noreliaworld.com`, `wulgor.com`, `amorly.pl` | Bijoux ES/IT/PT/PL | — | Niche féminine, personnalisable ou déjà vu. |
+| `huggher.com` | Sweat à capuche règles avec bouillotte, DE | 1 créa à 160 €/j | Niche 100 % féminine + dispersion. |
+| `leggio.es`, `gethandfee.de`, `tinyfeetstore.co.uk` | Pupitre de téléphone pour musicien / spray mains moites / chaussettes-chaussons enfant | 0 créa ≥70 €/j | Dispersion. |
+| Écartés à la lecture | `bieshouse.com`, `ezovix.shop`, `mybeet.pl`, `cinnexa.com` (ingérés), `eclivo.shop`, `holistlchevan.com`, `norviva.shop`, `sanova-shop.com` (topique santé), `pleasantnice.com` (Halloween), `discanto.ro` (montres, généraliste), `parisbleu.ro` (parfum), `sereniakids.com` (cluster oreiller enfant déjà rejeté), `clinevo.se` (détartreur à ultrasons, 59 €/j), `cumparacalitatesrl.com` (talonnettes RO, prix bas) | | |
+
+### Session 23, 2e partie (19/09/2026, relance : F74 sans `/products/`, passe `/pages/` inédite, passe par dépense de créa)
+
+| Domaine | Produit | Data | Statut |
+|---|---|---|---|
+| **`lulabini.de`** (pages « Dr. med. Johannes Hartmann » + « Parenting Journal ») | Oreiller ergonomique pour enfant « Kinderkissen™ », 3 tailles (1-3 / 3-9 / 9-18 ans), 49 € (barré 69 €), « ab 34 € pro Kissen » en multi-achat. DE/AT | **10 créas actives ≥70 €/j, toutes sur le même produit** : 396, 329, 189, 179, 169, 161, 121, 119, 117, 92 €/j. 2 créas ≥500k de reach (835k, 694k). Créas de 18 à 29 jours. Produit créé le 14/07. | 🟢 **Présenté à Roméo le 19/09, premier du cluster « oreiller enfant » à passer le plancher** (Sennly, Nubo, Monsori et Sereniakids étaient morts de dispersion). Défauts : advertorials `/pages/` avec faux médecin et promesse sur la forme du visage et de la mâchoire, oreiller en mousse (poids volumétrique), catalogue annexe (brosses à dents, roll-on). FR : `leptitloup.com` (~21 €/j) et `monpremieroreiller.com` (~12 €/j), personne ne scale. |
+| `ferranosaitalia.com` | Kit d'outils électroportatifs 4 en 1, 48 V, 109,99 €, IT, paiement à la livraison | 1 créa à 456 €/j (1,37M de reach), puis 49 et 37 €/j | Dispersion + lourd + batteries + panier moyen au-dessus de 100 €. |
+| `bioenex.it` | Briquettes de bois « de nuit », IT | 1 créa à 297 €/j | Lourd + saisonnier (chauffage d'hiver). |
+| `jovenella.com` | Sérum au collagène, ES | 57 pubs, jusqu'à 215 €/j | Topique anti-âge (exclusion dure). |
+| `arteof.com` | Marque GB en pré-lancement (inscription) | 3 créas à 400-1 000 €/j | Pas de produit, pub vers la home. |
+| Écartés à la lecture | `gr.naturalfactors.com`, `go.meetcloudless.de` (ingérés), `shop.josera.com` (marque installée), `mvpdistribuicoes.com` (B2B), `bootei.it` et `mymancini.com` (déjà rejetés) | | |
+
+### Session 23, 3e partie (19/09/2026, relance « enchaîne » : F79 p2, F74 à 40-200 pubs, statiques seules)
+
+| Domaine | Produit | Data | Statut |
+|---|---|---|---|
+| **`alpenwert.de`** (+ tunnel `go.alpenwert.de`) | Bâtons de randonnée pliables (38 cm, carbone 90,99 € / alu 60,99 € la paire), DE/AT | Sur les bâtons : **283 €/j (8 j), 189 €/j (7 j), 85 €/j (70 j)**, 658k de reach pour la plus ancienne. Le t-shirt mérinos à côté ne décolle plus (46 €/j). | 🟡 **Présenté le 19/09.** Data au plancher (3 créas) sur un produit outdoor non santé, mais **marque installée** (shop depuis 2023, 74 produits, « 200 000 clients », TÜV, entrepôt propre) : risque de copie et saisonnalité automne/printemps à signaler. Decathlon domine en FR. |
+| `luciaemila.it` | Bracelet en cuivre « fontaine de jouvence » pour femmes ménopausées, IT | 130 et 79 €/j, le reste sous 50 €/j | 2 créas au plancher. Promesses santé fortes, niche féminine 50+. À surveiller. |
+| `toadly.nl` | Tour d'apprentissage en bois pour enfant, NL/BE | 1 créa à 143 €/j | Dispersion + meuble encombrant + marque depuis janvier. |
+| `marinaroca.com` / `fenvar.com` | Collier « Abrazo Eterno » chien/chat, ES/IT | Marina Roca : **440, 381, 311 €/j** (collection) ; Fenvar : 332, 84 €/j | ⚠️ **Déjà au pipeline (09/09)**, data en forte hausse et 2e marché (IT) qui copie. Mais 24,95 € et shops généralistes mode/bijoux. |
+| Écartés à la lecture | `superpadrone.com` (complément pour chien), `bioenex.at` (briquettes), `aventon.co.uk` (vélos électriques, marque), `es.lazartigue.com` (soin cheveux), `matchaatelier.es`, `oro2000.com`, `debeautyblog.nl` | | |
+
+### Session 23, 4e partie (19/09/2026) : **Roméo écarte `alpenwert.de` et `luciaemila.it` : « vraies marques », pas intéressé.** Règle retenue : une marque installée (catalogue ancien, fondateurs visibles, clientèle revendiquée) ne se présente plus comme candidat, même avec la data.
+
+Passes : shops créés après le 15/06 (page 1, 15 lignes seulement, tout déjà vu) puis après le 01/06 à 8k de reach sur 7 jours (page 2).
+
+| Domaine | Produit | Data | Statut |
+|---|---|---|---|
+| **`zunial.com`** | Tablettes nettoyantes pour lave-linge « contre l'odeur des animaux » 49,95 € (+ brosse anti-poils 24,95 €), DE/AT. Shop créé le 28/08, quasi mono-produit | 106 €/j (13 j) et 246 €/j (**3 jours**), via advertorial `/pages/adv-2` | 🟡 **Présenté le 19/09, 2 créas au plancher, en veille.** Même audience que PureShot (propriétaires d'animaux). Produit chimique consommable (étiquetage détergent UE à vérifier). À re-checker vers le 26/09 : si la créa de 3 jours tient, il passe à 3. |
+| **`meridiowatches.com`** | Montre « GRAFFITO » 59,90 € + bracelet offert, IT/ES. Shop de juillet, 20 montres | 151 €/j (IT) et 86 €/j (ES), 8 jours chacune, même produit | 🟡 **Présenté le 19/09, 2 créas, en veille.** Catalogue de montres façon collection (cas Mon-Veree). |
+| `pawdys.co.uk` | Harnais anti-traction pour chien, GB | 1 créa (128 €/j) | Dispersion. |
+| `knitla.se` | Outil de raccommodage visible, SE | 68, 49, 25 €/j | Juste sous le plancher, à revoir. |
+| `bambinight.com` | Culotte d'apprentissage de la propreté, DE | 1 créa (122 €/j) | Dispersion. |
+| `manamistore.it` | Nettoyeur vapeur « Vaporia », IT | 94 €/j puis 64, 46 €/j | Dispersion + électroménager. |
+| Écartés à la lecture | `evoreen.com`, `pelu.pl`, `glowiesuomi.com`, `ankole.pl` (santé/topique), `dobriatstopanin.com` (presse-tomates, saisonnier), `doktordental.de` (brosse électrique), `amavimoments.com`, `pastrate.cz`, `marelle.es`, `mylovlygioielli.com` (bijoux/mode), `splashaus.de` (atelier) | | |

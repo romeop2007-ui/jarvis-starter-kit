@@ -1676,3 +1676,23 @@ max_ads_per_brand: 1, sort_by: reachDelta7d
 | 13 | **Vérification domaine `viveaprotect.com` / Elisa Conti** (dispositif anti-étouffement enfant, kit complet, IT+ES) | 13 créas ≥20k reach au total sur 2 marchés. **Meilleure créa : 59,67 €/j (1969€/33j), 2e à 44,96 €/j, 3e à 43,73 €/j (ES) — aucune ne franchit 70 €/j, aucune ne dépasse 220k reach.** Sous le plancher, mais de peu, et sur un vrai produit physique de sécurité (dispositif anti-étouffement, pas une exclusion dure). Mis en veille ci-dessous. |
 
 **Verdict de session 22 : 0 candidat validé, 1 profil mis en veille (viveaprotect.com), 1 filtre neuf ajouté au catalogue (F78, 🧪 en test).** Aucune des 13 passes — dont 5 angles jamais joués aujourd'hui (F51/F53/F57-F63 rejoués sur échantillon reposé, IT seule, ES seule, DE+AT+CH, filet nordique dédié, et F78 entièrement inédit) — n'a produit de candidat franchissant le plancher dur. Ceci confirme, sur un troisième passage indépendant le même jour, la mesure structurante du 03/09/2026 : le gisement EU frais + concentré se compte à un chiffre, et les trois sessions du 09/09 (20, 21, 22) l'ont exploré sous des angles disjoints sans jamais le vider. Le puits n'est pas plus sec après cette session qu'avant — il est simplement confirmé mince, avec un candidat proche du plancher (viveaprotect.com) à re-checker sous quelques jours.
+
+---
+
+## Journal — session 23 (19/09/2026, recherche relancée alors que PureShot tombe au break-even)
+
+Passes : F74+F71 (p1 et p2), F70+F71, F78+F71, F75 (`search_shops`, shops créés après le 15/06, marchés EU), F38 élargi (`min_best_seller_price` 45, reach de page 100k-2M, créa de 7 à 60 jours), V4 élargi (5-25 pubs, créa ≥80k de reach sur 7 jours, ≤50 jours). ~290 unités TrendTrack consommées, 15 718 restantes.
+
+**Constats :**
+- F75 rend **8 shops au total**, le même ordre de grandeur que la mesure du 03/09 : le gisement ne s'est pas rechargé en deux semaines.
+- F74 et F70 ramènent en tête une majorité d'exclusions dures (ingérés, topiques, bijoux, Noël/Halloween déjà lancés mi-septembre). **Le saisonnier Noël commence à polluer les tris `reachDelta7d` dès mi-septembre** : à anticiper sur les prochaines sessions (octobre-décembre).
+- Un seul profil passe la data par produit : **`medi-band.nl`** (bracelet d'alerte médicale), qui échoue au test de réplicabilité du prix. Présenté à Roméo en l'état.
+- Test de concurrence FR par mot-clé (`bracelet anticoagulant`, `search_in: ad_copy`, `status: all`) : méthode peu coûteuse (6 unités) et utile pour mesurer la présence FR d'un produit trouvé ailleurs.
+
+**Verdict : 0 candidat validé, 1 candidat en arbitrage (`medi-band.nl`), 1 profil proche (`mowello.dk`).**
+
+### Session 23, 2e partie (même jour)
+
+- **Passe `/pages/` (`search_in: url_contains`, `query: "/pages/"`)** avec la base F74 (reach de page 150k sur 7 jours, jusqu'à 60 pubs actives, créa de 8 à 60 jours, 4 créas par marque) : **c'est elle qui a sorti `lulabini.de`, 10 créas au plancher sur le même produit.** F71 (`/products/`) élimine structurellement les shops qui passent par un advertorial : **les deux passes sont complémentaires, pas redondantes.** 🧪 À consigner comme **F79 = F74 + `/pages/`**, à rejouer à chaque session à côté de F74+F71.
+- F74 sans `url_contains` : ramène aussi LulaBini, noyé au milieu d'ingérés et de marques.
+- Passe créa (`min_spend` 2 000 € au total, créa de 7 à 30 jours, 3 par marque) : dominée par des marques et des ingérés, seul LulaBini en ressort. Pas plus productive que F70.

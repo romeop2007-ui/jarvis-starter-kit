@@ -598,3 +598,41 @@ Passes : shops créés après le 15/06 (page 1, 15 lignes seulement, tout déjà
 | `bambinight.com` | Culotte d'apprentissage de la propreté, DE | 1 créa (122 €/j) | Dispersion. |
 | `manamistore.it` | Nettoyeur vapeur « Vaporia », IT | 94 €/j puis 64, 46 €/j | Dispersion + électroménager. |
 | Écartés à la lecture | `evoreen.com`, `pelu.pl`, `glowiesuomi.com`, `ankole.pl` (santé/topique), `dobriatstopanin.com` (presse-tomates, saisonnier), `doktordental.de` (brosse électrique), `amavimoments.com`, `pastrate.cz`, `marelle.es`, `mylovlygioielli.com` (bijoux/mode), `splashaus.de` (atelier) | | |
+
+### Session 24 (19/09/2026, soir, relance « enchaîne ») : BrandTracker, F79 p2, F70 + `/pages/`, F74 + `/products/` p3, découpes par marché (DE/AT, IT, ES/PT, Nord + NL/BE + PL + GB) à `max_traffic` 15 000, tri 24 h, V1, `search_shops` (croissance 7 j, shops créés depuis le 10/07), mots-clés « filtre de douche »
+
+**0 candidat au plancher.** ~525 unités TrendTrack, 14 916 restantes.
+
+| Domaine | Produit | Data | Statut |
+|---|---|---|---|
+| `culistack.com` (+ `de.culistack.com`) | Set de casseroles empilables, NL/DE | 137 €/j sur l'advertorial actuel ; historique : créas de 111 à 223 jours, 1,5M de reach | Marque installée (iF Design Award, 1 800 avis Trustpilot), casseroles lourdes. |
+| `klense.nl` | Pommeau de douche filtrant, NL/BE | 205 et 73 €/j (9 j) ; historique : 8-9 créas entre 200k et 960k de reach depuis déc. 2025, partenariats influenceurs | **Marque installée** (13,8M de reach cumulé, « 4 000+ clients »). Preuve que le type « filtre de douche » se vend en NL, mais le terrain est tenu par des marques (Klense, Hello Klean, Aqualux). |
+| `luneofficial.nl` | Râpe électrique anti-callosités « Silk Pro », NL/BE | 100 €/j (35 j), les autres ~18 €/j | 1 créa au plancher, électronique, cible féminine. À revoir si une 2e créa monte. |
+| `vavaro.de` | Bracelet-réveil à vibration « BalanceLab », DE | 1 créa à 78 €/j (10 j) | Dispersion, électronique. Shop de janvier. |
+| `schutzheld.shop` | Aspirateur anti-étouffement (même type que `viveaprotect.com`), DE/AT | 70 €/j (8 j), les autres < 30 €/j | Dispersion. Ferme d'advertoriaux (page « Renske van Dijk » à 2,4M de reach). |
+| `kakira.de` | Savon au kaki contre l'odeur « de l'âge » (nonénal), DE | 72 €/j (17 j), 18 €/j | 1 créa. Topique, cible 60+ féminine. |
+| `kalakumla.com` | Calendrier de l'Avent pêche (24 leurres) 59,99 €, FI | 163 et 71 €/j (14 j) | 2 créas au plancher mais **saisonnier Noël**. Profil intéressant pour la recherche saisonnière de novembre 2027. |
+| `tumler.dk` | Pierres d'équilibre pour enfant, DK | Créas de 471 à 578 jours | Accumulateur. |
+| `legter-budapest.com` | Sac à dos cabine à compartiment sous vide, HU | 1 créa, page influenceur à 347k likes | Dispersion, influenceur. |
+| `home-scandic.se` | Chausse-pied magnétique en bois, DK | 162 €/j, puis 50 et 17 €/j | Shop généraliste (26M de reach cumulé). |
+| `novio.ro` | Multicuiseur 6 L, RO | 252 et 103 €/j | Gros électroménager, paiement à la livraison, marché RO. |
+| `rysus.pl` | Kit de cahiers à encre effaçable pour enfant, PL | 1 créa à 253 €/j | Dispersion. |
+| `huggher.com` | Sweat à poche bouillotte pour les règles, DE | 1 créa à 160 €/j | Niche féminine, dispersion. |
+| `tapstar.pt` / `tapstar.es` | Présentoir NFC d'avis Google pour commerçants | 137 et 93 €/j | B2B, marque installée (24M de reach). |
+| Écartés à la lecture | `donofino.de`, `wulgor.com` (personnalisés), `jovenella.com`, `holistlchevan.com`, `biolumic.de` (topiques ou santé), `liccunariasicilianboutique.it`, `thedailybuddy.com` (ingérés), `emozium.com`, `noreliaworld.com`, `marelle.es`, `merina.es`, `shopvenaroco.com`, `bi-yu.nl` (mode, bijoux, beauté), `warmatek.se` (chauffage, saisonnier), `ferranosaitalia.com`, `equipten.com` (outillage, BBQ encombrant), `airecover.eu`, `solveyfem.com`, `seasonsportugal.com`, `hibiyouth.com`, `hornbeamcookware.com`, `berado.eu` (marques ou hors cible), `geradex.de` (39,99 €, orthopédie), `nawah.life` (filtre de douche, 11 €/j) | | |
+
+### Session 24, 2e partie (19/09/2026, soir, « continue jusqu'à trouver ») : re-check des veilles, V1, technos hors Shopify, GB seul, croissance de reach créa ≥150 % sur 7 j
+
+**🟡 Présenté à Roméo le 19/09 (seuil de présentation à 2 créas) : `mellorelief.com` (Mello)**, ceinture chauffante et massante contre les douleurs de règles et l'endométriose, GB uniquement, **59,99 £ (≈ 69 €)**, produit créé le 01/07/2026, mono-produit (+ 4 petits upsells à 6 £ : pochette, tisane, masque, kit). 200 pubs actives, 62 likes FB, 100 % des créas sur `/products/mello-heat-massage-belt-drug-free-period-pain-relief`. Créas actives : **327 €/j (17 j, 617k de reach)** et **96 €/j (9 j)**, traîne à 31, 28, 20, 18 et 9 €/j. Concurrence FR : `shop.cyclicare.com` vend le même produit depuis 2025 (140 pubs, meilleure créa ~10 €/j), Urgo en TENS : présence légère. Défauts : niche 100 % féminine, électronique à batterie (même dossier conformité que PureShot), promesse santé (dispositif, pas topique), marché GB seul. **Condition si mise en veille : 3e créa ≥70 €/j, ou traîne qui monte à ~40 €/j.**
+
+| Domaine | Produit | Data | Statut |
+|---|---|---|---|
+| `defentor.pl` (veille) | Répulsif souris | 125 et 114 €/j, traîne 18 et 15 €/j | Inchangé depuis le 03/09 : condition de réouverture non remplie. |
+| `viveaprotect.com` (veille) | Dispositif anti-étouffement, IT/ES | 7 créas entre 18 et 45 €/j (réparties sur 3 pages : Elisa Conti, Lucía Navarro, Storia di Elisa) | Toujours sous le plancher. Le type monte aussi en DE (`schutzheld.shop`). |
+| `kneeplex.com` (veille) | Bande rotulienne | 1 seule créa ≥80k (95 €/j) | Recul. |
+| `sturzfest.com` (veille) | Pantalon moto | Aucune créa active ≥80k | Recul, re-check du 23/09 inutile. |
+| `sovna.eu` (EnkelDyne, veille) | Couette | Aucune créa ≥60k ; Nattly lance `friskluft.store` | Rien d'analysable. |
+| `zunial.com` (veille) | Tablettes lave-linge | 106 et 246 €/j, puis 13 €/j | Inchangé. Copie un advertorial américain (« Uproot Washing Machine Cleaner »), poussé aussi par une 2e page « Gesunde Beine Journal ». |
+| `monsori.nl` | Oreiller postural enfant « Dromia », NL/BE | 206 €/j, puis 46, 44, 40 €/j | 1 créa. Même type que LulaBini/Respeno : le type « oreiller enfant » tourne sur 3 marchés (DE, PL, NL). |
+| `illumas.shop` | Dashcam, GB | 109, 55, 28, 19 €/j | 1 créa, électronique. |
+| Écartés à la lecture | `soleria-store.com` (ingéré), `veluna-skin.com` (topique), `mrfris.com` (blanchiment dentaire), `durysch.com` (généraliste), `drvnairfreshener.com`, `group-eureka.com`, `iplanet.eu`, `tienda.kaiku.es` (marques), `pulchrit.com` (généraliste mode), `every.health` (test médical) | | |

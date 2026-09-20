@@ -1696,3 +1696,26 @@ Passes : F74+F71 (p1 et p2), F70+F71, F78+F71, F75 (`search_shops`, shops créé
 - **Passe `/pages/` (`search_in: url_contains`, `query: "/pages/"`)** avec la base F74 (reach de page 150k sur 7 jours, jusqu'à 60 pubs actives, créa de 8 à 60 jours, 4 créas par marque) : **c'est elle qui a sorti `lulabini.de`, 10 créas au plancher sur le même produit.** F71 (`/products/`) élimine structurellement les shops qui passent par un advertorial : **les deux passes sont complémentaires, pas redondantes.** 🧪 À consigner comme **F79 = F74 + `/pages/`**, à rejouer à chaque session à côté de F74+F71.
 - F74 sans `url_contains` : ramène aussi LulaBini, noyé au milieu d'ingérés et de marques.
 - Passe créa (`min_spend` 2 000 € au total, créa de 7 à 30 jours, 3 par marque) : dominée par des marques et des ingérés, seul LulaBini en ressort. Pas plus productive que F70.
+
+## Journal — session 24 (19/09/2026, soir, relance « enchaîne »)
+
+Passes : BrandTracker (Nattly pousse un nouveau domaine `friskluft.store`, aucune pub indexée), F79 page 2, F70 + `/pages/`, F74 + `/products/` page 3 (`max_traffic` 15 000, fenêtre de créa 8-60 j), F74 + `/products/` découpé par marché (DE/AT, IT, ES/PT, puis NL/BE + Nord + PL + GB) avec `min_best_seller_price` 35, tri `reachDelta1d` sur 24 h, V1 (shop créé après le 01/08), `search_shops` en croissance de pubs sur 7 jours, `search_shops` shops créés depuis le 10/07, mots-clés « filtre de douche » en 8 langues. ~525 unités.
+
+**Constats :**
+- **Page 2 de F79 et F70 + `/pages/` rendent les mêmes annonceurs** (Bioenex, Lucia & Mila, Ferranosa, CuliStack, My Mancini) : le gisement advertorial EU se vide en une page.
+- Les **découpes par marché** avec `max_traffic` 15 000 rendent surtout des marques installées ou des shops généralistes. Seule nouveauté utile : le **marché NL/BE** (Klense, LUNÉ, NAWAH, CuliStack), plus riche en produits « maison » que DE ou IT sur cette fenêtre.
+- **`search_shops` avec shops créés depuis le 10/07 : `total: 27`**, dont la moitié déjà vue. Même ordre de grandeur que la mesure du 03/09 (8) et du 19/09 matin (8) : le vivier de shops frais ne se recharge pas.
+- **Le type « filtre de douche »** (à rechasser depuis le 03/09) a une preuve de marché en NL (Klense, 8-9 créas historiques entre 200k et 960k de reach), mais le terrain est tenu par des marques (Klense, Hello Klean). Aucun petit shop frais dessus.
+- Le **saisonnier Noël** envahit le tri 7 jours (calendriers de l'Avent, pyjamas cadeau, bijoux gravés).
+
+**Verdict : 0 candidat au plancher, aucun profil ne justifie une mise en veille chiffrée.**
+
+**Correctif outil :** `scripts/parseshops2.mjs` pointait encore vers le chemin Windows (`c:/Users/...`) et plantait sur le Mac. Chemin rendu relatif au script, comme `group-par-produit.mjs`.
+
+### Session 24, 2e partie
+
+- **Erreur de doctrine corrigée en cours de session :** la 1re partie a jugé au plancher de 3 créas, alors que le seuil de **présentation** est à 2 créas sur la même page produit depuis le 05/09 (mémoire `feedback_plancher_2_creas_et_veille`). Le plancher de 3 reste le critère « candidat solide », 2 suffit pour présenter.
+- **Nouveau filtre 🧪 F80 = croissance de reach de la CRÉA ≥150 % sur 7 j** (`ad_reach_growth` last7d) + `/products/` + fenêtre de créa 8-40 j + `max_traffic` 15 000 + `max_facebook_likes` 1 500 + exclusion FR/US. Page 1 : c'est lui qui a sorti **Mello (`mellorelief.com`, 327 et 96 €/j)**. Page 2 (avec prix ≥35) : Monsori, Veluna, Mr Fris, Lelafine. À rejouer en tête de session à côté de F74/F79.
+- `technologies` hors Shopify (WooCommerce, PrestaShop, page builders) : ❌ que des marques et des services (stations de recharge, salons, boissons). Canal fermé.
+- `min_spend` sur `last7d` ne filtre pas vraiment la dépense des 7 derniers jours (rend des créas à forte dépense totale). ❌
+- GB seul : rend des shops généralistes (RichBe, Pulchrit, KwickFinds), rien au plancher.

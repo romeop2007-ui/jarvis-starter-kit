@@ -65,3 +65,6 @@ livrables/ecommerce/creas/A-COLLER-*.txt
 # Templates de politiques légales Zecom Academy (contenu payant sous droit d'auteur du formateur)
 livrables/ecommerce/boutiques/Politiques/
 .superpowers/
+
+# Fichier parasite laisse par un outil (session SQLite)
+:memory:*

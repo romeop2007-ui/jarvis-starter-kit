@@ -1,8 +1,9 @@
 // Parseur search_shops v2 : anti-doublon lu directement depuis liste-rejetes.md
 import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const REJ_FILE =
-  'c:/Users/franv/Desktop/jarvis-starter-kit/.claude/skills/recherche-produit/references/liste-rejetes.md';
+const REJ_FILE = join(dirname(fileURLToPath(import.meta.url)), '..', 'references', 'liste-rejetes.md');
 const rejTxt = readFileSync(REJ_FILE, 'utf8').toLowerCase();
 const rejDomains = new Set(
   (rejTxt.match(/[a-z0-9][a-z0-9.-]*\.(com|de|fr|nl|se|dk|no|fi|it|es|pl|cz|eu|co|store|shop|at|be|ro|pt|ie|uk|top)\b/g) || [])

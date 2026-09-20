@@ -7,6 +7,25 @@
 
 ---
 
+## 2026-09-20
+
+### Recherche produit sans candidat, règle de niche « maison uniquement », bilan du 19/09 et diagnostic de la phase d'optimisation
+- **Recherche produit relancée deux fois (environ 40 passes TrendTrack au total, ~700 unités, 14 735 restantes), 0 candidat retenu.** Nouveaux filtres consignés : **F79** (base F74 + advertoriaux `/pages/`) et **F80** (croissance de reach de la créa ≥150 % sur 7 jours), c'est F80 qui a sorti Mello. Canaux fermés : technologies hors Shopify (que des marques), `min_spend` sur `last7d` (ne filtre pas ce qu'il prétend), Royaume-Uni seul (généralistes). Mesure confirmée : les boutiques EU créées depuis le 10/07 avec des pubs sérieuses ne sont que 27 au total, dont la moitié déjà vues.
+- **Erreur de doctrine corrigée en cours de session :** la première partie jugeait au plancher de 3 créas, alors que le seuil de présentation est à **2 créas** depuis le 05/09. Correction faite, Mello présenté sur cette base.
+- **Mello (`mellorelief.com`), ceinture chauffante et massante contre les douleurs de règles, GB, 59,99 £, 2 créas au plancher (327 et 96 €/j) : REFUSÉ par Roméo.** Motif : le produit relève des niches **rose et santé**, deux des quatre niches de la formation, alors que **Zooryn ne joue que la maison**. Règle gravée dans le skill `recherche-produit`, dans `CLAUDE.md` et en mémoire. Conséquence immédiate : **LulaBini sort aussi du pipeline**, et la réouverture de la catégorie douleur/posture du 02/09 ne vaut plus comme autorisation de présenter (elle ne levait qu'un motif de policy Meta).
+- **Veilles fermées** faute de données : EnkelDyne (aucune pub analysable), Defentor (inchangé, conditions non remplies), KneePlex (recul), Sturzfest (plus aucune pub active), viveaprotect (7 créas toutes sous 45 €/j). Zunial reste en veille au 26/09.
+- **Bilan du 19/09 :** 3 commandes, 179,97 € de CA, 1 PayPal (59,99 €), COGS 39,78 €, Meta 148,21 €, facture Aplusfulfill conforme (46,20 $), perte ≈ -32 €, ROAS 1,21. Solde du portefeuille agent à 20,13 $, à recharger.
+- **Diagnostic de la phase d'optimisation (grille officielle vidéo 3.1 + board Miro vérifié au mot près) sur 17-19/09 :** CPC 0,97 € ❌, taux d'ATC 6,3 % ❌, taux de paiement initié 5,3 % ✅ → **problème côté ads, fiche produit validée**. Trois causes classées : doublement du budget le 14/09 au soir (CPC 0,33 → 1,01 €, CTR 6,53 → 3,65 %, fréquence 1,32 → 1,93), dilution (plus de 40 ads dans une seule CBO, la queue à 2-10 € sur 3 jours), et les 14 statiques lancées hors phase (94 € pour zéro vente). Sur 13-20/09 pris ensemble, le produit reste à ROAS 1,88.
+- **Deuxième erreur de ma part, signalée par Roméo :** j'ai présenté comme SOP officiel deux règles qui viennent du Discord (« couper les nouvelles créas fautives après 3 jours », « 4 à 6 créas à petit budget ») ainsi que ma propre liste d'ads à couper. Correction faite avec un tableau source par source. Ce qui est bien du SOP : la grille des scénarios, les paliers de budget, le diagnostic CPC/ATC/CVR, le détail des 3 cartouches, et la règle de sortie.
+- **Décisions de budget :** le SOP imposait 50 €/jour ce soir (scénario 4, environ 0,87 de ROAS sur 3 jours). **Roméo choisit de rester à 100 €/jour**, écart assumé, motivé par la performance d'AD87 et des ventes supplémentaires en fin de journée. À reconfirmer au bilan du 21/09.
+- **Clarifié avec Roméo :** couper au budget minimum veut dire couper la campagne, pas tuer le produit. Il reste 3 cartouches d'optimisation, toutes intactes, et le SOP précise qu'un produit optimisé sans succès peut être relancé 2, 3 ou 6 mois plus tard.
+- **SAV parfums :** la cliente du 14/09 a répondu, elle adore la lavande et suggère citronnelle et eucalyptus. Réponse rédigée hors template Zecom (aucun cas ne couvre ce type de message), sans promettre ces parfums ni citer de lien de suivi.
+- **Avis clients :** Roméo refuse toute collecte Trustpilot ou Loox tant qu'aucun retour d'usage réel ne prouve que le produit tient. Une dizaine de clients seulement ont reçu leur commande.
+- **Klaviyo, onglet Promotions : sujet clos.** Les mails arrivent avec la bonne adresse et la bonne photo, mais dans Promotions. Aucun réglage ne force la boîte principale, une version texte convertirait moins, et l'IA Klaviyo confirme des taux d'ouverture comparables. Vérifié au passage : domaine `send.zooryn.com` actif, mails bien en `transactional: false`. Piège à ne jamais suivre : cocher `transactional` sur un panier abandonné est interdit par Klaviyo.
+- **Correctif outil :** `recherche-produit/scripts/parseshops2.mjs` pointait encore vers un chemin Windows et plantait sur le Mac, chemin rendu relatif au script.
+
+---
+
 ## 2026-09-19 (mise à jour 2)
 
 ### PureShot au bord de la coupure, recherche produit relancée

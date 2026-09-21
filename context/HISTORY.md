@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-09-21 (mise à jour 2)
+
+### Visio coaching Zecom : test prix + 100 €/j, doctrine créas, pipeline
+- **Motivation relancée** après deux jours à peu travailler suite à la chute du scaling. Message du coach : zéro émotion sur les gains et les pertes, l'Europe sert d'entraînement avant les US, un produit tient quelques mois en Europe. PureShot n'a pas encore prouvé qu'il tient : plus de mauvais jours que de bons.
+- **Test imposé par le coach :** budget remonté de 50 à 100 €/jour (compté depuis le 20/09) + baisse d'environ 10 € sur les offres pour viser un **coefficient multiplicateur de 3,5** (ACRE + micro). Décision dans la nuit du 22 au 23/09, rappel posé dans l'agenda le 22/09 à 23h. Prix exacts et nouveaux ROAS BE/TARGET à calculer dans la session suivante (BE estimé ≈ 1,65-1,7).
+- **Remarques de Claude acceptées par Roméo :** deux variables changées à la fois (lecture globale seulement) ; Meta ne classe pas par prix ou part de marché mais récompense le taux de conversion prévu (on suivra CVR et CPC) ; le break-even monte avec la baisse de prix. Le 22/09 sera le seul jour plein au nouveau prix, à lire isolément.
+- **Doctrine créas :** traduire vidéos et statiques en scrapant tout, même la mauvaise data ; créer ses propres statiques (Higgsfield conseillé, à tester avec Claude aux commandes) ; jamais de vidéos maison. `CLAUDE.md` (crea-pub) corrigé : une statique n'est plus un saut de phase. Lot AD84-AD112 relancé bientôt, voix off par Roméo.
+- **Pipeline :** objectif 5 à 6 produits en réserve, recherche produit pendant le scaling.
+- **Suivi :** tendance du CPC et du CPM uniquement. Tableau Notion « Suivi des angles créas » et un autre tableau supprimés par Roméo ; la page Marketing research reste.
+
+---
+
 ## 2026-09-21
 
 ### Bilan du 20/09, meilleure journée depuis le 14/09, budget au palier minimum

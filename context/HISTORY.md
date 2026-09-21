@@ -7,6 +7,23 @@
 
 ---
 
+## 2026-09-21
+
+### Bilan du 20/09, meilleure journée depuis le 14/09, budget au palier minimum
+- **Bilan du 20/09 vérifié et saisi (DAILY REPORT ligne 265) :** 5 commandes (#1065 à #1069), toutes l'offre pistolet + 3 recharges à 59,99 €, CA 299,95 €, 3 commandes PayPal (179,97 €), frais PSP réels 8,57 €, zéro remboursement. COGS 66,30 € (5 × 13,26 €, relu à la source). Meta 124,52 €. **Net Profit +72,10 €, marge 24,0 %, ROAS 2,41, AOV 59,99 €.** Saisie faite par Roméo, recoupée au centime par Claude.
+- **Facture Aplusfulfill `20:09:26.xlsx` conforme :** 5 commandes facturées, 5 commandes Shopify, toutes à 15,40 $, total 77,00 $, aucun écart, aucun doublon, aucune commande manquante.
+- **Correction d'un chiffre de la veille :** le bilan du 20/09 au soir comptait 3 commandes pour 179,97 €, deux ventes sont tombées après. Le vrai chiffre est 5 commandes et 299,95 €.
+- **Meilleure journée depuis le 14/09.** Le CPC retombe à 0,65 €, sous le seuil de 0,70 € de la grille d'optimisation, contre 0,97 € sur 17-19/09 (CTR 4,07 %, CPM 26,39 €, fréquence 1,64). Baisser le budget fait respirer la diffusion, cohérent avec le diagnostic du 20/09.
+- **Vue 8 jours recalculée avec le vrai 20/09 : ROAS 1,93 et +440,30 € de profit net cumulé sur 13-20/09** (et non 1,88 comme noté la veille). La fenêtre glissante 18-20/09 reste à ROAS 1,07, sous le break-even, mais le jour isolé du 20/09 est à 2,41.
+- **Budget passé à 50 €/jour le 21/09**, le palier minimum du SOP. Conséquence signalée à Roméo : la règle de sortie devient active, une retombée en scénario 4 à ce palier = coupure de la campagne et passage en optimisation avec les 3 cartouches, toutes intactes.
+- **Solde Aplusfulfill tombé à 4,73 $** au matin du 21/09, signalé comme urgent avant le lot de 12h, rechargé par Roméo.
+- **Versements Shopify : sujet clos.** Les commandes #1029, #1033, #1034, #1035, #1041 (373,00 € net) sont bien arrivées, l'engagement sort de la liste.
+- **Golden Week : Roméo décide de ne pas poser la question à Yuri pour l'instant.** Il ne veut pas solliciter l'agent alors qu'il coupera probablement PureShot avant. La décision de stock attend l'avis du coach sur la reprise du scaling.
+- **Créas AD84-AD112 :** voix off toujours non produites, lancement suspendu à l'avis du coach.
+- **Visio coaching Zecom calée le 21/09 à 15h**, avec un sujet ajouté : faire valider la lecture de la phase d'optimisation et savoir si le scaling est à nouveau envisageable.
+
+---
+
 ## 2026-09-20
 
 ### Recherche produit sans candidat, règle de niche « maison uniquement », bilan du 19/09 et diagnostic de la phase d'optimisation

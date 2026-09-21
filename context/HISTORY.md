@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-09-21 (mise à jour 3)
+
+### Baisse de prix coefficient 3,5, AfterSell, Klaviyo et Sheet ROAS recalibré
+- **Nouveaux prix :** x1 39,99, pack 49,99, x1 + upsell 59,99, pack + upsell 69,99 (recharges +10 €, upsell +20 €), tous les coefficients ≥ 3,5. 10 Recharges baissées de 59,99 à 49,99.
+- **Page produit corrigée :** badges -43 % / -50 %, garantie 90 jours (au lieu de 2 ans), « LE PLUS POPULAIRE », faute « rechargements ». Prix barrés, « Se termine aujourd'hui » et « -50 % sur les prochains rechargements » : choix assumés par Roméo, signalés une fois.
+- **AfterSell recalé :** Kit 29,99, 10 Recharges 24,99, Downsell 2 à -60 % (16 €) pour rester sous le prix de la page (règle de Roméo : le post-achat doit être plus avantageux que la page). Marges 4,90 à 13,50 € par offre acceptée, 4,50 à 7,30 € de moins qu'avant. Funnel « Pureshot » vérifié actif.
+- **Klaviyo :** rien à changer, aucun prix en dur, PANIER10 et PANIER20 rentables à tous les prix. Post-achat reporté à 1 000 €/jour de CA.
+- **Sheet ROAS BE & TARGET recalibré par Claude :** frais Meta 2,83 % (colonne R) et recharge agent 9,57 % (colonne S) intégrés dans toutes les formules, colonne P = frais par commande au BE, lignes vides propres. PureShot : BE 1,53 → **1,64**, TARGET 2,20 → **2,40**. PayPal non intégré par choix. Sauvegarde des anciennes formules faite avant écriture.
+- **18/09 à -386,64 % :** aucune erreur de formule. Cause côté ads (1,30 €/session contre 0,47 € le 14/09, AD10 à CPM 45,72 €, 27 % de la dépense sur les statiques) + 1 paiement sur 7 checkouts. Rien à régler à la source, on suit la stratégie de base jusqu'à la décision de mardi soir.
+- **Statiques :** méthode Google AI Studio + GPT abandonnée, Roméo fournira une nouvelle méthode où Claude produit les statiques.
+
+---
+
 ## 2026-09-21 (mise à jour 2)
 
 ### Visio coaching Zecom : test prix + 100 €/j, doctrine créas, pipeline

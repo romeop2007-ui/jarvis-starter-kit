@@ -96,6 +96,15 @@ Seuils réels estimés au 14/09/2026, en ROAS affiché par Meta : **BE ≈ 1,56,
 TARGET ≈ 2,25**, contre 1,41 / 1,78-1,95 / 1,95 dans le Sheet. Utiliser ces valeurs pour la
 décision du soir tant que le Sheet n'est pas recalibré.
 
+**✅ Sheet recalibré le 21/09/2026 : il fait désormais foi.** Onglet ROAS BE + TARGET, colonne R =
+frais de localisation Meta (2,83 %, le numérateur devient Prix × 1,0283), colonne S = frais de
+recharge agent (9,57 % du COGS, le COGS devient COGS × 1,0957), intégrées dans BE, TARGET,
+fourchette et -20 % de perte, pour toutes les lignes (futurs produits compris). Colonne P = frais et
+taxes par commande au BE. Seul le vrai taux PayPal n'est pas intégré (choix de Roméo, écart minime
+à petit volume). PureShot au 21/09 (prix baissés au coefficient 3,5) : **BE 1,64, TARGET 2,40,
+fourchette 2,15-2,40, -20 % 1,24**. Lire les seuils directement dans le Sheet plutôt que les
+recalculer.
+
 ---
 
 ## 2. Phase de TESTING — seuils de décision par palier (formation, framework officiel)

@@ -1,0 +1,13 @@
+Luxury lifestyle Meta ad static, 4:5 portrait, warm editorial photography. Reference image 1 is the product: reproduce it EXACTLY (white handheld nano-mist gun, round nozzle head with 6 small blue LEDs, brown "PureShot" wordmark on the body, clear bottle with pale yellow liquid).
+
+Scene: a Mediterranean-style living room bathed in golden afternoon light, plaster arches, sheer white linen curtains moving in the breeze, several lit white pillar candles on a stone ledge, a cream boucle daybed with a ginger cat sleeping peacefully on it. In the foreground left, the product stands on a rustic wooden stool next to a stack of folded white towels. Tones: cream, beige, warm sand, soft terracotta.
+
+Text, elegant serif typeface in dark brown (#6E4E37), centered at the top:
+Line 1 and 2, large uppercase serif:
+"LE LUXE, CE N'EST PAS UN PARFUM."
+"C'EST L'ABSENCE D'ODEUR."
+Line 3, smaller serif, sentence case: "2 ans d'odeur de chat... disparus en une heure."
+
+Bottom, small centered serif line in dark brown: "ZOORYN · Une maison qui respire · -50 % aujourd'hui"
+
+No other text. French spelling exactly as written, including accents and apostrophes.

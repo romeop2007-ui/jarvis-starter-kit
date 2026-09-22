@@ -1,0 +1,21 @@
+Clean comparison Meta ad static, 4:5 portrait, flat graphic design on a warm beige background (#EDE6D9). Reference image 1 is the product: reproduce it EXACTLY as a cut-out (white handheld nano-mist gun, round nozzle head with 6 small blue LEDs, brown "PureShot" wordmark on the body, clear bottle with pale yellow liquid).
+
+Headline at the top, bold uppercase sans-serif in dark brown (#6E4E37), centered, two lines:
+"2 ANS DE SPRAYS."
+"UNE HEURE DE PURESHOT."
+
+Below: a two-column comparison card with rounded corners and a thin brown border.
+Left column header, bold, dark brown: "SPRAYS & BOUGIES". Under it, a small photo of an aerosol air freshener can and a scented candle. Then four rows, each starting with a red cross icon:
+"Masque l'odeur 2 heures"
+"Parfum chimique"
+"À racheter chaque semaine"
+"L'odeur revient demain"
+Right column header, bold, terracotta (#C1522A): "PURESHOT". Under it, the product cut-out. Then four rows, each starting with a green check icon:
+"Décompose l'odeur à la source"
+"Brume fine, sèche en minutes"
+"Rechargeable, quelques gouttes suffisent"
+"Disparue en une heure"
+
+Bottom, centered, a terracotta (#C1522A) rounded pill button with white bold text: "Satisfait ou remboursé 90 jours · -50 % aujourd'hui"
+
+No other text. French spelling exactly as written, including accents. Crisp, legible, premium.

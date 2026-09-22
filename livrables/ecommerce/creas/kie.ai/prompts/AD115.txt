@@ -1,0 +1,13 @@
+Dramatic Meta ad static, 4:5 portrait, dark cinematic style. Reference image 1 is the product: reproduce it EXACTLY (white handheld nano-mist gun, round nozzle head with 6 small blue LEDs, brown "PureShot" wordmark on the body, clear bottle with pale yellow liquid).
+
+Background: near-black dark red studio, a single warm spotlight cone from above lighting the product placed on a dark slate slab in the center-bottom. Dramatic, moody, high contrast.
+
+Top: a large red LED digital countdown display reading "23:47:12" in glowing seven-segment digits inside a dark bezel. A small red warning triangle icon with an exclamation mark in the top right corner.
+
+Below the countdown, centered:
+Line 1, bold condensed uppercase white sans-serif, large: "OFFRE -50 % SE TERMINE AUJOURD'HUI"
+Line 2, lighter white sans-serif, medium: "2 ans de mauvaises odeurs disparus en une heure."
+
+Bottom, small centered white sans-serif line: "Livraison offerte · Satisfait ou remboursé 90 jours"
+
+No other text. French spelling exactly as written, including accents and the space before "%".

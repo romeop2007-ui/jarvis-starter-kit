@@ -7,6 +7,21 @@
 
 ---
 
+## 2026-09-22 (mise à jour 4)
+
+### 15 statiques kie.ai produites et lancées (AD113 à AD127)
+- **10 traductions des meilleures statiques Belorna (AD113-AD122)**, à partir des 10 créas fournies par Roméo. Analyse du lot concurrent : un seul message porte tout (« 2 ans d'odeur... disparus en une heure », 5 créas sur 10), quatre angles (odeur cachée dans les tissus, mécanisme « décompose au lieu de masquer », offre et urgence, luxe = absence d'odeur), audience quasi exclusivement **chat** (4 créas sur 10), produit toujours visible en grand avec sa brume.
+- **5 créas originales (AD123-AD127)**, construites sur ces angles mais sans rien traduire : AD123 accoutumance olfactive (« Ton nez s'est habitué. Pas celui de tes invités. », mécanique Caples de la conséquence sociale) ; AD124 Us vs Them sprays et bougies contre PureShot ; AD125 plan d'appartement isométrique, la brume part de la litière et envahit salon et chambre ; AD126 défi en 3 étapes avec minuteur d'une heure, la garantie 90 jours devient l'argument ; AD127 chien et voiture, **angle que Belorna ne touche jamais** (0 créa chien sur 10).
+- **Roméo a lancé les 15 le soir même**, ce qui tranche de fait les deux arbitrages ouverts : remise **-50 %** affichée partout et **AD121** (fausse pénurie « 400 dernières unités ») lancée malgré le signalement de pratique commerciale trompeuse.
+- **Coût réel : 396 crédits kie.ai (≈ 2 $) pour 15 images 2K en 4:5, régénérations comprises. Solde 666.** Les 15 images et leurs prompts sont dans `livrables/ecommerce/creas/kie.ai/`.
+- **Méthode validée et gravée dans `CLAUDE.md` (skill `crea-pub`)** : texte FR verrouillé avant toute génération (prix lus en direct dans Shopify, allégations passées aux vérités Zooryn), prompt en anglais citant les textes FR mot pour mot, image de la fiche en ligne comme référence produit, relecture de chaque rendu par Claude.
+- **Piège mesuré :** sur les textes longs, le modèle se trompe environ une fois sur deux (mot manquant, mot doublé, faux logo inventé). AD121 a demandé 4 passes avant d'être juste. **Conclusion : générer 2-3 prises en parallèle et garder la bonne**, comme pour la variance ElevenLabs. AD118 a demandé 1 reprise (lignes barrées incomplètes), AD127 une relance après expiration côté kie.ai.
+- **Corrections de contexte au passage :** AD77 déclarée périmée (elle affiche 49,99 € pour le pistolet seul, qui vaut 39,99 € depuis le 21/09, et AD118 refait le même ticket de caisse au bon prix) ; la « méthode validée ChatGPT/Codex » du 14/09 retirée de `CONTEXT.md`, abandonnée depuis le 21/09.
+- **Conséquence sur le jugement du vendredi 25/09 :** la CBO a pris 25 ads neuves d'un coup (10 de la cartouche 1 + 15 statiques). Regarder quelles créas prennent réellement du spend avant de conclure sur la cartouche elle-même.
+- Roméo assume ne pas pouvoir juger les créas à l'œil faute d'expérience : ce sont les résultats qui trancheront.
+
+---
+
 ## 2026-09-22 (mise à jour 3)
 
 ### Bilan du 21/09 rattrapé

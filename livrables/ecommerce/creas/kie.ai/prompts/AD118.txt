@@ -1,0 +1,22 @@
+Photorealistic Meta ad static, 4:5 portrait. A white thermal paper receipt lying flat on a light oak wooden table, photographed from directly above, natural daylight, slight paper texture and shadow. The receipt fills most of the frame.
+
+Printed on the receipt in a plain black receipt typeface, left aligned, top to bottom:
+
+Bold uppercase heading: "LE COÛT DE 2 ANS DE MAUVAISES ODEURS :"
+Then five lines. EVERY ONE of these five lines must be struck through from its first character to its last character with a single thin red horizontal line (the whole line, including the price):
+"Sprays parfumés ×24 : 240 €"
+"Bougies ×36 : 180 €"
+"Détergents chimiques : 120 €"
+"Frustration : incalculable"
+"Total : 540 € sans résultat"
+
+Bold uppercase heading: "LE COÛT DE PURESHOT :"
+"1 pistolet anti-odeurs : 39,99 €"
+"Résultat : 2 ans d'odeurs disparus en une heure"
+Large bold green line: "39,99 € = tranquillité"
+
+Below the text, printed in the lower part of the receipt: a small image of the product from reference image 1 (white nano-mist gun with round blue LED nozzle, brown "PureShot" wordmark, clear bottle with pale yellow liquid), and to its right in bold green: "-50 % aujourd'hui"
+
+Bottom of the receipt, small centered line: "Livraison offerte · Satisfait ou remboursé 90 jours"
+
+No other text. French spelling exactly as written, including accents and the comma decimal in prices.

@@ -1,0 +1,20 @@
+Meta ad static, 4:5 portrait, pure black background, looks like a heartfelt announcement post. Reference image 1 is the product: reproduce it EXACTLY in every photo of this image (white handheld nano-mist gun with a ROUND cylindrical nozzle head with 6 small blue LEDs around a blue center, plain brown "PureShot" wordmark in the same font as the reference with NO icon or symbol before it, clear bottle with pale yellow liquid). Never invent a logo, never change the shape of the head.
+
+Layout, all text centered, white sans-serif on black, generous line spacing:
+
+Top: a small crying-face emoji 😢
+Title, bold large white: "Mauvaise nouvelle"
+Subtitle, bold large white with a broken-heart emoji 💔 at the end: "On dit au revoir à PureShot 💔"
+
+Body paragraph 1, regular white, medium size, with the two indicated phrases colored red:
+"Nous sommes une petite équipe qui a créé PureShot pour les propriétaires d'animaux qui ont tout essayé. Mais les atomiseurs nano de précision à l'intérieur de chaque PureShot [red:] demandent des mois pour être produits et passer les contrôles qualité. [white:] Et avec une demande bien plus forte que prévu, [red:] on a du mal à suivre."
+
+Body paragraph 2, regular white, with the indicated phrase in red:
+"Nous venons de recevoir nos [red:] 400 dernières unités [white:] de ce lot, et une fois parties, il faudra des mois avant que le prochain lot soit prêt."
+
+Body paragraph 3, with the two indicated phrases in bold:
+"[bold:] Merci pour tout votre soutien, [regular:] et pour chaque photo de vos maisons plus propres et plus fraîches. Si tu pensais en prendre un, c'est le bon moment. On espère que PureShot arrivera chez toi [bold:] avant que ce lot soit épuisé."
+
+Bottom: a large centered render of the product in three-quarter view (same angle as the reference) on black, and beneath it a row of three small square lifestyle photos: the product on a kitchen counter next to a basil plant, the product on a wooden tray by a window, a hand holding the product spraying fine mist.
+
+No other text. Do not print the bracketed style markers. French spelling exactly as written, including accents.

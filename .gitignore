@@ -55,6 +55,8 @@ livrables/etudes/projets/SAE/SAE.mp4
 livrables/ecommerce/creas/ressources créas après modifs/
 livrables/ecommerce/creas/créas terminées/
 livrables/ecommerce/creas/PureShot/
+# Statiques générées par kie.ai : images lourdes et régénérables, mais on GARDE les prompts
+livrables/ecommerce/creas/kie.ai/*.png
 
 # Usine à créas — fichiers de travail et runtime (régénérables)
 .claude/skills/crea-pub/_travail/

@@ -1,0 +1,13 @@
+Photorealistic Meta ad static, 4:5 portrait, warm minimal photography. Reference image 1 is the product: reproduce it EXACTLY (white handheld nano-mist gun, round nozzle head with 6 small blue LEDs, brown "PureShot" wordmark on the body, clear bottle with pale yellow liquid).
+
+Scene: close-up on a beige fabric sofa seat cushion in soft daylight. On the cushion: the product standing upright, large and sharp, and next to it a smartphone lying flat showing a timer app with big digits "1:00:00" on a light screen. Fine mist drifts from the nozzle. Tones: beige, cream, warm wood.
+
+Headline at the top, bold uppercase sans-serif in dark brown (#6E4E37), centered, large: "FAIS LE TEST CE SOIR."
+Below it, three numbered lines in regular dark-brown sans-serif, left aligned in a neat block:
+"1. Vaporise le canapé, le tapis, le panier."
+"2. Mets un minuteur d'une heure."
+"3. Reviens et respire."
+
+Bottom, two centered lines: first line bold dark brown: "Si l'odeur est encore là, on te rembourse. 90 jours." Second line smaller in terracotta (#C1522A): "PureShot · -50 % aujourd'hui"
+
+No other text. French spelling exactly as written, including accents.

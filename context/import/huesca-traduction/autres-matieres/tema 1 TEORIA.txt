@@ -1,0 +1,888 @@
+
+=== PAGE 1 ===
+1ª PARTE:
+CONTROL DE GESTIÓN Y PRESUPUESTO
+En esta primera aproximación sobre el alcance y la finalidad del control de gestión,
+puede ser interesante matizar el contenido semántico del término «control». Dicho vocablo
+se utilizó en Contabilidad directiva, por ejemplo, para indicar que entre los objetivos de esta
+última cabría destacar "la fundamentación de sistemas de costes cuyos informes permitan a
+los usuarios internos el control de las condiciones en que se realiza la actividad económica
+de sus empresas u organizaciones".
+Era evidente que para esa finalidad, desde los sistemas más convencionales como los
+sistemas de costes estándares (control de la ejecución por el análisis de desviaciones) y los
+sistemas de coste parcial (guiar las decisiones sobre bases de racionalidad económica), hasta
+los planteamientos más innovadores, que como la Gestión Estratégica de Costes (SCM) han
+permitido adaptar los análisis fundamentales del coste, característicos del sistema contable
+de las empresas, a las necesidades de gestión de las organizaciones actuales. Dicha
+adaptación ha requerido el desarrollo de numerosas técnicas e instrumentos con los que
+mejorar la performance de la actividad empresarial.
+Pero el vocablo español «control», probablemente influido por la corriente doctrinal
+francesa con la que culturalmente ha compartido también una larga tradición de prácticas
+represivas, suele identificarse con revisión o verificación. En cambio, este vocablo en las
+prácticas y definiciones anglosajonas generalmente equivale a «conseguir la destreza en la
+actuación», esto es, tiene el mismo significado que toma este vocablo en español cuando se
+emplea en frases como «gracias a poseer una gran capacidad para la concentración interna le
+resulta muy sencillo alcanzar el control sobre su propia conducta».
+1
+
+=== PAGE 2 ===
+La verificación de dicha conducta, por observable, no es, por tanto, más que el
+medio de constatar la existencia de control en una actividad, organización y/o sistema, por lo
+que, generalmente, no debe constituir un objetivo en sí misma, esto es, el objetivo es el
+control en la organización, pero, no lo es, conseguir que los indicadores verifiquen la
+existencia de control aunque éste no se produzca. Puede proponerse, por tanto, como
+definición, que:
+«El control de gestión está concebido para lograr la destreza en la gestión de la
+empresa, esto es, para garantizar que se mejora el desempeño en las actuaciones
+analizadas en un ambiente sometido a incertidumbre. Por ello, deberá integrar entre otros
+elementos, además de criterios de evaluación de las actuaciones, algún sistema de ayuda
+a la decisión que se apoye en un sistema de información sobre la realidad de la
+empresa».
+Los siguientes párrafos de Abtey y Vinay, aunque con algunas modificaciones
+requeridas para adaptarlos a casos de más sencilla comprensión, ayuda a reflexionar sobre el
+alcance de las técnicas e instrumentos de control de gestión que utilizan las corporaciones:
+La misión de conseguir el dominio en la gestión de los recursos debe asegurarse en
+una estructura organizada o no, y requiere el concurso de diferentes medios materiales
+y/o personales, tanto si se efectúa de manera formal o informal. Aunque esa misión
+concierne específicamente a la figura del «controler», con carácter general, afecta a todo
+responsable preocupado con la racionalización de sus decisiones, pero siempre con un
+espíritu de apertura y diálogo.
+El objetivo, por tanto, es ayudar al empresario a mejorar el desempeño obtenido con
+sus decisiones, mirando con atención, esto es, de modo crítico a veces, pero siempre de
+modo constructivo, sobre el sistema de información que está en la base de sus decisiones
+y sobre los hombres que tienen la pesada responsabilidad de ejecutarlas en el seno de
+cada una de las principales funciones de la empresa.
+Esta evaluación supone un esfuerzo de franqueza y humildad para aceptar que se
+vuelva a poner en cuestión, en su caso, costumbres, procedimientos, técnicas o formas de
+relaciones personales que podrían ya no estar justificados, como consecuencia de los
+cambios producidos en un entorno sometido a las leyes inflexibles de la competencia, el
+riesgo y la supervivencia.
+2
+
+=== PAGE 3 ===
+La práctica cotidiana de la gestión oculta a menudo el espíritu crítico. En este caso se
+pretende que el control de gestión sea abordado con un espíritu nuevo, como una
+curiosidad natural y con un espíritu crítico basado en la diversidad de realidades. Es la
+visión que adopta todo asesor externo, constantemente enfrentado con situaciones
+nuevas, de modo que el propósito no es aprender recetas, sino enfrentarse cada vez con
+las consecuencias de la aplicación de las técnicas consideradas, en la actualidad, como
+más adecuadas o cuyo uso se encuentra más generalizado.
+No es de extrañar que cuando se pasa desde la preocupación diaria por la aplicación
+práctica de los diferentes instrumentos de gestión, a la sistematización de las técnicas en
+que se basan, pero sobre todo, a los procesos de definir los conceptos que permitan dar
+coherencia a los diferentes principios capaces de fundamentar dichas técnicas, han de
+plantearse cuestiones como la que provoca la misma ambigüedad que afecta a la
+definición de «control de gestión».
+En consecuencia, el control de gestión no debería ser, contrariamente a una creencia
+muy generalizada, únicamente el mecanismo de rectificar el efecto que tienen los errores de
+gestión que se producen en las grandes sociedades. El responsable de una empresa, con
+independencia del tamaño de ésta, siempre necesita informaciones relevantes, fiables y
+oportunas sobre las actividades que anima y coordina y, así, dar sus instrucciones con
+rapidez y precisión. Es posible, por tanto, que el control de gestión en una pequeña o
+mediana empresa se ejerza aunque no exista un «controler» titulado.
+3
+
+=== PAGE 4 ===
+4
+
+=== PAGE 5 ===
+TEMA 1
+INTRODUCCIÓN A LOS SISTEMAS DE
+PLANIFICACIÓN Y CONTROL DE LA EMPRESA
+1.1 LA EMPRESA Y LOS SISTEMAS DE INFORMACIÓN PARA LA GESTIÓN.
+1.1.1 El sistema contable en la gestión de la empresa
+El concepto de sistema de información que se ha venido utilizando para enmarcar los
+múltiples modelos y sistemas contables, permite también articular los conceptos que
+fundamentan el control de gestión.
+Esto es así, porque una empresa es ante todo una organización en cuya estructura
+interna se adoptan las decisiones que, por afectar a diferentes ámbitos de la misma, pueden
+hacerlo órganos decisores pertenecientes a diferentes niveles jerárquicos o competenciales
+(estratégico o directivo, táctico o gerencial, logístico u operativo).
+El ejercicio de la responsabilidad asociada a cada nivel de decisión no puede
+ejercerse, sea cual sea dicho nivel, sin un sistema de información estrechamente ligado a la
+vida misma de la empresa. Su eficacia queda supeditada a su capacidad para responder a las
+necesidades de la planificación estratégica de la empresa y a las necesidades de la gestión
+corriente, así como por permitir evaluar la eficacia de las principales actividades de la
+empresa.
+5
+
+=== PAGE 6 ===
+Apuntes de Control de Gestión
+El cuadro nº 1 permite presentar de forma resumida y comparada las características
+que identifican cada uno de estos niveles de decisión.
+Características ESTRATEGICO TACTICO (Gestión) OPERATIVO
+Ámbito de
+competencia
+Toda la empresa en su
+conjunto y globalmente
+Toda la empresa a través de
+organizar sus funciones
+Cada actividad y tarea
+operacional o no, de la
+empresa
+Complejidad Muy grande, ligada a la
+interacción de numerosas
+variables
+Razonable, se facilitan las
+decisiones al recurrir a
+modelos cuantitativos
+Relativamente limitada,
+tareas identificables y
+controlables
+Incertidumbre Muy elevada Moderada Muy escasa
+Naturaleza de
+los procesos
+No estructurados en la
+forma. Sólo un método de
+razonar permite tratar los
+diferentes problemas
+Procesos y métodos de
+gestión muy estructurados,
+pero con responsabilidad
+sólo funcional
+Procesos racionales y
+lógicos muy estructurados
+y con responsabilidad
+operacional
+Personas
+afectadas
+Dirección general Todos los mandos de la
+jerarquía
+Responsables de las
+operaciones
+Actividad
+intelectual
+Muy diversificada, descan-sa
+en la creatividad
+Administrativa y social Técnica y social
+Horizonte Largo plazo Corto y medio plazo Día a día
+Resultante Definir los objetivos Poner los medios Alcanzar los objetivos
+Cuadro nº 1
+1.1.2 Estructura de la información en los sistemas de control de gestión
+Para aportar a la gerencia la información que le permita tomar las mejores decisiones,
+los modelos de contabilidad analítica y de previsión presupuestaria han de asegurar la
+comprensión y utilidad de la información que generan esos modelos. Esa información habrá
+de elaborarse con modelos que, además de elaborar informes relevantes y fiables, garanticen
+su contrastación empírica.
+El control contable-presupuestario se ejerce, en la gestión corriente, en tres aspectos
+o fases:
+- al fijar los procedimientos de previsión y de control presupuestario
+- al definir la medida de la contribución al beneficio,
+- al acordar los métodos de evaluación del desempeño.
+En consecuencia, se asume que, con carácter general, los sistemas de control de
+gestión deben estructurarse incorporando tres tipos de modelos:
+6
+
+=== PAGE 7 ===
+Tema 1. Introducción a los sistemas de planificación y control de la empresa.
+- Modelos de tratamiento de la información.- Sistema de información, que suele
+basarse en los modelos contables, tanto de la contabilidad financiera, como de la
+contabilidad analítica.
+- Modelos de ayuda a la decisión.- Sistemas de costes y formación del resultado,
+que permiten incluir criterios de cálculo adecuados para guiar y controlar los procesos de
+decisión.
+- Modelos de verificación-evaluación.- Indicadores de gestión, que facilitan la
+evaluación del desempeño, además del aprovechamiento de su capacidad de motivación.
+A cada nivel de decisión (estratégico, táctico u operativo) le corresponde una
+secuencia de modelos de tratamiento de la información, de ayuda a la decisión y de
+evaluación, donde las variables de entrada de unos modelos, pueden ser variables de salida
+de los otros.
+Toda decisión debe apoyarse en un conjunto organizado de informes. Los informes,
+en cuanto observaciones procedentes del interior de la empresa y de su entorno, incluyen
+datos de muy diferente naturaleza: técnica, humana, comercial, financiera, etc. Estos
+informes, disponibles como datos, se registran, clasifican y transforman sistemáticamente en
+información (relevante para cada decisión). Se destinan a alimentar un proceso de reflexión
+que se apoya, de forma consciente o no, sobre uno o varios modelos de ayuda a la decisión.
+Cada modelo de ayuda a la toma de decisiones permite, a partir de la identificación
+de sus variables de entrada (los informes recibidos de los modelos de información)
+procesadas con la ayuda de criterios de optimización o de simulación (el tratamiento de las
+variables), determinar las variables de salida o variables objetivo (las directrices para
+adoptar las decisiones al nivel estratégico, táctico u operativo).
+Ya que un modelo de decisión para ser eficiente debe ser controlable, se recomienda
+añadir un modelo de verificación-evaluación. Analizados en términos de sistemas de
+información, las variables de entrada del modelo de verificación incluyen, además de las
+variables de salida del modelo de ayuda a la decisión, las correspondientes a los modelos de
+información sobre las realizaciones.
+Las variables de salida del modelo de verificación-evaluación muestran si las
+decisiones tomadas o examinadas satisfacen las exigencias del control, tal como se
+establecieron, básicamente, en el modelo de información previsional.
+7
+
+=== PAGE 8 ===
+Apuntes de Control de Gestión
+El modelo de verificación en sí mismo debe generalmente estar compuesto de un
+conjunto de instrumentos de medida que permita evaluar diferentes niveles de realización.
+La secuencia de relaciones, que se acaba de enunciar, suele estar organizada como
+muestra la figura 1.
+E M P R E S A
+E N T O R N O
+SISTEMA DE CONTROL
+DE GESTION
+S I S T E M A D E I N F O R M A C I O N
+Criterios a
+nivel táctico
+Información
+selccionada
+MODELOS DE AYUDA A LA DECISION
+PREVISION-PLANIFICACION
+Criterios de
+excelencia
+Informes
+previsionales
+MODELOS DE DESEMPEÑO
+CONSTATACION-CONTROL
+Informes de
+gestión
+Informes de
+actuaciones
+Figura 1
+8
+
+=== PAGE 9 ===
+Tema 1. Introducción a los sistemas de planificación y control de la empresa.
+1.2 EVOLUCIÓN DE LOS MODELOS DE GESTIÓN.
+1.2.1 La reciente evolución de los modelos de gestión
+De las diferentes descripciones formuladas sobre la evolución que, en el momento
+actual, se están produciendo en los modelos que utilizan las empresas para controlar su
+actuación, destaca la que realiza Philippe Lorino, ya que combina la mera descripción de los
+cambios que se observan, con la búsqueda de los cambios más profundos, y por ello más
+difíciles de observar, que se han producido, tanto en la organización de la empresa, como de
+su entorno, pero sin olvidarse de la enorme repercusión que las técnicas fundadas en los
+nuevos principios de gestión están teniendo en las principales empresas a nivel mundial.
+La profesión y las técnicas del control de gestión están viviendo una renovación tal
+como no se había conocido desde hace 75 años. La justificación del fenómeno no es ajena al
+hecho siguiente: «el dominio de las técnicas de gestión se convierte en un elemento esencial
+para la diferenciación competitiva en un mercado cada vez más globalizado, esto es, en uno
+de los factores que permiten tener, o no, éxito en los negocios, al mismo nivel que lo permite
+la tecnología del producto o del proceso de producción».
+Es de hecho un nuevo estado del arte de la gestión lo que se está elaborando a nivel
+mundial, a través del rediseño de los instrumentos de medida, campo en el que las prácticas
+estaban muy arraigadas y habían evolucionado poco desde decenios. De hecho, la evolución
+va más allá de las técnicas propias de una profesión concreta como el control de gestión, es
+toda la visión económica de la empresa lo que se está transformando profundamente, y, con
+ella, las filosofías de gestión que de la misma se desprenden.
+Es sorprendente que se haya estado tan poco interesado en el control de gestión y en
+sus herramientas durante un periodo tan dilatado. Seguramente, la gestión no dejó de
+inventar métodos y conceptos, en dominios tan diversos como el marketing, la estrategia, la
+calidad o la gestión de personal. Pero el fundamento de base, aquél sobre el que en última
+instancia descansaba el conjunto: la racionalidad económica de la empresa, expresada a
+través de la contabilidad analítica, la evaluación de las inversiones, el control presupuestario,
+la rentabilidad de productos o de actividades, en una palabra: la medida que fundamenta las
+decisiones, ese fundamento, apenas había cambiado desde 1910 y la aparición del ROI
+(return on investment) en Du Pont de Nemours.
+9
+
+=== PAGE 10 ===
+Apuntes de Control de Gestión
+Si bien se conocían sus defectos, de forma abierta o subrepticiamente se tendía cada
+vez más a defenderse "alejándose de las cifras". La gestión "por cifras" no tenía buena
+prensa, y, como sucede a menudo, se «tiraba el grano con la paja» como si la actuación
+pudiera prescindir de la medición y del análisis. En efecto, el fundamento de la gestión que
+inspira las herramientas del control, a partir de la década de los 70, de una forma acelerada,
+casi tumultuosa, bajo el efecto de «shocs» múltiples, ha empezado a ser revisado por la parte
+más significativa de la industria mundial, e incluso a reinventarse.
+De este modo, el programa internacional de investigación aplicada C.M.S. (Cost
+Management System) del grupo cooperativo CAM-I (Computer Aided Manufacturing-
+International), creado en 1972 por iniciativa de grandes grupos industriales americanos para
+organizar y financiar colectivamente programas de investigación sobre la productividad,
+condujo una docena de programas de investigación sobre aspectos tales como: lenguajes de
+programación numérica, diseño asistido por ordenador, generación automática de gamas…
+En 1986, varios miembros industriales del CAM-I, algunas universidades como Harvard y
+Standford y los grandes grupos anglosajones de auditoría y asesoramiento lanzaron un nuevo
+programa, profundamente diferente de los precedentes, ya que se dirigió a la gestión y no a
+la tecnología: el C.M.S.
+Siempre, en todos los casos, se subraya la misma justificación fundamental: el
+control se ha convertido en una ventaja (o desventaja) competitiva decisiva. No es pues una
+simple moda, sino un movimiento de fondo, de importancia considerable. Este movimiento
+ha reconstruido de forma progresiva y paulatina, la totalidad de las herramientas de control.
+El programa CMS, partiendo de la contabilidad analítica, se interesa en la gestión de las
+inversiones, del ciclo de vida del producto y en los indicadores de gestión. Los progresos
+logrados: calidad total, just-in-time, benchmarking, costes objetivos…, reclaman nuevos
+principios capaces de dar una base y un marco unificador a las técnicas e instrumentos de
+gestión característicos de las nuevas formas de gestión
+A continuación, conviene resumir, sin más pretensión que facilitar la comprensión de
+la práctica del control en la empresa actual, los rasgos que caracterizan al «control de gestión
+tradicional», frente a los criterios que orientan la gestión actual.
+10
+
+=== PAGE 11 ===
+Tema 1. Introducción a los sistemas de planificación y control de la empresa.
+1.2.2 Las bases del control de gestión tradicional
+• Las bases del control de gestión tradicional, se encuentran asociadas con el
+nacimiento y desarrollo de los métodos implantados durante la segunda mitad del siglo XIX
+en la gestión de las grandes empresas industriales de Estados Unidos (Du Pont, General
+Motors, General Electric) por la influencia de los métodos incorporados por F.Taylor. Desde
+que en 1907 Donaldson Brow introdujo en Du Pont, la tasa R.O.I., vinculando el margen
+sobre la cifra de ventas, con la rotación de los activos, fue posible disponer de un modelo
+único, global y coherente, capaz de proporcionar una imagen económica completa de la
+empresa, ya que incorporaba los diversos tipos de contabilidad utilizados hasta entonces de
+forma separada (Contabilidad financiera y Contabilidad de costes). Como describe P.Lorino:
+«El edificio integrado "contabilidad general - contabilidad analítica - control de las
+operaciones a través de los costes - control de las inversiones a través de la rentabilidad",
+se había instituido en ese momento. Este edificio, todavía hoy, sirve de base a la gestión
+de la empresa y, por tanto, a la actividad encargada de vigilar la calidad de esta gestión:
+el control de gestión».
+• Cuatro principios (taylorianos), caracterizan este sistema de gestión:
+- Principio 1. La estabilidad.
+Los mecanismos de performance, los saberes operacionales que permiten ser eficaz,
+son estables en el tiempo. (Permanencia de los estándares)
+- Principio 2. Información perfecta
+El decisor (gerente/empresario) tiene, sobre los mecanismos de performance del
+sistema que dirige, una información perfecta. (Establecimiento de los estándares)
+- Principio 3. La performance productiva se identifica con minimizar el coste
+Ya que la eficacia económica de una firma reside en su aptitud de proporcionar el
+máximo valor a sus producciones, consumiendo el mínimo de factores, cuando el valor de la
+producción está garantizado (mercado dominado por los oferentes), será suficiente
+minimizar el coste para asegurarse la eficacia económica.
+- Principio 4. El coste global es equivalente al coste de un factor dominante.
+Existe un factor determinante en la estructura de los recursos que se consumen en la
+empresa. Su consumo y su coste rigen las variaciones del coste global. Se acepta como
+esencial que, con independencia de cuál sea dicho factor determinante, hay un factor-clave
+(la mano de obra directa) que sirve de base a los procedimientos de asignación y medición
+del conjunto de los costes.
+11
+
+=== PAGE 12 ===
+Apuntes de Control de Gestión
+Corolarios:
+A) Existencia de un modelo de productividad industrial basado en la combinación de
+los principios 3 y 4, que conduce a la conclusión de que la performance de la empresa
+consiste en minimizar el coste del factor dominante.
+Ya que el producto (outputs) del trabajo se mide por el tiempo estándar requerido
+para su obtención (lo que permite superar la heterogeneidad de las producciones) y el coste
+(inputs) está medido en horas reales, la productividad queda determinada por el ratio entre
+esas dos cifras.
+B) Existencia de un modelo de control basado en la combinación de los principios 1
+y 2, conduce a la conclusión de que el diagnóstico, la comprensión del sistema y de su
+performance, están predeterminados fuera del modelo de control.
+Ya que la pertinencia de la medida (qué se precisa medir, y por qué) está fuera del
+sistema (es un dato), el objeto del control está simplemente en asegurar que los
+comportamientos reales son acordes con el óptimo prefijado (productividad de la mano de
+obra directa, desviaciones con el presupuesto, o con los costes estándares, etc.).
+C) La contabilidad, como herramienta, se condiciona a la rendición de cuentas, ya
+que, condicionados por la necesidad de elaborar para los usuarios externos unos informes
+con cifras indiscutibles, los responsables de las mediciones han tendido a apoyarse en la
+objetividad de los datos contables, en perjuicio de la relevancia de la información elaborada.
+1.2.3 Las nuevas bases de la competitividad actual
+• Los principios taylorianos, que como se acaba de indicar permitieron fundamentar
+los modelos de medida de la performance (productividad) y de control, son difíciles de
+adaptar a una situación de mundialización de los mercados, que evolucionan con una gran
+rapidez, al mismo tiempo que la aceleración en la innovación tecnológica, que niega la
+validez en el momento actual de los principios 1 y 2. Por otra parte, el mercado dominado
+por los oferentes, propio de la etapa anterior, ha dado paso a mercados dominados por los
+demandantes, de modo que la medida de la performance fundamentada exclusivamente por
+el coste, tiene que dar paso a modelos más complejos, en los que, además del coste, se
+recojan otras variables como el tiempo o la calidad. Finalmente, la innovación tecnológica
+ha cambiado profundamente la organización de la producción, aumentando el grado de
+automatización y robotización de las tareas elementales, dando un mayor peso a otros
+12
+
+=== PAGE 13 ===
+Tema 1. Introducción a los sistemas de planificación y control de la empresa.
+factores productivos distintos de la mano de obra directa, lo que convierte en obsoletos, los
+principios 3 y 4 que fundamentaban el anterior modelo de evaluación.
+• 1.- El nuevo modelo de control, deja de basarse en la estabilidad y la información
+perfecta, para que sea el diagnóstico permanente, lo que permita responder a la empresa ante
+una innovación permanente. El siguiente gráfico muestra el cambio en la acción retroactiva
+del proceso de control-evaluación, entre el modelo convencional (A) y el modelo actual (B).
+DIAGNOSTICO
+DIAGNOSTICO
+CONTROL
+CONTROL
+EVALUACION
+EVALUACION
+Figura A
+Figura B
+• 2.- Se constata que las decisiones pasan a adoptarse sin disponer de información
+perfecta, sino limitada, ya sea por la incertidumbre del propio cambio futuro, ya sea por la
+complejidad de los problemas abordados, de tal forma que la exactitud o precisión de los
+datos ha de ceder la prioridad a la pertinencia de la información. Pero también se constata,
+que en la situación actual, es imposible que un solo individuo posea toda la información, de
+forma que todo el personal ha de participar en el proceso de mejora.
+Personal
+Ejecutivo
+Personal
+Operativo
+Personal
+Ejecutivo Personal
+Operativo
+PLAN
+PLAN
+PLAN
+ACT
+DO
+ACT
+ACT DO
+CHECK
+CHECK
+CHECK
+Figura C Figura D
+13
+
+=== PAGE 14 ===
+Apuntes de Control de Gestión
+La diferenciación tayloriana entre el personal directivo y operacional (unos piensan
+otros ejecutan) de la figura C, da paso a una organización (figura D) en la que la información
+está compartida y supone la introducción de una modificación en la concepción del mismo
+ciclo de mejora (Plan-Do-Check-Act.), como se muestra en el gráfico siguiente.
+• 3.- Gestionar el valor, como alternativa a gestionar los costes, es una consecuencia
+del cambio sufrido por los mercados. Pero a diferencia del coste, el valor no se puede medir
+directamente y de forma objetiva salvo en el momento de la venta. No obstante, se puede
+estimar indirectamente a través de algunas características tales como la calidad, la gama del
+producto, el plazo de entrega, la innovación (renovación de las gamas), la eficacia de su
+servicio post-venta.. La mayoría de estos componentes del valor han de medirse con la
+ayuda de indicadores de gestión (financieros y no financieros). La construcción de sistemas
+de estos indicadores (un caso es el Balanced Scorecard) está llamada a operativizar la
+gestión del valor, siempre que se identifique con precisión las características cualitativas que
+atribuyen, en opinión de los clientes, el valor a cada producto. Como señala P.Lorino:
+«Gestionar el valor, es un poco como gestionar la salud de un individuo: no se mide
+con una cifra, pero se puede seguir con un determinado número de indicadores».
+• 4.- Gestionar el cambio, del mismo modo que el cambio en la orientación de los
+mercados ha llevado a la necesidad de que la empresa haya de gestionar el valor, puede
+decirse que el cambio continuo en la forma de organizar la producción, consecuencia del
+progreso tecnológico, de la mejora en la cualificación laboral y del posicionamiento
+estratégico, ha llevado a la empresa a gestionar el cambio. Pero esta gestión del cambio, no
+debe limitarse a gestionar, habida cuenta de los cambios que se producen, sino que la propia
+empresa ha de incluir dentro de sus objetivos, la consecución de los cambios que serán
+favorables a sus intereses.
+• En resumen, el control de gestión en la actualidad se presenta, ante todo, como un
+conjunto de técnicas de comunicación sobre la performance de cada organización. La
+comunicación debe ser permanente, ya que los objetivos (targets) no cesan de moverse.
+Ninguna de las herramientas del control de gestión tiene, por sí misma, asegurada su
+pertinencia de forma definitiva, de ahí, que la relevancia de todo informe debe ser verificada
+y, si es necesario, reconstruida.
+14
+
+=== PAGE 15 ===
+Tema 1. Introducción a los sistemas de planificación y control de la empresa.
+1.3. CONTROL DE GESTIÓN Y CONTROL PRESUPUESTARIO.
+1.3.1. Aspectos definitorios del control de gestión
+Para diseñar el sistema de control de gestión, debe recordarse las siguientes
+generalizaciones que se desprenden del esquema de referencia del cuadro nº 1:
+1.- El control administrativo se refiere a operaciones corrientes, ya que objetivos,
+políticas, estructura orgánica, líneas de productos, localización y capacidad de las
+instalaciones, etc. se determina en la planificación estratégica.
+2.- Los sistemas de control de gestión deberían ser coordinados o integrados, de
+modo que deberían diseñarse como un conjunto de subsistemas articulados, en vez de como
+un sistema único.
+3.- El control de gestión, al abarcar la totalidad de la empresa, con escasas
+excepciones, utiliza sistemas cuya estructura financiera permite superar, mediante su
+conversión en dinero, la heterogeneidad de los factores y productos que intervienen en la
+explotación.
+4.- Aunque los sistemas de control de gestión descansan sobre estructuras
+financieras, el resultado o el efectivo generado no puede constituir la única base de
+evaluación, y en muchas ocasiones, ni siquiera será la más importante. Otras mediciones
+cuantitativas como cuota de mercado, productividad, unidades de producción..., incluso
+mediciones cualitativas como calidad, imagen, cooperación tendrán que utilizarse.
+5.- Una parte importante del proceso de control de gestión es informal. Se realiza
+mediante informes internos, circulares, reuniones, conversaciones, y otras expresiones o
+signos de comunicación que difícilmente pueden someterse a un procesamiento sistemático.
+Dado que los sistemas informales no requieren ser diseñados, ya que surgen
+espontáneamente en las organizaciones, centraremos el interés en los sistemas formales del
+control de gestión, para lo que es necesario analizar la estructura del control de gestión.
+15
+
+=== PAGE 16 ===
+Apuntes de Control de Gestión
+1.3.2. Estructura del proceso de control de gestión
+Una de las presentaciones más formalizada del sistema del control de gestión es la
+que utilizan Anthony y Young en su obra "Management control in Nonprofit Organizations"
+quienes asumiendo la estructura cíclica de este proceso distinguen las siguientes fases:
+Programación (planificación). En la fase de programación, se adoptan las decisiones
+sobre la actuación que la empresa, de acuerdo con la planificación estratégica, tiene previsto
+acometer en el periodo siguiente. Generalmente esta programación se realiza por producto,
+por departamento (actividad o función), y por factor. Se prevén las cantidades de cada
+recurso que se dedicarán para realizar las actividades de explotación, y las unidades de
+producto que se conseguirán con dichas actividades, especificando el modo y calendario al
+que se ajustarán las adquisiciones, consumos, producciones, y ventas de factores y/o
+productos, teniendo en cuenta la capacidad instalada y la demanda previsible.
+Planificación
+Estratégica
+Programación
+Propuesta de
+nuevas estrategias
+Revisión de la
+programación
+Comunicación de
+información y
+Evaluación
+Revisión de
+los criterios
+y normas
+Acción correctora
+sobre las actividades
+actuales y revisión del
+sistema de medición
+Formulación
+coordinada de
+previsiones
+Ejecución y
+Medición
+Figura 2
+Formulación coordinada de previsiones (Fijación de criterios y normas). En esta
+fase la planificación resultante del proceso de programación se ha de expresar en términos
+de responsabilidad de los encargados de ejecutar la actividad. Es esencialmente una fase de
+negociación entre los directores de los centros de responsabilidad y sus superiores, en el que
+se alternan los procesos de comunicación de arriba-abajo, directrices sobre lo que la alta
+dirección quiere que sea la actividad de los centros, con las comunicaciones de abajo-arriba,
+sobre las posibilidades de actuación presentadas por los directores de los centros en función
+de los recursos disponibles. Estos compromisos, aunque pueden expresarse en términos no
+16
+
+=== PAGE 17 ===
+Tema 1. Introducción a los sistemas de planificación y control de la empresa.
+monetarios, generalmente se expresan en términos monetarios, sobre todo cuando se
+establecen de forma total e integrada para todas las actividades de explotación durante un
+periodo de tiempo, en forma de presupuesto de operaciones.
+Ejecución y Medición. (Acción y Registro de actividades). Mientras se realizan las
+actuaciones planeadas, la gerencia supervisa su ejecución y registra los recursos utilizados,
+las actividades realizadas, la producción obtenida, etc. El modelo contable convencional,
+generalmente, es utilizado para estas mediciones.
+Comunicación de la Información y Evaluación. (Control). El sistema de
+información contable, incluyendo otra información, permite elaborar, interpretar y
+comunicar a la gerencia lo que ocurre en la empresa y en qué medida se están logrando las
+actuaciones previstas. Estos informes suelen presentarse de forma que sea posible comparar
+las actividades previstas con las actividades realizadas para conseguir:
+a) Mantener las actividades actuales "bajo control", es decir, permite comprobar que
+las actividades se están realizando de forma coordinada y de acuerdo con las normas
+establecidas, de modo que la acción correctora de la dirección se concentre, de acuerdo con
+el principio de dirección por excepción, en los efectos negativos que para la consecución de
+los objetivos de la empresa tengan las desviaciones constatadas.
+b) Servir de base para evaluar los resultados de las actuaciones realizadas, es decir,
+permite asignar responsabilidades a la dirección y constituir la base en que se apoye tanto
+una crítica constructiva sobre la ejecución, como para, en su caso, promover, confirmar,
+reasignar o cesar a los responsables.
+c) Servir de base para evaluar la adecuación del sistema de control de gestión, es
+decir, permite determinar cuando el programa con que se está actuando no conduce a los
+objetivos previstos, sea como consecuencia de errores cometidos en las fases de
+planificación y coordinación, sea por cambios sobrevenidos que requieran una acción
+revisora de todo el proceso.
+1.3.3. Control presupuestario y sistemas de control de gestión
+El control presupuestario, como precisa R.Anthony, constituye una parte importante
+del proceso de control de gestión, aunque como señala F. Blanco Illescas, no debe
+confundirse con él.
+17
+
+=== PAGE 18 ===
+Apuntes de Control de Gestión
+El proceso presupuestario permite mostrar de forma más diáfana, el carácter rítmico
+de ambos procesos, que siguen unas pautas y una periodicidad que se repiten de una forma
+predefinida.
+El presupuesto, como documento que recoge el plan de acción expresado en términos
+cuantitativos y dotado de una estructura financiera, que guía y evalúa las actuaciones de los
+responsables de una organización, es el resultado de un proceso de negociación tendente a
+conseguir los objetivos de la empresa de forma eficiente y eficaz.
+Su estructura financiera está basada en el modelo contable, y en la medida que
+incluye la incidencia de los gastos e ingresos relativos a las actividades previstas, se
+fundamenta en los sistemas de costes, siendo especialmente útiles para fines de
+comparación, los sistemas de coste estándar.
+Además, el carácter altamente formalizado del proceso de control presupuestario,
+permite, de forma similar a lo que ocurre, con respecto al sistema de información contable,
+con la elaboración de los planes de cuentas en la empresa, elaborar el correspondiente
+manual donde se precise: el procedimiento a seguir en cada fase, los niveles de decisión o
+personas que deben ser consultadas, los responsables de hacer propuestas, elaborar los
+cálculos, supervisarlos, etc. las fechas en que cada etapa debe estar culminada, proceso de
+aprobación, proceso de revisión, etc.
+Finalmente, el presupuesto constituye un elemento básico en el proceso de control
+financiero, entendido como sistema de control de gestión basado en la evaluación de los
+directores de los centros de responsabilidad a través del resultado obtenido en sus divisiones.
+1.3.4. El ciclo del proceso presupuestario.
+Antes de describir el ciclo presupuestario hay que explicitar algunos aspectos que
+condicionan la utilidad del presupuesto para alcanzar los objetivos perseguidos por una
+organización.
+La estructura organizativa de la empresa debe establecer la delimitación de los
+centros de responsabilidad, de modo que la asignación de competencias a sus directores
+permita evaluar su desempeño y adoptar las acciones correctoras pertinentes. En los casos en
+que exista una estructura organizativa descentralizada, será más fácil la implantación del
+sistema presupuestario, que, a su vez, tenderá a reforzar la descentralización. Esto no quiere
+decir que el control presupuestario no pueda establecerse y ser útil en empresas con
+18
+
+=== PAGE 19 ===
+Tema 1. Introducción a los sistemas de planificación y control de la empresa.
+estructuras organizativas centralizadas, siempre que exista una adecuada asignación de
+competencias y separación de funciones que haga posible la evaluación de las actividades.
+La consideración de los factores motivacionales por los responsables de la
+organización es igualmente fundamental para lograr la aceptación generalizada del
+presupuesto. Según se indicó, el presupuesto suele alcanzar mayor eficiencia y eficacia
+cuando es el resultado de una negociación entre los diferentes niveles. Garantizar que el
+presupuesto se elabore con la participación de los distintos niveles, se utilice
+preferentemente para facilitar la ejecución de las actividades, en vez de como instrumento
+fiscalizador de las mismas, así como su capacidad para compatibilizar los objetivos
+particulares de los individuos, con los intereses generales de la organización, son principios
+básicos para el éxito de este proceso.
+El control presupuestario constituye un sistema altamente formalizado que supone
+realizar, todos los años, una serie de actividades debidamente distribuidas en el tiempo:
+- Emisión de directivas
+- Preparación de cálculos aproximados primarios,
+- Comunicación de los anteriores documentos a todos los niveles de la organización.
+- Revisiones que permitan incorporar la experiencia, expectativas y capacidad de los
+diferentes niveles de la organización
+- Su aprobación por la dirección superior.
+- Comunicación a través de los diferentes niveles de la organización del presupuesto
+aprobado.
+- Ejecución y supervisión de las actividades
+- Elaboración y comunicación de los informes sobre el resultado de su ejecución.
+- Evaluación y, en su caso, comunicación de las acciones correctoras o de revisión
+del presupuesto aprobado.
+19
+
+=== PAGE 20 ===
+Apuntes de Control de Gestión
+1.4 CLASIFICACIÓN DE LOS PRESUPUESTOS
+Ya que el proceso presupuestario que será objeto de análisis en los restantes temas de
+esta parte es el basado en la secuencia funcional de los presupuestos corrientes de la empresa
+y debido a que el objetivo de estos temas es mostrar la utilidad de los modelos de costes en
+el proceso presupuestario, las demás técnicas de presupuestación que como, por ejemplo, el
+presupuesto por programas (PPBS), o el presupuesto base cero, no se han considerado en las
+siguientes clasificaciones:
+1.4.1. Clasificación por el grado de formalización
+• Presupuestos basados en estimaciones personales que no se ajustan a ningún
+sistema formal y que quedan al margen del sistema contable.
+• Presupuestos basados en una cuenta de resultados previsional que no tiene un
+desarrollo analítico por actividades o productos y que identifican únicamente un resultado
+global de dichas actividades.
+• Presupuestos basados en la utilización de un sistema de coste estándar por
+productos y centros de responsabilidad, aprovechando las técnicas de planificación, registro
+y evaluación desarrolladas por estos sistemas de coste para fines de planificación, y control
+presupuestario.
+• Presupuestos que, como en el caso anterior, se basan en los sistemas de coste
+estándar, pero que se integran y coordinan con la planificación financiera a corto y largo
+plazo, así como con las decisiones sobre inversiones a largo plazo, y que utilizan el sistema
+contable como estructura formal de coordinación e integración de las diferentes actividades
+presupuestadas.
+1.4.2. Clasificación por el tiempo que abarcan
+Sin pretensiones de exhaustividad y para fines operativos debe distinguirse entre:
+• Presupuestos que abarcan un periodo de varios años, como el caso de los
+presupuestos para restructuración de instalaciones, cambios de líneas de producción,
+incorporación a nuevos mercados, etc. En estos casos el presupuesto se convierte en un
+instrumento esencial para apoyar las decisiones de la planificación estratégica.
+20
+
+=== PAGE 21 ===
+Tema 1. Introducción a los sistemas de planificación y control de la empresa.
+• Presupuestos que abarcan la planificación y control de las actividades del ejercicio
+contable (año).
+• Presupuestos que abarcan un periodo inferior al año, y que generalmente son una
+consecuencia de la división por periodos elementales (semanas, meses) del presupuesto
+anual. Es frecuente dividir, para el primer trimestre, el presupuesto anual por meses y
+mantener las cifras trimestrales para los restantes trimestres, de modo que la división por
+meses se realice, cuando al finalizar un mes se incorporan los datos del mes siguiente,
+aumentando la precisión de las estimaciones.
+• Presupuestos continuos en los que se mantiene siempre disponible una previsión de
+doce meses, ya que se añade un mes o un trimestre a medida que el mes o trimestre se
+termina. En este caso se obliga constante a la gerencia a considerar las previsiones
+establecidas para doce meses.
+1.4.3. Clasificación funcional de los presupuestos y su articulación en el presupuesto
+maestro o presupuesto general.
+PRESUPUESTO MAESTRO
+Presupuesto de operaciones: Presupuesto financiero:
+Presupuesto de ventas Presupuesto de tesorería:
+Presupuesto de producción: - Entradas por:
+- Materiales Operaciones corrientes
+- Mano de obra Operaciones de capital
+- Costes indirectos de producción. - Salidas por:
+- Niveles de inventarios Operaciones corrientes
+Presupuesto de producción vendida Operaciones de capital
+Presupuesto de gastos de venta
+Presupuesto de gastos de admón.
+ESTADOS CONTABLES PREVISIONALES
+Cuenta de Resultados previsional
+Balance de situación previsional
+Estado de origen y aplicación de fondos previsional
+Figura 3
+21
+
+=== PAGE 22 ===
+Apuntes de Control de Gestión
+1.5 EL CONCEPTO DE PRESUPUESTO MAESTRO Y LA GESTION
+CORRIENTE DE LA EMPRESA.
+1.5.1. Estructura secuencial para elaborar el presupuesto maestro
+Previsión de ventas
+Presupuesto de Ventas
+Programación de
+la Actividad
+Programación de
+la Producción
+COSTE ESTANDAR
+Presupuesto de
+Compra de Mat.
+Presupuesto de
+M. O. D.
+Presupuesto de
+C. I. P.
+Presupuesto de
+Inventarios
+Finales
+Presupuesto de
+Coste de
+Ventas
+Presupuesto de
+Gastos de
+Admon. y Venta
+Previsión
+de Cobros
+PRESUPUESTO
+DE TESORERIA
+Previsión
+de pagos
+CONTABILIDAD PREVISIONAL
+Balance de
+situación inicial
+Balance de Comprobación
+Cuenta de Rdos.
+Previsional
+Balance de situac.
+Previsional
+E. O. A. F.
+Previsional
+Figura 4
+Aunque, tal como se aprecia en el esquema representativo, contenido en la figura 4, ó
+en la resolución del ejemplo de aplicación propuesto, este proceso puede considerarse como
+un cálculo automático a partir de los datos que se facilitan, no debe olvidarse que para llegar
+a dichos datos, se habrán tomado por la dirección las decisiones sobre política de ventas,
+líneas de productos, inversiones de capital, organización del proceso de producción,
+delimitación de los centros de responsabilidad, política de personal, etc.
+22
+
+=== PAGE 23 ===
+Tema 1. Introducción a los sistemas de planificación y control de la empresa.
+1.5.2. El presupuesto maestro como herramienta de coordinación de los presupuestos
+corrientes.
+El presupuesto maestro permite coordinar todas las actividades del año que se hayan
+determinado previamente en los presupuestos funcionales aprobados, de modo que sea
+posible, al final, elaborar los estados contables previsionales que muestran de forma global
+el resultado de la planificación realizada para el próximo periodo de acuerdo con los
+objetivos generales de la empresa.
+23
+
+=== PAGE 24 ===
+Apuntes de Control de Gestión
+1.6 LA INTEGRACIÓN DEL SISTEMA DE CONTROL. PLANIFICACIÓN
+CONTABLE E INFORMÁTICA.
+En el primer epígrafe de este tema se ha tenido ocasión de analizar el papel que
+desempeña el sistema de información como soporte del sistema de control de gestión.
+También se ha tenido ocasión de recordar la importancia que el sistema contable tiene en la
+configuración del sistema de información en las empresas del que, habitualmente, constituye
+la parte nuclear y, por ello, más fuertemente formalizada.
+También se ha tenido ocasión de resaltar, al analizar las características de los tres
+niveles de toma de decisiones (estratégico, gestión y operativo) existentes en la empresa, las
+diferencias de su ámbito de referencia (toda la empresa en su conjunto, toda la empresa pero
+analizada por funciones, cada proceso o agrupación técnica de operaciones y/o actividades),
+lo que refuerza la necesidad de dotar al sistema de control de gestión de una estructura
+modular, integrable para el conjunto de la organización, y que sea compatible con la
+evolución de la organización en el tiempo y en el espacio, lo que equivale a reforzar en el
+sistema de control de gestión las cualidades de integración, flexibilidad y adaptabilidad
+como requisitos para conseguir la eficacia y la eficiencia.
+La figura 5 permite visualizar los conceptos antes descritos, en la que a cada unidad
+de decisión, al menos desde un punto de vista teórico, le corresponde un módulo de control
+de gestión, que debe ser susceptible de integración con los restantes módulos que configuran
+toda la organización. (Por razones de sencillez se ha preferido partir de la clasificación
+funcional básica que utiliza el grupo 9 del PGC, sin que con ello se quiera condicionar la
+estructura organizativa de la empresa, que por supuesto es mucho más variada y compleja).
+En la actualidad el sistema contable de cualquier empresa, por pequeña que sea, se
+encuentra generalmente informatizado, de forma que ha sido necesario proceder previamente
+a una normalización y racionalización de numerosas tareas operativas y administrativas,
+incluyendo la adopción de un plan de cuentas (generalmente el vigente para dicho sector
+económico en el país en cuestión).
+El mismo proceso de racionalización de muchas de esas tareas conduce a la
+integración entre los programas informáticos de contabilidad y los programas implantados
+para gestionar las compras, o una parte cada más significativa de la producción, o la propia
+24
+
+=== PAGE 25 ===
+Tema 1. Introducción a los sistemas de planificación y control de la empresa.
+facturación a los clientes, y llega a incluir, por supuesto, los programas de cobros y pagos
+derivados de estas operaciones, esto es, el propio presupuesto de tesorería corriente.
+E S T R A T E G I C O
+Aprovisionamiento
+Producción
+Comercialización
+Administración
+Estratégico
+T A C T I C O
+Aprovisionamiento
+Producción
+Comercialización
+Administración
+O P E R A T I V O
+Corriente
+real de
+factores
+Módulos integrados
+horizontal y
+verticalmente
+Sede
+central
+Unidad de
+decisión
+Datos
+Informes
+S. inf. M.A.D.
+M.Ind.G.
+de gestión Módulo de control
+Finanzas
+Directrices
+Corriente real
+de productos
+OPERATIVO
+Almacén
+Compras
+Recepc.
+Administración
+Aprovisionamiento
+Estratégico
+Producción
+Comercialización
+TACTICO
+Marketing
+Distrib.
+Postventa
+Talleres
+Diseño I.
+Figura 5
+Mientras el sistema informativo que sirve de base para definir los módulos de control
+de gestión esté más dominado por el sistema contable, menos peso tendrá en dichos módulos
+la incorporación de modelos de apoyo a la gestión (M.A.D.), y/o de modelos de indicadores
+de gestión diferentes a los utilizados en el análisis del resultado contable, por lo que resultará
+más fácil la implantación en la empresa de esta clase de sistemas de control de gestión, así
+como conseguir la integración de todos los módulos resultantes.
+Sin embargo, debido a las propias características del sistema contable convencional,
+cuyo diseño responde a la "regulación mercantil de la obligación de rendición de cuentas de
+los administradores de los negocios, ante los agentes económicos que tienen reconocido el
+25
+
+=== PAGE 26 ===
+Apuntes de Control de Gestión
+derecho a la información sobre la actividad económica realizada por dichos negocios", hace
+muy difícil que estos sistemas de información tenga la amplitud (no solo datos sobre
+realizaciones, sino también sobre la potencialidad del negocio) y la flexibilidad para
+adaptarse a los modelos de control que se requieren en la actualidad.
+En efecto, la excesiva rigidez de los modelos de gestión resultantes en este caso,
+tanto para reflejar la diversidad de circunstancias a que se ha de someter la actividad
+económica que realiza una unidad de decisión, en función de la gran diversidad con que se
+pueden organizar sus actividades económicas, como para adaptarse a la rápida evolución en
+el tiempo de las propias unidades de decisión, acaba invalidando las ventajas que los hacían
+más accesibles a la mayoría de las empresas, debido a su más fácil integración, mayor
+objetividad y limitación de los datos tratados.
+Precisamente, al aumentar la complejidad de los negocios, evolucionar con más
+rapidez la tecnología, acelerarse el proceso de globalización de los mercados, etc. crece el
+interés en disponer de un sistema de información para la gestión, que además de los datos
+contables, sea capaz de incorporar información sobre el entorno en que actúa la empresa, no
+solo para guiar y apoyar las decisiones gerenciales y operativas, sino ante todo para tomar
+las decisiones estratégicas que le garanticen su posición de ventaja competitiva sostenible.
+En este caso, el sistema de información que fundamente cada modulo del control de
+gestión habrá de integrar, junto al sistema de información contable, las bases de datos sobre
+el entorno económico que rodea a la empresa, y que puede verse favorecido con la conexión
+de su sistema informático con otros sistemas informáticos externos a la empresa y, así,
+acceder, ya sea a las bases de datos generales, ya a los ficheros de otras empresas u
+organizaciones con las que negocia a través de redes informáticas y demás aplicaciones de
+comunicación como: EDI, Internet, o recurriendo a la formación de su propia red particular
+dentro de la anterior (Intranet).
+Finalmente, debe destacarse que el proceso de integración de los diferentes módulos,
+correspondientes a distintas unidades de decisión, sobre todo en el caso de que éstas
+correspondan a niveles de decisión diferentes, se hace especialmente complejo, dado que
+existe un grado de formalización muy diferente en cada una de las bases de datos que
+alimentan los distintos sistemas de información, modelos de apoyo a la dirección, y modelos
+de indicadores de gestión, para que sean relevantes en cada módulo de control de gestión.
+26

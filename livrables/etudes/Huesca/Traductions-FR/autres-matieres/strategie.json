@@ -1,0 +1,658 @@
+{
+  "title": "Direction stratégique",
+  "original": "Dirección estratégica",
+  "documents": [
+    {
+      "title": "Chapitre 1 · Avantage concurrentiel et création de valeur",
+      "source": "Transparencias Tema 1 2024-25.pdf",
+      "pages": [
+        {
+          "p": 1,
+          "title": "Avantage concurrentiel et création de valeur",
+          "text": "Chapitre 1. Direction stratégique.\n© L. Fuentelsaz, J. Gómez et J. Maícas."
+        },
+        {
+          "p": 2,
+          "title": "Plan et bibliographie",
+          "text": "1.1. Introduction\n1.2. Qu’est-ce qu’un avantage concurrentiel ?\n1.3. Approches de la mesure de l’avantage concurrentiel\n1.4. Bénéfice économique et bénéfice comptable\n1.5. Le triple bilan\n\n**Bibliographie :** Navas, J. E. et Guerras, L. A. (2015), chap. 2, p. 73–106 ; édition 2022, chap. 3, p. 114–126. Grant, R. (2014), chap. 2, p. 61–91. Barney, J. B. et Hesterly, W. S. (2006), chap. 1, p. 2–31. Rothaermel (2021), chap. 5, p. 154–189 ; p. 144–178 dans la 4e édition, p. 112–135 dans la 3e."
+        },
+        {
+          "p": 3,
+          "title": "1.1. Introduction",
+          "text": "1.1. Introduction\n1.2. Qu’est-ce qu’un avantage concurrentiel ?\n1.3. Approches de la mesure de l’avantage concurrentiel\n1.4. Bénéfice économique et bénéfice comptable\n1.5. Le triple bilan"
+        },
+        {
+          "p": 4,
+          "title": "Objectifs",
+          "text": "1. Reconnaître l’importance de créer de la valeur dans l’entreprise.\n2. Identifier l’avantage concurrentiel comme concept central de la stratégie.\n3. Aborder ce concept dans ses différentes dimensions.\n4. Illustrer les différences entre bénéfice comptable et bénéfice économique (boursier)."
+        },
+        {
+          "p": 5,
+          "title": "La création de valeur en pratique",
+          "text": "« Nestlé est la multinationale de l’industrie alimentaire pionnière dans l’adoption d’une stratégie de valeur partagée intégrée à son modèle économique depuis dix ans. »\n\n« Nous ne fusionnerons avec Sabadell que s’il y a création de valeur. » Onur Genç, directeur général de BBVA.\n\n« Un indicateur fondamental de notre réussite est la valeur que nous sommes capables de créer pour nos actionnaires à long terme. » Jeffrey P. Bezos.\n\n« Nous nous sommes engagés à créer de la valeur… à travers le Plan directeur de création de valeur partagée 2020. » Tomás Pascual.\n\n« La meilleure façon de créer de la valeur au XXIe siècle est de relier la technologie à la créativité. » Steve Jobs.\n\nCitations et contexte historique reproduits du support."
+        },
+        {
+          "p": 6,
+          "title": "1.2. Qu’est-ce qu’un avantage concurrentiel ?",
+          "text": "1.1. Introduction\n1.2. Qu’est-ce qu’un avantage concurrentiel ?\n1.3. Approches de la mesure de l’avantage concurrentiel\n1.4. Bénéfice économique et bénéfice comptable"
+        },
+        {
+          "p": 7,
+          "title": "L’exemple Apple",
+          "text": "Selon les chiffres présentés dans le support, Apple représente :\n- 13 % des unités vendues dans le monde ;\n- 40 % du chiffre d’affaires total du secteur ;\n- 75 % du bénéfice total.\n\nCes proportions illustrent la différence entre volume vendu et valeur captée."
+        },
+        {
+          "p": 8,
+          "title": "Parts des fabricants de smartphones",
+          "image": "strategie1-p08"
+        },
+        {
+          "p": 9,
+          "title": "Définition de l’avantage concurrentiel",
+          "text": "Une entreprise possède un **avantage concurrentiel** (*competitive advantage*) par rapport à un ou plusieurs concurrents lorsqu’elle est capable de créer davantage de valeur qu’eux."
+        },
+        {
+          "p": 10,
+          "title": "Avantage, parité et désavantage",
+          "text": "Un avantage concurrentiel peut être :\n- **Temporaire** : il ne dure qu’une courte période.\n- **Durable** : il se prolonge dans le temps.\n\n**Parité concurrentielle** : l’entreprise crée autant de valeur que ses concurrents.\n\n**Désavantage concurrentiel** : elle crée moins de valeur que ses concurrents. Il peut être temporaire ou durable."
+        },
+        {
+          "p": 11,
+          "title": "Les implications pour les décisions",
+          "text": "1. **Prendre de bonnes décisions.** Obtenir une rentabilité supérieure au coût des ressources utilisées. Les concurrents influencent généralement notre rentabilité. Comment la mesurer : en termes économiques, comptables ou boursiers ?\n2. **Raisonner sur les attentes futures, et non sur le passé.** Le futur est incertain : la rentabilité attendue s’accompagne d’un risque qu’il faut connaître, accepter et, si possible, maîtriser. Les attentes doivent être réalistes et atteignables, les responsables doivent s’engager et des mécanismes de suivi sont nécessaires.\n3. **Mobiliser toute l’organisation.** L’avantage concurrentiel constitue une mission collective."
+        },
+        {
+          "p": 12,
+          "title": "Deux tâches pour l’équipe dirigeante",
+          "text": "L’avantage concurrentiel suppose un bénéfice ou une rentabilité supérieurs à ceux des autres concurrents du secteur. Il faut donc :\n- mesurer correctement le bénéfice de son entreprise ;\n- le comparer à celui des concurrents ou à une moyenne du secteur.\n\nCela conduit aux différentes approches de la mesure de l’avantage concurrentiel."
+        },
+        {
+          "p": 13,
+          "title": "1.3. Mesurer l’avantage concurrentiel",
+          "text": "1.1. Introduction\n1.2. Qu’est-ce qu’un avantage concurrentiel ?\n1.3. Approches de la mesure de l’avantage concurrentiel\n1.4. Bénéfice économique et bénéfice comptable\n1.5. Le triple bilan"
+        },
+        {
+          "p": 14,
+          "title": "Trois approches de mesure",
+          "text": "1. La valeur économique.\n2. Le bénéfice comptable.\n3. La valeur pour l’actionnaire."
+        },
+        {
+          "p": 15,
+          "title": "La valeur économique",
+          "text": "Une entreprise possède un avantage concurrentiel lorsqu’elle crée davantage de valeur économique que ses concurrents.\n\nLa **valeur économique** est la différence entre le bénéfice perçu par le consommateur, c’est-à-dire le montant maximal qu’il est prêt à payer pour le produit (**V**), et le coût de ce produit (**C**).\n\n**Valeur économique créée = V − C.**\n\nL’ampleur de l’avantage concurrentiel correspond à la différence entre la valeur créée par l’entreprise et celle créée par ses concurrents."
+        },
+        {
+          "p": 16,
+          "title": "Création et partage de la valeur",
+          "image": "strategie1-p16"
+        },
+        {
+          "p": 17,
+          "title": "Créer et capter la valeur",
+          "image": "strategie1-p17"
+        },
+        {
+          "p": 18,
+          "title": "Deux sources d’avantage concurrentiel",
+          "image": "strategie1-p18"
+        },
+        {
+          "p": 19,
+          "title": "Limites pratiques de la valeur économique",
+          "text": "Comprendre la création de valeur économique est un bon point de départ pour comprendre l’avantage concurrentiel. Toutefois :\n1. Déterminer la valeur d’un produit aux yeux du consommateur n’est pas simple.\n2. Cette valeur n’est pas unique : elle varie selon les préférences, le moment, etc.\n3. Évaluer l’avantage concurrentiel d’une entreprise exige d’estimer la valeur créée par tous ses produits et services, ce qui complique le processus."
+        },
+        {
+          "p": 20,
+          "title": "Passer à des chiffres utilisables",
+          "text": "Le concept de valeur économique est intuitif et utile pour mesurer l’avantage concurrentiel. En pratique, les dirigeants ont toutefois besoin de **chiffres concrets** (*hard numbers*) pour l’approcher. Deux possibilités :\n- les indicateurs comptables ;\n- les indicateurs boursiers."
+        },
+        {
+          "p": 21,
+          "title": "Le bénéfice comptable",
+          "text": "Approcher l’avantage concurrentiel à travers la rentabilité comptable consiste à utiliser des mesures standard issues des états financiers publiés par les entreprises."
+        },
+        {
+          "p": 22,
+          "title": "Indicateurs comptables",
+          "text": "Le support présente les indicateurs suivants sous l’intitulé « indicateurs fondés sur les flux de trésorerie » :\n- bénéfice avant intérêts et impôts ;\n- bénéfice après intérêts et impôts ;\n- bénéfice avant intérêts, impôts, dépréciations et amortissements (**EBITDA**)."
+        },
+        {
+          "p": 23,
+          "title": "Les bénéfices comptables en comparaison",
+          "image": "strategie1-p23"
+        },
+        {
+          "p": 24,
+          "title": "Comparer les bénéfices",
+          "text": "Les chiffres de la page précédente sont-ils directement comparables ?\n\n**Il faut corriger l’effet de la taille des entreprises.**"
+        },
+        {
+          "p": 25,
+          "title": "Ratios de rentabilité",
+          "text": "**Rentabilité économique (ROA)** = bénéfice avant intérêts et impôts / total de l’actif.\n\n**Rentabilité financière (ROE)** = bénéfice après intérêts et impôts / capitaux propres.\n\n**Marge brute** = (ventes − coût des ventes) / ventes.\n\n**Bénéfice par action (EPS)** = bénéfice après impôts / nombre d’actions.\n\n**Price earnings ratio (PER)** = valeur de marché par action / bénéfice par action.\n\n**Flux de trésorerie par action**, selon la formule du support = (bénéfice après impôts + dépréciation) / nombre d’actions."
+        },
+        {
+          "p": 26,
+          "title": "Tenir compte du temps et du secteur",
+          "text": "Toutes les entreprises sont-elles directement comparables ?\n\n**Il faut corriger l’effet de l’horizon temporel et du secteur d’activité.**"
+        },
+        {
+          "p": 27,
+          "title": "Évolution de la rentabilité économique",
+          "image": "strategie1-p27"
+        },
+        {
+          "p": 28,
+          "title": "Les dix entreprises Fortune 500 les plus bénéficiaires en 2015",
+          "image": "strategie1-p28"
+        },
+        {
+          "p": 29,
+          "title": "Comparaison 2015 et 2020",
+          "image": "strategie1-p29"
+        },
+        {
+          "p": 30,
+          "title": "ROI dans l’industrie pharmaceutique",
+          "image": "strategie1-p30"
+        },
+        {
+          "p": 31,
+          "title": "Création ou destruction de valeur",
+          "text": "Si la rentabilité obtenue par une entreprise est **supérieure à son coût du capital**, elle crée de la valeur. Si elle est inférieure, l’entreprise détruit de la valeur."
+        },
+        {
+          "p": 32,
+          "title": "Limites des indicateurs comptables",
+          "text": "- Les données comptables sont historiques : le passé ne garantit rien pour l’avenir.\n- L’information économique est disponible avec un retard important. Utiliser uniquement l’information comptable pour prendre des décisions stratégiques revient à conduire en regardant dans le rétroviseur.\n- La comptabilité ne prend pas en compte les éléments hors bilan.\n- Le support souligne qu’elle privilégie les actifs tangibles et ne reflète pas des actifs tels que la réputation, le service client ou la capacité à développer une technologie, alors que l’importance relative des actifs tangibles diminue.\n\nLa formulation du support sur les actifs est simplificatrice : le point pédagogique porte sur les actifs immatériels absents ou insuffisamment reflétés dans les comptes."
+        },
+        {
+          "p": 33,
+          "title": "La valeur pour l’actionnaire",
+          "text": "- Pour l’actionnaire, ce qui compte est la rentabilité du capital investi : **hausse du cours de l’action + dividendes reçus**.\n- Contrairement aux données comptables, ce rendement est un indicateur externe.\n- L’idée sous-jacente est que le cours de l’action intègre les informations sur le passé, la situation actuelle et les perspectives futures de l’entreprise : c’est l’**hypothèse d’efficience des marchés**.\n- Les investisseurs ajustent leurs anticipations au fil du temps."
+        },
+        {
+          "p": 34,
+          "title": "Évolution des cours des laboratoires",
+          "image": "strategie1-p34"
+        },
+        {
+          "p": 35,
+          "title": "ROI et cours boursiers",
+          "image": "strategie1-p35"
+        },
+        {
+          "p": 36,
+          "title": "Évolution des principales entreprises",
+          "image": "strategie1-p36"
+        },
+        {
+          "p": 37,
+          "title": "Pourquoi ces différences ?",
+          "text": "Il y a cinquante ans, l’activité des entreprises reposait principalement sur les actifs physiques et la fabrication et la distribution de produits matériels : électroménager, voitures, énergie, etc.\n\nAujourd’hui, les plateformes numériques, les réseaux virtuels et le traitement des données prennent une place croissante."
+        },
+        {
+          "p": 38,
+          "title": "Valeur comptable et valeur non inscrite au bilan",
+          "image": "strategie1-p38"
+        },
+        {
+          "p": 39,
+          "title": "L’importance des actifs immatériels",
+          "text": "En Espagne, selon l’étude IVIE citée, les actifs immatériels sont passés de **28 % des actifs productifs en 2004 à 34 % en 2011**. Leur poids reste inférieur à celui observé dans d’autres pays européens, d’où un potentiel de croissance.\n\n« Les actifs immatériels sont à l’économie de la connaissance ce que les machines sont à l’économie manufacturière. » Claudia Canals, La Caixa.\n\nQuels actifs ? Le capital intellectuel ; l’information (bases de données et logiciels) ; la connaissance (R&D et innovation, expérience, brevets, savoir-faire des personnes) ; le capital organisationnel (talents spécifiques, production flexible, capacité de coordination et de motivation)."
+        },
+        {
+          "p": 40,
+          "title": "Conséquences pour le financement",
+          "text": "Les banques doivent adapter leurs modèles d’évaluation et de supervision à ce nouveau profil des PME. « Le risque plus élevé des actifs immatériels entraînera une augmentation du coût de financement des entreprises. » J. Maudós.\n\nCes actifs sont généralement bien valorisés par les investisseurs en actions, mais rarement pris en compte sur les marchés du crédit et de la dette, pourtant particulièrement importants pour les PME espagnoles. Ce problème deviendra de plus en plus visible. V. Salas."
+        },
+        {
+          "p": 41,
+          "title": "Limites des indicateurs boursiers",
+          "text": "- Les cours sont très volatils, ce qui complique l’évaluation des résultats, au moins à court terme.\n- Ils dépendent de facteurs macroéconomiques : croissance, taux d’intérêt, inflation, etc.\n- Le comportement des prix peut parfois être irrationnel."
+        },
+        {
+          "p": 42,
+          "title": "Conflits d’intérêts et horizon temporel",
+          "text": "Un conflit entre actionnaires et dirigeants peut conduire à sacrifier la valeur à long terme pour des gains à court terme. Selon Asker et al. (2013), les entreprises cotées :\n- investissent moins : **4,4 % de leurs actifs**, contre **6,8 %** pour un groupe d’entreprises comparables ;\n- investissent moins en R&D, activité plus incertaine ;\n- distribuent une proportion plus élevée de dividendes.\n\nLa maximisation de la valeur pour l’actionnaire doit-elle être le cadre de référence ? Les actionnaires sont-ils les seuls propriétaires à considérer ? Qu’en est-il des salariés, fournisseurs, clients et détenteurs d’obligations ?"
+        },
+        {
+          "p": 43,
+          "title": "Conclusions sur les mesures",
+          "text": "Les indicateurs comptables et boursiers ont des limites, mais permettent d’approcher la création de valeur.\n- Les indicateurs comptables, malgré leurs imperfections, constituent un point de départ important pour analyser l’avantage concurrentiel.\n- À moyen et long terme, les indicateurs boursiers les complètent : ils reflètent notamment les attentes futures et la valeur des actifs immatériels.\n\n**Problème : toutes les entreprises ne sont pas cotées.** D’où la distinction entre bénéfice comptable et bénéfice économique."
+        },
+        {
+          "p": 44,
+          "title": "1.4. Bénéfice économique et comptable",
+          "text": "1.1. Introduction\n1.2. Qu’est-ce qu’un avantage concurrentiel ?\n1.3. Approches de la mesure de l’avantage concurrentiel\n1.4. Bénéfice économique et bénéfice comptable\n1.5. Le triple bilan"
+        },
+        {
+          "p": 45,
+          "title": "Le bénéfice comptable suffit-il ?",
+          "text": "Supposons des marchés efficients : bénéfice économique = bénéfice boursier.\n\nLe bénéfice comptable mesure-t-il la création de valeur ? Inclut-il tous les coûts supportés ? Fournit-il suffisamment d’informations pour prendre des décisions stratégiques ?"
+        },
+        {
+          "p": 46,
+          "title": "Les coûts pertinents",
+          "text": "**Bénéfice comptable = valeur des biens produits − coût explicite des ressources utilisées − amortissements.**\n\nInclut-il tous les coûts pertinents ?\n- Coût d’utilisation du capital.\n- Investissement dans les actifs immatériels.\n- Dépréciation économique.\n- Plus-values et moins-values des actifs."
+        },
+        {
+          "p": 47,
+          "title": "Mesurer le bénéfice économique",
+          "text": "On utilise des indicateurs qui corrigent le bénéfice comptable afin d’approcher la véritable création de rentes économiques.\n\n**Bénéfice économique = valeur des biens produits − coût de toutes les ressources utilisées.**\n\n**Bénéfice comptable = valeur des biens produits − coût explicite des ressources utilisées − amortissements.**"
+        },
+        {
+          "p": 48,
+          "title": "Le coût du capital",
+          "text": "Toutes les ressources utilisées par l’entreprise, humaines, physiques, financières ou en capital, ne reçoivent pas le même traitement.\n\nLe **coût du capital** est la rémunération que l’entreprise doit verser aux apporteurs de capitaux pour qu’ils investissent. C’est la rentabilité minimale nécessaire pour satisfaire deux parties prenantes importantes : les intermédiaires financiers et les propriétaires.\n\nUne entreprise est attractive si sa rentabilité dépasse ce coût. Elle obtient alors un bénéfice économique positif, dit extraordinaire ; le support rattache cette situation à l’avantage concurrentiel durable."
+        },
+        {
+          "p": 49,
+          "title": "Coût moyen pondéré du capital",
+          "text": "**CMPC (WACC) = coût moyen de la dette × (dette / actif) + coût des capitaux propres × (capitaux propres / actif).**\n\nLe coût moyen de la dette est ajusté de l’impôt comme indiqué à la page suivante.\n\nUne rentabilité supérieure au coût du capital permet d’attirer des capitaux supplémentaires, propres ou empruntés. L’entreprise dégage alors un bénéfice économique supérieur à la normale."
+        },
+        {
+          "p": 50,
+          "title": "Coût de la dette après impôt",
+          "text": "Le coût moyen de la dette représente le taux moyen payé lorsque l’entreprise finance ses investissements par emprunt. Dans le cadre présenté par le support, les charges financières sont déductibles de l’impôt sur les sociétés : on tient donc compte du taux marginal d’imposition.\n\n**Coût moyen de la dette après impôt = coût de la dette × (1 − taux marginal d’imposition).**"
+        },
+        {
+          "p": 51,
+          "title": "Coût des capitaux propres",
+          "text": "Les capitaux propres n’ont pas de coût explicite, mais ont un **coût d’opportunité** : le revenu que l’entreprise ou l’actionnaire aurait obtenu en les plaçant dans un autre investissement.\n\n**Coût des capitaux propres = taux sans risque + (rentabilité du marché − taux sans risque) × bêta.**"
+        },
+        {
+          "p": 52,
+          "title": "Estimer le coût du capital",
+          "text": "Le calcul n’est pas simple, surtout pour une entreprise non cotée. Pour une entreprise cotée, on peut s’appuyer sur :\n- **La notation de crédit**, qui apprécie la capacité à rembourser la dette. Plus le risque de défaut est élevé, moins la note est bonne.\n- **Le taux marginal d’imposition (t).**\n- **Le bêta**, présenté dans le support comme un paramètre reliant la valeur du titre à celle du marché, relativement facile à déterminer pour un titre coté.\n- **Le taux de rentabilité sans risque**, approché par le rendement de la dette à long terme.\n- **La rentabilité du marché** sur les années étudiées."
+        },
+        {
+          "p": 53,
+          "title": "Échelles de notation de crédit",
+          "image": "strategie1-p53"
+        },
+        {
+          "p": 54,
+          "title": "Notations des pays en septembre 2024",
+          "image": "strategie1-p54"
+        },
+        {
+          "p": 55,
+          "title": "Notation du Royaume d’Espagne, données 2024",
+          "text": "**Moody’s** : note à long terme Baa1 ; perspective positive ; note à court terme P-2 ; dernière révision le 15/03/2024.\n\n**Standard & Poor’s** : note à long terme A ; perspective stable ; note à court terme A-1 ; dernière révision le 15/03/2024.\n\n**Fitch** : note à long terme A− ; perspective stable ; note à court terme F1 ; dernière révision le 17/05/2024.\n\nDonnées historiques du support."
+        },
+        {
+          "p": 56,
+          "title": "Exercice : calcul du CMPC",
+          "text": "Source : Barney, J. B. et Hesterly, W. (2012).\n\nUne entreprise notée **BBB** supporte un coût de dette avant impôt de **9 %** et un taux marginal d’impôt sur les sociétés de **30 %**. Le taux sans risque est de **6 %**, la rentabilité moyenne du marché de **10 %** et le bêta de **1,2**. La dette représente **40 %** du financement.\n\n**Calculer le coût moyen pondéré du capital.**"
+        },
+        {
+          "p": 57,
+          "title": "Correction du calcul",
+          "text": "- Coût de la dette après impôt : **9 × (1 − 0,30) = 6,3 %**.\n- Coût des capitaux propres : **6 + (10 − 6) × 1,2 = 10,8 %**.\n- Le coût des capitaux propres n’étant pas fiscalement déductible dans cet exemple, son montant avant et après impôt reste identique.\n- Avec 40 % de dette et 60 % de capitaux propres : **CMPC = 0,4 × 6,3 + 0,6 × 10,8 = 9,00 %**.\n\nLa structure de financement réelle peut être beaucoup plus complexe, mais cette procédure fournit une approximation raisonnable du CMPC. Source : Barney et Hesterly (2012)."
+        },
+        {
+          "p": 58,
+          "title": "1.5. Le triple bilan",
+          "text": "1.1. Introduction\n1.2. Qu’est-ce qu’un avantage concurrentiel ?\n1.3. Approches de la mesure de l’avantage concurrentiel\n1.4. Bénéfice économique et bénéfice comptable\n1.5. Le triple bilan"
+        },
+        {
+          "p": 59,
+          "title": "Créer une valeur compatible avec le bien-être",
+          "text": "« Parler des affaires, c’est parler de la manière de créer de la valeur, ce qui, en soi, n’est pas mauvais… Il nous faut simplement commencer à nous demander si la valeur que nous voulons créer est compatible avec le bien-être social et environnemental. »\n\nPeter Senge, MIT."
+        },
+        {
+          "p": 60,
+          "title": "Au-delà de l’actionnaire",
+          "text": "- Dans des marchés imparfaits et un contexte incertain, maximiser la valeur pour l’actionnaire devient plus complexe. Des mécanismes de contrôle interne sont nécessaires.\n- La rémunération variable des dirigeants a fortement augmenté, souvent avec des formules liées à la hausse du cours des actions, mais pas à leur baisse. Cela peut favoriser des mécanismes pervers : privilégier les bénéfices à court terme et sacrifier les gains futurs pour satisfaire les attentes du marché. Le problème est particulièrement visible dans les entreprises cotées.\n- Les salariés, fournisseurs, clients et la société ont également des relations contractuelles avec l’entreprise ou subissent les effets de ses décisions.\n- Le débat sur l’objectif que doivent poursuivre les entreprises reste ouvert."
+        },
+        {
+          "p": 61,
+          "title": "Trois dimensions de la performance",
+          "text": "On demande de plus en plus aux dirigeants du XXIe siècle des résultats **économiques, sociaux et écologiques**.\n\nLes interactions entre ces trois dimensions augmentent : les facteurs non économiques influencent davantage les résultats. Adopter une démarche proactive sur les dimensions non économiques peut donc aussi avoir un intérêt économique."
+        },
+        {
+          "p": 62,
+          "title": "Les trois rentabilités et la stratégie durable",
+          "image": "strategie1-p62"
+        },
+        {
+          "p": 63,
+          "title": "Définition du triple bilan",
+          "text": "Le **triple bilan** (*triple bottom line*) est une vision de l’activité qui associe les objectifs économiques classiques au respect des valeurs éthiques, des personnes et de l’environnement.\n- Satisfaire de manière équilibrée les différentes attentes des parties prenantes.\n- S’engager à contribuer positivement et de façon significative au développement social durable de la communauté, en intégrant les nouvelles préoccupations sociales et environnementales aux préoccupations commerciales et économiques traditionnelles.\n- Adopter une vision à plus long terme, davantage liée à la création de richesse qu’à la seule obtention d’un bénéfice."
+        },
+        {
+          "p": 64,
+          "title": "Les trois responsabilités",
+          "image": "strategie1-p64"
+        },
+        {
+          "p": 65,
+          "title": "Exemple Acciona",
+          "text": "Illustration du triple bilan avec Acciona.\n\n[Vidéo indiquée dans le support](https://www.youtube.com/watch?v=08FzQvuxevY)."
+        },
+        {
+          "p": 66,
+          "title": "Acciona : indicateurs du triple bilan",
+          "image": "strategie1-p66"
+        },
+        {
+          "p": 67,
+          "title": "Fin du chapitre",
+          "text": "Chapitre 1. Avantage concurrentiel et création de valeur.\nDirection stratégique.\n© L. Fuentelsaz, J. Gómez et J. Maícas."
+        }
+      ]
+    },
+    {
+      "title": "Chapitre 2 · Stratégie et gestion",
+      "source": "T2  Estrategia y Gestión.pdf",
+      "pages": [
+        {
+          "p": 1,
+          "title": "Introduction au management",
+          "text": "Introduction à l’administration et à la gestion des organisations."
+        },
+        {
+          "p": 2,
+          "title": "Fonction du management",
+          "text": "Résoudre le problème organisationnel de l’entreprise :\n- diviser le travail pour profiter des avantages de la division du travail et de la spécialisation ;\n- motiver les détenteurs de ressources pour qu’ils accomplissent leur travail ;\n- coordonner le fonctionnement de l’ensemble."
+        },
+        {
+          "p": 3,
+          "title": "Évolution du management",
+          "text": "Le management varie selon les sociétés et au fil du temps. La dynamique du changement organisationnel repose sur l’adaptation et l’évolution pour gérer efficacement :\n- rationalité de l’imitation des solutions efficaces ;\n- passage du global au régional puis au local ;\n- mise en valeur des techniques de gestion.\n\nUne obsolescence fonctionnelle peut apparaître."
+        },
+        {
+          "p": 4,
+          "title": "Management et entreprise",
+          "text": "**3. Le management et le concept d’entreprise.** Il n’est pas « visible » dans les documents comptables ni dans les comptes annuels. Il repose sur la qualité des ressources humaines.\n\n**4. Le système de management.** Il repose sur la conception d’étapes ou de phases. Il dépend de la réalisation des objectifs des détenteurs de ressources."
+        },
+        {
+          "p": 5,
+          "title": "Le gestionnaire",
+          "text": "**5. Concept d’administrateur ou de gestionnaire.** Il est responsable du travail d’autres personnes : dirigeant, cadre, chef, gérant, responsable… Au niveau le plus élevé, il s’agit de l’entrepreneur.\n\nIl doit tenir compte du problème de motivation :\n- les différents détenteurs de ressources ont des objectifs différents ;\n- leur collaboration est interne ou externe selon les contrats ;\n- il faut rechercher la convergence des objectifs."
+        },
+        {
+          "p": 6,
+          "title": "Le cycle de management",
+          "text": "**6. Planification et contrôle.**\n- Planification : objectifs et stratégies. L’organisation détermine les ressources matérielles et humaines.\n- Contrôle : retour d’information (*feedback*).\n\nLa direction conçoit le système : grandes lignes de coordination et de motivation, type de direction à adopter.\n\nLe travail quotidien d’impulsion consiste à coordonner l’information, négocier, décider, mettre en œuvre, vérifier… puis recommencer."
+        },
+        {
+          "p": 7,
+          "title": "Le système d’information",
+          "text": "**7. Système d’information.** La qualité du management dépend de la quantité, de la qualité et de la disponibilité au bon moment de l’information, interne ou endogène, externe ou exogène.\n\n**8. Flux d’information en direction participative par objectifs (DPPO / PMBO).**\n1. Flux ascendant : propositions.\n2. Modélisation et négociation.\n3. Prise de décision et mise en œuvre.\n4. Flux descendant : plan.\n5. Révision : nouveau flux ascendant, etc."
+        },
+        {
+          "p": 8,
+          "title": "La planification",
+          "text": "La planification."
+        },
+        {
+          "p": 9,
+          "title": "Définition de la planification",
+          "text": "Première tâche du management, la planification conçoit l’avenir à l’avance. Elle produit des documents précisant **qui, quoi, quand, où et comment**.\n\nElle comporte des risques et n’est pas une science exacte. L’alternative est le tâtonnement par essais et erreurs : son coût est-il supportable ?\n\nElle repose sur l’analyse de la réalité et de la destination souhaitée. Elle aide à distinguer l’essentiel du secondaire."
+        },
+        {
+          "p": 10,
+          "title": "Classification des plans",
+          "text": "**Selon leur concept :** buts, objectifs, politiques, règles, procédures, stratégies, programmes, budgets.\n\n**Selon le domaine ou le contenu :** finance, marketing, certification de la qualité ; expansion, diversification, redressement ; logement, éducation, santé, infrastructures.\n\n**Selon leur nature et leur horizon :** plans courants, annuels ou à court terme ; plans d’investissement, structurels ou à long terme."
+        },
+        {
+          "p": 11,
+          "title": "Étapes et critères de décision",
+          "text": "**3. Étapes de la planification :** diagnostic (FFOM / SWOT, DAFO en espagnol ; TOWS), fixation des objectifs, définition et évaluation des lignes d’action, sélection, plans dérivés et budgétisation.\n\n**4. Critères de décision : considérations éthiques.** Justice, équité et efficience."
+        },
+        {
+          "p": 12,
+          "title": "Avantages et limites",
+          "text": "**5. Avantages.** Un processus ordonné et systématique, du plus général au plus concret. Une prise de conscience des besoins de formation et une attitude positive face aux changements.\n\n**6. Limites.**\n- Endogènes : inerties culturelles, rigidités du personnel…\n- Exogènes : rigidités culturelles, sociales et des marchés ; évolution rapide de la technologie ou de la conjoncture."
+        },
+        {
+          "p": 13,
+          "title": "Mettre la planification en place",
+          "text": "**7. Mise en œuvre.** Impulsion de la direction générale. Création d’un département ou recours à un prestataire pour concevoir le système. Cela peut, et souvent doit, s’accompagner d’une restructuration.\n\n**8. Techniques de planification.** Planification simultanée et successive."
+        },
+        {
+          "p": 14,
+          "title": "Organisation, direction et contrôle",
+          "text": "Organisation, direction et contrôle."
+        },
+        {
+          "p": 15,
+          "title": "L’organisation",
+          "text": "Équipes de personnes, ressources et interactions entre elles.\n\nPrincipes d’organisation verticaux et horizontaux. Les structures organisationnelles appliquent ces principes : structures hiérarchiques, fonctionnelles, mixtes, matricielles et divisionnelles.\n\nSystèmes de communication et organigrammes."
+        },
+        {
+          "p": 16,
+          "title": "La direction et le contrôle",
+          "text": "**2. La direction : l’intelligence du système.**\nTypes de direction : planifiée ou guidée par les événements ; autoritaire ou participative ; bureaucratique ou flexible ; par exception.\n\n**3. Le contrôle.** Comparaison entre ce qui était prévu et ce qui a été obtenu : contrôle « normal » ou a posteriori."
+        },
+        {
+          "p": 17,
+          "title": "Phases du contrôle",
+          "text": "1. Établir des standards.\n2. Mesurer ou comparer.\n3. Corriger les écarts.\n\nSélectionner ce que l’on contrôle en fonction du rapport coût/bénéfice. Appliquer le principe d’exception.\n\nTrois causes possibles des erreurs : mauvaise planification, mauvaise exécution, accident."
+        },
+        {
+          "p": 18,
+          "title": "Systèmes de contrôle",
+          "text": "Le temps est une variable critique : délai entre l’apparition de l’erreur et sa correction.\n\n**Contrôle anticipé :** décomposer l’horizon en moyen, court et très court terme, jusqu’au temps réel.\n\n**Contrôle préventif :** essayer de résoudre les problèmes avant qu’ils ne surviennent.\n\nLe contrôle a priori est la base de la qualité totale."
+        },
+        {
+          "p": 19,
+          "title": "Types de contrôle et rôle des dirigeants",
+          "text": "**6. Types de contrôle.** Il en existe autant que d’objectifs et de plans : compte de résultat, ROI, ROE, contrôle budgétaire ; rapports, statistiques, graphes ; audits internes, comptables, opérationnels…\n\n**7. Les dirigeants et le contrôle.** L’institutionnaliser et lui donner un calendrier fixe. Adopter une approche positive tournée vers l’efficience. La négligence devrait être la dernière cause envisagée."
+        },
+        {
+          "p": 20,
+          "title": "Objectifs et tableau de bord",
+          "text": "Objectifs et tableau de bord."
+        },
+        {
+          "p": 21,
+          "title": "Objectifs et bénéfice",
+          "text": "**1. Les objectifs.** Base de la planification, ils quantifient précisément le plan de l’entreprise, évitent la dispersion des efforts et participent à la motivation et aux incitations.\n\n**2. Le bénéfice.** Objectif de survie du facteur humain ; rapports entre propriétaires et travailleurs ; possibilité de croissance et capacité à résister à une récession."
+        },
+        {
+          "p": 22,
+          "title": "Objectifs généraux et caractéristiques",
+          "text": "**3. Objectifs généraux.** Rentabilité, bénéfice, productivité ; croissance et développement harmonieux ; grande ou petite entreprise ; cas des entreprises publiques déficitaires.\n\n**4. Caractéristiques.** Les objectifs doivent être quantifiés, légaux, réalistes, couvrir les aspects fondamentaux du travail, être hiérarchisés, décomposés, coordonnés, publics et assortis d’un calendrier. Leur élaboration optimale est participative."
+        },
+        {
+          "p": 23,
+          "title": "Schéma Du Pont",
+          "image": "strategie2-p23"
+        },
+        {
+          "p": 24,
+          "title": "Du Pont : effets des variations",
+          "image": "strategie2-p24"
+        },
+        {
+          "p": 25,
+          "title": "Du Pont : cohérence des leviers",
+          "image": "strategie2-p25"
+        },
+        {
+          "p": 26,
+          "title": "Du Pont : relations algébriques",
+          "image": "strategie2-p26"
+        },
+        {
+          "p": 27,
+          "title": "Du Pont : combinaison des leviers",
+          "image": "strategie2-p27"
+        },
+        {
+          "p": 28,
+          "title": "Tableau de bord prospectif : finances et clients",
+          "text": "**6. Tableau de bord prospectif (*Balanced Scorecard*).**\n\n**Perspective financière, Du Pont :** croissance et diversification des revenus ; réduction des coûts et amélioration de la productivité ; utilisation des actifs et stratégies d’investissement.\n\n**Clients :** part de marché, fidélisation, acquisition, rentabilité et satisfaction des clients. Propositions de valeur en fonction de différents attributs."
+        },
+        {
+          "p": 29,
+          "title": "Tableau de bord : processus internes",
+          "text": "**Processus internes :**\n- Innovation : part des ventes de nouveaux produits, introduction de nouveaux produits, temps nécessaire au développement…\n- Opérations : qualité, durée du cycle, coût…\n- Service après-vente."
+        },
+        {
+          "p": 30,
+          "title": "Tableau de bord : apprentissage et croissance",
+          "text": "- **Capacités des salariés :** satisfaction, fidélisation et productivité. Elles dépendent notamment de la participation aux décisions, de l’initiative et de la créativité, de la reconnaissance du travail bien fait, de l’accès à une information suffisante et du soutien du dirigeant.\n- **Capacités des systèmes d’information :** processus avec retour d’information en temps réel…\n- **Motivation, délégation du pouvoir et cohérence des objectifs.**"
+        },
+        {
+          "p": 31,
+          "title": "Direction par objectifs",
+          "text": "**7. Direction par objectifs (DPO / MBO).** Planifier en visant des résultats tangibles, constituer des équipes pour les atteindre, disposer d’un instrument d’amélioration continue et renforcer le système d’incitation.\n\n**8. Direction participative par objectifs (DPPO / PMBO).** Renforcer le réalisme et l’adaptation aux capacités et aux besoins ; développer le sentiment de maîtrise des moyens et des résultats."
+        },
+        {
+          "p": 32,
+          "title": "Concevoir l’entreprise",
+          "text": "Concevoir l’entreprise."
+        },
+        {
+          "p": 33,
+          "title": "Principes et outils d’organisation",
+          "text": "**Principes :** autorité, hiérarchie, responsabilité, délégation, décentralisation, unité de commandement, étendue du contrôle, division du travail, spécialisation, départementalisation et divisionnalisation.\n\n**Mise en forme :** structures organisationnelles, manuel d’organisation, manuel de procédures et organigrammes."
+        },
+        {
+          "p": 34,
+          "title": "L’entreprise comme système d’information",
+          "text": "L’entrepreneur agit comme **coordinateur**. Le contrat d’autorité produit naturellement un flux **hiérarchique vertical descendant** : les ordres descendent, dans un système planifié.\n\nL’entrepreneur conçoit les postes et les départements pour limiter les interdépendances. Dans le meilleur des cas, une direction participative par objectifs organise des flux verticaux ascendants et descendants, plus ou moins fréquents."
+        },
+        {
+          "p": 35,
+          "title": "Cycle de planification et de contrôle",
+          "image": "strategie2-p35"
+        },
+        {
+          "p": 36,
+          "title": "Flux verticaux d’information",
+          "image": "strategie2-p36"
+        },
+        {
+          "p": 37,
+          "title": "Flux horizontaux d’information",
+          "image": "strategie2-p37"
+        },
+        {
+          "p": 38,
+          "title": "Le contexte : l’environnement",
+          "text": "- Excès d’offre.\n- Pression concurrentielle qui stimule l’ingéniosité : innovation vers des structures mieux capables d’affronter la concurrence.\n- Hausse du niveau de revenu et de formation dans la société.\n\nLes clients deviennent plus sélectifs et exigeants. Le système d’incitation se sophistique."
+        },
+        {
+          "p": 39,
+          "title": "Concurrence et qualité totale",
+          "text": "La concurrence pousse vers la **qualité totale**. Cela pose un problème de conception interne.\n\nVariables à concevoir : postes de travail, flux d’information et systèmes d’information, processus participatifs et incitations en général.\n\nLeviers : reconception, flexibilité, modularité et technologie."
+        },
+        {
+          "p": 40,
+          "title": "Management de la qualité totale",
+          "text": "Management de la qualité totale (*Total Quality Management*, TQM)."
+        },
+        {
+          "p": 41,
+          "title": "Pourquoi rechercher le produit parfait ?",
+          "text": "**Pourquoi ?** Pour pouvoir affronter la concurrence et survivre dans un marché en excès d’offre.\n\n**Comment ?** C’est un problème d’organisation ou de conception de l’entreprise.\n\n**Pourquoi un problème de conception ?** Parce qu’il concerne la manière dont fonctionne une entreprise ou une organisation."
+        },
+        {
+          "p": 42,
+          "title": "Quels flux d’information sont critiques ?",
+          "text": "Les **flux horizontaux** reproduisent l’historique ou la traçabilité entre les entrées et les sorties (*inputs–outputs*).\n\nAvec les flux verticaux, on perd du temps et des incitations : le problème peut paraître lointain."
+        },
+        {
+          "p": 43,
+          "title": "Production et suppression des stocks",
+          "image": "strategie2-p43"
+        },
+        {
+          "p": 44,
+          "title": "Le rôle amortisseur des stocks",
+          "image": "strategie2-p44"
+        },
+        {
+          "p": 45,
+          "title": "Conséquences de la suppression des stocks",
+          "image": "strategie2-p45"
+        },
+        {
+          "p": 46,
+          "title": "Le cas des services",
+          "text": "Un service ne peut pas être stocké ni remplacé comme un produit pris en stock. L’exigence du **produit parfait** est donc plus forte : réussir du premier coup ou supporter des coûts de compensation. Le pire résultat est un client mécontent.\n\nIl faut des solutions rapides : on ne peut pas perdre du temps dans le cheminement classique des flux verticaux. L’information la plus rapide, et donc la plus importante, est horizontale.\n\n**Conséquences organisationnelles et informationnelles :** réduire les niveaux hiérarchiques et organiser par processus lorsque c’est possible ; former les salariés et leur donner la capacité de décider à leur poste ; amélioration continue ; système d’incitation."
+        },
+        {
+          "p": 47,
+          "title": "Des processus qui convergent vers le client",
+          "image": "strategie2-p47"
+        },
+        {
+          "p": 48,
+          "title": "Organisation par processus",
+          "text": "La hiérarchie disparaît dans le modèle présenté : aplatissement total de la pyramide.\n\nAvantages des petites équipes :\n- meilleure efficience grâce à des problèmes de coordination réduits ;\n- meilleure conception des incitations : résultats partiels des sous-groupes, sentiment de liberté et autogestion, participation, création, accomplissement de soi, pression sociale, solidarité, leadership et propriété privée."
+        },
+        {
+          "p": 49,
+          "title": "Contrôle en temps réel et limites",
+          "text": "Le contrôle se fait en temps réel : **qualité totale = zéro défaut**.\n\nCela n’est pas toujours possible : le processus doit pouvoir être fractionné en résultats partiels. La perte de complémentarités doit être compensée par les gains d’efficience."
+        },
+        {
+          "p": 50,
+          "title": "Assurance qualité et excellence",
+          "text": "Il peut suffire, ou être seulement possible, de faire évoluer la structure dans la bonne direction et d’adopter des **techniques d’assurance qualité**.\n\nRéférences présentées dans le support : normes ISO-UNE-EN ; excellence des entreprises ; prix Deming ; prix Malcolm Baldrige ; prix d’excellence EFQM."
+        },
+        {
+          "p": 51,
+          "title": "Le vocabulaire de la qualité",
+          "text": "- Juste-à-temps (*Just in time*).\n- Amélioration continue.\n- Six Sigma.\n- Production au plus juste (*Lean manufacturing*).\n- Externalisation (*Outsourcing*).\n- Réduction de taille (*Downsizing*).\n- Ajustement à la bonne taille (*Rightsizing*).\n- « Leanning », « Pevo », « Phca », « Peca », « Fase » : termes ou sigles présentés sans développement dans le support.\n- Reconfiguration des processus (*Reengineering*).\n- Télétravail.\n- Etc."
+        },
+        {
+          "p": 52,
+          "title": "Modèle EFQM du support",
+          "image": "strategie2-p52"
+        },
+        {
+          "p": 53,
+          "title": "EFQM : leadership",
+          "text": "Les facteurs facilitateurs. **1. Leadership.**\n- Les dirigeants développent la mission, la vision, les valeurs et les principes éthiques ; ils incarnent la culture de l’excellence.\n- Ils s’impliquent personnellement et garantissent le développement, la mise en place et l’amélioration continue du système de management.\n- Ils échangent avec les clients et les représentants de la société.\n- Ils renforcent cette culture parmi les membres de l’organisation.\n- Ils définissent et impulsent le changement."
+        },
+        {
+          "p": 54,
+          "title": "EFQM : politique et stratégie",
+          "text": "**2. Politique et stratégie.**\n- Partir des besoins et attentes présents et futurs des parties prenantes.\n- S’appuyer sur les indicateurs, la recherche, l’apprentissage et les activités externes.\n- Développer, réviser et actualiser la politique et la stratégie.\n- Les communiquer et les déployer grâce à un ensemble de processus clés."
+        },
+        {
+          "p": 55,
+          "title": "EFQM : personnel",
+          "text": "**3. Personnel.**\n1. Planifier, gérer et améliorer les ressources humaines.\n2. Identifier, développer et maintenir les connaissances et les capacités des membres de l’organisation.\n3. Favoriser leur implication et leur prise de responsabilités.\n4. Développer le dialogue entre les personnes et l’organisation.\n5. Récompenser, reconnaître et prendre soin des personnes."
+        },
+        {
+          "p": 56,
+          "title": "EFQM : partenariats et ressources",
+          "text": "**4. Partenariats et ressources : planification et gestion**\n1. Des partenariats externes.\n2. Des ressources économiques et financières.\n3. Des bâtiments, équipements et matériaux.\n4. De la technologie.\n5. De l’information et des connaissances."
+        },
+        {
+          "p": 57,
+          "title": "EFQM : processus",
+          "text": "**5. Processus.**\n- Concevoir et gérer systématiquement les processus.\n- Introduire les améliorations nécessaires par l’innovation pour satisfaire pleinement clients et parties prenantes et créer davantage de valeur.\n- Concevoir et développer les produits et services à partir des besoins et attentes des clients.\n- Assurer la production, la distribution et le service associé aux produits et services.\n- Gérer et améliorer les relations avec les clients."
+        },
+        {
+          "p": 58,
+          "title": "EFQM : résultats",
+          "text": "**6. Résultats pour les clients :** mesures de perception et indicateurs de performance.\n\n**7. Résultats pour le personnel :** mesures de perception et indicateurs de performance.\n\n**8. Résultats pour la société :** mesures de perception et indicateurs de performance.\n\n**9. Résultats clés :** mesures de perception et indicateurs de performance, selon la présentation du support."
+        },
+        {
+          "p": 59,
+          "title": "Responsabilité sociale des entreprises",
+          "text": "La responsabilité sociale, ou sociétale, des entreprises (**RSE**, RSC/RSE dans le support espagnol ; *Corporate Social Responsibility*, CSR)."
+        },
+        {
+          "p": 60,
+          "title": "Répartition de la valeur créée",
+          "image": "strategie2-p60"
+        },
+        {
+          "p": 61,
+          "title": "De la qualité totale à l’éthique globale",
+          "image": "strategie2-p61"
+        }
+      ]
+    }
+  ]
+}

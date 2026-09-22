@@ -224,8 +224,12 @@ Pour identifier la source du problème AVANT de décider quoi optimiser, deux é
 **Étape 2 — Analytics Shopify :**
 - CVR < 2 % ET taux ATC < 8 % → problème **fiche produit**
 - CVR > 2 % ET taux ATC > 8 % → problème **ads**
-- Précision terminologique (vidéo 3.1) : le **CVR** de cette grille, c'est le **taux de paiement
-  initié** dans les analytics Shopify (Conversion Rate), pas le taux de conversion final panier→achat.
+- Précision terminologique (vidéo 3.1, relue le 22/09/2026 après contestation de Roméo) : le **CVR**
+  de cette grille, c'est le **taux de conversion Shopify** (sessions ayant finalisé un achat ÷
+  sessions), celui qu'on lit dans les analytics. Le formateur dit une fois à l'oral « taux de paiement
+  initié, c'est le taux de conversion », mais la grille parle de CVR = Conversion Rate et il conclut
+  « ce qui compte, c'est derrière la conversion ». On lit donc le taux de conversion final, plus
+  exigeant ; le paiement initié n'est pas un critère de la grille.
 
 **⚠️ Ces seuils ne sont pas des certitudes à 100 %, juste des probabilités fortes ("certainement",
 pas "sûrement").** Contre-exemple assumé par le formateur lui-même : un CPC de 1,50-1,60 € (2x le

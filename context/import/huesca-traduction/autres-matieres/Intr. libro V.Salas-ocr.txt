@@ -1,0 +1,434 @@
+
+=== PAGE 1 ===
+INTRODUCCIÓN
+La Economía estudia dos grandes tipos de problemas, el problema de elegir entre
+alternativas excluyentes siguiendo un criterio preestablecido, y el problema de organizar
+las relaciones entre agentes que cooperan en actividades de producción y de intercambio.
+Al primer tipo de problema se le denomina problema de decisión racional y está ejemplifi-
+cado por el problema de Robinson Crusoe que debe determinar cómo reparte el tiempo y
+demás recursos a su alcance entre la producción o el consumo. Corresponde también al
+problema del consumidor y al problema de la empresa que se estudia en los cursos de
+microeconomía. El consumidor y la empresa no están aislados de los demás agentes por
+las «aguas de un océano» sino como resultado de actuar en el marco de un sistema social
+donde un parámetro, denominado precio, hace efectiva la separación de los problemas de
+cada agente en relación al problema de los demás.
+El paso del modelo de agente aislado al modelo de organización colectiva, en el que
+se permite la posibilidad de especialización a través de la división del trabajo a la vez que
+se promueve el intercambio entre individuos y grupos, plantea a la Economía un problema
+de organización. En el presente tema nos ocuparemos del origen de la necesidad de
+estudiar los problemas organizativos dentro de una economía que ha optado por el meca-
+nismo asignativo del mercado como fórmula organizativa a nivel macrosocial. Tradicional-
+mente la Economía de los Sistemas Comparados ha establecido la dicotomía entre el
+sistema de Mercado y el sistema de Planificación Central como las dos grandes opciones
+organizativas. Una vez la opción por el sistema de Mercado hubiera sido elegida, el
+problema organizativo de la economía quedaba resuelto en cuanto se presumía que el
+mecanismo del mercado resolvía todos los problemas de coordinación, integración y con-
+trol a que da lugar la interrelación entre individuos y/o grupos. Entre los agentes indivi-
+duales, atomizados, y el macrosistema social, no se hace mención explícita a ninguna
+fórmula de acción colectiva intermedia que hiciera necesario incidir en la problemática de
+su funcionamiento interno. La «mano invisible» traduce el comportamiento racional de los
+agentes individuales, guiado por las señales de los precios, en un funcionamiento ordenado
+(organizado) del sistema colectivo.
+Un epígrafe posterior estará dedicado a estudiar los fundamentos institucionales del
+
+=== PAGE 2 ===
+16
+VICENTE SALAS FUMÁS
+sistema de precios, mercado, como mecanismo organizador de relaciones colectivas. En él
+se pondrán de manifiesto las condiciones que exige el mercado para que su funcionamien-
+to implique una solución como la descrita al problema de organización económica, donde
+existan únicamente agentes individuales atomizados y un orden en sus interrelaciones
+como colectivo. En términos técnicos, la exigencia será que el mercado pueda llevar a
+cabo su función organizativa en unas condiciones que aseguren un coste nulo por su
+utilización como mecanismo asignativo, o en todo caso un coste muy bajo. Cuando no sea
+así, se planteará la posible sustitución del mercado por mecanismos asignativos alterna-
+tivos.
+La comparación institucional en Economía sugiere que cuando se aduce a alguna
+limitación del mercado para cumplir eficazmente su función organizativa/asignativa, la
+alternativa al mismo es la planificación centralizada o la intervención de los poderes
+públicos. Coase (1937) fue un pionero en puntualizar que en el marco de la economía de
+mercado, y por iniciativa voluntarista de los agentes privados, surgen fórmulas de acción
+colectiva, empresas, que sustituyen al mercado en sus funciones organizativa/asignativa
+cuando este último incurre en altos costes de transacción para llevarlas a cabo. La caracte-
+rística distintiva de estas empresas es que su funcionamiento interno no está regulado, en
+general, por los precios, sino alternativamente por un sistema de relaciones jerarquizadas
+en las que el empresario representa la máxima autoridad para transmitir instrucciones y
+objetivos o elaborar los planes que coordinen y orienten la actuación de los miembros. El
+mercado sigue siendo el mecanismo regulador de las relaciones entre empresas, pero
+dentro de ellas, en el ámbito de su influencia, es la autoridad del empresario la que tiene
+poder y capacidad para decidir qué se hace y cómo se hace.
+Dentro de la empresa se utilizan mecanismos de organización/asignación propios
+del sistema de planificación centralizada. La discusión sobre las ventajas y desventajas del
+sistema de mercado versus el de planificación debe hacernos pensar que utilizar a la
+empresa como fórmula organizativa va a dar lugar a unos costes de transacción propios de
+ella: la «mano visible» del empresario no posee la categoría de bien público que atribui-
+mos al mercado por la función organizativa que realiza. La elección entre mercado y
+empresa como mecanismos alternativos para la asignación de recursos se convierte por
+esta razón en la comparación entre los costes de transacción que supone utilizar una u
+otra, es decir, en sus ventajas comparativas relativas. Como éstas se revelan a favor de un
+mecanismo para un cierto tipo de transacciones y a favor, del otro para el resto, en un
+mismo macrosistema de mercado conviven simultáneamente empresas y mercados, sin que
+ninguno de los dos se demuestre superior al otro en todo tipo de situaciones.
+Coase fue pionero en situar la razón de ser de la empresa en la existencia de costes
+de transacción en la utilización del mercado para llevar a cabo la asignación de recursos.
+Pero no precisa cuáles son las circunstancias que deben concurrir en un intercambio para
+que sea la empresa o el mercado el modo organizativo más adecuado. La profundización
+en las causas ambientales del intercambio que dan lugar a costes de transacción cuando se
+hace uso del mercado, se produce a partir de Arrow (1969) y sobre todo de Williamson •
+(1975, 1979, 1985). Después de estas aportaciones, la Economía de los Costes de Transac-
+ción se está afianzando como una parcela importante de la Economía Industrial.
+El mercado o sistema de precios como mecanismo asignativo es bien conocido en su
+funcionamiento lógico y en las propiedades de la solución asignativa a que se llega con él,
+especialmente en lo que se refiere al mercado competitivo. Autores como Arrow, Debreu,
+Koopmans..., han contribuido decisivamente a este conocimiento. La organización interna
+
+=== PAGE 3 ===
+ECONOMÍA DE LA EMPRESA
+17
+de la empresa, en cambio, ha sido poco estudiada por los economistas, aunque es evidente
+que la situación está cambiando y comienza a perfilarse una línea de trabajo dedicada a
+este tema dentro de la ciencia económica. El diseño de la organización interna de la
+empresa, sus reglas de funcionamiento, condicionarán en gran manera su eficacia compa-
+rativa con el mercado como mecanismo asignativo. El presente capítulo concluirá con los
+modelos básicos que desde la Economía pueden aportarse al estudio de la organización
+interna de la empresa, y que constituirá el preámbulo a los temas que posteriormente
+estarán dedicados a profundizar en cada uno de ellos.
+EL DISEÑO DE LA ORGANIZACIÓN ECONÓMICA
+Con el término Organización Económica se expresa la estructura de patrones de
+interacción entre unidades económicas individuales. Esta interacción se produce en el
+proceso de administración de recursos escasos (actividad económica) y entre las unidades
+económicas individuales que participan se incluyen a las personas individuales, las fami-
+lias, las empresas y las agencias gubernamentales. La estructura social de derechos de
+propiedad delimita las posibilidades de estas unidades, llamadas de decisión económica,
+para poseer bienes y disponer sobre su uso, que generalmente se producirán en uno de los
+tres tipos de decisiones siguientes: consumo, producción o intercambio.
+Para explicar las características del problema económico, se recurre generalmente a
+analizar, como punto de partida, la situación de Robinson Crusoe. Su problema económi-
+co no era realmente un problema de organización económica. Tenía acceso a ciertos
+recursos y había varias formas en que podía emplearlos, dedicando más o menos de su
+tiempo y esfuerzo. Siguiendo el razonamiento del análisis económico convencional, Cru-
+soe resuelve su problema económico eligiendo el mejor uso posible de los recursos y el
+tiempo, dadas sus necesidades y preferencias.
+Si cada una de las personas en la sociedad tratara de satisfacer directamente sus
+necesidades con sus propios medios, el problema de dicha sociedad vendría dado por una
+colección de problemas desenlazados, cada uno de similares características al que se en-
+frentó Crusoe. Sin embargo las ventajas, y muchas veces los imperativos, de la división del
+trabajo y la cooperación exigen la interacción coordinada, y no la autosuficiencia económi-
+ca, entre los individuos, es decir, hace falta una organización.
+El problema de la organización tiene dos vertientes relacionadas pero en cierto
+modo separables. En una de ellas debe establecerse el mecanismo por el cual se decida
+sobre qué necesidades, y de quién, tienen prioridad. En la otra, se preocupará de que
+exista un mecanismo que asigne los recursos y guíe la producción que ha de satisfacer la
+demanda. Puesto que la empresa es la unidad especializada en tareas de producción, aquí
+profundizaremos sólo en los aspectos básicos del problema de organización de la produc-
+ción, sin entrar en el problema de fijación de prioridades.
+Organizar la producción requiere, por otra parte, resolver tres subproblemas in-
+terrelacionados. Primero, deben existir procedimientos
+que asignen responsabilidad y
+autoridad para llevar a cabo las tareas definidas en sentido amplio: Crusoe nunca se
+enfrentó al problema de la división del trabajo. En segundo lugar debe existir información
+entre las unidades económicas que señale lo que cada una demanda así como lo que puede
+ofertar a las demás: Crusoe nunca tuvo necesidad de coordinar sus acciones con las
+acciones de los demás. En tercer lugar, debe conseguirse que los intereses y preferencias
+
+=== PAGE 4 ===
+18
+VICENTE SALAS FUMÁS
+de los demás (las prioridades) intervengan eficazmente en servir de guía a las decisiones
+individuales, dada la división del trabajo y la información: para Crusoe, el trabajo que
+tenía delante de él estaba directamente relacionado con sus deseos. Nelson (1981) propone
+caracterizar un modo de producción en términos de cuál es el tratamiento que se da dentro
+de él a estas tres funciones: regímenes de responsabilidad y autoridad, naturaleza de los
+flujos de información relevantes para la coordinación y los controles e incentivos que
+determinan cómo se toman y se ejecutan las decisiones.
+A modo de ejemplo ilustrativo el cuadro 1 muestra la comparación, en las tres
+CUADRO 1. Comparación entre sistemas de organizar la producción.
+Autoridad/
+Responsabilidad
+Flujos de
+información y
+coordinación
+Incentivos y
+controles
+Empresa privada
+La empresa posee derechos de propiedad
+sobre sus máquinas e inventarios y tiene
+plena libertad para utilizarlos del modo
+que desee. Producen lo que quieren y
+compran y venden los inputs que necesitan
+de quien quieren. Ello posibilita la apari-
+ción de fuentes competitivas de oferta y
+demanda.
+La información relevante para la coordina-
+ción se genera en su mayor parte en el
+curso de las transacciones entre las unida-
+des económicas. Existirán mercados con
+precios para los bienes y servicios perfecta-
+mente conocidos, pero no existirá ningún
+central que recoja información
+planifique, aunque sólo sea indicativamen-
+te. Se produce en consecuencia una des-
+centralización explícita de la toma de deci-
+siones ya que no existe ningún mecanismo
+formal real que comprueba la consistencia
+mutua de las acciones planificadas y mu-
+cho menos su consonancia en algún objeti-
+vo superior.
+En relación a cómo se decide lo que las
+empresas hacen, dadas sus competencias e
+información, éstas persiguen su propio in-
+terés tal como lo perciben; aunque el be-
+neficio se ha supuesto convencionalmente
+como el motivo operativo de la empresa
+típica, no existe ninguna fuerza legal que
+la obligue a ello. La automotivación es la
+fuerza que guía y disciplina las acciones de
+las unidades económicas. No existe ningu-
+na supervisión y evaluación superior del
+comportamiento de las unidades económi-
+cas, así como ningún mecanismo central
+que dé órdenes.
+FUENTE: Adaptado de Nelson (1981).
+Planificación central
+No existen derechos de propiedad privada
+sobre los medios de producción. Su utiliza-
+ción se fija dentro de un plan elaborado
+por un poder central, el cual a su vez es-
+tablece qué debe producirse y con qué re-
+Solamente se producen flujos de informa-
+ción en sentido vertical, entre la unidad
+central que decide qué debe hacerse y lo
+comunica a las empresas para que lo eje-
+cuten, y la información de éstas al centro
+en relación a sus posibilidades de produc-
+ción para que pueda resolver el problema
+de asignación. Se garantiza la consistencia
+mutua de los planes de acción ya que ésta
+es una condición explícita bajo la que se
+resuelve el problema de asignación.
+Las empresas son meros ejecutores de los
+planes elaborados centralizadamente; sus
+objetivos están acordes con el plan traza-
+do, limitándose estrechamente cualquier
+iniciativa individual. La disciplina en la
+ejecución de los planes asignados a cada
+empresa se consigue a través de un poder
+coercitivo que ejerce la
+unidad central
+cuando supervisa y evalúa el comporta-
+miento de las empresas en relación a los
+planes previstos.
+
+=== PAGE 5 ===
+ECONOMÍA DE LA EMPRESA
+19
+dimensiones propuestas, entre el modo de organizar la producción llamada de «Empresa
+Privada» y el modo de «Planificación Centralizada».
+Las tres funciones que caracterizan el modo de organizar la producción, aunque
+separables, mantienen a la vez un alto grado de interdependencia sobre todo bajo un
+planteamiento dinámico. En efecto, con la especialización y la división del trabajo se
+mejora la eficiencia de una economía y su capacidad para crear riqueza. Al mismo tiempo
+se incrementan las interdependencias y se exige una mayor coordinación para llegar al
+equilibrio necesario para el funcionamiento global. Por último, la coordinación eficaz sólo
+será posible cuando las decisiones individuales se tomen de acuerdo con patrones bien
+establecidos a la vez que las conductas de las unidades económicas estén encauzadas por
+los incentivos y controles acertados.
+La elección entre un modo de organizar la producción u otro es una decisión del
+colectivo social en la que se ponderarán, probablemente, tanto aspectos de eficiencia
+como de equidad.
+MECANISMOS DE COORDINACIÓN Y ASIGNACIÓN EN EL SISTEMA DE EMPRESA PRIVADA
+Oscar Lange (1945) señala la existencia de dos mecanismos principales de coordina-
+ción de las iniciativas y actuaciones individuales en una economía: la planificación y el
+mercado. Obviamente, el primero irá íntimamente unido con el sistema de organización
+de la producción que se denominará Planificación Central, mientras que el mercado está
+vinculado con el sistema de Empresa Privada. Autores más recientes como Arrow (1969) y
+Schotter (1980) añaden a estos dos mecanismos un tercero identificado por Arrow como
+las normas éticas y sociales y por Schotter como instituciones, en sentido amplio.
+Con la planificación se resume la referencia a una coordinación en la que interviene
+una unidad central con autoridad y poder para influir en las decisiones de las unidades
+económicas individuales. Esta influencia puede ejercerse de varias maneras: estableciendo
+cuotas para las cantidades a producir y consumir; utilizando impuestos o subvenciones
+para reducir o promover ciertas actuaciones frente a otras; dictando leyes de obligado
+cumplimiento. Se trata en última instancia de reflejar la intervención del Estado en la
+asignación de recursos, ejercitando su monopolio del poder coercitivo o bien utilizando
+instrumentos persuasivos. Cuando se adopta como instrumento de coordinación y asigna-
+ción para toda la economía, el proceso de planificación se esfuerza por integrar los objeti-
+vos económicos nacionales con los planes de las empresas, organizar el proceso de interre-
+laciones, establecer reglas, aportar instrumentos..., y asegurarse, en última instancia, que
+los diversos organismos, especialmente la unidad central, reciben la información necesaria
+para la verificación y corrección de las decisiones que toman las unidades participantes en
+el proceso.
+El mecanismo del mercado consigue la coordinación estableciendo patrones regula-
+res y recurrentes de intercambio entre las unidades con capacidad e iniciativa propia para
+la toma de decisiones. El intercambio regular presupone la utilización de un medio genera-
+lizado de pago, es decir, del dinero. Las unidades llevan a cabo sus intercambios en dos
+etapas, venta y compra; venden sus productos por dinero y compran los recursos necesa-
+rios también por dinero. El cociente al que se intercambian bienes por dinero se le
+denomina precio. Su concurrencia en un mercado permite a las diferentes unidades com-
+parar las ofertas y demandas de unas y otras. Seguidamente ajustan y reajustan las ofertas
+
+=== PAGE 6 ===
+20
+VICENTE SALAS FUMÁS
+y las demandas de unos y de otros, para que se ajusten también sus respectivos precios,
+hasta que se consigue la convergencia deseada sin necesidad alguna de intervención
+exterior.
+Particular mención merecen, por el estudio casi exhaustivo que se ha hecho de ellos
+y por los resultados obtenidos con dichos estudios, los mercados competitivos. El cuadro 2
+resume la definición de equilibrio competitivo, condiciones para su existencia y propieda-
+des del resultado obtenido. Las propiedades de eficiencia asignativa y la simplicidad de las
+interrelaciones que se necesitan para alcanzarlas, convierten al mercado competitivo en un
+mecanismo altamente ventajoso de asignación de recursos; cualquier argumentación que
+desee hacerse para matizar su aplicabilidad debe referirse a sus limitaciones para conseguir
+una determinada distribución de la renta. El sistema de precios sólo puede conseguir por sí
+mismo una distribución de la renta que preserve el statu quo; es decir, para alterar la
+distribución de la renta es preciso alterar las dotaciones iniciales de los agentes o bien .
+utilizar sistemas de pagos laterales a través de mecanismos colectivos de re-asignación.
+Los puntos clave en la definición de equilibrio competitivo son los supuestos institu-
+CuADRO 2. Síntesis descriptiva del mercado competitivo.
+Definición de equilibrio competitivo
+I)
+Los consumidores, con sus dotaciones iniciales
+y los derechos a participar de los beneficios de
+las empresas, eligen los vectores de consumo
+que maximizan su utilidad, para unos precios
+dados.
+II)
+Las empresas eligen las cantidades a producir
+que maximizan los beneficios, a los mismos
+precios.
+Los vectores de producción y consumo deben
+ser consistentes en el sentido de que la produc-
+ción agregada más las disponibilidades iniciales
+sean iguales a los consumos o demandas.
+Supuestos institucionales
+I) Los precios son paramétricos, es decir, son
+aceptados como un dato tanto por empresas
+como por consumidores.
+II) Los precios son idénticos para todos.
+III) Todos los agentes conocen los precios de bie-
+nes y servicios sin necesidad de incurrir en cos-
+tes sustanciales. Igualmente pagar y cobrar en
+base a los precios no supone ningún consumo
+de recursos.
+Supuestos técnicos
+I) Las preferencias de los consumidores y las po-
+sibilidades. de producción de las empresas son
+convexas.
+II)
+Los mercados son universales; existe un precio
+para todos y cada uno de los bienes y servicios
+que pueden diferenciarse en la economía. En
+esta diferenciación interviene también el lugar
+y momento en el tiempo en que el bien o servi-
+cio será intercambiado.
+Resultados principales
+I) Si se cumple la convexidad, el equilibrio com-
+petitivo existe.
+II)
+Si los mercados son universales el equilibrio
+competitivo es eficiente en el sentido de
+Pareto.
+III) Si se cumplen los dos supuestos técnicos, cual-
+quier asignación de recursos eficiente en el sen-
+tido de Pareto puede alcanzarse como un equi-
+librio competitivo a través de la adecuada
+redistribución de las dotaciones iniciales.
+FUENTE: Adaptado de Arrow (1969), donde se citan también las referencias a los trabajos originales en que se demuestran los
+resultados principales.
+
+=== PAGE 7 ===
+ECONOMÍA DE LA EMPRESA
+21
+cionales de precios paramétricos y precios transparentes. Con los primeros se desea signifi-
+car que cada uno de los agentes, empresas y consumidores, consideran a los precios de
+mercado como dados, y no como variables que pueden alterarse con sus decisiones de
+producción y consumo; además, los precios son idénticos para todos los agèntes. La
+transparencia en los precios sugiere que los precios pueden se conocidos por todos los
+individuos y que por el acto de pagar un precio no es necesario consumir ninguna cantidad
+de recurso. Entre los supuestos técnicos y los institucionales se sitúa la condición de
+universalidad de los mercados gracias a la cual todos los bienes y servicios tienen asociado
+sú precio respectivo; consecuencia de la universalidad es que los problemas de decisión
+que resuelven empresas y consumidores están «separados» entre sí por el sistema de
+precios, evitándose las externalidades.
+La llamada «mano invisible» del mercado adquiere con estos supuestos su pleno
+significado en cuanto que, si se cumplen, se asegura que los precios transmiten la informa-
+ción necesaria a todos los agentes para que, de sus conductas optimizadoras del bienestar
+individual, resulte una asignación eficiente de todos los recursos disponibles. La mano
+invisible no es más que la información que genera el sistema de precios la cual, con su
+carácter de bien público, permite ser utilizada por todos sin merma alguna de su eficacia
+informativa.
+La hipótesis de que todos los bienes y servicios tienen su propio precio no es
+realista; de hecho existen muchos ejemplos de bienes para los cuales el precio no existe:
+así por ejemplo, no hay precio alguno que permita valorar el aire libre de elementos
+contaminantes; los servicios que presta un empleado a su empresa no tienen un precio
+diferenciado para cada uno de ellos; existe únicamente el precio total por el alquiler del
+tiempo de trabajo (por ejemplo un profesor no recibe un salario diferenciado para cada
+uno de los servicios que presta, docencia, corrección de exámenes, atención al alumno).
+Por tanto esto indica que deben existir bienes y servicios que se asignan a través de
+mecanismos alternativos al mercado. Tradicionalmente se ha supuesto que la ausencia del
+mercado podía ser suplida únicamente por el sistema de planificación central propio de la
+intervención de la autoridad pública. Una observación más detallada de la realidad apunta
+al tercer instrumento de coordinación citado anteriormente, las normas sociales y/o institu-
+cionales.
+Arrow (1969) se refiere a un conjunto de fórmulas de acción colectiva que se sitúan
+entre el atomismo del sistema de precios y la acción colectiva del Estado, entre las cuales
+cita a la empresa como «fórmula por la cual la asignación interna de recursos se dirige por
+medio de controles autoritarios y jerárquicos» (p. 62). Schotter (1980), en cambio, las
+engloba en el término genérico de instituciones sociales a las que define como «pautas de
+comportamiento que se siguen regularmente por los miembros de una población, en las
+que todos están de acuerdo, fijan el comportamiento a seguir en situaciones específicas de
+carácter repetitivo y, o bien se autodisciplinan, o bien son disciplinadas por una autoridad
+externa» (p. 11). Las instituciones no son impuestas por nadie sino que se desarrollan por
+los miembros de una sociedad mientras persiguen la maximización de su bienestar indivi-
+dual. Más adelante el mismo Schotter concluye: «... las instituciones sociales y económicas
+son esencialmente mecanismos que generan información con la cual se completa la in-
+formación contenida en los precios competitivos cuando estos precios no cumplen adecua-
+damente su papel de coordinar las actividades económicas» (p. 143).
+El estudio del cálculo económico en la empresa neoclásica (capítulo 2) muestra la
+importante simplificación del problema de asignación interna de recursos que se consigue
+
+=== PAGE 8 ===
+22
+VICENTE SALAS FUMÁS
+nidad, precio, que permita decidir si se asigna a una actividad productiva o a otra. Conse-
+cuentemente, el cálculo económico será mucho más complejo y requerirá de mecanismos
+administrativos y contables para llegar a una valoración de precios y costes; o incluso se
+renunciará a ellos y se utilizarán mecanismos asignativos distintos como las asignaciones
+presupuestarias, fijación de cuotas orientativas de producción, etc. Antes nos hemos refe-
+rido a la inexistencia de precios diferenciados para todas las tareas y circunstancias que
+pueden concurrir en un puesto de trabajo y que obligan a utilizar contratos de empleo,
+que son realmente contratos de alquiler de servicios de trabajo por la empresa, cuya
+asignación concreta se hará por los gerentes de la misma según lo requieran las circunstan-
+cias cambiantes. Igualmente ilustrativa es también la dificultad para llegar a conocer el
+coste de uso del input capital cuando máquinas, equipos e instalaciones utilizadas por la
+empresa no tienen unos precios en el mercado de bienes usados debido a que ese precio
+dependería del estado de mantenimiento de tales bienes y éste es muy costoso de conocer
+por parte de agentes externos a la empresa. Esta circunstancia obliga a la empresa a
+recurrir a elaborados sistemas de contabilidad interna cuyas técnicas y métodos de valora-
+ción suplen la inexistencia de un precio de mercado para los bienes de su inmovilizado.
+La empresa, como institución que completa el papel generador y transmisor de
+información del mercado en circunstancias donde éste encuentra dificultades para desarro-
+Ilar su función, queda con estas ilustraciones inicialmente perfilada. Es importante desta-
+car que las instituciones en general y la empresa en particular, aparecen en la organización
+de la actividad económica dentro de un marco general que corresponde al de Empresa
+Privada, conviviendo con el mercado y repartiéndose con él el ámbito de sus respectivas
+influencias.
+COSTES DE TRANSACCIÓN: ANÁLISIS MICROECONÓMICO
+DE LA ORGANIZACIÓN DE LA PRODUCCIÓN
+La Economía Neoclásica sitúa a la tecnología y a las preferencias de los agentes en
+el centro de atención del análisis económico. Algunos autores estudiosos de la Economía
+Institucional proponen que las relaciones entre los agentes económicos se explican mejor
+haciendo a la transacción la unidad básica del análisis (Commons, 1934). Un modelo de
+empresa basado en el concepto tecnológico de la función de producción difícilmente puede
+explicar la existencia de empresas multisectoriales; participando simultáneamente en dife-
+rentes tecnologías escasamente relacionadas entre sí. La solución al problema de la empre-
+sa monopolista no depende de los costes y la demanda sino de la capacidad para discrimi-
+nar a unos grupos de clientes de otros y evitar la posible reventa de los productos entre
+ellos. El problema de las externalidades en la economía no se debe a la imposibilidad
+teórica de atribuir un precio a los bienes y servicios que crean dicha externalidad, sino al
+hecho de que el precio debería ser personalizado para cada agente afectado lo cual reduci-
+rá el mercado del bien a un oferente y a un demandante; dejarían de cumplirse así las
+condiciones de múltiples oferentes y múltiples demandantes que aseguran la formación de
+precios paramétricos en los mercados.
+Para autores como Arrow (1969) los costes de producción no recogen todas las

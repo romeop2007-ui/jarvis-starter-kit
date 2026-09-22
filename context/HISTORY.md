@@ -7,6 +7,27 @@
 
 ---
 
+## 2026-09-22
+
+### HUESCA : cours en français et règle d’accompagnement
+- Cinq matières regroupées sur la page Notion HUESCA : Fondements du marketing, Direction commerciale I, Direction stratégique, Contrôle de gestion, Organisation et gestion interne.
+- Extension aux quatre dernières matières terminée : 7 documents, 222 pages et 56 visuels ajoutés. Sauvegardes dans `livrables/etudes/Huesca/Traductions-FR/`.
+- Méthode validée : menus déroulants par matière, document et page ; texte éditable en français pour les supports textuels ; images traduites pour les schémas utiles, avec conservation de leur disposition. Roméo n’a pas encore relu l’ensemble.
+- Pour toute question de cours, consulter d’abord HUESCA. Signaler immédiatement toute réponse ou tout document absent et orienter vers Moodle, sans présenter une piste supposée comme un emplacement vérifié. Accompagnement à la demande, sans relances proactives sur les études.
+
+
+### kie.ai retenu pour les statiques, installé et testé
+- Comparatif kie.ai vs Higgsfield au rapport qualité-prix : même moteur Nano Banana Pro, kie ~0,09 $/image en 2K sans abonnement contre ~0,10 à 0,14 $ chez Higgsfield (crédits perdus chaque mois). kie.ai retenu.
+- Compte créé par Roméo, clé API rangée dans .env (jamais collée dans le chat), 80 crédits offerts.
+- Script kie-image.mjs (skill crea-pub) : envoi des références depuis le Mac, 4:5 en 2K par défaut, solde affiché avant et après chaque image. Test réussi : 1 image en 52 s pour 18 crédits (1 crédit = 0,005 $), 62 crédits restants.
+- Test technique seulement, jugé moyen par Roméo : prompt minimal, logo de la référence repris en gros. Les vraies statiques attendent la méthode de Roméo.
+- Sécurité conseillée : pas de liste blanche IP (IP changeante), limites 1 000 crédits/h et 2 000/jour, pas de limite totale, petites recharges.
+- Dossier unique imposé par Roméo : livrables/ecommerce/creas/kie.ai/, forcé dans le script et gravé en mémoire.
+- Nettoyage du contexte : méthode statiques GPT retirée de CLAUDE.md et CONTEXT.md, sujet « Sheet ROAS à recalibrer » (fait le 21/09) et relevé AdSpy reporté retirés.
+- Prochaine session : Roméo explique la suite et sa méthode, on produit les statiques.
+
+---
+
 ## 2026-09-21 (mise à jour 3)
 
 ### Baisse de prix coefficient 3,5, AfterSell, Klaviyo et Sheet ROAS recalibré

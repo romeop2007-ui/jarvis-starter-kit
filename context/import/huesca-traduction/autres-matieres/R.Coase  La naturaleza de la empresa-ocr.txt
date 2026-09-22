@@ -1,0 +1,714 @@
+
+=== PAGE 1 ===
+COASE, R.H. (1994)
+La empuesa, el mercado y la ley
+Madrid: Alianzo Economía
+Capítulo 2
+LA NATURALEZA DE LA EMPRESA*
+La teoría económica ha fracasado en el pasado a la hora de establecer clara-
+mente sus supuestos. Los economistas, al elaborar la teoría, han omitido con
+frecuencia examinar los cimientos sobre los que ella se erigía. Este examen es,
+sin embargo, esencial no sólo para evitar malos entendidos y controversias in
+necesarias que surgen de la falta de conocimiento de los supuestos, sino tam-
+bién debido a la gran importancia que tiene en economía el buen juicio a la hora
+de seleccionar entre conjuntos rivales de supuestos. Por ejemplo, se sugiere que
+el uso de la palabra «empresa» en economía puede ser distinto del que puede
+hacer de este término «el hombre común» !. En la teoría económica hay, apa-
+rentemente, una tendencia a comenzar el análisis con la empresa individual y
+no con la industria?. Por ello se hace imprescindible no sólo dar una definición
+precisa de la palabra «empresa», sino también aclarar la diferencia, si es que
+existe, con una empresa en el mundo real. Joan Robinson ha dicho que «son
+dos las preguntas que deben hacerse sobre un conjunto de supuestos en econo-
+mía: ¿Son operativos? ¿Se corresponden con el mundo real?» 3. Sin embargo,
+tal como apunta Robinson, «con frecuencia un conjunto es operativo y el otro
+realista», aunque puede haber ramas de la teoría donde existan supuestos que
+posean ambos atributos. En el presente artículo se espera demostrar que puede
+obtenerse una definición de la empresa no sólo realista, en la medida en que se
+corresponde con lo que se entiende por empresa en el mundo real, sino además
+* Reimpresión de Economica, n.s., 4 (noviembre de 1937).
+' Joan Robinson, Economics is a Serious Subjet (Cambridge, Inglaterra: W. Heffer & Sons,
+1932), 12.
+2 Véase Nicholas Kaldor, «The Equilibrium of the Firm», Economic Journal 44 (marzo de
+1944), 60-76.
+3 Robinson, Serious Subject, 6.
+33
+
+=== PAGE 2 ===
+34
+R. H. Coase
+operativa por dos de los instrumentos más poderosos del análisis económico de-
+sarrollados por Marshall: las ideas de margen y sustitución, que conjuntamente
+dan la idea de sustitución en el margen 4. Nuestra definición debe, por lo tanto,
+«estar vinculada con relaciones formales que sean capaces de ser concebidas de
+forma exacta» 5.
+I
+Es conveniente, al intentar encontrar una definición de la empresa, conside-
+rar el sistema económico tal como es tratado por los economistas. Analicemos
+en primer lugar la descripción del sistema económico dada por sir Arthur Sal-
+ter. «El sistema económico normal funciona solo. En su funcionamiento coti-
+diano no está bajo ningún control central. No necesita ninguna vigilancia. En el
+espectro completo de actividades y necesidades humanas, la oferta se ajusta a la
+demanda y la producción al consumo por un proceso que es automático, elás-
+tico y sensible» . El economista piensa que el sistema económico está coordi-
+nado por el mecanismo de precios, y que la sociedad se convierte no en una or-
+ganización, sino en un organismo'. El sistema económico «funciona solo». Ello
+no significa que no exista planificación por parte de los individuos. Éstos reali-
+zan previsiones y eligen entre alternativas, lo cual es necesario para que haya
+orden en el sistema. Pero esta teoría supone que la dirección de los recursos de-
+pende directamente del mecanismo de precios. Por otra parte, suele conside-
+rarse como una objeción a la planificación económica el que la misma sola-
+mente trate de realizar lo que ya se alcanza con el mecanismo de precios 8. La
+descripción de sir Arthur Salter ofrece un esquema muy incompleto de nuestro
+sistema económico. Dentro de la empresa, esa definición no se ajusta en lo más
+mínimo. Por ejemplo, en la teoría económica hallamos que la asignación de los
+factores de producción entre distintos usos está determinada por el mecanismo
+de precios. El precio del factor A es más elevado en X que en Y. Como resul-
+tado, A se mueve de Y a X hasta que la diferencia de precios entre X e Y desa-
+parece, excepto cuando compensa otras desventajas diferenciales. Aun así, en el
+mundo real encontramos que hay muchas áreas en las que esta situación no se
+produce. Si un trabajador se mueve del departamento Y al X, no lo hace debido
+a un cambio en los precios relativos, sino porque le ordenaron que lo haga. Hay
+quienes objetan la planificación económica sobre la base de que el problema se
+• J. M. Keynes, Essays in Biography (Londres: Macmillan & Co., 1933), 223-24.
+S L. Robbins, Nature and Significance of Economic science (Londres, Macmillan & Co., 1932), 66.
+• Esta descripción se ha tomado con la autorización de D. H. Robertson, The Control of In-
+dustry, edición revisada (Londres: Nisbet & Co., 1928) 85, y de Arnold Plant, «Trends in Business
+Administration», Economica 12, n.º 35 (febrero de 1932), 387. Aparece en J. A. Salter, Allied Ship-
+ping Control (Oxford, Clarendon Press, 1921), 16-17.
+> Véase F. A. Hayek, «The Trend of Economic Thinking», Economica (mayo de 1933).
+La naturaleza de la empresa
+35
+resuelve a través de movimientos de precios. A éstos se les puede responder
+que hay una planificación dentro de nuestro sistema económico que es por
+completo diferente de la planificación individual antes mencionada y que es si-
+milar a lo que se denomina planificación económica. El ejemplo recién citado
+es típico de un vasto campo de nuestro moderno sistema económico. Obvia-
+mente, los economistas no se han olvidado de este factor. Marshall introduce a
+la organización como un cuarto factor de la producción. J. B. Clark asigna al
+empresario la función coordinadora. Knight incluye gerentes que coordinan.
+Tal como comenta D. H. Robertson, encontramos «islas de poder consciente en
+este océano de cooperación inconsciente, como trozos de mantequilla coagu-
+lada en un cazo con leche cortada»°. Pero dado que generalmente se argumenta
+que la coordinación se realiza a tr
+que la coordinación se realiza a través del mecanismo de precios, ¿por qué di-
+cha organización es necesaria? ¿Por qué existen estas «islas de poder cons-
+ciente»? Fuera de la empresa, los movimientos de precios determinan la pro-
+ducción, que es organizada por una serie de transacciones de intercambio en el
+mercado. Dentro de la empresa estas transacciones mercantiles son eliminadas
+y, en lugar de la complicada estructura del mercado, aparece el empresario
+coordinador, quien dirige la producción '°. Está claro que éstos son métodos al-
+ternativos para coordinar la producción. Sin embargo, teniendo en cuenta que si
+la producción es regulada por los movimientos de precios, la misma podría lle-
+varse a cabo sin ningún tipo de organización, bien podemos preguntarnos: ¿por
+qué existe la organización?
+Naturalmente, varía muchísimo el grado en que el mecanismo de precios es
+desplazado. En un centro comercial, la asignación de los distintos locales en el
+edificio puede ser realizada por la autoridad controladora o también puede al-
+canzarse como resultado de una subasta competitiva por el espacio. En la indus-
+tria del algodón de Lancashire, un tejedor puede alquilar energía y espacio para
+su negocio y obtener telar e hilo a crédito "'. Esta coordinación de varios facto-
+res de producción se concreta casi siempre sin el concurso del mecanismo de
+precios. Como es evidente, la cantidad de integración «vertical», y el grado de
+supresión del mecanismo de precios, difiere mucho de una industria a otra y de
+una empresa a otra.
+Yo creo que puede suponerse que la señal distintiva de la empresa es el des-
+plazamiento del mecanismo de precios. Como indica Robbins, está «relacio-
+'cubrir la naturaleza exacta deses y precios a adivino , pero es importante
+de recursos en una empresa y la asignación de recursos en el sistema nacion
+• Robertson, Control of Industry, 85.
+10 En el resto de este artículo utilizaré el término «empresario» para referirme a la persona o
+personas que, en un sistema competitivo, toman el lugar del mecanismo de precios en la dirección
+de recursos.
+re Reino Unido, Parlamento, Comité sobre Industria y Comercio, Survey of Texile Industries
+2619206is aue and sienfrance. 1.
+
+=== PAGE 3 ===
+36
+R. H. Coase
+mico ha sido descrita con énfasis por Maurice Dobb al discutir la concepción
+del capitalista sostenida por Adam Smith: «Comenzó a comprenderse que había
+algo más valioso que las relaciones dentro de cada fábrica o unidad capitaneada
+por un empresario; estaban sus relaciones con el resto del mundo económico
+más allá de su esfera inmediata... el empresario se ocupa de la división del tra-
+bajo dentro de cada empresa, y planea y organiza con gran minuciosidad», pero
+«él está vinculado con la amplia especialización económica de la que él mismo
+es una unidad especializada. Aquí él juega el papel de célula en un organismo
+mayor, prácticamente inconsciente de la función más integradora que le com-
+pete'3.
+Los economistas tratan el mecanismo de precios como un instrumento coor-
+dinador y también admiten la función coordinadora del «empresario». Es enton-
+ces fundamental investigar por qué la coordinación es la labor del mecanismo
+de precios en un caso y del empresario en otro. El propósito de este artículo es
+el de crear un puente —sobre lo que parece ser un punto débil de la teoría eco-
+nómica— entre el supuesto (hecho con ciertos propósitos) de que los recursos
+se asignan a través del mecanismo de precios y el supuesto (hecho con otros
+objetivos) de que dicha asignación depende del empresario-coordinador. Debe-
+mos explicar los fundamentos sobre los cuales, en la práctica, se efectúa esta
+elección entre alternativas '4.
+II
+Nuestra misión es intentar descubrir por qué surge la empresa en una eco-
+nomía especializada de intercambio. El mecanismo de precios (considerado
+sólo desde el punto de vista de la dirección de recursos) puede ser desplazado si
+la relación que lo reemplaza es deseada por sí misma. Este sería el caso, por
+ejemplo, de un grupo de individuos que prefiriera trabajar bajo la dirección de
+una persona determinada. Dichos individuos aceptarán una menor remunera-
+ción con tal de trabajar bajo sus órdenes, y las empresas, lógicamente, se orga-
+nizarán a partir de ello. Pero parece que ésta no es una razón muy importante,
+actividad está haciendo algo que era antes realizado por el mecanismo de precios. No siempre llega
+a advertirse que cualquier hombre de negocios —al definir las relaciones entre sus departamentos—
+también está haciendo algo que puede ser organizado a través del mecanismo de precios. Existe,
+por lo tanto, una justificación en la respuesta de Durbin a quienes hacen hincapié en los problemas
+que deben solucionarse mediante la planificación económica de que los mismos problemas deben
+resolverlos los hombres de negocios en el sistema competitivo. (Véase E. F. M. Durbin, «Economic
+E. P.M. Durbin, st
+Calculus in a Planned Economy», Economic Journal 46 (diciembre de 1936), 676-90.) La impor-
+tante diferencia entre estos dos casos es que la planificación económica es impuesta a la industria,
+mientras que las empresas surgen voluntariamente, pues representan un método más eficiente de or-
+ganizar la producción. En un sistema competitivo existe una cantidad «óptima» de planificación.
+La naturaleza de la empresa
+37
+pues da la impresión de que, en realidad, está operando una tendencia opuesta,
+si se juzga por el valor que se otorga a la ventaja de «ser uno mismo su propio
+jefe» '5. Naturalmente, si el propósito fuera el de controlar y no ser controlado,
+es decir, ejercer poder sobre otro, entonces las personas estarían dispuestas a re-
+nunciar a algunas cosas con tal de dirigir a otros. En definitiva, estarían dis-
+puestas a pagar a los otros más de lo que pueden obtener a partir del mecanismo
+de precios con tal de tener dicho poder. Pero esto implicaría que los que diri-
+gen, pagan para poder hacerlo, y que a ellos no se les paga por dirigir, y esto no
+es verdad en la mayoría de los casos '°. Las empresas existirían aunque los com-
+pradores prefirieran los productos elaborados por ellas antes que los producidos
+de otra manera, pues aun en campos donde dicha preferencia (si es que se da)
+se espera que sea insignificante, las empresas continúan existiendo en el mundo
+real ". Por lo tanto tienen que existir otros elementos implicados en el tema.
+La principal razón por la que es provechoso establecer una empresa es, apa-
+rentemente, la existencia de un coste necesario por utilizar el mecanismo de
+precios. El coste más obvio por «organizar» la producción a través de este me-
+canismo es el de descubrir cuáles son los precios relevantes '8. Este coste puede
+ser reducido, pero no eliminado, por la aparición de especialistas que vendan
+esta información. Los costes por negociar y cerrar un contrato individual para
+cada transacción de intercambio que tiene lugar en el mercado también han de
+ser tenidos en cuenta '°. Por otra parte, en algunos mercados, por ejemplo, en
+las lonjas, se desarrolla una técnica para minimizar los costes de contratación,
+pero no se los elimina. Es verdad que no desaparecen los contratos cuando
+existe una empresa, pero se reduce muchísimo su cantidad. Un factor de pro-
+ducción (o su propietario) no necesita formalizar una serie de contratos con los
+factores con los que está cooperando dentro de la empresa, como sería el caso si
+dicha cooperación fuera el resultado directo del funcionamiento del mecanismo
+de precios, pues esta serie de contratos se sustituye por uno solo. A esta altura
+jetivo en la vida de un trabajador) de ser independientes».
+16 Esto no es totalmente fantasioso. De algunos propietarios de pequeños negocios se dice que
+ganan menos que sus empleados.
+' G. E. Shove en «The Imperfection of the Market: A Further Note», Economic Journal 43
+(marzo de 1933), 116, n.° 1, destaca que dichas preferencias pueden existir, aunque el ejemplo que
+da es prácticamente el contrario al dado en el texto.
+18 De acuerdo con Nicholas Kaldor, «A Classificatory Note on the Determinateness of Equili-
+brium», Review of Economic Studies (febrero de 1934), 123, uno de los supuestos de la teoría está-
+tica es que «todos los precios relevantes... son conocidos por los individuos». Pero esto, evidente-
+mente, no es cierto para el mundo real.
+19 Esta influencia fue apuntada por Abbott Usher al discutir el desarrollo del capitalismo. Usher
+dice: «Las sucesivas compras y ventas de productos parcialmente terminados eran un desperdicio
+de energía». (An Introduction to the Industrial History of England [Boston: Houghton Mifflin Co.,
+1920], 13.) Pero no desarrolla la idea ni considera por qué dichas operaciones de compra-venta to-
+davía existen.
+
+=== PAGE 4 ===
+es fundamental tomar nota del carácter del contrato al que se somete el factor
+que es empleado dentro de una empresa. El contrato es un documento por me-
+dio del cual el factor, por una determinada remuneración (que puede ser fija o
+fluctuante), acepta obedecer las directivas de un empresario dentro de ciertos lí-
+mites 2. La esencia del mismo es que solamente debe establecer los límites a
+los poderes del empresario. Dentro de ellos, éste puede, por lo tanto, dirigir los
+otros factores de producción.
+Existen, además, otras desventajas —o costes— como consecuencia de la
+utilización del mecanismo de precios. Se puede desear realizar un contrato de
+larga duración para la entrega de un artículo o servicio. Ello puede deberse a
+que si un documento de esta clase se establece por un período de tiempo más
+prolongado, en vez de varios por períodos cortos, entonces se pueden evitar al-
+gunos costes por la concreción de contratos intermedios. O, a causa de la acti-
+tud frente al riesgo que tienen las personas implicadas, pueden preferirlo por un
+largo tiempo antes que por un breve período. Ahora bien, debido a la dificultad
+de hacer predicciones, cuanta mayor duración tenga el contrato para proveer un
+bien o un servicio, entonces es más improbable y, en efecto, menos deseable
+para el adquirente especificar qué espera que haga la otra parte contratante. Al
+proveedor del servicio o del producto puede resultarle indiferente el curso de
+acción que se sigue, no así al adquirente de dicho servicio o producto. El com-
+prador no sabrá cuál de estos cursos de acción posibles deseará que se adopte
+por el proveedor. Por lo tanto, el servicio que se provee se expresa en términos
+generales y se dejan los detalles para más tarde. Todo lo que se estipula en el
+contrato son los límites que tendrá la actividad de la persona que aporta el pro-
+ducto o servicio. Las especificaciones de lo que se espera que el proveedor
+haga no se consignan en el documento, sino que son decididas después por el
+adquirente. Cuando la dirección de los recursos (dentro de los límites del con-
+trato) se hace dependiente del comprador se puede obtener entonces la relación
+que yo denomino «empresa» ''. Es probable que una empresa aparezca en aque-
+llos casos en los que un contrato de muy corto plazo sería insatisfactorio. Es
+evidente que es de mayor relevancia en los servicios —trabajo — que en la
+compra de productos. En el caso de los productos, los ítems principales se pue-
+nor importancia.
+Podemos resumir esta parte del argumento diciendo que el funcionamiento
+del mercado cuesta algo y que al formar una organización y permitir a una au-
+toridad (al empresario) dirigir los recursos, se ahorran algunos costes para ope-
+rar en el mercado. El empresario debe realizar su función a un menor coste, te-
+20 Podría no fijarse límites a los poderes del empresario. Ello sería esclavitud voluntaria. De
+acuerdo con Francis R. Batt, The Law of Master and Servant, 1.ª ed. (Londres: Sir I. Pitman &
+Sons, 1929), 18, dicho contrato sería nulo y no podría imponerse su cumplimiento.
+21 Naturalmente, no puede trazarse una división estricta que determine si existe o no una em-
+presa. Puede haber mayor o menor dirección. Es similar al problema legal de si se trata de la rela-
+ción patrón y sirviente, o principal y agente. Véase la discusión de este problema más adelante.
+La naturaleza de la empresa
+39
+niendo en cuenta que puede obtener factores de producción a un precio más
+bajo que las transacciones mercantiles que evita, porque siempre es posible vol-
+ver al mercado libre si no es capaz de conseguirlo.
+La cuestión de la incertidumbre es generalmente considerada vital para es-
+tudiar el equilibrio de la empresa; parece improbable que una empresa surja sin
+su existencia. Hay quienes, como Knight, hacen del «modo de pago» la señal
+distintiva de una empresa —unos ingresos fijos están garantizados para algunos
+de los implicados en la producción por una persona que recibe los ingresos resi-
+duales y fluctuantes—. Pero da la impresión de que los mismos introducen un
+aspecto irrelevante con relación al problema que estamos analizando. Un em-
+• relacion al
+presario puede vender sus servicios a otro por una determinada suma de dinero,
+mientras que el pago a sus empleados consiste principal o exclusivamente en
+compartir las ganancias 22. La cuestión significativa parece ser por qué la asig-
+nación de los recursos no se hace en forma directa a través del mecanismo de
+precios. Otro factor que no debe olvidarse es que las transacciones de intercam-
+bio en el mercado y aquellas organizadas dentro de la empresa no reciben el
+mismo trato por parte de los gobiernos o entes reguladores. Si consideramos el
+funcionamiento de un impuesto sobre ventas, está claro que se trata de un gra-
+vamen sobre transacciones mercantiles, pero no sobre las mismas transacciones
+si éstas son efectuadas dentro de la empresa. Entonces, por tratarse de métodos
+alternativos de «organización» —a través del mecanismo de precios o de un
+empresario— dichas regulaciones harán surgir empresas que de otra manera no
+tendrán razón de ser. En una economía especializada de intercambio, ello apor-
+taría una causa para su surgimiento. Naturalmente, en la medida en que las em-
+presas ya existen, disposiciones como los impuestos sobre las ventas consegui-
+rán hacerlas más grandes de lo que serían de otra manera. Del mismo modo,
+sistemas de cuota y de control de precios que implican racionamiento y que no
+son de aplicación a las empresas que producen esos artículos para sí mismas, al
+dar ventaja a los que los hacen dentro de ellas y no a través del mercado, nece-
+sariamente fomentan su crecimiento. Pero es difícil creer que medidas tales
+como las mencionadas han hecho que surjan las empresas, aunque tenderían a
+producir este resultado si no existieran antes otras causas.
+Estas son, entonces, las razones por las que existen entidades como las em-
+presas en una economía especializada de intercambio, en la que en general se
+supone que la distribución de los recursos se «organiza» a través del meca-
+nismo de precios. Una empresa, por lo tanto, consiste en un sistema de relacio-
+nes que aparece cuando la dirección de recursos depende de un empresario.
+El planteamiento expuesto parece ofrecer una ventaja, en la medida en que
+es posible dar un significado científico a lo que se expresa cuando se dice que
+una empresa crece o se hace más pequeña. Un empresa crece cuando el empre-
+sario organiza transacciones adicionales (que pueden ser transacciones de inter-
+cambio coordinadas a través del mecanismo de precios); y se reduce cuando las
+22 Las opiniones de Knight se examinan más adelante con mayor detalle.
+
+=== PAGE 5 ===
+40
+R. H. Coase
+abandona. Surge entonces la pregunta de si es posible estudiar las fuerzas que
+determinan la magnitud de una empresa. ¿Por qué el empresario no organiza
+una transacción menos o una más? Es interesante destacar que Knight consi-
+que la relación entre eficiencia y tamaño es uno de los problemas más serios
+de la teoría. Se trata en buena medida, en contraste con la relación para una fá-
+brica, de un asunto de personalidad y accidente históricos más que de princi-
+pios generales inteligibles. Pero el problema es particularmente importante,
+pues la posibilidad de ganancias monopólicas ofrece un poderoso incentivo a
+una continua e ilimitada expansión de la empresa, cuya fuerza se debe com-
+pensar por otra de igual fuerza debido al decrecimiento de la eficiencia (en la
+generación de ingresos monetarios) con el crecimiento en tamaño, aun cuando
+exista competencia en el límite 23.
+Knight parece considerar imposible tratar de forma científica los determi-
+nantes del tamaño de una empresa. Pero, sobre la base del concepto de empresa
+desarrollado, lo intentaremos.
+Se sugirió que la introducción de la empresa se debía principalmente a la
+existencia de costes producidos por utilizar el mercado. Una pregunta que re-
+sulta oportuno formular (sin relación alguna con las consideraciones sobre el
+monopolio presentadas por Knight) es: ¿Por qué, si a través de la organización
+se pueden eliminar ciertos costes y reducir los de producción, hay transacciones
+mercantiles? 2 ¿Por qué toda la producción no la realiza una única y gran em-
+presa? Parecen existir, sin embargo, algunas explicaciones posibles.
+En primer lugar, en la medida en que una empresa crece, puede haber una
+caída en el rendimiento del empresario, es decir, los costes por organizar tran-
+sacciones adicionales dentro de la empresa pueden crecer 25. Obviamente, se al-
+canza un punto en el que los costes por organizar una transacción suplementaria
+dentro de la empresa son iguales a los costes necesarios para realizarla en el
+mercado libre, o a los costes de organización de otro empresario. En segundo
+lugar, puede ocurrir que a medida que aumenten las transacciones que deben
+organizarse, el empresario fracase a la hora de situar los factores de producción
+en los usos para los que su valor sea mayor, es decir, no sea capaz de hacer el
+mejor uso de los factores de producción. También aquí se llegaría a un punto en
+el que las pérdidas ocasionadas por la deficiente utilización de recursos sería
+23 Frank H. Knight, Risk, Uncertainty and Profit, Prefacio de la reedición (Londres: London
+School of Economics and Political Science, 1933).
+24 Hay algunos costes para operar en el mercado que solamente podrían eliminarse con la aboli-
+ción de la «soberanía del consumidor» y éstos son los costes de venta al por menor. Es concebible
+que los mismos pudieran ser tan elevados que la gente estuviera dispuesta a aceptar raciones, pues
+el producto adicional a obtener compensaría la pérdida de la capacidad de elección.
+25 Este argumento supone que las transacciones de intercambio en un mercado pueden ser con-
+sideradas como homogéneas, lo que de hecho es falso. Esta complicación se tiene en cuenta más
+adelante.
+La naturaleza de la empresa
+41
+igual a los costes por utilizar el mercado o a las pérdidas que se producirían si
+la transacción fuera organizada por otro empresario. Por último, el precio de
+entrega de uno o más de los factores de producción puede crecer, debido a que
+las «otras desventajas» de una empresa pequeña son mayores que en una gran
+empresa 2. Naturalmente, el punto real en el cual cesa la expansión de una em-
+presa podría estar determinado por una combinación de los factores antes men-
+cionados. Las dos primeras razones dadas se corresponden probablemente con
+la frase de los economistas «rendimientos decrecientes de la gerencia» 27.
+En el párrafo precedente se ha apuntado que una empresa tenderá a expan-
+dirse hasta que los costes por organizar una transacción suplementaria dentro de
+ella se hagan iguales a los costes por llevarla a cabo a través de un intercambio
+en el mercado libre, o a los costes de ser organizada por otra empresa. Pero si la
+empresa frena su expansión en un punto en el que sus costes estén por debajo
+de los que le representaría utilizar el mercado libre, o cuando sus costes sean
+menores a los costes de organización de otra empresa, entonces, en la mayoría
+de los casos (excluyendo el caso de «combinación») 2, ello implicaría que hay
+una transacción mercantil entre estos dos productores, cada uno de los cuales
+podría organizarla a un coste menor de los costes de utilizar el mercado. ¿Cómo
+se resuelve esta paradoja? Si consideramos un ejemplo la razón quedará clara.
+Supongamos que A comprara un producto a B y que ambos, A y B, pudieran
+efectuar esta transacción mercantil por menos de su coste actual. B, podemos
+suponer, no está organizando un proceso o etapa de la producción, sino varios.
+Si A quiere evitar una transacción mercantil, entonces deberá asumir todos los
+procesos de producción controlados por B. Si A no los asume, quedará alguna
+transacción mercantil, aunque se compre un producto diferente. Pero hemos su-
+puesto anteriormente que al expandirse cada productor se vuelve menos efi-
+ciente; los costes adicionales por organizar transacciones suplementarias au-
+mentan. Es probable que los costes de organización que tendrá que asumir A
+por hacerse cargo de las transacciones que antes organizaba B serán mayores
+que los que le suponían a B hacer las mismas cosas. A, por-lo-tanto, se hará
+cargo de toda la organización de B sólo si sus costes por organizar el trabajo de
+2 Para una discusión sobre la variación del precio de entrega de los factorés de producción a
+empresas de distinto tamaño, véase E. A. G. Robinson, The Structure of Competitive Industry.
+(Londres: Nisbet & Co., 1931.) Se dice algunas veces que el precio de la capacidad organizativa au-
+menta con el tamaño de la empresa, pues los hombres prefieren ser jefes de pequeñós negocios in-
+dependientes antes que cabezas de departamentos de grandes empresas. Véase Eliot Jones, The
+Trust Problem in the United States (Nueva York, Macmillan & Co., 1921), 231 y D. H. Macgre-
+gor, Industrial Combination (Londres: G. Bell & Sons, 1906), 63. Este es un argumento frecuente
+entre quienes abogan por la racionalización. Se afirma que unidades más grandes serían más efi-
+cientes, pero debido al espíritu individualista de los pequeños empresarios, éstos optan por mante-
+nerse independientes, a pesar del aparente crecimiento en los ingresos que la máyor eficiencia de-
+bida a la racionalización haría posible.
+. 2 Esta discusión es, naturalmente, breve e incompleta. Para un análisis más profundo de este
+problema, véase Kaldor, «Equilibrium of the.Firm», y Austin Robinson, «The Problem of Manage-
+ment and the Size of Firms», Economic Journal 44 (junio de 1934), 242-57.
+., 28 Una definición de este término se da más adelante.
+
+=== PAGE 6 ===
+42
+R. H. Coase
+B no son superiores a los costes de B en una cantidad igual a los costes por lle-
+var a cabo una transacción de intercambio en el mercado libre. Pero si es renta-
+forma que los costes por organizar una transacción de más en
+cada empresa sean los mismos.
+Hasta el momento se había supuesto que las transacciones de intercambio
+que se concretan a través del mecanismo de precios son homogéneas. En reali-
+dad, nada podía ser más dispar que las transacciones reales que tienen lugar en
+nuestro mundo moderno. Ello parece implicar que los costes de las transaccio-
+nes de intercambio a través del mecanismo de precios variarán considerable-
+mente, lo mismo que los costes por organizarlas dentro de las empresas. Puede
+pensarse entonces que, aparte del problema de la pérdida de beneficios, los cos-
+tes por organizar algunas transacciones dentro de la empresa pueden ser mayo-
+res que los costes por llevar a cabo transacciones de intercambio en el mercado
+, la empresa puede se erado
+libre. Esto implicaría necesariamente que existirán transacciones de intercam-
+bio que se realizarán a través del mecanismo de precios, pero ¿ quiere decir tam-
+bién que debería haber más de una empresa? Claro que no, pues todas esas
+áreas del sistema económico donde la dirección de recursos no depende directa-
+mente del mecanismo de precios podrían ser organizadas desde una empresa
+Los factores discutidos parecen ser los importantes, aunque es difícil decir si
+los rendimientos decrecientes de la gerencia o el aumento en el precio de en-
+trega de los factores pudieran serlo más aún.
+A igualdad de factores, una empresa tenderá a crecer:
+a) si los costes de organización son menores y crecen más lentamente con
+un aumento de las transacciones organizadas;
+b) si es menos probable que el empresario cometa errores y el aumento de
+errores es menor cuando aumenten las transacciones organizadas;
+c) si es menor el crecimiento en el precio de entrega de los factores de pro-
+ducción a empresas de gran tamaño.
+Aparte de la variación del precio de entrega de los factores de producción a
+empresas de diferente tamaño, parece que los costes de organización y las pér-
+didas debidas a errores crecerán con el aumento en la distribución espacial de
+las transacciones organizadas, con la disparidad de las transacciones y con la
+probabilidad de cambios en los precios relevantes 29. Cuantas más transacciones
+sean organizadas por un empresario, parece que las mismas tenderán a ser dife-
+rentes en su estilo o localización. Ello suministra una razón adicional de por
+qué la eficiencia tiende a decrecer cuando la empresa se hace más grande. Los
+2ª Este aspecto del problema es subrayado por Kaldor, «Equilibrium of the Firm». Su importan-
+cia había sido apuntada previamente por E. A. G. Robinson, Competitive Industry, 83-106. Ello su-
+pone que un aumento en la probabilidad de movimientos de precios incrementa los costes de orga-
+nización dentro de la empresa más de lo que crece el coste por llevar a cabo una transacción de
+intercambio en el mercado —lo que es probable,
+La naturaleza de la empresa
+43
+inventos que intentan acercar los factores de producción mediante la reducción
+de la distribución espacial, tienden a aumentar el tamaño de las empresas 30. In-
+novaciones como el uso del teléfono y el telégrafo, que permiten reducir los
+costes de organización en lo referente al espacio, propiciarán un aumento en el
+tamaño de las empresas. Todos los cambios que posibilitan una mejora en las
+técnicas de administración tenderán a dicho aumento 3!.
+Debe tenerse en cuenta que la definición de empresa dada puede ser utili-
+zada para asignar un significado más preciso a los términos «combinación» e
+«integración» 32. Hay una combinación cuando las transacciones que antes eran
+empresa puede expandirse en cualquiera de estas dos formas. El conjunto de la
+«estructura competitiva de la industria» se hace tratable por las técnicas ordina-
+rias del análisis económico.
+Ill
+El problema que se ha investigado en los capítulos precedentes no ha sido
+descuidado del todo por los economistas. Es ahora necesario considerar el por-
+qué las razones expuestas para explicar el surgimiento de la empresa en una
+economía especializada de intercambio son preferibles a otras explicaciones
+propuestas.
+Algunas veces se afirma que las razones para la existencia de una empresa
+30 Esta parece ser la importancia del tratamiento de la unidad técnica de E. A. G. Robinson,
+Competitive Industry, 27-33. Cuanto mayor sea la unidad técnica, aumentará la concentración de
+factores, y por lo tanto la empresa será probablemente más grande.
+3' Debe tenerse en cuenta que la mayoría de los inventos cambian notablemente los costes de
+organización y los costes por utilizar el mecanismo de precios. En dichos casos, que el invento
+tienda a hacer crecer a la empresa o no dependerá del efecto relativo en esos dos conjuntos de cos-
+tes. Por ejemplo, si el teléfono reduce los costes por utilizar el mecanismo de precios más de lo que
+reduce los costes de organización, entonces tendrá el efecto de reducir el tamaño de la empresa.
+Una ilustración de estas fuerzas dinámicas la aporta Maurice Dobb, Russian Economic Deve-
+lopment since the Revolution (Nueva York: E. P. Dutton & Co., 1928), 68: «Con la desaparición del
+trabajo servil, la fábrica, como un establecimiento donde el trabajo estaba organizado bajo el látigo
+de un controlador, perdió su raison d'être hasta que ésta se restableció con la introducción de ma-
+quinaria de potencia a partir de 1846». Es importante tomar conciencia de que el paso de un sistema
+doméstico a un sistema fabril no es un mero accidente histórico, sino que está condicionado por
+fuerzas económicas. Ello lo demuestra el hecho de que es posible moverse del sistema fabril al sis-
+tema doméstico, como en el caso de Rusia, o viceversa. La esencia de la servidumbre es que no se
+permite actuar al mecanismo de precios. Por lo tanto, debe existir una dirección de parte de un or-
+ganizador. Cuando la servidumbre desapareció, se permitió que funcionara el mecanismo de pre-
+cios. Hasta que la maquinaria situó a los trabajadores en una localización concreta, no mereció la
+pena desplazar el mecanismo de precios y establecer de nuevo la empresa.
+32 Suele llamársela «integración vertical», y se la combina con el término «integración hori-
+zontal».
+
+=== PAGE 7 ===
+44
+R. H. Coase
+se encuentran en la división del trabajo. Esta es la opinión de Usher, adoptada y
+ampliada por Maurice Dobb. La empresa es «el resultado de la complejidad
+creciente en la división del trabajo... El crecimiento de esta diferenciación eco-
+nómica crea la necesidad de una fuerza integradora sin la cual la misma termi-
+naría en un caos, y es a través de esa fuerza que las formas industriales en una
+economía diferenciada, son altamente significativas» 33. La respuesta a este ar-
+gumento es obvia. La «fuerza integradora en una economía diferenciada» ya
+existe en forma del mecanismo de precios. Es quizá el principal logro de la
+ciencia económica haber demostrado que no hay motivo para suponer que la es-
+pecialización conduzca necesariamente al caos 34. El fundamento sostenido por
+Maurice Dobb es por lo tanto inadmisible. Lo que debe explicarse es por qué
+una fuerza integradora (el empresario) debe ser sustituida por otra fuerza inte-
+gradora (el mecanismo de precios).
+Las razones más interesantes (y tal vez las más aceptadas) que se han dado
+para explicar este hecho son las que se encuentran en la obra de Knight Risk,
+Uncertainty and Profit. Examinaremos sus opiniones con detalle.
+Knight comienza con un sistema en el que no hay incertidumbre:
+Actuando como individuos con absoluta libertad pero sin colusión, los hom-
+bres han organizado la vida económica con la división primaria y secundaria
+del trabajo, el uso de capitales, etc., desarrollándola hasta el estado en que se
+encuentra en los Estados Unidos hoy en día. El principal hecho que exige el
+uso de la imaginación es la organización interna de los grupos productivos o
+de las instituciones. Sin ninguna incertidumbre, y estando cada individuo en
+posesión de un perfecto conocimiento de la situación, no habría lugar para
+nada semejante à la administración responsable o el control de la actividad
+productiva. Incluso las transacciones mercantiles, en sentido realista, no exis-
+tirían. El flujo de materias primas y servicios productivos hacia el consumidor
+sería totalmente automático?5.
+Knight expresa que podemos imaginar este ajuste como «el resultado de un
+largo proceso de experimentación obtenido sólo mediante métodos de prueba-
+error», a la vez que no es necesario «imaginar a cada trabajador haciendo la ac-
+ón correcta en el momento correcto en una suerte de "armonía preestablecidi
+on el trabajo de los demás. Pueden existir los gerentes, superintendentes, eto
+on la misión de coordinar las actividades de los individuos», pero éstos desen
+añarán una función rutinaria, «sin responsabilidad de ningún tipo»
+Knight continúa:
+33 Dobb, Capitalist Enterprise and Social Progress, 10. Las opiniones de Usher se pueden en-
+contrar en su Industrial History of England, 1-18.
+34 Cf. J. B. Clark, The Distribution of Wealth (Nueva York: Macmillan & Co., 1931), que se re-
+fiere a las teorías del intercambio como una «teoría de la organización de una sociedad industrial».
+35 Knight, Risk, Uncertainty and Profit, 267.
+36 Ibid., 267-68.
+La naturaleza de la empresa
+45
+Con la introducción de la incertidumbre -el hecho de ignorar y la necesidad
+de actuar sobre la base de una opinión en vez de conocimiento-- en esta situa-
+ción paradisíaca, cambiaría completamente su carácter... Con la incertidumbre
+en acción, la ejecución de una actividad se convierte realmente en un aspecto
+secundario de la vida; el principal problema o función es decidir qué hacer y
+cómo hacerlo??.
+La incertidumbre proporciona entonces las dos características más impor-
+tantes de la organización social:
+En primer lugar, los bienes se producen para un mercado, sobre la base de una
+predicción impersonal de las necesidades, no para satisfacer los requerimien-
+tos de los productores. El productor asume la responsabilidad de predecir las
+necesidades de los consumidores. En segundo lugar, el trabajo de predecir,
+gran parte de la dirección tecnológica y el control de la producción se concen-
+tran más en un grupo reducido de productores, y aquí aparece un nuevo fun-
+cionario económico, el empresario... Cuando está presente la incertidumbre y
+la tarea de decidir qué hacer y cómo hacerlo tiene preeminencia sobre la eje-
+decidir que hacer
+cución, la organización interna de los grupos productivos no es más que un
+asunto de indiferencia o un detalle mecánico. La centralización de esta fun-
+ción decisoria y controladora es imperativa, este proceso... es inevitable... 38.
+El cambio más radical es:
+el sistema bajo el cual los confiados y emprendedores asumen el riesgo o dan
+seguridad a los tímidos y dubitativos al garantizar a estos últimos unos ingre-
+Estas citas transmiten la esencia de la teoría de Knight. La incertidumbre
+significa que las personas deben predecir las necesidades futuras. Por lo tanto,
+aparece una clase especial que dirige las actividades de los otros y a los que se
+les paga unos salarios garantizados. Funciona porque el buen juicio está gene-
+ralmente asociado con la confianza en el propio juicio 40.
+Pero Knight parece exponerse a críticas en varios aspectos. Primero, tal
+como él señala, el hecho de que algunas personas tengan un juicio mejor o ma-
+31 lbid., 268.
+38 Ibid., 268-295.
+39 Ibid., 270.
+10 Ibid., 269-70.
+
+=== PAGE 8 ===
+46
+R. H. Coase
+yor conocimiento no significa que sólo puedan obtener de los mismos unos in-
+gresos y tomar parte activa en la producción. Ellos pueden vender su asesora-
+miento y conocimientos. Toda empresa compra servicios de asesores. Se puede
+imaginar un sistema en el que todo el asesoramiento y el conocimiento se com-
+pre cuando se necesite. También es posible obtener una recompensa por ese
+mejor conocimiento o juicio sin tomar parte de forma activa en la producción,
+concertando contratos con personas que están produciendo: un comerciante que
+compra para entregas futuras es un ejemplo de ello. Esto simplemente pone en
+evidencia que es posible dar una recompensa garantizada, aunque algunos actos
+se realicen sin una dirección en su ejecución. Knight manifiesta: «tal como co-
+nocemos la naturaleza humana, sería impracticable o muy inusual que una per-
+sona garantice a otra un resultado definido de sus acciones sin tener el poder
+para dirigir el trabajo». Esta afirmación es incorrecta. Una gran proporción de
+los trabajos se efectúan bajo contrato, es decir, al contratista se le asegura una
+suma de dinero con tal de que realice una acción. Pero ello no implica ninguna
+dirección. Significa, sin embargo, que el sistema de precios relativos ha sido
+modificado y que habrá un nuevo arreglo de los factores de producción 4. El
+hecho de que Knight mencione que la «segunda persona no se pondría bajo la
+dirección de la primera sin dicha garantía» es irrelevante por lo que se refiere al
+problema que estamos examinando. Por último, es importante hacer notar que,
+aun en el caso de un sistema económico en el que no hubiera incertidumbre,
+Knight opina que habría coordinadores, aunque desempeñando exclusivamente
+tareas rutinarias. Y agrega de inmediato que existirían «sin responsabilidad de
+ningún tipo», lo que plantea la cuestión: «¿quién les paga y por qué? Knight no
+da ninguna razón por la cual el mecanismo de precios debe ser desplazado.
+IV
+Es necesario analizar otro punto más, y es la relevancia de esta discusión en
+relación con la cuestión general de la «curva de costes de la empresa».
+Algunas veces se ha supuesto que una empresa está limitada en cuanto a su
+amaño en el caso de competencia perfecta si su curva de costes tiene pendiente
+positiva *2. En realidad, está limitada porque no originaría beneficios alcanzar
+una mayor producción que aquella en la que los costes marginales igualan a sus
+ingresos marginales 43. Pero es evidente que una empresa puede producir más
+cia de la pequeña empresa.
+La naturaleza de la empresa
+47
+de un artículo. Por lo tanto, parece, prima facie, que debe existir una razón por
+la cual esta pendiente positiva de la curva de costes en el caso de competencia
+perfecta —o el hecho de que el coste marginal no esté siempre por debajo de
+los ingresos marginales, o en el caso de competencia imperfecta— deba limitar
+el tamaño de la empresa 4. Joan Robinson establece la hipótesis simplificadora
+de que se produce solamente un producto 45. Pero es fundamental investigar
+cómo se determina el número de artículos que una empresa fabrica; por ello una
+teoría que suponga que se elabora un único producto no puede tener una signifi-
+cación práctica relevante.
+Podría afirmarse que, en competencia perfecta, dado que todo lo que se pro-
+duce puede venderse al precio establecido, no hay necesidad de producir otro
+bien. Pero este argumento ignora que puede alcanzarse un punto en el que es
+menos costoso organizar transacciones de intercambio de un nuevo producto
+que organizar transacciones de intercambio suplementarias del viejo. Este argu-
+mento puede ser ilustrado de la siguiente manera. Imaginamos, siguiendo a Von
+Thunen, que existe un pueblo, el centro consumidor, y que sus industrias están
+localizadas alrededor de este punto central por anillos. En el diagrama siguiente
+A, B y C representan diferentes industrias.
+Imaginemos también a un empresario que comienza a controlar transaccio-
+nes de intercambio desde X. Ahora bien, a medida que extiende sus actividades
+en el mismo producto (B), el coste de organización crece hasta cierto punto
+que se hace igual al de otro producto distinto que está más cercano. Al
+pandirse la empresa, incluirá desde este punto más de un producto (A y C). Es
+can Economic Review (diciembre 1936), 645, n.° 27. Mr. White dice: «Es obvio que el tamaño de la
+empresa está limitado en condiciones de competencia monopólica».
+45 Joan Robinson. The Economic of Imperfect Compettion (Londres: Macmillan & Co., 1933), 17
+
+=== PAGE 9 ===
+48
+R. H. Coase
+evidente que este tratamiento del problema es incompleto 46, pero es necesario
+para mostrar que el simple hecho de que la curva de costes tenga pendiente po-
+sitiva no proporciona una limitación al tamaño de la empresa. Hasta aquí hemos
+consideraso sólo el caso de competencia perfecta; el de competencia imperfecta
+aparece como obvio. Para determinar el tamaño de una empresa debemos tener
+en cuenta los costes que implica usar el mercado (es decir, los costes por utili-
+zar el mecanismo de precios) y los costes por la organización de los diferentes
+empresarios y luego podemos determinar cuántos productos serán producidos
+por cada empresa y qué cantidad de cada uno. Aparentemente Shove 47, en su
+artículo sobre «Competencia imperfecta», formulaba preguntas que el aparato
+de curvas de costes de Joan Robinson no puede responder. Los factores men-
+cionados parecen ser los que tienen importancia.
+V
+Sólo falta una tarea: comprobar si el concepto de empresa que hemos desa-
+rrollado encaja con el mundo real. La mejor manera de plantear la cuestión de
+lo que en la práctica constituye una empresa es considerando la relación legal
+normalmente denominada «patrón y sirviente» o «empleador y empleado» 48
+Los aspectos esenciales de esta relación se han descrito de la siguiente forma:
+1) El sirviente está obligado a realizar servicios al patrón o a otros por cuenta
+del patrón; de lo contrario, el contrato es un contrato por venta de bienes o si-
+milar.
+2) El patrón debe tener el derecho de controlar el trabajo del sirviente, tanto
+personalmente como a través de otros sirvientes o un agente: Este derecho de
+control e interferencia —poder decirle al sirviente cuándo trabajar (dentro de
+las horas de servicio)— es la característica dominante en esta relación. Y es lo
+que diferencia al sirviente de un contratista independiente, o de una persona
+empleada simplemente para dar a su empleador los frutos de su trabajo. En
+este último caso, el contratista o trabajador no está bajo el control del emplea-
+r en lo que hace a la concreción del trabajo o al cumplimiento del servici
+debe organizar y administrar su labor de manera que obtenga el resulta
+para el que ha sido contratado 49.
+* Como se ha mostrado anteriormente, la localización es uno de los factores que influye sobre
+: los suburbios y el efecto del precio que cobran los proveedores,
+su Serios y erecto del perioaeo anos paneroso prende lar der
+viejas firmas no abren sucursales en los suburbios?». Si la argumentación en el texto es correcta,
+esta pregunta no puede ser respondida por el esquema de Joan Robinson.
+I concepto legal de «empleador y empleado» y el concepto de empresa no son idéntico
+ado que en la empresa puede implicar tanto el control sobre las propiedades de una persona com
+su trabajo. Pero las identidades de estos dos conceptos son suficientemente cercanas como para que
+un análisis del concepto legal sea útil para sopesar el valor del concepto económico.
+49 Batt, Master and Servant, 6.
+La naturaleza de la empresa
+49
+Observamos entonces que la dirección es la esencia del concepto legal de
+«empleador y empleado» igual que en el concepto económico desarrollado. Es
+interesante destacar lo que agrega Batt:
+Lo que distingue a un agente de un empleado no es la existencia de un salaric
+"jo o el pago de comisiones por trabajos realizados, sino la libertad con qu
+un agente puede llevar a cabo su empleo 50.
+Por lo tanto podemos concluir que la definición que hemos formulado se
+aproxima bastante a la empresa tal como se la considera en el mundo real
+Nuestra definición es, por consiguiente, realista. ¿Es también operativa?
+Ello debería quedar claro. Cuando consideramos lo grande que será una em-
+presa, el principio del marginalismo funciona de forma correcta. La pregunta
+siempre es: ¿valdrá la pena confiar a la autoridad organizadora una transacción
+de intercambio suplementaria? En el límite, los costes por organizar la transac-
+ción dentro de una empresa o los costes por organizarla en otra empresa o los
+costes implicados en dejar que la transacción sea «organizada» por el meca-
+nismo de precios serán iguales. Los hombres de negocios estarán experimen-
+tando constantemente, controlando más o menos, y así se mantendrá el equili-
+brio. Ello brinda una situación de equilibrio para el análisis estático. Pero es
+evidente que los factores dinámicos poseen también considerable importancia,
+y una investigación sobre los efectos que producen los cambios sobre los costes
+por organizar dentro de la empresa y sobre los costes por operar en el mundo en
+general permitirá explicar por qué las empresas se hacen más grandes o más pe-
+queñas. Tendremos de esta manera una teoría de equilibrio en movimiento. El
+análisis realizado parece haber dilucidado la relación entre iniciativa, empresa y
+administración. La iniciativa significa predecir y opera a través del mecanismo
+de precios al hacer nuevos contratos. La dirección se limita a reaccionar a los
+cambios de precios, reajustando los factores de producción bajo su control. El
+que un hombre de negocios combine con frecuencia ambas funciones es un
+efecto obvio de los costes por operar en el mercado, que ya se han discutido.
+Por último, este análisis nos permite especificar con mayor rigor lo que se en-
+tiende por «producto marginal» del empresario. Pero el desarrollo de este punto
+nos alejará de nuestra misión, relativamente sencilla, de definir y clarificar.
+50 Ibid., 7.

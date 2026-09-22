@@ -1,0 +1,246 @@
+
+=== PAGE 1 ===
+1.1 - La Economía de los COSTES de TRANSACCIÓN
+1.- INTRODUCCIÓN
+La economía de los costes de transacción inaugura el estudio de la economía de las
+organizaciones. En una primera aproximación al problema económico éste se nos revela
+como un problema de encaje de actividades de consumo, y actividades de producción. La
+unidad básica del consumo es el individuo (con leves correcciones como puede ser el concepto
+de familia), mientras que la unidad básica de producción es la empresa. Empresa que puede
+estar formada desde un solo individuo, hasta cifras de magnitud del orden de 106. En general
+hay un problema organizativo de encaje de las actividades tanto de consumo como de
+producción, pero es en éstas últimas donde más se visibiliza el problema organizativo, el
+problema de la colaboración entre individuos, instituciones o entidades, para gozar de
+las ventajas de la división del trabajo y la especialización.
+El estudio de la economía de las organizaciones que se inicia con la economía de los costes de
+transacción, ECT, va a definir las reglas del juego que justifican tanto la existencia de las
+empresas como la de los mercados. El estudio de la empresa como tal, la lógica de su existencia
+y funcionamiento había sido tradicionalmente soslayado por la teoría, centrada ésta en el
+estudio de la institución reina de la economía, esto es, el mercado. Así pues, la empresa era
+dejada de lado, como una suerte de caja negra o black box que hasta las aportaciones de Coase
+(1937) y de Williamson (1975) principalmente no empezó a abrirse, permitiendo desde
+entonces aclarar por qué existen mercados y empresas, y las múltiples situaciones intermedias
+y hasta cierto punto borrosas, entre ambos modelos organizativos.
+Al concepto técnico de oferta, de la estructura de costes óptima, y del tamaño eficiente de
+empresa, costes de producción, objeto de estudio de la micro o de la economía industrial,
+añadiremos ahora el concepto de los costes de transacción, que nos mostrará una nueva
+perspectiva.
+Este enfoque se va a revelar clave en la determinación del ámbito o límites de la empresa, de
+forma que justificaremos la existencia de grandes y pequeñas empresas, procesos de
+vinculación o desvinculación, formación de grupos económicos, y de diversos lazos de
+cooperación. Las decisiones de integración/desintegración vertical, y/u horizontal o
+diversificación, vendrán condicionadas por las consideraciones del coste organizativo. Así
+como toda la nueva terminología referida a estos fenómenos como outsourcing, downsizing,
+rightsizing, leaning, o reengeneering, por ejemplo.
+En el límite de los procesos de internalización y externalización se halla respectivamente la
+consideración de que todas las actividades de producción se realicen en el seno de una única
+empresa, lo cual implicaría multitud de intercambios o transacciones internas; o todo lo
+contrario, que se realicen por infinitas minúsculas empresas, autónomos por ejemplo,
+interactuando en el mercado. Desde este punto de vista, es obvio que el estudio del mercado
+como alternativa posible de solución al problema organizativo es objeto de análisis de la
+1
+
+=== PAGE 2 ===
+disciplina, por lo que se deduce no sin lógica que el mercado forma parte del contenido de la
+Economía de las Organizaciones. No obstante ésta absorción parcial es un atrevimiento más
+bien, dada la tradicional entidad que el estudio del mercado tiene, su peso específico como
+núcleo de la teoría económica.
+Las instituciones, los individuos, los agentes, están inmersos en actividades de producción
+e intercambio. Ambas generan respectivamente los costes de producción, y los costes de
+intercambio o de transacción. Ambos dos análisis, ambos dos grupos de costes son
+cruciales en la determinación de la forma organizativa, y en el tamaño y ámbito de actuación
+de la organización.
+Como es evidente que los procesos de diseño y rediseño, de cambio en los ámbitos de actuación
+de la empresa, forman parte determinante de la estrategia empresarial, y del impulso de ésta
+por parte de la dirección, va a ser importante conocer las claves de su funcionamiento.
+Presentamos por tanto a continuación un esquema simplificado de los fundamentos de la
+metodología.
+2.- INTRODUCCIÓN METODOLÓGICA A LA ECT
+El concepto de organización implica definir el colectivo de agentes que participan, sus
+dotaciones de recursos y el subconjunto que aportan, las funciones de utilidad, de costes y de
+producción y sus características; así como el sistema ordenado de producción e intercambios,
+sistema organizativo, y las condiciones que se han de cumplir y que explican su naturaleza.
+Podremos llegar a una cierta relativización de los límites de la organización a la hora de marcar
+las fronteras que permitirán hablar de dentro y fuera de la organización, así como a mostrar un
+mapa más rico que muestre la complejidad organizativa actual que articula el conflicto
+confrontación vs. cooperación. No obstante una vez definidos los límites, normalmente
+jurídicos, los intercambios o transacciones entre las distintas fases del proceso productivo, se
+podrán realizar a nivel interno, intragrupos, o bien en el mercado abierto.
+La producción, como problema organizativo está en manos de empresas, o de redes de éstas
+interactuando en mercados. Se organizan sistemas de producción e intercambio, internos y
+externos. La característica clave a nivel de una sola empresa o de un grupo de ellas es la función
+de producción, que ha de cumplir la propiedad de la complementariedad multiplicativa, tanto
+a nivel de una sola entidad, como de un conjunto de ellas, las sinergias del grupo.
+La creación de riqueza será la condición necesaria de la existencia de la unidad, y/o del
+grupo. La condición suficiente garantizará ex-ante, en un contexto de libertad de los agentes,
+que la organización vaya a existir, dado el incentivo que supone la apropiación de parte del
+excedente. Obviamente la generación o no del excedente potencial dependerá de los costes de
+producción y de los costes de transacción. En cuanto a estos últimos, el sistema organizativo
+escogido, que pasaremos a denominar contrato, dependerá en buena lógica económica de
+aquel que menores costes de transacción genere. Y estos costes dependen de las fases de la
+contratación, de las características de lo intercambiado, y del tipo de contrato aplicado.
+Lo vemos.
+2
+
+=== PAGE 3 ===
+3.- FASES DE LA CONTRATACIÓN
+En el proceso de intercambio o transacción se distinguen tres fases diferenciadas, que son la
+de información, la de negociación, y la de garantía.
+1. La fase de INFORMACIÓN: el que necesita algo, el demandante, tendrá que encontrar
+quien tiene lo que él busca. Y recíprocamente el que quiere desprenderse de algo, el
+oferente, tendrá que encontrar a la persona a la que le pueda interesar lo que él tiene.
+De una forma general la demanda busca a la oferta, y la oferta busca a la demanda. Este
+proceso de encaje de las piezas ha visto reducidos exponencialmente sus costes con las
+TIC.
+2. Una vez se hayan encontrado, habrán de ponerse de acuerdo en los términos del
+intercambio, o fase de NEGOCIACIÓN. Principalmente se acuerda la prestación y la
+contraprestación, es decir ambas partes del intercambio balancean lo que dan y lo que
+reciben a cambio. En todos los intercambios hay un coste de oportunidad: se da algo a
+cambio de algo. Igual que en la fase anterior habrá casos en los que la negociación sea
+muy costosa, y en otros no.
+3. Por último, acordadas las condiciones de la transacción, viene la fase de GARANTÍA,
+o lo que es lo mismo, las partes han de asegurarse de que se van a cumplir los términos
+del contrato, y de que lo que se ha intercambiado efectivamente corresponde con las
+características exactas que previamente se habían negociado.
+4.- CARACTERÍSTICAS DE LO TRANSACCIONADO
+Lo transaccionado, el objeto del acuerdo de intercambio, puede presentar diferentes
+características. Hay tres criterios de clasificación: en función de la cantidad y distribución de
+la información que tenemos sobre él. De acuerdo a su grado de especificidad (si tiene o no
+coste de oportunidad). Y según la frecuencia con la que se produce la transacción u horizonte
+temporal en el que se desarrolla.
+ El criterio de la cantidad y distribución de la información nos lleva a que la
+información de que disponen las partes sea total o parcial, en función de que tengan o
+no la misma cantidad, y a que su distribución sea simétrica o asimétrica. Cuando es
+parcial en buena lógica es también asimétrica. Las asimetrías informativas pueden ser
+ex ante, antes de que produzca la transacción (características ocultas, que en la fase
+de información una de las partes desconoce), o ex post, una vez que se ha llevado a
+cabo el contrato (acción oculta que lleva a cabo una de las partes y que la otra
+desconoce, y que deriva en un incumplimiento contractual)
+ El criterio del grado de especificidad nos conduce a los bienes de uso general, que
+tienen usos alternativos luego coste de oportunidad. Y a los bienes de uso específico,
+3
+
+=== PAGE 4 ===
+sin alternativa de uso y sin coste de oportunidad por tanto. Tres tipos de especificidad:
+física, localizacional, y de conocimiento.
+A destacar que un mercado inicialmente en competencia perfecta con muchos oferentes
+y demandantes, al realizar una inversión específica se transforma en un monopolio
+bilateral. Es lo que se conoce como transformación fundamental de Williamson.
+ La frecuencia con la que se produce la transacción puede ser ocasional, de vez en
+cuando, o recurrente, con una gran frecuencia. El horizonte en el que se desarrolle
+puede ser el corto o el largo plazo.
+Dos transacciones tipo definidas en base a los anteriores tres criterios:
+TRANSACCIONES SIMPLES son aquellas para las que disponemos de información
+total, con distribución simétrica, la misma para todas las partes, el bien es de uso general,
+la frecuencia ocasional, y el horizonte temporal en el que se desarrollan es de corto
+plazo. Añadimos la racionalidad ilimitada por parte de los agentes que han de manejar la
+información completa. Así como la separabilidad en la tecnología, de forma que las
+consecuencias de la transacción de cada bien son perfectamente determinables y separables de
+otros efectos. Importante señalar que es suficiente que se incumpla una de las características
+anteriores para que la transacción deje de ser simple
+TRANSACCIONES COMPLEJAS se definen con las características opuestas a las simples.
+Disponemos de información incompleta distribuida asimétricamente, y/o el bien es de
+uso específico, y/o la frecuencia de la transacción es alta, con un horizonte temporal
+dilatado en el tiempo. Igualmente añadimos: Los agentes que participan en la transacción
+tienen racionalidad limitada, y los efectos que produce la transmisión de dicho bien no son
+separables individualmente (no separabilidad de la tecnología)
+5.- TIPOLOGÍA DE CONTRATOS
+Como ya hemos apuntado más arriba, llevar a cabo una transacción supone ponerse de acuerdo
+en sus términos, supone por tanto un contrato entre dos partes que se necesitan. ¿Qué tipos de
+contratos hay? Los clasificamos de acuerdo a tres criterios diferentes: El grado de definición,
+el grado de formalización, y la recurrencia de las transacciones.
+1. Según el grado de definición los contratos serán completos o incompletos, según que
+respectivamente se conozcan o no todos los términos, prestaciones y contraprestaciones.
+a. Los completos pueden a su vez clasificarse en deterministas si se conocen
+exactamente todos los extremos, y en contingentes, que vendrán condicionados por
+sucesos que habrán de ser verificables. Ejemplo de los primeros es la compra que
+hacemos normalmente en cualquier tienda. La información sobre los alimentos o la
+ropa que compramos suele ser completa, y el contrato de compraventa en su caso
+tiene un precio cerrado. Estos contratos completos pasan a ser contingentes cuando
+4
+
+=== PAGE 5 ===
+b. no todas las características están cerradas, luego pueden variar, de forma que en el
+contrato se especifican acciones en función de esas variaciones. Los contratos
+indexados como los alquileres son un buen ejemplo dado que la contraprestación
+varía en función de la evolución del IPC.
+Los incompletos por el contrario no tienen determinadas todas las características de
+la transacción, luego habrá que saber qué parte tendrá potestad para completarlos.
+Si es una de las que contratan, hablaremos de contratos con autoridad, mientras
+que si es un tercero, serán contratos sometidos a arbitraje. Un contrato de autoridad
+es el contrato de trabajo, en el que normalmente no están definidos todos los
+extremos de las obligaciones que tiene el trabajador. Hay una cierta discrecionalidad
+por parte de la autoridad, el empresario, que adjudica unas actividades u otras en
+función de la flexibilidad que necesite o de circunstancias particulares
+2. El grado de formalización hace que los contratos sean explícitos cuando están
+documentados, normalmente en documentos impresos, o bien implícitos o sin soporte ni
+físico ni informático.
+Sea cual sea el tipo de contrato que articule una transacción es evidente que las partes han de
+guarecerse adecuadamente frente a la posibilidad de incumplimiento por la contraparte. La fase
+de garantía es la que nos salvaguarda de comportamientos oportunistas o aprovechados. Para
+garantizar que los contratos explícitos se cumplan, completos o incompletos, la información
+habrá de ser verificable, esto es, demostrable frente a terceros, un juez, de forma que podamos
+determinar claramente qué parte ha incumplido.
+Los contratos implícitos al ser contratos tácitos o de palabra, necesitarán de otros tipos de
+mecanismos. Aquí es donde aparecen conceptos clave de la vida económica como son la
+confianza mutua o la reputación.
+3. De acuerdo a la recurrencia de las transacciones, encontramos contratos a corto plazo,
+cuya transacción o conjunto de ellas están acotadas temporalmente. Y contratos a largo
+plazo, que permiten una sucesión de ellas en el tiempo.
+Dos contratos tipo definidos en paralelo a la anterior clasificación (Oliver Williamson)
+Llamamos CONTRATO DE MERCADO al que cumple las características de ser completo
+(específicamente sin autoridad), explícito, y a corto plazo. Añadimos las consideraciones de
+que éste es un tipo de contrato multilateral que trata a todas las partes por igual, haya las que
+haya; y que permite infinitas posibilidades de especificación, tantas como los agentes sean
+capaces o necesiten crear en el tiempo, dado que tienen plena libertad de actuación.
+Denominamos PLAN O JERARQUÍA al contrato incompleto (necesita de la autoridad para
+completarse), implícito y a largo plazo. Añadimos que es bilateral en el sentido de que cada
+5
+
+=== PAGE 6 ===
+colectivo tiene un tratamiento diferenciado. Es un tipo de contrato en el que las posibilidades
+de contratación están limitadas por la jerarquía. Los agentes no tienen libertad o
+discrecionalidad de improvisar según sus necesidades o inquietudes.
+6.- COSTES DE TRANSACCIÓN
+Las tres fases de contratación vistas de información, negociación y garantía generan los costes
+de transacción explícitos. Dichos costes surgen al aplicar un determinado contrato a una
+transacción concreta. Como hemos visto que hay distintos tipos de contratos, y transacciones
+muy diferentes en función de sus particulares características, habrá muchos posibles niveles de
+coste en función de las distintas combinaciones. No obstante cabe destacar lo siguiente:
+Cuando la transacción es simple, y el tipo de contrato aplicado es el de mercado, los
+costes de información, los costes de negociación, y los costes de garantía son todos 0.
+De este resultado teórico sale la referencia del mercado como institución que maximiza la
+eficiencia, o lo que es lo mismo la “utopía” del mercado perfecto, que sólo se cumple si se dan
+las correspondientes características técnicas. En cualquiera otra combinación de tipo de
+transacción y contrato aplicado, los costes generados serán positivos.
+Paralelamente a lo anterior el contrato adecuado para llevar a cabo transacciones
+complejas será el contrato de autoridad o de jerarquía
+Costes de transacción implícitos o pérdida residual es el valor que no se ha generado, pero
+que se podría haber generado de habernos encontrado en la situación óptima de contratación.
+Luego los costes de transacción totales serán la suma de los explícitos y de los implícitos.
+E igualmente, y dado que el problema de organización se clasifica en los subproblemas de
+coordinación y motivación, podemos definir los costes de transacción también como costes de
+COORDINACIÓN y costes de MOTIVACIÓN.
+7.- MENÚ DE CONTRATOS
+Una vez estudiado el simple esquema anterior, un vistazo a la realidad empresarial nos muestra
+un panorama mucho más rico y complejo de lo apuntado hasta el momento. Concluimos pues
+que hay muchas posibilidades intermedias o relaciones contractuales que no son ni mercado
+puro ni jerarquía pura. Así pues entre el mercado y la jerarquía hay un amplio número de
+alternativas entre las que figuran:
+ Las redes con proveedores de acuerdo a contratos de suministro a largo plazo.
+6
+
+=== PAGE 7 ===
+ Las agrupaciones de proveedores o cárteles
+ La desagregación de la organización en unidades de negocio, departamentos o
+plantas, con precios internos o pases de referencia.
+ La posibilidad de subcontratación de actividades en el exterior
+ Los contratos de concesión y franquicia
+ Las coinversiones o joint ventures
+Concluimos por último que el problema organizativo se materializa en la búsqueda del
+contrato o forma contractual adecuada para cada tipo de transacción, de forma que se
+minimicen los costes de organización. Luego desde un punto de vista estratégico, el ámbito
+de actuación de la empresa, así como la amplitud e intensidad de los lazos que pudiera
+establecer con el entorno, vendrá condicionado además de por los costes de producción, por
+los costes de transacción.
+7

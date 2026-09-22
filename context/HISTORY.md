@@ -7,6 +7,15 @@
 
 ---
 
+## 2026-09-22 (mise à jour 3)
+
+### Bilan du 21/09 rattrapé
+- Le DAILY REPORT du 21/09 avait été oublié. Reconstitué via Shopify (2 commandes #1070/#1071, 0 PayPal), calculateur COGS (26,87 €) et MCP Facebook Ads (68,36 € de dépense).
+- Facture Aplusfulfill `21:09:26.xlsx` contrôlée : 12,98 $ + 18,21 $ = 31,19 $, conforme, zéro écart.
+- Premier jour aux nouveaux prix coefficient 3,5 (x1 39,99 €, x1+upsell 59,99 €). Chiffres validés par Roméo sur capture du Sheet : **Net Profit -7,95 €, marge -7,96 %, ROAS 1,46**. Échantillon de 2 commandes, pas de conclusion à en tirer.
+
+---
+
 ## 2026-09-22 (mise à jour 2)
 
 ### Fin du test du coach, entrée en phase d'optimisation (cartouche 1)

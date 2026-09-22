@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-09-22 (mise à jour 2)
+
+### Fin du test du coach, entrée en phase d'optimisation (cartouche 1)
+- **Lecture provisoire 20-22/09** (22/09 non clôturé, chiffre définitif au bilan du 23/09) : Meta 280,89 €, CA 439,92 €, ROAS 1,57, profit net ≈ 0 €. Zone entre le -20 % de perte (1,24) et le TARGET (2,40) = phase d'optimisation. Le 22/09 isolé : ROAS 0,46, CPC 0,79 €, CTR 3,09 %, AD87 fatigue sans relais.
+- **Diagnostic grille 3.1 :** CPC 0,66 €, ATC 7,7 %, taux de conversion 2,57 %. Deux signaux sur trois côté fiche produit, l'offre déjà changée le 21/09 compte comme volet site. Le CPC/CPM élevé relevé par le coach valait pour 17-19/09, plus pour 20-22/09.
+- **Correction de Roméo :** le CVR de la grille est le taux de conversion Shopify final, pas le taux de paiement initié (transcription 3.1 relue, fiche `bilan-ads/references/baremes.md` corrigée). Conclusion inchangée.
+- **Cartouche 1 décidée pour le soir du 22/09 :** 10 créas dans la même CBO (coach, le SOP dit 3-4), 50/50 statiques et vidéos traduites (coach ; le 50/50 du SOP concerne créas maison vs traductions en phase 2), 100 €/jour. Le SOP (vidéo 5.1) ne précise pas de format de créa. Aucun nouveau lot avant le jugement du vendredi 25/09 au soir, pour ne pas mélanger deux lots dans la fenêtre.
+- **Règle de sortie clarifiée :** après chaque cartouche, ROAS > TARGET = scaling, sinon (même dégradé) cartouche suivante ; cut seulement après la cartouche 3 si break-even ou perte, on peut insister à 10-18 % de marge.
+- **Golden Week :** Yuri répond qu'il peut stocker si on le prévient à l'avance. Décision vers le 25-26/09, alignée sur le jugement de la cartouche 1.
+- Statiques kie.ai : méthode et exemples à fournir par Roméo, 62 crédits restants (3 images), recharge de 5 à 10 $ à prévoir.
+
+---
+
 ## 2026-09-22
 
 ### HUESCA : cours en français et règle d’accompagnement
